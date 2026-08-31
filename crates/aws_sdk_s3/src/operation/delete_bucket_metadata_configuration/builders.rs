@@ -82,7 +82,7 @@ impl DeleteBucketMetadataConfigurationFluentBuilder {
         }
     }
     /// Access the DeleteBucketMetadataConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -101,7 +101,7 @@ impl DeleteBucketMetadataConfigurationFluentBuilder {
             crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -121,15 +121,21 @@ impl DeleteBucketMetadataConfigurationFluentBuilder {
         crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationOutput,
         crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -148,12 +154,18 @@ impl DeleteBucketMetadataConfigurationFluentBuilder {
         self.inner.get_bucket()
     }
     /// <p>The expected bucket owner of the general purpose bucket that you want to remove the metadata table configuration from.</p>
-    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The expected bucket owner of the general purpose bucket that you want to remove the metadata table configuration from.</p>
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

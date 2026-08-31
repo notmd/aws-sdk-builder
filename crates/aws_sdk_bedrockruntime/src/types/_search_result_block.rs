@@ -44,12 +44,15 @@ impl SearchResultBlock {
 }
 
 /// A builder for [`SearchResultBlock`](crate::types::SearchResultBlock).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SearchResultBlockBuilder {
     pub(crate) source: ::std::option::Option<::std::string::String>,
     pub(crate) title: ::std::option::Option<::std::string::String>,
-    pub(crate) content: ::std::option::Option<::std::vec::Vec<crate::types::SearchResultContentBlock>>,
+    pub(crate) content:
+        ::std::option::Option<::std::vec::Vec<crate::types::SearchResultContentBlock>>,
     pub(crate) citations: ::std::option::Option<crate::types::CitationsConfig>,
 }
 impl SearchResultBlockBuilder {
@@ -95,12 +98,17 @@ impl SearchResultBlockBuilder {
         self
     }
     /// <p>An array of search result content block.</p>
-    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SearchResultContentBlock>>) -> Self {
+    pub fn set_content(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::SearchResultContentBlock>>,
+    ) -> Self {
         self.content = input;
         self
     }
     /// <p>An array of search result content block.</p>
-    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SearchResultContentBlock>> {
+    pub fn get_content(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SearchResultContentBlock>> {
         &self.content
     }
     /// <p>Configuration setting for citations</p>
@@ -109,7 +117,10 @@ impl SearchResultBlockBuilder {
         self
     }
     /// <p>Configuration setting for citations</p>
-    pub fn set_citations(mut self, input: ::std::option::Option<crate::types::CitationsConfig>) -> Self {
+    pub fn set_citations(
+        mut self,
+        input: ::std::option::Option<crate::types::CitationsConfig>,
+    ) -> Self {
         self.citations = input;
         self
     }
@@ -122,7 +133,12 @@ impl SearchResultBlockBuilder {
     /// - [`source`](crate::types::builders::SearchResultBlockBuilder::source)
     /// - [`title`](crate::types::builders::SearchResultBlockBuilder::title)
     /// - [`content`](crate::types::builders::SearchResultBlockBuilder::content)
-    pub fn build(self) -> ::std::result::Result<crate::types::SearchResultBlock, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::SearchResultBlock,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::SearchResultBlock {
             source: self.source.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

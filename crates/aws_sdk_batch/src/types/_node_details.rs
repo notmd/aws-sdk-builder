@@ -27,7 +27,9 @@ impl NodeDetails {
 }
 
 /// A builder for [`NodeDetails`](crate::types::NodeDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct NodeDetailsBuilder {
     pub(crate) node_index: ::std::option::Option<i32>,

@@ -42,8 +42,10 @@ impl ::std::fmt::Debug for VerifySoftwareTokenInput {
 }
 impl VerifySoftwareTokenInput {
     /// Creates a new builder-style object to manufacture [`VerifySoftwareTokenInput`](crate::operation::verify_software_token::VerifySoftwareTokenInput).
-    pub fn builder() -> crate::operation::verify_software_token::builders::VerifySoftwareTokenInputBuilder {
-        crate::operation::verify_software_token::builders::VerifySoftwareTokenInputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::verify_software_token::builders::VerifySoftwareTokenInputBuilder {
+        crate::operation::verify_software_token::builders::VerifySoftwareTokenInputBuilder::default(
+        )
     }
 }
 
@@ -101,12 +103,18 @@ impl VerifySoftwareTokenInputBuilder {
         &self.user_code
     }
     /// <p>A friendly name for the device that's running the TOTP authenticator.</p>
-    pub fn friendly_device_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn friendly_device_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.friendly_device_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A friendly name for the device that's running the TOTP authenticator.</p>
-    pub fn set_friendly_device_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_friendly_device_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.friendly_device_name = input;
         self
     }
@@ -117,14 +125,18 @@ impl VerifySoftwareTokenInputBuilder {
     /// Consumes the builder and constructs a [`VerifySoftwareTokenInput`](crate::operation::verify_software_token::VerifySoftwareTokenInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::verify_software_token::VerifySoftwareTokenInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::verify_software_token::VerifySoftwareTokenInput {
-            access_token: self.access_token,
-            session: self.session,
-            user_code: self.user_code,
-            friendly_device_name: self.friendly_device_name,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::verify_software_token::VerifySoftwareTokenInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::verify_software_token::VerifySoftwareTokenInput {
+                access_token: self.access_token,
+                session: self.session,
+                user_code: self.user_code,
+                friendly_device_name: self.friendly_device_name,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for VerifySoftwareTokenInputBuilder {

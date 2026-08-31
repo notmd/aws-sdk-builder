@@ -60,7 +60,10 @@ impl AssociateSoftwareTokenFluentBuilder {
         }
     }
     /// Access the AssociateSoftwareToken as a reference.
-    pub fn as_input(&self) -> &crate::operation::associate_software_token::builders::AssociateSoftwareTokenInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::associate_software_token::builders::AssociateSoftwareTokenInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,7 +92,11 @@ impl AssociateSoftwareTokenFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::associate_software_token::AssociateSoftwareToken::orchestrate(&runtime_plugins, input).await
+        crate::operation::associate_software_token::AssociateSoftwareToken::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -102,12 +109,18 @@ impl AssociateSoftwareTokenFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }

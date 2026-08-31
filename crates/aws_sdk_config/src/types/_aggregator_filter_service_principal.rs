@@ -29,7 +29,9 @@ impl AggregatorFilterServicePrincipal {
 }
 
 /// A builder for [`AggregatorFilterServicePrincipal`](crate::types::AggregatorFilterServicePrincipal).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AggregatorFilterServicePrincipalBuilder {
     pub(crate) r#type: ::std::option::Option<crate::types::AggregatorFilterType>,
@@ -42,7 +44,10 @@ impl AggregatorFilterServicePrincipalBuilder {
         self
     }
     /// <p>The type of service principal filter to apply. <code>INCLUDE</code> specifies that the list of service principals in the <code>Value</code> field will be aggregated and no other service principals will be filtered.</p>
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::AggregatorFilterType>) -> Self {
+    pub fn set_type(
+        mut self,
+        input: ::std::option::Option<crate::types::AggregatorFilterType>,
+    ) -> Self {
         self.r#type = input;
         self
     }
@@ -62,7 +67,10 @@ impl AggregatorFilterServicePrincipalBuilder {
         self
     }
     /// <p>Comma-separated list of service principals for the linked Amazon Web Services services to filter your aggregated service-linked configuration recorders.</p>
-    pub fn set_value(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_value(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.value = input;
         self
     }

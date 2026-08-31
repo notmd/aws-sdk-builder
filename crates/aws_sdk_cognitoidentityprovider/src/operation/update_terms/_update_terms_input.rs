@@ -15,7 +15,9 @@ pub struct UpdateTermsInput {
     pub enforcement: ::std::option::Option<crate::types::TermsEnforcementType>,
     /// <p>A map of URLs to languages. For each localized language that will view the requested <code>TermsName</code>, assign a URL. A selection of <code>cognito:default</code> displays for all languages that don't have a language-specific URL.</p>
     /// <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"</code>.</p>
-    pub links: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub links: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
 }
 impl UpdateTermsInput {
     /// <p>The ID of the terms document that you want to update.</p>
@@ -40,7 +42,11 @@ impl UpdateTermsInput {
     }
     /// <p>A map of URLs to languages. For each localized language that will view the requested <code>TermsName</code>, assign a URL. A selection of <code>cognito:default</code> displays for all languages that don't have a language-specific URL.</p>
     /// <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"</code>.</p>
-    pub fn links(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn links(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.links.as_ref()
     }
 }
@@ -52,7 +58,9 @@ impl UpdateTermsInput {
 }
 
 /// A builder for [`UpdateTermsInput`](crate::operation::update_terms::UpdateTermsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateTermsInputBuilder {
     pub(crate) terms_id: ::std::option::Option<::std::string::String>,
@@ -60,7 +68,9 @@ pub struct UpdateTermsInputBuilder {
     pub(crate) terms_name: ::std::option::Option<::std::string::String>,
     pub(crate) terms_source: ::std::option::Option<crate::types::TermsSourceType>,
     pub(crate) enforcement: ::std::option::Option<crate::types::TermsEnforcementType>,
-    pub(crate) links: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) links: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
 }
 impl UpdateTermsInputBuilder {
     /// <p>The ID of the terms document that you want to update.</p>
@@ -113,7 +123,10 @@ impl UpdateTermsInputBuilder {
         self
     }
     /// <p>This parameter is reserved for future use and currently accepts only one value.</p>
-    pub fn set_terms_source(mut self, input: ::std::option::Option<crate::types::TermsSourceType>) -> Self {
+    pub fn set_terms_source(
+        mut self,
+        input: ::std::option::Option<crate::types::TermsSourceType>,
+    ) -> Self {
         self.terms_source = input;
         self
     }
@@ -127,7 +140,10 @@ impl UpdateTermsInputBuilder {
         self
     }
     /// <p>This parameter is reserved for future use and currently accepts only one value.</p>
-    pub fn set_enforcement(mut self, input: ::std::option::Option<crate::types::TermsEnforcementType>) -> Self {
+    pub fn set_enforcement(
+        mut self,
+        input: ::std::option::Option<crate::types::TermsEnforcementType>,
+    ) -> Self {
         self.enforcement = input;
         self
     }
@@ -141,7 +157,11 @@ impl UpdateTermsInputBuilder {
     ///
     /// <p>A map of URLs to languages. For each localized language that will view the requested <code>TermsName</code>, assign a URL. A selection of <code>cognito:default</code> displays for all languages that don't have a language-specific URL.</p>
     /// <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"</code>.</p>
-    pub fn links(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn links(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut hash_map = self.links.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.links = ::std::option::Option::Some(hash_map);
@@ -149,17 +169,31 @@ impl UpdateTermsInputBuilder {
     }
     /// <p>A map of URLs to languages. For each localized language that will view the requested <code>TermsName</code>, assign a URL. A selection of <code>cognito:default</code> displays for all languages that don't have a language-specific URL.</p>
     /// <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"</code>.</p>
-    pub fn set_links(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_links(
+        mut self,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
+    ) -> Self {
         self.links = input;
         self
     }
     /// <p>A map of URLs to languages. For each localized language that will view the requested <code>TermsName</code>, assign a URL. A selection of <code>cognito:default</code> displays for all languages that don't have a language-specific URL.</p>
     /// <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"</code>.</p>
-    pub fn get_links(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_links(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.links
     }
     /// Consumes the builder and constructs a [`UpdateTermsInput`](crate::operation::update_terms::UpdateTermsInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::update_terms::UpdateTermsInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::update_terms::UpdateTermsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::update_terms::UpdateTermsInput {
             terms_id: self.terms_id,
             user_pool_id: self.user_pool_id,

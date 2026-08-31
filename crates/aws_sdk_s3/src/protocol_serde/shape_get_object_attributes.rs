@@ -9,33 +9,46 @@ pub fn de_get_object_attributes_http_error(
     crate::operation::get_object_attributes::GetObjectAttributesError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_object_attributes::GetObjectAttributesError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(crate::operation::get_object_attributes::GetObjectAttributesError::unhandled)?;
+    generic_builder =
+        crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::get_object_attributes::GetObjectAttributesError::unhandled(generic)),
+        None => {
+            return Err(
+                crate::operation::get_object_attributes::GetObjectAttributesError::unhandled(
+                    generic,
+                ),
+            )
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "NoSuchKey" => crate::operation::get_object_attributes::GetObjectAttributesError::NoSuchKey({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "NoSuchKey" => {
+            crate::operation::get_object_attributes::GetObjectAttributesError::NoSuchKey({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NoSuchKeyBuilder::default();
-                output = crate::protocol_serde::shape_no_such_key::de_no_such_key_xml_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::NoSuchKeyBuilder::default();
+                    output = crate::protocol_serde::shape_no_such_key::de_no_such_key_xml_err(_response_body, output)
                     .map_err(crate::operation::get_object_attributes::GetObjectAttributesError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::get_object_attributes::GetObjectAttributesError::generic(generic),
     })
 }
@@ -52,38 +65,58 @@ pub fn de_get_object_attributes_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder::default();
-        output = crate::protocol_serde::shape_get_object_attributes::de_get_object_attributes(_response_body, output)
-            .map_err(crate::operation::get_object_attributes::GetObjectAttributesError::unhandled)?;
+        output = crate::protocol_serde::shape_get_object_attributes::de_get_object_attributes(
+            _response_body,
+            output,
+        )
+        .map_err(crate::operation::get_object_attributes::GetObjectAttributesError::unhandled)?;
         output = output.set_delete_marker(
-            crate::protocol_serde::shape_get_object_attributes_output::de_delete_marker_header(_response_headers).map_err(|_| {
+            crate::protocol_serde::shape_get_object_attributes_output::de_delete_marker_header(
+                _response_headers,
+            )
+            .map_err(|_| {
                 crate::operation::get_object_attributes::GetObjectAttributesError::unhandled(
                     "Failed to parse DeleteMarker from header `x-amz-delete-marker",
                 )
             })?,
         );
         output = output.set_last_modified(
-            crate::protocol_serde::shape_get_object_attributes_output::de_last_modified_header(_response_headers).map_err(|_| {
+            crate::protocol_serde::shape_get_object_attributes_output::de_last_modified_header(
+                _response_headers,
+            )
+            .map_err(|_| {
                 crate::operation::get_object_attributes::GetObjectAttributesError::unhandled(
                     "Failed to parse LastModified from header `Last-Modified",
                 )
             })?,
         );
         output = output.set_request_charged(
-            crate::protocol_serde::shape_get_object_attributes_output::de_request_charged_header(_response_headers).map_err(|_| {
+            crate::protocol_serde::shape_get_object_attributes_output::de_request_charged_header(
+                _response_headers,
+            )
+            .map_err(|_| {
                 crate::operation::get_object_attributes::GetObjectAttributesError::unhandled(
                     "Failed to parse RequestCharged from header `x-amz-request-charged",
                 )
             })?,
         );
         output = output.set_version_id(
-            crate::protocol_serde::shape_get_object_attributes_output::de_version_id_header(_response_headers).map_err(|_| {
+            crate::protocol_serde::shape_get_object_attributes_output::de_version_id_header(
+                _response_headers,
+            )
+            .map_err(|_| {
                 crate::operation::get_object_attributes::GetObjectAttributesError::unhandled(
                     "Failed to parse VersionId from header `x-amz-version-id",
                 )
             })?,
         );
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_extended_request_id(
+            crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers)
+                .map(str::to_string),
+        );
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
@@ -91,7 +124,10 @@ pub fn de_get_object_attributes_http_response(
 pub fn ser_get_object_attributes_headers(
     input: &crate::operation::get_object_attributes::GetObjectAttributesInput,
     mut builder: ::http_1x::request::Builder,
-) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+) -> std::result::Result<
+    ::http_1x::request::Builder,
+    ::aws_smithy_types::error::operation::BuildError,
+> {
     if let ::std::option::Option::Some(inner_1) = &input.max_parts {
         let mut encoder = ::aws_smithy_types::primitive::Encoder::from(*inner_1);
         let formatted_2 = encoder.encode();
@@ -99,7 +135,10 @@ pub fn ser_get_object_attributes_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "max_parts",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-max-parts", header_value);
@@ -110,7 +149,10 @@ pub fn ser_get_object_attributes_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "part_number_marker",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-part-number-marker", header_value);
@@ -121,10 +163,16 @@ pub fn ser_get_object_attributes_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "sse_customer_algorithm",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
-        builder = builder.header("x-amz-server-side-encryption-customer-algorithm", header_value);
+        builder = builder.header(
+            "x-amz-server-side-encryption-customer-algorithm",
+            header_value,
+        );
     }
     if let ::std::option::Option::Some(inner_7) = &input.sse_customer_key {
         let formatted_8 = inner_7.as_str();
@@ -132,7 +180,10 @@ pub fn ser_get_object_attributes_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "sse_customer_key",
-                format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &"*** Sensitive Data Redacted ***", err
+                ),
             )
         })?;
         builder = builder.header("x-amz-server-side-encryption-customer-key", header_value);
@@ -143,10 +194,16 @@ pub fn ser_get_object_attributes_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "sse_customer_key_md5",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
-        builder = builder.header("x-amz-server-side-encryption-customer-key-MD5", header_value);
+        builder = builder.header(
+            "x-amz-server-side-encryption-customer-key-MD5",
+            header_value,
+        );
     }
     if let ::std::option::Option::Some(inner_11) = &input.request_payer {
         let formatted_12 = inner_11.as_str();
@@ -154,7 +211,10 @@ pub fn ser_get_object_attributes_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "request_payer",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-request-payer", header_value);
@@ -165,7 +225,10 @@ pub fn ser_get_object_attributes_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "expected_bucket_owner",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-expected-bucket-owner", header_value);
@@ -181,7 +244,10 @@ pub fn ser_get_object_attributes_headers(
                 let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
                     ::aws_smithy_types::error::operation::BuildError::invalid_field(
                         "object_attributes",
-                        format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                        format!(
+                            "`{}` cannot be used as a header value: {}",
+                            &header_value, err
+                        ),
                     )
                 })?;
                 builder = builder.header("x-amz-object-attributes", header_value);
@@ -195,8 +261,10 @@ pub fn ser_get_object_attributes_headers(
 pub fn de_get_object_attributes(
     inp: &[u8],
     mut builder: crate::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder,
-) -> std::result::Result<crate::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
-{
+) -> std::result::Result<
+    crate::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

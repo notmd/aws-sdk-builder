@@ -59,7 +59,9 @@ impl VerifySoftwareTokenFluentBuilder {
         }
     }
     /// Access the VerifySoftwareToken as a reference.
-    pub fn as_input(&self) -> &crate::operation::verify_software_token::builders::VerifySoftwareTokenInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::verify_software_token::builders::VerifySoftwareTokenInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,12 +85,17 @@ impl VerifySoftwareTokenFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::verify_software_token::VerifySoftwareToken::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::verify_software_token::VerifySoftwareToken::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::verify_software_token::VerifySoftwareToken::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::verify_software_token::VerifySoftwareToken::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -101,12 +108,18 @@ impl VerifySoftwareTokenFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -153,12 +166,18 @@ impl VerifySoftwareTokenFluentBuilder {
         self.inner.get_user_code()
     }
     /// <p>A friendly name for the device that's running the TOTP authenticator.</p>
-    pub fn friendly_device_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn friendly_device_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.friendly_device_name(input.into());
         self
     }
     /// <p>A friendly name for the device that's running the TOTP authenticator.</p>
-    pub fn set_friendly_device_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_friendly_device_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_friendly_device_name(input);
         self
     }

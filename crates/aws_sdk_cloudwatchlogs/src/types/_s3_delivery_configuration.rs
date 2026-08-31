@@ -27,7 +27,9 @@ impl S3DeliveryConfiguration {
 }
 
 /// A builder for [`S3DeliveryConfiguration`](crate::types::S3DeliveryConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct S3DeliveryConfigurationBuilder {
     pub(crate) suffix_path: ::std::option::Option<::std::string::String>,

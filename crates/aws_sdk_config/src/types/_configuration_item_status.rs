@@ -42,7 +42,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(
-    ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
+    ::std::clone::Clone,
+    ::std::cmp::Eq,
+    ::std::cmp::Ord,
+    ::std::cmp::PartialEq,
+    ::std::cmp::PartialOrd,
+    ::std::fmt::Debug,
+    ::std::hash::Hash,
 )]
 pub enum ConfigurationItemStatus {
     #[allow(missing_docs)] // documentation missing in model
@@ -56,7 +62,9 @@ pub enum ConfigurationItemStatus {
     #[allow(missing_docs)] // documentation missing in model
     ResourceNotRecorded,
     /// `Unknown` contains new variants that have been added since this code was generated.
-    #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
+    #[deprecated(
+        note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants."
+    )]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for ConfigurationItemStatus {
@@ -67,7 +75,9 @@ impl ::std::convert::From<&str> for ConfigurationItemStatus {
             "ResourceDeletedNotRecorded" => ConfigurationItemStatus::ResourceDeletedNotRecorded,
             "ResourceDiscovered" => ConfigurationItemStatus::ResourceDiscovered,
             "ResourceNotRecorded" => ConfigurationItemStatus::ResourceNotRecorded,
-            other => ConfigurationItemStatus::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
+            other => ConfigurationItemStatus::Unknown(
+                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
+            ),
         }
     }
 }
@@ -110,10 +120,14 @@ impl ConfigurationItemStatus {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(
+        value: &str,
+    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
+            Self::Unknown(_) => {
+                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
+            }
             known => Ok(known),
         }
     }
@@ -123,7 +137,9 @@ impl ::std::fmt::Display for ConfigurationItemStatus {
         match self {
             ConfigurationItemStatus::Ok => write!(f, "OK"),
             ConfigurationItemStatus::ResourceDeleted => write!(f, "ResourceDeleted"),
-            ConfigurationItemStatus::ResourceDeletedNotRecorded => write!(f, "ResourceDeletedNotRecorded"),
+            ConfigurationItemStatus::ResourceDeletedNotRecorded => {
+                write!(f, "ResourceDeletedNotRecorded")
+            }
             ConfigurationItemStatus::ResourceDiscovered => write!(f, "ResourceDiscovered"),
             ConfigurationItemStatus::ResourceNotRecorded => write!(f, "ResourceNotRecorded"),
             ConfigurationItemStatus::Unknown(value) => write!(f, "{value}"),

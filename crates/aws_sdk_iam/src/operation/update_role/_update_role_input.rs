@@ -38,7 +38,9 @@ impl UpdateRoleInput {
 }
 
 /// A builder for [`UpdateRoleInput`](crate::operation::update_role::UpdateRoleInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateRoleInputBuilder {
     pub(crate) role_name: ::std::option::Option<::std::string::String>,
@@ -99,7 +101,12 @@ impl UpdateRoleInputBuilder {
         &self.max_session_duration
     }
     /// Consumes the builder and constructs a [`UpdateRoleInput`](crate::operation::update_role::UpdateRoleInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::update_role::UpdateRoleInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::update_role::UpdateRoleInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::update_role::UpdateRoleInput {
             role_name: self.role_name,
             description: self.description,

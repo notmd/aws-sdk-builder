@@ -43,7 +43,7 @@ impl
             crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestOutput,
             crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -57,7 +57,7 @@ impl DeletePendingAggregationRequestFluentBuilder {
         }
     }
     /// Access the DeletePendingAggregationRequest as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +76,7 @@ impl DeletePendingAggregationRequestFluentBuilder {
             crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -99,22 +99,34 @@ impl DeletePendingAggregationRequestFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The 12-digit account ID of the account requesting to aggregate data.</p>
-    pub fn requester_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn requester_account_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.requester_account_id(input.into());
         self
     }
     /// <p>The 12-digit account ID of the account requesting to aggregate data.</p>
-    pub fn set_requester_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_requester_account_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_requester_account_id(input);
         self
     }
@@ -123,12 +135,18 @@ impl DeletePendingAggregationRequestFluentBuilder {
         self.inner.get_requester_account_id()
     }
     /// <p>The region requesting to aggregate data.</p>
-    pub fn requester_aws_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn requester_aws_region(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.requester_aws_region(input.into());
         self
     }
     /// <p>The region requesting to aggregate data.</p>
-    pub fn set_requester_aws_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_requester_aws_region(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_requester_aws_region(input);
         self
     }

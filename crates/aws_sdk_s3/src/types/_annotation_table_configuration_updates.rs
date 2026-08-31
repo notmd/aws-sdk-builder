@@ -7,7 +7,8 @@ pub struct AnnotationTableConfigurationUpdates {
     /// <p>The new configuration state to apply.</p>
     pub configuration_state: crate::types::AnnotationConfigurationState,
     /// <p>The encryption settings for an S3 Metadata journal table or inventory table configuration.</p>
-    pub encryption_configuration: ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>,
+    pub encryption_configuration:
+        ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>,
     /// <p>The new IAM role ARN to apply.</p>
     pub role: ::std::option::Option<::std::string::String>,
 }
@@ -17,7 +18,9 @@ impl AnnotationTableConfigurationUpdates {
         &self.configuration_state
     }
     /// <p>The encryption settings for an S3 Metadata journal table or inventory table configuration.</p>
-    pub fn encryption_configuration(&self) -> ::std::option::Option<&crate::types::MetadataTableEncryptionConfiguration> {
+    pub fn encryption_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::MetadataTableEncryptionConfiguration> {
         self.encryption_configuration.as_ref()
     }
     /// <p>The new IAM role ARN to apply.</p>
@@ -33,41 +36,61 @@ impl AnnotationTableConfigurationUpdates {
 }
 
 /// A builder for [`AnnotationTableConfigurationUpdates`](crate::types::AnnotationTableConfigurationUpdates).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AnnotationTableConfigurationUpdatesBuilder {
-    pub(crate) configuration_state: ::std::option::Option<crate::types::AnnotationConfigurationState>,
-    pub(crate) encryption_configuration: ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>,
+    pub(crate) configuration_state:
+        ::std::option::Option<crate::types::AnnotationConfigurationState>,
+    pub(crate) encryption_configuration:
+        ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>,
     pub(crate) role: ::std::option::Option<::std::string::String>,
 }
 impl AnnotationTableConfigurationUpdatesBuilder {
     /// <p>The new configuration state to apply.</p>
     /// This field is required.
-    pub fn configuration_state(mut self, input: crate::types::AnnotationConfigurationState) -> Self {
+    pub fn configuration_state(
+        mut self,
+        input: crate::types::AnnotationConfigurationState,
+    ) -> Self {
         self.configuration_state = ::std::option::Option::Some(input);
         self
     }
     /// <p>The new configuration state to apply.</p>
-    pub fn set_configuration_state(mut self, input: ::std::option::Option<crate::types::AnnotationConfigurationState>) -> Self {
+    pub fn set_configuration_state(
+        mut self,
+        input: ::std::option::Option<crate::types::AnnotationConfigurationState>,
+    ) -> Self {
         self.configuration_state = input;
         self
     }
     /// <p>The new configuration state to apply.</p>
-    pub fn get_configuration_state(&self) -> &::std::option::Option<crate::types::AnnotationConfigurationState> {
+    pub fn get_configuration_state(
+        &self,
+    ) -> &::std::option::Option<crate::types::AnnotationConfigurationState> {
         &self.configuration_state
     }
     /// <p>The encryption settings for an S3 Metadata journal table or inventory table configuration.</p>
-    pub fn encryption_configuration(mut self, input: crate::types::MetadataTableEncryptionConfiguration) -> Self {
+    pub fn encryption_configuration(
+        mut self,
+        input: crate::types::MetadataTableEncryptionConfiguration,
+    ) -> Self {
         self.encryption_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>The encryption settings for an S3 Metadata journal table or inventory table configuration.</p>
-    pub fn set_encryption_configuration(mut self, input: ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>) -> Self {
+    pub fn set_encryption_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>,
+    ) -> Self {
         self.encryption_configuration = input;
         self
     }
     /// <p>The encryption settings for an S3 Metadata journal table or inventory table configuration.</p>
-    pub fn get_encryption_configuration(&self) -> &::std::option::Option<crate::types::MetadataTableEncryptionConfiguration> {
+    pub fn get_encryption_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::MetadataTableEncryptionConfiguration> {
         &self.encryption_configuration
     }
     /// <p>The new IAM role ARN to apply.</p>
@@ -87,7 +110,12 @@ impl AnnotationTableConfigurationUpdatesBuilder {
     /// Consumes the builder and constructs a [`AnnotationTableConfigurationUpdates`](crate::types::AnnotationTableConfigurationUpdates).
     /// This method will fail if any of the following fields are not set:
     /// - [`configuration_state`](crate::types::builders::AnnotationTableConfigurationUpdatesBuilder::configuration_state)
-    pub fn build(self) -> ::std::result::Result<crate::types::AnnotationTableConfigurationUpdates, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::AnnotationTableConfigurationUpdates,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::AnnotationTableConfigurationUpdates {
             configuration_state: self.configuration_state.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

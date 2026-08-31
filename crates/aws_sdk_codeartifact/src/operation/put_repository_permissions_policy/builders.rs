@@ -44,7 +44,7 @@ impl
             crate::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyOutput,
             crate::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -58,7 +58,7 @@ impl PutRepositoryPermissionsPolicyFluentBuilder {
         }
     }
     /// Access the PutRepositoryPermissionsPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_repository_permissions_policy::builders::PutRepositoryPermissionsPolicyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_repository_permissions_policy::builders::PutRepositoryPermissionsPolicyInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -77,7 +77,7 @@ impl PutRepositoryPermissionsPolicyFluentBuilder {
             crate::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -100,12 +100,18 @@ impl PutRepositoryPermissionsPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -152,12 +158,18 @@ impl PutRepositoryPermissionsPolicyFluentBuilder {
         self.inner.get_repository()
     }
     /// <p>Sets the revision of the resource policy that specifies permissions to access the repository. This revision is used for optimistic locking, which prevents others from overwriting your changes to the repository's resource policy.</p>
-    pub fn policy_revision(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn policy_revision(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.policy_revision(input.into());
         self
     }
     /// <p>Sets the revision of the resource policy that specifies permissions to access the repository. This revision is used for optimistic locking, which prevents others from overwriting your changes to the repository's resource policy.</p>
-    pub fn set_policy_revision(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_policy_revision(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_policy_revision(input);
         self
     }
@@ -166,12 +178,18 @@ impl PutRepositoryPermissionsPolicyFluentBuilder {
         self.inner.get_policy_revision()
     }
     /// <p>A valid displayable JSON Aspen policy string to be set as the access control resource policy on the provided repository.</p>
-    pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn policy_document(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.policy_document(input.into());
         self
     }
     /// <p>A valid displayable JSON Aspen policy string to be set as the access control resource policy on the provided repository.</p>
-    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_policy_document(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_policy_document(input);
         self
     }

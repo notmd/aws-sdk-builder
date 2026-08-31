@@ -26,7 +26,9 @@ impl GetMfaDeviceInput {
 }
 
 /// A builder for [`GetMfaDeviceInput`](crate::operation::get_mfa_device::GetMfaDeviceInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetMfaDeviceInputBuilder {
     pub(crate) serial_number: ::std::option::Option<::std::string::String>,
@@ -35,12 +37,18 @@ pub struct GetMfaDeviceInputBuilder {
 impl GetMfaDeviceInputBuilder {
     /// <p>Serial number that uniquely identifies the MFA device. For this API, we only accept FIDO security key <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">ARNs</a>.</p>
     /// This field is required.
-    pub fn serial_number(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn serial_number(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.serial_number = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Serial number that uniquely identifies the MFA device. For this API, we only accept FIDO security key <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">ARNs</a>.</p>
-    pub fn set_serial_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_serial_number(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.serial_number = input;
         self
     }
@@ -65,7 +73,10 @@ impl GetMfaDeviceInputBuilder {
     /// Consumes the builder and constructs a [`GetMfaDeviceInput`](crate::operation::get_mfa_device::GetMfaDeviceInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_mfa_device::GetMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::get_mfa_device::GetMfaDeviceInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::get_mfa_device::GetMfaDeviceInput {
             serial_number: self.serial_number,
             user_name: self.user_name,

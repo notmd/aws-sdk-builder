@@ -3,14 +3,24 @@ pub(crate) fn de_invocation_completed_details<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::InvocationCompletedDetails>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<
+    Option<crate::types::InvocationCompletedDetails>,
+    ::aws_smithy_json::deserialize::error::DeserializeError,
+>
 where
-    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+    I: Iterator<
+        Item = Result<
+            ::aws_smithy_json::deserialize::Token<'a>,
+            ::aws_smithy_json::deserialize::error::DeserializeError,
+        >,
+    >,
 {
     if depth >= 128u32 {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "maximum nesting depth exceeded",
+            ),
+        );
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -20,46 +30,65 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "StartTimestamp" => {
-                            builder = builder.set_start_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "StartTimestamp" => {
+                                builder = builder.set_start_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
                                 tokens.next(),
                                 ::aws_smithy_types::date_time::Format::EpochSeconds,
                             )?);
-                        }
-                        "EndTimestamp" => {
-                            builder = builder.set_end_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                            }
+                            "EndTimestamp" => {
+                                builder = builder.set_end_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
                                 tokens.next(),
                                 ::aws_smithy_types::date_time::Format::EpochSeconds,
                             )?);
-                        }
-                        "RequestId" => {
-                            builder = builder.set_request_id(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            }
+                            "RequestId" => {
+                                builder = builder.set_request_id(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                        tokens.next(),
+                                    )?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                            );
+                                );
+                            }
+                            "Error" => {
+                                builder = builder.set_error(
+                                    crate::protocol_serde::shape_event_error::de_event_error(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        "Error" => {
-                            builder = builder.set_error(crate::protocol_serde::shape_event_error::de_event_error(tokens, _value, depth + 1)?);
-                        }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
-                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )))
+                        return Err(
+                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                format!("expected object key or end object, found: {other:?}"),
+                            ),
+                        )
                     }
                 }
             }
             Ok(Some(
                 crate::serde_util::invocation_completed_details_correct_errors(builder)
                     .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
+                    .map_err(|err| {
+                        ::aws_smithy_json::deserialize::error::DeserializeError::custom_source(
+                            "Response was invalid",
+                            err,
+                        )
+                    })?,
             ))
         }
-        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "expected start object or null",
-        )),
+        _ => Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ),
+        ),
     }
 }

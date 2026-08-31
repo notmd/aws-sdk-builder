@@ -29,11 +29,15 @@ impl GuardrailWordPolicyAssessment {
 }
 
 /// A builder for [`GuardrailWordPolicyAssessment`](crate::types::GuardrailWordPolicyAssessment).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GuardrailWordPolicyAssessmentBuilder {
-    pub(crate) custom_words: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailCustomWord>>,
-    pub(crate) managed_word_lists: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailManagedWord>>,
+    pub(crate) custom_words:
+        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailCustomWord>>,
+    pub(crate) managed_word_lists:
+        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailManagedWord>>,
 }
 impl GuardrailWordPolicyAssessmentBuilder {
     /// Appends an item to `custom_words`.
@@ -48,12 +52,17 @@ impl GuardrailWordPolicyAssessmentBuilder {
         self
     }
     /// <p>Custom words in the assessment.</p>
-    pub fn set_custom_words(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailCustomWord>>) -> Self {
+    pub fn set_custom_words(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailCustomWord>>,
+    ) -> Self {
         self.custom_words = input;
         self
     }
     /// <p>Custom words in the assessment.</p>
-    pub fn get_custom_words(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailCustomWord>> {
+    pub fn get_custom_words(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailCustomWord>> {
         &self.custom_words
     }
     /// Appends an item to `managed_word_lists`.
@@ -68,19 +77,29 @@ impl GuardrailWordPolicyAssessmentBuilder {
         self
     }
     /// <p>Managed word lists in the assessment.</p>
-    pub fn set_managed_word_lists(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailManagedWord>>) -> Self {
+    pub fn set_managed_word_lists(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailManagedWord>>,
+    ) -> Self {
         self.managed_word_lists = input;
         self
     }
     /// <p>Managed word lists in the assessment.</p>
-    pub fn get_managed_word_lists(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailManagedWord>> {
+    pub fn get_managed_word_lists(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailManagedWord>> {
         &self.managed_word_lists
     }
     /// Consumes the builder and constructs a [`GuardrailWordPolicyAssessment`](crate::types::GuardrailWordPolicyAssessment).
     /// This method will fail if any of the following fields are not set:
     /// - [`custom_words`](crate::types::builders::GuardrailWordPolicyAssessmentBuilder::custom_words)
     /// - [`managed_word_lists`](crate::types::builders::GuardrailWordPolicyAssessmentBuilder::managed_word_lists)
-    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailWordPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::GuardrailWordPolicyAssessment,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::GuardrailWordPolicyAssessment {
             custom_words: self.custom_words.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

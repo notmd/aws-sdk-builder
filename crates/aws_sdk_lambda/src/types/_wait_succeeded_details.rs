@@ -21,7 +21,9 @@ impl WaitSucceededDetails {
 }
 
 /// A builder for [`WaitSucceededDetails`](crate::types::WaitSucceededDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct WaitSucceededDetailsBuilder {
     pub(crate) duration: ::std::option::Option<i32>,
@@ -43,6 +45,8 @@ impl WaitSucceededDetailsBuilder {
     }
     /// Consumes the builder and constructs a [`WaitSucceededDetails`](crate::types::WaitSucceededDetails).
     pub fn build(self) -> crate::types::WaitSucceededDetails {
-        crate::types::WaitSucceededDetails { duration: self.duration }
+        crate::types::WaitSucceededDetails {
+            duration: self.duration,
+        }
     }
 }

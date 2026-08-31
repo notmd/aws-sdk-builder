@@ -49,7 +49,10 @@ impl OutputFormatBuilder {
         self
     }
     /// <p>The type of structured output format.</p>
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::OutputFormatType>) -> Self {
+    pub fn set_type(
+        mut self,
+        input: ::std::option::Option<crate::types::OutputFormatType>,
+    ) -> Self {
         self.r#type = input;
         self
     }
@@ -64,7 +67,10 @@ impl OutputFormatBuilder {
         self
     }
     /// <p>The structure that the model's output must adhere to.</p>
-    pub fn set_structure(mut self, input: ::std::option::Option<crate::types::OutputFormatStructure>) -> Self {
+    pub fn set_structure(
+        mut self,
+        input: ::std::option::Option<crate::types::OutputFormatStructure>,
+    ) -> Self {
         self.structure = input;
         self
     }
@@ -75,7 +81,12 @@ impl OutputFormatBuilder {
     /// Consumes the builder and constructs a [`OutputFormat`](crate::types::OutputFormat).
     /// This method will fail if any of the following fields are not set:
     /// - [`r#type`](crate::types::builders::OutputFormatBuilder::type)
-    pub fn build(self) -> ::std::result::Result<crate::types::OutputFormat, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::OutputFormat,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::OutputFormat {
             r#type: self.r#type.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

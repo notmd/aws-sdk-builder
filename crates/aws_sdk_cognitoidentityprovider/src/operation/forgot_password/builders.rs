@@ -64,7 +64,9 @@ impl ForgotPasswordFluentBuilder {
         }
     }
     /// Access the ForgotPassword as a reference.
-    pub fn as_input(&self) -> &crate::operation::forgot_password::builders::ForgotPasswordInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::forgot_password::builders::ForgotPasswordInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,12 +90,14 @@ impl ForgotPasswordFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::forgot_password::ForgotPassword::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::forgot_password::ForgotPassword::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::forgot_password::ForgotPassword::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::forgot_password::ForgotPassword::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -106,12 +110,18 @@ impl ForgotPasswordFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -151,13 +161,18 @@ impl ForgotPasswordFluentBuilder {
     }
     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
-    pub fn set_user_context_data(mut self, input: ::std::option::Option<crate::types::UserContextDataType>) -> Self {
+    pub fn set_user_context_data(
+        mut self,
+        input: ::std::option::Option<crate::types::UserContextDataType>,
+    ) -> Self {
         self.inner = self.inner.set_user_context_data(input);
         self
     }
     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
-    pub fn get_user_context_data(&self) -> &::std::option::Option<crate::types::UserContextDataType> {
+    pub fn get_user_context_data(
+        &self,
+    ) -> &::std::option::Option<crate::types::UserContextDataType> {
         self.inner.get_user_context_data()
     }
     /// <p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p>
@@ -180,12 +195,17 @@ impl ForgotPasswordFluentBuilder {
         self
     }
     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
-    pub fn set_analytics_metadata(mut self, input: ::std::option::Option<crate::types::AnalyticsMetadataType>) -> Self {
+    pub fn set_analytics_metadata(
+        mut self,
+        input: ::std::option::Option<crate::types::AnalyticsMetadataType>,
+    ) -> Self {
         self.inner = self.inner.set_analytics_metadata(input);
         self
     }
     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
-    pub fn get_analytics_metadata(&self) -> &::std::option::Option<crate::types::AnalyticsMetadataType> {
+    pub fn get_analytics_metadata(
+        &self,
+    ) -> &::std::option::Option<crate::types::AnalyticsMetadataType> {
         self.inner.get_analytics_metadata()
     }
     ///
@@ -229,7 +249,9 @@ impl ForgotPasswordFluentBuilder {
     /// </note>
     pub fn set_client_metadata(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
     ) -> Self {
         self.inner = self.inner.set_client_metadata(input);
         self
@@ -247,7 +269,11 @@ impl ForgotPasswordFluentBuilder {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub fn get_client_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_client_metadata(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.inner.get_client_metadata()
     }
 }

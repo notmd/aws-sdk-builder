@@ -53,7 +53,9 @@ impl PackageGroupSummary {
         self.description.as_deref()
     }
     /// <p>Details about the package origin configuration of a package group.</p>
-    pub fn origin_configuration(&self) -> ::std::option::Option<&crate::types::PackageGroupOriginConfiguration> {
+    pub fn origin_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::PackageGroupOriginConfiguration> {
         self.origin_configuration.as_ref()
     }
     /// <p>The direct parent package group of the package group.</p>
@@ -69,7 +71,9 @@ impl PackageGroupSummary {
 }
 
 /// A builder for [`PackageGroupSummary`](crate::types::PackageGroupSummary).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PackageGroupSummaryBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
@@ -79,7 +83,8 @@ pub struct PackageGroupSummaryBuilder {
     pub(crate) created_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) contact_info: ::std::option::Option<::std::string::String>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
-    pub(crate) origin_configuration: ::std::option::Option<crate::types::PackageGroupOriginConfiguration>,
+    pub(crate) origin_configuration:
+        ::std::option::Option<crate::types::PackageGroupOriginConfiguration>,
     pub(crate) parent: ::std::option::Option<crate::types::PackageGroupReference>,
 }
 impl PackageGroupSummaryBuilder {
@@ -145,7 +150,10 @@ impl PackageGroupSummaryBuilder {
         self
     }
     /// <p>A timestamp that represents the date and time the repository was created.</p>
-    pub fn set_created_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_created_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.created_time = input;
         self
     }
@@ -182,17 +190,25 @@ impl PackageGroupSummaryBuilder {
         &self.description
     }
     /// <p>Details about the package origin configuration of a package group.</p>
-    pub fn origin_configuration(mut self, input: crate::types::PackageGroupOriginConfiguration) -> Self {
+    pub fn origin_configuration(
+        mut self,
+        input: crate::types::PackageGroupOriginConfiguration,
+    ) -> Self {
         self.origin_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>Details about the package origin configuration of a package group.</p>
-    pub fn set_origin_configuration(mut self, input: ::std::option::Option<crate::types::PackageGroupOriginConfiguration>) -> Self {
+    pub fn set_origin_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::PackageGroupOriginConfiguration>,
+    ) -> Self {
         self.origin_configuration = input;
         self
     }
     /// <p>Details about the package origin configuration of a package group.</p>
-    pub fn get_origin_configuration(&self) -> &::std::option::Option<crate::types::PackageGroupOriginConfiguration> {
+    pub fn get_origin_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::PackageGroupOriginConfiguration> {
         &self.origin_configuration
     }
     /// <p>The direct parent package group of the package group.</p>
@@ -201,7 +217,10 @@ impl PackageGroupSummaryBuilder {
         self
     }
     /// <p>The direct parent package group of the package group.</p>
-    pub fn set_parent(mut self, input: ::std::option::Option<crate::types::PackageGroupReference>) -> Self {
+    pub fn set_parent(
+        mut self,
+        input: ::std::option::Option<crate::types::PackageGroupReference>,
+    ) -> Self {
         self.parent = input;
         self
     }

@@ -7,7 +7,12 @@ impl super::Client {
     ///   - [`external_evaluation(ExternalEvaluation)`](crate::operation::put_external_evaluation::builders::PutExternalEvaluationFluentBuilder::external_evaluation) / [`set_external_evaluation(Option<ExternalEvaluation>)`](crate::operation::put_external_evaluation::builders::PutExternalEvaluationFluentBuilder::set_external_evaluation):<br>required: **true**<br><p>An <code>ExternalEvaluation</code> object that provides details about compliance.</p><br>
     /// - On success, responds with [`PutExternalEvaluationOutput`](crate::operation::put_external_evaluation::PutExternalEvaluationOutput)
     /// - On failure, responds with [`SdkError<PutExternalEvaluationError>`](crate::operation::put_external_evaluation::PutExternalEvaluationError)
-    pub fn put_external_evaluation(&self) -> crate::operation::put_external_evaluation::builders::PutExternalEvaluationFluentBuilder {
-        crate::operation::put_external_evaluation::builders::PutExternalEvaluationFluentBuilder::new(self.handle.clone())
+    pub fn put_external_evaluation(
+        &self,
+    ) -> crate::operation::put_external_evaluation::builders::PutExternalEvaluationFluentBuilder
+    {
+        crate::operation::put_external_evaluation::builders::PutExternalEvaluationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

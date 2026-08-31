@@ -10,7 +10,11 @@ impl super::Client {
     ///   - [`permission_check_status(Option<PermissionCheckStatusType>)`](crate::operation::get_delegation_request::GetDelegationRequestOutput::permission_check_status): <p>The status of the permission check for the delegation request.</p> <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p> <ul>  <li>   <p><code>IN_PROGRESS</code> : The permission check process has started.</p></li>  <li>   <p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li>  <li>   <p><code>FAILED</code> : The permission check process has failed.</p></li> </ul>
     ///   - [`permission_check_result(Option<PermissionCheckResultType>)`](crate::operation::get_delegation_request::GetDelegationRequestOutput::permission_check_result): <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p> <ul>  <li>   <p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li>  <li>   <p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li>  <li>   <p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li> </ul>
     /// - On failure, responds with [`SdkError<GetDelegationRequestError>`](crate::operation::get_delegation_request::GetDelegationRequestError)
-    pub fn get_delegation_request(&self) -> crate::operation::get_delegation_request::builders::GetDelegationRequestFluentBuilder {
-        crate::operation::get_delegation_request::builders::GetDelegationRequestFluentBuilder::new(self.handle.clone())
+    pub fn get_delegation_request(
+        &self,
+    ) -> crate::operation::get_delegation_request::builders::GetDelegationRequestFluentBuilder {
+        crate::operation::get_delegation_request::builders::GetDelegationRequestFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

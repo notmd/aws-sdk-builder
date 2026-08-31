@@ -39,7 +39,9 @@ impl RestoreSummary {
 }
 
 /// A builder for [`RestoreSummary`](crate::types::RestoreSummary).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RestoreSummaryBuilder {
     pub(crate) source_backup_arn: ::std::option::Option<::std::string::String>,
@@ -49,12 +51,18 @@ pub struct RestoreSummaryBuilder {
 }
 impl RestoreSummaryBuilder {
     /// <p>The Amazon Resource Name (ARN) of the backup from which the table was restored.</p>
-    pub fn source_backup_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn source_backup_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.source_backup_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the backup from which the table was restored.</p>
-    pub fn set_source_backup_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_source_backup_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.source_backup_arn = input;
         self
     }
@@ -63,12 +71,18 @@ impl RestoreSummaryBuilder {
         &self.source_backup_arn
     }
     /// <p>The ARN of the source table of the backup that is being restored.</p>
-    pub fn source_table_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn source_table_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.source_table_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the source table of the backup that is being restored.</p>
-    pub fn set_source_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_source_table_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.source_table_arn = input;
         self
     }
@@ -83,7 +97,10 @@ impl RestoreSummaryBuilder {
         self
     }
     /// <p>Point in time or source backup time.</p>
-    pub fn set_restore_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_restore_date_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.restore_date_time = input;
         self
     }
@@ -110,7 +127,12 @@ impl RestoreSummaryBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`restore_date_time`](crate::types::builders::RestoreSummaryBuilder::restore_date_time)
     /// - [`restore_in_progress`](crate::types::builders::RestoreSummaryBuilder::restore_in_progress)
-    pub fn build(self) -> ::std::result::Result<crate::types::RestoreSummary, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::RestoreSummary,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::RestoreSummary {
             source_backup_arn: self.source_backup_arn,
             source_table_arn: self.source_table_arn,

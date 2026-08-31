@@ -12,7 +12,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeRetentionConfigurationsError>`](crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsError)
     pub fn describe_retention_configurations(
         &self,
-    ) -> crate::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsFluentBuilder {
+    ) -> crate::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsFluentBuilder{
         crate::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsFluentBuilder::new(self.handle.clone())
     }
 }

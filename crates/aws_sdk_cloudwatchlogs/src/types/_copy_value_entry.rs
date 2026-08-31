@@ -35,7 +35,9 @@ impl CopyValueEntry {
 }
 
 /// A builder for [`CopyValueEntry`](crate::types::CopyValueEntry).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CopyValueEntryBuilder {
     pub(crate) source: ::std::option::Option<::std::string::String>,
@@ -91,7 +93,12 @@ impl CopyValueEntryBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`source`](crate::types::builders::CopyValueEntryBuilder::source)
     /// - [`target`](crate::types::builders::CopyValueEntryBuilder::target)
-    pub fn build(self) -> ::std::result::Result<crate::types::CopyValueEntry, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::CopyValueEntry,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::CopyValueEntry {
             source: self.source.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

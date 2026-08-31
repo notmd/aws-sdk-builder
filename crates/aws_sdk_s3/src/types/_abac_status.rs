@@ -21,7 +21,9 @@ impl AbacStatus {
 }
 
 /// A builder for [`AbacStatus`](crate::types::AbacStatus).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AbacStatusBuilder {
     pub(crate) status: ::std::option::Option<crate::types::BucketAbacStatus>,
@@ -33,7 +35,10 @@ impl AbacStatusBuilder {
         self
     }
     /// <p>The ABAC status of the general purpose bucket.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::BucketAbacStatus>) -> Self {
+    pub fn set_status(
+        mut self,
+        input: ::std::option::Option<crate::types::BucketAbacStatus>,
+    ) -> Self {
         self.status = input;
         self
     }
@@ -43,6 +48,8 @@ impl AbacStatusBuilder {
     }
     /// Consumes the builder and constructs a [`AbacStatus`](crate::types::AbacStatus).
     pub fn build(self) -> crate::types::AbacStatus {
-        crate::types::AbacStatus { status: self.status }
+        crate::types::AbacStatus {
+            status: self.status,
+        }
     }
 }

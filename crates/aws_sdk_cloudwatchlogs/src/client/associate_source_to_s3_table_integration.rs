@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<AssociateSourceToS3TableIntegrationError>`](crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationError)
     pub fn associate_source_to_s3_table_integration(
         &self,
-    ) -> crate::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationFluentBuilder {
+    ) -> crate::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationFluentBuilder{
         crate::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationFluentBuilder::new(
             self.handle.clone(),
         )

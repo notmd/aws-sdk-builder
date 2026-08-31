@@ -53,7 +53,9 @@ impl TokenUsage {
 }
 
 /// A builder for [`TokenUsage`](crate::types::TokenUsage).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct TokenUsageBuilder {
     pub(crate) input_tokens: ::std::option::Option<i32>,
@@ -149,12 +151,17 @@ impl TokenUsageBuilder {
         self
     }
     /// <p>Detailed breakdown of cache writes by TTL. Empty if no cache creation occurred. Sorted by TTL duration (1h before 5m).</p>
-    pub fn set_cache_details(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CacheDetail>>) -> Self {
+    pub fn set_cache_details(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::CacheDetail>>,
+    ) -> Self {
         self.cache_details = input;
         self
     }
     /// <p>Detailed breakdown of cache writes by TTL. Empty if no cache creation occurred. Sorted by TTL duration (1h before 5m).</p>
-    pub fn get_cache_details(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CacheDetail>> {
+    pub fn get_cache_details(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::CacheDetail>> {
         &self.cache_details
     }
     /// Consumes the builder and constructs a [`TokenUsage`](crate::types::TokenUsage).
@@ -162,7 +169,12 @@ impl TokenUsageBuilder {
     /// - [`input_tokens`](crate::types::builders::TokenUsageBuilder::input_tokens)
     /// - [`output_tokens`](crate::types::builders::TokenUsageBuilder::output_tokens)
     /// - [`total_tokens`](crate::types::builders::TokenUsageBuilder::total_tokens)
-    pub fn build(self) -> ::std::result::Result<crate::types::TokenUsage, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::TokenUsage,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::TokenUsage {
             input_tokens: self.input_tokens.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

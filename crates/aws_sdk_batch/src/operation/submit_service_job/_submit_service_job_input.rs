@@ -20,11 +20,14 @@ pub struct SubmitServiceJobInput {
     /// <p>The quota share for the service job. Don't specify this parameter if the job queue doesn't have a quota share scheduling policy. If the job queue has a quota share scheduling policy, then this parameter must be specified.</p>
     pub quota_share_name: ::std::option::Option<::std::string::String>,
     /// <p>Specifies the service job behavior when preempted.</p>
-    pub preemption_configuration: ::std::option::Option<crate::types::ServiceJobPreemptionConfiguration>,
+    pub preemption_configuration:
+        ::std::option::Option<crate::types::ServiceJobPreemptionConfiguration>,
     /// <p>The timeout configuration for the service job. If none is specified, Batch defers to the default timeout of the underlying service handling the job.</p>
     pub timeout_config: ::std::option::Option<crate::types::ServiceJobTimeout>,
     /// <p>The tags that you apply to the service job request. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
-    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub tags: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     /// <p>A unique identifier for the request. This token is used to ensure idempotency of requests. If this parameter is specified and two submit requests with identical payloads and <code>clientToken</code>s are received, these requests are considered the same request and the second request is rejected.</p>
     pub client_token: ::std::option::Option<::std::string::String>,
 }
@@ -62,7 +65,9 @@ impl SubmitServiceJobInput {
         self.quota_share_name.as_deref()
     }
     /// <p>Specifies the service job behavior when preempted.</p>
-    pub fn preemption_configuration(&self) -> ::std::option::Option<&crate::types::ServiceJobPreemptionConfiguration> {
+    pub fn preemption_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ServiceJobPreemptionConfiguration> {
         self.preemption_configuration.as_ref()
     }
     /// <p>The timeout configuration for the service job. If none is specified, Batch defers to the default timeout of the underlying service handling the job.</p>
@@ -70,7 +75,11 @@ impl SubmitServiceJobInput {
         self.timeout_config.as_ref()
     }
     /// <p>The tags that you apply to the service job request. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
-    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn tags(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.tags.as_ref()
     }
     /// <p>A unique identifier for the request. This token is used to ensure idempotency of requests. If this parameter is specified and two submit requests with identical payloads and <code>clientToken</code>s are received, these requests are considered the same request and the second request is rejected.</p>
@@ -80,13 +89,16 @@ impl SubmitServiceJobInput {
 }
 impl SubmitServiceJobInput {
     /// Creates a new builder-style object to manufacture [`SubmitServiceJobInput`](crate::operation::submit_service_job::SubmitServiceJobInput).
-    pub fn builder() -> crate::operation::submit_service_job::builders::SubmitServiceJobInputBuilder {
+    pub fn builder() -> crate::operation::submit_service_job::builders::SubmitServiceJobInputBuilder
+    {
         crate::operation::submit_service_job::builders::SubmitServiceJobInputBuilder::default()
     }
 }
 
 /// A builder for [`SubmitServiceJobInput`](crate::operation::submit_service_job::SubmitServiceJobInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SubmitServiceJobInputBuilder {
     pub(crate) job_name: ::std::option::Option<::std::string::String>,
@@ -97,9 +109,12 @@ pub struct SubmitServiceJobInputBuilder {
     pub(crate) service_job_type: ::std::option::Option<crate::types::ServiceJobType>,
     pub(crate) share_identifier: ::std::option::Option<::std::string::String>,
     pub(crate) quota_share_name: ::std::option::Option<::std::string::String>,
-    pub(crate) preemption_configuration: ::std::option::Option<crate::types::ServiceJobPreemptionConfiguration>,
+    pub(crate) preemption_configuration:
+        ::std::option::Option<crate::types::ServiceJobPreemptionConfiguration>,
     pub(crate) timeout_config: ::std::option::Option<crate::types::ServiceJobTimeout>,
-    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) tags: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     pub(crate) client_token: ::std::option::Option<::std::string::String>,
 }
 impl SubmitServiceJobInputBuilder {
@@ -139,12 +154,17 @@ impl SubmitServiceJobInputBuilder {
         self
     }
     /// <p>The retry strategy to use for failed service jobs that are submitted with this service job request.</p>
-    pub fn set_retry_strategy(mut self, input: ::std::option::Option<crate::types::ServiceJobRetryStrategy>) -> Self {
+    pub fn set_retry_strategy(
+        mut self,
+        input: ::std::option::Option<crate::types::ServiceJobRetryStrategy>,
+    ) -> Self {
         self.retry_strategy = input;
         self
     }
     /// <p>The retry strategy to use for failed service jobs that are submitted with this service job request.</p>
-    pub fn get_retry_strategy(&self) -> &::std::option::Option<crate::types::ServiceJobRetryStrategy> {
+    pub fn get_retry_strategy(
+        &self,
+    ) -> &::std::option::Option<crate::types::ServiceJobRetryStrategy> {
         &self.retry_strategy
     }
     /// <p>The scheduling priority of the service job. Valid values are integers between 0 and 9999.</p>
@@ -163,12 +183,18 @@ impl SubmitServiceJobInputBuilder {
     }
     /// <p>The request, in JSON, for the service that the SubmitServiceJob operation is queueing.</p>
     /// This field is required.
-    pub fn service_request_payload(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn service_request_payload(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.service_request_payload = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The request, in JSON, for the service that the SubmitServiceJob operation is queueing.</p>
-    pub fn set_service_request_payload(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_service_request_payload(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.service_request_payload = input;
         self
     }
@@ -183,7 +209,10 @@ impl SubmitServiceJobInputBuilder {
         self
     }
     /// <p>The type of service job. For SageMaker Training jobs, specify <code>SAGEMAKER_TRAINING</code>.</p>
-    pub fn set_service_job_type(mut self, input: ::std::option::Option<crate::types::ServiceJobType>) -> Self {
+    pub fn set_service_job_type(
+        mut self,
+        input: ::std::option::Option<crate::types::ServiceJobType>,
+    ) -> Self {
         self.service_job_type = input;
         self
     }
@@ -192,12 +221,18 @@ impl SubmitServiceJobInputBuilder {
         &self.service_job_type
     }
     /// <p>The share identifier for the service job. Don't specify this parameter if the job queue doesn't have a fair-share scheduling policy. If the job queue has a fair-share scheduling policy, then this parameter must be specified.</p>
-    pub fn share_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn share_identifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.share_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The share identifier for the service job. Don't specify this parameter if the job queue doesn't have a fair-share scheduling policy. If the job queue has a fair-share scheduling policy, then this parameter must be specified.</p>
-    pub fn set_share_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_share_identifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.share_identifier = input;
         self
     }
@@ -206,12 +241,18 @@ impl SubmitServiceJobInputBuilder {
         &self.share_identifier
     }
     /// <p>The quota share for the service job. Don't specify this parameter if the job queue doesn't have a quota share scheduling policy. If the job queue has a quota share scheduling policy, then this parameter must be specified.</p>
-    pub fn quota_share_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn quota_share_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.quota_share_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The quota share for the service job. Don't specify this parameter if the job queue doesn't have a quota share scheduling policy. If the job queue has a quota share scheduling policy, then this parameter must be specified.</p>
-    pub fn set_quota_share_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_quota_share_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.quota_share_name = input;
         self
     }
@@ -220,17 +261,25 @@ impl SubmitServiceJobInputBuilder {
         &self.quota_share_name
     }
     /// <p>Specifies the service job behavior when preempted.</p>
-    pub fn preemption_configuration(mut self, input: crate::types::ServiceJobPreemptionConfiguration) -> Self {
+    pub fn preemption_configuration(
+        mut self,
+        input: crate::types::ServiceJobPreemptionConfiguration,
+    ) -> Self {
         self.preemption_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies the service job behavior when preempted.</p>
-    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<crate::types::ServiceJobPreemptionConfiguration>) -> Self {
+    pub fn set_preemption_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::ServiceJobPreemptionConfiguration>,
+    ) -> Self {
         self.preemption_configuration = input;
         self
     }
     /// <p>Specifies the service job behavior when preempted.</p>
-    pub fn get_preemption_configuration(&self) -> &::std::option::Option<crate::types::ServiceJobPreemptionConfiguration> {
+    pub fn get_preemption_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::ServiceJobPreemptionConfiguration> {
         &self.preemption_configuration
     }
     /// <p>The timeout configuration for the service job. If none is specified, Batch defers to the default timeout of the underlying service handling the job.</p>
@@ -239,7 +288,10 @@ impl SubmitServiceJobInputBuilder {
         self
     }
     /// <p>The timeout configuration for the service job. If none is specified, Batch defers to the default timeout of the underlying service handling the job.</p>
-    pub fn set_timeout_config(mut self, input: ::std::option::Option<crate::types::ServiceJobTimeout>) -> Self {
+    pub fn set_timeout_config(
+        mut self,
+        input: ::std::option::Option<crate::types::ServiceJobTimeout>,
+    ) -> Self {
         self.timeout_config = input;
         self
     }
@@ -252,19 +304,32 @@ impl SubmitServiceJobInputBuilder {
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
     /// <p>The tags that you apply to the service job request. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
-    pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn tags(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut hash_map = self.tags.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.tags = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>The tags that you apply to the service job request. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
+    ) -> Self {
         self.tags = input;
         self
     }
     /// <p>The tags that you apply to the service job request. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.tags
     }
     /// <p>A unique identifier for the request. This token is used to ensure idempotency of requests. If this parameter is specified and two submit requests with identical payloads and <code>clientToken</code>s are received, these requests are considered the same request and the second request is rejected.</p>
@@ -284,20 +349,25 @@ impl SubmitServiceJobInputBuilder {
     /// Consumes the builder and constructs a [`SubmitServiceJobInput`](crate::operation::submit_service_job::SubmitServiceJobInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::submit_service_job::SubmitServiceJobInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::submit_service_job::SubmitServiceJobInput {
-            job_name: self.job_name,
-            job_queue: self.job_queue,
-            retry_strategy: self.retry_strategy,
-            scheduling_priority: self.scheduling_priority,
-            service_request_payload: self.service_request_payload,
-            service_job_type: self.service_job_type,
-            share_identifier: self.share_identifier,
-            quota_share_name: self.quota_share_name,
-            preemption_configuration: self.preemption_configuration,
-            timeout_config: self.timeout_config,
-            tags: self.tags,
-            client_token: self.client_token,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::submit_service_job::SubmitServiceJobInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::submit_service_job::SubmitServiceJobInput {
+                job_name: self.job_name,
+                job_queue: self.job_queue,
+                retry_strategy: self.retry_strategy,
+                scheduling_priority: self.scheduling_priority,
+                service_request_payload: self.service_request_payload,
+                service_job_type: self.service_job_type,
+                share_identifier: self.share_identifier,
+                quota_share_name: self.quota_share_name,
+                preemption_configuration: self.preemption_configuration,
+                timeout_config: self.timeout_config,
+                tags: self.tags,
+                client_token: self.client_token,
+            },
+        )
     }
 }

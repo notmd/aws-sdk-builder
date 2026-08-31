@@ -8,7 +8,11 @@ impl super::Client {
     /// - On success, responds with [`DeleteFunctionOutput`](crate::operation::delete_function::DeleteFunctionOutput) with field(s):
     ///   - [`status_code(i32)`](crate::operation::delete_function::DeleteFunctionOutput::status_code): <p>The HTTP status code returned by the operation.</p>
     /// - On failure, responds with [`SdkError<DeleteFunctionError>`](crate::operation::delete_function::DeleteFunctionError)
-    pub fn delete_function(&self) -> crate::operation::delete_function::builders::DeleteFunctionFluentBuilder {
-        crate::operation::delete_function::builders::DeleteFunctionFluentBuilder::new(self.handle.clone())
+    pub fn delete_function(
+        &self,
+    ) -> crate::operation::delete_function::builders::DeleteFunctionFluentBuilder {
+        crate::operation::delete_function::builders::DeleteFunctionFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

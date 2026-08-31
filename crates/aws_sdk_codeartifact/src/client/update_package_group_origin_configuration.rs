@@ -15,7 +15,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdatePackageGroupOriginConfigurationError>`](crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError)
     pub fn update_package_group_origin_configuration(
         &self,
-    ) -> crate::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationFluentBuilder {
+    ) -> crate::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationFluentBuilder{
         crate::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationFluentBuilder::new(
             self.handle.clone(),
         )

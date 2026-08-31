@@ -57,7 +57,7 @@ impl GetFunctionRecursionConfigFluentBuilder {
         }
     }
     /// Access the GetFunctionRecursionConfig as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_function_recursion_config::builders::GetFunctionRecursionConfigInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_function_recursion_config::builders::GetFunctionRecursionConfigInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +86,11 @@ impl GetFunctionRecursionConfigFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_function_recursion_config::GetFunctionRecursionConfig::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_function_recursion_config::GetFunctionRecursionConfig::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,22 +103,34 @@ impl GetFunctionRecursionConfigFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the function.</p>
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
     /// <p>The name of the function.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }

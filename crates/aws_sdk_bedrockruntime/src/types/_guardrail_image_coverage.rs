@@ -27,7 +27,9 @@ impl GuardrailImageCoverage {
 }
 
 /// A builder for [`GuardrailImageCoverage`](crate::types::GuardrailImageCoverage).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GuardrailImageCoverageBuilder {
     pub(crate) guarded: ::std::option::Option<i32>,

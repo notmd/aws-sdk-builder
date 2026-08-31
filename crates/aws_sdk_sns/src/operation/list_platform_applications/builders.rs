@@ -58,7 +58,10 @@ impl ListPlatformApplicationsFluentBuilder {
         }
     }
     /// Access the ListPlatformApplications as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_platform_applications::builders::ListPlatformApplicationsInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_platform_applications::builders::ListPlatformApplicationsInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,7 +90,11 @@ impl ListPlatformApplicationsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_platform_applications::ListPlatformApplications::orchestrate(&runtime_plugins, input).await
+        crate::operation::list_platform_applications::ListPlatformApplications::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -100,19 +107,28 @@ impl ListPlatformApplicationsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_platform_applications::paginator::ListPlatformApplicationsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_platform_applications::paginator::ListPlatformApplicationsPaginator {
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_platform_applications::paginator::ListPlatformApplicationsPaginator
+    {
         crate::operation::list_platform_applications::paginator::ListPlatformApplicationsPaginator::new(self.handle, self.inner)
     }
     /// <p><code>NextToken</code> string is used when calling <code>ListPlatformApplications</code> action to retrieve additional records that are available after the first page results.</p>

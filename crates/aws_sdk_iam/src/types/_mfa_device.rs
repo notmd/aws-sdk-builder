@@ -36,7 +36,9 @@ impl MfaDevice {
 }
 
 /// A builder for [`MfaDevice`](crate::types::MfaDevice).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct MfaDeviceBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -61,12 +63,18 @@ impl MfaDeviceBuilder {
     }
     /// <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.</p>
     /// This field is required.
-    pub fn serial_number(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn serial_number(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.serial_number = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.</p>
-    pub fn set_serial_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_serial_number(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.serial_number = input;
         self
     }
@@ -81,7 +89,10 @@ impl MfaDeviceBuilder {
         self
     }
     /// <p>The date when the MFA device was enabled for the user.</p>
-    pub fn set_enable_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_enable_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.enable_date = input;
         self
     }
@@ -94,7 +105,12 @@ impl MfaDeviceBuilder {
     /// - [`user_name`](crate::types::builders::MfaDeviceBuilder::user_name)
     /// - [`serial_number`](crate::types::builders::MfaDeviceBuilder::serial_number)
     /// - [`enable_date`](crate::types::builders::MfaDeviceBuilder::enable_date)
-    pub fn build(self) -> ::std::result::Result<crate::types::MfaDevice, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::MfaDevice,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::MfaDevice {
             user_name: self.user_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

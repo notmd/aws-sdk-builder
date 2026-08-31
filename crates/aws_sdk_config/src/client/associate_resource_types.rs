@@ -8,7 +8,10 @@ impl super::Client {
     /// - On success, responds with [`AssociateResourceTypesOutput`](crate::operation::associate_resource_types::AssociateResourceTypesOutput) with field(s):
     ///   - [`configuration_recorder(Option<ConfigurationRecorder>)`](crate::operation::associate_resource_types::AssociateResourceTypesOutput::configuration_recorder): <p>Records configuration changes to the resource types in scope.</p> <p>For more information about the configuration recorder, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html"> <b>Working with the Configuration Recorder</b> </a> in the <i>Config Developer Guide</i>.</p>
     /// - On failure, responds with [`SdkError<AssociateResourceTypesError>`](crate::operation::associate_resource_types::AssociateResourceTypesError)
-    pub fn associate_resource_types(&self) -> crate::operation::associate_resource_types::builders::AssociateResourceTypesFluentBuilder {
+    pub fn associate_resource_types(
+        &self,
+    ) -> crate::operation::associate_resource_types::builders::AssociateResourceTypesFluentBuilder
+    {
         crate::operation::associate_resource_types::builders::AssociateResourceTypesFluentBuilder::new(self.handle.clone())
     }
 }

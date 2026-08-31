@@ -12,13 +12,17 @@ impl ::aws_types::request_id::RequestId for DeleteConformancePackOutput {
 }
 impl DeleteConformancePackOutput {
     /// Creates a new builder-style object to manufacture [`DeleteConformancePackOutput`](crate::operation::delete_conformance_pack::DeleteConformancePackOutput).
-    pub fn builder() -> crate::operation::delete_conformance_pack::builders::DeleteConformancePackOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::delete_conformance_pack::builders::DeleteConformancePackOutputBuilder
+    {
         crate::operation::delete_conformance_pack::builders::DeleteConformancePackOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteConformancePackOutput`](crate::operation::delete_conformance_pack::DeleteConformancePackOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteConformancePackOutputBuilder {
     _request_id: Option<String>,

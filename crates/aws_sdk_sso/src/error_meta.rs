@@ -3,40 +3,82 @@
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum Error {
-    #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts", feature = "op_logout"))]
-/// <p>Indicates that a problem occurred with the input to the request. For example, a required parameter might be missing or out of range.</p>
+    #[cfg(any(
+        feature = "op_get_role_credentials",
+        feature = "op_list_account_roles",
+        feature = "op_list_accounts",
+        feature = "op_logout"
+    ))]
+    /// <p>Indicates that a problem occurred with the input to the request. For example, a required parameter might be missing or out of range.</p>
     InvalidRequestException(crate::types::error::InvalidRequestException),
-    #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts"))]
-/// <p>The specified resource doesn't exist.</p>
+    #[cfg(any(
+        feature = "op_get_role_credentials",
+        feature = "op_list_account_roles",
+        feature = "op_list_accounts"
+    ))]
+    /// <p>The specified resource doesn't exist.</p>
     ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
-    #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts", feature = "op_logout"))]
-/// <p>Indicates that the request is being made too frequently and is more than what the server can handle.</p>
+    #[cfg(any(
+        feature = "op_get_role_credentials",
+        feature = "op_list_account_roles",
+        feature = "op_list_accounts",
+        feature = "op_logout"
+    ))]
+    /// <p>Indicates that the request is being made too frequently and is more than what the server can handle.</p>
     TooManyRequestsException(crate::types::error::TooManyRequestsException),
-    #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts", feature = "op_logout"))]
-/// <p>Indicates that the request is not authorized. This can happen due to an invalid access token in the request.</p>
+    #[cfg(any(
+        feature = "op_get_role_credentials",
+        feature = "op_list_account_roles",
+        feature = "op_list_accounts",
+        feature = "op_logout"
+    ))]
+    /// <p>Indicates that the request is not authorized. This can happen due to an invalid access token in the request.</p>
     UnauthorizedException(crate::types::error::UnauthorizedException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(
+        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error."
+    )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts", feature = "op_logout"))]
-Error::InvalidRequestException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts"))]
-Error::ResourceNotFoundException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts", feature = "op_logout"))]
-Error::TooManyRequestsException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts", feature = "op_logout"))]
-Error::UnauthorizedException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_get_role_credentials",
+                feature = "op_list_account_roles",
+                feature = "op_list_accounts",
+                feature = "op_logout"
+            ))]
+            Error::InvalidRequestException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_get_role_credentials",
+                feature = "op_list_account_roles",
+                feature = "op_list_accounts"
+            ))]
+            Error::ResourceNotFoundException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_get_role_credentials",
+                feature = "op_list_account_roles",
+                feature = "op_list_accounts",
+                feature = "op_logout"
+            ))]
+            Error::TooManyRequestsException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_get_role_credentials",
+                feature = "op_list_account_roles",
+                feature = "op_list_accounts",
+                feature = "op_logout"
+            ))]
+            Error::UnauthorizedException(inner) => inner.fmt(f),
             Error::Unhandled(_) => {
-                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                if let ::std::option::Option::Some(code) =
+                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+                {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -56,26 +98,58 @@ impl From<::aws_smithy_types::error::operation::BuildError> for Error {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
     fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
         match self {
-            #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts", feature = "op_logout"))]
-Self::InvalidRequestException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts"))]
-Self::ResourceNotFoundException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts", feature = "op_logout"))]
-Self::TooManyRequestsException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts", feature = "op_logout"))]
-Self::UnauthorizedException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_get_role_credentials",
+                feature = "op_list_account_roles",
+                feature = "op_list_accounts",
+                feature = "op_logout"
+            ))]
+            Self::InvalidRequestException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_get_role_credentials",
+                feature = "op_list_account_roles",
+                feature = "op_list_accounts"
+            ))]
+            Self::ResourceNotFoundException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_get_role_credentials",
+                feature = "op_list_account_roles",
+                feature = "op_list_accounts",
+                feature = "op_logout"
+            ))]
+            Self::TooManyRequestsException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_get_role_credentials",
+                feature = "op_list_account_roles",
+                feature = "op_list_accounts",
+                feature = "op_logout"
+            ))]
+            Self::UnauthorizedException(inner) => inner.meta(),
             Self::Unhandled(inner) => &inner.meta,
         }
     }
 }
 #[cfg(feature = "op_get_role_credentials")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_role_credentials::GetRoleCredentialsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_role_credentials::GetRoleCredentialsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_role_credentials::GetRoleCredentialsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_role_credentials::GetRoleCredentialsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -100,13 +174,26 @@ impl From<crate::operation::get_role_credentials::GetRoleCredentialsError> for E
     }
 }
 #[cfg(feature = "op_list_account_roles")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_account_roles::ListAccountRolesError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_account_roles::ListAccountRolesError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_account_roles::ListAccountRolesError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_account_roles::ListAccountRolesError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -127,13 +214,26 @@ impl From<crate::operation::list_account_roles::ListAccountRolesError> for Error
     }
 }
 #[cfg(feature = "op_list_accounts")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_accounts::ListAccountsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_accounts::ListAccountsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_accounts::ListAccountsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_accounts::ListAccountsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -145,22 +245,45 @@ where
 impl From<crate::operation::list_accounts::ListAccountsError> for Error {
     fn from(err: crate::operation::list_accounts::ListAccountsError) -> Self {
         match err {
-            crate::operation::list_accounts::ListAccountsError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
-            crate::operation::list_accounts::ListAccountsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::list_accounts::ListAccountsError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::list_accounts::ListAccountsError::UnauthorizedException(inner) => Error::UnauthorizedException(inner),
-            crate::operation::list_accounts::ListAccountsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_accounts::ListAccountsError::InvalidRequestException(inner) => {
+                Error::InvalidRequestException(inner)
+            }
+            crate::operation::list_accounts::ListAccountsError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::list_accounts::ListAccountsError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::list_accounts::ListAccountsError::UnauthorizedException(inner) => {
+                Error::UnauthorizedException(inner)
+            }
+            crate::operation::list_accounts::ListAccountsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_logout")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::logout::LogoutError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::logout::LogoutError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::logout::LogoutError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::logout::LogoutError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -172,9 +295,15 @@ where
 impl From<crate::operation::logout::LogoutError> for Error {
     fn from(err: crate::operation::logout::LogoutError) -> Self {
         match err {
-            crate::operation::logout::LogoutError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
-            crate::operation::logout::LogoutError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::logout::LogoutError::UnauthorizedException(inner) => Error::UnauthorizedException(inner),
+            crate::operation::logout::LogoutError::InvalidRequestException(inner) => {
+                Error::InvalidRequestException(inner)
+            }
+            crate::operation::logout::LogoutError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::logout::LogoutError::UnauthorizedException(inner) => {
+                Error::UnauthorizedException(inner)
+            }
             crate::operation::logout::LogoutError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -182,14 +311,33 @@ impl From<crate::operation::logout::LogoutError> for Error {
 impl ::std::error::Error for Error {
     fn source(&self) -> std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts", feature = "op_logout"))]
-Error::InvalidRequestException(inner) => inner.source(),
-            #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts"))]
-Error::ResourceNotFoundException(inner) => inner.source(),
-            #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts", feature = "op_logout"))]
-Error::TooManyRequestsException(inner) => inner.source(),
-            #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts", feature = "op_logout"))]
-Error::UnauthorizedException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_get_role_credentials",
+                feature = "op_list_account_roles",
+                feature = "op_list_accounts",
+                feature = "op_logout"
+            ))]
+            Error::InvalidRequestException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_get_role_credentials",
+                feature = "op_list_account_roles",
+                feature = "op_list_accounts"
+            ))]
+            Error::ResourceNotFoundException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_get_role_credentials",
+                feature = "op_list_account_roles",
+                feature = "op_list_accounts",
+                feature = "op_logout"
+            ))]
+            Error::TooManyRequestsException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_get_role_credentials",
+                feature = "op_list_account_roles",
+                feature = "op_list_accounts",
+                feature = "op_logout"
+            ))]
+            Error::UnauthorizedException(inner) => inner.source(),
             Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source),
         }
     }
@@ -197,14 +345,33 @@ Error::UnauthorizedException(inner) => inner.source(),
 impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
-            #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts", feature = "op_logout"))]
-Self::InvalidRequestException(e) => e.request_id(),
-            #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts"))]
-Self::ResourceNotFoundException(e) => e.request_id(),
-            #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts", feature = "op_logout"))]
-Self::TooManyRequestsException(e) => e.request_id(),
-            #[cfg(any(feature = "op_get_role_credentials", feature = "op_list_account_roles", feature = "op_list_accounts", feature = "op_logout"))]
-Self::UnauthorizedException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_get_role_credentials",
+                feature = "op_list_account_roles",
+                feature = "op_list_accounts",
+                feature = "op_logout"
+            ))]
+            Self::InvalidRequestException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_get_role_credentials",
+                feature = "op_list_account_roles",
+                feature = "op_list_accounts"
+            ))]
+            Self::ResourceNotFoundException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_get_role_credentials",
+                feature = "op_list_account_roles",
+                feature = "op_list_accounts",
+                feature = "op_logout"
+            ))]
+            Self::TooManyRequestsException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_get_role_credentials",
+                feature = "op_list_account_roles",
+                feature = "op_list_accounts",
+                feature = "op_logout"
+            ))]
+            Self::UnauthorizedException(e) => e.request_id(),
             Self::Unhandled(e) => e.meta.request_id(),
         }
     }

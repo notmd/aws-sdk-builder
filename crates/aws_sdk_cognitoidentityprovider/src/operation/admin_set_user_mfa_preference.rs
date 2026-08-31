@@ -27,9 +27,13 @@ impl AdminSetUserMFAPreference {
                     .expect("correct error type")
             })
         };
-        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-            .await
-            .map_err(map_err)?;
+        let context = Self::orchestrate_with_stop_point(
+            runtime_plugins,
+            input,
+            ::aws_smithy_runtime::client::orchestrator::StopPoint::None,
+        )
+        .await
+        .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
@@ -81,11 +85,13 @@ impl AdminSetUserMFAPreference {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
-                config_override,
-                client_config.config.clone(),
-                &client_config.runtime_components,
-            ));
+            runtime_plugins = runtime_plugins.with_operation_plugin(
+                crate::config::ConfigOverrideRuntimePlugin::new(
+                    config_override,
+                    client_config.config.clone(),
+                    &client_config.runtime_components,
+                ),
+            );
         }
         runtime_plugins
     }
@@ -94,24 +100,32 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for AdminSe
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("AdminSetUserMFAPreference");
 
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-            AdminSetUserMFAPreferenceRequestSerializer,
-        ));
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
-            AdminSetUserMFAPreferenceResponseDeserializer,
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+                AdminSetUserMFAPreferenceRequestSerializer,
+            ),
+        );
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
+                AdminSetUserMFAPreferenceResponseDeserializer,
+            ),
+        );
 
-        cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
-                .operation_name("AdminSetUserMFAPreference")
-                .build()
-                .expect("required fields set"),
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
+                crate::config::auth::Params::builder()
+                    .operation_name("AdminSetUserMFAPreference")
+                    .build()
+                    .expect("required fields set"),
+            ),
+        );
 
-        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-            "AdminSetUserMFAPreference",
-            "Cognito Identity Provider",
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+                "AdminSetUserMFAPreference",
+                "Cognito Identity Provider",
+            ),
+        );
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -129,7 +143,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for AdminSe
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+    ) -> ::std::borrow::Cow<
+        '_,
+        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
+    > {
         #[allow(unused_mut)]
         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("AdminSetUserMFAPreference")
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -159,7 +176,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for AdminSe
 struct AdminSetUserMFAPreferenceTelemetryInputCaptureInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for AdminSetUserMFAPreferenceTelemetryInputCaptureInterceptor {
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept
+    for AdminSetUserMFAPreferenceTelemetryInputCaptureInterceptor
+{
     fn name(&self) -> &'static str {
         "AdminSetUserMFAPreferenceTelemetryInputCaptureInterceptor"
     }
@@ -182,7 +201,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for AdminSetUserM
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) = context.input().downcast_ref::<AdminSetUserMfaPreferenceInput>() else {
+        let ::std::option::Option::Some(input) = context
+            .input()
+            .downcast_ref::<AdminSetUserMfaPreferenceInput>()
+        else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -200,7 +222,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for AdminSetUserM
 }
 #[derive(Debug)]
 struct AdminSetUserMFAPreferenceResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for AdminSetUserMFAPreferenceResponseDeserializer {
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
+    for AdminSetUserMFAPreferenceResponseDeserializer
+{
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -222,13 +246,23 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for AdminSetU
 }
 #[derive(Debug)]
 struct AdminSetUserMFAPreferenceRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AdminSetUserMFAPreferenceRequestSerializer {
-    #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
+    for AdminSetUserMFAPreferenceRequestSerializer
+{
+    #[allow(
+        unused_mut,
+        clippy::let_and_return,
+        clippy::needless_borrow,
+        clippy::useless_conversion
+    )]
     fn serialize_input(
         &self,
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+    ) -> ::std::result::Result<
+        ::aws_smithy_runtime_api::client::orchestrator::HttpRequest,
+        ::aws_smithy_runtime_api::box_error::BoxError,
+    > {
         let input = input
             .downcast::<crate::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceInput>()
             .expect("correct type");
@@ -241,7 +275,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AdminSetUser
             fn uri_base(
                 _input: &crate::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
+            {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -250,13 +285,20 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AdminSetUser
             fn update_http_builder(
                 input: &crate::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<
+                ::http_1x::request::Builder,
+                ::aws_smithy_types::error::operation::BuildError,
+            > {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
+            builder = _header_serialization_settings.set_default_header(
+                builder,
+                ::http_1x::header::CONTENT_TYPE,
+                "application/x-amz-json-1.1",
+            );
             builder = _header_serialization_settings.set_default_header(
                 builder,
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
@@ -269,16 +311,28 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AdminSetUser
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+            request_builder = _header_serialization_settings.set_default_header(
+                request_builder,
+                ::http_1x::header::CONTENT_LENGTH,
+                &content_length,
+            );
         }
-        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
+        ::std::result::Result::Ok(
+            request_builder
+                .body(body)
+                .expect("valid request")
+                .try_into()
+                .unwrap(),
+        )
     }
 }
 #[derive(Debug)]
 struct AdminSetUserMFAPreferenceEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for AdminSetUserMFAPreferenceEndpointParamsInterceptor {
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept
+    for AdminSetUserMFAPreferenceEndpointParamsInterceptor
+{
     fn name(&self) -> &'static str {
         "AdminSetUserMFAPreferenceEndpointParamsInterceptor"
     }
@@ -299,16 +353,32 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for AdminSetUserM
             .ok_or("failed to downcast to AdminSetUserMfaPreferenceInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-            .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
+            .set_region(
+                cfg.load::<::aws_types::region::Region>()
+                    .map(|r| r.as_ref().to_owned()),
+            )
+            .set_use_dual_stack(
+                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
+                    .map(|ty| ty.0),
+            )
+            .set_use_fips(
+                cfg.load::<::aws_types::endpoint_config::UseFips>()
+                    .map(|ty| ty.0),
+            )
+            .set_endpoint(
+                cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
+                    .map(|ty| ty.0.clone()),
+            )
             .build()
             .map_err(|err| {
-                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
+                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(
+                    "endpoint params could not be built",
+                    err,
+                )
             })?;
-        cfg.interceptor_state()
-            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
+        cfg.interceptor_state().store_put(
+            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
+        );
         ::std::result::Result::Ok(())
     }
 }
@@ -337,18 +407,24 @@ pub enum AdminSetUserMFAPreferenceError {
     /// <p>This exception is thrown when a user isn't found.</p>
     UserNotFoundException(crate::types::error::UserNotFoundException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(
+        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-AdminSetUserMFAPreferenceError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-AdminSetUserMFAPreferenceError) for what information is available for the error."
+    )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl AdminSetUserMFAPreferenceError {
     /// Creates the `AdminSetUserMFAPreferenceError::Unhandled` variant from any error type.
     pub fn unhandled(
-        err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
+        err: impl ::std::convert::Into<
+            ::std::boxed::Box<
+                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
+            >,
+        >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.into(),
@@ -369,14 +445,30 @@ impl AdminSetUserMFAPreferenceError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::InternalErrorException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::InvalidParameterException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::NotAuthorizedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::OperationNotEnabledException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::PasswordResetRequiredException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::UserNotConfirmedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::UserNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InternalErrorException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::InvalidParameterException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::NotAuthorizedException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::OperationNotEnabledException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::PasswordResetRequiredException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::ResourceNotFoundException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::UserNotConfirmedException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::UserNotFoundException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -440,7 +532,9 @@ impl ::std::fmt::Display for AdminSetUserMFAPreferenceError {
             Self::UserNotConfirmedException(_inner) => _inner.fmt(f),
             Self::UserNotFoundException(_inner) => _inner.fmt(f),
             Self::Unhandled(_inner) => {
-                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                if let ::std::option::Option::Some(code) =
+                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+                {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -460,21 +554,41 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for AdminSetUserMFAPreferenceEr
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for AdminSetUserMFAPreferenceError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::InternalErrorException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidParameterException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::NotAuthorizedException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::OperationNotEnabledException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::PasswordResetRequiredException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::ResourceNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::UserNotConfirmedException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::UserNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::InternalErrorException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::InvalidParameterException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::NotAuthorizedException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::OperationNotEnabledException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::PasswordResetRequiredException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::ResourceNotFoundException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::UserNotConfirmedException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::UserNotFoundException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for AdminSetUserMFAPreferenceError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
+    for AdminSetUserMFAPreferenceError
+{
     fn create_unhandled_error(
-        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+        source: ::std::boxed::Box<
+            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
+        >,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -483,7 +597,9 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for AdminSet
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError {
+impl ::aws_types::request_id::RequestId
+    for crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError
+{
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

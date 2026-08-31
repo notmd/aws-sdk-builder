@@ -13,13 +13,15 @@ impl ::aws_types::request_id::RequestId for PutTenantSuppressionAttributesOutput
 }
 impl PutTenantSuppressionAttributesOutput {
     /// Creates a new builder-style object to manufacture [`PutTenantSuppressionAttributesOutput`](crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesOutput).
-    pub fn builder() -> crate::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesOutputBuilder {
+    pub fn builder() -> crate::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesOutputBuilder{
         crate::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesOutputBuilder::default()
     }
 }
 
 /// A builder for [`PutTenantSuppressionAttributesOutput`](crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutTenantSuppressionAttributesOutputBuilder {
     _request_id: Option<String>,
@@ -35,7 +37,10 @@ impl PutTenantSuppressionAttributesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutTenantSuppressionAttributesOutput`](crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesOutput).
-    pub fn build(self) -> crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesOutput
+    {
         crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesOutput {
             _request_id: self._request_id,
         }

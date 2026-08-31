@@ -57,7 +57,10 @@ impl DescribeResourcePoliciesFluentBuilder {
         }
     }
     /// Access the DescribeResourcePolicies as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_resource_policies::builders::DescribeResourcePoliciesInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_resource_policies::builders::DescribeResourcePoliciesInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +89,11 @@ impl DescribeResourcePoliciesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_resource_policies::DescribeResourcePolicies::orchestrate(&runtime_plugins, input).await
+        crate::operation::describe_resource_policies::DescribeResourcePolicies::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,12 +106,18 @@ impl DescribeResourcePoliciesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -156,7 +169,10 @@ impl DescribeResourcePoliciesFluentBuilder {
         self
     }
     /// <p>Specifies the scope of the resource policy. Valid values are <code>ACCOUNT</code> or <code>RESOURCE</code>. When not specified, defaults to <code>ACCOUNT</code>.</p>
-    pub fn set_policy_scope(mut self, input: ::std::option::Option<crate::types::PolicyScope>) -> Self {
+    pub fn set_policy_scope(
+        mut self,
+        input: ::std::option::Option<crate::types::PolicyScope>,
+    ) -> Self {
         self.inner = self.inner.set_policy_scope(input);
         self
     }

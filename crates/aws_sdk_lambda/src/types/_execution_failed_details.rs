@@ -21,7 +21,9 @@ impl ExecutionFailedDetails {
 }
 
 /// A builder for [`ExecutionFailedDetails`](crate::types::ExecutionFailedDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ExecutionFailedDetailsBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EventError>,

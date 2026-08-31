@@ -33,13 +33,16 @@ impl ::aws_types::request_id::RequestId for GetCallerIdentityOutput {
 }
 impl GetCallerIdentityOutput {
     /// Creates a new builder-style object to manufacture [`GetCallerIdentityOutput`](crate::operation::get_caller_identity::GetCallerIdentityOutput).
-    pub fn builder() -> crate::operation::get_caller_identity::builders::GetCallerIdentityOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::get_caller_identity::builders::GetCallerIdentityOutputBuilder {
         crate::operation::get_caller_identity::builders::GetCallerIdentityOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetCallerIdentityOutput`](crate::operation::get_caller_identity::GetCallerIdentityOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetCallerIdentityOutputBuilder {
     pub(crate) user_id: ::std::option::Option<::std::string::String>,

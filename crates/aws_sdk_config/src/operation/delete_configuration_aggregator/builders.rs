@@ -57,7 +57,7 @@ impl DeleteConfigurationAggregatorFluentBuilder {
         }
     }
     /// Access the DeleteConfigurationAggregator as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -99,27 +99,41 @@ impl DeleteConfigurationAggregatorFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn configuration_aggregator_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.configuration_aggregator_name(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_configuration_aggregator_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_configuration_aggregator_name(input);
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(
+        &self,
+    ) -> &::std::option::Option<::std::string::String> {
         self.inner.get_configuration_aggregator_name()
     }
 }

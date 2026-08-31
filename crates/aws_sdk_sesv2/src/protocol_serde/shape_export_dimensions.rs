@@ -4,16 +4,28 @@ pub(crate) fn de_export_dimensions<'a, I>(
     _value: &'a [u8],
     depth: u32,
 ) -> ::std::result::Result<
-    Option<::std::collections::HashMap<crate::types::MetricDimensionName, ::std::vec::Vec<::std::string::String>>>,
+    Option<
+        ::std::collections::HashMap<
+            crate::types::MetricDimensionName,
+            ::std::vec::Vec<::std::string::String>,
+        >,
+    >,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 >
 where
-    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+    I: Iterator<
+        Item = Result<
+            ::aws_smithy_json::deserialize::Token<'a>,
+            ::aws_smithy_json::deserialize::error::DeserializeError,
+        >,
+    >,
 {
     if depth >= 128u32 {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "maximum nesting depth exceeded",
+            ),
+        );
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -23,30 +35,38 @@ where
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        let key = key.to_unescaped().map(|u| crate::types::MetricDimensionName::from(u.as_ref()))?;
+                        let key = key
+                            .to_unescaped()
+                            .map(|u| crate::types::MetricDimensionName::from(u.as_ref()))?;
                         let value = crate::protocol_serde::shape_export_dimension_value::de_export_dimension_value(tokens, _value, depth + 1)?;
                         match value {
                             Some(value) => {
                                 map.insert(key, value);
                             }
                             None => {
-                                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                    "dense map cannot contain null values",
-                                ))
+                                return Err(
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "dense map cannot contain null values",
+                                    ),
+                                )
                             }
                         }
                     }
                     other => {
-                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )))
+                        return Err(
+                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                format!("expected object key or end object, found: {other:?}"),
+                            ),
+                        )
                     }
                 }
             }
             Ok(Some(map))
         }
-        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "expected start object or null",
-        )),
+        _ => Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ),
+        ),
     }
 }

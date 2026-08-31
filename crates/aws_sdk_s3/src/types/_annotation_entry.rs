@@ -54,25 +54,34 @@ impl AnnotationEntry {
 }
 
 /// A builder for [`AnnotationEntry`](crate::types::AnnotationEntry).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AnnotationEntryBuilder {
     pub(crate) annotation_name: ::std::option::Option<::std::string::String>,
     pub(crate) last_modified: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) e_tag: ::std::option::Option<::std::string::String>,
-    pub(crate) checksum_algorithm: ::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>>,
+    pub(crate) checksum_algorithm:
+        ::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>>,
     pub(crate) size: ::std::option::Option<i64>,
     pub(crate) replication_status: ::std::option::Option<crate::types::ReplicationStatus>,
 }
 impl AnnotationEntryBuilder {
     /// <p>The name of the annotation.</p>
     /// This field is required.
-    pub fn annotation_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn annotation_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.annotation_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the annotation.</p>
-    pub fn set_annotation_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_annotation_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.annotation_name = input;
         self
     }
@@ -87,7 +96,10 @@ impl AnnotationEntryBuilder {
         self
     }
     /// <p>The date and time the annotation was last modified.</p>
-    pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_last_modified(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.last_modified = input;
         self
     }
@@ -121,12 +133,17 @@ impl AnnotationEntryBuilder {
         self
     }
     /// <p>The checksum algorithm used for the annotation.</p>
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>>) -> Self {
+    pub fn set_checksum_algorithm(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>>,
+    ) -> Self {
         self.checksum_algorithm = input;
         self
     }
     /// <p>The checksum algorithm used for the annotation.</p>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>> {
+    pub fn get_checksum_algorithm(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>> {
         &self.checksum_algorithm
     }
     /// <p>The size of the annotation payload, in bytes.</p>
@@ -150,12 +167,17 @@ impl AnnotationEntryBuilder {
         self
     }
     /// <p>The replication status of the annotation.</p>
-    pub fn set_replication_status(mut self, input: ::std::option::Option<crate::types::ReplicationStatus>) -> Self {
+    pub fn set_replication_status(
+        mut self,
+        input: ::std::option::Option<crate::types::ReplicationStatus>,
+    ) -> Self {
         self.replication_status = input;
         self
     }
     /// <p>The replication status of the annotation.</p>
-    pub fn get_replication_status(&self) -> &::std::option::Option<crate::types::ReplicationStatus> {
+    pub fn get_replication_status(
+        &self,
+    ) -> &::std::option::Option<crate::types::ReplicationStatus> {
         &self.replication_status
     }
     /// Consumes the builder and constructs a [`AnnotationEntry`](crate::types::AnnotationEntry).
@@ -163,7 +185,12 @@ impl AnnotationEntryBuilder {
     /// - [`annotation_name`](crate::types::builders::AnnotationEntryBuilder::annotation_name)
     /// - [`last_modified`](crate::types::builders::AnnotationEntryBuilder::last_modified)
     /// - [`size`](crate::types::builders::AnnotationEntryBuilder::size)
-    pub fn build(self) -> ::std::result::Result<crate::types::AnnotationEntry, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::AnnotationEntry,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::AnnotationEntry {
             annotation_name: self.annotation_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

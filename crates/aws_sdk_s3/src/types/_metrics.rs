@@ -27,7 +27,9 @@ impl Metrics {
 }
 
 /// A builder for [`Metrics`](crate::types::Metrics).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct MetricsBuilder {
     pub(crate) status: ::std::option::Option<crate::types::MetricsStatus>,
@@ -55,18 +57,28 @@ impl MetricsBuilder {
         self
     }
     /// <p>A container specifying the time threshold for emitting the <code>s3:Replication:OperationMissedThreshold</code> event.</p>
-    pub fn set_event_threshold(mut self, input: ::std::option::Option<crate::types::ReplicationTimeValue>) -> Self {
+    pub fn set_event_threshold(
+        mut self,
+        input: ::std::option::Option<crate::types::ReplicationTimeValue>,
+    ) -> Self {
         self.event_threshold = input;
         self
     }
     /// <p>A container specifying the time threshold for emitting the <code>s3:Replication:OperationMissedThreshold</code> event.</p>
-    pub fn get_event_threshold(&self) -> &::std::option::Option<crate::types::ReplicationTimeValue> {
+    pub fn get_event_threshold(
+        &self,
+    ) -> &::std::option::Option<crate::types::ReplicationTimeValue> {
         &self.event_threshold
     }
     /// Consumes the builder and constructs a [`Metrics`](crate::types::Metrics).
     /// This method will fail if any of the following fields are not set:
     /// - [`status`](crate::types::builders::MetricsBuilder::status)
-    pub fn build(self) -> ::std::result::Result<crate::types::Metrics, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::Metrics,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::Metrics {
             status: self.status.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

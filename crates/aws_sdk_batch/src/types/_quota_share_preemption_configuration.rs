@@ -9,7 +9,9 @@ pub struct QuotaSharePreemptionConfiguration {
 }
 impl QuotaSharePreemptionConfiguration {
     /// <p>Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.</p>
-    pub fn in_share_preemption(&self) -> ::std::option::Option<&crate::types::QuotaShareInSharePreemptionState> {
+    pub fn in_share_preemption(
+        &self,
+    ) -> ::std::option::Option<&crate::types::QuotaShareInSharePreemptionState> {
         self.in_share_preemption.as_ref()
     }
 }
@@ -21,25 +23,36 @@ impl QuotaSharePreemptionConfiguration {
 }
 
 /// A builder for [`QuotaSharePreemptionConfiguration`](crate::types::QuotaSharePreemptionConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct QuotaSharePreemptionConfigurationBuilder {
-    pub(crate) in_share_preemption: ::std::option::Option<crate::types::QuotaShareInSharePreemptionState>,
+    pub(crate) in_share_preemption:
+        ::std::option::Option<crate::types::QuotaShareInSharePreemptionState>,
 }
 impl QuotaSharePreemptionConfigurationBuilder {
     /// <p>Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.</p>
     /// This field is required.
-    pub fn in_share_preemption(mut self, input: crate::types::QuotaShareInSharePreemptionState) -> Self {
+    pub fn in_share_preemption(
+        mut self,
+        input: crate::types::QuotaShareInSharePreemptionState,
+    ) -> Self {
         self.in_share_preemption = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.</p>
-    pub fn set_in_share_preemption(mut self, input: ::std::option::Option<crate::types::QuotaShareInSharePreemptionState>) -> Self {
+    pub fn set_in_share_preemption(
+        mut self,
+        input: ::std::option::Option<crate::types::QuotaShareInSharePreemptionState>,
+    ) -> Self {
         self.in_share_preemption = input;
         self
     }
     /// <p>Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.</p>
-    pub fn get_in_share_preemption(&self) -> &::std::option::Option<crate::types::QuotaShareInSharePreemptionState> {
+    pub fn get_in_share_preemption(
+        &self,
+    ) -> &::std::option::Option<crate::types::QuotaShareInSharePreemptionState> {
         &self.in_share_preemption
     }
     /// Consumes the builder and constructs a [`QuotaSharePreemptionConfiguration`](crate::types::QuotaSharePreemptionConfiguration).

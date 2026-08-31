@@ -57,7 +57,7 @@ impl DeleteDomainPermissionsPolicyFluentBuilder {
         }
     }
     /// Access the DeleteDomainPermissionsPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -99,12 +99,18 @@ impl DeleteDomainPermissionsPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -137,12 +143,18 @@ impl DeleteDomainPermissionsPolicyFluentBuilder {
         self.inner.get_domain_owner()
     }
     /// <p>The current revision of the resource policy to be deleted. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.</p>
-    pub fn policy_revision(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn policy_revision(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.policy_revision(input.into());
         self
     }
     /// <p>The current revision of the resource policy to be deleted. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.</p>
-    pub fn set_policy_revision(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_policy_revision(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_policy_revision(input);
         self
     }

@@ -12,7 +12,11 @@ impl super::Client {
     ///   - [`lookup_table_arn(Option<String>)`](crate::operation::update_lookup_table::UpdateLookupTableOutput::lookup_table_arn): <p>The ARN of the lookup table that was updated.</p>
     ///   - [`last_updated_time(Option<i64>)`](crate::operation::update_lookup_table::UpdateLookupTableOutput::last_updated_time): <p>The time when the lookup table was last updated, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
     /// - On failure, responds with [`SdkError<UpdateLookupTableError>`](crate::operation::update_lookup_table::UpdateLookupTableError)
-    pub fn update_lookup_table(&self) -> crate::operation::update_lookup_table::builders::UpdateLookupTableFluentBuilder {
-        crate::operation::update_lookup_table::builders::UpdateLookupTableFluentBuilder::new(self.handle.clone())
+    pub fn update_lookup_table(
+        &self,
+    ) -> crate::operation::update_lookup_table::builders::UpdateLookupTableFluentBuilder {
+        crate::operation::update_lookup_table::builders::UpdateLookupTableFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

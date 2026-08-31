@@ -27,7 +27,9 @@ impl RoleInfo {
 }
 
 /// A builder for [`RoleInfo`](crate::types::RoleInfo).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RoleInfoBuilder {
     pub(crate) role_name: ::std::option::Option<::std::string::String>,

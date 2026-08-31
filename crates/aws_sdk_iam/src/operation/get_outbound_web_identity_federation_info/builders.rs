@@ -59,7 +59,7 @@ impl GetOutboundWebIdentityFederationInfoFluentBuilder {
     /// Access the GetOutboundWebIdentityFederationInfo as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoInputBuilder {
+    ) -> &crate::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -78,7 +78,7 @@ impl GetOutboundWebIdentityFederationInfoFluentBuilder {
             crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -99,15 +99,21 @@ impl GetOutboundWebIdentityFederationInfoFluentBuilder {
         crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoOutput,
         crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }

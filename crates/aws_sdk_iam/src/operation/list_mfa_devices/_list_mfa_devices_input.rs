@@ -36,7 +36,9 @@ impl ListMfaDevicesInput {
 }
 
 /// A builder for [`ListMfaDevicesInput`](crate::operation::list_mfa_devices::ListMfaDevicesInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListMfaDevicesInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -95,7 +97,10 @@ impl ListMfaDevicesInputBuilder {
     /// Consumes the builder and constructs a [`ListMfaDevicesInput`](crate::operation::list_mfa_devices::ListMfaDevicesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_mfa_devices::ListMfaDevicesInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::list_mfa_devices::ListMfaDevicesInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::list_mfa_devices::ListMfaDevicesInput {
             user_name: self.user_name,
             marker: self.marker,

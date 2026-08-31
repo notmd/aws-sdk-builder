@@ -25,9 +25,14 @@ pub fn ser_replication_rule_and_operator(
 pub fn de_replication_rule_and_operator(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::ReplicationRuleAndOperator, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<
+    crate::types::ReplicationRuleAndOperator,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::ReplicationRuleAndOperator::builder();

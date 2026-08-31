@@ -57,7 +57,7 @@ impl GetFunctionCodeSigningConfigFluentBuilder {
         }
     }
     /// Access the GetFunctionCodeSigningConfig as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -99,12 +99,18 @@ impl GetFunctionCodeSigningConfigFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -119,7 +125,10 @@ impl GetFunctionCodeSigningConfigFluentBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -134,7 +143,10 @@ impl GetFunctionCodeSigningConfigFluentBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }

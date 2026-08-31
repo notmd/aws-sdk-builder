@@ -71,7 +71,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(
-    ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
+    ::std::clone::Clone,
+    ::std::cmp::Eq,
+    ::std::cmp::Ord,
+    ::std::cmp::PartialEq,
+    ::std::cmp::PartialOrd,
+    ::std::fmt::Debug,
+    ::std::hash::Hash,
 )]
 pub enum SummaryKeyType {
     #[allow(missing_docs)] // documentation missing in model
@@ -143,7 +149,9 @@ pub enum SummaryKeyType {
     #[allow(missing_docs)] // documentation missing in model
     VersionsPerPolicyQuota,
     /// `Unknown` contains new variants that have been added since this code was generated.
-    #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
+    #[deprecated(
+        note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants."
+    )]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for SummaryKeyType {
@@ -153,7 +161,9 @@ impl ::std::convert::From<&str> for SummaryKeyType {
             "AccountAccessKeysPresent" => SummaryKeyType::AccountAccessKeysPresent,
             "AccountMFAEnabled" => SummaryKeyType::AccountMfaEnabled,
             "AccountPasswordPresent" => SummaryKeyType::AccountPasswordPresent,
-            "AccountSigningCertificatesPresent" => SummaryKeyType::AccountSigningCertificatesPresent,
+            "AccountSigningCertificatesPresent" => {
+                SummaryKeyType::AccountSigningCertificatesPresent
+            }
             "AssumeRolePolicySizeQuota" => SummaryKeyType::AssumeRolePolicySizeQuota,
             "AttachedPoliciesPerGroupQuota" => SummaryKeyType::AttachedPoliciesPerGroupQuota,
             "AttachedPoliciesPerRoleQuota" => SummaryKeyType::AttachedPoliciesPerRoleQuota,
@@ -183,7 +193,9 @@ impl ::std::convert::From<&str> for SummaryKeyType {
             "Users" => SummaryKeyType::Users,
             "UsersQuota" => SummaryKeyType::UsersQuota,
             "VersionsPerPolicyQuota" => SummaryKeyType::VersionsPerPolicyQuota,
-            other => SummaryKeyType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
+            other => SummaryKeyType::Unknown(
+                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
+            ),
         }
     }
 }
@@ -202,7 +214,9 @@ impl SummaryKeyType {
             SummaryKeyType::AccountAccessKeysPresent => "AccountAccessKeysPresent",
             SummaryKeyType::AccountMfaEnabled => "AccountMFAEnabled",
             SummaryKeyType::AccountPasswordPresent => "AccountPasswordPresent",
-            SummaryKeyType::AccountSigningCertificatesPresent => "AccountSigningCertificatesPresent",
+            SummaryKeyType::AccountSigningCertificatesPresent => {
+                "AccountSigningCertificatesPresent"
+            }
             SummaryKeyType::AssumeRolePolicySizeQuota => "AssumeRolePolicySizeQuota",
             SummaryKeyType::AttachedPoliciesPerGroupQuota => "AttachedPoliciesPerGroupQuota",
             SummaryKeyType::AttachedPoliciesPerRoleQuota => "AttachedPoliciesPerRoleQuota",
@@ -284,10 +298,14 @@ impl SummaryKeyType {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(
+        value: &str,
+    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
+            Self::Unknown(_) => {
+                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
+            }
             known => Ok(known),
         }
     }
@@ -299,11 +317,19 @@ impl ::std::fmt::Display for SummaryKeyType {
             SummaryKeyType::AccountAccessKeysPresent => write!(f, "AccountAccessKeysPresent"),
             SummaryKeyType::AccountMfaEnabled => write!(f, "AccountMFAEnabled"),
             SummaryKeyType::AccountPasswordPresent => write!(f, "AccountPasswordPresent"),
-            SummaryKeyType::AccountSigningCertificatesPresent => write!(f, "AccountSigningCertificatesPresent"),
+            SummaryKeyType::AccountSigningCertificatesPresent => {
+                write!(f, "AccountSigningCertificatesPresent")
+            }
             SummaryKeyType::AssumeRolePolicySizeQuota => write!(f, "AssumeRolePolicySizeQuota"),
-            SummaryKeyType::AttachedPoliciesPerGroupQuota => write!(f, "AttachedPoliciesPerGroupQuota"),
-            SummaryKeyType::AttachedPoliciesPerRoleQuota => write!(f, "AttachedPoliciesPerRoleQuota"),
-            SummaryKeyType::AttachedPoliciesPerUserQuota => write!(f, "AttachedPoliciesPerUserQuota"),
+            SummaryKeyType::AttachedPoliciesPerGroupQuota => {
+                write!(f, "AttachedPoliciesPerGroupQuota")
+            }
+            SummaryKeyType::AttachedPoliciesPerRoleQuota => {
+                write!(f, "AttachedPoliciesPerRoleQuota")
+            }
+            SummaryKeyType::AttachedPoliciesPerUserQuota => {
+                write!(f, "AttachedPoliciesPerUserQuota")
+            }
             SummaryKeyType::GlobalEndpointTokenVersion => write!(f, "GlobalEndpointTokenVersion"),
             SummaryKeyType::GroupPolicySizeQuota => write!(f, "GroupPolicySizeQuota"),
             SummaryKeyType::Groups => write!(f, "Groups"),
@@ -324,7 +350,9 @@ impl ::std::fmt::Display for SummaryKeyType {
             SummaryKeyType::RolesQuota => write!(f, "RolesQuota"),
             SummaryKeyType::ServerCertificates => write!(f, "ServerCertificates"),
             SummaryKeyType::ServerCertificatesQuota => write!(f, "ServerCertificatesQuota"),
-            SummaryKeyType::SigningCertificatesPerUserQuota => write!(f, "SigningCertificatesPerUserQuota"),
+            SummaryKeyType::SigningCertificatesPerUserQuota => {
+                write!(f, "SigningCertificatesPerUserQuota")
+            }
             SummaryKeyType::UserPolicySizeQuota => write!(f, "UserPolicySizeQuota"),
             SummaryKeyType::Users => write!(f, "Users"),
             SummaryKeyType::UsersQuota => write!(f, "UsersQuota"),

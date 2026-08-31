@@ -7,7 +7,10 @@ impl super::Client {
     /// - On success, responds with [`DescribeUserPoolDomainOutput`](crate::operation::describe_user_pool_domain::DescribeUserPoolDomainOutput) with field(s):
     ///   - [`domain_description(Option<DomainDescriptionType>)`](crate::operation::describe_user_pool_domain::DescribeUserPoolDomainOutput::domain_description): <p>The details of the requested user pool domain.</p>
     /// - On failure, responds with [`SdkError<DescribeUserPoolDomainError>`](crate::operation::describe_user_pool_domain::DescribeUserPoolDomainError)
-    pub fn describe_user_pool_domain(&self) -> crate::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainFluentBuilder {
+    pub fn describe_user_pool_domain(
+        &self,
+    ) -> crate::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainFluentBuilder
+    {
         crate::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainFluentBuilder::new(self.handle.clone())
     }
 }

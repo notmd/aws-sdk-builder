@@ -40,7 +40,9 @@ impl ListAliasesOutput {
 }
 
 /// A builder for [`ListAliasesOutput`](crate::operation::list_aliases::ListAliasesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListAliasesOutputBuilder {
     pub(crate) aliases: ::std::option::Option<::std::vec::Vec<crate::types::AliasListEntry>>,
@@ -61,12 +63,17 @@ impl ListAliasesOutputBuilder {
         self
     }
     /// <p>A list of aliases.</p>
-    pub fn set_aliases(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AliasListEntry>>) -> Self {
+    pub fn set_aliases(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AliasListEntry>>,
+    ) -> Self {
         self.aliases = input;
         self
     }
     /// <p>A list of aliases.</p>
-    pub fn get_aliases(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AliasListEntry>> {
+    pub fn get_aliases(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AliasListEntry>> {
         &self.aliases
     }
     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>

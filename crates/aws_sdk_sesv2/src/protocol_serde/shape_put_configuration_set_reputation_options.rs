@@ -7,7 +7,7 @@ pub fn de_put_configuration_set_reputation_options_http_error(
 ) -> std::result::Result<
     crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsOutput,
     crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsError,
-> {
+>{
     #[allow(unused_mut)]
     let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsError::unhandled)?;
@@ -88,19 +88,24 @@ pub fn de_put_configuration_set_reputation_options_http_response(
 ) -> std::result::Result<
     crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsOutput,
     crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsError,
-> {
+>{
     Ok({
         #[allow(unused_mut)]
         let mut output =
             crate::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsOutputBuilder::default();
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
 
 pub fn ser_put_configuration_set_reputation_options_input(
     input: &crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+) -> ::std::result::Result<
+    ::aws_smithy_types::body::SdkBody,
+    ::aws_smithy_types::error::operation::SerializationError,
+> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_put_configuration_set_reputation_options_input::ser_put_configuration_set_reputation_options_input_input(

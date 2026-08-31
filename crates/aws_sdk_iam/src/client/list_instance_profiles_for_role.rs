@@ -14,7 +14,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListInstanceProfilesForRoleError>`](crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError)
     pub fn list_instance_profiles_for_role(
         &self,
-    ) -> crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleFluentBuilder {
+    ) -> crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleFluentBuilder{
         crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleFluentBuilder::new(self.handle.clone())
     }
 }

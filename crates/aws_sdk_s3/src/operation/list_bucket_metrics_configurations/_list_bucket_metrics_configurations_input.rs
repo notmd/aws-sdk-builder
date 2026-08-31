@@ -32,13 +32,15 @@ impl ListBucketMetricsConfigurationsInput {
 }
 impl ListBucketMetricsConfigurationsInput {
     /// Creates a new builder-style object to manufacture [`ListBucketMetricsConfigurationsInput`](crate::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsInput).
-    pub fn builder() -> crate::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsInputBuilder {
+    pub fn builder() -> crate::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsInputBuilder{
         crate::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListBucketMetricsConfigurationsInput`](crate::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListBucketMetricsConfigurationsInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -65,12 +67,18 @@ impl ListBucketMetricsConfigurationsInputBuilder {
         &self.bucket
     }
     /// <p>The marker that is used to continue a metrics configuration listing that has been truncated. Use the <code>NextContinuationToken</code> from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</p>
-    pub fn continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn continuation_token(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The marker that is used to continue a metrics configuration listing that has been truncated. Use the <code>NextContinuationToken</code> from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</p>
-    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_continuation_token(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.continuation_token = input;
         self
     }
@@ -81,14 +89,20 @@ impl ListBucketMetricsConfigurationsInputBuilder {
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
-    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = input;
         self
     }

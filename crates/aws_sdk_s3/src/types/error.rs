@@ -11,10 +11,28 @@ pub use crate::types::error::_bucket_already_exists::BucketAlreadyExists;
 #[cfg(feature = "op_create_bucket")]
 pub use crate::types::error::_bucket_already_owned_by_you::BucketAlreadyOwnedByYou;
 
-#[cfg(any(feature = "op_create_session", feature = "op_delete_object_annotation", feature = "op_get_object_annotation", feature = "op_list_object_annotations", feature = "op_list_objects", feature = "op_list_objects_v2", feature = "op_put_object_annotation"))]
+#[cfg(any(
+    feature = "op_create_session",
+    feature = "op_delete_object_annotation",
+    feature = "op_get_object_annotation",
+    feature = "op_list_object_annotations",
+    feature = "op_list_objects",
+    feature = "op_list_objects_v2",
+    feature = "op_put_object_annotation"
+))]
 pub use crate::types::error::_no_such_bucket::NoSuchBucket;
 
-#[cfg(any(feature = "op_delete_object_annotation", feature = "op_get_object", feature = "op_get_object_acl", feature = "op_get_object_annotation", feature = "op_get_object_attributes", feature = "op_list_object_annotations", feature = "op_put_object_acl", feature = "op_put_object_annotation", feature = "op_update_object_encryption"))]
+#[cfg(any(
+    feature = "op_delete_object_annotation",
+    feature = "op_get_object",
+    feature = "op_get_object_acl",
+    feature = "op_get_object_annotation",
+    feature = "op_get_object_attributes",
+    feature = "op_list_object_annotations",
+    feature = "op_put_object_acl",
+    feature = "op_put_object_annotation",
+    feature = "op_update_object_encryption"
+))]
 pub use crate::types::error::_no_such_key::NoSuchKey;
 
 #[cfg(feature = "op_get_object")]
@@ -32,7 +50,11 @@ pub use crate::types::error::_invalid_prefix::InvalidPrefix;
 #[cfg(feature = "op_put_object")]
 pub use crate::types::error::_encryption_type_mismatch::EncryptionTypeMismatch;
 
-#[cfg(any(feature = "op_put_object", feature = "op_put_object_annotation", feature = "op_update_object_encryption"))]
+#[cfg(any(
+    feature = "op_put_object",
+    feature = "op_put_object_annotation",
+    feature = "op_update_object_encryption"
+))]
 pub use crate::types::error::_invalid_request::InvalidRequest;
 
 #[cfg(feature = "op_put_object")]
@@ -68,19 +90,25 @@ pub use crate::types::error::_access_denied::AccessDenied;
 #[derive(::std::fmt::Debug)]
 pub enum SelectObjectContentEventStreamError {
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(
+        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-SelectObjectContentEventStreamError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-SelectObjectContentEventStreamError) for what information is available for the error."
+    )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 #[cfg(feature = "op_select_object_content")]
 impl SelectObjectContentEventStreamError {
     /// Creates the `SelectObjectContentEventStreamError::Unhandled` variant from any error type.
     pub fn unhandled(
-        err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
+        err: impl ::std::convert::Into<
+            ::std::boxed::Box<
+                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
+            >,
+        >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.into(),
@@ -118,7 +146,9 @@ impl ::std::fmt::Display for SelectObjectContentEventStreamError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::Unhandled(_inner) => {
-                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                if let ::std::option::Option::Some(code) =
+                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+                {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -137,7 +167,9 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for SelectObjectContentEventStr
     }
 }
 #[cfg(feature = "op_select_object_content")]
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for SelectObjectContentEventStreamError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
+    for SelectObjectContentEventStreamError
+{
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::Unhandled(_inner) => &_inner.meta,
@@ -145,9 +177,13 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for SelectObjectC
     }
 }
 #[cfg(feature = "op_select_object_content")]
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for SelectObjectContentEventStreamError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
+    for SelectObjectContentEventStreamError
+{
     fn create_unhandled_error(
-        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+        source: ::std::boxed::Box<
+            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
+        >,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -157,13 +193,17 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for SelectOb
     }
 }
 #[cfg(feature = "op_select_object_content")]
-impl crate::s3_request_id::RequestIdExt for crate::types::error::SelectObjectContentEventStreamError {
+impl crate::s3_request_id::RequestIdExt
+    for crate::types::error::SelectObjectContentEventStreamError
+{
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
 #[cfg(feature = "op_select_object_content")]
-impl ::aws_types::request_id::RequestId for crate::types::error::SelectObjectContentEventStreamError {
+impl ::aws_types::request_id::RequestId
+    for crate::types::error::SelectObjectContentEventStreamError
+{
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
@@ -199,7 +239,11 @@ mod _invalid_object_state;
 #[cfg(feature = "op_list_object_annotations")]
 mod _invalid_prefix;
 
-#[cfg(any(feature = "op_put_object", feature = "op_put_object_annotation", feature = "op_update_object_encryption"))]
+#[cfg(any(
+    feature = "op_put_object",
+    feature = "op_put_object_annotation",
+    feature = "op_update_object_encryption"
+))]
 mod _invalid_request;
 
 #[cfg(feature = "op_put_object")]
@@ -208,10 +252,28 @@ mod _invalid_write_offset;
 #[cfg(feature = "op_get_object_annotation")]
 mod _no_such_annotation;
 
-#[cfg(any(feature = "op_create_session", feature = "op_delete_object_annotation", feature = "op_get_object_annotation", feature = "op_list_object_annotations", feature = "op_list_objects", feature = "op_list_objects_v2", feature = "op_put_object_annotation"))]
+#[cfg(any(
+    feature = "op_create_session",
+    feature = "op_delete_object_annotation",
+    feature = "op_get_object_annotation",
+    feature = "op_list_object_annotations",
+    feature = "op_list_objects",
+    feature = "op_list_objects_v2",
+    feature = "op_put_object_annotation"
+))]
 mod _no_such_bucket;
 
-#[cfg(any(feature = "op_delete_object_annotation", feature = "op_get_object", feature = "op_get_object_acl", feature = "op_get_object_annotation", feature = "op_get_object_attributes", feature = "op_list_object_annotations", feature = "op_put_object_acl", feature = "op_put_object_annotation", feature = "op_update_object_encryption"))]
+#[cfg(any(
+    feature = "op_delete_object_annotation",
+    feature = "op_get_object",
+    feature = "op_get_object_acl",
+    feature = "op_get_object_annotation",
+    feature = "op_get_object_attributes",
+    feature = "op_list_object_annotations",
+    feature = "op_put_object_acl",
+    feature = "op_put_object_annotation",
+    feature = "op_update_object_encryption"
+))]
 mod _no_such_key;
 
 #[cfg(feature = "op_abort_multipart_upload")]

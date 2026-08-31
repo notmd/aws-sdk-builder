@@ -40,7 +40,9 @@ impl OrganizationManagedRuleMetadata {
     /// <p>The maximum frequency with which Config runs evaluations for a rule. This is for an Config managed rule that is triggered at a periodic frequency.</p><note>
     /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
     /// </note>
-    pub fn maximum_execution_frequency(&self) -> ::std::option::Option<&crate::types::MaximumExecutionFrequency> {
+    pub fn maximum_execution_frequency(
+        &self,
+    ) -> ::std::option::Option<&crate::types::MaximumExecutionFrequency> {
         self.maximum_execution_frequency.as_ref()
     }
     /// <p>The type of the Amazon Web Services resource that was evaluated.</p>
@@ -70,13 +72,16 @@ impl OrganizationManagedRuleMetadata {
 }
 
 /// A builder for [`OrganizationManagedRuleMetadata`](crate::types::OrganizationManagedRuleMetadata).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct OrganizationManagedRuleMetadataBuilder {
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) rule_identifier: ::std::option::Option<::std::string::String>,
     pub(crate) input_parameters: ::std::option::Option<::std::string::String>,
-    pub(crate) maximum_execution_frequency: ::std::option::Option<crate::types::MaximumExecutionFrequency>,
+    pub(crate) maximum_execution_frequency:
+        ::std::option::Option<crate::types::MaximumExecutionFrequency>,
     pub(crate) resource_types_scope: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) resource_id_scope: ::std::option::Option<::std::string::String>,
     pub(crate) tag_key_scope: ::std::option::Option<::std::string::String>,
@@ -99,12 +104,18 @@ impl OrganizationManagedRuleMetadataBuilder {
     }
     /// <p>For organization config managed rules, a predefined identifier from a list. For example, <code>IAM_PASSWORD_POLICY</code> is a managed rule. To reference a managed rule, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Using Config managed rules</a>.</p>
     /// This field is required.
-    pub fn rule_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn rule_identifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.rule_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>For organization config managed rules, a predefined identifier from a list. For example, <code>IAM_PASSWORD_POLICY</code> is a managed rule. To reference a managed rule, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Using Config managed rules</a>.</p>
-    pub fn set_rule_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_rule_identifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.rule_identifier = input;
         self
     }
@@ -113,12 +124,18 @@ impl OrganizationManagedRuleMetadataBuilder {
         &self.rule_identifier
     }
     /// <p>A string, in JSON format, that is passed to your organization Config rule Lambda function.</p>
-    pub fn input_parameters(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn input_parameters(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.input_parameters = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A string, in JSON format, that is passed to your organization Config rule Lambda function.</p>
-    pub fn set_input_parameters(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_input_parameters(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.input_parameters = input;
         self
     }
@@ -129,21 +146,29 @@ impl OrganizationManagedRuleMetadataBuilder {
     /// <p>The maximum frequency with which Config runs evaluations for a rule. This is for an Config managed rule that is triggered at a periodic frequency.</p><note>
     /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
     /// </note>
-    pub fn maximum_execution_frequency(mut self, input: crate::types::MaximumExecutionFrequency) -> Self {
+    pub fn maximum_execution_frequency(
+        mut self,
+        input: crate::types::MaximumExecutionFrequency,
+    ) -> Self {
         self.maximum_execution_frequency = ::std::option::Option::Some(input);
         self
     }
     /// <p>The maximum frequency with which Config runs evaluations for a rule. This is for an Config managed rule that is triggered at a periodic frequency.</p><note>
     /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
     /// </note>
-    pub fn set_maximum_execution_frequency(mut self, input: ::std::option::Option<crate::types::MaximumExecutionFrequency>) -> Self {
+    pub fn set_maximum_execution_frequency(
+        mut self,
+        input: ::std::option::Option<crate::types::MaximumExecutionFrequency>,
+    ) -> Self {
         self.maximum_execution_frequency = input;
         self
     }
     /// <p>The maximum frequency with which Config runs evaluations for a rule. This is for an Config managed rule that is triggered at a periodic frequency.</p><note>
     /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
     /// </note>
-    pub fn get_maximum_execution_frequency(&self) -> &::std::option::Option<crate::types::MaximumExecutionFrequency> {
+    pub fn get_maximum_execution_frequency(
+        &self,
+    ) -> &::std::option::Option<crate::types::MaximumExecutionFrequency> {
         &self.maximum_execution_frequency
     }
     /// Appends an item to `resource_types_scope`.
@@ -151,28 +176,42 @@ impl OrganizationManagedRuleMetadataBuilder {
     /// To override the contents of this collection use [`set_resource_types_scope`](Self::set_resource_types_scope).
     ///
     /// <p>The type of the Amazon Web Services resource that was evaluated.</p>
-    pub fn resource_types_scope(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn resource_types_scope(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.resource_types_scope.unwrap_or_default();
         v.push(input.into());
         self.resource_types_scope = ::std::option::Option::Some(v);
         self
     }
     /// <p>The type of the Amazon Web Services resource that was evaluated.</p>
-    pub fn set_resource_types_scope(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_resource_types_scope(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.resource_types_scope = input;
         self
     }
     /// <p>The type of the Amazon Web Services resource that was evaluated.</p>
-    pub fn get_resource_types_scope(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_resource_types_scope(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.resource_types_scope
     }
     /// <p>The ID of the Amazon Web Services resource that was evaluated.</p>
-    pub fn resource_id_scope(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn resource_id_scope(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.resource_id_scope = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ID of the Amazon Web Services resource that was evaluated.</p>
-    pub fn set_resource_id_scope(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_resource_id_scope(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.resource_id_scope = input;
         self
     }
@@ -181,12 +220,18 @@ impl OrganizationManagedRuleMetadataBuilder {
         &self.resource_id_scope
     }
     /// <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
-    pub fn tag_key_scope(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn tag_key_scope(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.tag_key_scope = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
-    pub fn set_tag_key_scope(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_tag_key_scope(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.tag_key_scope = input;
         self
     }
@@ -195,12 +240,18 @@ impl OrganizationManagedRuleMetadataBuilder {
         &self.tag_key_scope
     }
     /// <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
-    pub fn tag_value_scope(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn tag_value_scope(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.tag_value_scope = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
-    pub fn set_tag_value_scope(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_tag_value_scope(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.tag_value_scope = input;
         self
     }
@@ -211,7 +262,12 @@ impl OrganizationManagedRuleMetadataBuilder {
     /// Consumes the builder and constructs a [`OrganizationManagedRuleMetadata`](crate::types::OrganizationManagedRuleMetadata).
     /// This method will fail if any of the following fields are not set:
     /// - [`rule_identifier`](crate::types::builders::OrganizationManagedRuleMetadataBuilder::rule_identifier)
-    pub fn build(self) -> ::std::result::Result<crate::types::OrganizationManagedRuleMetadata, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::OrganizationManagedRuleMetadata,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::OrganizationManagedRuleMetadata {
             description: self.description,
             rule_identifier: self.rule_identifier.ok_or_else(|| {

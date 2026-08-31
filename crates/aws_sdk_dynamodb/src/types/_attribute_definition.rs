@@ -44,7 +44,9 @@ impl AttributeDefinition {
 }
 
 /// A builder for [`AttributeDefinition`](crate::types::AttributeDefinition).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AttributeDefinitionBuilder {
     pub(crate) attribute_name: ::std::option::Option<::std::string::String>,
@@ -53,12 +55,18 @@ pub struct AttributeDefinitionBuilder {
 impl AttributeDefinitionBuilder {
     /// <p>A name for the attribute.</p>
     /// This field is required.
-    pub fn attribute_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn attribute_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.attribute_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A name for the attribute.</p>
-    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_attribute_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.attribute_name = input;
         self
     }
@@ -89,7 +97,10 @@ impl AttributeDefinitionBuilder {
     /// <li>
     /// <p><code>B</code> - the attribute is of type Binary</p></li>
     /// </ul>
-    pub fn set_attribute_type(mut self, input: ::std::option::Option<crate::types::ScalarAttributeType>) -> Self {
+    pub fn set_attribute_type(
+        mut self,
+        input: ::std::option::Option<crate::types::ScalarAttributeType>,
+    ) -> Self {
         self.attribute_type = input;
         self
     }
@@ -109,7 +120,12 @@ impl AttributeDefinitionBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`attribute_name`](crate::types::builders::AttributeDefinitionBuilder::attribute_name)
     /// - [`attribute_type`](crate::types::builders::AttributeDefinitionBuilder::attribute_type)
-    pub fn build(self) -> ::std::result::Result<crate::types::AttributeDefinition, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::AttributeDefinition,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::AttributeDefinition {
             attribute_name: self.attribute_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

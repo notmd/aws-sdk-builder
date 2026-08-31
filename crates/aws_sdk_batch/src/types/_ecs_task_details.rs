@@ -77,7 +77,9 @@ impl EcsTaskDetails {
         self.pid_mode.as_deref()
     }
     /// <p>The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.</p>
-    pub fn network_configuration(&self) -> ::std::option::Option<&crate::types::NetworkConfiguration> {
+    pub fn network_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::NetworkConfiguration> {
         self.network_configuration.as_ref()
     }
     /// <p>An object that represents the compute environment architecture for Batch jobs on Fargate or Amazon ECS Managed Instances. Contains the operating system family and CPU architecture of the task.</p>
@@ -107,10 +109,13 @@ impl EcsTaskDetails {
 }
 
 /// A builder for [`EcsTaskDetails`](crate::types::EcsTaskDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct EcsTaskDetailsBuilder {
-    pub(crate) containers: ::std::option::Option<::std::vec::Vec<crate::types::TaskContainerDetails>>,
+    pub(crate) containers:
+        ::std::option::Option<::std::vec::Vec<crate::types::TaskContainerDetails>>,
     pub(crate) container_instance_arn: ::std::option::Option<::std::string::String>,
     pub(crate) task_arn: ::std::option::Option<::std::string::String>,
     pub(crate) ephemeral_storage: ::std::option::Option<crate::types::EphemeralStorage>,
@@ -138,21 +143,32 @@ impl EcsTaskDetailsBuilder {
         self
     }
     /// <p>A list of containers that are included in the <code>taskProperties</code> list.</p>
-    pub fn set_containers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TaskContainerDetails>>) -> Self {
+    pub fn set_containers(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::TaskContainerDetails>>,
+    ) -> Self {
         self.containers = input;
         self
     }
     /// <p>A list of containers that are included in the <code>taskProperties</code> list.</p>
-    pub fn get_containers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TaskContainerDetails>> {
+    pub fn get_containers(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::TaskContainerDetails>> {
         &self.containers
     }
     /// <p>The Amazon Resource Name (ARN) of the container instance that hosts the task.</p>
-    pub fn container_instance_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn container_instance_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.container_instance_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the container instance that hosts the task.</p>
-    pub fn set_container_instance_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_container_instance_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.container_instance_arn = input;
         self
     }
@@ -180,7 +196,10 @@ impl EcsTaskDetailsBuilder {
         self
     }
     /// <p>The amount of ephemeral storage allocated for the task.</p>
-    pub fn set_ephemeral_storage(mut self, input: ::std::option::Option<crate::types::EphemeralStorage>) -> Self {
+    pub fn set_ephemeral_storage(
+        mut self,
+        input: ::std::option::Option<crate::types::EphemeralStorage>,
+    ) -> Self {
         self.ephemeral_storage = input;
         self
     }
@@ -189,12 +208,18 @@ impl EcsTaskDetailsBuilder {
         &self.ephemeral_storage
     }
     /// <p>The Amazon Resource Name (ARN) of the execution role that Batch can assume. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html">Batch execution IAM role</a> in the <i>Batch User Guide</i>.</p>
-    pub fn execution_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn execution_role_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.execution_role_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the execution role that Batch can assume. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html">Batch execution IAM role</a> in the <i>Batch User Guide</i>.</p>
-    pub fn set_execution_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_execution_role_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.execution_role_arn = input;
         self
     }
@@ -203,12 +228,18 @@ impl EcsTaskDetailsBuilder {
         &self.execution_role_arn
     }
     /// <p>The Fargate platform version where the jobs are running.</p>
-    pub fn platform_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn platform_version(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.platform_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Fargate platform version where the jobs are running.</p>
-    pub fn set_platform_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_platform_version(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.platform_version = input;
         self
     }
@@ -233,14 +264,20 @@ impl EcsTaskDetailsBuilder {
     /// <p>The Amazon Resource Name (ARN) of the IAM role that the container can assume for Amazon Web Services permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM roles for tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p><note>
     /// <p>This is object is comparable to <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_ContainerProperties.html">ContainerProperties:jobRoleArn</a>.</p>
     /// </note>
-    pub fn task_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn task_role_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.task_role_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the IAM role that the container can assume for Amazon Web Services permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM roles for tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p><note>
     /// <p>This is object is comparable to <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_ContainerProperties.html">ContainerProperties:jobRoleArn</a>.</p>
     /// </note>
-    pub fn set_task_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_task_role_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.task_role_arn = input;
         self
     }
@@ -270,12 +307,17 @@ impl EcsTaskDetailsBuilder {
         self
     }
     /// <p>The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.</p>
-    pub fn set_network_configuration(mut self, input: ::std::option::Option<crate::types::NetworkConfiguration>) -> Self {
+    pub fn set_network_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::NetworkConfiguration>,
+    ) -> Self {
         self.network_configuration = input;
         self
     }
     /// <p>The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.</p>
-    pub fn get_network_configuration(&self) -> &::std::option::Option<crate::types::NetworkConfiguration> {
+    pub fn get_network_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::NetworkConfiguration> {
         &self.network_configuration
     }
     /// <p>An object that represents the compute environment architecture for Batch jobs on Fargate or Amazon ECS Managed Instances. Contains the operating system family and CPU architecture of the task.</p>
@@ -284,7 +326,10 @@ impl EcsTaskDetailsBuilder {
         self
     }
     /// <p>An object that represents the compute environment architecture for Batch jobs on Fargate or Amazon ECS Managed Instances. Contains the operating system family and CPU architecture of the task.</p>
-    pub fn set_runtime_platform(mut self, input: ::std::option::Option<crate::types::RuntimePlatform>) -> Self {
+    pub fn set_runtime_platform(
+        mut self,
+        input: ::std::option::Option<crate::types::RuntimePlatform>,
+    ) -> Self {
         self.runtime_platform = input;
         self
     }
@@ -304,7 +349,10 @@ impl EcsTaskDetailsBuilder {
         self
     }
     /// <p>A list of data volumes used in a job.</p>
-    pub fn set_volumes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Volume>>) -> Self {
+    pub fn set_volumes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Volume>>,
+    ) -> Self {
         self.volumes = input;
         self
     }

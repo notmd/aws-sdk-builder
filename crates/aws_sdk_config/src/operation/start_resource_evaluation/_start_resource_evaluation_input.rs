@@ -46,13 +46,17 @@ impl StartResourceEvaluationInput {
 }
 impl StartResourceEvaluationInput {
     /// Creates a new builder-style object to manufacture [`StartResourceEvaluationInput`](crate::operation::start_resource_evaluation::StartResourceEvaluationInput).
-    pub fn builder() -> crate::operation::start_resource_evaluation::builders::StartResourceEvaluationInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::start_resource_evaluation::builders::StartResourceEvaluationInputBuilder
+    {
         crate::operation::start_resource_evaluation::builders::StartResourceEvaluationInputBuilder::default()
     }
 }
 
 /// A builder for [`StartResourceEvaluationInput`](crate::operation::start_resource_evaluation::StartResourceEvaluationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct StartResourceEvaluationInputBuilder {
     pub(crate) resource_details: ::std::option::Option<crate::types::ResourceDetails>,
@@ -69,7 +73,10 @@ impl StartResourceEvaluationInputBuilder {
         self
     }
     /// <p>Returns a <code>ResourceDetails</code> object.</p>
-    pub fn set_resource_details(mut self, input: ::std::option::Option<crate::types::ResourceDetails>) -> Self {
+    pub fn set_resource_details(
+        mut self,
+        input: ::std::option::Option<crate::types::ResourceDetails>,
+    ) -> Self {
         self.resource_details = input;
         self
     }
@@ -83,12 +90,17 @@ impl StartResourceEvaluationInputBuilder {
         self
     }
     /// <p>Returns an <code>EvaluationContext</code> object.</p>
-    pub fn set_evaluation_context(mut self, input: ::std::option::Option<crate::types::EvaluationContext>) -> Self {
+    pub fn set_evaluation_context(
+        mut self,
+        input: ::std::option::Option<crate::types::EvaluationContext>,
+    ) -> Self {
         self.evaluation_context = input;
         self
     }
     /// <p>Returns an <code>EvaluationContext</code> object.</p>
-    pub fn get_evaluation_context(&self) -> &::std::option::Option<crate::types::EvaluationContext> {
+    pub fn get_evaluation_context(
+        &self,
+    ) -> &::std::option::Option<crate::types::EvaluationContext> {
         &self.evaluation_context
     }
     /// <p>The mode of an evaluation.</p><note>
@@ -102,7 +114,10 @@ impl StartResourceEvaluationInputBuilder {
     /// <p>The mode of an evaluation.</p><note>
     /// <p>The only valid value for this API is <code>PROACTIVE</code>.</p>
     /// </note>
-    pub fn set_evaluation_mode(mut self, input: ::std::option::Option<crate::types::EvaluationMode>) -> Self {
+    pub fn set_evaluation_mode(
+        mut self,
+        input: ::std::option::Option<crate::types::EvaluationMode>,
+    ) -> Self {
         self.evaluation_mode = input;
         self
     }
@@ -153,12 +168,14 @@ impl StartResourceEvaluationInputBuilder {
         crate::operation::start_resource_evaluation::StartResourceEvaluationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::start_resource_evaluation::StartResourceEvaluationInput {
-            resource_details: self.resource_details,
-            evaluation_context: self.evaluation_context,
-            evaluation_mode: self.evaluation_mode,
-            evaluation_timeout: self.evaluation_timeout,
-            client_token: self.client_token,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::start_resource_evaluation::StartResourceEvaluationInput {
+                resource_details: self.resource_details,
+                evaluation_context: self.evaluation_context,
+                evaluation_mode: self.evaluation_mode,
+                evaluation_timeout: self.evaluation_timeout,
+                client_token: self.client_token,
+            },
+        )
     }
 }

@@ -30,7 +30,9 @@ impl TagSamlProviderInput {
 }
 
 /// A builder for [`TagSamlProviderInput`](crate::operation::tag_saml_provider::TagSamlProviderInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct TagSamlProviderInputBuilder {
     pub(crate) saml_provider_arn: ::std::option::Option<::std::string::String>,
@@ -40,13 +42,19 @@ impl TagSamlProviderInputBuilder {
     /// <p>The ARN of the SAML identity provider in IAM to which you want to add tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     /// This field is required.
-    pub fn saml_provider_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn saml_provider_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.saml_provider_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the SAML identity provider in IAM to which you want to add tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_saml_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_saml_provider_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.saml_provider_arn = input;
         self
     }
@@ -67,7 +75,10 @@ impl TagSamlProviderInputBuilder {
         self
     }
     /// <p>The list of tags that you want to attach to the SAML identity provider in IAM. Each tag consists of a key name and an associated value.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.tags = input;
         self
     }
@@ -78,7 +89,10 @@ impl TagSamlProviderInputBuilder {
     /// Consumes the builder and constructs a [`TagSamlProviderInput`](crate::operation::tag_saml_provider::TagSamlProviderInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::tag_saml_provider::TagSamlProviderInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::tag_saml_provider::TagSamlProviderInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::tag_saml_provider::TagSamlProviderInput {
             saml_provider_arn: self.saml_provider_arn,
             tags: self.tags,

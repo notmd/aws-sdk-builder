@@ -9,16 +9,17 @@ use thiserror::Error;
 pub const DEFAULT_PATH: &str = "services-manifest.json";
 
 #[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct Manifest {
-    pub schema_version: u32,
+    pub repository: String,
+    pub revision: String,
     pub services: Vec<ServiceManifest>,
 }
 
 #[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct ServiceManifest {
     pub key: String,
-    pub repository: String,
-    pub revision: String,
     pub upstream_path: String,
     pub model_path: String,
     pub output_dir: String,
@@ -58,12 +59,12 @@ impl Manifest {
     }
 
     pub fn validate(&self) -> Result<(), ManifestError> {
-        if self.schema_version != 2 {
-            return Err(ManifestError::Invalid(format!(
-                "unsupported schema version {}; expected 2",
-                self.schema_version
-            )));
+        if !self.repository.starts_with("https://github.com/") {
+            return Err(ManifestError::Invalid(
+                "repository must be an HTTPS GitHub URL".to_owned(),
+            ));
         }
+        validate_revision(&self.revision)?;
         if self.services.is_empty() {
             return Err(ManifestError::Invalid(
                 "services must not be empty".to_owned(),
@@ -79,13 +80,6 @@ impl Manifest {
                     service.key
                 )));
             }
-            if !service.repository.starts_with("https://github.com/") {
-                return Err(ManifestError::Invalid(format!(
-                    "{} repository must be an HTTPS GitHub URL",
-                    service.key
-                )));
-            }
-            validate_revision(&service.revision)?;
             for (label, value) in [
                 ("upstream_path", &service.upstream_path),
                 ("model_path", &service.model_path),
@@ -170,8 +164,6 @@ mod tests {
     fn service(key: &str) -> ServiceManifest {
         ServiceManifest {
             key: key.to_owned(),
-            repository: "https://github.com/example/aws-sdk-rust".to_owned(),
-            revision: "0123456789abcdef0123456789abcdef01234567".to_owned(),
             upstream_path: format!("sdk/{key}"),
             model_path: format!("aws-models/{key}.json"),
             output_dir: format!("crates/{key}"),
@@ -183,13 +175,14 @@ mod tests {
     #[test]
     fn rejects_unsafe_or_ambiguous_manifest_entries() {
         let mut manifest = Manifest {
-            schema_version: 2,
+            repository: "https://github.com/example/aws-sdk-rust".to_owned(),
+            revision: "0123456789abcdef0123456789abcdef01234567".to_owned(),
             services: vec![service("s3")],
         };
         manifest.validate().unwrap();
-        manifest.services[0].revision = "short".to_owned();
+        manifest.revision = "short".to_owned();
         assert!(manifest.validate().is_err());
-        manifest.services[0].revision = "0123456789abcdef0123456789abcdef01234567".to_owned();
+        manifest.revision = "0123456789abcdef0123456789abcdef01234567".to_owned();
         manifest.services[0].output_dir = "../outside".to_owned();
         assert!(manifest.validate().is_err());
     }

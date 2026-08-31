@@ -27,7 +27,9 @@ impl LogEvent {
 }
 
 /// A builder for [`LogEvent`](crate::types::LogEvent).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct LogEventBuilder {
     pub(crate) timestamp: ::std::option::Option<i64>,

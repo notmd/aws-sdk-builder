@@ -3,7 +3,10 @@
 pub fn de_throttled_exception_xml_err(
     inp: &[u8],
     mut builder: crate::types::error::builders::ThrottledExceptionBuilder,
-) -> std::result::Result<crate::types::error::builders::ThrottledExceptionBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> std::result::Result<
+    crate::types::error::builders::ThrottledExceptionBuilder,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
     if inp.is_empty() {
         return Ok(builder);
     }

@@ -115,7 +115,9 @@ pub struct CreateTopicInput {
     /// <p><code>MessageGroup</code> – The scope of deduplication is within each individual message group, which enables higher throughput per topic subject to regional quotas. For more information on quotas or to request an increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/sns.html">Amazon SNS service quotas</a> in the Amazon Web Services General Reference.</p></li>
     /// </ul></li>
     /// </ul>
-    pub attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub attributes: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     /// <p>The list of tags to add to a new topic.</p><note>
     /// <p>To be able to tag a topic on creation, you must have the <code>sns:CreateTopic</code> and <code>sns:TagResource</code> permissions.</p>
     /// </note>
@@ -240,7 +242,11 @@ impl CreateTopicInput {
     /// <p><code>MessageGroup</code> – The scope of deduplication is within each individual message group, which enables higher throughput per topic subject to regional quotas. For more information on quotas or to request an increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/sns.html">Amazon SNS service quotas</a> in the Amazon Web Services General Reference.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn attributes(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.attributes.as_ref()
     }
     /// <p>The list of tags to add to a new topic.</p><note>
@@ -267,11 +273,15 @@ impl CreateTopicInput {
 }
 
 /// A builder for [`CreateTopicInput`](crate::operation::create_topic::CreateTopicInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateTopicInputBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
-    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) attributes: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
     pub(crate) data_protection_policy: ::std::option::Option<::std::string::String>,
 }
@@ -408,7 +418,11 @@ impl CreateTopicInputBuilder {
     /// <p><code>MessageGroup</code> – The scope of deduplication is within each individual message group, which enables higher throughput per topic subject to regional quotas. For more information on quotas or to request an increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/sns.html">Amazon SNS service quotas</a> in the Amazon Web Services General Reference.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn attributes(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut hash_map = self.attributes.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.attributes = ::std::option::Option::Some(hash_map);
@@ -521,7 +535,12 @@ impl CreateTopicInputBuilder {
     /// <p><code>MessageGroup</code> – The scope of deduplication is within each individual message group, which enables higher throughput per topic subject to regional quotas. For more information on quotas or to request an increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/sns.html">Amazon SNS service quotas</a> in the Amazon Web Services General Reference.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_attributes(
+        mut self,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
+    ) -> Self {
         self.attributes = input;
         self
     }
@@ -632,7 +651,11 @@ impl CreateTopicInputBuilder {
     /// <p><code>MessageGroup</code> – The scope of deduplication is within each individual message group, which enables higher throughput per topic subject to regional quotas. For more information on quotas or to request an increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/sns.html">Amazon SNS service quotas</a> in the Amazon Web Services General Reference.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_attributes(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.attributes
     }
     /// Appends an item to `tags`.
@@ -651,7 +674,10 @@ impl CreateTopicInputBuilder {
     /// <p>The list of tags to add to a new topic.</p><note>
     /// <p>To be able to tag a topic on creation, you must have the <code>sns:CreateTopic</code> and <code>sns:TagResource</code> permissions.</p>
     /// </note>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.tags = input;
         self
     }
@@ -665,7 +691,10 @@ impl CreateTopicInputBuilder {
     /// <p>You can only add one policy per topic.</p>
     /// <p>The policy must be in JSON string format.</p>
     /// <p>Length Constraints: Maximum length of 30,720.</p>
-    pub fn data_protection_policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn data_protection_policy(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.data_protection_policy = ::std::option::Option::Some(input.into());
         self
     }
@@ -673,7 +702,10 @@ impl CreateTopicInputBuilder {
     /// <p>You can only add one policy per topic.</p>
     /// <p>The policy must be in JSON string format.</p>
     /// <p>Length Constraints: Maximum length of 30,720.</p>
-    pub fn set_data_protection_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_data_protection_policy(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.data_protection_policy = input;
         self
     }
@@ -685,7 +717,12 @@ impl CreateTopicInputBuilder {
         &self.data_protection_policy
     }
     /// Consumes the builder and constructs a [`CreateTopicInput`](crate::operation::create_topic::CreateTopicInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::create_topic::CreateTopicInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::create_topic::CreateTopicInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::create_topic::CreateTopicInput {
             name: self.name,
             attributes: self.attributes,

@@ -33,7 +33,9 @@ impl LogGroupSummary {
 }
 
 /// A builder for [`LogGroupSummary`](crate::types::LogGroupSummary).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct LogGroupSummaryBuilder {
     pub(crate) log_group_name: ::std::option::Option<::std::string::String>,
@@ -42,12 +44,18 @@ pub struct LogGroupSummaryBuilder {
 }
 impl LogGroupSummaryBuilder {
     /// <p>The name of the log group.</p>
-    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_group_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.log_group_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the log group.</p>
-    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_log_group_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.log_group_name = input;
         self
     }
@@ -56,12 +64,18 @@ impl LogGroupSummaryBuilder {
         &self.log_group_name
     }
     /// <p>The Amazon Resource Name (ARN) of the log group.</p>
-    pub fn log_group_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_group_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.log_group_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the log group.</p>
-    pub fn set_log_group_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_log_group_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.log_group_arn = input;
         self
     }
@@ -75,7 +89,10 @@ impl LogGroupSummaryBuilder {
         self
     }
     /// <p>The log group class for this log group. For details about the features supported by each log group class, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log classes</a></p>
-    pub fn set_log_group_class(mut self, input: ::std::option::Option<crate::types::LogGroupClass>) -> Self {
+    pub fn set_log_group_class(
+        mut self,
+        input: ::std::option::Option<crate::types::LogGroupClass>,
+    ) -> Self {
         self.log_group_class = input;
         self
     }

@@ -8,7 +8,11 @@ impl super::Client {
     ///   - [`policy(Option<String>)`](crate::operation::get_resource_policy::GetResourcePolicyOutput::policy): <p>The resource-based policy document attached to the resource, which can be a table or stream, in JSON format.</p>
     ///   - [`revision_id(Option<String>)`](crate::operation::get_resource_policy::GetResourcePolicyOutput::revision_id): <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
     /// - On failure, responds with [`SdkError<GetResourcePolicyError>`](crate::operation::get_resource_policy::GetResourcePolicyError)
-    pub fn get_resource_policy(&self) -> crate::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder {
-        crate::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder::new(self.handle.clone())
+    pub fn get_resource_policy(
+        &self,
+    ) -> crate::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder {
+        crate::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

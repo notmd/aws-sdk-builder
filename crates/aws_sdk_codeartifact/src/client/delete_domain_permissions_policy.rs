@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteDomainPermissionsPolicyError>`](crate::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError)
     pub fn delete_domain_permissions_policy(
         &self,
-    ) -> crate::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyFluentBuilder {
+    ) -> crate::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyFluentBuilder{
         crate::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyFluentBuilder::new(self.handle.clone())
     }
 }

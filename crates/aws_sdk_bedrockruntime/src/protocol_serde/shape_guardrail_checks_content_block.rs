@@ -8,9 +8,11 @@ pub fn ser_guardrail_checks_content_block(
             object_3.key("text").string(inner.as_str());
         }
         crate::types::GuardrailChecksContentBlock::Unknown => {
-            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                "GuardrailChecksContentBlock",
-            ))
+            return Err(
+                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
+                    "GuardrailChecksContentBlock",
+                ),
+            )
         }
     }
     Ok(())

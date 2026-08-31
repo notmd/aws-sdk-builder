@@ -53,7 +53,9 @@ impl GlobalSecondaryIndex {
     }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn provisioned_throughput(&self) -> ::std::option::Option<&crate::types::ProvisionedThroughput> {
+    pub fn provisioned_throughput(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ProvisionedThroughput> {
         self.provisioned_throughput.as_ref()
     }
     /// <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
@@ -73,7 +75,9 @@ impl GlobalSecondaryIndex {
 }
 
 /// A builder for [`GlobalSecondaryIndex`](crate::types::GlobalSecondaryIndex).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GlobalSecondaryIndexBuilder {
     pub(crate) index_name: ::std::option::Option<::std::string::String>,
@@ -129,7 +133,10 @@ impl GlobalSecondaryIndexBuilder {
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
-    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
+    pub fn set_key_schema(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>,
+    ) -> Self {
         self.key_schema = input;
         self
     }
@@ -143,7 +150,9 @@ impl GlobalSecondaryIndexBuilder {
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
-    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> {
+    pub fn get_key_schema(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> {
         &self.key_schema
     }
     /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
@@ -153,7 +162,10 @@ impl GlobalSecondaryIndexBuilder {
         self
     }
     /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
-    pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
+    pub fn set_projection(
+        mut self,
+        input: ::std::option::Option<crate::types::Projection>,
+    ) -> Self {
         self.projection = input;
         self
     }
@@ -169,13 +181,18 @@ impl GlobalSecondaryIndexBuilder {
     }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
+    pub fn set_provisioned_throughput(
+        mut self,
+        input: ::std::option::Option<crate::types::ProvisionedThroughput>,
+    ) -> Self {
         self.provisioned_throughput = input;
         self
     }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
+    pub fn get_provisioned_throughput(
+        &self,
+    ) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
         &self.provisioned_throughput
     }
     /// <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
@@ -184,12 +201,17 @@ impl GlobalSecondaryIndexBuilder {
         self
     }
     /// <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
-    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
+    pub fn set_on_demand_throughput(
+        mut self,
+        input: ::std::option::Option<crate::types::OnDemandThroughput>,
+    ) -> Self {
         self.on_demand_throughput = input;
         self
     }
     /// <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
-    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
+    pub fn get_on_demand_throughput(
+        &self,
+    ) -> &::std::option::Option<crate::types::OnDemandThroughput> {
         &self.on_demand_throughput
     }
     /// <p>Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify <code>ReadUnitsPerSecond</code>, <code>WriteUnitsPerSecond</code>, or both.</p>
@@ -198,7 +220,10 @@ impl GlobalSecondaryIndexBuilder {
         self
     }
     /// <p>Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify <code>ReadUnitsPerSecond</code>, <code>WriteUnitsPerSecond</code>, or both.</p>
-    pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::WarmThroughput>) -> Self {
+    pub fn set_warm_throughput(
+        mut self,
+        input: ::std::option::Option<crate::types::WarmThroughput>,
+    ) -> Self {
         self.warm_throughput = input;
         self
     }
@@ -210,7 +235,12 @@ impl GlobalSecondaryIndexBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`index_name`](crate::types::builders::GlobalSecondaryIndexBuilder::index_name)
     /// - [`key_schema`](crate::types::builders::GlobalSecondaryIndexBuilder::key_schema)
-    pub fn build(self) -> ::std::result::Result<crate::types::GlobalSecondaryIndex, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::GlobalSecondaryIndex,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::GlobalSecondaryIndex {
             index_name: self.index_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

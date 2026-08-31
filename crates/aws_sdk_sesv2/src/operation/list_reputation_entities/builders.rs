@@ -58,7 +58,10 @@ impl ListReputationEntitiesFluentBuilder {
         }
     }
     /// Access the ListReputationEntities as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_reputation_entities::builders::ListReputationEntitiesInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_reputation_entities::builders::ListReputationEntitiesInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,7 +90,11 @@ impl ListReputationEntitiesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_reputation_entities::ListReputationEntities::orchestrate(&runtime_plugins, input).await
+        crate::operation::list_reputation_entities::ListReputationEntities::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -100,20 +107,32 @@ impl ListReputationEntitiesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_reputation_entities::paginator::ListReputationEntitiesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_reputation_entities::paginator::ListReputationEntitiesPaginator {
-        crate::operation::list_reputation_entities::paginator::ListReputationEntitiesPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_reputation_entities::paginator::ListReputationEntitiesPaginator
+    {
+        crate::operation::list_reputation_entities::paginator::ListReputationEntitiesPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     ///
     /// Adds a key-value pair to `Filter`.
@@ -121,20 +140,33 @@ impl ListReputationEntitiesFluentBuilder {
     /// To override the contents of this collection use [`set_filter`](Self::set_filter).
     ///
     /// <p>An object that contains filters to apply when listing reputation entities. You can filter by entity type, reputation impact, sending status, or entity reference prefix.</p>
-    pub fn filter(mut self, k: crate::types::ReputationEntityFilterKey, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn filter(
+        mut self,
+        k: crate::types::ReputationEntityFilterKey,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.filter(k, v.into());
         self
     }
     /// <p>An object that contains filters to apply when listing reputation entities. You can filter by entity type, reputation impact, sending status, or entity reference prefix.</p>
     pub fn set_filter(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<crate::types::ReputationEntityFilterKey, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<
+                crate::types::ReputationEntityFilterKey,
+                ::std::string::String,
+            >,
+        >,
     ) -> Self {
         self.inner = self.inner.set_filter(input);
         self
     }
     /// <p>An object that contains filters to apply when listing reputation entities. You can filter by entity type, reputation impact, sending status, or entity reference prefix.</p>
-    pub fn get_filter(&self) -> &::std::option::Option<::std::collections::HashMap<crate::types::ReputationEntityFilterKey, ::std::string::String>> {
+    pub fn get_filter(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<crate::types::ReputationEntityFilterKey, ::std::string::String>,
+    > {
         self.inner.get_filter()
     }
     /// <p>A token returned from a previous call to <code>ListReputationEntities</code> to indicate the position in the list of reputation entities.</p>

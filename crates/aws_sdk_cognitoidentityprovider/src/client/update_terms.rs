@@ -12,7 +12,9 @@ impl super::Client {
     /// - On success, responds with [`UpdateTermsOutput`](crate::operation::update_terms::UpdateTermsOutput) with field(s):
     ///   - [`terms(Option<TermsType>)`](crate::operation::update_terms::UpdateTermsOutput::terms): <p>A summary of the updates to your terms documents.</p>
     /// - On failure, responds with [`SdkError<UpdateTermsError>`](crate::operation::update_terms::UpdateTermsError)
-    pub fn update_terms(&self) -> crate::operation::update_terms::builders::UpdateTermsFluentBuilder {
+    pub fn update_terms(
+        &self,
+    ) -> crate::operation::update_terms::builders::UpdateTermsFluentBuilder {
         crate::operation::update_terms::builders::UpdateTermsFluentBuilder::new(self.handle.clone())
     }
 }

@@ -3,80 +3,274 @@
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum Error {
-    #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-/// <p>The request is denied because you do not have sufficient permissions to perform the requested action. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-access-denied">AccessDeniedException</a> in the Amazon Bedrock User Guide</p>
+    #[cfg(any(
+        feature = "op_apply_guardrail",
+        feature = "op_converse",
+        feature = "op_converse_stream",
+        feature = "op_count_tokens",
+        feature = "op_get_async_invoke",
+        feature = "op_invoke_guardrail_checks",
+        feature = "op_invoke_model",
+        feature = "op_invoke_model_with_bidirectional_stream",
+        feature = "op_invoke_model_with_response_stream",
+        feature = "op_list_async_invokes",
+        feature = "op_start_async_invoke"
+    ))]
+    /// <p>The request is denied because you do not have sufficient permissions to perform the requested action. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-access-denied">AccessDeniedException</a> in the Amazon Bedrock User Guide</p>
     AccessDeniedException(crate::types::error::AccessDeniedException),
     #[cfg(feature = "op_start_async_invoke")]
-/// <p>Error occurred because of a conflict while performing an operation.</p>
+    /// <p>Error occurred because of a conflict while performing an operation.</p>
     ConflictException(crate::types::error::ConflictException),
-    #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-/// <p>An internal server error occurred. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure">InternalFailure</a> in the Amazon Bedrock User Guide</p>
+    #[cfg(any(
+        feature = "op_apply_guardrail",
+        feature = "op_converse",
+        feature = "op_converse_stream",
+        feature = "op_count_tokens",
+        feature = "op_get_async_invoke",
+        feature = "op_invoke_guardrail_checks",
+        feature = "op_invoke_model",
+        feature = "op_invoke_model_with_bidirectional_stream",
+        feature = "op_invoke_model_with_response_stream",
+        feature = "op_list_async_invokes",
+        feature = "op_start_async_invoke"
+    ))]
+    /// <p>An internal server error occurred. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure">InternalFailure</a> in the Amazon Bedrock User Guide</p>
     InternalServerException(crate::types::error::InternalServerException),
-    #[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-/// <p>The request failed due to an error while processing the model.</p>
+    #[cfg(any(
+        feature = "op_converse",
+        feature = "op_converse_stream",
+        feature = "op_invoke_model",
+        feature = "op_invoke_model_with_bidirectional_stream",
+        feature = "op_invoke_model_with_response_stream"
+    ))]
+    /// <p>The request failed due to an error while processing the model.</p>
     ModelErrorException(crate::types::error::ModelErrorException),
-    #[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-/// <p>The model specified in the request is not ready to serve inference requests. The AWS SDK will automatically retry the operation up to 5 times. For information about configuring automatic retries, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html">Retry behavior</a> in the <i>AWS SDKs and Tools</i> reference guide.</p>
+    #[cfg(any(
+        feature = "op_converse",
+        feature = "op_converse_stream",
+        feature = "op_invoke_model",
+        feature = "op_invoke_model_with_bidirectional_stream",
+        feature = "op_invoke_model_with_response_stream"
+    ))]
+    /// <p>The model specified in the request is not ready to serve inference requests. The AWS SDK will automatically retry the operation up to 5 times. For information about configuring automatic retries, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html">Retry behavior</a> in the <i>AWS SDKs and Tools</i> reference guide.</p>
     ModelNotReadyException(crate::types::error::ModelNotReadyException),
-    #[cfg(any(feature = "op_converse_stream", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-/// <p>An error occurred while streaming the response. Retry your request.</p>
+    #[cfg(any(
+        feature = "op_converse_stream",
+        feature = "op_invoke_model_with_bidirectional_stream",
+        feature = "op_invoke_model_with_response_stream"
+    ))]
+    /// <p>An error occurred while streaming the response. Retry your request.</p>
     ModelStreamErrorException(crate::types::error::ModelStreamErrorException),
-    #[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-/// <p>The request took too long to process. Processing time exceeded the model timeout length.</p>
+    #[cfg(any(
+        feature = "op_converse",
+        feature = "op_converse_stream",
+        feature = "op_invoke_model",
+        feature = "op_invoke_model_with_bidirectional_stream",
+        feature = "op_invoke_model_with_response_stream"
+    ))]
+    /// <p>The request took too long to process. Processing time exceeded the model timeout length.</p>
     ModelTimeoutException(crate::types::error::ModelTimeoutException),
-    #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_start_async_invoke"))]
-/// <p>The specified resource ARN was not found. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-resource-not-found">ResourceNotFound</a> in the Amazon Bedrock User Guide</p>
+    #[cfg(any(
+        feature = "op_apply_guardrail",
+        feature = "op_converse",
+        feature = "op_converse_stream",
+        feature = "op_count_tokens",
+        feature = "op_invoke_model",
+        feature = "op_invoke_model_with_bidirectional_stream",
+        feature = "op_invoke_model_with_response_stream",
+        feature = "op_start_async_invoke"
+    ))]
+    /// <p>The specified resource ARN was not found. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-resource-not-found">ResourceNotFound</a> in the Amazon Bedrock User Guide</p>
     ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
-    #[cfg(any(feature = "op_apply_guardrail", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_start_async_invoke"))]
-/// <p>Your request exceeds the service quota for your account. You can view your quotas at <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/gs-request-quota.html">Viewing service quotas</a>. You can resubmit your request later.</p>
+    #[cfg(any(
+        feature = "op_apply_guardrail",
+        feature = "op_invoke_model",
+        feature = "op_invoke_model_with_bidirectional_stream",
+        feature = "op_invoke_model_with_response_stream",
+        feature = "op_start_async_invoke"
+    ))]
+    /// <p>Your request exceeds the service quota for your account. You can view your quotas at <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/gs-request-quota.html">Viewing service quotas</a>. You can resubmit your request later.</p>
     ServiceQuotaExceededException(crate::types::error::ServiceQuotaExceededException),
-    #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_start_async_invoke"))]
-/// <p>The service isn't currently available. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
+    #[cfg(any(
+        feature = "op_apply_guardrail",
+        feature = "op_converse",
+        feature = "op_converse_stream",
+        feature = "op_count_tokens",
+        feature = "op_invoke_guardrail_checks",
+        feature = "op_invoke_model",
+        feature = "op_invoke_model_with_bidirectional_stream",
+        feature = "op_invoke_model_with_response_stream",
+        feature = "op_start_async_invoke"
+    ))]
+    /// <p>The service isn't currently available. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
     ServiceUnavailableException(crate::types::error::ServiceUnavailableException),
-    #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-/// <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
+    #[cfg(any(
+        feature = "op_apply_guardrail",
+        feature = "op_converse",
+        feature = "op_converse_stream",
+        feature = "op_count_tokens",
+        feature = "op_get_async_invoke",
+        feature = "op_invoke_guardrail_checks",
+        feature = "op_invoke_model",
+        feature = "op_invoke_model_with_bidirectional_stream",
+        feature = "op_invoke_model_with_response_stream",
+        feature = "op_list_async_invokes",
+        feature = "op_start_async_invoke"
+    ))]
+    /// <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
     ThrottlingException(crate::types::error::ThrottlingException),
-    #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-/// <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide</p>
+    #[cfg(any(
+        feature = "op_apply_guardrail",
+        feature = "op_converse",
+        feature = "op_converse_stream",
+        feature = "op_count_tokens",
+        feature = "op_get_async_invoke",
+        feature = "op_invoke_guardrail_checks",
+        feature = "op_invoke_model",
+        feature = "op_invoke_model_with_bidirectional_stream",
+        feature = "op_invoke_model_with_response_stream",
+        feature = "op_list_async_invokes",
+        feature = "op_start_async_invoke"
+    ))]
+    /// <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide</p>
     ValidationException(crate::types::error::ValidationException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(
+        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error."
+    )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-Error::AccessDeniedException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_get_async_invoke",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_list_async_invokes",
+                feature = "op_start_async_invoke"
+            ))]
+            Error::AccessDeniedException(inner) => inner.fmt(f),
             #[cfg(feature = "op_start_async_invoke")]
-Error::ConflictException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-Error::InternalServerException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-Error::ModelErrorException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-Error::ModelNotReadyException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_converse_stream", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-Error::ModelStreamErrorException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-Error::ModelTimeoutException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_start_async_invoke"))]
-Error::ResourceNotFoundException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_start_async_invoke"))]
-Error::ServiceQuotaExceededException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_start_async_invoke"))]
-Error::ServiceUnavailableException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-Error::ThrottlingException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-Error::ValidationException(inner) => inner.fmt(f),
+            Error::ConflictException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_get_async_invoke",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_list_async_invokes",
+                feature = "op_start_async_invoke"
+            ))]
+            Error::InternalServerException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream"
+            ))]
+            Error::ModelErrorException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream"
+            ))]
+            Error::ModelNotReadyException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_converse_stream",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream"
+            ))]
+            Error::ModelStreamErrorException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream"
+            ))]
+            Error::ModelTimeoutException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_start_async_invoke"
+            ))]
+            Error::ResourceNotFoundException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_start_async_invoke"
+            ))]
+            Error::ServiceQuotaExceededException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_start_async_invoke"
+            ))]
+            Error::ServiceUnavailableException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_get_async_invoke",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_list_async_invokes",
+                feature = "op_start_async_invoke"
+            ))]
+            Error::ThrottlingException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_get_async_invoke",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_list_async_invokes",
+                feature = "op_start_async_invoke"
+            ))]
+            Error::ValidationException(inner) => inner.fmt(f),
             Error::Unhandled(_) => {
-                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                if let ::std::option::Option::Some(code) =
+                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+                {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -96,42 +290,150 @@ impl From<::aws_smithy_types::error::operation::BuildError> for Error {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
     fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
         match self {
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-Self::AccessDeniedException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_get_async_invoke",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_list_async_invokes",
+                feature = "op_start_async_invoke"
+            ))]
+            Self::AccessDeniedException(inner) => inner.meta(),
             #[cfg(feature = "op_start_async_invoke")]
-Self::ConflictException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-Self::InternalServerException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-Self::ModelErrorException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-Self::ModelNotReadyException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_converse_stream", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-Self::ModelStreamErrorException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-Self::ModelTimeoutException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_start_async_invoke"))]
-Self::ResourceNotFoundException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_start_async_invoke"))]
-Self::ServiceQuotaExceededException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_start_async_invoke"))]
-Self::ServiceUnavailableException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-Self::ThrottlingException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-Self::ValidationException(inner) => inner.meta(),
+            Self::ConflictException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_get_async_invoke",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_list_async_invokes",
+                feature = "op_start_async_invoke"
+            ))]
+            Self::InternalServerException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream"
+            ))]
+            Self::ModelErrorException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream"
+            ))]
+            Self::ModelNotReadyException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_converse_stream",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream"
+            ))]
+            Self::ModelStreamErrorException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream"
+            ))]
+            Self::ModelTimeoutException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_start_async_invoke"
+            ))]
+            Self::ResourceNotFoundException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_start_async_invoke"
+            ))]
+            Self::ServiceQuotaExceededException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_start_async_invoke"
+            ))]
+            Self::ServiceUnavailableException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_get_async_invoke",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_list_async_invokes",
+                feature = "op_start_async_invoke"
+            ))]
+            Self::ThrottlingException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_get_async_invoke",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_list_async_invokes",
+                feature = "op_start_async_invoke"
+            ))]
+            Self::ValidationException(inner) => inner.meta(),
             Self::Unhandled(inner) => &inner.meta,
         }
     }
 }
 #[cfg(feature = "op_apply_guardrail")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::apply_guardrail::ApplyGuardrailError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::apply_guardrail::ApplyGuardrailError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::apply_guardrail::ApplyGuardrailError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::apply_guardrail::ApplyGuardrailError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -157,13 +459,26 @@ impl From<crate::operation::apply_guardrail::ApplyGuardrailError> for Error {
     }
 }
 #[cfg(feature = "op_converse")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::converse::ConverseError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::converse::ConverseError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::converse::ConverseError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::converse::ConverseError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -175,27 +490,58 @@ where
 impl From<crate::operation::converse::ConverseError> for Error {
     fn from(err: crate::operation::converse::ConverseError) -> Self {
         match err {
-            crate::operation::converse::ConverseError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
-            crate::operation::converse::ConverseError::InternalServerException(inner) => Error::InternalServerException(inner),
-            crate::operation::converse::ConverseError::ModelErrorException(inner) => Error::ModelErrorException(inner),
-            crate::operation::converse::ConverseError::ModelNotReadyException(inner) => Error::ModelNotReadyException(inner),
-            crate::operation::converse::ConverseError::ModelTimeoutException(inner) => Error::ModelTimeoutException(inner),
-            crate::operation::converse::ConverseError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::converse::ConverseError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
-            crate::operation::converse::ConverseError::ThrottlingException(inner) => Error::ThrottlingException(inner),
-            crate::operation::converse::ConverseError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::converse::ConverseError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::converse::ConverseError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::converse::ConverseError::ModelErrorException(inner) => {
+                Error::ModelErrorException(inner)
+            }
+            crate::operation::converse::ConverseError::ModelNotReadyException(inner) => {
+                Error::ModelNotReadyException(inner)
+            }
+            crate::operation::converse::ConverseError::ModelTimeoutException(inner) => {
+                Error::ModelTimeoutException(inner)
+            }
+            crate::operation::converse::ConverseError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::converse::ConverseError::ServiceUnavailableException(inner) => {
+                Error::ServiceUnavailableException(inner)
+            }
+            crate::operation::converse::ConverseError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::converse::ConverseError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
             crate::operation::converse::ConverseError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_converse_stream")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::converse_stream::ConverseStreamError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::converse_stream::ConverseStreamError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::converse_stream::ConverseStreamError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::converse_stream::ConverseStreamError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -207,28 +553,63 @@ where
 impl From<crate::operation::converse_stream::ConverseStreamError> for Error {
     fn from(err: crate::operation::converse_stream::ConverseStreamError) -> Self {
         match err {
-            crate::operation::converse_stream::ConverseStreamError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
-            crate::operation::converse_stream::ConverseStreamError::InternalServerException(inner) => Error::InternalServerException(inner),
-            crate::operation::converse_stream::ConverseStreamError::ModelErrorException(inner) => Error::ModelErrorException(inner),
-            crate::operation::converse_stream::ConverseStreamError::ModelNotReadyException(inner) => Error::ModelNotReadyException(inner),
-            crate::operation::converse_stream::ConverseStreamError::ModelTimeoutException(inner) => Error::ModelTimeoutException(inner),
-            crate::operation::converse_stream::ConverseStreamError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::converse_stream::ConverseStreamError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
-            crate::operation::converse_stream::ConverseStreamError::ThrottlingException(inner) => Error::ThrottlingException(inner),
-            crate::operation::converse_stream::ConverseStreamError::ValidationException(inner) => Error::ValidationException(inner),
-            crate::operation::converse_stream::ConverseStreamError::ModelStreamErrorException(inner) => Error::ModelStreamErrorException(inner),
-            crate::operation::converse_stream::ConverseStreamError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::converse_stream::ConverseStreamError::AccessDeniedException(
+                inner,
+            ) => Error::AccessDeniedException(inner),
+            crate::operation::converse_stream::ConverseStreamError::InternalServerException(
+                inner,
+            ) => Error::InternalServerException(inner),
+            crate::operation::converse_stream::ConverseStreamError::ModelErrorException(inner) => {
+                Error::ModelErrorException(inner)
+            }
+            crate::operation::converse_stream::ConverseStreamError::ModelNotReadyException(
+                inner,
+            ) => Error::ModelNotReadyException(inner),
+            crate::operation::converse_stream::ConverseStreamError::ModelTimeoutException(
+                inner,
+            ) => Error::ModelTimeoutException(inner),
+            crate::operation::converse_stream::ConverseStreamError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::converse_stream::ConverseStreamError::ServiceUnavailableException(
+                inner,
+            ) => Error::ServiceUnavailableException(inner),
+            crate::operation::converse_stream::ConverseStreamError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::converse_stream::ConverseStreamError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::converse_stream::ConverseStreamError::ModelStreamErrorException(
+                inner,
+            ) => Error::ModelStreamErrorException(inner),
+            crate::operation::converse_stream::ConverseStreamError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_count_tokens")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::count_tokens::CountTokensError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::count_tokens::CountTokensError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::count_tokens::CountTokensError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::count_tokens::CountTokensError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -240,24 +621,51 @@ where
 impl From<crate::operation::count_tokens::CountTokensError> for Error {
     fn from(err: crate::operation::count_tokens::CountTokensError) -> Self {
         match err {
-            crate::operation::count_tokens::CountTokensError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
-            crate::operation::count_tokens::CountTokensError::InternalServerException(inner) => Error::InternalServerException(inner),
-            crate::operation::count_tokens::CountTokensError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::count_tokens::CountTokensError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
-            crate::operation::count_tokens::CountTokensError::ThrottlingException(inner) => Error::ThrottlingException(inner),
-            crate::operation::count_tokens::CountTokensError::ValidationException(inner) => Error::ValidationException(inner),
-            crate::operation::count_tokens::CountTokensError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::count_tokens::CountTokensError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::count_tokens::CountTokensError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::count_tokens::CountTokensError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::count_tokens::CountTokensError::ServiceUnavailableException(
+                inner,
+            ) => Error::ServiceUnavailableException(inner),
+            crate::operation::count_tokens::CountTokensError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::count_tokens::CountTokensError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::count_tokens::CountTokensError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_get_async_invoke")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_async_invoke::GetAsyncInvokeError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_async_invoke::GetAsyncInvokeError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_async_invoke::GetAsyncInvokeError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_async_invoke::GetAsyncInvokeError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -269,24 +677,45 @@ where
 impl From<crate::operation::get_async_invoke::GetAsyncInvokeError> for Error {
     fn from(err: crate::operation::get_async_invoke::GetAsyncInvokeError) -> Self {
         match err {
-            crate::operation::get_async_invoke::GetAsyncInvokeError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
-            crate::operation::get_async_invoke::GetAsyncInvokeError::InternalServerException(inner) => Error::InternalServerException(inner),
-            crate::operation::get_async_invoke::GetAsyncInvokeError::ThrottlingException(inner) => Error::ThrottlingException(inner),
-            crate::operation::get_async_invoke::GetAsyncInvokeError::ValidationException(inner) => Error::ValidationException(inner),
-            crate::operation::get_async_invoke::GetAsyncInvokeError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_async_invoke::GetAsyncInvokeError::AccessDeniedException(
+                inner,
+            ) => Error::AccessDeniedException(inner),
+            crate::operation::get_async_invoke::GetAsyncInvokeError::InternalServerException(
+                inner,
+            ) => Error::InternalServerException(inner),
+            crate::operation::get_async_invoke::GetAsyncInvokeError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::get_async_invoke::GetAsyncInvokeError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::get_async_invoke::GetAsyncInvokeError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_invoke_guardrail_checks")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -314,13 +743,26 @@ impl From<crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksError>
     }
 }
 #[cfg(feature = "op_invoke_model")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::invoke_model::InvokeModelError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::invoke_model::InvokeModelError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::invoke_model::InvokeModelError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::invoke_model::InvokeModelError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -332,17 +774,39 @@ where
 impl From<crate::operation::invoke_model::InvokeModelError> for Error {
     fn from(err: crate::operation::invoke_model::InvokeModelError) -> Self {
         match err {
-            crate::operation::invoke_model::InvokeModelError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
-            crate::operation::invoke_model::InvokeModelError::InternalServerException(inner) => Error::InternalServerException(inner),
-            crate::operation::invoke_model::InvokeModelError::ModelErrorException(inner) => Error::ModelErrorException(inner),
-            crate::operation::invoke_model::InvokeModelError::ModelNotReadyException(inner) => Error::ModelNotReadyException(inner),
-            crate::operation::invoke_model::InvokeModelError::ModelTimeoutException(inner) => Error::ModelTimeoutException(inner),
-            crate::operation::invoke_model::InvokeModelError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::invoke_model::InvokeModelError::ServiceQuotaExceededException(inner) => Error::ServiceQuotaExceededException(inner),
-            crate::operation::invoke_model::InvokeModelError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
-            crate::operation::invoke_model::InvokeModelError::ThrottlingException(inner) => Error::ThrottlingException(inner),
-            crate::operation::invoke_model::InvokeModelError::ValidationException(inner) => Error::ValidationException(inner),
-            crate::operation::invoke_model::InvokeModelError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::invoke_model::InvokeModelError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::invoke_model::InvokeModelError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::invoke_model::InvokeModelError::ModelErrorException(inner) => {
+                Error::ModelErrorException(inner)
+            }
+            crate::operation::invoke_model::InvokeModelError::ModelNotReadyException(inner) => {
+                Error::ModelNotReadyException(inner)
+            }
+            crate::operation::invoke_model::InvokeModelError::ModelTimeoutException(inner) => {
+                Error::ModelTimeoutException(inner)
+            }
+            crate::operation::invoke_model::InvokeModelError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::invoke_model::InvokeModelError::ServiceQuotaExceededException(
+                inner,
+            ) => Error::ServiceQuotaExceededException(inner),
+            crate::operation::invoke_model::InvokeModelError::ServiceUnavailableException(
+                inner,
+            ) => Error::ServiceUnavailableException(inner),
+            crate::operation::invoke_model::InvokeModelError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::operation::invoke_model::InvokeModelError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::invoke_model::InvokeModelError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -433,7 +897,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -442,8 +908,12 @@ where
     }
 }
 #[cfg(feature = "op_invoke_model_with_response_stream")]
-impl From<crate::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError> for Error {
-    fn from(err: crate::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError) -> Self {
+impl From<crate::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError>
+    for Error
+{
+    fn from(
+        err: crate::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError,
+    ) -> Self {
         match err {
             crate::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -483,13 +953,26 @@ impl From<crate::operation::invoke_model_with_response_stream::InvokeModelWithRe
     }
 }
 #[cfg(feature = "op_list_async_invokes")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_async_invokes::ListAsyncInvokesError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_async_invokes::ListAsyncInvokesError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_async_invokes::ListAsyncInvokesError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_async_invokes::ListAsyncInvokesError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -510,13 +993,26 @@ impl From<crate::operation::list_async_invokes::ListAsyncInvokesError> for Error
     }
 }
 #[cfg(feature = "op_start_async_invoke")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_async_invoke::StartAsyncInvokeError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_async_invoke::StartAsyncInvokeError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_async_invoke::StartAsyncInvokeError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_async_invoke::StartAsyncInvokeError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -545,13 +1041,26 @@ impl From<crate::operation::start_async_invoke::StartAsyncInvokeError> for Error
     }
 }
 #[cfg(feature = "op_converse_stream")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::ConverseStreamOutputError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::types::error::ConverseStreamOutputError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::ConverseStreamOutputError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::types::error::ConverseStreamOutputError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -563,23 +1072,48 @@ where
 impl From<crate::types::error::ConverseStreamOutputError> for Error {
     fn from(err: crate::types::error::ConverseStreamOutputError) -> Self {
         match err {
-            crate::types::error::ConverseStreamOutputError::InternalServerException(inner) => Error::InternalServerException(inner),
-            crate::types::error::ConverseStreamOutputError::ModelStreamErrorException(inner) => Error::ModelStreamErrorException(inner),
-            crate::types::error::ConverseStreamOutputError::ValidationException(inner) => Error::ValidationException(inner),
-            crate::types::error::ConverseStreamOutputError::ThrottlingException(inner) => Error::ThrottlingException(inner),
-            crate::types::error::ConverseStreamOutputError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
-            crate::types::error::ConverseStreamOutputError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::types::error::ConverseStreamOutputError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::types::error::ConverseStreamOutputError::ModelStreamErrorException(inner) => {
+                Error::ModelStreamErrorException(inner)
+            }
+            crate::types::error::ConverseStreamOutputError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::types::error::ConverseStreamOutputError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::types::error::ConverseStreamOutputError::ServiceUnavailableException(inner) => {
+                Error::ServiceUnavailableException(inner)
+            }
+            crate::types::error::ConverseStreamOutputError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::InvokeModelWithBidirectionalStreamInputError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::types::error::InvokeModelWithBidirectionalStreamInputError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::InvokeModelWithBidirectionalStreamInputError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::types::error::InvokeModelWithBidirectionalStreamInputError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -591,18 +1125,33 @@ where
 impl From<crate::types::error::InvokeModelWithBidirectionalStreamInputError> for Error {
     fn from(err: crate::types::error::InvokeModelWithBidirectionalStreamInputError) -> Self {
         match err {
-            crate::types::error::InvokeModelWithBidirectionalStreamInputError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::types::error::InvokeModelWithBidirectionalStreamInputError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::InvokeModelWithBidirectionalStreamOutputError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::types::error::InvokeModelWithBidirectionalStreamOutputError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::InvokeModelWithBidirectionalStreamOutputError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::types::error::InvokeModelWithBidirectionalStreamOutputError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -631,13 +1180,26 @@ impl From<crate::types::error::InvokeModelWithBidirectionalStreamOutputError> fo
     }
 }
 #[cfg(feature = "op_invoke_model_with_response_stream")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::ResponseStreamError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::types::error::ResponseStreamError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::types::error::ResponseStreamError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::types::error::ResponseStreamError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -649,12 +1211,24 @@ where
 impl From<crate::types::error::ResponseStreamError> for Error {
     fn from(err: crate::types::error::ResponseStreamError) -> Self {
         match err {
-            crate::types::error::ResponseStreamError::InternalServerException(inner) => Error::InternalServerException(inner),
-            crate::types::error::ResponseStreamError::ModelStreamErrorException(inner) => Error::ModelStreamErrorException(inner),
-            crate::types::error::ResponseStreamError::ValidationException(inner) => Error::ValidationException(inner),
-            crate::types::error::ResponseStreamError::ThrottlingException(inner) => Error::ThrottlingException(inner),
-            crate::types::error::ResponseStreamError::ModelTimeoutException(inner) => Error::ModelTimeoutException(inner),
-            crate::types::error::ResponseStreamError::ServiceUnavailableException(inner) => Error::ServiceUnavailableException(inner),
+            crate::types::error::ResponseStreamError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::types::error::ResponseStreamError::ModelStreamErrorException(inner) => {
+                Error::ModelStreamErrorException(inner)
+            }
+            crate::types::error::ResponseStreamError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::types::error::ResponseStreamError::ThrottlingException(inner) => {
+                Error::ThrottlingException(inner)
+            }
+            crate::types::error::ResponseStreamError::ModelTimeoutException(inner) => {
+                Error::ModelTimeoutException(inner)
+            }
+            crate::types::error::ResponseStreamError::ServiceUnavailableException(inner) => {
+                Error::ServiceUnavailableException(inner)
+            }
             crate::types::error::ResponseStreamError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -662,30 +1236,125 @@ impl From<crate::types::error::ResponseStreamError> for Error {
 impl ::std::error::Error for Error {
     fn source(&self) -> std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-Error::AccessDeniedException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_get_async_invoke",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_list_async_invokes",
+                feature = "op_start_async_invoke"
+            ))]
+            Error::AccessDeniedException(inner) => inner.source(),
             #[cfg(feature = "op_start_async_invoke")]
-Error::ConflictException(inner) => inner.source(),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-Error::InternalServerException(inner) => inner.source(),
-            #[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-Error::ModelErrorException(inner) => inner.source(),
-            #[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-Error::ModelNotReadyException(inner) => inner.source(),
-            #[cfg(any(feature = "op_converse_stream", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-Error::ModelStreamErrorException(inner) => inner.source(),
-            #[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-Error::ModelTimeoutException(inner) => inner.source(),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_start_async_invoke"))]
-Error::ResourceNotFoundException(inner) => inner.source(),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_start_async_invoke"))]
-Error::ServiceQuotaExceededException(inner) => inner.source(),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_start_async_invoke"))]
-Error::ServiceUnavailableException(inner) => inner.source(),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-Error::ThrottlingException(inner) => inner.source(),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-Error::ValidationException(inner) => inner.source(),
+            Error::ConflictException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_get_async_invoke",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_list_async_invokes",
+                feature = "op_start_async_invoke"
+            ))]
+            Error::InternalServerException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream"
+            ))]
+            Error::ModelErrorException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream"
+            ))]
+            Error::ModelNotReadyException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_converse_stream",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream"
+            ))]
+            Error::ModelStreamErrorException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream"
+            ))]
+            Error::ModelTimeoutException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_start_async_invoke"
+            ))]
+            Error::ResourceNotFoundException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_start_async_invoke"
+            ))]
+            Error::ServiceQuotaExceededException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_start_async_invoke"
+            ))]
+            Error::ServiceUnavailableException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_get_async_invoke",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_list_async_invokes",
+                feature = "op_start_async_invoke"
+            ))]
+            Error::ThrottlingException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_get_async_invoke",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_list_async_invokes",
+                feature = "op_start_async_invoke"
+            ))]
+            Error::ValidationException(inner) => inner.source(),
             Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source),
         }
     }
@@ -693,30 +1362,125 @@ Error::ValidationException(inner) => inner.source(),
 impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-Self::AccessDeniedException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_get_async_invoke",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_list_async_invokes",
+                feature = "op_start_async_invoke"
+            ))]
+            Self::AccessDeniedException(e) => e.request_id(),
             #[cfg(feature = "op_start_async_invoke")]
-Self::ConflictException(e) => e.request_id(),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-Self::InternalServerException(e) => e.request_id(),
-            #[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-Self::ModelErrorException(e) => e.request_id(),
-            #[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-Self::ModelNotReadyException(e) => e.request_id(),
-            #[cfg(any(feature = "op_converse_stream", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-Self::ModelStreamErrorException(e) => e.request_id(),
-            #[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream"))]
-Self::ModelTimeoutException(e) => e.request_id(),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_start_async_invoke"))]
-Self::ResourceNotFoundException(e) => e.request_id(),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_start_async_invoke"))]
-Self::ServiceQuotaExceededException(e) => e.request_id(),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_start_async_invoke"))]
-Self::ServiceUnavailableException(e) => e.request_id(),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-Self::ThrottlingException(e) => e.request_id(),
-            #[cfg(any(feature = "op_apply_guardrail", feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens", feature = "op_get_async_invoke", feature = "op_invoke_guardrail_checks", feature = "op_invoke_model", feature = "op_invoke_model_with_bidirectional_stream", feature = "op_invoke_model_with_response_stream", feature = "op_list_async_invokes", feature = "op_start_async_invoke"))]
-Self::ValidationException(e) => e.request_id(),
+            Self::ConflictException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_get_async_invoke",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_list_async_invokes",
+                feature = "op_start_async_invoke"
+            ))]
+            Self::InternalServerException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream"
+            ))]
+            Self::ModelErrorException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream"
+            ))]
+            Self::ModelNotReadyException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_converse_stream",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream"
+            ))]
+            Self::ModelStreamErrorException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream"
+            ))]
+            Self::ModelTimeoutException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_start_async_invoke"
+            ))]
+            Self::ResourceNotFoundException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_start_async_invoke"
+            ))]
+            Self::ServiceQuotaExceededException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_start_async_invoke"
+            ))]
+            Self::ServiceUnavailableException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_get_async_invoke",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_list_async_invokes",
+                feature = "op_start_async_invoke"
+            ))]
+            Self::ThrottlingException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_apply_guardrail",
+                feature = "op_converse",
+                feature = "op_converse_stream",
+                feature = "op_count_tokens",
+                feature = "op_get_async_invoke",
+                feature = "op_invoke_guardrail_checks",
+                feature = "op_invoke_model",
+                feature = "op_invoke_model_with_bidirectional_stream",
+                feature = "op_invoke_model_with_response_stream",
+                feature = "op_list_async_invokes",
+                feature = "op_start_async_invoke"
+            ))]
+            Self::ValidationException(e) => e.request_id(),
             Self::Unhandled(e) => e.meta.request_id(),
         }
     }

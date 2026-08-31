@@ -47,7 +47,9 @@ pub struct AdminRespondToAuthChallengeOutput {
     /// <p>The session identifier that maintains the state of authentication requests and challenge responses. If an <code>AdminInitiateAuth</code> or <code>AdminRespondToAuthChallenge</code> API request results in a determination that your application must pass another challenge, Amazon Cognito returns a session with other challenge parameters. Send this session identifier, unmodified, to the next <code>AdminRespondToAuthChallenge</code> request.</p>
     pub session: ::std::option::Option<::std::string::String>,
     /// <p>The parameters that define your response to the next challenge.</p>
-    pub challenge_parameters: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub challenge_parameters: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     /// <p>The outcome of a successful authentication process. After your application has passed all challenges, Amazon Cognito returns an <code>AuthenticationResult</code> with the JSON web tokens (JWTs) that indicate successful sign-in.</p>
     pub authentication_result: ::std::option::Option<crate::types::AuthenticationResultType>,
     _request_id: Option<String>,
@@ -100,11 +102,17 @@ impl AdminRespondToAuthChallengeOutput {
         self.session.as_deref()
     }
     /// <p>The parameters that define your response to the next challenge.</p>
-    pub fn challenge_parameters(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn challenge_parameters(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.challenge_parameters.as_ref()
     }
     /// <p>The outcome of a successful authentication process. After your application has passed all challenges, Amazon Cognito returns an <code>AuthenticationResult</code> with the JSON web tokens (JWTs) that indicate successful sign-in.</p>
-    pub fn authentication_result(&self) -> ::std::option::Option<&crate::types::AuthenticationResultType> {
+    pub fn authentication_result(
+        &self,
+    ) -> ::std::option::Option<&crate::types::AuthenticationResultType> {
         self.authentication_result.as_ref()
     }
 }
@@ -126,7 +134,7 @@ impl ::aws_types::request_id::RequestId for AdminRespondToAuthChallengeOutput {
 }
 impl AdminRespondToAuthChallengeOutput {
     /// Creates a new builder-style object to manufacture [`AdminRespondToAuthChallengeOutput`](crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeOutput).
-    pub fn builder() -> crate::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeOutputBuilder {
+    pub fn builder() -> crate::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeOutputBuilder{
         crate::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeOutputBuilder::default()
     }
 }
@@ -137,7 +145,9 @@ impl AdminRespondToAuthChallengeOutput {
 pub struct AdminRespondToAuthChallengeOutputBuilder {
     pub(crate) challenge_name: ::std::option::Option<crate::types::ChallengeNameType>,
     pub(crate) session: ::std::option::Option<::std::string::String>,
-    pub(crate) challenge_parameters: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) challenge_parameters: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     pub(crate) authentication_result: ::std::option::Option<crate::types::AuthenticationResultType>,
     _request_id: Option<String>,
 }
@@ -224,7 +234,10 @@ impl AdminRespondToAuthChallengeOutputBuilder {
     /// <p>To set up time-based one-time password (TOTP) MFA, use the session returned in this challenge from <code>InitiateAuth</code> or <code>AdminInitiateAuth</code> as an input to <code>AssociateSoftwareToken</code>. Then, use the session returned by <code>VerifySoftwareToken</code> as an input to <code>RespondToAuthChallenge</code> or <code>AdminRespondToAuthChallenge</code> with challenge name <code>MFA_SETUP</code> to complete sign-in.</p>
     /// <p>To set up SMS or email MFA, collect a <code>phone_number</code> or <code>email</code> attribute for the user. Then restart the authentication flow with an <code>InitiateAuth</code> or <code>AdminInitiateAuth</code> request.</p></li>
     /// </ul>
-    pub fn set_challenge_name(mut self, input: ::std::option::Option<crate::types::ChallengeNameType>) -> Self {
+    pub fn set_challenge_name(
+        mut self,
+        input: ::std::option::Option<crate::types::ChallengeNameType>,
+    ) -> Self {
         self.challenge_name = input;
         self
     }
@@ -302,13 +315,19 @@ impl AdminRespondToAuthChallengeOutputBuilder {
     /// <p>The parameters that define your response to the next challenge.</p>
     pub fn set_challenge_parameters(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
     ) -> Self {
         self.challenge_parameters = input;
         self
     }
     /// <p>The parameters that define your response to the next challenge.</p>
-    pub fn get_challenge_parameters(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_challenge_parameters(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.challenge_parameters
     }
     /// <p>The outcome of a successful authentication process. After your application has passed all challenges, Amazon Cognito returns an <code>AuthenticationResult</code> with the JSON web tokens (JWTs) that indicate successful sign-in.</p>
@@ -317,12 +336,17 @@ impl AdminRespondToAuthChallengeOutputBuilder {
         self
     }
     /// <p>The outcome of a successful authentication process. After your application has passed all challenges, Amazon Cognito returns an <code>AuthenticationResult</code> with the JSON web tokens (JWTs) that indicate successful sign-in.</p>
-    pub fn set_authentication_result(mut self, input: ::std::option::Option<crate::types::AuthenticationResultType>) -> Self {
+    pub fn set_authentication_result(
+        mut self,
+        input: ::std::option::Option<crate::types::AuthenticationResultType>,
+    ) -> Self {
         self.authentication_result = input;
         self
     }
     /// <p>The outcome of a successful authentication process. After your application has passed all challenges, Amazon Cognito returns an <code>AuthenticationResult</code> with the JSON web tokens (JWTs) that indicate successful sign-in.</p>
-    pub fn get_authentication_result(&self) -> &::std::option::Option<crate::types::AuthenticationResultType> {
+    pub fn get_authentication_result(
+        &self,
+    ) -> &::std::option::Option<crate::types::AuthenticationResultType> {
         &self.authentication_result
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -335,7 +359,9 @@ impl AdminRespondToAuthChallengeOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AdminRespondToAuthChallengeOutput`](crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeOutput).
-    pub fn build(self) -> crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeOutput {
         crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeOutput {
             challenge_name: self.challenge_name,
             session: self.session,

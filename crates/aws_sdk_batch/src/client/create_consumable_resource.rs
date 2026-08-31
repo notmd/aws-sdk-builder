@@ -11,7 +11,10 @@ impl super::Client {
     ///   - [`consumable_resource_name(Option<String>)`](crate::operation::create_consumable_resource::CreateConsumableResourceOutput::consumable_resource_name): <p>The name of the consumable resource.</p>
     ///   - [`consumable_resource_arn(Option<String>)`](crate::operation::create_consumable_resource::CreateConsumableResourceOutput::consumable_resource_arn): <p>The Amazon Resource Name (ARN) of the consumable resource.</p>
     /// - On failure, responds with [`SdkError<CreateConsumableResourceError>`](crate::operation::create_consumable_resource::CreateConsumableResourceError)
-    pub fn create_consumable_resource(&self) -> crate::operation::create_consumable_resource::builders::CreateConsumableResourceFluentBuilder {
+    pub fn create_consumable_resource(
+        &self,
+    ) -> crate::operation::create_consumable_resource::builders::CreateConsumableResourceFluentBuilder
+    {
         crate::operation::create_consumable_resource::builders::CreateConsumableResourceFluentBuilder::new(self.handle.clone())
     }
 }

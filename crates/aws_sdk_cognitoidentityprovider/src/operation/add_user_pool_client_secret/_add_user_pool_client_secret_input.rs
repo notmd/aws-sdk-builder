@@ -36,7 +36,9 @@ impl ::std::fmt::Debug for AddUserPoolClientSecretInput {
 }
 impl AddUserPoolClientSecretInput {
     /// Creates a new builder-style object to manufacture [`AddUserPoolClientSecretInput`](crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretInput).
-    pub fn builder() -> crate::operation::add_user_pool_client_secret::builders::AddUserPoolClientSecretInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::add_user_pool_client_secret::builders::AddUserPoolClientSecretInputBuilder
+    {
         crate::operation::add_user_pool_client_secret::builders::AddUserPoolClientSecretInputBuilder::default()
     }
 }
@@ -81,12 +83,18 @@ impl AddUserPoolClientSecretInputBuilder {
         &self.client_id
     }
     /// <p>The client secret value you want to use. If you don't provide this parameter, Amazon Cognito generates a secure secret for you.</p>
-    pub fn client_secret(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn client_secret(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.client_secret = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The client secret value you want to use. If you don't provide this parameter, Amazon Cognito generates a secure secret for you.</p>
-    pub fn set_client_secret(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_client_secret(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.client_secret = input;
         self
     }
@@ -101,11 +109,13 @@ impl AddUserPoolClientSecretInputBuilder {
         crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretInput {
-            user_pool_id: self.user_pool_id,
-            client_id: self.client_id,
-            client_secret: self.client_secret,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretInput {
+                user_pool_id: self.user_pool_id,
+                client_id: self.client_id,
+                client_secret: self.client_secret,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for AddUserPoolClientSecretInputBuilder {

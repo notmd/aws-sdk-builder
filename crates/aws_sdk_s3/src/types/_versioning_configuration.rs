@@ -27,7 +27,9 @@ impl VersioningConfiguration {
 }
 
 /// A builder for [`VersioningConfiguration`](crate::types::VersioningConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct VersioningConfigurationBuilder {
     pub(crate) mfa_delete: ::std::option::Option<crate::types::MfaDelete>,
@@ -54,7 +56,10 @@ impl VersioningConfigurationBuilder {
         self
     }
     /// <p>The versioning state of the bucket.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::BucketVersioningStatus>) -> Self {
+    pub fn set_status(
+        mut self,
+        input: ::std::option::Option<crate::types::BucketVersioningStatus>,
+    ) -> Self {
         self.status = input;
         self
     }

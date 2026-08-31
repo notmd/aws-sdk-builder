@@ -44,13 +44,16 @@ impl ::aws_types::request_id::RequestId for CancelImportTaskOutput {
 }
 impl CancelImportTaskOutput {
     /// Creates a new builder-style object to manufacture [`CancelImportTaskOutput`](crate::operation::cancel_import_task::CancelImportTaskOutput).
-    pub fn builder() -> crate::operation::cancel_import_task::builders::CancelImportTaskOutputBuilder {
+    pub fn builder() -> crate::operation::cancel_import_task::builders::CancelImportTaskOutputBuilder
+    {
         crate::operation::cancel_import_task::builders::CancelImportTaskOutputBuilder::default()
     }
 }
 
 /// A builder for [`CancelImportTaskOutput`](crate::operation::cancel_import_task::CancelImportTaskOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CancelImportTaskOutputBuilder {
     pub(crate) import_id: ::std::option::Option<::std::string::String>,
@@ -81,7 +84,10 @@ impl CancelImportTaskOutputBuilder {
         self
     }
     /// <p>Statistics about the import progress at the time of cancellation.</p>
-    pub fn set_import_statistics(mut self, input: ::std::option::Option<crate::types::ImportStatistics>) -> Self {
+    pub fn set_import_statistics(
+        mut self,
+        input: ::std::option::Option<crate::types::ImportStatistics>,
+    ) -> Self {
         self.import_statistics = input;
         self
     }
@@ -95,7 +101,10 @@ impl CancelImportTaskOutputBuilder {
         self
     }
     /// <p>The final status of the import task. This will be set to CANCELLED.</p>
-    pub fn set_import_status(mut self, input: ::std::option::Option<crate::types::ImportStatus>) -> Self {
+    pub fn set_import_status(
+        mut self,
+        input: ::std::option::Option<crate::types::ImportStatus>,
+    ) -> Self {
         self.import_status = input;
         self
     }

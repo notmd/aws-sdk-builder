@@ -9,7 +9,9 @@ pub struct CreateLogGroupInput {
     pub kms_key_id: ::std::option::Option<::std::string::String>,
     /// <p>The key-value pairs to use for the tags.</p>
     /// <p>You can grant users access to certain log groups while preventing them from accessing other log groups. To do so, tag your groups and use IAM policies that refer to those tags. To assign tags when you create a log group, you must have either the <code>logs:TagResource</code> or <code>logs:TagLogGroup</code> permission. For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>. For more information about using tags to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
-    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub tags: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     /// <p>Use this parameter to specify the log group class for this log group. There are three classes:</p>
     /// <ul>
     /// <li>
@@ -38,7 +40,11 @@ impl CreateLogGroupInput {
     }
     /// <p>The key-value pairs to use for the tags.</p>
     /// <p>You can grant users access to certain log groups while preventing them from accessing other log groups. To do so, tag your groups and use IAM policies that refer to those tags. To assign tags when you create a log group, you must have either the <code>logs:TagResource</code> or <code>logs:TagLogGroup</code> permission. For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>. For more information about using tags to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
-    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn tags(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.tags.as_ref()
     }
     /// <p>Use this parameter to specify the log group class for this log group. There are three classes:</p>
@@ -70,24 +76,34 @@ impl CreateLogGroupInput {
 }
 
 /// A builder for [`CreateLogGroupInput`](crate::operation::create_log_group::CreateLogGroupInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateLogGroupInputBuilder {
     pub(crate) log_group_name: ::std::option::Option<::std::string::String>,
     pub(crate) kms_key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) tags: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     pub(crate) log_group_class: ::std::option::Option<crate::types::LogGroupClass>,
     pub(crate) deletion_protection_enabled: ::std::option::Option<bool>,
 }
 impl CreateLogGroupInputBuilder {
     /// <p>A name for the log group.</p>
     /// This field is required.
-    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_group_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.log_group_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A name for the log group.</p>
-    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_log_group_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.log_group_name = input;
         self
     }
@@ -115,7 +131,11 @@ impl CreateLogGroupInputBuilder {
     ///
     /// <p>The key-value pairs to use for the tags.</p>
     /// <p>You can grant users access to certain log groups while preventing them from accessing other log groups. To do so, tag your groups and use IAM policies that refer to those tags. To assign tags when you create a log group, you must have either the <code>logs:TagResource</code> or <code>logs:TagLogGroup</code> permission. For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>. For more information about using tags to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
-    pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn tags(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut hash_map = self.tags.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.tags = ::std::option::Option::Some(hash_map);
@@ -123,13 +143,22 @@ impl CreateLogGroupInputBuilder {
     }
     /// <p>The key-value pairs to use for the tags.</p>
     /// <p>You can grant users access to certain log groups while preventing them from accessing other log groups. To do so, tag your groups and use IAM policies that refer to those tags. To assign tags when you create a log group, you must have either the <code>logs:TagResource</code> or <code>logs:TagLogGroup</code> permission. For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>. For more information about using tags to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
+    ) -> Self {
         self.tags = input;
         self
     }
     /// <p>The key-value pairs to use for the tags.</p>
     /// <p>You can grant users access to certain log groups while preventing them from accessing other log groups. To do so, tag your groups and use IAM policies that refer to those tags. To assign tags when you create a log group, you must have either the <code>logs:TagResource</code> or <code>logs:TagLogGroup</code> permission. For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>. For more information about using tags to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.tags
     }
     /// <p>Use this parameter to specify the log group class for this log group. There are three classes:</p>
@@ -162,7 +191,10 @@ impl CreateLogGroupInputBuilder {
     /// <p>The value of <code>logGroupClass</code> can't be changed after a log group is created.</p>
     /// </important>
     /// <p>For details about the features supported by each class, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log classes</a></p>
-    pub fn set_log_group_class(mut self, input: ::std::option::Option<crate::types::LogGroupClass>) -> Self {
+    pub fn set_log_group_class(
+        mut self,
+        input: ::std::option::Option<crate::types::LogGroupClass>,
+    ) -> Self {
         self.log_group_class = input;
         self
     }
@@ -199,7 +231,10 @@ impl CreateLogGroupInputBuilder {
     /// Consumes the builder and constructs a [`CreateLogGroupInput`](crate::operation::create_log_group::CreateLogGroupInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::create_log_group::CreateLogGroupInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::create_log_group::CreateLogGroupInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::create_log_group::CreateLogGroupInput {
             log_group_name: self.log_group_name,
             kms_key_id: self.kms_key_id,

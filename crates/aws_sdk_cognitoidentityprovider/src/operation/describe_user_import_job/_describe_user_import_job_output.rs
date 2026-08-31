@@ -21,13 +21,17 @@ impl ::aws_types::request_id::RequestId for DescribeUserImportJobOutput {
 }
 impl DescribeUserImportJobOutput {
     /// Creates a new builder-style object to manufacture [`DescribeUserImportJobOutput`](crate::operation::describe_user_import_job::DescribeUserImportJobOutput).
-    pub fn builder() -> crate::operation::describe_user_import_job::builders::DescribeUserImportJobOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::describe_user_import_job::builders::DescribeUserImportJobOutputBuilder
+    {
         crate::operation::describe_user_import_job::builders::DescribeUserImportJobOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeUserImportJobOutput`](crate::operation::describe_user_import_job::DescribeUserImportJobOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeUserImportJobOutputBuilder {
     pub(crate) user_import_job: ::std::option::Option<crate::types::UserImportJobType>,
@@ -40,7 +44,10 @@ impl DescribeUserImportJobOutputBuilder {
         self
     }
     /// <p>The details of the user import job. Includes logging destination, status, and the Amazon S3 pre-signed URL for CSV upload.</p>
-    pub fn set_user_import_job(mut self, input: ::std::option::Option<crate::types::UserImportJobType>) -> Self {
+    pub fn set_user_import_job(
+        mut self,
+        input: ::std::option::Option<crate::types::UserImportJobType>,
+    ) -> Self {
         self.user_import_job = input;
         self
     }

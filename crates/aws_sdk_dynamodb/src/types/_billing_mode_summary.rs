@@ -15,7 +15,8 @@ pub struct BillingModeSummary {
     /// </ul>
     pub billing_mode: ::std::option::Option<crate::types::BillingMode>,
     /// <p>Represents the time when <code>PAY_PER_REQUEST</code> was last set as the read/write capacity mode.</p>
-    pub last_update_to_pay_per_request_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+    pub last_update_to_pay_per_request_date_time:
+        ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl BillingModeSummary {
     /// <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p>
@@ -29,7 +30,9 @@ impl BillingModeSummary {
         self.billing_mode.as_ref()
     }
     /// <p>Represents the time when <code>PAY_PER_REQUEST</code> was last set as the read/write capacity mode.</p>
-    pub fn last_update_to_pay_per_request_date_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn last_update_to_pay_per_request_date_time(
+        &self,
+    ) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.last_update_to_pay_per_request_date_time.as_ref()
     }
 }
@@ -41,11 +44,14 @@ impl BillingModeSummary {
 }
 
 /// A builder for [`BillingModeSummary`](crate::types::BillingModeSummary).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct BillingModeSummaryBuilder {
     pub(crate) billing_mode: ::std::option::Option<crate::types::BillingMode>,
-    pub(crate) last_update_to_pay_per_request_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+    pub(crate) last_update_to_pay_per_request_date_time:
+        ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl BillingModeSummaryBuilder {
     /// <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p>
@@ -66,7 +72,10 @@ impl BillingModeSummaryBuilder {
     /// <li>
     /// <p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li>
     /// </ul>
-    pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
+    pub fn set_billing_mode(
+        mut self,
+        input: ::std::option::Option<crate::types::BillingMode>,
+    ) -> Self {
         self.billing_mode = input;
         self
     }
@@ -81,17 +90,25 @@ impl BillingModeSummaryBuilder {
         &self.billing_mode
     }
     /// <p>Represents the time when <code>PAY_PER_REQUEST</code> was last set as the read/write capacity mode.</p>
-    pub fn last_update_to_pay_per_request_date_time(mut self, input: ::aws_smithy_types::DateTime) -> Self {
+    pub fn last_update_to_pay_per_request_date_time(
+        mut self,
+        input: ::aws_smithy_types::DateTime,
+    ) -> Self {
         self.last_update_to_pay_per_request_date_time = ::std::option::Option::Some(input);
         self
     }
     /// <p>Represents the time when <code>PAY_PER_REQUEST</code> was last set as the read/write capacity mode.</p>
-    pub fn set_last_update_to_pay_per_request_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_last_update_to_pay_per_request_date_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.last_update_to_pay_per_request_date_time = input;
         self
     }
     /// <p>Represents the time when <code>PAY_PER_REQUEST</code> was last set as the read/write capacity mode.</p>
-    pub fn get_last_update_to_pay_per_request_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_last_update_to_pay_per_request_date_time(
+        &self,
+    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_update_to_pay_per_request_date_time
     }
     /// Consumes the builder and constructs a [`BillingModeSummary`](crate::types::BillingModeSummary).

@@ -33,7 +33,9 @@ impl DurableConfig {
 }
 
 /// A builder for [`DurableConfig`](crate::types::DurableConfig).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DurableConfigBuilder {
     pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,

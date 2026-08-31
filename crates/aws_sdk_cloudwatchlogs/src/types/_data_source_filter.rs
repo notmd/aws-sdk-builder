@@ -28,7 +28,9 @@ impl DataSourceFilter {
 }
 
 /// A builder for [`DataSourceFilter`](crate::types::DataSourceFilter).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DataSourceFilterBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -67,7 +69,12 @@ impl DataSourceFilterBuilder {
     /// Consumes the builder and constructs a [`DataSourceFilter`](crate::types::DataSourceFilter).
     /// This method will fail if any of the following fields are not set:
     /// - [`name`](crate::types::builders::DataSourceFilterBuilder::name)
-    pub fn build(self) -> ::std::result::Result<crate::types::DataSourceFilter, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::DataSourceFilter,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::DataSourceFilter {
             name: self.name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

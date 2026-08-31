@@ -86,13 +86,17 @@ impl ::aws_types::request_id::RequestId for ListObjectAnnotationsOutput {
 }
 impl ListObjectAnnotationsOutput {
     /// Creates a new builder-style object to manufacture [`ListObjectAnnotationsOutput`](crate::operation::list_object_annotations::ListObjectAnnotationsOutput).
-    pub fn builder() -> crate::operation::list_object_annotations::builders::ListObjectAnnotationsOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_object_annotations::builders::ListObjectAnnotationsOutputBuilder
+    {
         crate::operation::list_object_annotations::builders::ListObjectAnnotationsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListObjectAnnotationsOutput`](crate::operation::list_object_annotations::ListObjectAnnotationsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListObjectAnnotationsOutputBuilder {
     pub(crate) annotations: ::std::option::Option<::std::vec::Vec<crate::types::AnnotationEntry>>,
@@ -121,12 +125,17 @@ impl ListObjectAnnotationsOutputBuilder {
         self
     }
     /// <p>The list of annotations attached to the object.</p>
-    pub fn set_annotations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AnnotationEntry>>) -> Self {
+    pub fn set_annotations(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AnnotationEntry>>,
+    ) -> Self {
         self.annotations = input;
         self
     }
     /// <p>The list of annotations attached to the object.</p>
-    pub fn get_annotations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AnnotationEntry>> {
+    pub fn get_annotations(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AnnotationEntry>> {
         &self.annotations
     }
     /// <p>The bucket name.</p>
@@ -158,12 +167,18 @@ impl ListObjectAnnotationsOutputBuilder {
         &self.key
     }
     /// <p>The version ID of the object.</p>
-    pub fn object_version_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn object_version_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.object_version_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The version ID of the object.</p>
-    pub fn set_object_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_object_version_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.object_version_id = input;
         self
     }
@@ -172,12 +187,18 @@ impl ListObjectAnnotationsOutputBuilder {
         &self.object_version_id
     }
     /// <p>The prefix used to filter the response.</p>
-    pub fn annotation_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn annotation_prefix(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.annotation_prefix = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The prefix used to filter the response.</p>
-    pub fn set_annotation_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_annotation_prefix(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.annotation_prefix = input;
         self
     }
@@ -214,12 +235,18 @@ impl ListObjectAnnotationsOutputBuilder {
         &self.annotation_count
     }
     /// <p>The continuation token used in this request.</p>
-    pub fn continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn continuation_token(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The continuation token used in this request.</p>
-    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_continuation_token(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.continuation_token = input;
         self
     }
@@ -228,12 +255,18 @@ impl ListObjectAnnotationsOutputBuilder {
         &self.continuation_token
     }
     /// <p>The continuation token to use to retrieve the next page of results.</p>
-    pub fn next_continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn next_continuation_token(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.next_continuation_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The continuation token to use to retrieve the next page of results.</p>
-    pub fn set_next_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_next_continuation_token(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.next_continuation_token = input;
         self
     }
@@ -251,7 +284,10 @@ impl ListObjectAnnotationsOutputBuilder {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+    pub fn set_request_charged(
+        mut self,
+        input: ::std::option::Option<crate::types::RequestCharged>,
+    ) -> Self {
         self.request_charged = input;
         self
     }
@@ -266,7 +302,10 @@ impl ListObjectAnnotationsOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(
+        &mut self,
+        extended_request_id: Option<String>,
+    ) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

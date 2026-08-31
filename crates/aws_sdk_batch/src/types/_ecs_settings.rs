@@ -63,7 +63,9 @@ impl EcsSettings {
 }
 
 /// A builder for [`EcsSettings`](crate::types::EcsSettings).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct EcsSettingsBuilder {
     pub(crate) container_insights: ::std::option::Option<crate::types::ContainerInsights>,
@@ -117,7 +119,10 @@ impl EcsSettingsBuilder {
     /// </dd>
     /// </dl>
     /// <p>If you don't specify a value, the default is <code>DISABLED</code>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/cloudwatch-container-insights.html">Container Insights</a> in the <i>Batch User Guide</i>.</p>
-    pub fn set_container_insights(mut self, input: ::std::option::Option<crate::types::ContainerInsights>) -> Self {
+    pub fn set_container_insights(
+        mut self,
+        input: ::std::option::Option<crate::types::ContainerInsights>,
+    ) -> Self {
         self.container_insights = input;
         self
     }
@@ -143,7 +148,9 @@ impl EcsSettingsBuilder {
     /// </dd>
     /// </dl>
     /// <p>If you don't specify a value, the default is <code>DISABLED</code>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/cloudwatch-container-insights.html">Container Insights</a> in the <i>Batch User Guide</i>.</p>
-    pub fn get_container_insights(&self) -> &::std::option::Option<crate::types::ContainerInsights> {
+    pub fn get_container_insights(
+        &self,
+    ) -> &::std::option::Option<crate::types::ContainerInsights> {
         &self.container_insights
     }
     /// Consumes the builder and constructs a [`EcsSettings`](crate::types::EcsSettings).

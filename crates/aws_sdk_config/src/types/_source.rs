@@ -39,7 +39,9 @@ impl Source {
         self.source_details.as_deref().unwrap_or_default()
     }
     /// <p>Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to <code>CUSTOM_POLICY</code>.</p>
-    pub fn custom_policy_details(&self) -> ::std::option::Option<&crate::types::CustomPolicyDetails> {
+    pub fn custom_policy_details(
+        &self,
+    ) -> ::std::option::Option<&crate::types::CustomPolicyDetails> {
         self.custom_policy_details.as_ref()
     }
 }
@@ -51,7 +53,9 @@ impl Source {
 }
 
 /// A builder for [`Source`](crate::types::Source).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SourceBuilder {
     pub(crate) owner: ::std::option::Option<crate::types::Owner>,
@@ -84,14 +88,20 @@ impl SourceBuilder {
     /// <p>For Config Managed rules, a predefined identifier from a list. For example, <code>IAM_PASSWORD_POLICY</code> is a managed rule. To reference a managed rule, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">List of Config Managed Rules</a>.</p>
     /// <p>For Config Custom Lambda rules, the identifier is the Amazon Resource Name (ARN) of the rule's Lambda function, such as <code>arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name</code>.</p>
     /// <p>For Config Custom Policy rules, this field will be ignored.</p>
-    pub fn source_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn source_identifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.source_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>For Config Managed rules, a predefined identifier from a list. For example, <code>IAM_PASSWORD_POLICY</code> is a managed rule. To reference a managed rule, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">List of Config Managed Rules</a>.</p>
     /// <p>For Config Custom Lambda rules, the identifier is the Amazon Resource Name (ARN) of the rule's Lambda function, such as <code>arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name</code>.</p>
     /// <p>For Config Custom Policy rules, this field will be ignored.</p>
-    pub fn set_source_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_source_identifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.source_identifier = input;
         self
     }
@@ -115,13 +125,18 @@ impl SourceBuilder {
     }
     /// <p>Provides the source and the message types that cause Config to evaluate your Amazon Web Services resources against a rule. It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
     /// <p>If the owner is set to <code>CUSTOM_POLICY</code>, the only acceptable values for the Config rule trigger message type are <code>ConfigurationItemChangeNotification</code> and <code>OversizedConfigurationItemChangeNotification</code>.</p>
-    pub fn set_source_details(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SourceDetail>>) -> Self {
+    pub fn set_source_details(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::SourceDetail>>,
+    ) -> Self {
         self.source_details = input;
         self
     }
     /// <p>Provides the source and the message types that cause Config to evaluate your Amazon Web Services resources against a rule. It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
     /// <p>If the owner is set to <code>CUSTOM_POLICY</code>, the only acceptable values for the Config rule trigger message type are <code>ConfigurationItemChangeNotification</code> and <code>OversizedConfigurationItemChangeNotification</code>.</p>
-    pub fn get_source_details(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SourceDetail>> {
+    pub fn get_source_details(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SourceDetail>> {
         &self.source_details
     }
     /// <p>Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to <code>CUSTOM_POLICY</code>.</p>
@@ -130,18 +145,26 @@ impl SourceBuilder {
         self
     }
     /// <p>Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to <code>CUSTOM_POLICY</code>.</p>
-    pub fn set_custom_policy_details(mut self, input: ::std::option::Option<crate::types::CustomPolicyDetails>) -> Self {
+    pub fn set_custom_policy_details(
+        mut self,
+        input: ::std::option::Option<crate::types::CustomPolicyDetails>,
+    ) -> Self {
         self.custom_policy_details = input;
         self
     }
     /// <p>Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to <code>CUSTOM_POLICY</code>.</p>
-    pub fn get_custom_policy_details(&self) -> &::std::option::Option<crate::types::CustomPolicyDetails> {
+    pub fn get_custom_policy_details(
+        &self,
+    ) -> &::std::option::Option<crate::types::CustomPolicyDetails> {
         &self.custom_policy_details
     }
     /// Consumes the builder and constructs a [`Source`](crate::types::Source).
     /// This method will fail if any of the following fields are not set:
     /// - [`owner`](crate::types::builders::SourceBuilder::owner)
-    pub fn build(self) -> ::std::result::Result<crate::types::Source, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<crate::types::Source, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::Source {
             owner: self.owner.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

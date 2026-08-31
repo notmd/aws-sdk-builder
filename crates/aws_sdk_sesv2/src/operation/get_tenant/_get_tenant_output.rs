@@ -27,7 +27,9 @@ impl GetTenantOutput {
 }
 
 /// A builder for [`GetTenantOutput`](crate::operation::get_tenant::GetTenantOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetTenantOutputBuilder {
     pub(crate) tenant: ::std::option::Option<crate::types::Tenant>,

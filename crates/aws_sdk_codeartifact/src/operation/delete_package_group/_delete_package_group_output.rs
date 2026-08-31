@@ -20,13 +20,16 @@ impl ::aws_types::request_id::RequestId for DeletePackageGroupOutput {
 }
 impl DeletePackageGroupOutput {
     /// Creates a new builder-style object to manufacture [`DeletePackageGroupOutput`](crate::operation::delete_package_group::DeletePackageGroupOutput).
-    pub fn builder() -> crate::operation::delete_package_group::builders::DeletePackageGroupOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::delete_package_group::builders::DeletePackageGroupOutputBuilder {
         crate::operation::delete_package_group::builders::DeletePackageGroupOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeletePackageGroupOutput`](crate::operation::delete_package_group::DeletePackageGroupOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeletePackageGroupOutputBuilder {
     pub(crate) package_group: ::std::option::Option<crate::types::PackageGroupDescription>,
@@ -39,12 +42,17 @@ impl DeletePackageGroupOutputBuilder {
         self
     }
     /// <p>Information about the deleted package group after processing the request.</p>
-    pub fn set_package_group(mut self, input: ::std::option::Option<crate::types::PackageGroupDescription>) -> Self {
+    pub fn set_package_group(
+        mut self,
+        input: ::std::option::Option<crate::types::PackageGroupDescription>,
+    ) -> Self {
         self.package_group = input;
         self
     }
     /// <p>Information about the deleted package group after processing the request.</p>
-    pub fn get_package_group(&self) -> &::std::option::Option<crate::types::PackageGroupDescription> {
+    pub fn get_package_group(
+        &self,
+    ) -> &::std::option::Option<crate::types::PackageGroupDescription> {
         &self.package_group
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

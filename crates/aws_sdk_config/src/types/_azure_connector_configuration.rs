@@ -29,7 +29,9 @@ impl AzureConnectorConfiguration {
 }
 
 /// A builder for [`AzureConnectorConfiguration`](crate::types::AzureConnectorConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AzureConnectorConfigurationBuilder {
     pub(crate) tenant_identifier: ::std::option::Option<::std::string::String>,
@@ -38,12 +40,18 @@ pub struct AzureConnectorConfigurationBuilder {
 impl AzureConnectorConfigurationBuilder {
     /// <p>The Azure tenant identifier.</p>
     /// This field is required.
-    pub fn tenant_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn tenant_identifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.tenant_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Azure tenant identifier.</p>
-    pub fn set_tenant_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_tenant_identifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.tenant_identifier = input;
         self
     }
@@ -53,12 +61,18 @@ impl AzureConnectorConfigurationBuilder {
     }
     /// <p>The Azure client identifier.</p>
     /// This field is required.
-    pub fn client_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn client_identifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.client_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Azure client identifier.</p>
-    pub fn set_client_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_client_identifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.client_identifier = input;
         self
     }
@@ -70,7 +84,12 @@ impl AzureConnectorConfigurationBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`tenant_identifier`](crate::types::builders::AzureConnectorConfigurationBuilder::tenant_identifier)
     /// - [`client_identifier`](crate::types::builders::AzureConnectorConfigurationBuilder::client_identifier)
-    pub fn build(self) -> ::std::result::Result<crate::types::AzureConnectorConfiguration, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::AzureConnectorConfiguration,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::AzureConnectorConfiguration {
             tenant_identifier: self.tenant_identifier.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

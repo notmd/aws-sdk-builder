@@ -57,12 +57,17 @@ impl EncryptionBuilder {
         self
     }
     /// <p>The server-side encryption algorithm used when storing job results in Amazon S3 (for example, AES256, <code>aws:kms</code>).</p>
-    pub fn set_encryption_type(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
+    pub fn set_encryption_type(
+        mut self,
+        input: ::std::option::Option<crate::types::ServerSideEncryption>,
+    ) -> Self {
         self.encryption_type = input;
         self
     }
     /// <p>The server-side encryption algorithm used when storing job results in Amazon S3 (for example, AES256, <code>aws:kms</code>).</p>
-    pub fn get_encryption_type(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
+    pub fn get_encryption_type(
+        &self,
+    ) -> &::std::option::Option<crate::types::ServerSideEncryption> {
         &self.encryption_type
     }
     /// <p>If the encryption type is <code>aws:kms</code>, this optional value specifies the ID of the symmetric encryption customer managed key to use for encryption of job results. Amazon S3 only supports symmetric encryption KMS keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric keys in KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
@@ -96,7 +101,12 @@ impl EncryptionBuilder {
     /// Consumes the builder and constructs a [`Encryption`](crate::types::Encryption).
     /// This method will fail if any of the following fields are not set:
     /// - [`encryption_type`](crate::types::builders::EncryptionBuilder::encryption_type)
-    pub fn build(self) -> ::std::result::Result<crate::types::Encryption, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::Encryption,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::Encryption {
             encryption_type: self.encryption_type.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

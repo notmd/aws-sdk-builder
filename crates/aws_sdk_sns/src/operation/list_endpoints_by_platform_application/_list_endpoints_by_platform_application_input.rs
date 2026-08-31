@@ -21,13 +21,15 @@ impl ListEndpointsByPlatformApplicationInput {
 }
 impl ListEndpointsByPlatformApplicationInput {
     /// Creates a new builder-style object to manufacture [`ListEndpointsByPlatformApplicationInput`](crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationInput).
-    pub fn builder() -> crate::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationInputBuilder {
+    pub fn builder() -> crate::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationInputBuilder{
         crate::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationInputBuilder::default()
     }
 }
 
 /// A builder for [`ListEndpointsByPlatformApplicationInput`](crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListEndpointsByPlatformApplicationInputBuilder {
     pub(crate) platform_application_arn: ::std::option::Option<::std::string::String>,
@@ -36,12 +38,18 @@ pub struct ListEndpointsByPlatformApplicationInputBuilder {
 impl ListEndpointsByPlatformApplicationInputBuilder {
     /// <p><code>PlatformApplicationArn</code> for <code>ListEndpointsByPlatformApplicationInput</code> action.</p>
     /// This field is required.
-    pub fn platform_application_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn platform_application_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.platform_application_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p><code>PlatformApplicationArn</code> for <code>ListEndpointsByPlatformApplicationInput</code> action.</p>
-    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_platform_application_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.platform_application_arn = input;
         self
     }
@@ -69,7 +77,7 @@ impl ListEndpointsByPlatformApplicationInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationInput,
         ::aws_smithy_types::error::operation::BuildError,
-    > {
+    >{
         ::std::result::Result::Ok(
             crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationInput {
                 platform_application_arn: self.platform_application_arn,

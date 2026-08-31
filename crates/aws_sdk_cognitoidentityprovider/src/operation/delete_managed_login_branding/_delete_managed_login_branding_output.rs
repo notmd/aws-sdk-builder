@@ -12,13 +12,15 @@ impl ::aws_types::request_id::RequestId for DeleteManagedLoginBrandingOutput {
 }
 impl DeleteManagedLoginBrandingOutput {
     /// Creates a new builder-style object to manufacture [`DeleteManagedLoginBrandingOutput`](crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingOutput).
-    pub fn builder() -> crate::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingOutputBuilder {
+    pub fn builder() -> crate::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingOutputBuilder{
         crate::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteManagedLoginBrandingOutput`](crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteManagedLoginBrandingOutputBuilder {
     _request_id: Option<String>,
@@ -34,7 +36,9 @@ impl DeleteManagedLoginBrandingOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteManagedLoginBrandingOutput`](crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingOutput).
-    pub fn build(self) -> crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingOutput {
         crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingOutput {
             _request_id: self._request_id,
         }

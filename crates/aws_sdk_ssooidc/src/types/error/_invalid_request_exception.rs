@@ -65,7 +65,9 @@ impl InvalidRequestException {
 }
 
 /// A builder for [`InvalidRequestException`](crate::types::error::InvalidRequestException).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct InvalidRequestExceptionBuilder {
     pub(crate) error: ::std::option::Option<::std::string::String>,
@@ -95,21 +97,32 @@ impl InvalidRequestExceptionBuilder {
         self
     }
     /// <p>A string that uniquely identifies a reason for the error.</p>
-    pub fn set_reason(mut self, input: ::std::option::Option<crate::types::InvalidRequestExceptionReason>) -> Self {
+    pub fn set_reason(
+        mut self,
+        input: ::std::option::Option<crate::types::InvalidRequestExceptionReason>,
+    ) -> Self {
         self.reason = input;
         self
     }
     /// <p>A string that uniquely identifies a reason for the error.</p>
-    pub fn get_reason(&self) -> &::std::option::Option<crate::types::InvalidRequestExceptionReason> {
+    pub fn get_reason(
+        &self,
+    ) -> &::std::option::Option<crate::types::InvalidRequestExceptionReason> {
         &self.reason
     }
     /// <p>Human-readable text providing additional information, used to assist the client developer in understanding the error that occurred.</p>
-    pub fn error_description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn error_description(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.error_description = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Human-readable text providing additional information, used to assist the client developer in understanding the error that occurred.</p>
-    pub fn set_error_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_error_description(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.error_description = input;
         self
     }
@@ -138,7 +151,10 @@ impl InvalidRequestExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
+    pub fn set_meta(
+        &mut self,
+        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
+    ) -> &mut Self {
         self.meta = meta;
         self
     }

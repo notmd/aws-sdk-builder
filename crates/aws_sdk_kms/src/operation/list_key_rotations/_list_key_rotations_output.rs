@@ -34,13 +34,16 @@ impl ::aws_types::request_id::RequestId for ListKeyRotationsOutput {
 }
 impl ListKeyRotationsOutput {
     /// Creates a new builder-style object to manufacture [`ListKeyRotationsOutput`](crate::operation::list_key_rotations::ListKeyRotationsOutput).
-    pub fn builder() -> crate::operation::list_key_rotations::builders::ListKeyRotationsOutputBuilder {
+    pub fn builder() -> crate::operation::list_key_rotations::builders::ListKeyRotationsOutputBuilder
+    {
         crate::operation::list_key_rotations::builders::ListKeyRotationsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListKeyRotationsOutput`](crate::operation::list_key_rotations::ListKeyRotationsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListKeyRotationsOutputBuilder {
     pub(crate) rotations: ::std::option::Option<::std::vec::Vec<crate::types::RotationsListEntry>>,
@@ -61,12 +64,17 @@ impl ListKeyRotationsOutputBuilder {
         self
     }
     /// <p>A list of completed key material rotations. When the optional input parameter <code>IncludeKeyMaterial</code> is specified with a value of <code>ALL_KEY_MATERIAL</code>, this list includes the first key material and any imported key material pending rotation.</p>
-    pub fn set_rotations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RotationsListEntry>>) -> Self {
+    pub fn set_rotations(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::RotationsListEntry>>,
+    ) -> Self {
         self.rotations = input;
         self
     }
     /// <p>A list of completed key material rotations. When the optional input parameter <code>IncludeKeyMaterial</code> is specified with a value of <code>ALL_KEY_MATERIAL</code>, this list includes the first key material and any imported key material pending rotation.</p>
-    pub fn get_rotations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RotationsListEntry>> {
+    pub fn get_rotations(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::RotationsListEntry>> {
         &self.rotations
     }
     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>

@@ -27,7 +27,9 @@ impl GetDedicatedIpOutput {
 }
 
 /// A builder for [`GetDedicatedIpOutput`](crate::operation::get_dedicated_ip::GetDedicatedIpOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetDedicatedIpOutputBuilder {
     pub(crate) dedicated_ip: ::std::option::Option<crate::types::DedicatedIp>,
@@ -40,7 +42,10 @@ impl GetDedicatedIpOutputBuilder {
         self
     }
     /// <p>An object that contains information about a dedicated IP address.</p>
-    pub fn set_dedicated_ip(mut self, input: ::std::option::Option<crate::types::DedicatedIp>) -> Self {
+    pub fn set_dedicated_ip(
+        mut self,
+        input: ::std::option::Option<crate::types::DedicatedIp>,
+    ) -> Self {
         self.dedicated_ip = input;
         self
     }

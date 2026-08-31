@@ -21,7 +21,9 @@ impl ManagedInstancesStorageConfiguration {
 }
 
 /// A builder for [`ManagedInstancesStorageConfiguration`](crate::types::ManagedInstancesStorageConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ManagedInstancesStorageConfigurationBuilder {
     pub(crate) storage_size_gib: ::std::option::Option<i32>,

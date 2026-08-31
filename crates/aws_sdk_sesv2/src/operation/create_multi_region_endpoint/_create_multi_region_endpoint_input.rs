@@ -29,13 +29,15 @@ impl CreateMultiRegionEndpointInput {
 }
 impl CreateMultiRegionEndpointInput {
     /// Creates a new builder-style object to manufacture [`CreateMultiRegionEndpointInput`](crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointInput).
-    pub fn builder() -> crate::operation::create_multi_region_endpoint::builders::CreateMultiRegionEndpointInputBuilder {
+    pub fn builder() -> crate::operation::create_multi_region_endpoint::builders::CreateMultiRegionEndpointInputBuilder{
         crate::operation::create_multi_region_endpoint::builders::CreateMultiRegionEndpointInputBuilder::default()
     }
 }
 
 /// A builder for [`CreateMultiRegionEndpointInput`](crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateMultiRegionEndpointInputBuilder {
     pub(crate) endpoint_name: ::std::option::Option<::std::string::String>,
@@ -45,12 +47,18 @@ pub struct CreateMultiRegionEndpointInputBuilder {
 impl CreateMultiRegionEndpointInputBuilder {
     /// <p>The name of the multi-region endpoint (global-endpoint).</p>
     /// This field is required.
-    pub fn endpoint_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn endpoint_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.endpoint_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the multi-region endpoint (global-endpoint).</p>
-    pub fn set_endpoint_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_endpoint_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.endpoint_name = input;
         self
     }
@@ -85,7 +93,10 @@ impl CreateMultiRegionEndpointInputBuilder {
         self
     }
     /// <p>An array of objects that define the tags (keys and values) to associate with the multi-region endpoint (global-endpoint).</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.tags = input;
         self
     }
@@ -100,10 +111,12 @@ impl CreateMultiRegionEndpointInputBuilder {
         crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointInput {
-            endpoint_name: self.endpoint_name,
-            details: self.details,
-            tags: self.tags,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointInput {
+                endpoint_name: self.endpoint_name,
+                details: self.details,
+                tags: self.tags,
+            },
+        )
     }
 }

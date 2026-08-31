@@ -3,7 +3,9 @@ pub use crate::operation::admin_delete_user_attributes::_admin_delete_user_attri
 
 pub use crate::operation::admin_delete_user_attributes::_admin_delete_user_attributes_output::AdminDeleteUserAttributesOutputBuilder;
 
-impl crate::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesInputBuilder {
+impl
+    crate::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -66,7 +68,7 @@ impl AdminDeleteUserAttributesFluentBuilder {
         }
     }
     /// Access the AdminDeleteUserAttributes as a reference.
-    pub fn as_input(&self) -> &crate::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -95,7 +97,11 @@ impl AdminDeleteUserAttributesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributes::orchestrate(&runtime_plugins, input).await
+        crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributes::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -108,12 +114,18 @@ impl AdminDeleteUserAttributesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -152,19 +164,27 @@ impl AdminDeleteUserAttributesFluentBuilder {
     ///
     /// <p>An array of strings representing the user attribute names you want to delete.</p>
     /// <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
-    pub fn user_attribute_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn user_attribute_names(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.user_attribute_names(input.into());
         self
     }
     /// <p>An array of strings representing the user attribute names you want to delete.</p>
     /// <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
-    pub fn set_user_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_user_attribute_names(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.inner = self.inner.set_user_attribute_names(input);
         self
     }
     /// <p>An array of strings representing the user attribute names you want to delete.</p>
     /// <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
-    pub fn get_user_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_user_attribute_names(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_user_attribute_names()
     }
 }

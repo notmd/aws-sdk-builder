@@ -11,10 +11,28 @@ pub use crate::types::error::_bucket_already_exists::BucketAlreadyExistsBuilder;
 #[cfg(feature = "op_create_bucket")]
 pub use crate::types::error::_bucket_already_owned_by_you::BucketAlreadyOwnedByYouBuilder;
 
-#[cfg(any(feature = "op_create_session", feature = "op_delete_object_annotation", feature = "op_get_object_annotation", feature = "op_list_object_annotations", feature = "op_list_objects", feature = "op_list_objects_v2", feature = "op_put_object_annotation"))]
+#[cfg(any(
+    feature = "op_create_session",
+    feature = "op_delete_object_annotation",
+    feature = "op_get_object_annotation",
+    feature = "op_list_object_annotations",
+    feature = "op_list_objects",
+    feature = "op_list_objects_v2",
+    feature = "op_put_object_annotation"
+))]
 pub use crate::types::error::_no_such_bucket::NoSuchBucketBuilder;
 
-#[cfg(any(feature = "op_delete_object_annotation", feature = "op_get_object", feature = "op_get_object_acl", feature = "op_get_object_annotation", feature = "op_get_object_attributes", feature = "op_list_object_annotations", feature = "op_put_object_acl", feature = "op_put_object_annotation", feature = "op_update_object_encryption"))]
+#[cfg(any(
+    feature = "op_delete_object_annotation",
+    feature = "op_get_object",
+    feature = "op_get_object_acl",
+    feature = "op_get_object_annotation",
+    feature = "op_get_object_attributes",
+    feature = "op_list_object_annotations",
+    feature = "op_put_object_acl",
+    feature = "op_put_object_annotation",
+    feature = "op_update_object_encryption"
+))]
 pub use crate::types::error::_no_such_key::NoSuchKeyBuilder;
 
 #[cfg(feature = "op_get_object")]
@@ -32,7 +50,11 @@ pub use crate::types::error::_invalid_prefix::InvalidPrefixBuilder;
 #[cfg(feature = "op_put_object")]
 pub use crate::types::error::_encryption_type_mismatch::EncryptionTypeMismatchBuilder;
 
-#[cfg(any(feature = "op_put_object", feature = "op_put_object_annotation", feature = "op_update_object_encryption"))]
+#[cfg(any(
+    feature = "op_put_object",
+    feature = "op_put_object_annotation",
+    feature = "op_update_object_encryption"
+))]
 pub use crate::types::error::_invalid_request::InvalidRequestBuilder;
 
 #[cfg(feature = "op_put_object")]

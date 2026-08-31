@@ -59,7 +59,7 @@ impl GetOrganizationConfigRuleDetailedStatusFluentBuilder {
     /// Access the GetOrganizationConfigRuleDetailedStatus as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusInputBuilder {
+    ) -> &crate::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -78,7 +78,7 @@ impl GetOrganizationConfigRuleDetailedStatusFluentBuilder {
             crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -100,15 +100,21 @@ impl GetOrganizationConfigRuleDetailedStatusFluentBuilder {
         crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusOutput,
         crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -117,24 +123,32 @@ impl GetOrganizationConfigRuleDetailedStatusFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::get_organization_config_rule_detailed_status::paginator::GetOrganizationConfigRuleDetailedStatusPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::get_organization_config_rule_detailed_status::paginator::GetOrganizationConfigRuleDetailedStatusPaginator {
+    ) -> crate::operation::get_organization_config_rule_detailed_status::paginator::GetOrganizationConfigRuleDetailedStatusPaginator{
         crate::operation::get_organization_config_rule_detailed_status::paginator::GetOrganizationConfigRuleDetailedStatusPaginator::new(
             self.handle,
             self.inner,
         )
     }
     /// <p>The name of your organization Config rule for which you want status details for member accounts.</p>
-    pub fn organization_config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn organization_config_rule_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.organization_config_rule_name(input.into());
         self
     }
     /// <p>The name of your organization Config rule for which you want status details for member accounts.</p>
-    pub fn set_organization_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_organization_config_rule_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_organization_config_rule_name(input);
         self
     }
     /// <p>The name of your organization Config rule for which you want status details for member accounts.</p>
-    pub fn get_organization_config_rule_name(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_organization_config_rule_name(
+        &self,
+    ) -> &::std::option::Option<::std::string::String> {
         self.inner.get_organization_config_rule_name()
     }
     /// <p>A <code>StatusDetailFilters</code> object.</p>
@@ -143,7 +157,10 @@ impl GetOrganizationConfigRuleDetailedStatusFluentBuilder {
         self
     }
     /// <p>A <code>StatusDetailFilters</code> object.</p>
-    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::StatusDetailFilters>) -> Self {
+    pub fn set_filters(
+        mut self,
+        input: ::std::option::Option<crate::types::StatusDetailFilters>,
+    ) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }

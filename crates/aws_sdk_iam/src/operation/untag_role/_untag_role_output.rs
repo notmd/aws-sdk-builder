@@ -18,7 +18,9 @@ impl UntagRoleOutput {
 }
 
 /// A builder for [`UntagRoleOutput`](crate::operation::untag_role::UntagRoleOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UntagRoleOutputBuilder {
     _request_id: Option<String>,

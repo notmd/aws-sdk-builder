@@ -3,7 +3,9 @@ pub use crate::operation::start_web_authn_registration::_start_web_authn_registr
 
 pub use crate::operation::start_web_authn_registration::_start_web_authn_registration_output::StartWebAuthnRegistrationOutputBuilder;
 
-impl crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationInputBuilder {
+impl
+    crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -58,7 +60,7 @@ impl StartWebAuthnRegistrationFluentBuilder {
         }
     }
     /// Access the StartWebAuthnRegistration as a reference.
-    pub fn as_input(&self) -> &crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,7 +89,11 @@ impl StartWebAuthnRegistrationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::start_web_authn_registration::StartWebAuthnRegistration::orchestrate(&runtime_plugins, input).await
+        crate::operation::start_web_authn_registration::StartWebAuthnRegistration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -100,12 +106,18 @@ impl StartWebAuthnRegistrationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }

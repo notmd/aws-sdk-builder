@@ -76,7 +76,7 @@ impl ListBucketIntelligentTieringConfigurationsFluentBuilder {
     /// Access the ListBucketIntelligentTieringConfigurations as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsInputBuilder {
+    ) -> &crate::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -95,7 +95,7 @@ impl ListBucketIntelligentTieringConfigurationsFluentBuilder {
             crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -120,15 +120,21 @@ impl ListBucketIntelligentTieringConfigurationsFluentBuilder {
         crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsOutput,
         crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -147,12 +153,18 @@ impl ListBucketIntelligentTieringConfigurationsFluentBuilder {
         self.inner.get_bucket()
     }
     /// <p>The <code>ContinuationToken</code> that represents a placeholder from where this request should begin.</p>
-    pub fn continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn continuation_token(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.continuation_token(input.into());
         self
     }
     /// <p>The <code>ContinuationToken</code> that represents a placeholder from where this request should begin.</p>
-    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_continuation_token(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_continuation_token(input);
         self
     }
@@ -161,12 +173,18 @@ impl ListBucketIntelligentTieringConfigurationsFluentBuilder {
         self.inner.get_continuation_token()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

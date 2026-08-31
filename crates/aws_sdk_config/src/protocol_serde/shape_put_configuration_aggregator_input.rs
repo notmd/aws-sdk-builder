@@ -4,7 +4,9 @@ pub fn ser_put_configuration_aggregator_input_input(
     input: &crate::operation::put_configuration_aggregator::PutConfigurationAggregatorInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     if let Some(var_1) = &input.configuration_aggregator_name {
-        object.key("ConfigurationAggregatorName").string(var_1.as_str());
+        object
+            .key("ConfigurationAggregatorName")
+            .string(var_1.as_str());
     }
     if let Some(var_2) = &input.account_aggregation_sources {
         let mut array_3 = object.key("AccountAggregationSources").start_array();
@@ -39,7 +41,10 @@ pub fn ser_put_configuration_aggregator_input_input(
     if let Some(var_12) = &input.aggregator_filters {
         #[allow(unused_mut)]
         let mut object_13 = object.key("AggregatorFilters").start_object();
-        crate::protocol_serde::shape_aggregator_filters::ser_aggregator_filters(&mut object_13, var_12)?;
+        crate::protocol_serde::shape_aggregator_filters::ser_aggregator_filters(
+            &mut object_13,
+            var_12,
+        )?;
         object_13.finish();
     }
     Ok(())

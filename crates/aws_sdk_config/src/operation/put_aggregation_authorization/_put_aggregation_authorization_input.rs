@@ -28,13 +28,15 @@ impl PutAggregationAuthorizationInput {
 }
 impl PutAggregationAuthorizationInput {
     /// Creates a new builder-style object to manufacture [`PutAggregationAuthorizationInput`](crate::operation::put_aggregation_authorization::PutAggregationAuthorizationInput).
-    pub fn builder() -> crate::operation::put_aggregation_authorization::builders::PutAggregationAuthorizationInputBuilder {
+    pub fn builder() -> crate::operation::put_aggregation_authorization::builders::PutAggregationAuthorizationInputBuilder{
         crate::operation::put_aggregation_authorization::builders::PutAggregationAuthorizationInputBuilder::default()
     }
 }
 
 /// A builder for [`PutAggregationAuthorizationInput`](crate::operation::put_aggregation_authorization::PutAggregationAuthorizationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutAggregationAuthorizationInputBuilder {
     pub(crate) authorized_account_id: ::std::option::Option<::std::string::String>,
@@ -44,12 +46,18 @@ pub struct PutAggregationAuthorizationInputBuilder {
 impl PutAggregationAuthorizationInputBuilder {
     /// <p>The 12-digit account ID of the account authorized to aggregate data.</p>
     /// This field is required.
-    pub fn authorized_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn authorized_account_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.authorized_account_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The 12-digit account ID of the account authorized to aggregate data.</p>
-    pub fn set_authorized_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_authorized_account_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.authorized_account_id = input;
         self
     }
@@ -59,12 +67,18 @@ impl PutAggregationAuthorizationInputBuilder {
     }
     /// <p>The region authorized to collect aggregated data.</p>
     /// This field is required.
-    pub fn authorized_aws_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn authorized_aws_region(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.authorized_aws_region = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The region authorized to collect aggregated data.</p>
-    pub fn set_authorized_aws_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_authorized_aws_region(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.authorized_aws_region = input;
         self
     }
@@ -84,7 +98,10 @@ impl PutAggregationAuthorizationInputBuilder {
         self
     }
     /// <p>An array of tag object.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.tags = input;
         self
     }
@@ -99,10 +116,12 @@ impl PutAggregationAuthorizationInputBuilder {
         crate::operation::put_aggregation_authorization::PutAggregationAuthorizationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::put_aggregation_authorization::PutAggregationAuthorizationInput {
-            authorized_account_id: self.authorized_account_id,
-            authorized_aws_region: self.authorized_aws_region,
-            tags: self.tags,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::put_aggregation_authorization::PutAggregationAuthorizationInput {
+                authorized_account_id: self.authorized_account_id,
+                authorized_aws_region: self.authorized_aws_region,
+                tags: self.tags,
+            },
+        )
     }
 }

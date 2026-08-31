@@ -25,7 +25,9 @@ pub fn parse_aws_query_compatible_error(headers: &Headers) -> Option<(&str, &str
 
 #[cfg(test)]
 mod test {
-    use crate::aws_query_compatible_errors::{parse_aws_query_compatible_error, X_AMZN_QUERY_ERROR};
+    use crate::aws_query_compatible_errors::{
+        parse_aws_query_compatible_error, X_AMZN_QUERY_ERROR,
+    };
     use aws_smithy_runtime_api::http::Response;
 
     #[test]
@@ -39,7 +41,10 @@ mod test {
 
         let actual = parse_aws_query_compatible_error(response.headers());
 
-        assert_eq!(Some(("AWS.SimpleQueueService.NonExistentQueue", "Sender")), actual,);
+        assert_eq!(
+            Some(("AWS.SimpleQueueService.NonExistentQueue", "Sender")),
+            actual,
+        );
     }
 
     #[test]

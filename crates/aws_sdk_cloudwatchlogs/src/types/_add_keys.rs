@@ -23,7 +23,9 @@ impl AddKeys {
 }
 
 /// A builder for [`AddKeys`](crate::types::AddKeys).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AddKeysBuilder {
     pub(crate) entries: ::std::option::Option<::std::vec::Vec<crate::types::AddKeyEntry>>,
@@ -41,18 +43,28 @@ impl AddKeysBuilder {
         self
     }
     /// <p>An array of objects, where each object contains the information about one key to add to the log event.</p>
-    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AddKeyEntry>>) -> Self {
+    pub fn set_entries(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AddKeyEntry>>,
+    ) -> Self {
         self.entries = input;
         self
     }
     /// <p>An array of objects, where each object contains the information about one key to add to the log event.</p>
-    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AddKeyEntry>> {
+    pub fn get_entries(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AddKeyEntry>> {
         &self.entries
     }
     /// Consumes the builder and constructs a [`AddKeys`](crate::types::AddKeys).
     /// This method will fail if any of the following fields are not set:
     /// - [`entries`](crate::types::builders::AddKeysBuilder::entries)
-    pub fn build(self) -> ::std::result::Result<crate::types::AddKeys, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::AddKeys,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::AddKeys {
             entries: self.entries.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

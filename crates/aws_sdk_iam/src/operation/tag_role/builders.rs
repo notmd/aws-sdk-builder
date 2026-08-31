@@ -46,14 +46,20 @@ pub struct TagRoleFluentBuilder {
     inner: crate::operation::tag_role::builders::TagRoleInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
-impl crate::client::customize::internal::CustomizableSend<crate::operation::tag_role::TagRoleOutput, crate::operation::tag_role::TagRoleError>
-    for TagRoleFluentBuilder
+impl
+    crate::client::customize::internal::CustomizableSend<
+        crate::operation::tag_role::TagRoleOutput,
+        crate::operation::tag_role::TagRoleError,
+    > for TagRoleFluentBuilder
 {
     fn send(
         self,
         config_override: crate::config::Builder,
     ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<crate::operation::tag_role::TagRoleOutput, crate::operation::tag_role::TagRoleError>,
+        crate::client::customize::internal::SendResult<
+            crate::operation::tag_role::TagRoleOutput,
+            crate::operation::tag_role::TagRoleError,
+        >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -103,16 +109,25 @@ impl TagRoleFluentBuilder {
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
     pub fn customize(
         self,
-    ) -> crate::client::customize::CustomizableOperation<crate::operation::tag_role::TagRoleOutput, crate::operation::tag_role::TagRoleError, Self>
-    {
+    ) -> crate::client::customize::CustomizableOperation<
+        crate::operation::tag_role::TagRoleOutput,
+        crate::operation::tag_role::TagRoleError,
+        Self,
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -144,7 +159,10 @@ impl TagRoleFluentBuilder {
         self
     }
     /// <p>The list of tags that you want to attach to the IAM role. Each tag consists of a key name and an associated value.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

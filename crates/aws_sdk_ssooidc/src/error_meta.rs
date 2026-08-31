@@ -4,89 +4,155 @@
 #[derive(::std::fmt::Debug)]
 pub enum Error {
     #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-/// <p>You do not have sufficient access to perform this action.</p>
+    /// <p>You do not have sufficient access to perform this action.</p>
     AccessDeniedException(crate::types::error::AccessDeniedException),
     #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-/// <p>Indicates that a request to authorize a client with an access user session token is pending.</p>
+    /// <p>Indicates that a request to authorize a client with an access user session token is pending.</p>
     AuthorizationPendingException(crate::types::error::AuthorizationPendingException),
     #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-/// <p>Indicates that the token issued by the service is expired and is no longer valid.</p>
+    /// <p>Indicates that the token issued by the service is expired and is no longer valid.</p>
     ExpiredTokenException(crate::types::error::ExpiredTokenException),
-    #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
-/// <p>Indicates that an error from the service occurred while trying to process a request.</p>
+    #[cfg(any(
+        feature = "op_create_token",
+        feature = "op_create_token_with_iam",
+        feature = "op_register_client",
+        feature = "op_start_device_authorization"
+    ))]
+    /// <p>Indicates that an error from the service occurred while trying to process a request.</p>
     InternalServerException(crate::types::error::InternalServerException),
-    #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_start_device_authorization"))]
-/// <p>Indicates that the <code>clientId</code> or <code>clientSecret</code> in the request is invalid. For example, this can occur when a client sends an incorrect <code>clientId</code> or an expired <code>clientSecret</code>.</p>
+    #[cfg(any(
+        feature = "op_create_token",
+        feature = "op_create_token_with_iam",
+        feature = "op_start_device_authorization"
+    ))]
+    /// <p>Indicates that the <code>clientId</code> or <code>clientSecret</code> in the request is invalid. For example, this can occur when a client sends an incorrect <code>clientId</code> or an expired <code>clientSecret</code>.</p>
     InvalidClientException(crate::types::error::InvalidClientException),
     #[cfg(feature = "op_register_client")]
-/// <p>Indicates that the client information sent in the request during registration is invalid.</p>
+    /// <p>Indicates that the client information sent in the request during registration is invalid.</p>
     InvalidClientMetadataException(crate::types::error::InvalidClientMetadataException),
     #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-/// <p>Indicates that a request contains an invalid grant. This can occur if a client makes a <code>CreateToken</code> request with an invalid grant type.</p>
+    /// <p>Indicates that a request contains an invalid grant. This can occur if a client makes a <code>CreateToken</code> request with an invalid grant type.</p>
     InvalidGrantException(crate::types::error::InvalidGrantException),
     #[cfg(feature = "op_register_client")]
-/// <p>Indicates that one or more redirect URI in the request is not supported for this operation.</p>
+    /// <p>Indicates that one or more redirect URI in the request is not supported for this operation.</p>
     InvalidRedirectUriException(crate::types::error::InvalidRedirectUriException),
-    #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
-/// <p>Indicates that something is wrong with the input to the request. For example, a required parameter might be missing or out of range.</p>
+    #[cfg(any(
+        feature = "op_create_token",
+        feature = "op_create_token_with_iam",
+        feature = "op_register_client",
+        feature = "op_start_device_authorization"
+    ))]
+    /// <p>Indicates that something is wrong with the input to the request. For example, a required parameter might be missing or out of range.</p>
     InvalidRequestException(crate::types::error::InvalidRequestException),
     #[cfg(feature = "op_create_token_with_iam")]
-/// <p>Indicates that a token provided as input to the request was issued by and is only usable by calling IAM Identity Center endpoints in another region.</p>
+    /// <p>Indicates that a token provided as input to the request was issued by and is only usable by calling IAM Identity Center endpoints in another region.</p>
     InvalidRequestRegionException(crate::types::error::InvalidRequestRegionException),
-    #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client"))]
-/// <p>Indicates that the scope provided in the request is invalid.</p>
+    #[cfg(any(
+        feature = "op_create_token",
+        feature = "op_create_token_with_iam",
+        feature = "op_register_client"
+    ))]
+    /// <p>Indicates that the scope provided in the request is invalid.</p>
     InvalidScopeException(crate::types::error::InvalidScopeException),
-    #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
-/// <p>Indicates that the client is making the request too frequently and is more than the service can handle.</p>
+    #[cfg(any(
+        feature = "op_create_token",
+        feature = "op_create_token_with_iam",
+        feature = "op_register_client",
+        feature = "op_start_device_authorization"
+    ))]
+    /// <p>Indicates that the client is making the request too frequently and is more than the service can handle.</p>
     SlowDownException(crate::types::error::SlowDownException),
-    #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_start_device_authorization"))]
-/// <p>Indicates that the client is not currently authorized to make the request. This can happen when a <code>clientId</code> is not issued for a public client.</p>
+    #[cfg(any(
+        feature = "op_create_token",
+        feature = "op_create_token_with_iam",
+        feature = "op_start_device_authorization"
+    ))]
+    /// <p>Indicates that the client is not currently authorized to make the request. This can happen when a <code>clientId</code> is not issued for a public client.</p>
     UnauthorizedClientException(crate::types::error::UnauthorizedClientException),
-    #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client"))]
-/// <p>Indicates that the grant type in the request is not supported by the service.</p>
+    #[cfg(any(
+        feature = "op_create_token",
+        feature = "op_create_token_with_iam",
+        feature = "op_register_client"
+    ))]
+    /// <p>Indicates that the grant type in the request is not supported by the service.</p>
     UnsupportedGrantTypeException(crate::types::error::UnsupportedGrantTypeException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(
+        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error."
+    )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-Error::AccessDeniedException(inner) => inner.fmt(f),
+            Error::AccessDeniedException(inner) => inner.fmt(f),
             #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-Error::AuthorizationPendingException(inner) => inner.fmt(f),
+            Error::AuthorizationPendingException(inner) => inner.fmt(f),
             #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-Error::ExpiredTokenException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
-Error::InternalServerException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_start_device_authorization"))]
-Error::InvalidClientException(inner) => inner.fmt(f),
+            Error::ExpiredTokenException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client",
+                feature = "op_start_device_authorization"
+            ))]
+            Error::InternalServerException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_start_device_authorization"
+            ))]
+            Error::InvalidClientException(inner) => inner.fmt(f),
             #[cfg(feature = "op_register_client")]
-Error::InvalidClientMetadataException(inner) => inner.fmt(f),
+            Error::InvalidClientMetadataException(inner) => inner.fmt(f),
             #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-Error::InvalidGrantException(inner) => inner.fmt(f),
+            Error::InvalidGrantException(inner) => inner.fmt(f),
             #[cfg(feature = "op_register_client")]
-Error::InvalidRedirectUriException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
-Error::InvalidRequestException(inner) => inner.fmt(f),
+            Error::InvalidRedirectUriException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client",
+                feature = "op_start_device_authorization"
+            ))]
+            Error::InvalidRequestException(inner) => inner.fmt(f),
             #[cfg(feature = "op_create_token_with_iam")]
-Error::InvalidRequestRegionException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client"))]
-Error::InvalidScopeException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
-Error::SlowDownException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_start_device_authorization"))]
-Error::UnauthorizedClientException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client"))]
-Error::UnsupportedGrantTypeException(inner) => inner.fmt(f),
+            Error::InvalidRequestRegionException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client"
+            ))]
+            Error::InvalidScopeException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client",
+                feature = "op_start_device_authorization"
+            ))]
+            Error::SlowDownException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_start_device_authorization"
+            ))]
+            Error::UnauthorizedClientException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client"
+            ))]
+            Error::UnsupportedGrantTypeException(inner) => inner.fmt(f),
             Error::Unhandled(_) => {
-                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                if let ::std::option::Option::Some(code) =
+                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+                {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -107,45 +173,89 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
     fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
         match self {
             #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-Self::AccessDeniedException(inner) => inner.meta(),
+            Self::AccessDeniedException(inner) => inner.meta(),
             #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-Self::AuthorizationPendingException(inner) => inner.meta(),
+            Self::AuthorizationPendingException(inner) => inner.meta(),
             #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-Self::ExpiredTokenException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
-Self::InternalServerException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_start_device_authorization"))]
-Self::InvalidClientException(inner) => inner.meta(),
+            Self::ExpiredTokenException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client",
+                feature = "op_start_device_authorization"
+            ))]
+            Self::InternalServerException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_start_device_authorization"
+            ))]
+            Self::InvalidClientException(inner) => inner.meta(),
             #[cfg(feature = "op_register_client")]
-Self::InvalidClientMetadataException(inner) => inner.meta(),
+            Self::InvalidClientMetadataException(inner) => inner.meta(),
             #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-Self::InvalidGrantException(inner) => inner.meta(),
+            Self::InvalidGrantException(inner) => inner.meta(),
             #[cfg(feature = "op_register_client")]
-Self::InvalidRedirectUriException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
-Self::InvalidRequestException(inner) => inner.meta(),
+            Self::InvalidRedirectUriException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client",
+                feature = "op_start_device_authorization"
+            ))]
+            Self::InvalidRequestException(inner) => inner.meta(),
             #[cfg(feature = "op_create_token_with_iam")]
-Self::InvalidRequestRegionException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client"))]
-Self::InvalidScopeException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
-Self::SlowDownException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_start_device_authorization"))]
-Self::UnauthorizedClientException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client"))]
-Self::UnsupportedGrantTypeException(inner) => inner.meta(),
+            Self::InvalidRequestRegionException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client"
+            ))]
+            Self::InvalidScopeException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client",
+                feature = "op_start_device_authorization"
+            ))]
+            Self::SlowDownException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_start_device_authorization"
+            ))]
+            Self::UnauthorizedClientException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client"
+            ))]
+            Self::UnsupportedGrantTypeException(inner) => inner.meta(),
             Self::Unhandled(inner) => &inner.meta,
         }
     }
 }
 #[cfg(feature = "op_create_token")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_token::CreateTokenError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_token::CreateTokenError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_token::CreateTokenError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_token::CreateTokenError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -157,29 +267,66 @@ where
 impl From<crate::operation::create_token::CreateTokenError> for Error {
     fn from(err: crate::operation::create_token::CreateTokenError) -> Self {
         match err {
-            crate::operation::create_token::CreateTokenError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
-            crate::operation::create_token::CreateTokenError::AuthorizationPendingException(inner) => Error::AuthorizationPendingException(inner),
-            crate::operation::create_token::CreateTokenError::ExpiredTokenException(inner) => Error::ExpiredTokenException(inner),
-            crate::operation::create_token::CreateTokenError::InternalServerException(inner) => Error::InternalServerException(inner),
-            crate::operation::create_token::CreateTokenError::InvalidClientException(inner) => Error::InvalidClientException(inner),
-            crate::operation::create_token::CreateTokenError::InvalidGrantException(inner) => Error::InvalidGrantException(inner),
-            crate::operation::create_token::CreateTokenError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
-            crate::operation::create_token::CreateTokenError::InvalidScopeException(inner) => Error::InvalidScopeException(inner),
-            crate::operation::create_token::CreateTokenError::SlowDownException(inner) => Error::SlowDownException(inner),
-            crate::operation::create_token::CreateTokenError::UnauthorizedClientException(inner) => Error::UnauthorizedClientException(inner),
-            crate::operation::create_token::CreateTokenError::UnsupportedGrantTypeException(inner) => Error::UnsupportedGrantTypeException(inner),
-            crate::operation::create_token::CreateTokenError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::create_token::CreateTokenError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::create_token::CreateTokenError::AuthorizationPendingException(
+                inner,
+            ) => Error::AuthorizationPendingException(inner),
+            crate::operation::create_token::CreateTokenError::ExpiredTokenException(inner) => {
+                Error::ExpiredTokenException(inner)
+            }
+            crate::operation::create_token::CreateTokenError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::create_token::CreateTokenError::InvalidClientException(inner) => {
+                Error::InvalidClientException(inner)
+            }
+            crate::operation::create_token::CreateTokenError::InvalidGrantException(inner) => {
+                Error::InvalidGrantException(inner)
+            }
+            crate::operation::create_token::CreateTokenError::InvalidRequestException(inner) => {
+                Error::InvalidRequestException(inner)
+            }
+            crate::operation::create_token::CreateTokenError::InvalidScopeException(inner) => {
+                Error::InvalidScopeException(inner)
+            }
+            crate::operation::create_token::CreateTokenError::SlowDownException(inner) => {
+                Error::SlowDownException(inner)
+            }
+            crate::operation::create_token::CreateTokenError::UnauthorizedClientException(
+                inner,
+            ) => Error::UnauthorizedClientException(inner),
+            crate::operation::create_token::CreateTokenError::UnsupportedGrantTypeException(
+                inner,
+            ) => Error::UnsupportedGrantTypeException(inner),
+            crate::operation::create_token::CreateTokenError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_create_token_with_iam")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_token_with_iam::CreateTokenWithIAMError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_token_with_iam::CreateTokenWithIAMError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_token_with_iam::CreateTokenWithIAMError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_token_with_iam::CreateTokenWithIAMError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -216,13 +363,26 @@ impl From<crate::operation::create_token_with_iam::CreateTokenWithIAMError> for 
     }
 }
 #[cfg(feature = "op_register_client")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::register_client::RegisterClientError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::register_client::RegisterClientError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::register_client::RegisterClientError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::register_client::RegisterClientError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -250,16 +410,26 @@ impl From<crate::operation::register_client::RegisterClientError> for Error {
     }
 }
 #[cfg(feature = "op_start_device_authorization")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_device_authorization::StartDeviceAuthorizationError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_device_authorization::StartDeviceAuthorizationError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_device_authorization::StartDeviceAuthorizationError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_device_authorization::StartDeviceAuthorizationError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -269,7 +439,9 @@ where
 }
 #[cfg(feature = "op_start_device_authorization")]
 impl From<crate::operation::start_device_authorization::StartDeviceAuthorizationError> for Error {
-    fn from(err: crate::operation::start_device_authorization::StartDeviceAuthorizationError) -> Self {
+    fn from(
+        err: crate::operation::start_device_authorization::StartDeviceAuthorizationError,
+    ) -> Self {
         match err {
             crate::operation::start_device_authorization::StartDeviceAuthorizationError::InternalServerException(inner) => {
                 Error::InternalServerException(inner)
@@ -292,33 +464,64 @@ impl ::std::error::Error for Error {
     fn source(&self) -> std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-Error::AccessDeniedException(inner) => inner.source(),
+            Error::AccessDeniedException(inner) => inner.source(),
             #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-Error::AuthorizationPendingException(inner) => inner.source(),
+            Error::AuthorizationPendingException(inner) => inner.source(),
             #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-Error::ExpiredTokenException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
-Error::InternalServerException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_start_device_authorization"))]
-Error::InvalidClientException(inner) => inner.source(),
+            Error::ExpiredTokenException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client",
+                feature = "op_start_device_authorization"
+            ))]
+            Error::InternalServerException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_start_device_authorization"
+            ))]
+            Error::InvalidClientException(inner) => inner.source(),
             #[cfg(feature = "op_register_client")]
-Error::InvalidClientMetadataException(inner) => inner.source(),
+            Error::InvalidClientMetadataException(inner) => inner.source(),
             #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-Error::InvalidGrantException(inner) => inner.source(),
+            Error::InvalidGrantException(inner) => inner.source(),
             #[cfg(feature = "op_register_client")]
-Error::InvalidRedirectUriException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
-Error::InvalidRequestException(inner) => inner.source(),
+            Error::InvalidRedirectUriException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client",
+                feature = "op_start_device_authorization"
+            ))]
+            Error::InvalidRequestException(inner) => inner.source(),
             #[cfg(feature = "op_create_token_with_iam")]
-Error::InvalidRequestRegionException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client"))]
-Error::InvalidScopeException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
-Error::SlowDownException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_start_device_authorization"))]
-Error::UnauthorizedClientException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client"))]
-Error::UnsupportedGrantTypeException(inner) => inner.source(),
+            Error::InvalidRequestRegionException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client"
+            ))]
+            Error::InvalidScopeException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client",
+                feature = "op_start_device_authorization"
+            ))]
+            Error::SlowDownException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_start_device_authorization"
+            ))]
+            Error::UnauthorizedClientException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client"
+            ))]
+            Error::UnsupportedGrantTypeException(inner) => inner.source(),
             Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source),
         }
     }
@@ -327,33 +530,64 @@ impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
             #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-Self::AccessDeniedException(e) => e.request_id(),
+            Self::AccessDeniedException(e) => e.request_id(),
             #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-Self::AuthorizationPendingException(e) => e.request_id(),
+            Self::AuthorizationPendingException(e) => e.request_id(),
             #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-Self::ExpiredTokenException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
-Self::InternalServerException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_start_device_authorization"))]
-Self::InvalidClientException(e) => e.request_id(),
+            Self::ExpiredTokenException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client",
+                feature = "op_start_device_authorization"
+            ))]
+            Self::InternalServerException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_start_device_authorization"
+            ))]
+            Self::InvalidClientException(e) => e.request_id(),
             #[cfg(feature = "op_register_client")]
-Self::InvalidClientMetadataException(e) => e.request_id(),
+            Self::InvalidClientMetadataException(e) => e.request_id(),
             #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
-Self::InvalidGrantException(e) => e.request_id(),
+            Self::InvalidGrantException(e) => e.request_id(),
             #[cfg(feature = "op_register_client")]
-Self::InvalidRedirectUriException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
-Self::InvalidRequestException(e) => e.request_id(),
+            Self::InvalidRedirectUriException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client",
+                feature = "op_start_device_authorization"
+            ))]
+            Self::InvalidRequestException(e) => e.request_id(),
             #[cfg(feature = "op_create_token_with_iam")]
-Self::InvalidRequestRegionException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client"))]
-Self::InvalidScopeException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
-Self::SlowDownException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_start_device_authorization"))]
-Self::UnauthorizedClientException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client"))]
-Self::UnsupportedGrantTypeException(e) => e.request_id(),
+            Self::InvalidRequestRegionException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client"
+            ))]
+            Self::InvalidScopeException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client",
+                feature = "op_start_device_authorization"
+            ))]
+            Self::SlowDownException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_start_device_authorization"
+            ))]
+            Self::UnauthorizedClientException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_token",
+                feature = "op_create_token_with_iam",
+                feature = "op_register_client"
+            ))]
+            Self::UnsupportedGrantTypeException(e) => e.request_id(),
             Self::Unhandled(e) => e.meta.request_id(),
         }
     }

@@ -5,7 +5,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CreateTableInput {
     /// <p>An array of attributes that describe the key schema for the table and indexes.</p>
-    pub attribute_definitions: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>,
+    pub attribute_definitions:
+        ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>,
     /// <p>The name of the table to create. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub table_name: ::std::option::Option<::std::string::String>,
     /// <p>Specifies the attributes that make up the primary key for a table or an index. The attributes in <code>KeySchema</code> must also be defined in the <code>AttributeDefinitions</code> array. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html">Data Model</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -54,7 +55,8 @@ pub struct CreateTableInput {
     /// <p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li>
     /// </ul></li>
     /// </ul>
-    pub local_secondary_indexes: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>>,
+    pub local_secondary_indexes:
+        ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>>,
     /// <p>One or more global secondary indexes (the maximum is 20) to be created on the table. Each global secondary index in the array includes the following:</p>
     /// <ul>
     /// <li>
@@ -81,7 +83,8 @@ pub struct CreateTableInput {
     /// <li>
     /// <p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.</p></li>
     /// </ul>
-    pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
+    pub global_secondary_indexes:
+        ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
     /// <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p>
     /// <ul>
     /// <li>
@@ -133,7 +136,8 @@ pub struct CreateTableInput {
     /// <p>The Amazon Resource Name (ARN) of the source table used for the creation of a multi-account global table.</p>
     pub global_table_source_arn: ::std::option::Option<::std::string::String>,
     /// <p>Controls the settings synchronization mode for the global table. For multi-account global tables, this parameter is required and the only supported value is ENABLED. For same-account global tables, this parameter is set to ENABLED_WITH_OVERRIDES.</p>
-    pub global_table_settings_replication_mode: ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
+    pub global_table_settings_replication_mode:
+        ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
     /// <p>One or more vector indexes to be created on the table. Each vector index enables similarity search on a vector attribute. Each element in the list consists of:</p>
     /// <ul>
     /// <li>
@@ -261,7 +265,9 @@ impl CreateTableInput {
     /// <p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <code>UpdateTable</code> operation.</p>
     /// <p>If you set BillingMode as <code>PROVISIONED</code>, you must specify this property. If you set BillingMode as <code>PAY_PER_REQUEST</code>, you cannot specify this property.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn provisioned_throughput(&self) -> ::std::option::Option<&crate::types::ProvisionedThroughput> {
+    pub fn provisioned_throughput(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ProvisionedThroughput> {
         self.provisioned_throughput.as_ref()
     }
     /// <p>The settings for DynamoDB Streams on the table. These settings consist of:</p>
@@ -281,7 +287,9 @@ impl CreateTableInput {
     /// <p><code>NEW_AND_OLD_IMAGES</code> - Both the new and the old item images of the item are written to the stream.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn stream_specification(&self) -> ::std::option::Option<&crate::types::StreamSpecification> {
+    pub fn stream_specification(
+        &self,
+    ) -> ::std::option::Option<&crate::types::StreamSpecification> {
         self.stream_specification.as_ref()
     }
     /// <p>Represents the settings used to enable server-side encryption.</p>
@@ -323,7 +331,9 @@ impl CreateTableInput {
         self.global_table_source_arn.as_deref()
     }
     /// <p>Controls the settings synchronization mode for the global table. For multi-account global tables, this parameter is required and the only supported value is ENABLED. For same-account global tables, this parameter is set to ENABLED_WITH_OVERRIDES.</p>
-    pub fn global_table_settings_replication_mode(&self) -> ::std::option::Option<&crate::types::GlobalTableSettingsReplicationMode> {
+    pub fn global_table_settings_replication_mode(
+        &self,
+    ) -> ::std::option::Option<&crate::types::GlobalTableSettingsReplicationMode> {
         self.global_table_settings_replication_mode.as_ref()
     }
     /// <p>One or more vector indexes to be created on the table. Each vector index enables similarity search on a vector attribute. Each element in the list consists of:</p>
@@ -355,14 +365,19 @@ impl CreateTableInput {
 }
 
 /// A builder for [`CreateTableInput`](crate::operation::create_table::CreateTableInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateTableInputBuilder {
-    pub(crate) attribute_definitions: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>,
+    pub(crate) attribute_definitions:
+        ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>,
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
     pub(crate) key_schema: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>,
-    pub(crate) local_secondary_indexes: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>>,
-    pub(crate) global_secondary_indexes: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
+    pub(crate) local_secondary_indexes:
+        ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>>,
+    pub(crate) global_secondary_indexes:
+        ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
     pub(crate) billing_mode: ::std::option::Option<crate::types::BillingMode>,
     pub(crate) provisioned_throughput: ::std::option::Option<crate::types::ProvisionedThroughput>,
     pub(crate) stream_specification: ::std::option::Option<crate::types::StreamSpecification>,
@@ -374,7 +389,8 @@ pub struct CreateTableInputBuilder {
     pub(crate) resource_policy: ::std::option::Option<::std::string::String>,
     pub(crate) on_demand_throughput: ::std::option::Option<crate::types::OnDemandThroughput>,
     pub(crate) global_table_source_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) global_table_settings_replication_mode: ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
+    pub(crate) global_table_settings_replication_mode:
+        ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
     pub(crate) vector_indexes: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>,
 }
 impl CreateTableInputBuilder {
@@ -390,12 +406,17 @@ impl CreateTableInputBuilder {
         self
     }
     /// <p>An array of attributes that describe the key schema for the table and indexes.</p>
-    pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>) -> Self {
+    pub fn set_attribute_definitions(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>,
+    ) -> Self {
         self.attribute_definitions = input;
         self
     }
     /// <p>An array of attributes that describe the key schema for the table and indexes.</p>
-    pub fn get_attribute_definitions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>> {
+    pub fn get_attribute_definitions(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>> {
         &self.attribute_definitions
     }
     /// <p>The name of the table to create. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
@@ -463,7 +484,10 @@ impl CreateTableInputBuilder {
     /// <p>For a simple primary key (partition key), you must provide exactly one element with a <code>KeyType</code> of <code>HASH</code>.</p>
     /// <p>For a composite primary key (partition key and sort key), you must provide exactly two elements, in this order: The first element must have a <code>KeyType</code> of <code>HASH</code>, and the second element must have a <code>KeyType</code> of <code>RANGE</code>.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key">Working with Tables</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
+    pub fn set_key_schema(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>,
+    ) -> Self {
         self.key_schema = input;
         self
     }
@@ -487,7 +511,9 @@ impl CreateTableInputBuilder {
     /// <p>For a simple primary key (partition key), you must provide exactly one element with a <code>KeyType</code> of <code>HASH</code>.</p>
     /// <p>For a composite primary key (partition key and sort key), you must provide exactly two elements, in this order: The first element must have a <code>KeyType</code> of <code>HASH</code>, and the second element must have a <code>KeyType</code> of <code>RANGE</code>.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key">Working with Tables</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> {
+    pub fn get_key_schema(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> {
         &self.key_schema
     }
     /// Appends an item to `local_secondary_indexes`.
@@ -550,7 +576,10 @@ impl CreateTableInputBuilder {
     /// <p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>>) -> Self {
+    pub fn set_local_secondary_indexes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>>,
+    ) -> Self {
         self.local_secondary_indexes = input;
         self
     }
@@ -579,7 +608,9 @@ impl CreateTableInputBuilder {
     /// <p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>> {
+    pub fn get_local_secondary_indexes(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>> {
         &self.local_secondary_indexes
     }
     /// Appends an item to `global_secondary_indexes`.
@@ -644,7 +675,10 @@ impl CreateTableInputBuilder {
     /// <li>
     /// <p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.</p></li>
     /// </ul>
-    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>) -> Self {
+    pub fn set_global_secondary_indexes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
+    ) -> Self {
         self.global_secondary_indexes = input;
         self
     }
@@ -674,7 +708,9 @@ impl CreateTableInputBuilder {
     /// <li>
     /// <p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.</p></li>
     /// </ul>
-    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>> {
+    pub fn get_global_secondary_indexes(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>> {
         &self.global_secondary_indexes
     }
     /// <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p>
@@ -695,7 +731,10 @@ impl CreateTableInputBuilder {
     /// <li>
     /// <p><code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for steady workloads with predictable growth where capacity requirements can be reliably forecasted. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p></li>
     /// </ul>
-    pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
+    pub fn set_billing_mode(
+        mut self,
+        input: ::std::option::Option<crate::types::BillingMode>,
+    ) -> Self {
         self.billing_mode = input;
         self
     }
@@ -719,14 +758,19 @@ impl CreateTableInputBuilder {
     /// <p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <code>UpdateTable</code> operation.</p>
     /// <p>If you set BillingMode as <code>PROVISIONED</code>, you must specify this property. If you set BillingMode as <code>PAY_PER_REQUEST</code>, you cannot specify this property.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
+    pub fn set_provisioned_throughput(
+        mut self,
+        input: ::std::option::Option<crate::types::ProvisionedThroughput>,
+    ) -> Self {
         self.provisioned_throughput = input;
         self
     }
     /// <p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <code>UpdateTable</code> operation.</p>
     /// <p>If you set BillingMode as <code>PROVISIONED</code>, you must specify this property. If you set BillingMode as <code>PAY_PER_REQUEST</code>, you cannot specify this property.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
+    pub fn get_provisioned_throughput(
+        &self,
+    ) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
         &self.provisioned_throughput
     }
     /// <p>The settings for DynamoDB Streams on the table. These settings consist of:</p>
@@ -767,7 +811,10 @@ impl CreateTableInputBuilder {
     /// <p><code>NEW_AND_OLD_IMAGES</code> - Both the new and the old item images of the item are written to the stream.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn set_stream_specification(mut self, input: ::std::option::Option<crate::types::StreamSpecification>) -> Self {
+    pub fn set_stream_specification(
+        mut self,
+        input: ::std::option::Option<crate::types::StreamSpecification>,
+    ) -> Self {
         self.stream_specification = input;
         self
     }
@@ -788,7 +835,9 @@ impl CreateTableInputBuilder {
     /// <p><code>NEW_AND_OLD_IMAGES</code> - Both the new and the old item images of the item are written to the stream.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn get_stream_specification(&self) -> &::std::option::Option<crate::types::StreamSpecification> {
+    pub fn get_stream_specification(
+        &self,
+    ) -> &::std::option::Option<crate::types::StreamSpecification> {
         &self.stream_specification
     }
     /// <p>Represents the settings used to enable server-side encryption.</p>
@@ -797,7 +846,10 @@ impl CreateTableInputBuilder {
         self
     }
     /// <p>Represents the settings used to enable server-side encryption.</p>
-    pub fn set_sse_specification(mut self, input: ::std::option::Option<crate::types::SseSpecification>) -> Self {
+    pub fn set_sse_specification(
+        mut self,
+        input: ::std::option::Option<crate::types::SseSpecification>,
+    ) -> Self {
         self.sse_specification = input;
         self
     }
@@ -817,7 +869,10 @@ impl CreateTableInputBuilder {
         self
     }
     /// <p>A list of key-value pairs to label the table. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.tags = input;
         self
     }
@@ -831,7 +886,10 @@ impl CreateTableInputBuilder {
         self
     }
     /// <p>The table class of the new table. Valid values are <code>STANDARD</code> and <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
-    pub fn set_table_class(mut self, input: ::std::option::Option<crate::types::TableClass>) -> Self {
+    pub fn set_table_class(
+        mut self,
+        input: ::std::option::Option<crate::types::TableClass>,
+    ) -> Self {
         self.table_class = input;
         self
     }
@@ -859,7 +917,10 @@ impl CreateTableInputBuilder {
         self
     }
     /// <p>Represents the warm throughput (in read units per second and write units per second) for creating a table.</p>
-    pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::WarmThroughput>) -> Self {
+    pub fn set_warm_throughput(
+        mut self,
+        input: ::std::option::Option<crate::types::WarmThroughput>,
+    ) -> Self {
         self.warm_throughput = input;
         self
     }
@@ -872,7 +933,10 @@ impl CreateTableInputBuilder {
     /// <p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that apply for resource-based policies, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p><note>
     /// <p>You need to specify the <code>CreateTable</code> and <code>PutResourcePolicy</code> IAM actions for authorizing a user to create a table with a resource-based policy.</p>
     /// </note>
-    pub fn resource_policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn resource_policy(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.resource_policy = ::std::option::Option::Some(input.into());
         self
     }
@@ -881,7 +945,10 @@ impl CreateTableInputBuilder {
     /// <p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that apply for resource-based policies, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p><note>
     /// <p>You need to specify the <code>CreateTable</code> and <code>PutResourcePolicy</code> IAM actions for authorizing a user to create a table with a resource-based policy.</p>
     /// </note>
-    pub fn set_resource_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_resource_policy(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.resource_policy = input;
         self
     }
@@ -899,21 +966,32 @@ impl CreateTableInputBuilder {
         self
     }
     /// <p>Sets the maximum number of read and write units for the specified table in on-demand capacity mode. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
+    pub fn set_on_demand_throughput(
+        mut self,
+        input: ::std::option::Option<crate::types::OnDemandThroughput>,
+    ) -> Self {
         self.on_demand_throughput = input;
         self
     }
     /// <p>Sets the maximum number of read and write units for the specified table in on-demand capacity mode. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
+    pub fn get_on_demand_throughput(
+        &self,
+    ) -> &::std::option::Option<crate::types::OnDemandThroughput> {
         &self.on_demand_throughput
     }
     /// <p>The Amazon Resource Name (ARN) of the source table used for the creation of a multi-account global table.</p>
-    pub fn global_table_source_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn global_table_source_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.global_table_source_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the source table used for the creation of a multi-account global table.</p>
-    pub fn set_global_table_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_global_table_source_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.global_table_source_arn = input;
         self
     }
@@ -922,7 +1000,10 @@ impl CreateTableInputBuilder {
         &self.global_table_source_arn
     }
     /// <p>Controls the settings synchronization mode for the global table. For multi-account global tables, this parameter is required and the only supported value is ENABLED. For same-account global tables, this parameter is set to ENABLED_WITH_OVERRIDES.</p>
-    pub fn global_table_settings_replication_mode(mut self, input: crate::types::GlobalTableSettingsReplicationMode) -> Self {
+    pub fn global_table_settings_replication_mode(
+        mut self,
+        input: crate::types::GlobalTableSettingsReplicationMode,
+    ) -> Self {
         self.global_table_settings_replication_mode = ::std::option::Option::Some(input);
         self
     }
@@ -935,7 +1016,9 @@ impl CreateTableInputBuilder {
         self
     }
     /// <p>Controls the settings synchronization mode for the global table. For multi-account global tables, this parameter is required and the only supported value is ENABLED. For same-account global tables, this parameter is set to ENABLED_WITH_OVERRIDES.</p>
-    pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<crate::types::GlobalTableSettingsReplicationMode> {
+    pub fn get_global_table_settings_replication_mode(
+        &self,
+    ) -> &::std::option::Option<crate::types::GlobalTableSettingsReplicationMode> {
         &self.global_table_settings_replication_mode
     }
     /// Appends an item to `vector_indexes`.
@@ -978,7 +1061,10 @@ impl CreateTableInputBuilder {
     /// <li>
     /// <p><code>SearchSchema</code> - (Optional) Defines the partition key (<code>HASH</code>) and inline filter (<code>INLINE_FILTER</code>) attributes for the vector index.</p></li>
     /// </ul>
-    pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>) -> Self {
+    pub fn set_vector_indexes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>,
+    ) -> Self {
         self.vector_indexes = input;
         self
     }
@@ -997,11 +1083,18 @@ impl CreateTableInputBuilder {
     /// <li>
     /// <p><code>SearchSchema</code> - (Optional) Defines the partition key (<code>HASH</code>) and inline filter (<code>INLINE_FILTER</code>) attributes for the vector index.</p></li>
     /// </ul>
-    pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>> {
+    pub fn get_vector_indexes(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>> {
         &self.vector_indexes
     }
     /// Consumes the builder and constructs a [`CreateTableInput`](crate::operation::create_table::CreateTableInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::create_table::CreateTableInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::create_table::CreateTableInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::create_table::CreateTableInput {
             attribute_definitions: self.attribute_definitions,
             table_name: self.table_name,

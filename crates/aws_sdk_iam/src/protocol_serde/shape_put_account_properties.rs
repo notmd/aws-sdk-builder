@@ -9,13 +9,23 @@ pub fn de_put_account_properties_http_error(
     crate::operation::put_account_properties::PutAccountPropertiesError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::put_account_properties::PutAccountPropertiesError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(crate::operation::put_account_properties::PutAccountPropertiesError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::put_account_properties::PutAccountPropertiesError::unhandled(generic)),
+        None => {
+            return Err(
+                crate::operation::put_account_properties::PutAccountPropertiesError::unhandled(
+                    generic,
+                ),
+            )
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -84,7 +94,9 @@ pub fn de_put_account_properties_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::put_account_properties::builders::PutAccountPropertiesOutputBuilder::default();
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }

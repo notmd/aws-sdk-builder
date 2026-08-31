@@ -11,7 +11,8 @@ pub fn ser_metrics_configuration_http_payload(
 
 pub fn ser_metrics_configuration_payload(
     input: &crate::types::MetricsConfiguration,
-) -> std::result::Result<std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
+) -> std::result::Result<std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     {
         let mut writer = ::aws_smithy_xml::encode::XmlWriter::new(&mut out);

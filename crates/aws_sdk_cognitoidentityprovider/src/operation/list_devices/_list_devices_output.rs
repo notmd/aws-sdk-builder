@@ -35,7 +35,9 @@ impl ListDevicesOutput {
 }
 
 /// A builder for [`ListDevicesOutput`](crate::operation::list_devices::ListDevicesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListDevicesOutputBuilder {
     pub(crate) devices: ::std::option::Option<::std::vec::Vec<crate::types::DeviceType>>,
@@ -55,7 +57,10 @@ impl ListDevicesOutputBuilder {
         self
     }
     /// <p>An array of devices and their details. Each entry that's returned includes device information, last-accessed and created dates, and the device key.</p>
-    pub fn set_devices(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeviceType>>) -> Self {
+    pub fn set_devices(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::DeviceType>>,
+    ) -> Self {
         self.devices = input;
         self
     }
@@ -64,12 +69,18 @@ impl ListDevicesOutputBuilder {
         &self.devices
     }
     /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
-    pub fn pagination_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn pagination_token(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.pagination_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
-    pub fn set_pagination_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_pagination_token(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.pagination_token = input;
         self
     }

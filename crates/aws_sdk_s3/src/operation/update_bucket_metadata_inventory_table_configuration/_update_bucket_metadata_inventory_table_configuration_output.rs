@@ -20,13 +20,15 @@ impl UpdateBucketMetadataInventoryTableConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`UpdateBucketMetadataInventoryTableConfigurationOutput`](crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput).
     pub fn builder(
     ) -> crate::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationOutputBuilder
-    {
+{
         crate::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationOutputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateBucketMetadataInventoryTableConfigurationOutput`](crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateBucketMetadataInventoryTableConfigurationOutputBuilder {
     _extended_request_id: Option<String>,
@@ -38,7 +40,10 @@ impl UpdateBucketMetadataInventoryTableConfigurationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(
+        &mut self,
+        extended_request_id: Option<String>,
+    ) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -54,7 +59,7 @@ impl UpdateBucketMetadataInventoryTableConfigurationOutputBuilder {
     /// Consumes the builder and constructs a [`UpdateBucketMetadataInventoryTableConfigurationOutput`](crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput).
     pub fn build(
         self,
-    ) -> crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput {
+    ) -> crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput{
         crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

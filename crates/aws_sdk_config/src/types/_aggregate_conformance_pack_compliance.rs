@@ -16,7 +16,9 @@ pub struct AggregateConformancePackCompliance {
 }
 impl AggregateConformancePackCompliance {
     /// <p>The compliance status of the conformance pack.</p>
-    pub fn compliance_type(&self) -> ::std::option::Option<&crate::types::ConformancePackComplianceType> {
+    pub fn compliance_type(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ConformancePackComplianceType> {
         self.compliance_type.as_ref()
     }
     /// <p>The number of compliant Config Rules.</p>
@@ -40,7 +42,9 @@ impl AggregateConformancePackCompliance {
 }
 
 /// A builder for [`AggregateConformancePackCompliance`](crate::types::AggregateConformancePackCompliance).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AggregateConformancePackComplianceBuilder {
     pub(crate) compliance_type: ::std::option::Option<crate::types::ConformancePackComplianceType>,
@@ -55,12 +59,17 @@ impl AggregateConformancePackComplianceBuilder {
         self
     }
     /// <p>The compliance status of the conformance pack.</p>
-    pub fn set_compliance_type(mut self, input: ::std::option::Option<crate::types::ConformancePackComplianceType>) -> Self {
+    pub fn set_compliance_type(
+        mut self,
+        input: ::std::option::Option<crate::types::ConformancePackComplianceType>,
+    ) -> Self {
         self.compliance_type = input;
         self
     }
     /// <p>The compliance status of the conformance pack.</p>
-    pub fn get_compliance_type(&self) -> &::std::option::Option<crate::types::ConformancePackComplianceType> {
+    pub fn get_compliance_type(
+        &self,
+    ) -> &::std::option::Option<crate::types::ConformancePackComplianceType> {
         &self.compliance_type
     }
     /// <p>The number of compliant Config Rules.</p>

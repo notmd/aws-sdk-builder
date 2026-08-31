@@ -59,7 +59,9 @@ impl PutIntegrationFluentBuilder {
         }
     }
     /// Access the PutIntegration as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_integration::builders::PutIntegrationInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_integration::builders::PutIntegrationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,12 +85,14 @@ impl PutIntegrationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::put_integration::PutIntegration::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::put_integration::PutIntegration::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::put_integration::PutIntegration::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::put_integration::PutIntegration::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -101,22 +105,34 @@ impl PutIntegrationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>A name for the integration.</p>
-    pub fn integration_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn integration_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.integration_name(input.into());
         self
     }
     /// <p>A name for the integration.</p>
-    pub fn set_integration_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_integration_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_integration_name(input);
         self
     }
@@ -130,7 +146,10 @@ impl PutIntegrationFluentBuilder {
         self
     }
     /// <p>A structure that contains configuration information for the integration that you are creating.</p>
-    pub fn set_resource_config(mut self, input: ::std::option::Option<crate::types::ResourceConfig>) -> Self {
+    pub fn set_resource_config(
+        mut self,
+        input: ::std::option::Option<crate::types::ResourceConfig>,
+    ) -> Self {
         self.inner = self.inner.set_resource_config(input);
         self
     }
@@ -144,7 +163,10 @@ impl PutIntegrationFluentBuilder {
         self
     }
     /// <p>The type of integration. Currently, the only supported type is <code>OPENSEARCH</code>.</p>
-    pub fn set_integration_type(mut self, input: ::std::option::Option<crate::types::IntegrationType>) -> Self {
+    pub fn set_integration_type(
+        mut self,
+        input: ::std::option::Option<crate::types::IntegrationType>,
+    ) -> Self {
         self.inner = self.inner.set_integration_type(input);
         self
     }

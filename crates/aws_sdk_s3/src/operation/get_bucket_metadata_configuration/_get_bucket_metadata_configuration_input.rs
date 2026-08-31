@@ -20,13 +20,15 @@ impl GetBucketMetadataConfigurationInput {
 }
 impl GetBucketMetadataConfigurationInput {
     /// Creates a new builder-style object to manufacture [`GetBucketMetadataConfigurationInput`](crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationInput).
-    pub fn builder() -> crate::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationInputBuilder {
+    pub fn builder() -> crate::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationInputBuilder{
         crate::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationInputBuilder::default()
     }
 }
 
 /// A builder for [`GetBucketMetadataConfigurationInput`](crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetBucketMetadataConfigurationInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -49,12 +51,18 @@ impl GetBucketMetadataConfigurationInputBuilder {
         &self.bucket
     }
     /// <p>The expected owner of the general purpose bucket that you want to retrieve the metadata table configuration for.</p>
-    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The expected owner of the general purpose bucket that you want to retrieve the metadata table configuration for.</p>
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = input;
         self
     }

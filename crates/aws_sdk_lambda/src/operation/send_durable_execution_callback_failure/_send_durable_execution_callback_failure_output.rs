@@ -12,13 +12,15 @@ impl ::aws_types::request_id::RequestId for SendDurableExecutionCallbackFailureO
 }
 impl SendDurableExecutionCallbackFailureOutput {
     /// Creates a new builder-style object to manufacture [`SendDurableExecutionCallbackFailureOutput`](crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput).
-    pub fn builder() -> crate::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder {
+    pub fn builder() -> crate::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder{
         crate::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder::default()
     }
 }
 
 /// A builder for [`SendDurableExecutionCallbackFailureOutput`](crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SendDurableExecutionCallbackFailureOutputBuilder {
     _request_id: Option<String>,
@@ -34,7 +36,7 @@ impl SendDurableExecutionCallbackFailureOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SendDurableExecutionCallbackFailureOutput`](crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput).
-    pub fn build(self) -> crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput {
+    pub fn build(self) -> crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput{
         crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput {
             _request_id: self._request_id,
         }

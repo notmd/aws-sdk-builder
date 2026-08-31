@@ -89,11 +89,12 @@ impl PutConnectorFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::put_connector::PutConnector::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::put_connector::PutConnector::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::put_connector::PutConnector::orchestrate(&runtime_plugins, input).await
     }
 
@@ -107,12 +108,18 @@ impl PutConnectorFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -122,12 +129,17 @@ impl PutConnectorFluentBuilder {
         self
     }
     /// <p>The provider-specific configuration for connecting to the third-party cloud service provider.</p>
-    pub fn set_connector_configuration(mut self, input: ::std::option::Option<crate::types::ConnectorConfiguration>) -> Self {
+    pub fn set_connector_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::ConnectorConfiguration>,
+    ) -> Self {
         self.inner = self.inner.set_connector_configuration(input);
         self
     }
     /// <p>The provider-specific configuration for connecting to the third-party cloud service provider.</p>
-    pub fn get_connector_configuration(&self) -> &::std::option::Option<crate::types::ConnectorConfiguration> {
+    pub fn get_connector_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::ConnectorConfiguration> {
         self.inner.get_connector_configuration()
     }
     ///
@@ -141,7 +153,10 @@ impl PutConnectorFluentBuilder {
         self
     }
     /// <p>The tags for the connector. Each tag consists of a key and an optional value, both of which you define.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

@@ -112,7 +112,9 @@ impl GetObjectAnnotationOutput {
         self.checksum_type.as_ref()
     }
     /// <p>The server-side encryption algorithm used.</p>
-    pub fn server_side_encryption(&self) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
+    pub fn server_side_encryption(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
         self.server_side_encryption.as_ref()
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
@@ -138,8 +140,10 @@ impl ::aws_types::request_id::RequestId for GetObjectAnnotationOutput {
 }
 impl GetObjectAnnotationOutput {
     /// Creates a new builder-style object to manufacture [`GetObjectAnnotationOutput`](crate::operation::get_object_annotation::GetObjectAnnotationOutput).
-    pub fn builder() -> crate::operation::get_object_annotation::builders::GetObjectAnnotationOutputBuilder {
-        crate::operation::get_object_annotation::builders::GetObjectAnnotationOutputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::get_object_annotation::builders::GetObjectAnnotationOutputBuilder {
+        crate::operation::get_object_annotation::builders::GetObjectAnnotationOutputBuilder::default(
+        )
     }
 }
 
@@ -147,7 +151,8 @@ impl GetObjectAnnotationOutput {
 #[derive(::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetObjectAnnotationOutputBuilder {
-    pub(crate) annotation_payload: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
+    pub(crate) annotation_payload:
+        ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
     pub(crate) object_version_id: ::std::option::Option<::std::string::String>,
     pub(crate) last_modified: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) content_length: ::std::option::Option<i64>,
@@ -171,26 +176,40 @@ pub struct GetObjectAnnotationOutputBuilder {
 }
 impl GetObjectAnnotationOutputBuilder {
     /// <p>The annotation payload.</p>
-    pub fn annotation_payload(mut self, input: ::aws_smithy_types::byte_stream::ByteStream) -> Self {
+    pub fn annotation_payload(
+        mut self,
+        input: ::aws_smithy_types::byte_stream::ByteStream,
+    ) -> Self {
         self.annotation_payload = ::std::option::Option::Some(input);
         self
     }
     /// <p>The annotation payload.</p>
-    pub fn set_annotation_payload(mut self, input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
+    pub fn set_annotation_payload(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
+    ) -> Self {
         self.annotation_payload = input;
         self
     }
     /// <p>The annotation payload.</p>
-    pub fn get_annotation_payload(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
+    pub fn get_annotation_payload(
+        &self,
+    ) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
         &self.annotation_payload
     }
     /// <p>The version ID of the object that the annotation is attached to.</p>
-    pub fn object_version_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn object_version_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.object_version_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The version ID of the object that the annotation is attached to.</p>
-    pub fn set_object_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_object_version_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.object_version_id = input;
         self
     }
@@ -204,7 +223,10 @@ impl GetObjectAnnotationOutputBuilder {
         self
     }
     /// <p>The date and time the annotation was last modified.</p>
-    pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_last_modified(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.last_modified = input;
         self
     }
@@ -241,12 +263,18 @@ impl GetObjectAnnotationOutputBuilder {
         &self.e_tag
     }
     /// <p>The CRC32 checksum of the annotation payload.</p>
-    pub fn checksum_crc32(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_crc32(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_crc32 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The CRC32 checksum of the annotation payload.</p>
-    pub fn set_checksum_crc32(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_crc32(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_crc32 = input;
         self
     }
@@ -255,12 +283,18 @@ impl GetObjectAnnotationOutputBuilder {
         &self.checksum_crc32
     }
     /// <p>The CRC32C checksum of the annotation payload.</p>
-    pub fn checksum_crc32_c(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_crc32_c(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_crc32_c = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The CRC32C checksum of the annotation payload.</p>
-    pub fn set_checksum_crc32_c(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_crc32_c(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_crc32_c = input;
         self
     }
@@ -269,12 +303,18 @@ impl GetObjectAnnotationOutputBuilder {
         &self.checksum_crc32_c
     }
     /// <p>The CRC64NVME checksum of the annotation payload.</p>
-    pub fn checksum_crc64_nvme(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_crc64_nvme(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_crc64_nvme = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The CRC64NVME checksum of the annotation payload.</p>
-    pub fn set_checksum_crc64_nvme(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_crc64_nvme(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_crc64_nvme = input;
         self
     }
@@ -283,12 +323,18 @@ impl GetObjectAnnotationOutputBuilder {
         &self.checksum_crc64_nvme
     }
     /// <p>The SHA1 checksum of the annotation payload.</p>
-    pub fn checksum_sha1(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_sha1(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_sha1 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The SHA1 checksum of the annotation payload.</p>
-    pub fn set_checksum_sha1(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_sha1(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_sha1 = input;
         self
     }
@@ -297,12 +343,18 @@ impl GetObjectAnnotationOutputBuilder {
         &self.checksum_sha1
     }
     /// <p>The SHA256 checksum of the annotation payload.</p>
-    pub fn checksum_sha256(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_sha256(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_sha256 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The SHA256 checksum of the annotation payload.</p>
-    pub fn set_checksum_sha256(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_sha256(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_sha256 = input;
         self
     }
@@ -311,12 +363,18 @@ impl GetObjectAnnotationOutputBuilder {
         &self.checksum_sha256
     }
     /// <p>The SHA512 checksum of the annotation payload.</p>
-    pub fn checksum_sha512(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_sha512(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_sha512 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The SHA512 checksum of the annotation payload.</p>
-    pub fn set_checksum_sha512(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_sha512(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_sha512 = input;
         self
     }
@@ -339,12 +397,18 @@ impl GetObjectAnnotationOutputBuilder {
         &self.checksum_md5
     }
     /// <p>The XXHASH64 checksum of the annotation payload.</p>
-    pub fn checksum_xxhash64(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_xxhash64(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_xxhash64 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The XXHASH64 checksum of the annotation payload.</p>
-    pub fn set_checksum_xxhash64(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_xxhash64(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_xxhash64 = input;
         self
     }
@@ -353,12 +417,18 @@ impl GetObjectAnnotationOutputBuilder {
         &self.checksum_xxhash64
     }
     /// <p>The XXHASH3 checksum of the annotation payload.</p>
-    pub fn checksum_xxhash3(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_xxhash3(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_xxhash3 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The XXHASH3 checksum of the annotation payload.</p>
-    pub fn set_checksum_xxhash3(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_xxhash3(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_xxhash3 = input;
         self
     }
@@ -367,12 +437,18 @@ impl GetObjectAnnotationOutputBuilder {
         &self.checksum_xxhash3
     }
     /// <p>The XXHASH128 checksum of the annotation payload.</p>
-    pub fn checksum_xxhash128(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_xxhash128(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_xxhash128 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The XXHASH128 checksum of the annotation payload.</p>
-    pub fn set_checksum_xxhash128(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_xxhash128(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_xxhash128 = input;
         self
     }
@@ -386,7 +462,10 @@ impl GetObjectAnnotationOutputBuilder {
         self
     }
     /// <p>The type of checksum used.</p>
-    pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self {
+    pub fn set_checksum_type(
+        mut self,
+        input: ::std::option::Option<crate::types::ChecksumType>,
+    ) -> Self {
         self.checksum_type = input;
         self
     }
@@ -400,12 +479,17 @@ impl GetObjectAnnotationOutputBuilder {
         self
     }
     /// <p>The server-side encryption algorithm used.</p>
-    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
+    pub fn set_server_side_encryption(
+        mut self,
+        input: ::std::option::Option<crate::types::ServerSideEncryption>,
+    ) -> Self {
         self.server_side_encryption = input;
         self
     }
     /// <p>The server-side encryption algorithm used.</p>
-    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
+    pub fn get_server_side_encryption(
+        &self,
+    ) -> &::std::option::Option<crate::types::ServerSideEncryption> {
         &self.server_side_encryption
     }
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
@@ -418,7 +502,10 @@ impl GetObjectAnnotationOutputBuilder {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+    pub fn set_request_charged(
+        mut self,
+        input: ::std::option::Option<crate::types::RequestCharged>,
+    ) -> Self {
         self.request_charged = input;
         self
     }
@@ -434,12 +521,17 @@ impl GetObjectAnnotationOutputBuilder {
         self
     }
     /// <p>The replication status of the annotation. Possible values include <code>PENDING</code>, <code>COMPLETED</code>, <code>FAILED</code>, and <code>REPLICA</code>.</p>
-    pub fn set_replication_status(mut self, input: ::std::option::Option<crate::types::ReplicationStatus>) -> Self {
+    pub fn set_replication_status(
+        mut self,
+        input: ::std::option::Option<crate::types::ReplicationStatus>,
+    ) -> Self {
         self.replication_status = input;
         self
     }
     /// <p>The replication status of the annotation. Possible values include <code>PENDING</code>, <code>COMPLETED</code>, <code>FAILED</code>, and <code>REPLICA</code>.</p>
-    pub fn get_replication_status(&self) -> &::std::option::Option<crate::types::ReplicationStatus> {
+    pub fn get_replication_status(
+        &self,
+    ) -> &::std::option::Option<crate::types::ReplicationStatus> {
         &self.replication_status
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -447,7 +539,10 @@ impl GetObjectAnnotationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(
+        &mut self,
+        extended_request_id: Option<String>,
+    ) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

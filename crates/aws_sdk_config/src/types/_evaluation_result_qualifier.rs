@@ -39,7 +39,9 @@ impl EvaluationResultQualifier {
 }
 
 /// A builder for [`EvaluationResultQualifier`](crate::types::EvaluationResultQualifier).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct EvaluationResultQualifierBuilder {
     pub(crate) config_rule_name: ::std::option::Option<::std::string::String>,
@@ -49,12 +51,18 @@ pub struct EvaluationResultQualifierBuilder {
 }
 impl EvaluationResultQualifierBuilder {
     /// <p>The name of the Config rule that was used in the evaluation.</p>
-    pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn config_rule_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.config_rule_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the Config rule that was used in the evaluation.</p>
-    pub fn set_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_config_rule_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.config_rule_name = input;
         self
     }
@@ -63,12 +71,18 @@ impl EvaluationResultQualifierBuilder {
         &self.config_rule_name
     }
     /// <p>The type of Amazon Web Services resource that was evaluated.</p>
-    pub fn resource_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn resource_type(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.resource_type = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The type of Amazon Web Services resource that was evaluated.</p>
-    pub fn set_resource_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_resource_type(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.resource_type = input;
         self
     }
@@ -96,7 +110,10 @@ impl EvaluationResultQualifierBuilder {
         self
     }
     /// <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
-    pub fn set_evaluation_mode(mut self, input: ::std::option::Option<crate::types::EvaluationMode>) -> Self {
+    pub fn set_evaluation_mode(
+        mut self,
+        input: ::std::option::Option<crate::types::EvaluationMode>,
+    ) -> Self {
         self.evaluation_mode = input;
         self
     }

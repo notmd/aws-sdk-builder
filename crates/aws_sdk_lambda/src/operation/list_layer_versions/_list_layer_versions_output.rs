@@ -28,17 +28,21 @@ impl ::aws_types::request_id::RequestId for ListLayerVersionsOutput {
 }
 impl ListLayerVersionsOutput {
     /// Creates a new builder-style object to manufacture [`ListLayerVersionsOutput`](crate::operation::list_layer_versions::ListLayerVersionsOutput).
-    pub fn builder() -> crate::operation::list_layer_versions::builders::ListLayerVersionsOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_layer_versions::builders::ListLayerVersionsOutputBuilder {
         crate::operation::list_layer_versions::builders::ListLayerVersionsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListLayerVersionsOutput`](crate::operation::list_layer_versions::ListLayerVersionsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListLayerVersionsOutputBuilder {
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
-    pub(crate) layer_versions: ::std::option::Option<::std::vec::Vec<crate::types::LayerVersionsListItem>>,
+    pub(crate) layer_versions:
+        ::std::option::Option<::std::vec::Vec<crate::types::LayerVersionsListItem>>,
     _request_id: Option<String>,
 }
 impl ListLayerVersionsOutputBuilder {
@@ -68,12 +72,17 @@ impl ListLayerVersionsOutputBuilder {
         self
     }
     /// <p>A list of versions.</p>
-    pub fn set_layer_versions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LayerVersionsListItem>>) -> Self {
+    pub fn set_layer_versions(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::LayerVersionsListItem>>,
+    ) -> Self {
         self.layer_versions = input;
         self
     }
     /// <p>A list of versions.</p>
-    pub fn get_layer_versions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LayerVersionsListItem>> {
+    pub fn get_layer_versions(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::LayerVersionsListItem>> {
         &self.layer_versions
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

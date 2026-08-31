@@ -39,7 +39,13 @@
 /// <p>The method Lambda uses to store a function's deployment package — either by copying the package into Lambda-managed storage (<code>COPY</code>) or by referencing it directly from the source Amazon S3 bucket (<code>REFERENCE</code>).</p>
 #[non_exhaustive]
 #[derive(
-    ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
+    ::std::clone::Clone,
+    ::std::cmp::Eq,
+    ::std::cmp::Ord,
+    ::std::cmp::PartialEq,
+    ::std::cmp::PartialOrd,
+    ::std::fmt::Debug,
+    ::std::hash::Hash,
 )]
 pub enum S3ObjectStorageMode {
     /// <p>The default storage mode. Uploads a copy of your deployment package to Lambda.</p>
@@ -47,7 +53,9 @@ pub enum S3ObjectStorageMode {
     /// <p>The reference storage mode. Lambda references the deployment package from the specified Amazon S3 bucket without uploading a copy.</p>
     Reference,
     /// `Unknown` contains new variants that have been added since this code was generated.
-    #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
+    #[deprecated(
+        note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants."
+    )]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for S3ObjectStorageMode {
@@ -55,7 +63,9 @@ impl ::std::convert::From<&str> for S3ObjectStorageMode {
         match s {
             "COPY" => S3ObjectStorageMode::Copy,
             "REFERENCE" => S3ObjectStorageMode::Reference,
-            other => S3ObjectStorageMode::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
+            other => S3ObjectStorageMode::Unknown(
+                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
+            ),
         }
     }
 }
@@ -89,10 +99,14 @@ impl S3ObjectStorageMode {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(
+        value: &str,
+    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
+            Self::Unknown(_) => {
+                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
+            }
             known => Ok(known),
         }
     }

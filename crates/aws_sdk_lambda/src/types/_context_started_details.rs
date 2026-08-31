@@ -12,7 +12,9 @@ impl ContextStartedDetails {
 }
 
 /// A builder for [`ContextStartedDetails`](crate::types::ContextStartedDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ContextStartedDetailsBuilder {}
 impl ContextStartedDetailsBuilder {

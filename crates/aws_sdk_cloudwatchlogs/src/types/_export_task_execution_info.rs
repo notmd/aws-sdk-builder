@@ -27,7 +27,9 @@ impl ExportTaskExecutionInfo {
 }
 
 /// A builder for [`ExportTaskExecutionInfo`](crate::types::ExportTaskExecutionInfo).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ExportTaskExecutionInfoBuilder {
     pub(crate) creation_time: ::std::option::Option<i64>,

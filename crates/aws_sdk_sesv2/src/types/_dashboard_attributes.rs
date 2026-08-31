@@ -33,7 +33,9 @@ impl DashboardAttributes {
 }
 
 /// A builder for [`DashboardAttributes`](crate::types::DashboardAttributes).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DashboardAttributesBuilder {
     pub(crate) engagement_metrics: ::std::option::Option<crate::types::FeatureStatus>,
@@ -57,7 +59,10 @@ impl DashboardAttributesBuilder {
     /// <li>
     /// <p><code>DISABLED</code> – Amazon SES disables engagement metrics for your account.</p></li>
     /// </ul>
-    pub fn set_engagement_metrics(mut self, input: ::std::option::Option<crate::types::FeatureStatus>) -> Self {
+    pub fn set_engagement_metrics(
+        mut self,
+        input: ::std::option::Option<crate::types::FeatureStatus>,
+    ) -> Self {
         self.engagement_metrics = input;
         self
     }

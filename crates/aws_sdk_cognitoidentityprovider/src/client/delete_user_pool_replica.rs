@@ -8,7 +8,10 @@ impl super::Client {
     /// - On success, responds with [`DeleteUserPoolReplicaOutput`](crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaOutput) with field(s):
     ///   - [`user_pool_replica(Option<UserPoolReplicaType>)`](crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaOutput::user_pool_replica): <p>Information about the deleted user pool replica.</p>
     /// - On failure, responds with [`SdkError<DeleteUserPoolReplicaError>`](crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError)
-    pub fn delete_user_pool_replica(&self) -> crate::operation::delete_user_pool_replica::builders::DeleteUserPoolReplicaFluentBuilder {
+    pub fn delete_user_pool_replica(
+        &self,
+    ) -> crate::operation::delete_user_pool_replica::builders::DeleteUserPoolReplicaFluentBuilder
+    {
         crate::operation::delete_user_pool_replica::builders::DeleteUserPoolReplicaFluentBuilder::new(self.handle.clone())
     }
 }

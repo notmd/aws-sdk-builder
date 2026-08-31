@@ -56,13 +56,17 @@ impl GetObjectAnnotationInput {
 }
 impl GetObjectAnnotationInput {
     /// Creates a new builder-style object to manufacture [`GetObjectAnnotationInput`](crate::operation::get_object_annotation::GetObjectAnnotationInput).
-    pub fn builder() -> crate::operation::get_object_annotation::builders::GetObjectAnnotationInputBuilder {
-        crate::operation::get_object_annotation::builders::GetObjectAnnotationInputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::get_object_annotation::builders::GetObjectAnnotationInputBuilder {
+        crate::operation::get_object_annotation::builders::GetObjectAnnotationInputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`GetObjectAnnotationInput`](crate::operation::get_object_annotation::GetObjectAnnotationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetObjectAnnotationInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -107,13 +111,19 @@ impl GetObjectAnnotationInputBuilder {
     /// <p>The name of the annotation to retrieve.</p>
     /// <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
     /// This field is required.
-    pub fn annotation_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn annotation_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.annotation_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the annotation to retrieve.</p>
     /// <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
-    pub fn set_annotation_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_annotation_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.annotation_name = input;
         self
     }
@@ -146,7 +156,10 @@ impl GetObjectAnnotationInputBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+    pub fn set_request_payer(
+        mut self,
+        input: ::std::option::Option<crate::types::RequestPayer>,
+    ) -> Self {
         self.request_payer = input;
         self
     }
@@ -157,12 +170,18 @@ impl GetObjectAnnotationInputBuilder {
         &self.request_payer
     }
     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
-    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -176,7 +195,10 @@ impl GetObjectAnnotationInputBuilder {
         self
     }
     /// <p>Set to <code>ENABLED</code> to validate the checksum of the annotation payload on retrieval.</p>
-    pub fn set_checksum_mode(mut self, input: ::std::option::Option<crate::types::ChecksumMode>) -> Self {
+    pub fn set_checksum_mode(
+        mut self,
+        input: ::std::option::Option<crate::types::ChecksumMode>,
+    ) -> Self {
         self.checksum_mode = input;
         self
     }
@@ -187,16 +209,20 @@ impl GetObjectAnnotationInputBuilder {
     /// Consumes the builder and constructs a [`GetObjectAnnotationInput`](crate::operation::get_object_annotation::GetObjectAnnotationInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_object_annotation::GetObjectAnnotationInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::get_object_annotation::GetObjectAnnotationInput {
-            bucket: self.bucket,
-            key: self.key,
-            annotation_name: self.annotation_name,
-            version_id: self.version_id,
-            request_payer: self.request_payer,
-            expected_bucket_owner: self.expected_bucket_owner,
-            checksum_mode: self.checksum_mode,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::get_object_annotation::GetObjectAnnotationInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::get_object_annotation::GetObjectAnnotationInput {
+                bucket: self.bucket,
+                key: self.key,
+                annotation_name: self.annotation_name,
+                version_id: self.version_id,
+                request_payer: self.request_payer,
+                expected_bucket_owner: self.expected_bucket_owner,
+                checksum_mode: self.checksum_mode,
+            },
+        )
     }
 }

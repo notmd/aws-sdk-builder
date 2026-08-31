@@ -4,7 +4,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ExecuteTransactionInput {
     /// <p>The list of PartiQL statements representing the transaction to run.</p>
-    pub transact_statements: ::std::option::Option<::std::vec::Vec<crate::types::ParameterizedStatement>>,
+    pub transact_statements:
+        ::std::option::Option<::std::vec::Vec<crate::types::ParameterizedStatement>>,
     /// <p>Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response.</p>
     pub client_request_token: ::std::option::Option<::std::string::String>,
     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactGetItems.html">TransactGetItems</a> and <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html">TransactWriteItems</a>.</p>
@@ -22,24 +23,31 @@ impl ExecuteTransactionInput {
         self.client_request_token.as_deref()
     }
     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactGetItems.html">TransactGetItems</a> and <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html">TransactWriteItems</a>.</p>
-    pub fn return_consumed_capacity(&self) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
+    pub fn return_consumed_capacity(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
         self.return_consumed_capacity.as_ref()
     }
 }
 impl ExecuteTransactionInput {
     /// Creates a new builder-style object to manufacture [`ExecuteTransactionInput`](crate::operation::execute_transaction::ExecuteTransactionInput).
-    pub fn builder() -> crate::operation::execute_transaction::builders::ExecuteTransactionInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::execute_transaction::builders::ExecuteTransactionInputBuilder {
         crate::operation::execute_transaction::builders::ExecuteTransactionInputBuilder::default()
     }
 }
 
 /// A builder for [`ExecuteTransactionInput`](crate::operation::execute_transaction::ExecuteTransactionInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ExecuteTransactionInputBuilder {
-    pub(crate) transact_statements: ::std::option::Option<::std::vec::Vec<crate::types::ParameterizedStatement>>,
+    pub(crate) transact_statements:
+        ::std::option::Option<::std::vec::Vec<crate::types::ParameterizedStatement>>,
     pub(crate) client_request_token: ::std::option::Option<::std::string::String>,
-    pub(crate) return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
+    pub(crate) return_consumed_capacity:
+        ::std::option::Option<crate::types::ReturnConsumedCapacity>,
 }
 impl ExecuteTransactionInputBuilder {
     /// Appends an item to `transact_statements`.
@@ -54,21 +62,32 @@ impl ExecuteTransactionInputBuilder {
         self
     }
     /// <p>The list of PartiQL statements representing the transaction to run.</p>
-    pub fn set_transact_statements(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ParameterizedStatement>>) -> Self {
+    pub fn set_transact_statements(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ParameterizedStatement>>,
+    ) -> Self {
         self.transact_statements = input;
         self
     }
     /// <p>The list of PartiQL statements representing the transaction to run.</p>
-    pub fn get_transact_statements(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ParameterizedStatement>> {
+    pub fn get_transact_statements(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ParameterizedStatement>> {
         &self.transact_statements
     }
     /// <p>Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response.</p>
-    pub fn client_request_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn client_request_token(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.client_request_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response.</p>
-    pub fn set_client_request_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_client_request_token(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.client_request_token = input;
         self
     }
@@ -82,22 +101,32 @@ impl ExecuteTransactionInputBuilder {
         self
     }
     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactGetItems.html">TransactGetItems</a> and <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html">TransactWriteItems</a>.</p>
-    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
+    pub fn set_return_consumed_capacity(
+        mut self,
+        input: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
+    ) -> Self {
         self.return_consumed_capacity = input;
         self
     }
     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactGetItems.html">TransactGetItems</a> and <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html">TransactWriteItems</a>.</p>
-    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
+    pub fn get_return_consumed_capacity(
+        &self,
+    ) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
         &self.return_consumed_capacity
     }
     /// Consumes the builder and constructs a [`ExecuteTransactionInput`](crate::operation::execute_transaction::ExecuteTransactionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::execute_transaction::ExecuteTransactionInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::execute_transaction::ExecuteTransactionInput {
-            transact_statements: self.transact_statements,
-            client_request_token: self.client_request_token,
-            return_consumed_capacity: self.return_consumed_capacity,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::execute_transaction::ExecuteTransactionInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::execute_transaction::ExecuteTransactionInput {
+                transact_statements: self.transact_statements,
+                client_request_token: self.client_request_token,
+                return_consumed_capacity: self.return_consumed_capacity,
+            },
+        )
     }
 }

@@ -59,7 +59,9 @@ impl PutQueryDefinitionFluentBuilder {
         }
     }
     /// Access the PutQueryDefinition as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_query_definition::builders::PutQueryDefinitionInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_query_definition::builders::PutQueryDefinitionInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,12 +85,17 @@ impl PutQueryDefinitionFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::put_query_definition::PutQueryDefinition::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::put_query_definition::PutQueryDefinition::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::put_query_definition::PutQueryDefinition::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::put_query_definition::PutQueryDefinition::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -101,12 +108,18 @@ impl PutQueryDefinitionFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -116,7 +129,10 @@ impl PutQueryDefinitionFluentBuilder {
         self
     }
     /// <p>Specify the query language to use for this query. The options are Logs Insights QL, OpenSearch PPL, and OpenSearch SQL. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
-    pub fn set_query_language(mut self, input: ::std::option::Option<crate::types::QueryLanguage>) -> Self {
+    pub fn set_query_language(
+        mut self,
+        input: ::std::option::Option<crate::types::QueryLanguage>,
+    ) -> Self {
         self.inner = self.inner.set_query_language(input);
         self
     }
@@ -140,13 +156,19 @@ impl PutQueryDefinitionFluentBuilder {
     }
     /// <p>If you are updating a query definition, use this parameter to specify the ID of the query definition that you want to update. You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a> to retrieve the IDs of your saved query definitions.</p>
     /// <p>If you are creating a query definition, do not specify this parameter. CloudWatch generates a unique ID for the new query definition and include it in the response to this operation.</p>
-    pub fn query_definition_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn query_definition_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.query_definition_id(input.into());
         self
     }
     /// <p>If you are updating a query definition, use this parameter to specify the ID of the query definition that you want to update. You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a> to retrieve the IDs of your saved query definitions.</p>
     /// <p>If you are creating a query definition, do not specify this parameter. CloudWatch generates a unique ID for the new query definition and include it in the response to this operation.</p>
-    pub fn set_query_definition_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_query_definition_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_query_definition_id(input);
         self
     }
@@ -162,19 +184,27 @@ impl PutQueryDefinitionFluentBuilder {
     ///
     /// <p>Use this parameter to include specific log groups as part of your query definition. If your query uses the OpenSearch Service query language, you specify the log group names inside the <code>querystring</code> instead of here.</p>
     /// <p>If you are updating an existing query definition for the Logs Insights QL or OpenSearch Service PPL and you omit this parameter, then the updated definition will contain no log groups.</p>
-    pub fn log_group_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_group_names(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.log_group_names(input.into());
         self
     }
     /// <p>Use this parameter to include specific log groups as part of your query definition. If your query uses the OpenSearch Service query language, you specify the log group names inside the <code>querystring</code> instead of here.</p>
     /// <p>If you are updating an existing query definition for the Logs Insights QL or OpenSearch Service PPL and you omit this parameter, then the updated definition will contain no log groups.</p>
-    pub fn set_log_group_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_log_group_names(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.inner = self.inner.set_log_group_names(input);
         self
     }
     /// <p>Use this parameter to include specific log groups as part of your query definition. If your query uses the OpenSearch Service query language, you specify the log group names inside the <code>querystring</code> instead of here.</p>
     /// <p>If you are updating an existing query definition for the Logs Insights QL or OpenSearch Service PPL and you omit this parameter, then the updated definition will contain no log groups.</p>
-    pub fn get_log_group_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_group_names(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_log_group_names()
     }
     /// <p>The query string to use for this definition. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
@@ -216,12 +246,17 @@ impl PutQueryDefinitionFluentBuilder {
         self
     }
     /// <p>Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the <code>{{parameterName}}</code> syntax in your query string to reference a parameter.</p>
-    pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::QueryParameter>>) -> Self {
+    pub fn set_parameters(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::QueryParameter>>,
+    ) -> Self {
         self.inner = self.inner.set_parameters(input);
         self
     }
     /// <p>Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the <code>{{parameterName}}</code> syntax in your query string to reference a parameter.</p>
-    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QueryParameter>> {
+    pub fn get_parameters(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::QueryParameter>> {
         self.inner.get_parameters()
     }
 }

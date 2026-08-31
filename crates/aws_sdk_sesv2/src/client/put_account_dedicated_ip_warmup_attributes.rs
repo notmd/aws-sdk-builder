@@ -8,7 +8,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutAccountDedicatedIpWarmupAttributesError>`](crate::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesError)
     pub fn put_account_dedicated_ip_warmup_attributes(
         &self,
-    ) -> crate::operation::put_account_dedicated_ip_warmup_attributes::builders::PutAccountDedicatedIpWarmupAttributesFluentBuilder {
+    ) -> crate::operation::put_account_dedicated_ip_warmup_attributes::builders::PutAccountDedicatedIpWarmupAttributesFluentBuilder{
         crate::operation::put_account_dedicated_ip_warmup_attributes::builders::PutAccountDedicatedIpWarmupAttributesFluentBuilder::new(
             self.handle.clone(),
         )

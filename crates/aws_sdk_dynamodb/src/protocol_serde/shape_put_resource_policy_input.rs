@@ -13,7 +13,9 @@ pub fn ser_put_resource_policy_input_input(
         object.key("ExpectedRevisionId").string(var_3.as_str());
     }
     if let Some(var_4) = &input.confirm_remove_self_resource_access {
-        object.key("ConfirmRemoveSelfResourceAccess").boolean(*var_4);
+        object
+            .key("ConfirmRemoveSelfResourceAccess")
+            .boolean(*var_4);
     }
     Ok(())
 }

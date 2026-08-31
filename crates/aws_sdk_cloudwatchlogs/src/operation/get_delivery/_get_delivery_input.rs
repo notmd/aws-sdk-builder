@@ -20,7 +20,9 @@ impl GetDeliveryInput {
 }
 
 /// A builder for [`GetDeliveryInput`](crate::operation::get_delivery::GetDeliveryInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetDeliveryInputBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
@@ -42,7 +44,12 @@ impl GetDeliveryInputBuilder {
         &self.id
     }
     /// Consumes the builder and constructs a [`GetDeliveryInput`](crate::operation::get_delivery::GetDeliveryInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::get_delivery::GetDeliveryInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::get_delivery::GetDeliveryInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::get_delivery::GetDeliveryInput { id: self.id })
     }
 }

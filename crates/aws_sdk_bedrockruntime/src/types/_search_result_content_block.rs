@@ -22,7 +22,9 @@ impl SearchResultContentBlock {
 }
 
 /// A builder for [`SearchResultContentBlock`](crate::types::SearchResultContentBlock).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SearchResultContentBlockBuilder {
     pub(crate) text: ::std::option::Option<::std::string::String>,
@@ -46,7 +48,12 @@ impl SearchResultContentBlockBuilder {
     /// Consumes the builder and constructs a [`SearchResultContentBlock`](crate::types::SearchResultContentBlock).
     /// This method will fail if any of the following fields are not set:
     /// - [`text`](crate::types::builders::SearchResultContentBlockBuilder::text)
-    pub fn build(self) -> ::std::result::Result<crate::types::SearchResultContentBlock, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::SearchResultContentBlock,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::SearchResultContentBlock {
             text: self.text.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

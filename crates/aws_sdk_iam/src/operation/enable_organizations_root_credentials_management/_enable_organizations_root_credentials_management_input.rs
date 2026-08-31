@@ -6,13 +6,15 @@ pub struct EnableOrganizationsRootCredentialsManagementInput {}
 impl EnableOrganizationsRootCredentialsManagementInput {
     /// Creates a new builder-style object to manufacture [`EnableOrganizationsRootCredentialsManagementInput`](crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementInput).
     pub fn builder(
-    ) -> crate::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementInputBuilder {
+    ) -> crate::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementInputBuilder{
         crate::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementInputBuilder::default()
     }
 }
 
 /// A builder for [`EnableOrganizationsRootCredentialsManagementInput`](crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct EnableOrganizationsRootCredentialsManagementInputBuilder {}
 impl EnableOrganizationsRootCredentialsManagementInputBuilder {
@@ -22,7 +24,7 @@ impl EnableOrganizationsRootCredentialsManagementInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementInput,
         ::aws_smithy_types::error::operation::BuildError,
-    > {
+    >{
         ::std::result::Result::Ok(
             crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementInput {},
         )

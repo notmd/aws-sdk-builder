@@ -59,7 +59,7 @@ impl PutEmailIdentityConfigurationSetAttributesFluentBuilder {
     /// Access the PutEmailIdentityConfigurationSetAttributes as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesInputBuilder {
+    ) -> &crate::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -78,7 +78,7 @@ impl PutEmailIdentityConfigurationSetAttributesFluentBuilder {
             crate::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -103,25 +103,37 @@ impl PutEmailIdentityConfigurationSetAttributesFluentBuilder {
         crate::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesOutput,
         crate::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The email address or domain to associate with a configuration set.</p>
-    pub fn email_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn email_identity(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.email_identity(input.into());
         self
     }
     /// <p>The email address or domain to associate with a configuration set.</p>
-    pub fn set_email_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_email_identity(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_email_identity(input);
         self
     }
@@ -130,12 +142,18 @@ impl PutEmailIdentityConfigurationSetAttributesFluentBuilder {
         self.inner.get_email_identity()
     }
     /// <p>The configuration set to associate with an email identity.</p>
-    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn configuration_set_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>The configuration set to associate with an email identity.</p>
-    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_configuration_set_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }

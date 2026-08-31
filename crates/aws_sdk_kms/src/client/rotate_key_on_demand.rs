@@ -7,7 +7,11 @@ impl super::Client {
     /// - On success, responds with [`RotateKeyOnDemandOutput`](crate::operation::rotate_key_on_demand::RotateKeyOnDemandOutput) with field(s):
     ///   - [`key_id(Option<String>)`](crate::operation::rotate_key_on_demand::RotateKeyOnDemandOutput::key_id): <p>Identifies the symmetric encryption KMS key that you initiated on-demand rotation on.</p>
     /// - On failure, responds with [`SdkError<RotateKeyOnDemandError>`](crate::operation::rotate_key_on_demand::RotateKeyOnDemandError)
-    pub fn rotate_key_on_demand(&self) -> crate::operation::rotate_key_on_demand::builders::RotateKeyOnDemandFluentBuilder {
-        crate::operation::rotate_key_on_demand::builders::RotateKeyOnDemandFluentBuilder::new(self.handle.clone())
+    pub fn rotate_key_on_demand(
+        &self,
+    ) -> crate::operation::rotate_key_on_demand::builders::RotateKeyOnDemandFluentBuilder {
+        crate::operation::rotate_key_on_demand::builders::RotateKeyOnDemandFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

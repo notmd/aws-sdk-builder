@@ -57,7 +57,9 @@ impl ListStoredQueriesFluentBuilder {
         }
     }
     /// Access the ListStoredQueries as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_stored_queries::builders::ListStoredQueriesInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_stored_queries::builders::ListStoredQueriesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,12 +83,17 @@ impl ListStoredQueriesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_stored_queries::ListStoredQueries::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_stored_queries::ListStoredQueries::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::list_stored_queries::ListStoredQueries::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_stored_queries::ListStoredQueries::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,20 +106,31 @@ impl ListStoredQueriesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_stored_queries::paginator::ListStoredQueriesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_stored_queries::paginator::ListStoredQueriesPaginator {
-        crate::operation::list_stored_queries::paginator::ListStoredQueriesPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_stored_queries::paginator::ListStoredQueriesPaginator {
+        crate::operation::list_stored_queries::paginator::ListStoredQueriesPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

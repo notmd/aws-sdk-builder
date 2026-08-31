@@ -29,7 +29,9 @@ impl FailoverType {
 }
 
 /// A builder for [`FailoverType`](crate::types::FailoverType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct FailoverTypeBuilder {
     pub(crate) secondary_region: ::std::option::Option<::std::string::String>,
@@ -38,12 +40,18 @@ pub struct FailoverTypeBuilder {
 impl FailoverTypeBuilder {
     /// <p>The secondary Amazon Web Services Region to use for failover when the primary region becomes unavailable.</p>
     /// This field is required.
-    pub fn secondary_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn secondary_region(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.secondary_region = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The secondary Amazon Web Services Region to use for failover when the primary region becomes unavailable.</p>
-    pub fn set_secondary_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_secondary_region(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.secondary_region = input;
         self
     }
@@ -53,24 +61,37 @@ impl FailoverTypeBuilder {
     }
     /// <p>The ID of the Amazon Web Services Route53 healthcheck that controls routing. If the healthcheck is healthy, traffic will be routed to the primary replica, and if the healthcheck is unhealthy, traffic will be routed to the secondary region.</p>
     /// This field is required.
-    pub fn primary_route53_health_check_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn primary_route53_health_check_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.primary_route53_health_check_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ID of the Amazon Web Services Route53 healthcheck that controls routing. If the healthcheck is healthy, traffic will be routed to the primary replica, and if the healthcheck is unhealthy, traffic will be routed to the secondary region.</p>
-    pub fn set_primary_route53_health_check_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_primary_route53_health_check_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.primary_route53_health_check_id = input;
         self
     }
     /// <p>The ID of the Amazon Web Services Route53 healthcheck that controls routing. If the healthcheck is healthy, traffic will be routed to the primary replica, and if the healthcheck is unhealthy, traffic will be routed to the secondary region.</p>
-    pub fn get_primary_route53_health_check_id(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_primary_route53_health_check_id(
+        &self,
+    ) -> &::std::option::Option<::std::string::String> {
         &self.primary_route53_health_check_id
     }
     /// Consumes the builder and constructs a [`FailoverType`](crate::types::FailoverType).
     /// This method will fail if any of the following fields are not set:
     /// - [`secondary_region`](crate::types::builders::FailoverTypeBuilder::secondary_region)
     /// - [`primary_route53_health_check_id`](crate::types::builders::FailoverTypeBuilder::primary_route53_health_check_id)
-    pub fn build(self) -> ::std::result::Result<crate::types::FailoverType, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::FailoverType,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::FailoverType {
             secondary_region: self.secondary_region.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

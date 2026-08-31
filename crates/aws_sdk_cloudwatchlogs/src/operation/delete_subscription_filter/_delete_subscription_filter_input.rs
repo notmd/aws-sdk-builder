@@ -20,13 +20,17 @@ impl DeleteSubscriptionFilterInput {
 }
 impl DeleteSubscriptionFilterInput {
     /// Creates a new builder-style object to manufacture [`DeleteSubscriptionFilterInput`](crate::operation::delete_subscription_filter::DeleteSubscriptionFilterInput).
-    pub fn builder() -> crate::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterInputBuilder
+    {
         crate::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteSubscriptionFilterInput`](crate::operation::delete_subscription_filter::DeleteSubscriptionFilterInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteSubscriptionFilterInputBuilder {
     pub(crate) log_group_name: ::std::option::Option<::std::string::String>,
@@ -35,12 +39,18 @@ pub struct DeleteSubscriptionFilterInputBuilder {
 impl DeleteSubscriptionFilterInputBuilder {
     /// <p>The name of the log group.</p>
     /// This field is required.
-    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_group_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.log_group_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the log group.</p>
-    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_log_group_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.log_group_name = input;
         self
     }
@@ -70,9 +80,11 @@ impl DeleteSubscriptionFilterInputBuilder {
         crate::operation::delete_subscription_filter::DeleteSubscriptionFilterInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::delete_subscription_filter::DeleteSubscriptionFilterInput {
-            log_group_name: self.log_group_name,
-            filter_name: self.filter_name,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::delete_subscription_filter::DeleteSubscriptionFilterInput {
+                log_group_name: self.log_group_name,
+                filter_name: self.filter_name,
+            },
+        )
     }
 }

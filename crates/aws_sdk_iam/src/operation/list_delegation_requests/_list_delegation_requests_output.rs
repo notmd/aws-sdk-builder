@@ -4,7 +4,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListDelegationRequestsOutput {
     /// <p>A list of delegation requests that match the specified criteria.</p>
-    pub delegation_requests: ::std::option::Option<::std::vec::Vec<crate::types::DelegationRequest>>,
+    pub delegation_requests:
+        ::std::option::Option<::std::vec::Vec<crate::types::DelegationRequest>>,
     /// <p>When <code>isTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items.</p>
@@ -34,16 +35,21 @@ impl ::aws_types::request_id::RequestId for ListDelegationRequestsOutput {
 }
 impl ListDelegationRequestsOutput {
     /// Creates a new builder-style object to manufacture [`ListDelegationRequestsOutput`](crate::operation::list_delegation_requests::ListDelegationRequestsOutput).
-    pub fn builder() -> crate::operation::list_delegation_requests::builders::ListDelegationRequestsOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_delegation_requests::builders::ListDelegationRequestsOutputBuilder
+    {
         crate::operation::list_delegation_requests::builders::ListDelegationRequestsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListDelegationRequestsOutput`](crate::operation::list_delegation_requests::ListDelegationRequestsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListDelegationRequestsOutputBuilder {
-    pub(crate) delegation_requests: ::std::option::Option<::std::vec::Vec<crate::types::DelegationRequest>>,
+    pub(crate) delegation_requests:
+        ::std::option::Option<::std::vec::Vec<crate::types::DelegationRequest>>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     _request_id: Option<String>,
@@ -61,12 +67,17 @@ impl ListDelegationRequestsOutputBuilder {
         self
     }
     /// <p>A list of delegation requests that match the specified criteria.</p>
-    pub fn set_delegation_requests(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DelegationRequest>>) -> Self {
+    pub fn set_delegation_requests(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::DelegationRequest>>,
+    ) -> Self {
         self.delegation_requests = input;
         self
     }
     /// <p>A list of delegation requests that match the specified criteria.</p>
-    pub fn get_delegation_requests(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DelegationRequest>> {
+    pub fn get_delegation_requests(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DelegationRequest>> {
         &self.delegation_requests
     }
     /// <p>When <code>isTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>

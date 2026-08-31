@@ -21,7 +21,9 @@ impl RequestProgress {
 }
 
 /// A builder for [`RequestProgress`](crate::types::RequestProgress).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RequestProgressBuilder {
     pub(crate) enabled: ::std::option::Option<bool>,
@@ -43,6 +45,8 @@ impl RequestProgressBuilder {
     }
     /// Consumes the builder and constructs a [`RequestProgress`](crate::types::RequestProgress).
     pub fn build(self) -> crate::types::RequestProgress {
-        crate::types::RequestProgress { enabled: self.enabled }
+        crate::types::RequestProgress {
+            enabled: self.enabled,
+        }
     }
 }

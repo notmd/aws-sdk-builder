@@ -22,7 +22,7 @@ impl ::std::fmt::Debug for CheckIfPhoneNumberIsOptedOutInput {
 }
 impl CheckIfPhoneNumberIsOptedOutInput {
     /// Creates a new builder-style object to manufacture [`CheckIfPhoneNumberIsOptedOutInput`](crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutInput).
-    pub fn builder() -> crate::operation::check_if_phone_number_is_opted_out::builders::CheckIfPhoneNumberIsOptedOutInputBuilder {
+    pub fn builder() -> crate::operation::check_if_phone_number_is_opted_out::builders::CheckIfPhoneNumberIsOptedOutInputBuilder{
         crate::operation::check_if_phone_number_is_opted_out::builders::CheckIfPhoneNumberIsOptedOutInputBuilder::default()
     }
 }

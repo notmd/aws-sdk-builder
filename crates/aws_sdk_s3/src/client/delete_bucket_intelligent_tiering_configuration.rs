@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteBucketIntelligentTieringConfigurationError>`](crate::operation::delete_bucket_intelligent_tiering_configuration::DeleteBucketIntelligentTieringConfigurationError)
     pub fn delete_bucket_intelligent_tiering_configuration(
         &self,
-    ) -> crate::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationFluentBuilder {
+    ) -> crate::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationFluentBuilder{
         crate::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationFluentBuilder::new(
             self.handle.clone(),
         )

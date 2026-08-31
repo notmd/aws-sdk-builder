@@ -46,13 +46,16 @@ impl CreatePackageGroupInput {
 }
 impl CreatePackageGroupInput {
     /// Creates a new builder-style object to manufacture [`CreatePackageGroupInput`](crate::operation::create_package_group::CreatePackageGroupInput).
-    pub fn builder() -> crate::operation::create_package_group::builders::CreatePackageGroupInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::create_package_group::builders::CreatePackageGroupInputBuilder {
         crate::operation::create_package_group::builders::CreatePackageGroupInputBuilder::default()
     }
 }
 
 /// A builder for [`CreatePackageGroupInput`](crate::operation::create_package_group::CreatePackageGroupInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreatePackageGroupInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -94,12 +97,18 @@ impl CreatePackageGroupInputBuilder {
     }
     /// <p>The pattern of the package group to create. The pattern is also the identifier of the package group.</p>
     /// This field is required.
-    pub fn package_group(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn package_group(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.package_group = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The pattern of the package group to create. The pattern is also the identifier of the package group.</p>
-    pub fn set_package_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_package_group(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.package_group = input;
         self
     }
@@ -147,7 +156,10 @@ impl CreatePackageGroupInputBuilder {
         self
     }
     /// <p>One or more tag key-value pairs for the package group.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.tags = input;
         self
     }
@@ -158,15 +170,19 @@ impl CreatePackageGroupInputBuilder {
     /// Consumes the builder and constructs a [`CreatePackageGroupInput`](crate::operation::create_package_group::CreatePackageGroupInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::create_package_group::CreatePackageGroupInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::create_package_group::CreatePackageGroupInput {
-            domain: self.domain,
-            domain_owner: self.domain_owner,
-            package_group: self.package_group,
-            contact_info: self.contact_info,
-            description: self.description,
-            tags: self.tags,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::create_package_group::CreatePackageGroupInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::create_package_group::CreatePackageGroupInput {
+                domain: self.domain,
+                domain_owner: self.domain_owner,
+                package_group: self.package_group,
+                contact_info: self.contact_info,
+                description: self.description,
+                tags: self.tags,
+            },
+        )
     }
 }

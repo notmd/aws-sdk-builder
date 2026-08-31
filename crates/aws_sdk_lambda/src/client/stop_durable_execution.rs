@@ -8,7 +8,11 @@ impl super::Client {
     /// - On success, responds with [`StopDurableExecutionOutput`](crate::operation::stop_durable_execution::StopDurableExecutionOutput) with field(s):
     ///   - [`stop_timestamp(DateTime)`](crate::operation::stop_durable_execution::StopDurableExecutionOutput::stop_timestamp): <p>The timestamp when the execution was stopped (ISO 8601 format).</p>
     /// - On failure, responds with [`SdkError<StopDurableExecutionError>`](crate::operation::stop_durable_execution::StopDurableExecutionError)
-    pub fn stop_durable_execution(&self) -> crate::operation::stop_durable_execution::builders::StopDurableExecutionFluentBuilder {
-        crate::operation::stop_durable_execution::builders::StopDurableExecutionFluentBuilder::new(self.handle.clone())
+    pub fn stop_durable_execution(
+        &self,
+    ) -> crate::operation::stop_durable_execution::builders::StopDurableExecutionFluentBuilder {
+        crate::operation::stop_durable_execution::builders::StopDurableExecutionFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

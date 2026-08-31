@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeConfigurationRecorderStatusError>`](crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError)
     pub fn describe_configuration_recorder_status(
         &self,
-    ) -> crate::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusFluentBuilder {
+    ) -> crate::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusFluentBuilder{
         crate::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusFluentBuilder::new(self.handle.clone())
     }
 }

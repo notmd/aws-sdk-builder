@@ -67,7 +67,10 @@ impl ::std::fmt::Debug for CreateManagedLoginBrandingInput {
         let mut formatter = f.debug_struct("CreateManagedLoginBrandingInput");
         formatter.field("user_pool_id", &self.user_pool_id);
         formatter.field("client_id", &"*** Sensitive Data Redacted ***");
-        formatter.field("use_cognito_provided_values", &self.use_cognito_provided_values);
+        formatter.field(
+            "use_cognito_provided_values",
+            &self.use_cognito_provided_values,
+        );
         formatter.field("settings", &self.settings);
         formatter.field("assets", &self.assets);
         formatter.finish()
@@ -75,7 +78,7 @@ impl ::std::fmt::Debug for CreateManagedLoginBrandingInput {
 }
 impl CreateManagedLoginBrandingInput {
     /// Creates a new builder-style object to manufacture [`CreateManagedLoginBrandingInput`](crate::operation::create_managed_login_branding::CreateManagedLoginBrandingInput).
-    pub fn builder() -> crate::operation::create_managed_login_branding::builders::CreateManagedLoginBrandingInputBuilder {
+    pub fn builder() -> crate::operation::create_managed_login_branding::builders::CreateManagedLoginBrandingInputBuilder{
         crate::operation::create_managed_login_branding::builders::CreateManagedLoginBrandingInputBuilder::default()
     }
 }
@@ -166,7 +169,10 @@ impl CreateManagedLoginBrandingInputBuilder {
     /// <li>
     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
     /// </ul>
-    pub fn set_settings(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
+    pub fn set_settings(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::Document>,
+    ) -> Self {
         self.settings = input;
         self
     }
@@ -197,7 +203,10 @@ impl CreateManagedLoginBrandingInputBuilder {
         self
     }
     /// <p>An array of image files that you want to apply to functions like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
-    pub fn set_assets(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AssetType>>) -> Self {
+    pub fn set_assets(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AssetType>>,
+    ) -> Self {
         self.assets = input;
         self
     }
@@ -212,13 +221,15 @@ impl CreateManagedLoginBrandingInputBuilder {
         crate::operation::create_managed_login_branding::CreateManagedLoginBrandingInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::create_managed_login_branding::CreateManagedLoginBrandingInput {
-            user_pool_id: self.user_pool_id,
-            client_id: self.client_id,
-            use_cognito_provided_values: self.use_cognito_provided_values,
-            settings: self.settings,
-            assets: self.assets,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::create_managed_login_branding::CreateManagedLoginBrandingInput {
+                user_pool_id: self.user_pool_id,
+                client_id: self.client_id,
+                use_cognito_provided_values: self.use_cognito_provided_values,
+                settings: self.settings,
+                assets: self.assets,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for CreateManagedLoginBrandingInputBuilder {
@@ -226,7 +237,10 @@ impl ::std::fmt::Debug for CreateManagedLoginBrandingInputBuilder {
         let mut formatter = f.debug_struct("CreateManagedLoginBrandingInputBuilder");
         formatter.field("user_pool_id", &self.user_pool_id);
         formatter.field("client_id", &"*** Sensitive Data Redacted ***");
-        formatter.field("use_cognito_provided_values", &self.use_cognito_provided_values);
+        formatter.field(
+            "use_cognito_provided_values",
+            &self.use_cognito_provided_values,
+        );
         formatter.field("settings", &self.settings);
         formatter.field("assets", &self.assets);
         formatter.finish()

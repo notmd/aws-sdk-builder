@@ -48,7 +48,9 @@ impl AggregateResourceIdentifier {
 }
 
 /// A builder for [`AggregateResourceIdentifier`](crate::types::AggregateResourceIdentifier).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AggregateResourceIdentifierBuilder {
     pub(crate) source_account_id: ::std::option::Option<::std::string::String>,
@@ -60,12 +62,18 @@ pub struct AggregateResourceIdentifierBuilder {
 impl AggregateResourceIdentifierBuilder {
     /// <p>The 12-digit account ID of the source account.</p>
     /// This field is required.
-    pub fn source_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn source_account_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.source_account_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The 12-digit account ID of the source account.</p>
-    pub fn set_source_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_source_account_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.source_account_id = input;
         self
     }
@@ -75,12 +83,18 @@ impl AggregateResourceIdentifierBuilder {
     }
     /// <p>The source region where data is aggregated.</p>
     /// This field is required.
-    pub fn source_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn source_region(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.source_region = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The source region where data is aggregated.</p>
-    pub fn set_source_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_source_region(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.source_region = input;
         self
     }
@@ -110,7 +124,10 @@ impl AggregateResourceIdentifierBuilder {
         self
     }
     /// <p>The type of the Amazon Web Services resource.</p>
-    pub fn set_resource_type(mut self, input: ::std::option::Option<crate::types::ResourceType>) -> Self {
+    pub fn set_resource_type(
+        mut self,
+        input: ::std::option::Option<crate::types::ResourceType>,
+    ) -> Self {
         self.resource_type = input;
         self
     }
@@ -119,12 +136,18 @@ impl AggregateResourceIdentifierBuilder {
         &self.resource_type
     }
     /// <p>The name of the Amazon Web Services resource.</p>
-    pub fn resource_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn resource_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.resource_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the Amazon Web Services resource.</p>
-    pub fn set_resource_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_resource_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.resource_name = input;
         self
     }
@@ -138,7 +161,12 @@ impl AggregateResourceIdentifierBuilder {
     /// - [`source_region`](crate::types::builders::AggregateResourceIdentifierBuilder::source_region)
     /// - [`resource_id`](crate::types::builders::AggregateResourceIdentifierBuilder::resource_id)
     /// - [`resource_type`](crate::types::builders::AggregateResourceIdentifierBuilder::resource_type)
-    pub fn build(self) -> ::std::result::Result<crate::types::AggregateResourceIdentifier, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::AggregateResourceIdentifier,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::AggregateResourceIdentifier {
             source_account_id: self.source_account_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

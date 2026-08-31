@@ -65,12 +65,18 @@ pub struct SessionCredentialsBuilder {
 impl SessionCredentialsBuilder {
     /// <p>A unique identifier that's associated with a secret access key. The access key ID and the secret access key are used together to sign programmatic Amazon Web Services requests cryptographically.</p>
     /// This field is required.
-    pub fn access_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn access_key_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.access_key_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A unique identifier that's associated with a secret access key. The access key ID and the secret access key are used together to sign programmatic Amazon Web Services requests cryptographically.</p>
-    pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_access_key_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.access_key_id = input;
         self
     }
@@ -80,12 +86,18 @@ impl SessionCredentialsBuilder {
     }
     /// <p>A key that's used with the access key ID to cryptographically sign programmatic Amazon Web Services requests. Signing a request identifies the sender and prevents the request from being altered.</p>
     /// This field is required.
-    pub fn secret_access_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn secret_access_key(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.secret_access_key = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A key that's used with the access key ID to cryptographically sign programmatic Amazon Web Services requests. Signing a request identifies the sender and prevents the request from being altered.</p>
-    pub fn set_secret_access_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_secret_access_key(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.secret_access_key = input;
         self
     }
@@ -95,12 +107,18 @@ impl SessionCredentialsBuilder {
     }
     /// <p>A part of the temporary security credentials. The session token is used to validate the temporary security credentials.</p>
     /// This field is required.
-    pub fn session_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn session_token(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.session_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A part of the temporary security credentials. The session token is used to validate the temporary security credentials.</p>
-    pub fn set_session_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_session_token(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.session_token = input;
         self
     }
@@ -115,7 +133,10 @@ impl SessionCredentialsBuilder {
         self
     }
     /// <p>Temporary security credentials expire after a specified interval. After temporary credentials expire, any calls that you make with those credentials will fail. So you must generate a new set of temporary credentials. Temporary credentials cannot be extended or refreshed beyond the original specified interval.</p>
-    pub fn set_expiration(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_expiration(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.expiration = input;
         self
     }
@@ -129,7 +150,12 @@ impl SessionCredentialsBuilder {
     /// - [`secret_access_key`](crate::types::builders::SessionCredentialsBuilder::secret_access_key)
     /// - [`session_token`](crate::types::builders::SessionCredentialsBuilder::session_token)
     /// - [`expiration`](crate::types::builders::SessionCredentialsBuilder::expiration)
-    pub fn build(self) -> ::std::result::Result<crate::types::SessionCredentials, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::SessionCredentials,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::SessionCredentials {
             access_key_id: self.access_key_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

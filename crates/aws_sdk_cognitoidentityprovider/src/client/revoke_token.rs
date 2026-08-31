@@ -8,7 +8,9 @@ impl super::Client {
     ///   - [`client_secret(impl Into<String>)`](crate::operation::revoke_token::builders::RevokeTokenFluentBuilder::client_secret) / [`set_client_secret(Option<String>)`](crate::operation::revoke_token::builders::RevokeTokenFluentBuilder::set_client_secret):<br>required: **false**<br><p>The client secret of the requested app client, if the client has a secret.</p><br>
     /// - On success, responds with [`RevokeTokenOutput`](crate::operation::revoke_token::RevokeTokenOutput)
     /// - On failure, responds with [`SdkError<RevokeTokenError>`](crate::operation::revoke_token::RevokeTokenError)
-    pub fn revoke_token(&self) -> crate::operation::revoke_token::builders::RevokeTokenFluentBuilder {
+    pub fn revoke_token(
+        &self,
+    ) -> crate::operation::revoke_token::builders::RevokeTokenFluentBuilder {
         crate::operation::revoke_token::builders::RevokeTokenFluentBuilder::new(self.handle.clone())
     }
 }

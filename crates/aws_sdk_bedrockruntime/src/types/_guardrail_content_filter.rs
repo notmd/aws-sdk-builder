@@ -25,7 +25,9 @@ impl GuardrailContentFilter {
         &self.confidence
     }
     /// <p>The filter strength setting for the guardrail content filter.</p>
-    pub fn filter_strength(&self) -> ::std::option::Option<&crate::types::GuardrailContentFilterStrength> {
+    pub fn filter_strength(
+        &self,
+    ) -> ::std::option::Option<&crate::types::GuardrailContentFilterStrength> {
         self.filter_strength.as_ref()
     }
     /// <p>The guardrail action.</p>
@@ -45,7 +47,9 @@ impl GuardrailContentFilter {
 }
 
 /// A builder for [`GuardrailContentFilter`](crate::types::GuardrailContentFilter).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GuardrailContentFilterBuilder {
     pub(crate) r#type: ::std::option::Option<crate::types::GuardrailContentFilterType>,
@@ -62,7 +66,10 @@ impl GuardrailContentFilterBuilder {
         self
     }
     /// <p>The guardrail type.</p>
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::GuardrailContentFilterType>) -> Self {
+    pub fn set_type(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailContentFilterType>,
+    ) -> Self {
         self.r#type = input;
         self
     }
@@ -77,12 +84,17 @@ impl GuardrailContentFilterBuilder {
         self
     }
     /// <p>The guardrail confidence.</p>
-    pub fn set_confidence(mut self, input: ::std::option::Option<crate::types::GuardrailContentFilterConfidence>) -> Self {
+    pub fn set_confidence(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailContentFilterConfidence>,
+    ) -> Self {
         self.confidence = input;
         self
     }
     /// <p>The guardrail confidence.</p>
-    pub fn get_confidence(&self) -> &::std::option::Option<crate::types::GuardrailContentFilterConfidence> {
+    pub fn get_confidence(
+        &self,
+    ) -> &::std::option::Option<crate::types::GuardrailContentFilterConfidence> {
         &self.confidence
     }
     /// <p>The filter strength setting for the guardrail content filter.</p>
@@ -91,12 +103,17 @@ impl GuardrailContentFilterBuilder {
         self
     }
     /// <p>The filter strength setting for the guardrail content filter.</p>
-    pub fn set_filter_strength(mut self, input: ::std::option::Option<crate::types::GuardrailContentFilterStrength>) -> Self {
+    pub fn set_filter_strength(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailContentFilterStrength>,
+    ) -> Self {
         self.filter_strength = input;
         self
     }
     /// <p>The filter strength setting for the guardrail content filter.</p>
-    pub fn get_filter_strength(&self) -> &::std::option::Option<crate::types::GuardrailContentFilterStrength> {
+    pub fn get_filter_strength(
+        &self,
+    ) -> &::std::option::Option<crate::types::GuardrailContentFilterStrength> {
         &self.filter_strength
     }
     /// <p>The guardrail action.</p>
@@ -106,7 +123,10 @@ impl GuardrailContentFilterBuilder {
         self
     }
     /// <p>The guardrail action.</p>
-    pub fn set_action(mut self, input: ::std::option::Option<crate::types::GuardrailContentPolicyAction>) -> Self {
+    pub fn set_action(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailContentPolicyAction>,
+    ) -> Self {
         self.action = input;
         self
     }
@@ -133,7 +153,12 @@ impl GuardrailContentFilterBuilder {
     /// - [`r#type`](crate::types::builders::GuardrailContentFilterBuilder::type)
     /// - [`confidence`](crate::types::builders::GuardrailContentFilterBuilder::confidence)
     /// - [`action`](crate::types::builders::GuardrailContentFilterBuilder::action)
-    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailContentFilter, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::GuardrailContentFilter,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::GuardrailContentFilter {
             r#type: self.r#type.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

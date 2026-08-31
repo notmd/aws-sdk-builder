@@ -66,7 +66,9 @@ impl CreateResourceServerFluentBuilder {
         }
     }
     /// Access the CreateResourceServer as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_resource_server::builders::CreateResourceServerInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::create_resource_server::builders::CreateResourceServerInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -95,7 +97,11 @@ impl CreateResourceServerFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::create_resource_server::CreateResourceServer::orchestrate(&runtime_plugins, input).await
+        crate::operation::create_resource_server::CreateResourceServer::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -108,12 +114,18 @@ impl CreateResourceServerFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -173,12 +185,17 @@ impl CreateResourceServerFluentBuilder {
         self
     }
     /// <p>A list of custom scopes. Each scope is a key-value map with the keys <code>ScopeName</code> and <code>ScopeDescription</code>. The name of a custom scope is a combination of <code>ScopeName</code> and the resource server <code>Name</code> in this request, for example <code>MyResourceServerName/MyScopeName</code>.</p>
-    pub fn set_scopes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>>) -> Self {
+    pub fn set_scopes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>>,
+    ) -> Self {
         self.inner = self.inner.set_scopes(input);
         self
     }
     /// <p>A list of custom scopes. Each scope is a key-value map with the keys <code>ScopeName</code> and <code>ScopeDescription</code>. The name of a custom scope is a combination of <code>ScopeName</code> and the resource server <code>Name</code> in this request, for example <code>MyResourceServerName/MyScopeName</code>.</p>
-    pub fn get_scopes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>> {
+    pub fn get_scopes(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>> {
         self.inner.get_scopes()
     }
 }

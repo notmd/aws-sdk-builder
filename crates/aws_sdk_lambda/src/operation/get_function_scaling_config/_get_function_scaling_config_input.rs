@@ -20,13 +20,17 @@ impl GetFunctionScalingConfigInput {
 }
 impl GetFunctionScalingConfigInput {
     /// Creates a new builder-style object to manufacture [`GetFunctionScalingConfigInput`](crate::operation::get_function_scaling_config::GetFunctionScalingConfigInput).
-    pub fn builder() -> crate::operation::get_function_scaling_config::builders::GetFunctionScalingConfigInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::get_function_scaling_config::builders::GetFunctionScalingConfigInputBuilder
+    {
         crate::operation::get_function_scaling_config::builders::GetFunctionScalingConfigInputBuilder::default()
     }
 }
 
 /// A builder for [`GetFunctionScalingConfigInput`](crate::operation::get_function_scaling_config::GetFunctionScalingConfigInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetFunctionScalingConfigInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -35,12 +39,18 @@ pub struct GetFunctionScalingConfigInputBuilder {
 impl GetFunctionScalingConfigInputBuilder {
     /// <p>The name or ARN of the Lambda function.</p>
     /// This field is required.
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name or ARN of the Lambda function.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.function_name = input;
         self
     }
@@ -70,9 +80,11 @@ impl GetFunctionScalingConfigInputBuilder {
         crate::operation::get_function_scaling_config::GetFunctionScalingConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_function_scaling_config::GetFunctionScalingConfigInput {
-            function_name: self.function_name,
-            qualifier: self.qualifier,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::get_function_scaling_config::GetFunctionScalingConfigInput {
+                function_name: self.function_name,
+                qualifier: self.qualifier,
+            },
+        )
     }
 }

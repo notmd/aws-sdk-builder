@@ -21,7 +21,9 @@ impl AbortIncompleteMultipartUpload {
 }
 
 /// A builder for [`AbortIncompleteMultipartUpload`](crate::types::AbortIncompleteMultipartUpload).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AbortIncompleteMultipartUploadBuilder {
     pub(crate) days_after_initiation: ::std::option::Option<i32>,

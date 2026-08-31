@@ -64,7 +64,7 @@ impl DeleteOrganizationConformancePackFluentBuilder {
         }
     }
     /// Access the DeleteOrganizationConformancePack as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,7 +83,7 @@ impl DeleteOrganizationConformancePackFluentBuilder {
             crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -103,30 +103,44 @@ impl DeleteOrganizationConformancePackFluentBuilder {
         crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackOutput,
         crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of organization conformance pack that you want to delete.</p>
-    pub fn organization_conformance_pack_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn organization_conformance_pack_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.organization_conformance_pack_name(input.into());
         self
     }
     /// <p>The name of organization conformance pack that you want to delete.</p>
-    pub fn set_organization_conformance_pack_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_organization_conformance_pack_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_organization_conformance_pack_name(input);
         self
     }
     /// <p>The name of organization conformance pack that you want to delete.</p>
-    pub fn get_organization_conformance_pack_name(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_organization_conformance_pack_name(
+        &self,
+    ) -> &::std::option::Option<::std::string::String> {
         self.inner.get_organization_conformance_pack_name()
     }
 }

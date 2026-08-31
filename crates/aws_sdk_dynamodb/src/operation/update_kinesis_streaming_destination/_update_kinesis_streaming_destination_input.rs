@@ -8,7 +8,8 @@ pub struct UpdateKinesisStreamingDestinationInput {
     /// <p>The Amazon Resource Name (ARN) for the Kinesis stream input.</p>
     pub stream_arn: ::std::option::Option<::std::string::String>,
     /// <p>The command to update the Kinesis stream configuration.</p>
-    pub update_kinesis_streaming_configuration: ::std::option::Option<crate::types::UpdateKinesisStreamingConfiguration>,
+    pub update_kinesis_streaming_configuration:
+        ::std::option::Option<crate::types::UpdateKinesisStreamingConfiguration>,
 }
 impl UpdateKinesisStreamingDestinationInput {
     /// <p>The table name for the Kinesis streaming destination input. You can also provide the ARN of the table in this parameter.</p>
@@ -20,24 +21,29 @@ impl UpdateKinesisStreamingDestinationInput {
         self.stream_arn.as_deref()
     }
     /// <p>The command to update the Kinesis stream configuration.</p>
-    pub fn update_kinesis_streaming_configuration(&self) -> ::std::option::Option<&crate::types::UpdateKinesisStreamingConfiguration> {
+    pub fn update_kinesis_streaming_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::UpdateKinesisStreamingConfiguration> {
         self.update_kinesis_streaming_configuration.as_ref()
     }
 }
 impl UpdateKinesisStreamingDestinationInput {
     /// Creates a new builder-style object to manufacture [`UpdateKinesisStreamingDestinationInput`](crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationInput).
-    pub fn builder() -> crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationInputBuilder {
+    pub fn builder() -> crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationInputBuilder{
         crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateKinesisStreamingDestinationInput`](crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateKinesisStreamingDestinationInputBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
     pub(crate) stream_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) update_kinesis_streaming_configuration: ::std::option::Option<crate::types::UpdateKinesisStreamingConfiguration>,
+    pub(crate) update_kinesis_streaming_configuration:
+        ::std::option::Option<crate::types::UpdateKinesisStreamingConfiguration>,
 }
 impl UpdateKinesisStreamingDestinationInputBuilder {
     /// <p>The table name for the Kinesis streaming destination input. You can also provide the ARN of the table in this parameter.</p>
@@ -71,7 +77,10 @@ impl UpdateKinesisStreamingDestinationInputBuilder {
         &self.stream_arn
     }
     /// <p>The command to update the Kinesis stream configuration.</p>
-    pub fn update_kinesis_streaming_configuration(mut self, input: crate::types::UpdateKinesisStreamingConfiguration) -> Self {
+    pub fn update_kinesis_streaming_configuration(
+        mut self,
+        input: crate::types::UpdateKinesisStreamingConfiguration,
+    ) -> Self {
         self.update_kinesis_streaming_configuration = ::std::option::Option::Some(input);
         self
     }
@@ -84,7 +93,9 @@ impl UpdateKinesisStreamingDestinationInputBuilder {
         self
     }
     /// <p>The command to update the Kinesis stream configuration.</p>
-    pub fn get_update_kinesis_streaming_configuration(&self) -> &::std::option::Option<crate::types::UpdateKinesisStreamingConfiguration> {
+    pub fn get_update_kinesis_streaming_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::UpdateKinesisStreamingConfiguration> {
         &self.update_kinesis_streaming_configuration
     }
     /// Consumes the builder and constructs a [`UpdateKinesisStreamingDestinationInput`](crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationInput).
@@ -93,7 +104,7 @@ impl UpdateKinesisStreamingDestinationInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationInput,
         ::aws_smithy_types::error::operation::BuildError,
-    > {
+    >{
         ::std::result::Result::Ok(
             crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationInput {
                 table_name: self.table_name,

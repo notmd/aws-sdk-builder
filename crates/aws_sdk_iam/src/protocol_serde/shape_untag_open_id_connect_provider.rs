@@ -101,7 +101,9 @@ pub fn de_untag_open_id_connect_provider_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderOutputBuilder::default();
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }

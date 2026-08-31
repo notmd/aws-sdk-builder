@@ -34,13 +34,15 @@ impl GetDiscoveredResourceCountsInput {
 }
 impl GetDiscoveredResourceCountsInput {
     /// Creates a new builder-style object to manufacture [`GetDiscoveredResourceCountsInput`](crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsInput).
-    pub fn builder() -> crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsInputBuilder {
+    pub fn builder() -> crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsInputBuilder{
         crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsInputBuilder::default()
     }
 }
 
 /// A builder for [`GetDiscoveredResourceCountsInput`](crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetDiscoveredResourceCountsInputBuilder {
     pub(crate) resource_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -56,7 +58,10 @@ impl GetDiscoveredResourceCountsInputBuilder {
     /// <p>If a value for <code>resourceTypes</code> is not specified, Config returns all resource types that Config is recording in the region for your account.</p><note>
     /// <p>If the configuration recorder is turned off, Config returns an empty list of <code>ResourceCount</code> objects. If the configuration recorder is not recording a specific resource type (for example, S3 buckets), that resource type is not returned in the list of <code>ResourceCount</code> objects.</p>
     /// </note>
-    pub fn resource_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn resource_types(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.resource_types.unwrap_or_default();
         v.push(input.into());
         self.resource_types = ::std::option::Option::Some(v);
@@ -66,7 +71,10 @@ impl GetDiscoveredResourceCountsInputBuilder {
     /// <p>If a value for <code>resourceTypes</code> is not specified, Config returns all resource types that Config is recording in the region for your account.</p><note>
     /// <p>If the configuration recorder is turned off, Config returns an empty list of <code>ResourceCount</code> objects. If the configuration recorder is not recording a specific resource type (for example, S3 buckets), that resource type is not returned in the list of <code>ResourceCount</code> objects.</p>
     /// </note>
-    pub fn set_resource_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_resource_types(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.resource_types = input;
         self
     }
@@ -74,7 +82,9 @@ impl GetDiscoveredResourceCountsInputBuilder {
     /// <p>If a value for <code>resourceTypes</code> is not specified, Config returns all resource types that Config is recording in the region for your account.</p><note>
     /// <p>If the configuration recorder is turned off, Config returns an empty list of <code>ResourceCount</code> objects. If the configuration recorder is not recording a specific resource type (for example, S3 buckets), that resource type is not returned in the list of <code>ResourceCount</code> objects.</p>
     /// </note>
-    pub fn get_resource_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_resource_types(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.resource_types
     }
     /// <p>The maximum number of <code>ResourceCount</code> objects returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>
@@ -112,10 +122,12 @@ impl GetDiscoveredResourceCountsInputBuilder {
         crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsInput {
-            resource_types: self.resource_types,
-            limit: self.limit,
-            next_token: self.next_token,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsInput {
+                resource_types: self.resource_types,
+                limit: self.limit,
+                next_token: self.next_token,
+            },
+        )
     }
 }

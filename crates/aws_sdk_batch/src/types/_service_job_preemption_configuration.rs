@@ -21,7 +21,9 @@ impl ServiceJobPreemptionConfiguration {
 }
 
 /// A builder for [`ServiceJobPreemptionConfiguration`](crate::types::ServiceJobPreemptionConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ServiceJobPreemptionConfigurationBuilder {
     pub(crate) preemption_retries_before_termination: ::std::option::Option<i32>,
@@ -33,7 +35,10 @@ impl ServiceJobPreemptionConfigurationBuilder {
         self
     }
     /// <p>The number of times a service job can be retried after it is preempted. A job will be terminated when preemption retries have been exhausted. If this field is unset, preempted jobs will be requeued an unlimited number of times.</p>
-    pub fn set_preemption_retries_before_termination(mut self, input: ::std::option::Option<i32>) -> Self {
+    pub fn set_preemption_retries_before_termination(
+        mut self,
+        input: ::std::option::Option<i32>,
+    ) -> Self {
         self.preemption_retries_before_termination = input;
         self
     }

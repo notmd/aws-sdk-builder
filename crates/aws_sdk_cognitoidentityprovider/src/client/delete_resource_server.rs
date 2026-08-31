@@ -7,7 +7,11 @@ impl super::Client {
     ///   - [`identifier(impl Into<String>)`](crate::operation::delete_resource_server::builders::DeleteResourceServerFluentBuilder::identifier) / [`set_identifier(Option<String>)`](crate::operation::delete_resource_server::builders::DeleteResourceServerFluentBuilder::set_identifier):<br>required: **true**<br><p>The identifier of the resource server that you want to delete.</p><br>
     /// - On success, responds with [`DeleteResourceServerOutput`](crate::operation::delete_resource_server::DeleteResourceServerOutput)
     /// - On failure, responds with [`SdkError<DeleteResourceServerError>`](crate::operation::delete_resource_server::DeleteResourceServerError)
-    pub fn delete_resource_server(&self) -> crate::operation::delete_resource_server::builders::DeleteResourceServerFluentBuilder {
-        crate::operation::delete_resource_server::builders::DeleteResourceServerFluentBuilder::new(self.handle.clone())
+    pub fn delete_resource_server(
+        &self,
+    ) -> crate::operation::delete_resource_server::builders::DeleteResourceServerFluentBuilder {
+        crate::operation::delete_resource_server::builders::DeleteResourceServerFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

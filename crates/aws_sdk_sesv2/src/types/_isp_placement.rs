@@ -15,7 +15,9 @@ impl IspPlacement {
         self.isp_name.as_deref()
     }
     /// <p>An object that contains inbox placement metrics for a specific email provider.</p>
-    pub fn placement_statistics(&self) -> ::std::option::Option<&crate::types::PlacementStatistics> {
+    pub fn placement_statistics(
+        &self,
+    ) -> ::std::option::Option<&crate::types::PlacementStatistics> {
         self.placement_statistics.as_ref()
     }
 }
@@ -27,7 +29,9 @@ impl IspPlacement {
 }
 
 /// A builder for [`IspPlacement`](crate::types::IspPlacement).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct IspPlacementBuilder {
     pub(crate) isp_name: ::std::option::Option<::std::string::String>,
@@ -54,12 +58,17 @@ impl IspPlacementBuilder {
         self
     }
     /// <p>An object that contains inbox placement metrics for a specific email provider.</p>
-    pub fn set_placement_statistics(mut self, input: ::std::option::Option<crate::types::PlacementStatistics>) -> Self {
+    pub fn set_placement_statistics(
+        mut self,
+        input: ::std::option::Option<crate::types::PlacementStatistics>,
+    ) -> Self {
         self.placement_statistics = input;
         self
     }
     /// <p>An object that contains inbox placement metrics for a specific email provider.</p>
-    pub fn get_placement_statistics(&self) -> &::std::option::Option<crate::types::PlacementStatistics> {
+    pub fn get_placement_statistics(
+        &self,
+    ) -> &::std::option::Option<crate::types::PlacementStatistics> {
         &self.placement_statistics
     }
     /// Consumes the builder and constructs a [`IspPlacement`](crate::types::IspPlacement).

@@ -18,7 +18,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListAggregateLogGroupSummariesError>`](crate::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesError)
     pub fn list_aggregate_log_group_summaries(
         &self,
-    ) -> crate::operation::list_aggregate_log_group_summaries::builders::ListAggregateLogGroupSummariesFluentBuilder {
+    ) -> crate::operation::list_aggregate_log_group_summaries::builders::ListAggregateLogGroupSummariesFluentBuilder{
         crate::operation::list_aggregate_log_group_summaries::builders::ListAggregateLogGroupSummariesFluentBuilder::new(self.handle.clone())
     }
 }

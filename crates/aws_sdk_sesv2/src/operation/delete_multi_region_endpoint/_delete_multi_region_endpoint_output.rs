@@ -41,13 +41,15 @@ impl ::aws_types::request_id::RequestId for DeleteMultiRegionEndpointOutput {
 }
 impl DeleteMultiRegionEndpointOutput {
     /// Creates a new builder-style object to manufacture [`DeleteMultiRegionEndpointOutput`](crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointOutput).
-    pub fn builder() -> crate::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointOutputBuilder {
+    pub fn builder() -> crate::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointOutputBuilder{
         crate::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteMultiRegionEndpointOutput`](crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteMultiRegionEndpointOutputBuilder {
     pub(crate) status: ::std::option::Option<crate::types::Status>,
@@ -108,7 +110,9 @@ impl DeleteMultiRegionEndpointOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteMultiRegionEndpointOutput`](crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointOutput).
-    pub fn build(self) -> crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointOutput {
         crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointOutput {
             status: self.status,
             _request_id: self._request_id,

@@ -58,7 +58,10 @@ impl DeleteConfigurationSetFluentBuilder {
         }
     }
     /// Access the DeleteConfigurationSet as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_configuration_set::builders::DeleteConfigurationSetInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::delete_configuration_set::builders::DeleteConfigurationSetInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,7 +90,11 @@ impl DeleteConfigurationSetFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_configuration_set::DeleteConfigurationSet::orchestrate(&runtime_plugins, input).await
+        crate::operation::delete_configuration_set::DeleteConfigurationSet::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -100,22 +107,34 @@ impl DeleteConfigurationSetFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the configuration set.</p>
-    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn configuration_set_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>The name of the configuration set.</p>
-    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_configuration_set_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }

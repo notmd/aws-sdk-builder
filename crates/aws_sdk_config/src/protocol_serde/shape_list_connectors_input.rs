@@ -18,7 +18,10 @@ pub fn ser_list_connectors_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_6 = array_4.value().start_object();
-                crate::protocol_serde::shape_connector_filter::ser_connector_filter(&mut object_6, item_5)?;
+                crate::protocol_serde::shape_connector_filter::ser_connector_filter(
+                    &mut object_6,
+                    item_5,
+                )?;
                 object_6.finish();
             }
         }

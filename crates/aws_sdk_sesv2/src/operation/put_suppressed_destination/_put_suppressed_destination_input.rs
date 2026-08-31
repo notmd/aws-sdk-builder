@@ -27,13 +27,17 @@ impl PutSuppressedDestinationInput {
 }
 impl PutSuppressedDestinationInput {
     /// Creates a new builder-style object to manufacture [`PutSuppressedDestinationInput`](crate::operation::put_suppressed_destination::PutSuppressedDestinationInput).
-    pub fn builder() -> crate::operation::put_suppressed_destination::builders::PutSuppressedDestinationInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::put_suppressed_destination::builders::PutSuppressedDestinationInputBuilder
+    {
         crate::operation::put_suppressed_destination::builders::PutSuppressedDestinationInputBuilder::default()
     }
 }
 
 /// A builder for [`PutSuppressedDestinationInput`](crate::operation::put_suppressed_destination::PutSuppressedDestinationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutSuppressedDestinationInputBuilder {
     pub(crate) email_address: ::std::option::Option<::std::string::String>,
@@ -43,12 +47,18 @@ pub struct PutSuppressedDestinationInputBuilder {
 impl PutSuppressedDestinationInputBuilder {
     /// <p>The email address that should be added to the suppression list for your account or for the specified tenant.</p>
     /// This field is required.
-    pub fn email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn email_address(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.email_address = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The email address that should be added to the suppression list for your account or for the specified tenant.</p>
-    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_email_address(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.email_address = input;
         self
     }
@@ -63,7 +73,10 @@ impl PutSuppressedDestinationInputBuilder {
         self
     }
     /// <p>The factors that should cause the email address to be added to the suppression list for your account or for the specified tenant.</p>
-    pub fn set_reason(mut self, input: ::std::option::Option<crate::types::SuppressionListReason>) -> Self {
+    pub fn set_reason(
+        mut self,
+        input: ::std::option::Option<crate::types::SuppressionListReason>,
+    ) -> Self {
         self.reason = input;
         self
     }
@@ -92,10 +105,12 @@ impl PutSuppressedDestinationInputBuilder {
         crate::operation::put_suppressed_destination::PutSuppressedDestinationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::put_suppressed_destination::PutSuppressedDestinationInput {
-            email_address: self.email_address,
-            reason: self.reason,
-            tenant_name: self.tenant_name,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::put_suppressed_destination::PutSuppressedDestinationInput {
+                email_address: self.email_address,
+                reason: self.reason,
+                tenant_name: self.tenant_name,
+            },
+        )
     }
 }

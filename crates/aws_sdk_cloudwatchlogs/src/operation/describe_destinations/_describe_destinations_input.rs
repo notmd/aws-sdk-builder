@@ -26,13 +26,17 @@ impl DescribeDestinationsInput {
 }
 impl DescribeDestinationsInput {
     /// Creates a new builder-style object to manufacture [`DescribeDestinationsInput`](crate::operation::describe_destinations::DescribeDestinationsInput).
-    pub fn builder() -> crate::operation::describe_destinations::builders::DescribeDestinationsInputBuilder {
-        crate::operation::describe_destinations::builders::DescribeDestinationsInputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::describe_destinations::builders::DescribeDestinationsInputBuilder {
+        crate::operation::describe_destinations::builders::DescribeDestinationsInputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`DescribeDestinationsInput`](crate::operation::describe_destinations::DescribeDestinationsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeDestinationsInputBuilder {
     pub(crate) destination_name_prefix: ::std::option::Option<::std::string::String>,
@@ -41,12 +45,18 @@ pub struct DescribeDestinationsInputBuilder {
 }
 impl DescribeDestinationsInputBuilder {
     /// <p>The prefix to match. If you don't specify a value, no prefix filter is applied.</p>
-    pub fn destination_name_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn destination_name_prefix(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.destination_name_prefix = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The prefix to match. If you don't specify a value, no prefix filter is applied.</p>
-    pub fn set_destination_name_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_destination_name_prefix(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.destination_name_prefix = input;
         self
     }
@@ -85,12 +95,16 @@ impl DescribeDestinationsInputBuilder {
     /// Consumes the builder and constructs a [`DescribeDestinationsInput`](crate::operation::describe_destinations::DescribeDestinationsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::describe_destinations::DescribeDestinationsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::describe_destinations::DescribeDestinationsInput {
-            destination_name_prefix: self.destination_name_prefix,
-            next_token: self.next_token,
-            limit: self.limit,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::describe_destinations::DescribeDestinationsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::describe_destinations::DescribeDestinationsInput {
+                destination_name_prefix: self.destination_name_prefix,
+                next_token: self.next_token,
+                limit: self.limit,
+            },
+        )
     }
 }

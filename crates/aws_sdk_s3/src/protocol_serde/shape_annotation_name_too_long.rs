@@ -3,7 +3,10 @@
 pub fn de_annotation_name_too_long_xml_err(
     inp: &[u8],
     mut builder: crate::types::error::builders::AnnotationNameTooLongBuilder,
-) -> std::result::Result<crate::types::error::builders::AnnotationNameTooLongBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> std::result::Result<
+    crate::types::error::builders::AnnotationNameTooLongBuilder,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
     if inp.is_empty() {
         return Ok(builder);
     }

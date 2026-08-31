@@ -63,7 +63,9 @@ impl ImportSummary {
 }
 
 /// A builder for [`ImportSummary`](crate::types::ImportSummary).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ImportSummaryBuilder {
     pub(crate) import_arn: ::std::option::Option<::std::string::String>,
@@ -96,7 +98,10 @@ impl ImportSummaryBuilder {
         self
     }
     /// <p>The status of the import operation.</p>
-    pub fn set_import_status(mut self, input: ::std::option::Option<crate::types::ImportStatus>) -> Self {
+    pub fn set_import_status(
+        mut self,
+        input: ::std::option::Option<crate::types::ImportStatus>,
+    ) -> Self {
         self.import_status = input;
         self
     }
@@ -124,7 +129,10 @@ impl ImportSummaryBuilder {
         self
     }
     /// <p>The path and S3 bucket of the source file that is being imported. This includes the S3Bucket (required), S3KeyPrefix (optional) and S3BucketOwner (optional if the bucket is owned by the requester).</p>
-    pub fn set_s3_bucket_source(mut self, input: ::std::option::Option<crate::types::S3BucketSource>) -> Self {
+    pub fn set_s3_bucket_source(
+        mut self,
+        input: ::std::option::Option<crate::types::S3BucketSource>,
+    ) -> Self {
         self.s3_bucket_source = input;
         self
     }
@@ -133,12 +141,18 @@ impl ImportSummaryBuilder {
         &self.s3_bucket_source
     }
     /// <p>The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated with this import task.</p>
-    pub fn cloud_watch_log_group_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn cloud_watch_log_group_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.cloud_watch_log_group_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated with this import task.</p>
-    pub fn set_cloud_watch_log_group_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_cloud_watch_log_group_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.cloud_watch_log_group_arn = input;
         self
     }
@@ -152,7 +166,10 @@ impl ImportSummaryBuilder {
         self
     }
     /// <p>The format of the source data. Valid values are <code>CSV</code>, <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
-    pub fn set_input_format(mut self, input: ::std::option::Option<crate::types::InputFormat>) -> Self {
+    pub fn set_input_format(
+        mut self,
+        input: ::std::option::Option<crate::types::InputFormat>,
+    ) -> Self {
         self.input_format = input;
         self
     }
@@ -166,7 +183,10 @@ impl ImportSummaryBuilder {
         self
     }
     /// <p>The time at which this import task began.</p>
-    pub fn set_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_start_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.start_time = input;
         self
     }
@@ -180,7 +200,10 @@ impl ImportSummaryBuilder {
         self
     }
     /// <p>The time at which this import task ended.</p>
-    pub fn set_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_end_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.end_time = input;
         self
     }

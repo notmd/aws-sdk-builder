@@ -21,7 +21,10 @@ pub fn ser_converse_tokens_request(
             {
                 #[allow(unused_mut)]
                 let mut object_8 = array_6.value().start_object();
-                crate::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_8, item_7)?;
+                crate::protocol_serde::shape_system_content_block::ser_system_content_block(
+                    &mut object_8,
+                    item_7,
+                )?;
                 object_8.finish();
             }
         }
@@ -30,7 +33,10 @@ pub fn ser_converse_tokens_request(
     if let Some(var_9) = &input.tool_config {
         #[allow(unused_mut)]
         let mut object_10 = object.key("toolConfig").start_object();
-        crate::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_10, var_9)?;
+        crate::protocol_serde::shape_tool_configuration::ser_tool_configuration(
+            &mut object_10,
+            var_9,
+        )?;
         object_10.finish();
     }
     if let Some(var_11) = &input.additional_model_request_fields {

@@ -3,55 +3,173 @@
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum Error {
-    #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-/// Error thrown for access denied scenarios with flexible HTTP status mapping Runtime HTTP Status Code Mapping: - HTTP 401 (Unauthorized): TOKEN_EXPIRED, AUTHCODE_EXPIRED - HTTP 403 (Forbidden): USER_CREDENTIALS_CHANGED, INSUFFICIENT_PERMISSIONS The specific HTTP status code is determined at runtime based on the error enum value. Consumers should use the error field to determine the specific access denial reason.
+    #[cfg(any(
+        feature = "op_create_o_auth2_token",
+        feature = "op_create_o_auth2_token_with_iam",
+        feature = "op_delete_console_authorization_configuration",
+        feature = "op_delete_resource_permission_statement",
+        feature = "op_get_console_authorization_configuration",
+        feature = "op_get_resource_policy",
+        feature = "op_introspect_o_auth2_token_with_iam",
+        feature = "op_list_resource_permission_statements",
+        feature = "op_put_console_authorization_configuration",
+        feature = "op_put_resource_permission_statement",
+        feature = "op_revoke_o_auth2_token_with_iam"
+    ))]
+    /// Error thrown for access denied scenarios with flexible HTTP status mapping Runtime HTTP Status Code Mapping: - HTTP 401 (Unauthorized): TOKEN_EXPIRED, AUTHCODE_EXPIRED - HTTP 403 (Forbidden): USER_CREDENTIALS_CHANGED, INSUFFICIENT_PERMISSIONS The specific HTTP status code is determined at runtime based on the error enum value. Consumers should use the error field to determine the specific access denial reason.
     AccessDeniedException(crate::types::error::AccessDeniedException),
-    #[cfg(any(feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement"))]
-/// Error thrown when request conflicts with current state HTTP Status Code: 409 Conflict Used when the request conflicts with the current state of the resource
+    #[cfg(any(
+        feature = "op_put_console_authorization_configuration",
+        feature = "op_put_resource_permission_statement"
+    ))]
+    /// Error thrown when request conflicts with current state HTTP Status Code: 409 Conflict Used when the request conflicts with the current state of the resource
     ConflictException(crate::types::error::ConflictException),
-    #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-/// Error thrown when an internal server error occurs HTTP Status Code: 500 Internal Server Error Used for unexpected server-side errors that prevent request processing.
+    #[cfg(any(
+        feature = "op_create_o_auth2_token",
+        feature = "op_create_o_auth2_token_with_iam",
+        feature = "op_delete_console_authorization_configuration",
+        feature = "op_delete_resource_permission_statement",
+        feature = "op_get_console_authorization_configuration",
+        feature = "op_get_resource_policy",
+        feature = "op_introspect_o_auth2_token_with_iam",
+        feature = "op_list_resource_permission_statements",
+        feature = "op_put_console_authorization_configuration",
+        feature = "op_put_resource_permission_statement",
+        feature = "op_revoke_o_auth2_token_with_iam"
+    ))]
+    /// Error thrown when an internal server error occurs HTTP Status Code: 500 Internal Server Error Used for unexpected server-side errors that prevent request processing.
     InternalServerException(crate::types::error::InternalServerException),
-    #[cfg(any(feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration"))]
-/// Error thrown when requested resource is not found HTTP Status Code: 404 Not Found Used when the specified resource does not exist
+    #[cfg(any(
+        feature = "op_delete_console_authorization_configuration",
+        feature = "op_delete_resource_permission_statement",
+        feature = "op_get_console_authorization_configuration",
+        feature = "op_get_resource_policy",
+        feature = "op_list_resource_permission_statements",
+        feature = "op_put_console_authorization_configuration"
+    ))]
+    /// Error thrown when requested resource is not found HTTP Status Code: 404 Not Found Used when the specified resource does not exist
     ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
     #[cfg(feature = "op_put_resource_permission_statement")]
-/// Error thrown when service quota is exceeded HTTP Status Code: 402 Payment Required (used as quota exceeded indicator) Used when the request would cause a service quota to be exceeded
+    /// Error thrown when service quota is exceeded HTTP Status Code: 402 Payment Required (used as quota exceeded indicator) Used when the request would cause a service quota to be exceeded
     ServiceQuotaExceededException(crate::types::error::ServiceQuotaExceededException),
-    #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-/// Error thrown when rate limit is exceeded HTTP Status Code: 429 Too Many Requests Possible OAuth2ErrorCode values: - INVALID_REQUEST: Rate limiting, too many requests, abuse prevention Possible causes: - Too many token requests from the same client - Rate limiting based on client_id or IP address - Abuse prevention mechanisms triggered - Service protection against excessive token generation
+    #[cfg(any(
+        feature = "op_create_o_auth2_token",
+        feature = "op_create_o_auth2_token_with_iam",
+        feature = "op_delete_console_authorization_configuration",
+        feature = "op_delete_resource_permission_statement",
+        feature = "op_get_console_authorization_configuration",
+        feature = "op_get_resource_policy",
+        feature = "op_introspect_o_auth2_token_with_iam",
+        feature = "op_list_resource_permission_statements",
+        feature = "op_put_console_authorization_configuration",
+        feature = "op_put_resource_permission_statement",
+        feature = "op_revoke_o_auth2_token_with_iam"
+    ))]
+    /// Error thrown when rate limit is exceeded HTTP Status Code: 429 Too Many Requests Possible OAuth2ErrorCode values: - INVALID_REQUEST: Rate limiting, too many requests, abuse prevention Possible causes: - Too many token requests from the same client - Rate limiting based on client_id or IP address - Abuse prevention mechanisms triggered - Service protection against excessive token generation
     TooManyRequestsError(crate::types::error::TooManyRequestsError),
-    #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-/// Error thrown when request validation fails HTTP Status Code: 400 Bad Request Used for request validation errors such as malformed parameters, missing required fields, or invalid parameter values.
+    #[cfg(any(
+        feature = "op_create_o_auth2_token",
+        feature = "op_create_o_auth2_token_with_iam",
+        feature = "op_delete_console_authorization_configuration",
+        feature = "op_delete_resource_permission_statement",
+        feature = "op_get_console_authorization_configuration",
+        feature = "op_introspect_o_auth2_token_with_iam",
+        feature = "op_list_resource_permission_statements",
+        feature = "op_put_console_authorization_configuration",
+        feature = "op_put_resource_permission_statement",
+        feature = "op_revoke_o_auth2_token_with_iam"
+    ))]
+    /// Error thrown when request validation fails HTTP Status Code: 400 Bad Request Used for request validation errors such as malformed parameters, missing required fields, or invalid parameter values.
     ValidationException(crate::types::error::ValidationException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(
+        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error."
+    )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-Error::AccessDeniedException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement"))]
-Error::ConflictException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-Error::InternalServerException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration"))]
-Error::ResourceNotFoundException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_o_auth2_token",
+                feature = "op_create_o_auth2_token_with_iam",
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_get_resource_policy",
+                feature = "op_introspect_o_auth2_token_with_iam",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement",
+                feature = "op_revoke_o_auth2_token_with_iam"
+            ))]
+            Error::AccessDeniedException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement"
+            ))]
+            Error::ConflictException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_o_auth2_token",
+                feature = "op_create_o_auth2_token_with_iam",
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_get_resource_policy",
+                feature = "op_introspect_o_auth2_token_with_iam",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement",
+                feature = "op_revoke_o_auth2_token_with_iam"
+            ))]
+            Error::InternalServerException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_get_resource_policy",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration"
+            ))]
+            Error::ResourceNotFoundException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_resource_permission_statement")]
-Error::ServiceQuotaExceededException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-Error::TooManyRequestsError(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-Error::ValidationException(inner) => inner.fmt(f),
+            Error::ServiceQuotaExceededException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_o_auth2_token",
+                feature = "op_create_o_auth2_token_with_iam",
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_get_resource_policy",
+                feature = "op_introspect_o_auth2_token_with_iam",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement",
+                feature = "op_revoke_o_auth2_token_with_iam"
+            ))]
+            Error::TooManyRequestsError(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_o_auth2_token",
+                feature = "op_create_o_auth2_token_with_iam",
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_introspect_o_auth2_token_with_iam",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement",
+                feature = "op_revoke_o_auth2_token_with_iam"
+            ))]
+            Error::ValidationException(inner) => inner.fmt(f),
             Error::Unhandled(_) => {
-                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                if let ::std::option::Option::Some(code) =
+                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+                {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -71,32 +189,102 @@ impl From<::aws_smithy_types::error::operation::BuildError> for Error {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
     fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
         match self {
-            #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-Self::AccessDeniedException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement"))]
-Self::ConflictException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-Self::InternalServerException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration"))]
-Self::ResourceNotFoundException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_o_auth2_token",
+                feature = "op_create_o_auth2_token_with_iam",
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_get_resource_policy",
+                feature = "op_introspect_o_auth2_token_with_iam",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement",
+                feature = "op_revoke_o_auth2_token_with_iam"
+            ))]
+            Self::AccessDeniedException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement"
+            ))]
+            Self::ConflictException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_o_auth2_token",
+                feature = "op_create_o_auth2_token_with_iam",
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_get_resource_policy",
+                feature = "op_introspect_o_auth2_token_with_iam",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement",
+                feature = "op_revoke_o_auth2_token_with_iam"
+            ))]
+            Self::InternalServerException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_get_resource_policy",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration"
+            ))]
+            Self::ResourceNotFoundException(inner) => inner.meta(),
             #[cfg(feature = "op_put_resource_permission_statement")]
-Self::ServiceQuotaExceededException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-Self::TooManyRequestsError(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-Self::ValidationException(inner) => inner.meta(),
+            Self::ServiceQuotaExceededException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_o_auth2_token",
+                feature = "op_create_o_auth2_token_with_iam",
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_get_resource_policy",
+                feature = "op_introspect_o_auth2_token_with_iam",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement",
+                feature = "op_revoke_o_auth2_token_with_iam"
+            ))]
+            Self::TooManyRequestsError(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_o_auth2_token",
+                feature = "op_create_o_auth2_token_with_iam",
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_introspect_o_auth2_token_with_iam",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement",
+                feature = "op_revoke_o_auth2_token_with_iam"
+            ))]
+            Self::ValidationException(inner) => inner.meta(),
             Self::Unhandled(inner) => &inner.meta,
         }
     }
 }
 #[cfg(feature = "op_create_o_auth2_token")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_o_auth2_token::CreateOAuth2TokenError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_o_auth2_token::CreateOAuth2TokenError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_o_auth2_token::CreateOAuth2TokenError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_o_auth2_token::CreateOAuth2TokenError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -117,16 +305,26 @@ impl From<crate::operation::create_o_auth2_token::CreateOAuth2TokenError> for Er
     }
 }
 #[cfg(feature = "op_create_o_auth2_token_with_iam")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -135,8 +333,12 @@ where
     }
 }
 #[cfg(feature = "op_create_o_auth2_token_with_iam")]
-impl From<crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError> for Error {
-    fn from(err: crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError) -> Self {
+impl From<crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError>
+    for Error
+{
+    fn from(
+        err: crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError,
+    ) -> Self {
         match err {
             crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -308,13 +510,26 @@ impl From<crate::operation::get_console_authorization_configuration::GetConsoleA
     }
 }
 #[cfg(feature = "op_get_resource_policy")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_resource_policy::GetResourcePolicyError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_resource_policy::GetResourcePolicyError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_resource_policy::GetResourcePolicyError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_resource_policy::GetResourcePolicyError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -339,7 +554,10 @@ impl From<crate::operation::get_resource_policy::GetResourcePolicyError> for Err
 #[cfg(feature = "op_introspect_o_auth2_token_with_iam")]
 impl<R>
     From<
-        ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError, R>,
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError,
+            R,
+        >,
     > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -351,7 +569,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -360,8 +580,12 @@ where
     }
 }
 #[cfg(feature = "op_introspect_o_auth2_token_with_iam")]
-impl From<crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError> for Error {
-    fn from(err: crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError) -> Self {
+impl From<crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError>
+    for Error
+{
+    fn from(
+        err: crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError,
+    ) -> Self {
         match err {
             crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -509,8 +733,12 @@ where
     }
 }
 #[cfg(feature = "op_put_resource_permission_statement")]
-impl From<crate::operation::put_resource_permission_statement::PutResourcePermissionStatementError> for Error {
-    fn from(err: crate::operation::put_resource_permission_statement::PutResourcePermissionStatementError) -> Self {
+impl From<crate::operation::put_resource_permission_statement::PutResourcePermissionStatementError>
+    for Error
+{
+    fn from(
+        err: crate::operation::put_resource_permission_statement::PutResourcePermissionStatementError,
+    ) -> Self {
         match err {
             crate::operation::put_resource_permission_statement::PutResourcePermissionStatementError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -535,16 +763,26 @@ impl From<crate::operation::put_resource_permission_statement::PutResourcePermis
     }
 }
 #[cfg(feature = "op_revoke_o_auth2_token_with_iam")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -553,8 +791,12 @@ where
     }
 }
 #[cfg(feature = "op_revoke_o_auth2_token_with_iam")]
-impl From<crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError> for Error {
-    fn from(err: crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError) -> Self {
+impl From<crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError>
+    for Error
+{
+    fn from(
+        err: crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError,
+    ) -> Self {
         match err {
             crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -575,20 +817,77 @@ impl From<crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWith
 impl ::std::error::Error for Error {
     fn source(&self) -> std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-Error::AccessDeniedException(inner) => inner.source(),
-            #[cfg(any(feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement"))]
-Error::ConflictException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-Error::InternalServerException(inner) => inner.source(),
-            #[cfg(any(feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration"))]
-Error::ResourceNotFoundException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_o_auth2_token",
+                feature = "op_create_o_auth2_token_with_iam",
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_get_resource_policy",
+                feature = "op_introspect_o_auth2_token_with_iam",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement",
+                feature = "op_revoke_o_auth2_token_with_iam"
+            ))]
+            Error::AccessDeniedException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement"
+            ))]
+            Error::ConflictException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_o_auth2_token",
+                feature = "op_create_o_auth2_token_with_iam",
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_get_resource_policy",
+                feature = "op_introspect_o_auth2_token_with_iam",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement",
+                feature = "op_revoke_o_auth2_token_with_iam"
+            ))]
+            Error::InternalServerException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_get_resource_policy",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration"
+            ))]
+            Error::ResourceNotFoundException(inner) => inner.source(),
             #[cfg(feature = "op_put_resource_permission_statement")]
-Error::ServiceQuotaExceededException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-Error::TooManyRequestsError(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-Error::ValidationException(inner) => inner.source(),
+            Error::ServiceQuotaExceededException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_o_auth2_token",
+                feature = "op_create_o_auth2_token_with_iam",
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_get_resource_policy",
+                feature = "op_introspect_o_auth2_token_with_iam",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement",
+                feature = "op_revoke_o_auth2_token_with_iam"
+            ))]
+            Error::TooManyRequestsError(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_o_auth2_token",
+                feature = "op_create_o_auth2_token_with_iam",
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_introspect_o_auth2_token_with_iam",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement",
+                feature = "op_revoke_o_auth2_token_with_iam"
+            ))]
+            Error::ValidationException(inner) => inner.source(),
             Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source),
         }
     }
@@ -596,20 +895,77 @@ Error::ValidationException(inner) => inner.source(),
 impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
-            #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-Self::AccessDeniedException(e) => e.request_id(),
-            #[cfg(any(feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement"))]
-Self::ConflictException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-Self::InternalServerException(e) => e.request_id(),
-            #[cfg(any(feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration"))]
-Self::ResourceNotFoundException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_o_auth2_token",
+                feature = "op_create_o_auth2_token_with_iam",
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_get_resource_policy",
+                feature = "op_introspect_o_auth2_token_with_iam",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement",
+                feature = "op_revoke_o_auth2_token_with_iam"
+            ))]
+            Self::AccessDeniedException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement"
+            ))]
+            Self::ConflictException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_o_auth2_token",
+                feature = "op_create_o_auth2_token_with_iam",
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_get_resource_policy",
+                feature = "op_introspect_o_auth2_token_with_iam",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement",
+                feature = "op_revoke_o_auth2_token_with_iam"
+            ))]
+            Self::InternalServerException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_get_resource_policy",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration"
+            ))]
+            Self::ResourceNotFoundException(e) => e.request_id(),
             #[cfg(feature = "op_put_resource_permission_statement")]
-Self::ServiceQuotaExceededException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-Self::TooManyRequestsError(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
-Self::ValidationException(e) => e.request_id(),
+            Self::ServiceQuotaExceededException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_o_auth2_token",
+                feature = "op_create_o_auth2_token_with_iam",
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_get_resource_policy",
+                feature = "op_introspect_o_auth2_token_with_iam",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement",
+                feature = "op_revoke_o_auth2_token_with_iam"
+            ))]
+            Self::TooManyRequestsError(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_o_auth2_token",
+                feature = "op_create_o_auth2_token_with_iam",
+                feature = "op_delete_console_authorization_configuration",
+                feature = "op_delete_resource_permission_statement",
+                feature = "op_get_console_authorization_configuration",
+                feature = "op_introspect_o_auth2_token_with_iam",
+                feature = "op_list_resource_permission_statements",
+                feature = "op_put_console_authorization_configuration",
+                feature = "op_put_resource_permission_statement",
+                feature = "op_revoke_o_auth2_token_with_iam"
+            ))]
+            Self::ValidationException(e) => e.request_id(),
             Self::Unhandled(e) => e.meta.request_id(),
         }
     }

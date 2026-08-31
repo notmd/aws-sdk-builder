@@ -15,7 +15,8 @@ pub struct AuthEventType {
     /// <p>The threat evaluation from your user pool about an event. Contains information about whether your user pool detected compromised credentials, whether the event triggered an automated response, and the level of risk.</p>
     pub event_risk: ::std::option::Option<crate::types::EventRiskType>,
     /// <p>A list of the challenges that the user was requested to answer, for example <code>Password</code>, and the result, for example <code>Success</code>.</p>
-    pub challenge_responses: ::std::option::Option<::std::vec::Vec<crate::types::ChallengeResponseType>>,
+    pub challenge_responses:
+        ::std::option::Option<::std::vec::Vec<crate::types::ChallengeResponseType>>,
     /// <p>The user context data captured at the time of an event request. This value provides additional information about the client from which event the request is received.</p>
     pub event_context_data: ::std::option::Option<crate::types::EventContextDataType>,
     /// <p>The <code>UpdateAuthEventFeedback</code> or <code>AdminUpdateAuthEventFeedback</code> feedback that you or your user provided in response to the event. A value of <code>Valid</code> indicates that you disagreed with the level of risk that your user pool assigned, and evaluated a session to be valid, or likely safe. A value of <code>Invalid</code> indicates that you agreed with the user pool risk level and evaluated a session to be invalid, or likely malicious.</p>
@@ -65,7 +66,9 @@ impl AuthEventType {
 }
 
 /// A builder for [`AuthEventType`](crate::types::AuthEventType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AuthEventTypeBuilder {
     pub(crate) event_id: ::std::option::Option<::std::string::String>,
@@ -73,7 +76,8 @@ pub struct AuthEventTypeBuilder {
     pub(crate) creation_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) event_response: ::std::option::Option<crate::types::EventResponseType>,
     pub(crate) event_risk: ::std::option::Option<crate::types::EventRiskType>,
-    pub(crate) challenge_responses: ::std::option::Option<::std::vec::Vec<crate::types::ChallengeResponseType>>,
+    pub(crate) challenge_responses:
+        ::std::option::Option<::std::vec::Vec<crate::types::ChallengeResponseType>>,
     pub(crate) event_context_data: ::std::option::Option<crate::types::EventContextDataType>,
     pub(crate) event_feedback: ::std::option::Option<crate::types::EventFeedbackType>,
 }
@@ -112,7 +116,10 @@ impl AuthEventTypeBuilder {
         self
     }
     /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-    pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_creation_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.creation_date = input;
         self
     }
@@ -126,7 +133,10 @@ impl AuthEventTypeBuilder {
         self
     }
     /// <p>The event response.</p>
-    pub fn set_event_response(mut self, input: ::std::option::Option<crate::types::EventResponseType>) -> Self {
+    pub fn set_event_response(
+        mut self,
+        input: ::std::option::Option<crate::types::EventResponseType>,
+    ) -> Self {
         self.event_response = input;
         self
     }
@@ -140,7 +150,10 @@ impl AuthEventTypeBuilder {
         self
     }
     /// <p>The threat evaluation from your user pool about an event. Contains information about whether your user pool detected compromised credentials, whether the event triggered an automated response, and the level of risk.</p>
-    pub fn set_event_risk(mut self, input: ::std::option::Option<crate::types::EventRiskType>) -> Self {
+    pub fn set_event_risk(
+        mut self,
+        input: ::std::option::Option<crate::types::EventRiskType>,
+    ) -> Self {
         self.event_risk = input;
         self
     }
@@ -160,12 +173,17 @@ impl AuthEventTypeBuilder {
         self
     }
     /// <p>A list of the challenges that the user was requested to answer, for example <code>Password</code>, and the result, for example <code>Success</code>.</p>
-    pub fn set_challenge_responses(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChallengeResponseType>>) -> Self {
+    pub fn set_challenge_responses(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ChallengeResponseType>>,
+    ) -> Self {
         self.challenge_responses = input;
         self
     }
     /// <p>A list of the challenges that the user was requested to answer, for example <code>Password</code>, and the result, for example <code>Success</code>.</p>
-    pub fn get_challenge_responses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ChallengeResponseType>> {
+    pub fn get_challenge_responses(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ChallengeResponseType>> {
         &self.challenge_responses
     }
     /// <p>The user context data captured at the time of an event request. This value provides additional information about the client from which event the request is received.</p>
@@ -174,12 +192,17 @@ impl AuthEventTypeBuilder {
         self
     }
     /// <p>The user context data captured at the time of an event request. This value provides additional information about the client from which event the request is received.</p>
-    pub fn set_event_context_data(mut self, input: ::std::option::Option<crate::types::EventContextDataType>) -> Self {
+    pub fn set_event_context_data(
+        mut self,
+        input: ::std::option::Option<crate::types::EventContextDataType>,
+    ) -> Self {
         self.event_context_data = input;
         self
     }
     /// <p>The user context data captured at the time of an event request. This value provides additional information about the client from which event the request is received.</p>
-    pub fn get_event_context_data(&self) -> &::std::option::Option<crate::types::EventContextDataType> {
+    pub fn get_event_context_data(
+        &self,
+    ) -> &::std::option::Option<crate::types::EventContextDataType> {
         &self.event_context_data
     }
     /// <p>The <code>UpdateAuthEventFeedback</code> or <code>AdminUpdateAuthEventFeedback</code> feedback that you or your user provided in response to the event. A value of <code>Valid</code> indicates that you disagreed with the level of risk that your user pool assigned, and evaluated a session to be valid, or likely safe. A value of <code>Invalid</code> indicates that you agreed with the user pool risk level and evaluated a session to be invalid, or likely malicious.</p>
@@ -188,7 +211,10 @@ impl AuthEventTypeBuilder {
         self
     }
     /// <p>The <code>UpdateAuthEventFeedback</code> or <code>AdminUpdateAuthEventFeedback</code> feedback that you or your user provided in response to the event. A value of <code>Valid</code> indicates that you disagreed with the level of risk that your user pool assigned, and evaluated a session to be valid, or likely safe. A value of <code>Invalid</code> indicates that you agreed with the user pool risk level and evaluated a session to be invalid, or likely malicious.</p>
-    pub fn set_event_feedback(mut self, input: ::std::option::Option<crate::types::EventFeedbackType>) -> Self {
+    pub fn set_event_feedback(
+        mut self,
+        input: ::std::option::Option<crate::types::EventFeedbackType>,
+    ) -> Self {
         self.event_feedback = input;
         self
     }

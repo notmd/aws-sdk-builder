@@ -12,7 +12,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListSMSSandboxPhoneNumbersError>`](crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError)
     pub fn list_sms_sandbox_phone_numbers(
         &self,
-    ) -> crate::operation::list_sms_sandbox_phone_numbers::builders::ListSMSSandboxPhoneNumbersFluentBuilder {
+    ) -> crate::operation::list_sms_sandbox_phone_numbers::builders::ListSMSSandboxPhoneNumbersFluentBuilder{
         crate::operation::list_sms_sandbox_phone_numbers::builders::ListSMSSandboxPhoneNumbersFluentBuilder::new(self.handle.clone())
     }
 }

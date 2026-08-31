@@ -4,7 +4,9 @@ pub fn ser_delete_organization_conformance_pack_input_input(
     input: &crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     if let Some(var_1) = &input.organization_conformance_pack_name {
-        object.key("OrganizationConformancePackName").string(var_1.as_str());
+        object
+            .key("OrganizationConformancePackName")
+            .string(var_1.as_str());
     }
     Ok(())
 }

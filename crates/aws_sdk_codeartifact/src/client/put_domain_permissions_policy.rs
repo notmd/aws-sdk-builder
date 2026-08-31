@@ -12,7 +12,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutDomainPermissionsPolicyError>`](crate::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError)
     pub fn put_domain_permissions_policy(
         &self,
-    ) -> crate::operation::put_domain_permissions_policy::builders::PutDomainPermissionsPolicyFluentBuilder {
+    ) -> crate::operation::put_domain_permissions_policy::builders::PutDomainPermissionsPolicyFluentBuilder{
         crate::operation::put_domain_permissions_policy::builders::PutDomainPermissionsPolicyFluentBuilder::new(self.handle.clone())
     }
 }

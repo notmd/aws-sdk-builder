@@ -119,7 +119,9 @@ impl UserPoolReplicaType {
 }
 
 /// A builder for [`UserPoolReplicaType`](crate::types::UserPoolReplicaType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UserPoolReplicaTypeBuilder {
     pub(crate) region_name: ::std::option::Option<::std::string::String>,
@@ -200,7 +202,10 @@ impl UserPoolReplicaTypeBuilder {
     /// <p>The replica is being deleted.</p>
     /// </dd>
     /// </dl>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ReplicaStatusType>) -> Self {
+    pub fn set_status(
+        mut self,
+        input: ::std::option::Option<crate::types::ReplicaStatusType>,
+    ) -> Self {
         self.status = input;
         self
     }
@@ -291,12 +296,18 @@ impl UserPoolReplicaTypeBuilder {
         &self.role
     }
     /// <p>The Amazon Resource Name (ARN) of the replica user pool.</p>
-    pub fn user_pool_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn user_pool_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.user_pool_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the replica user pool.</p>
-    pub fn set_user_pool_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_user_pool_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.user_pool_arn = input;
         self
     }

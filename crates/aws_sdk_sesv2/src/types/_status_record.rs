@@ -49,7 +49,9 @@ impl StatusRecord {
 }
 
 /// A builder for [`StatusRecord`](crate::types::StatusRecord).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct StatusRecordBuilder {
     pub(crate) status: ::std::option::Option<crate::types::SendingStatus>,
@@ -115,12 +117,17 @@ impl StatusRecordBuilder {
         self
     }
     /// <p>The timestamp when this status was last updated.</p>
-    pub fn set_last_updated_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_last_updated_timestamp(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.last_updated_timestamp = input;
         self
     }
     /// <p>The timestamp when this status was last updated.</p>
-    pub fn get_last_updated_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_last_updated_timestamp(
+        &self,
+    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_updated_timestamp
     }
     /// Consumes the builder and constructs a [`StatusRecord`](crate::types::StatusRecord).

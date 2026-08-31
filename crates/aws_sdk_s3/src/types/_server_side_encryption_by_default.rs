@@ -118,7 +118,10 @@ impl ServerSideEncryptionByDefaultBuilder {
     /// <p>Server-side encryption algorithm to use for the default encryption.</p><note>
     /// <p>For directory buckets, there are only two supported values for server-side encryption: <code>AES256</code> and <code>aws:kms</code>.</p>
     /// </note>
-    pub fn set_sse_algorithm(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
+    pub fn set_sse_algorithm(
+        mut self,
+        input: ::std::option::Option<crate::types::ServerSideEncryption>,
+    ) -> Self {
         self.sse_algorithm = input;
         self
     }
@@ -155,7 +158,10 @@ impl ServerSideEncryptionByDefaultBuilder {
     /// </note> <important>
     /// <p>Amazon S3 only supports symmetric encryption KMS keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric keys in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
     /// </important>
-    pub fn kms_master_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn kms_master_key_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.kms_master_key_id = ::std::option::Option::Some(input.into());
         self
     }
@@ -186,7 +192,10 @@ impl ServerSideEncryptionByDefaultBuilder {
     /// </note> <important>
     /// <p>Amazon S3 only supports symmetric encryption KMS keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric keys in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
     /// </important>
-    pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_kms_master_key_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.kms_master_key_id = input;
         self
     }
@@ -223,7 +232,12 @@ impl ServerSideEncryptionByDefaultBuilder {
     /// Consumes the builder and constructs a [`ServerSideEncryptionByDefault`](crate::types::ServerSideEncryptionByDefault).
     /// This method will fail if any of the following fields are not set:
     /// - [`sse_algorithm`](crate::types::builders::ServerSideEncryptionByDefaultBuilder::sse_algorithm)
-    pub fn build(self) -> ::std::result::Result<crate::types::ServerSideEncryptionByDefault, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::ServerSideEncryptionByDefault,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::ServerSideEncryptionByDefault {
             sse_algorithm: self.sse_algorithm.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

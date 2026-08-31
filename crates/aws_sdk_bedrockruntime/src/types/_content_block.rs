@@ -74,7 +74,9 @@ impl ContentBlock {
     }
     /// Tries to convert the enum instance into [`CitationsContent`](crate::types::ContentBlock::CitationsContent), extracting the inner [`CitationsContentBlock`](crate::types::CitationsContentBlock).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_citations_content(&self) -> ::std::result::Result<&crate::types::CitationsContentBlock, &Self> {
+    pub fn as_citations_content(
+        &self,
+    ) -> ::std::result::Result<&crate::types::CitationsContentBlock, &Self> {
         if let ContentBlock::CitationsContent(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -100,7 +102,9 @@ impl ContentBlock {
     }
     /// Tries to convert the enum instance into [`GuardContent`](crate::types::ContentBlock::GuardContent), extracting the inner [`GuardrailConverseContentBlock`](crate::types::GuardrailConverseContentBlock).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_guard_content(&self) -> ::std::result::Result<&crate::types::GuardrailConverseContentBlock, &Self> {
+    pub fn as_guard_content(
+        &self,
+    ) -> ::std::result::Result<&crate::types::GuardrailConverseContentBlock, &Self> {
         if let ContentBlock::GuardContent(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -126,7 +130,9 @@ impl ContentBlock {
     }
     /// Tries to convert the enum instance into [`ReasoningContent`](crate::types::ContentBlock::ReasoningContent), extracting the inner [`ReasoningContentBlock`](crate::types::ReasoningContentBlock).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_reasoning_content(&self) -> ::std::result::Result<&crate::types::ReasoningContentBlock, &Self> {
+    pub fn as_reasoning_content(
+        &self,
+    ) -> ::std::result::Result<&crate::types::ReasoningContentBlock, &Self> {
         if let ContentBlock::ReasoningContent(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -139,7 +145,9 @@ impl ContentBlock {
     }
     /// Tries to convert the enum instance into [`SearchResult`](crate::types::ContentBlock::SearchResult), extracting the inner [`SearchResultBlock`](crate::types::SearchResultBlock).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_search_result(&self) -> ::std::result::Result<&crate::types::SearchResultBlock, &Self> {
+    pub fn as_search_result(
+        &self,
+    ) -> ::std::result::Result<&crate::types::SearchResultBlock, &Self> {
         if let ContentBlock::SearchResult(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -165,7 +173,9 @@ impl ContentBlock {
     }
     /// Tries to convert the enum instance into [`ToolAddition`](crate::types::ContentBlock::ToolAddition), extracting the inner [`ToolAdditionBlock`](crate::types::ToolAdditionBlock).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_tool_addition(&self) -> ::std::result::Result<&crate::types::ToolAdditionBlock, &Self> {
+    pub fn as_tool_addition(
+        &self,
+    ) -> ::std::result::Result<&crate::types::ToolAdditionBlock, &Self> {
         if let ContentBlock::ToolAddition(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -238,11 +248,15 @@ impl ::std::fmt::Debug for ContentBlock {
         match self {
             ContentBlock::Audio(val) => f.debug_tuple("Audio").field(&val).finish(),
             ContentBlock::CachePoint(val) => f.debug_tuple("CachePoint").field(&val).finish(),
-            ContentBlock::CitationsContent(val) => f.debug_tuple("CitationsContent").field(&val).finish(),
+            ContentBlock::CitationsContent(val) => {
+                f.debug_tuple("CitationsContent").field(&val).finish()
+            }
             ContentBlock::Document(val) => f.debug_tuple("Document").field(&val).finish(),
             ContentBlock::GuardContent(val) => f.debug_tuple("GuardContent").field(&val).finish(),
             ContentBlock::Image(val) => f.debug_tuple("Image").field(&val).finish(),
-            ContentBlock::ReasoningContent(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
+            ContentBlock::ReasoningContent(_) => {
+                f.debug_tuple("*** Sensitive Data Redacted ***").finish()
+            }
             ContentBlock::SearchResult(val) => f.debug_tuple("SearchResult").field(&val).finish(),
             ContentBlock::Text(val) => f.debug_tuple("Text").field(&val).finish(),
             ContentBlock::ToolAddition(val) => f.debug_tuple("ToolAddition").field(&val).finish(),

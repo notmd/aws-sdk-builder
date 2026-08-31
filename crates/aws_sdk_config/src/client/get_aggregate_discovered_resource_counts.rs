@@ -17,7 +17,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetAggregateDiscoveredResourceCountsError>`](crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError)
     pub fn get_aggregate_discovered_resource_counts(
         &self,
-    ) -> crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder {
+    ) -> crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder{
         crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder::new(
             self.handle.clone(),
         )

@@ -36,7 +36,9 @@ impl ListUserTagsInput {
 }
 
 /// A builder for [`ListUserTagsInput`](crate::operation::list_user_tags::ListUserTagsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListUserTagsInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -96,7 +98,10 @@ impl ListUserTagsInputBuilder {
     /// Consumes the builder and constructs a [`ListUserTagsInput`](crate::operation::list_user_tags::ListUserTagsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_user_tags::ListUserTagsInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::list_user_tags::ListUserTagsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::list_user_tags::ListUserTagsInput {
             user_name: self.user_name,
             marker: self.marker,

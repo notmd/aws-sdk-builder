@@ -68,7 +68,8 @@ pub struct UpdateFunctionCodeOutput {
     /// <p>The reason for the last update that was performed on the function.</p>
     pub last_update_status_reason: ::std::option::Option<::std::string::String>,
     /// <p>The reason code for the last update that was performed on the function.</p>
-    pub last_update_status_reason_code: ::std::option::Option<crate::types::LastUpdateStatusReasonCode>,
+    pub last_update_status_reason_code:
+        ::std::option::Option<crate::types::LastUpdateStatusReasonCode>,
     /// <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a> or an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon S3 Files file system</a>.</p>
     pub file_system_configs: ::std::option::Option<::std::vec::Vec<crate::types::FileSystemConfig>>,
     /// <p>The ARN of the signing profile version.</p>
@@ -216,7 +217,9 @@ impl UpdateFunctionCodeOutput {
         self.last_update_status_reason.as_deref()
     }
     /// <p>The reason code for the last update that was performed on the function.</p>
-    pub fn last_update_status_reason_code(&self) -> ::std::option::Option<&crate::types::LastUpdateStatusReasonCode> {
+    pub fn last_update_status_reason_code(
+        &self,
+    ) -> ::std::option::Option<&crate::types::LastUpdateStatusReasonCode> {
         self.last_update_status_reason_code.as_ref()
     }
     /// <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a> or an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon S3 Files file system</a>.</p>
@@ -238,7 +241,9 @@ impl UpdateFunctionCodeOutput {
         self.package_type.as_ref()
     }
     /// <p>The function's image configuration values.</p>
-    pub fn image_config_response(&self) -> ::std::option::Option<&crate::types::ImageConfigResponse> {
+    pub fn image_config_response(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ImageConfigResponse> {
         self.image_config_response.as_ref()
     }
     /// <p>The instruction set architecture that the function supports. Architecture is a string array with one of the valid values. The default architecture value is <code>x86_64</code>.</p>
@@ -256,7 +261,9 @@ impl UpdateFunctionCodeOutput {
         self.snap_start.as_ref()
     }
     /// <p>The ARN of the runtime and any errors that occured.</p>
-    pub fn runtime_version_config(&self) -> ::std::option::Option<&crate::types::RuntimeVersionConfig> {
+    pub fn runtime_version_config(
+        &self,
+    ) -> ::std::option::Option<&crate::types::RuntimeVersionConfig> {
         self.runtime_version_config.as_ref()
     }
     /// <p>The function's Amazon CloudWatch Logs configuration settings.</p>
@@ -268,7 +275,9 @@ impl UpdateFunctionCodeOutput {
         self.tenancy_config.as_ref()
     }
     /// <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
-    pub fn capacity_provider_config(&self) -> ::std::option::Option<&crate::types::CapacityProviderConfig> {
+    pub fn capacity_provider_config(
+        &self,
+    ) -> ::std::option::Option<&crate::types::CapacityProviderConfig> {
         self.capacity_provider_config.as_ref()
     }
     /// <p>The SHA256 hash of the function configuration.</p>
@@ -287,13 +296,16 @@ impl ::aws_types::request_id::RequestId for UpdateFunctionCodeOutput {
 }
 impl UpdateFunctionCodeOutput {
     /// Creates a new builder-style object to manufacture [`UpdateFunctionCodeOutput`](crate::operation::update_function_code::UpdateFunctionCodeOutput).
-    pub fn builder() -> crate::operation::update_function_code::builders::UpdateFunctionCodeOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_function_code::builders::UpdateFunctionCodeOutputBuilder {
         crate::operation::update_function_code::builders::UpdateFunctionCodeOutputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateFunctionCodeOutput`](crate::operation::update_function_code::UpdateFunctionCodeOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateFunctionCodeOutputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -321,8 +333,10 @@ pub struct UpdateFunctionCodeOutputBuilder {
     pub(crate) state_reason_code: ::std::option::Option<crate::types::StateReasonCode>,
     pub(crate) last_update_status: ::std::option::Option<crate::types::LastUpdateStatus>,
     pub(crate) last_update_status_reason: ::std::option::Option<::std::string::String>,
-    pub(crate) last_update_status_reason_code: ::std::option::Option<crate::types::LastUpdateStatusReasonCode>,
-    pub(crate) file_system_configs: ::std::option::Option<::std::vec::Vec<crate::types::FileSystemConfig>>,
+    pub(crate) last_update_status_reason_code:
+        ::std::option::Option<crate::types::LastUpdateStatusReasonCode>,
+    pub(crate) file_system_configs:
+        ::std::option::Option<::std::vec::Vec<crate::types::FileSystemConfig>>,
     pub(crate) signing_profile_version_arn: ::std::option::Option<::std::string::String>,
     pub(crate) signing_job_arn: ::std::option::Option<::std::string::String>,
     pub(crate) package_type: ::std::option::Option<crate::types::PackageType>,
@@ -333,19 +347,26 @@ pub struct UpdateFunctionCodeOutputBuilder {
     pub(crate) runtime_version_config: ::std::option::Option<crate::types::RuntimeVersionConfig>,
     pub(crate) logging_config: ::std::option::Option<crate::types::LoggingConfig>,
     pub(crate) tenancy_config: ::std::option::Option<crate::types::TenancyConfig>,
-    pub(crate) capacity_provider_config: ::std::option::Option<crate::types::CapacityProviderConfig>,
+    pub(crate) capacity_provider_config:
+        ::std::option::Option<crate::types::CapacityProviderConfig>,
     pub(crate) config_sha256: ::std::option::Option<::std::string::String>,
     pub(crate) durable_config: ::std::option::Option<crate::types::DurableConfig>,
     _request_id: Option<String>,
 }
 impl UpdateFunctionCodeOutputBuilder {
     /// <p>The name of the function.</p>
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the function.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.function_name = input;
         self
     }
@@ -472,12 +493,18 @@ impl UpdateFunctionCodeOutputBuilder {
         &self.memory_size
     }
     /// <p>The date and time that the function was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn last_modified(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn last_modified(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.last_modified = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The date and time that the function was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn set_last_modified(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_last_modified(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.last_modified = input;
         self
     }
@@ -519,7 +546,10 @@ impl UpdateFunctionCodeOutputBuilder {
         self
     }
     /// <p>The function's networking configuration.</p>
-    pub fn set_vpc_config(mut self, input: ::std::option::Option<crate::types::VpcConfigResponse>) -> Self {
+    pub fn set_vpc_config(
+        mut self,
+        input: ::std::option::Option<crate::types::VpcConfigResponse>,
+    ) -> Self {
         self.vpc_config = input;
         self
     }
@@ -533,7 +563,10 @@ impl UpdateFunctionCodeOutputBuilder {
         self
     }
     /// <p>The function's dead letter queue.</p>
-    pub fn set_dead_letter_config(mut self, input: ::std::option::Option<crate::types::DeadLetterConfig>) -> Self {
+    pub fn set_dead_letter_config(
+        mut self,
+        input: ::std::option::Option<crate::types::DeadLetterConfig>,
+    ) -> Self {
         self.dead_letter_config = input;
         self
     }
@@ -547,7 +580,10 @@ impl UpdateFunctionCodeOutputBuilder {
         self
     }
     /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">environment variables</a>. Omitted from CloudTrail logs.</p>
-    pub fn set_environment(mut self, input: ::std::option::Option<crate::types::EnvironmentResponse>) -> Self {
+    pub fn set_environment(
+        mut self,
+        input: ::std::option::Option<crate::types::EnvironmentResponse>,
+    ) -> Self {
         self.environment = input;
         self
     }
@@ -608,12 +644,17 @@ impl UpdateFunctionCodeOutputBuilder {
         self
     }
     /// <p>The function's X-Ray tracing configuration.</p>
-    pub fn set_tracing_config(mut self, input: ::std::option::Option<crate::types::TracingConfigResponse>) -> Self {
+    pub fn set_tracing_config(
+        mut self,
+        input: ::std::option::Option<crate::types::TracingConfigResponse>,
+    ) -> Self {
         self.tracing_config = input;
         self
     }
     /// <p>The function's X-Ray tracing configuration.</p>
-    pub fn get_tracing_config(&self) -> &::std::option::Option<crate::types::TracingConfigResponse> {
+    pub fn get_tracing_config(
+        &self,
+    ) -> &::std::option::Option<crate::types::TracingConfigResponse> {
         &self.tracing_config
     }
     /// <p>For Lambda@Edge functions, the ARN of the main function.</p>
@@ -656,7 +697,10 @@ impl UpdateFunctionCodeOutputBuilder {
         self
     }
     /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">layers</a>.</p>
-    pub fn set_layers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Layer>>) -> Self {
+    pub fn set_layers(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Layer>>,
+    ) -> Self {
         self.layers = input;
         self
     }
@@ -698,7 +742,10 @@ impl UpdateFunctionCodeOutputBuilder {
         self
     }
     /// <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or modify the function.</p>
-    pub fn set_state_reason_code(mut self, input: ::std::option::Option<crate::types::StateReasonCode>) -> Self {
+    pub fn set_state_reason_code(
+        mut self,
+        input: ::std::option::Option<crate::types::StateReasonCode>,
+    ) -> Self {
         self.state_reason_code = input;
         self
     }
@@ -712,7 +759,10 @@ impl UpdateFunctionCodeOutputBuilder {
         self
     }
     /// <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code> after function creation completes.</p>
-    pub fn set_last_update_status(mut self, input: ::std::option::Option<crate::types::LastUpdateStatus>) -> Self {
+    pub fn set_last_update_status(
+        mut self,
+        input: ::std::option::Option<crate::types::LastUpdateStatus>,
+    ) -> Self {
         self.last_update_status = input;
         self
     }
@@ -721,12 +771,18 @@ impl UpdateFunctionCodeOutputBuilder {
         &self.last_update_status
     }
     /// <p>The reason for the last update that was performed on the function.</p>
-    pub fn last_update_status_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn last_update_status_reason(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.last_update_status_reason = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The reason for the last update that was performed on the function.</p>
-    pub fn set_last_update_status_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_last_update_status_reason(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.last_update_status_reason = input;
         self
     }
@@ -735,17 +791,25 @@ impl UpdateFunctionCodeOutputBuilder {
         &self.last_update_status_reason
     }
     /// <p>The reason code for the last update that was performed on the function.</p>
-    pub fn last_update_status_reason_code(mut self, input: crate::types::LastUpdateStatusReasonCode) -> Self {
+    pub fn last_update_status_reason_code(
+        mut self,
+        input: crate::types::LastUpdateStatusReasonCode,
+    ) -> Self {
         self.last_update_status_reason_code = ::std::option::Option::Some(input);
         self
     }
     /// <p>The reason code for the last update that was performed on the function.</p>
-    pub fn set_last_update_status_reason_code(mut self, input: ::std::option::Option<crate::types::LastUpdateStatusReasonCode>) -> Self {
+    pub fn set_last_update_status_reason_code(
+        mut self,
+        input: ::std::option::Option<crate::types::LastUpdateStatusReasonCode>,
+    ) -> Self {
         self.last_update_status_reason_code = input;
         self
     }
     /// <p>The reason code for the last update that was performed on the function.</p>
-    pub fn get_last_update_status_reason_code(&self) -> &::std::option::Option<crate::types::LastUpdateStatusReasonCode> {
+    pub fn get_last_update_status_reason_code(
+        &self,
+    ) -> &::std::option::Option<crate::types::LastUpdateStatusReasonCode> {
         &self.last_update_status_reason_code
     }
     /// Appends an item to `file_system_configs`.
@@ -760,21 +824,32 @@ impl UpdateFunctionCodeOutputBuilder {
         self
     }
     /// <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a> or an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon S3 Files file system</a>.</p>
-    pub fn set_file_system_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FileSystemConfig>>) -> Self {
+    pub fn set_file_system_configs(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::FileSystemConfig>>,
+    ) -> Self {
         self.file_system_configs = input;
         self
     }
     /// <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a> or an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon S3 Files file system</a>.</p>
-    pub fn get_file_system_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FileSystemConfig>> {
+    pub fn get_file_system_configs(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::FileSystemConfig>> {
         &self.file_system_configs
     }
     /// <p>The ARN of the signing profile version.</p>
-    pub fn signing_profile_version_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn signing_profile_version_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.signing_profile_version_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the signing profile version.</p>
-    pub fn set_signing_profile_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_signing_profile_version_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.signing_profile_version_arn = input;
         self
     }
@@ -783,12 +858,18 @@ impl UpdateFunctionCodeOutputBuilder {
         &self.signing_profile_version_arn
     }
     /// <p>The ARN of the signing job.</p>
-    pub fn signing_job_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn signing_job_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.signing_job_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the signing job.</p>
-    pub fn set_signing_job_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_signing_job_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.signing_job_arn = input;
         self
     }
@@ -802,7 +883,10 @@ impl UpdateFunctionCodeOutputBuilder {
         self
     }
     /// <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
-    pub fn set_package_type(mut self, input: ::std::option::Option<crate::types::PackageType>) -> Self {
+    pub fn set_package_type(
+        mut self,
+        input: ::std::option::Option<crate::types::PackageType>,
+    ) -> Self {
         self.package_type = input;
         self
     }
@@ -816,12 +900,17 @@ impl UpdateFunctionCodeOutputBuilder {
         self
     }
     /// <p>The function's image configuration values.</p>
-    pub fn set_image_config_response(mut self, input: ::std::option::Option<crate::types::ImageConfigResponse>) -> Self {
+    pub fn set_image_config_response(
+        mut self,
+        input: ::std::option::Option<crate::types::ImageConfigResponse>,
+    ) -> Self {
         self.image_config_response = input;
         self
     }
     /// <p>The function's image configuration values.</p>
-    pub fn get_image_config_response(&self) -> &::std::option::Option<crate::types::ImageConfigResponse> {
+    pub fn get_image_config_response(
+        &self,
+    ) -> &::std::option::Option<crate::types::ImageConfigResponse> {
         &self.image_config_response
     }
     /// Appends an item to `architectures`.
@@ -836,12 +925,17 @@ impl UpdateFunctionCodeOutputBuilder {
         self
     }
     /// <p>The instruction set architecture that the function supports. Architecture is a string array with one of the valid values. The default architecture value is <code>x86_64</code>.</p>
-    pub fn set_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>) -> Self {
+    pub fn set_architectures(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
+    ) -> Self {
         self.architectures = input;
         self
     }
     /// <p>The instruction set architecture that the function supports. Architecture is a string array with one of the valid values. The default architecture value is <code>x86_64</code>.</p>
-    pub fn get_architectures(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
+    pub fn get_architectures(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
         &self.architectures
     }
     /// <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
@@ -850,7 +944,10 @@ impl UpdateFunctionCodeOutputBuilder {
         self
     }
     /// <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
-    pub fn set_ephemeral_storage(mut self, input: ::std::option::Option<crate::types::EphemeralStorage>) -> Self {
+    pub fn set_ephemeral_storage(
+        mut self,
+        input: ::std::option::Option<crate::types::EphemeralStorage>,
+    ) -> Self {
         self.ephemeral_storage = input;
         self
     }
@@ -864,7 +961,10 @@ impl UpdateFunctionCodeOutputBuilder {
         self
     }
     /// <p>Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Improving startup performance with Lambda SnapStart</a>.</p>
-    pub fn set_snap_start(mut self, input: ::std::option::Option<crate::types::SnapStartResponse>) -> Self {
+    pub fn set_snap_start(
+        mut self,
+        input: ::std::option::Option<crate::types::SnapStartResponse>,
+    ) -> Self {
         self.snap_start = input;
         self
     }
@@ -878,12 +978,17 @@ impl UpdateFunctionCodeOutputBuilder {
         self
     }
     /// <p>The ARN of the runtime and any errors that occured.</p>
-    pub fn set_runtime_version_config(mut self, input: ::std::option::Option<crate::types::RuntimeVersionConfig>) -> Self {
+    pub fn set_runtime_version_config(
+        mut self,
+        input: ::std::option::Option<crate::types::RuntimeVersionConfig>,
+    ) -> Self {
         self.runtime_version_config = input;
         self
     }
     /// <p>The ARN of the runtime and any errors that occured.</p>
-    pub fn get_runtime_version_config(&self) -> &::std::option::Option<crate::types::RuntimeVersionConfig> {
+    pub fn get_runtime_version_config(
+        &self,
+    ) -> &::std::option::Option<crate::types::RuntimeVersionConfig> {
         &self.runtime_version_config
     }
     /// <p>The function's Amazon CloudWatch Logs configuration settings.</p>
@@ -892,7 +997,10 @@ impl UpdateFunctionCodeOutputBuilder {
         self
     }
     /// <p>The function's Amazon CloudWatch Logs configuration settings.</p>
-    pub fn set_logging_config(mut self, input: ::std::option::Option<crate::types::LoggingConfig>) -> Self {
+    pub fn set_logging_config(
+        mut self,
+        input: ::std::option::Option<crate::types::LoggingConfig>,
+    ) -> Self {
         self.logging_config = input;
         self
     }
@@ -906,7 +1014,10 @@ impl UpdateFunctionCodeOutputBuilder {
         self
     }
     /// <p>The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.</p>
-    pub fn set_tenancy_config(mut self, input: ::std::option::Option<crate::types::TenancyConfig>) -> Self {
+    pub fn set_tenancy_config(
+        mut self,
+        input: ::std::option::Option<crate::types::TenancyConfig>,
+    ) -> Self {
         self.tenancy_config = input;
         self
     }
@@ -920,21 +1031,32 @@ impl UpdateFunctionCodeOutputBuilder {
         self
     }
     /// <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
-    pub fn set_capacity_provider_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderConfig>) -> Self {
+    pub fn set_capacity_provider_config(
+        mut self,
+        input: ::std::option::Option<crate::types::CapacityProviderConfig>,
+    ) -> Self {
         self.capacity_provider_config = input;
         self
     }
     /// <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
-    pub fn get_capacity_provider_config(&self) -> &::std::option::Option<crate::types::CapacityProviderConfig> {
+    pub fn get_capacity_provider_config(
+        &self,
+    ) -> &::std::option::Option<crate::types::CapacityProviderConfig> {
         &self.capacity_provider_config
     }
     /// <p>The SHA256 hash of the function configuration.</p>
-    pub fn config_sha256(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn config_sha256(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.config_sha256 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The SHA256 hash of the function configuration.</p>
-    pub fn set_config_sha256(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_config_sha256(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.config_sha256 = input;
         self
     }
@@ -948,7 +1070,10 @@ impl UpdateFunctionCodeOutputBuilder {
         self
     }
     /// <p>The function's durable execution configuration settings, if the function is configured for durability.</p>
-    pub fn set_durable_config(mut self, input: ::std::option::Option<crate::types::DurableConfig>) -> Self {
+    pub fn set_durable_config(
+        mut self,
+        input: ::std::option::Option<crate::types::DurableConfig>,
+    ) -> Self {
         self.durable_config = input;
         self
     }

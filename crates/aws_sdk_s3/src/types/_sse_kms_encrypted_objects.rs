@@ -21,7 +21,9 @@ impl SseKmsEncryptedObjects {
 }
 
 /// A builder for [`SseKmsEncryptedObjects`](crate::types::SseKmsEncryptedObjects).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SseKmsEncryptedObjectsBuilder {
     pub(crate) status: ::std::option::Option<crate::types::SseKmsEncryptedObjectsStatus>,
@@ -34,7 +36,10 @@ impl SseKmsEncryptedObjectsBuilder {
         self
     }
     /// <p>Specifies whether Amazon S3 replicates objects created with server-side encryption using an Amazon Web Services KMS key stored in Amazon Web Services Key Management Service.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::SseKmsEncryptedObjectsStatus>) -> Self {
+    pub fn set_status(
+        mut self,
+        input: ::std::option::Option<crate::types::SseKmsEncryptedObjectsStatus>,
+    ) -> Self {
         self.status = input;
         self
     }
@@ -45,7 +50,12 @@ impl SseKmsEncryptedObjectsBuilder {
     /// Consumes the builder and constructs a [`SseKmsEncryptedObjects`](crate::types::SseKmsEncryptedObjects).
     /// This method will fail if any of the following fields are not set:
     /// - [`status`](crate::types::builders::SseKmsEncryptedObjectsBuilder::status)
-    pub fn build(self) -> ::std::result::Result<crate::types::SseKmsEncryptedObjects, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::SseKmsEncryptedObjects,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::SseKmsEncryptedObjects {
             status: self.status.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

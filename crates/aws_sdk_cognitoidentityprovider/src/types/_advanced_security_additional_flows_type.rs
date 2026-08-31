@@ -9,7 +9,9 @@ pub struct AdvancedSecurityAdditionalFlowsType {
 }
 impl AdvancedSecurityAdditionalFlowsType {
     /// <p>The operating mode of threat protection in custom authentication with <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html"> Custom authentication challenge Lambda triggers</a>.</p>
-    pub fn custom_auth_mode(&self) -> ::std::option::Option<&crate::types::AdvancedSecurityEnabledModeType> {
+    pub fn custom_auth_mode(
+        &self,
+    ) -> ::std::option::Option<&crate::types::AdvancedSecurityEnabledModeType> {
         self.custom_auth_mode.as_ref()
     }
 }
@@ -21,24 +23,35 @@ impl AdvancedSecurityAdditionalFlowsType {
 }
 
 /// A builder for [`AdvancedSecurityAdditionalFlowsType`](crate::types::AdvancedSecurityAdditionalFlowsType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AdvancedSecurityAdditionalFlowsTypeBuilder {
-    pub(crate) custom_auth_mode: ::std::option::Option<crate::types::AdvancedSecurityEnabledModeType>,
+    pub(crate) custom_auth_mode:
+        ::std::option::Option<crate::types::AdvancedSecurityEnabledModeType>,
 }
 impl AdvancedSecurityAdditionalFlowsTypeBuilder {
     /// <p>The operating mode of threat protection in custom authentication with <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html"> Custom authentication challenge Lambda triggers</a>.</p>
-    pub fn custom_auth_mode(mut self, input: crate::types::AdvancedSecurityEnabledModeType) -> Self {
+    pub fn custom_auth_mode(
+        mut self,
+        input: crate::types::AdvancedSecurityEnabledModeType,
+    ) -> Self {
         self.custom_auth_mode = ::std::option::Option::Some(input);
         self
     }
     /// <p>The operating mode of threat protection in custom authentication with <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html"> Custom authentication challenge Lambda triggers</a>.</p>
-    pub fn set_custom_auth_mode(mut self, input: ::std::option::Option<crate::types::AdvancedSecurityEnabledModeType>) -> Self {
+    pub fn set_custom_auth_mode(
+        mut self,
+        input: ::std::option::Option<crate::types::AdvancedSecurityEnabledModeType>,
+    ) -> Self {
         self.custom_auth_mode = input;
         self
     }
     /// <p>The operating mode of threat protection in custom authentication with <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html"> Custom authentication challenge Lambda triggers</a>.</p>
-    pub fn get_custom_auth_mode(&self) -> &::std::option::Option<crate::types::AdvancedSecurityEnabledModeType> {
+    pub fn get_custom_auth_mode(
+        &self,
+    ) -> &::std::option::Option<crate::types::AdvancedSecurityEnabledModeType> {
         &self.custom_auth_mode
     }
     /// Consumes the builder and constructs a [`AdvancedSecurityAdditionalFlowsType`](crate::types::AdvancedSecurityAdditionalFlowsType).

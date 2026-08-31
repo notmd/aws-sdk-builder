@@ -13,13 +13,17 @@ impl ::aws_types::request_id::RequestId for PutSuppressedDestinationOutput {
 }
 impl PutSuppressedDestinationOutput {
     /// Creates a new builder-style object to manufacture [`PutSuppressedDestinationOutput`](crate::operation::put_suppressed_destination::PutSuppressedDestinationOutput).
-    pub fn builder() -> crate::operation::put_suppressed_destination::builders::PutSuppressedDestinationOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::put_suppressed_destination::builders::PutSuppressedDestinationOutputBuilder
+    {
         crate::operation::put_suppressed_destination::builders::PutSuppressedDestinationOutputBuilder::default()
     }
 }
 
 /// A builder for [`PutSuppressedDestinationOutput`](crate::operation::put_suppressed_destination::PutSuppressedDestinationOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutSuppressedDestinationOutputBuilder {
     _request_id: Option<String>,
@@ -35,7 +39,9 @@ impl PutSuppressedDestinationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutSuppressedDestinationOutput`](crate::operation::put_suppressed_destination::PutSuppressedDestinationOutput).
-    pub fn build(self) -> crate::operation::put_suppressed_destination::PutSuppressedDestinationOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::put_suppressed_destination::PutSuppressedDestinationOutput {
         crate::operation::put_suppressed_destination::PutSuppressedDestinationOutput {
             _request_id: self._request_id,
         }

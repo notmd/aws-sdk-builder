@@ -20,13 +20,17 @@ impl UpdateProvisionedLimitInput {
 }
 impl UpdateProvisionedLimitInput {
     /// Creates a new builder-style object to manufacture [`UpdateProvisionedLimitInput`](crate::operation::update_provisioned_limit::UpdateProvisionedLimitInput).
-    pub fn builder() -> crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitInputBuilder
+    {
         crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateProvisionedLimitInput`](crate::operation::update_provisioned_limit::UpdateProvisionedLimitInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateProvisionedLimitInputBuilder {
     pub(crate) limit_definition: ::std::option::Option<crate::types::LimitDefinitionType>,
@@ -40,12 +44,17 @@ impl UpdateProvisionedLimitInputBuilder {
         self
     }
     /// <p>The limit to update. Specify the limit class and the attributes that identify the limit.</p>
-    pub fn set_limit_definition(mut self, input: ::std::option::Option<crate::types::LimitDefinitionType>) -> Self {
+    pub fn set_limit_definition(
+        mut self,
+        input: ::std::option::Option<crate::types::LimitDefinitionType>,
+    ) -> Self {
         self.limit_definition = input;
         self
     }
     /// <p>The limit to update. Specify the limit class and the attributes that identify the limit.</p>
-    pub fn get_limit_definition(&self) -> &::std::option::Option<crate::types::LimitDefinitionType> {
+    pub fn get_limit_definition(
+        &self,
+    ) -> &::std::option::Option<crate::types::LimitDefinitionType> {
         &self.limit_definition
     }
     /// <p>The provisioned rate to set, in requests per second (RPS).</p>
@@ -70,9 +79,11 @@ impl UpdateProvisionedLimitInputBuilder {
         crate::operation::update_provisioned_limit::UpdateProvisionedLimitInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::update_provisioned_limit::UpdateProvisionedLimitInput {
-            limit_definition: self.limit_definition,
-            requested_limit_value: self.requested_limit_value,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::update_provisioned_limit::UpdateProvisionedLimitInput {
+                limit_definition: self.limit_definition,
+                requested_limit_value: self.requested_limit_value,
+            },
+        )
     }
 }

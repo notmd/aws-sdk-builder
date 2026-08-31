@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CompleteWebAuthnRegistrationError>`](crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError)
     pub fn complete_web_authn_registration(
         &self,
-    ) -> crate::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationFluentBuilder {
+    ) -> crate::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationFluentBuilder{
         crate::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationFluentBuilder::new(self.handle.clone())
     }
 }

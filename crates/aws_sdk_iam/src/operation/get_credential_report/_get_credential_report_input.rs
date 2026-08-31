@@ -5,21 +5,29 @@
 pub struct GetCredentialReportInput {}
 impl GetCredentialReportInput {
     /// Creates a new builder-style object to manufacture [`GetCredentialReportInput`](crate::operation::get_credential_report::GetCredentialReportInput).
-    pub fn builder() -> crate::operation::get_credential_report::builders::GetCredentialReportInputBuilder {
-        crate::operation::get_credential_report::builders::GetCredentialReportInputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::get_credential_report::builders::GetCredentialReportInputBuilder {
+        crate::operation::get_credential_report::builders::GetCredentialReportInputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`GetCredentialReportInput`](crate::operation::get_credential_report::GetCredentialReportInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetCredentialReportInputBuilder {}
 impl GetCredentialReportInputBuilder {
     /// Consumes the builder and constructs a [`GetCredentialReportInput`](crate::operation::get_credential_report::GetCredentialReportInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_credential_report::GetCredentialReportInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::get_credential_report::GetCredentialReportInput {})
+    ) -> ::std::result::Result<
+        crate::operation::get_credential_report::GetCredentialReportInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::get_credential_report::GetCredentialReportInput {},
+        )
     }
 }

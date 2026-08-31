@@ -27,7 +27,9 @@ impl MetadataEntry {
 }
 
 /// A builder for [`MetadataEntry`](crate::types::MetadataEntry).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct MetadataEntryBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,

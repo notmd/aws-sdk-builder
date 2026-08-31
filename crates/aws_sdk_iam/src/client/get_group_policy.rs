@@ -10,7 +10,11 @@ impl super::Client {
     ///   - [`policy_name(String)`](crate::operation::get_group_policy::GetGroupPolicyOutput::policy_name): <p>The name of the policy.</p>
     ///   - [`policy_document(String)`](crate::operation::get_group_policy::GetGroupPolicyOutput::policy_document): <p>The policy document.</p> <p>IAM stores policies in JSON format. However, resources that were created using CloudFormation templates can be formatted in YAML. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
     /// - On failure, responds with [`SdkError<GetGroupPolicyError>`](crate::operation::get_group_policy::GetGroupPolicyError)
-    pub fn get_group_policy(&self) -> crate::operation::get_group_policy::builders::GetGroupPolicyFluentBuilder {
-        crate::operation::get_group_policy::builders::GetGroupPolicyFluentBuilder::new(self.handle.clone())
+    pub fn get_group_policy(
+        &self,
+    ) -> crate::operation::get_group_policy::builders::GetGroupPolicyFluentBuilder {
+        crate::operation::get_group_policy::builders::GetGroupPolicyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

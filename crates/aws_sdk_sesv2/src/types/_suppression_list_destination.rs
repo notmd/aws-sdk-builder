@@ -33,10 +33,13 @@ impl SuppressionListDestination {
 }
 
 /// A builder for [`SuppressionListDestination`](crate::types::SuppressionListDestination).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SuppressionListDestinationBuilder {
-    pub(crate) suppression_list_import_action: ::std::option::Option<crate::types::SuppressionListImportAction>,
+    pub(crate) suppression_list_import_action:
+        ::std::option::Option<crate::types::SuppressionListImportAction>,
 }
 impl SuppressionListDestinationBuilder {
     /// <p>The type of action to perform on the address. The following are possible values:</p>
@@ -47,7 +50,10 @@ impl SuppressionListDestinationBuilder {
     /// <p>DELETE: remove the addresses from the suppression list.</p></li>
     /// </ul>
     /// This field is required.
-    pub fn suppression_list_import_action(mut self, input: crate::types::SuppressionListImportAction) -> Self {
+    pub fn suppression_list_import_action(
+        mut self,
+        input: crate::types::SuppressionListImportAction,
+    ) -> Self {
         self.suppression_list_import_action = ::std::option::Option::Some(input);
         self
     }
@@ -58,7 +64,10 @@ impl SuppressionListDestinationBuilder {
     /// <li>
     /// <p>DELETE: remove the addresses from the suppression list.</p></li>
     /// </ul>
-    pub fn set_suppression_list_import_action(mut self, input: ::std::option::Option<crate::types::SuppressionListImportAction>) -> Self {
+    pub fn set_suppression_list_import_action(
+        mut self,
+        input: ::std::option::Option<crate::types::SuppressionListImportAction>,
+    ) -> Self {
         self.suppression_list_import_action = input;
         self
     }
@@ -69,13 +78,20 @@ impl SuppressionListDestinationBuilder {
     /// <li>
     /// <p>DELETE: remove the addresses from the suppression list.</p></li>
     /// </ul>
-    pub fn get_suppression_list_import_action(&self) -> &::std::option::Option<crate::types::SuppressionListImportAction> {
+    pub fn get_suppression_list_import_action(
+        &self,
+    ) -> &::std::option::Option<crate::types::SuppressionListImportAction> {
         &self.suppression_list_import_action
     }
     /// Consumes the builder and constructs a [`SuppressionListDestination`](crate::types::SuppressionListDestination).
     /// This method will fail if any of the following fields are not set:
     /// - [`suppression_list_import_action`](crate::types::builders::SuppressionListDestinationBuilder::suppression_list_import_action)
-    pub fn build(self) -> ::std::result::Result<crate::types::SuppressionListDestination, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::SuppressionListDestination,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::SuppressionListDestination {
             suppression_list_import_action: self.suppression_list_import_action.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

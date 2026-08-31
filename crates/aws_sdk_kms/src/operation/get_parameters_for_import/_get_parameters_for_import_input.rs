@@ -82,13 +82,17 @@ impl GetParametersForImportInput {
 }
 impl GetParametersForImportInput {
     /// Creates a new builder-style object to manufacture [`GetParametersForImportInput`](crate::operation::get_parameters_for_import::GetParametersForImportInput).
-    pub fn builder() -> crate::operation::get_parameters_for_import::builders::GetParametersForImportInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::get_parameters_for_import::builders::GetParametersForImportInputBuilder
+    {
         crate::operation::get_parameters_for_import::builders::GetParametersForImportInputBuilder::default()
     }
 }
 
 /// A builder for [`GetParametersForImportInput`](crate::operation::get_parameters_for_import::GetParametersForImportInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetParametersForImportInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -180,7 +184,10 @@ impl GetParametersForImportInputBuilder {
     /// <li>
     /// <p><b>RSAES_PKCS1_V1_5</b> (Deprecated) — As of October 10, 2023, KMS does not support the RSAES_PKCS1_V1_5 wrapping algorithm.</p></li>
     /// </ul>
-    pub fn set_wrapping_algorithm(mut self, input: ::std::option::Option<crate::types::AlgorithmSpec>) -> Self {
+    pub fn set_wrapping_algorithm(
+        mut self,
+        input: ::std::option::Option<crate::types::AlgorithmSpec>,
+    ) -> Self {
         self.wrapping_algorithm = input;
         self
     }
@@ -215,7 +222,10 @@ impl GetParametersForImportInputBuilder {
     /// <p>The type of RSA public key to return in the response. You will use this wrapping key with the specified wrapping algorithm to protect your key material during import.</p>
     /// <p>Use the longest RSA wrapping key that is practical.</p>
     /// <p>You cannot use an RSA_2048 public key to directly wrap an ECC_NIST_P521 private key. Instead, use an RSA_AES wrapping algorithm or choose a longer RSA public key.</p>
-    pub fn set_wrapping_key_spec(mut self, input: ::std::option::Option<crate::types::WrappingKeySpec>) -> Self {
+    pub fn set_wrapping_key_spec(
+        mut self,
+        input: ::std::option::Option<crate::types::WrappingKeySpec>,
+    ) -> Self {
         self.wrapping_key_spec = input;
         self
     }
@@ -232,10 +242,12 @@ impl GetParametersForImportInputBuilder {
         crate::operation::get_parameters_for_import::GetParametersForImportInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_parameters_for_import::GetParametersForImportInput {
-            key_id: self.key_id,
-            wrapping_algorithm: self.wrapping_algorithm,
-            wrapping_key_spec: self.wrapping_key_spec,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::get_parameters_for_import::GetParametersForImportInput {
+                key_id: self.key_id,
+                wrapping_algorithm: self.wrapping_algorithm,
+                wrapping_key_spec: self.wrapping_key_spec,
+            },
+        )
     }
 }

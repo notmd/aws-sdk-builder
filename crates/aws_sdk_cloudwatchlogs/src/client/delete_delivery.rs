@@ -6,7 +6,11 @@ impl super::Client {
     ///   - [`id(impl Into<String>)`](crate::operation::delete_delivery::builders::DeleteDeliveryFluentBuilder::id) / [`set_id(Option<String>)`](crate::operation::delete_delivery::builders::DeleteDeliveryFluentBuilder::set_id):<br>required: **true**<br><p>The unique ID of the delivery to delete. You can find the ID of a delivery with the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html">DescribeDeliveries</a> operation.</p><br>
     /// - On success, responds with [`DeleteDeliveryOutput`](crate::operation::delete_delivery::DeleteDeliveryOutput)
     /// - On failure, responds with [`SdkError<DeleteDeliveryError>`](crate::operation::delete_delivery::DeleteDeliveryError)
-    pub fn delete_delivery(&self) -> crate::operation::delete_delivery::builders::DeleteDeliveryFluentBuilder {
-        crate::operation::delete_delivery::builders::DeleteDeliveryFluentBuilder::new(self.handle.clone())
+    pub fn delete_delivery(
+        &self,
+    ) -> crate::operation::delete_delivery::builders::DeleteDeliveryFluentBuilder {
+        crate::operation::delete_delivery::builders::DeleteDeliveryFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

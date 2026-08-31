@@ -92,12 +92,17 @@ impl EmailInsightsBuilder {
         self
     }
     /// <p>A list of events associated with the sent email.</p>
-    pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::InsightsEvent>>) -> Self {
+    pub fn set_events(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::InsightsEvent>>,
+    ) -> Self {
         self.events = input;
         self
     }
     /// <p>A list of events associated with the sent email.</p>
-    pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::InsightsEvent>> {
+    pub fn get_events(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::InsightsEvent>> {
         &self.events
     }
     /// Consumes the builder and constructs a [`EmailInsights`](crate::types::EmailInsights).

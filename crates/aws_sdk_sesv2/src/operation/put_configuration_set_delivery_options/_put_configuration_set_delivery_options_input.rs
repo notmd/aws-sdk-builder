@@ -33,13 +33,15 @@ impl PutConfigurationSetDeliveryOptionsInput {
 }
 impl PutConfigurationSetDeliveryOptionsInput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetDeliveryOptionsInput`](crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsInput).
-    pub fn builder() -> crate::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsInputBuilder {
+    pub fn builder() -> crate::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsInputBuilder{
         crate::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsInputBuilder::default()
     }
 }
 
 /// A builder for [`PutConfigurationSetDeliveryOptionsInput`](crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutConfigurationSetDeliveryOptionsInputBuilder {
     pub(crate) configuration_set_name: ::std::option::Option<::std::string::String>,
@@ -50,12 +52,18 @@ pub struct PutConfigurationSetDeliveryOptionsInputBuilder {
 impl PutConfigurationSetDeliveryOptionsInputBuilder {
     /// <p>The name of the configuration set to associate with a dedicated IP pool.</p>
     /// This field is required.
-    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn configuration_set_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.configuration_set_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the configuration set to associate with a dedicated IP pool.</p>
-    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_configuration_set_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.configuration_set_name = input;
         self
     }
@@ -78,12 +86,18 @@ impl PutConfigurationSetDeliveryOptionsInputBuilder {
         &self.tls_policy
     }
     /// <p>The name of the dedicated IP pool to associate with the configuration set.</p>
-    pub fn sending_pool_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn sending_pool_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.sending_pool_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the dedicated IP pool to associate with the configuration set.</p>
-    pub fn set_sending_pool_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_sending_pool_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.sending_pool_name = input;
         self
     }
@@ -111,7 +125,7 @@ impl PutConfigurationSetDeliveryOptionsInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsInput,
         ::aws_smithy_types::error::operation::BuildError,
-    > {
+    >{
         ::std::result::Result::Ok(
             crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsInput {
                 configuration_set_name: self.configuration_set_name,

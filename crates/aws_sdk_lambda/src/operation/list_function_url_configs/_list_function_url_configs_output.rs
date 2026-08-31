@@ -27,16 +27,21 @@ impl ::aws_types::request_id::RequestId for ListFunctionUrlConfigsOutput {
 }
 impl ListFunctionUrlConfigsOutput {
     /// Creates a new builder-style object to manufacture [`ListFunctionUrlConfigsOutput`](crate::operation::list_function_url_configs::ListFunctionUrlConfigsOutput).
-    pub fn builder() -> crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsOutputBuilder
+    {
         crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListFunctionUrlConfigsOutput`](crate::operation::list_function_url_configs::ListFunctionUrlConfigsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListFunctionUrlConfigsOutputBuilder {
-    pub(crate) function_url_configs: ::std::option::Option<::std::vec::Vec<crate::types::FunctionUrlConfig>>,
+    pub(crate) function_url_configs:
+        ::std::option::Option<::std::vec::Vec<crate::types::FunctionUrlConfig>>,
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -53,12 +58,17 @@ impl ListFunctionUrlConfigsOutputBuilder {
         self
     }
     /// <p>A list of function URL configurations.</p>
-    pub fn set_function_url_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionUrlConfig>>) -> Self {
+    pub fn set_function_url_configs(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionUrlConfig>>,
+    ) -> Self {
         self.function_url_configs = input;
         self
     }
     /// <p>A list of function URL configurations.</p>
-    pub fn get_function_url_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FunctionUrlConfig>> {
+    pub fn get_function_url_configs(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::FunctionUrlConfig>> {
         &self.function_url_configs
     }
     /// <p>The pagination token that's included if more results are available.</p>

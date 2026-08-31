@@ -2,7 +2,7 @@
 #[cfg(feature = "op_change_message_visibility_batch")]
 pub(crate) fn change_message_visibility_batch_output_output_correct_errors(
     mut builder: crate::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchOutputBuilder,
-) -> crate::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchOutputBuilder {
+) -> crate::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchOutputBuilder{
     if builder.successful.is_none() {
         builder.successful = Some(Default::default())
     }
@@ -28,7 +28,7 @@ pub(crate) fn delete_message_batch_output_output_correct_errors(
 #[cfg(feature = "op_list_dead_letter_source_queues")]
 pub(crate) fn list_dead_letter_source_queues_output_output_correct_errors(
     mut builder: crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesOutputBuilder,
-) -> crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesOutputBuilder {
+) -> crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesOutputBuilder{
     if builder.queue_urls.is_none() {
         builder.queue_urls = Some(Default::default())
     }
@@ -48,7 +48,11 @@ pub(crate) fn send_message_batch_output_output_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+#[cfg(any(
+    feature = "op_change_message_visibility_batch",
+    feature = "op_delete_message_batch",
+    feature = "op_send_message_batch"
+))]
 pub(crate) fn batch_result_error_entry_correct_errors(
     mut builder: crate::types::builders::BatchResultErrorEntryBuilder,
 ) -> crate::types::builders::BatchResultErrorEntryBuilder {
@@ -100,7 +104,11 @@ pub(crate) fn send_message_batch_result_entry_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+#[cfg(any(
+    feature = "op_receive_message",
+    feature = "op_send_message",
+    feature = "op_send_message_batch"
+))]
 pub(crate) fn message_attribute_value_correct_errors(
     mut builder: crate::types::builders::MessageAttributeValueBuilder,
 ) -> crate::types::builders::MessageAttributeValueBuilder {

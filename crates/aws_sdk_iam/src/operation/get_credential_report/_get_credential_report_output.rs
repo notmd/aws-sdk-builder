@@ -33,13 +33,17 @@ impl ::aws_types::request_id::RequestId for GetCredentialReportOutput {
 }
 impl GetCredentialReportOutput {
     /// Creates a new builder-style object to manufacture [`GetCredentialReportOutput`](crate::operation::get_credential_report::GetCredentialReportOutput).
-    pub fn builder() -> crate::operation::get_credential_report::builders::GetCredentialReportOutputBuilder {
-        crate::operation::get_credential_report::builders::GetCredentialReportOutputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::get_credential_report::builders::GetCredentialReportOutputBuilder {
+        crate::operation::get_credential_report::builders::GetCredentialReportOutputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`GetCredentialReportOutput`](crate::operation::get_credential_report::GetCredentialReportOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetCredentialReportOutputBuilder {
     pub(crate) content: ::std::option::Option<::aws_smithy_types::Blob>,
@@ -68,7 +72,10 @@ impl GetCredentialReportOutputBuilder {
         self
     }
     /// <p>The format (MIME type) of the credential report.</p>
-    pub fn set_report_format(mut self, input: ::std::option::Option<crate::types::ReportFormatType>) -> Self {
+    pub fn set_report_format(
+        mut self,
+        input: ::std::option::Option<crate::types::ReportFormatType>,
+    ) -> Self {
         self.report_format = input;
         self
     }
@@ -82,7 +89,10 @@ impl GetCredentialReportOutputBuilder {
         self
     }
     /// <p>The date and time when the credential report was created, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>.</p>
-    pub fn set_generated_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_generated_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.generated_time = input;
         self
     }

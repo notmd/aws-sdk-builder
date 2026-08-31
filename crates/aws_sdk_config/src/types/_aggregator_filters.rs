@@ -11,11 +11,15 @@ pub struct AggregatorFilters {
 }
 impl AggregatorFilters {
     /// <p>An object to filter the configuration recorders based on the resource types in scope for recording.</p>
-    pub fn resource_type(&self) -> ::std::option::Option<&crate::types::AggregatorFilterResourceType> {
+    pub fn resource_type(
+        &self,
+    ) -> ::std::option::Option<&crate::types::AggregatorFilterResourceType> {
         self.resource_type.as_ref()
     }
     /// <p>An object to filter service-linked configuration recorders in an aggregator based on the linked Amazon Web Services service.</p>
-    pub fn service_principal(&self) -> ::std::option::Option<&crate::types::AggregatorFilterServicePrincipal> {
+    pub fn service_principal(
+        &self,
+    ) -> ::std::option::Option<&crate::types::AggregatorFilterServicePrincipal> {
         self.service_principal.as_ref()
     }
 }
@@ -27,11 +31,14 @@ impl AggregatorFilters {
 }
 
 /// A builder for [`AggregatorFilters`](crate::types::AggregatorFilters).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AggregatorFiltersBuilder {
     pub(crate) resource_type: ::std::option::Option<crate::types::AggregatorFilterResourceType>,
-    pub(crate) service_principal: ::std::option::Option<crate::types::AggregatorFilterServicePrincipal>,
+    pub(crate) service_principal:
+        ::std::option::Option<crate::types::AggregatorFilterServicePrincipal>,
 }
 impl AggregatorFiltersBuilder {
     /// <p>An object to filter the configuration recorders based on the resource types in scope for recording.</p>
@@ -40,26 +47,39 @@ impl AggregatorFiltersBuilder {
         self
     }
     /// <p>An object to filter the configuration recorders based on the resource types in scope for recording.</p>
-    pub fn set_resource_type(mut self, input: ::std::option::Option<crate::types::AggregatorFilterResourceType>) -> Self {
+    pub fn set_resource_type(
+        mut self,
+        input: ::std::option::Option<crate::types::AggregatorFilterResourceType>,
+    ) -> Self {
         self.resource_type = input;
         self
     }
     /// <p>An object to filter the configuration recorders based on the resource types in scope for recording.</p>
-    pub fn get_resource_type(&self) -> &::std::option::Option<crate::types::AggregatorFilterResourceType> {
+    pub fn get_resource_type(
+        &self,
+    ) -> &::std::option::Option<crate::types::AggregatorFilterResourceType> {
         &self.resource_type
     }
     /// <p>An object to filter service-linked configuration recorders in an aggregator based on the linked Amazon Web Services service.</p>
-    pub fn service_principal(mut self, input: crate::types::AggregatorFilterServicePrincipal) -> Self {
+    pub fn service_principal(
+        mut self,
+        input: crate::types::AggregatorFilterServicePrincipal,
+    ) -> Self {
         self.service_principal = ::std::option::Option::Some(input);
         self
     }
     /// <p>An object to filter service-linked configuration recorders in an aggregator based on the linked Amazon Web Services service.</p>
-    pub fn set_service_principal(mut self, input: ::std::option::Option<crate::types::AggregatorFilterServicePrincipal>) -> Self {
+    pub fn set_service_principal(
+        mut self,
+        input: ::std::option::Option<crate::types::AggregatorFilterServicePrincipal>,
+    ) -> Self {
         self.service_principal = input;
         self
     }
     /// <p>An object to filter service-linked configuration recorders in an aggregator based on the linked Amazon Web Services service.</p>
-    pub fn get_service_principal(&self) -> &::std::option::Option<crate::types::AggregatorFilterServicePrincipal> {
+    pub fn get_service_principal(
+        &self,
+    ) -> &::std::option::Option<crate::types::AggregatorFilterServicePrincipal> {
         &self.service_principal
     }
     /// Consumes the builder and constructs a [`AggregatorFilters`](crate::types::AggregatorFilters).

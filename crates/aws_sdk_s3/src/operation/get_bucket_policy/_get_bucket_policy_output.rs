@@ -26,13 +26,16 @@ impl ::aws_types::request_id::RequestId for GetBucketPolicyOutput {
 }
 impl GetBucketPolicyOutput {
     /// Creates a new builder-style object to manufacture [`GetBucketPolicyOutput`](crate::operation::get_bucket_policy::GetBucketPolicyOutput).
-    pub fn builder() -> crate::operation::get_bucket_policy::builders::GetBucketPolicyOutputBuilder {
+    pub fn builder() -> crate::operation::get_bucket_policy::builders::GetBucketPolicyOutputBuilder
+    {
         crate::operation::get_bucket_policy::builders::GetBucketPolicyOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetBucketPolicyOutput`](crate::operation::get_bucket_policy::GetBucketPolicyOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetBucketPolicyOutputBuilder {
     pub(crate) policy: ::std::option::Option<::std::string::String>,
@@ -59,7 +62,10 @@ impl GetBucketPolicyOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(
+        &mut self,
+        extended_request_id: Option<String>,
+    ) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

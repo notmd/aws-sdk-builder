@@ -29,14 +29,20 @@ pub struct GetPolicyFluentBuilder {
     inner: crate::operation::get_policy::builders::GetPolicyInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
-impl crate::client::customize::internal::CustomizableSend<crate::operation::get_policy::GetPolicyOutput, crate::operation::get_policy::GetPolicyError>
-    for GetPolicyFluentBuilder
+impl
+    crate::client::customize::internal::CustomizableSend<
+        crate::operation::get_policy::GetPolicyOutput,
+        crate::operation::get_policy::GetPolicyError,
+    > for GetPolicyFluentBuilder
 {
     fn send(
         self,
         config_override: crate::config::Builder,
     ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<crate::operation::get_policy::GetPolicyOutput, crate::operation::get_policy::GetPolicyError>,
+        crate::client::customize::internal::SendResult<
+            crate::operation::get_policy::GetPolicyOutput,
+            crate::operation::get_policy::GetPolicyError,
+        >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -93,12 +99,18 @@ impl GetPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -113,7 +125,10 @@ impl GetPolicyFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -128,7 +143,10 @@ impl GetPolicyFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }

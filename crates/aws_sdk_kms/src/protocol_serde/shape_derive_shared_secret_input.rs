@@ -10,7 +10,9 @@ pub fn ser_derive_shared_secret_input_input(
         object.key("KeyAgreementAlgorithm").string(var_2.as_str());
     }
     if let Some(var_3) = &input.public_key {
-        object.key("PublicKey").string_unchecked(&::aws_smithy_types::base64::encode(var_3));
+        object
+            .key("PublicKey")
+            .string_unchecked(&::aws_smithy_types::base64::encode(var_3));
     }
     if let Some(var_4) = &input.grant_tokens {
         let mut array_5 = object.key("GrantTokens").start_array();

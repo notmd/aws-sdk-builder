@@ -27,7 +27,9 @@ impl EvaluationStatus {
 }
 
 /// A builder for [`EvaluationStatus`](crate::types::EvaluationStatus).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct EvaluationStatusBuilder {
     pub(crate) status: ::std::option::Option<crate::types::ResourceEvaluationStatus>,
@@ -41,7 +43,10 @@ impl EvaluationStatusBuilder {
         self
     }
     /// <p>The status of an execution. The valid values are In_Progress, Succeeded or Failed.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ResourceEvaluationStatus>) -> Self {
+    pub fn set_status(
+        mut self,
+        input: ::std::option::Option<crate::types::ResourceEvaluationStatus>,
+    ) -> Self {
         self.status = input;
         self
     }
@@ -50,12 +55,18 @@ impl EvaluationStatusBuilder {
         &self.status
     }
     /// <p>An explanation for failed execution status.</p>
-    pub fn failure_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn failure_reason(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.failure_reason = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>An explanation for failed execution status.</p>
-    pub fn set_failure_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_failure_reason(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.failure_reason = input;
         self
     }
@@ -66,7 +77,12 @@ impl EvaluationStatusBuilder {
     /// Consumes the builder and constructs a [`EvaluationStatus`](crate::types::EvaluationStatus).
     /// This method will fail if any of the following fields are not set:
     /// - [`status`](crate::types::builders::EvaluationStatusBuilder::status)
-    pub fn build(self) -> ::std::result::Result<crate::types::EvaluationStatus, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::EvaluationStatus,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::EvaluationStatus {
             status: self.status.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

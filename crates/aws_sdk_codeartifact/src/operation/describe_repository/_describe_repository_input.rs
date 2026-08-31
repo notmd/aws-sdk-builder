@@ -26,13 +26,16 @@ impl DescribeRepositoryInput {
 }
 impl DescribeRepositoryInput {
     /// Creates a new builder-style object to manufacture [`DescribeRepositoryInput`](crate::operation::describe_repository::DescribeRepositoryInput).
-    pub fn builder() -> crate::operation::describe_repository::builders::DescribeRepositoryInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::describe_repository::builders::DescribeRepositoryInputBuilder {
         crate::operation::describe_repository::builders::DescribeRepositoryInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeRepositoryInput`](crate::operation::describe_repository::DescribeRepositoryInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeRepositoryInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -87,11 +90,16 @@ impl DescribeRepositoryInputBuilder {
     /// Consumes the builder and constructs a [`DescribeRepositoryInput`](crate::operation::describe_repository::DescribeRepositoryInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::describe_repository::DescribeRepositoryInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::describe_repository::DescribeRepositoryInput {
-            domain: self.domain,
-            domain_owner: self.domain_owner,
-            repository: self.repository,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::describe_repository::DescribeRepositoryInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::describe_repository::DescribeRepositoryInput {
+                domain: self.domain,
+                domain_owner: self.domain_owner,
+                repository: self.repository,
+            },
+        )
     }
 }

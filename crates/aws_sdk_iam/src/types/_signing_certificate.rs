@@ -49,7 +49,9 @@ impl SigningCertificate {
 }
 
 /// A builder for [`SigningCertificate`](crate::types::SigningCertificate).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SigningCertificateBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -76,12 +78,18 @@ impl SigningCertificateBuilder {
     }
     /// <p>The ID for the signing certificate.</p>
     /// This field is required.
-    pub fn certificate_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn certificate_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.certificate_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ID for the signing certificate.</p>
-    pub fn set_certificate_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_certificate_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.certificate_id = input;
         self
     }
@@ -91,12 +99,18 @@ impl SigningCertificateBuilder {
     }
     /// <p>The contents of the signing certificate.</p>
     /// This field is required.
-    pub fn certificate_body(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn certificate_body(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.certificate_body = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The contents of the signing certificate.</p>
-    pub fn set_certificate_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_certificate_body(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.certificate_body = input;
         self
     }
@@ -125,7 +139,10 @@ impl SigningCertificateBuilder {
         self
     }
     /// <p>The date when the signing certificate was uploaded.</p>
-    pub fn set_upload_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_upload_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.upload_date = input;
         self
     }
@@ -139,7 +156,12 @@ impl SigningCertificateBuilder {
     /// - [`certificate_id`](crate::types::builders::SigningCertificateBuilder::certificate_id)
     /// - [`certificate_body`](crate::types::builders::SigningCertificateBuilder::certificate_body)
     /// - [`status`](crate::types::builders::SigningCertificateBuilder::status)
-    pub fn build(self) -> ::std::result::Result<crate::types::SigningCertificate, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::SigningCertificate,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::SigningCertificate {
             user_name: self.user_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

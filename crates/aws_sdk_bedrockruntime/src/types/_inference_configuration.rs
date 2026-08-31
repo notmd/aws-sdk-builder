@@ -46,7 +46,9 @@ impl InferenceConfiguration {
 }
 
 /// A builder for [`InferenceConfiguration`](crate::types::InferenceConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct InferenceConfigurationBuilder {
     pub(crate) max_tokens: ::std::option::Option<i32>,
@@ -108,19 +110,27 @@ impl InferenceConfigurationBuilder {
     /// To override the contents of this collection use [`set_stop_sequences`](Self::set_stop_sequences).
     ///
     /// <p>A list of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.</p>
-    pub fn stop_sequences(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn stop_sequences(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.stop_sequences.unwrap_or_default();
         v.push(input.into());
         self.stop_sequences = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.</p>
-    pub fn set_stop_sequences(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_stop_sequences(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.stop_sequences = input;
         self
     }
     /// <p>A list of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.</p>
-    pub fn get_stop_sequences(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_stop_sequences(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.stop_sequences
     }
     /// Consumes the builder and constructs a [`InferenceConfiguration`](crate::types::InferenceConfiguration).

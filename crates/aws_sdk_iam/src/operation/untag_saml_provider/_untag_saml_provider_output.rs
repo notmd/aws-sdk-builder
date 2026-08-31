@@ -12,13 +12,16 @@ impl ::aws_types::request_id::RequestId for UntagSamlProviderOutput {
 }
 impl UntagSamlProviderOutput {
     /// Creates a new builder-style object to manufacture [`UntagSamlProviderOutput`](crate::operation::untag_saml_provider::UntagSamlProviderOutput).
-    pub fn builder() -> crate::operation::untag_saml_provider::builders::UntagSamlProviderOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::untag_saml_provider::builders::UntagSamlProviderOutputBuilder {
         crate::operation::untag_saml_provider::builders::UntagSamlProviderOutputBuilder::default()
     }
 }
 
 /// A builder for [`UntagSamlProviderOutput`](crate::operation::untag_saml_provider::UntagSamlProviderOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UntagSamlProviderOutputBuilder {
     _request_id: Option<String>,

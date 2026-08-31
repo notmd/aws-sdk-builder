@@ -58,7 +58,9 @@ impl CreateEmailTemplateFluentBuilder {
         }
     }
     /// Access the CreateEmailTemplate as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_email_template::builders::CreateEmailTemplateInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::create_email_template::builders::CreateEmailTemplateInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,12 +84,17 @@ impl CreateEmailTemplateFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_email_template::CreateEmailTemplate::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_email_template::CreateEmailTemplate::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::create_email_template::CreateEmailTemplate::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::create_email_template::CreateEmailTemplate::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -100,22 +107,34 @@ impl CreateEmailTemplateFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the template.</p>
-    pub fn template_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn template_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.template_name(input.into());
         self
     }
     /// <p>The name of the template.</p>
-    pub fn set_template_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_template_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_template_name(input);
         self
     }
@@ -129,12 +148,17 @@ impl CreateEmailTemplateFluentBuilder {
         self
     }
     /// <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
-    pub fn set_template_content(mut self, input: ::std::option::Option<crate::types::EmailTemplateContent>) -> Self {
+    pub fn set_template_content(
+        mut self,
+        input: ::std::option::Option<crate::types::EmailTemplateContent>,
+    ) -> Self {
         self.inner = self.inner.set_template_content(input);
         self
     }
     /// <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
-    pub fn get_template_content(&self) -> &::std::option::Option<crate::types::EmailTemplateContent> {
+    pub fn get_template_content(
+        &self,
+    ) -> &::std::option::Option<crate::types::EmailTemplateContent> {
         self.inner.get_template_content()
     }
     ///
@@ -148,7 +172,10 @@ impl CreateEmailTemplateFluentBuilder {
         self
     }
     /// <p>An array of objects that define the tags (keys and values) to associate with the email template.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

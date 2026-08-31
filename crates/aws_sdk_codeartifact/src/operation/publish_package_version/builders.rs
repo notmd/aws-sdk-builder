@@ -60,7 +60,10 @@ impl PublishPackageVersionFluentBuilder {
         }
     }
     /// Access the PublishPackageVersion as a reference.
-    pub fn as_input(&self) -> &crate::operation::publish_package_version::builders::PublishPackageVersionInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::publish_package_version::builders::PublishPackageVersionInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,7 +92,11 @@ impl PublishPackageVersionFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::publish_package_version::PublishPackageVersion::orchestrate(&runtime_plugins, input).await
+        crate::operation::publish_package_version::PublishPackageVersion::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -102,12 +109,18 @@ impl PublishPackageVersionFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -199,12 +212,18 @@ impl PublishPackageVersionFluentBuilder {
         self.inner.get_package()
     }
     /// <p>The package version to publish (for example, <code>3.5.2</code>).</p>
-    pub fn package_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn package_version(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.package_version(input.into());
         self
     }
     /// <p>The package version to publish (for example, <code>3.5.2</code>).</p>
-    pub fn set_package_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_package_version(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_package_version(input);
         self
     }
@@ -218,12 +237,17 @@ impl PublishPackageVersionFluentBuilder {
         self
     }
     /// <p>The content of the asset to publish.</p>
-    pub fn set_asset_content(mut self, input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
+    pub fn set_asset_content(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
+    ) -> Self {
         self.inner = self.inner.set_asset_content(input);
         self
     }
     /// <p>The content of the asset to publish.</p>
-    pub fn get_asset_content(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
+    pub fn get_asset_content(
+        &self,
+    ) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
         self.inner.get_asset_content()
     }
     /// <p>The name of the asset to publish. Asset names can include Unicode letters and numbers, and the following special characters: <code>~ ! @ ^ &amp; ( ) - ` _ + \[ \] { } ; , . `</code></p>

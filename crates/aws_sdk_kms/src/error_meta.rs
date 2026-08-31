@@ -4,14 +4,19 @@
 #[derive(::std::fmt::Debug)]
 pub enum Error {
     #[cfg(any(feature = "op_create_alias", feature = "op_replicate_key"))]
-/// <p>The request was rejected because it attempted to create a resource that already exists.</p>
+    /// <p>The request was rejected because it attempted to create a resource that already exists.</p>
     AlreadyExistsException(crate::types::error::AlreadyExistsException),
     #[cfg(feature = "op_create_custom_key_store")]
-/// <p>The request was rejected because the specified CloudHSM cluster is already associated with an CloudHSM key store in the account, or it shares a backup history with an CloudHSM key store in the account. Each CloudHSM key store in the account must be associated with a different CloudHSM cluster.</p>
+    /// <p>The request was rejected because the specified CloudHSM cluster is already associated with an CloudHSM key store in the account, or it shares a backup history with an CloudHSM key store in the account. Each CloudHSM key store in the account must be associated with a different CloudHSM cluster.</p>
     /// <p>CloudHSM clusters that share a backup history have the same cluster certificate. To view the cluster certificate of an CloudHSM cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
     CloudHsmClusterInUseException(crate::types::error::CloudHsmClusterInUseException),
-    #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_custom_key_store", feature = "op_create_key", feature = "op_update_custom_key_store"))]
-/// <p>The request was rejected because the associated CloudHSM cluster did not meet the configuration requirements for an CloudHSM key store.</p>
+    #[cfg(any(
+        feature = "op_connect_custom_key_store",
+        feature = "op_create_custom_key_store",
+        feature = "op_create_key",
+        feature = "op_update_custom_key_store"
+    ))]
+    /// <p>The request was rejected because the associated CloudHSM cluster did not meet the configuration requirements for an CloudHSM key store.</p>
     /// <ul>
     /// <li>
     /// <p>The CloudHSM cluster must be configured with private subnets in at least two different Availability Zones in the Region.</p></li>
@@ -22,26 +27,42 @@ pub enum Error {
     /// <p>For the <code>CreateCustomKeyStore</code>, <code>UpdateCustomKeyStore</code>, and <code>CreateKey</code> operations, the CloudHSM cluster must have at least two active HSMs, each in a different Availability Zone. For the <code>ConnectCustomKeyStore</code> operation, the CloudHSM must contain at least one active HSM.</p></li>
     /// </ul>
     /// <p>For information about the requirements for an CloudHSM cluster that is associated with an CloudHSM key store, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">Assemble the Prerequisites</a> in the <i>Key Management Service Developer Guide</i>. For information about creating a private subnet for an CloudHSM cluster, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html">Create a Private Subnet</a> in the <i>CloudHSM User Guide</i>. For information about cluster security groups, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">Configure a Default Security Group</a> in the <i> <i>CloudHSM User Guide</i> </i>.</p>
-    CloudHsmClusterInvalidConfigurationException(crate::types::error::CloudHsmClusterInvalidConfigurationException),
-    #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-/// <p>The request was rejected because the CloudHSM cluster associated with the CloudHSM key store is not active. Initialize and activate the cluster and try the command again. For detailed instructions, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">Getting Started</a> in the <i>CloudHSM User Guide</i>.</p>
+    CloudHsmClusterInvalidConfigurationException(
+        crate::types::error::CloudHsmClusterInvalidConfigurationException,
+    ),
+    #[cfg(any(
+        feature = "op_connect_custom_key_store",
+        feature = "op_create_custom_key_store",
+        feature = "op_update_custom_key_store"
+    ))]
+    /// <p>The request was rejected because the CloudHSM cluster associated with the CloudHSM key store is not active. Initialize and activate the cluster and try the command again. For detailed instructions, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">Getting Started</a> in the <i>CloudHSM User Guide</i>.</p>
     CloudHsmClusterNotActiveException(crate::types::error::CloudHsmClusterNotActiveException),
-    #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-/// <p>The request was rejected because KMS cannot find the CloudHSM cluster with the specified cluster ID. Retry the request with a different cluster ID.</p>
+    #[cfg(any(
+        feature = "op_create_custom_key_store",
+        feature = "op_update_custom_key_store"
+    ))]
+    /// <p>The request was rejected because KMS cannot find the CloudHSM cluster with the specified cluster ID. Retry the request with a different cluster ID.</p>
     CloudHsmClusterNotFoundException(crate::types::error::CloudHsmClusterNotFoundException),
     #[cfg(feature = "op_update_custom_key_store")]
-/// <p>The request was rejected because the specified CloudHSM cluster has a different cluster certificate than the original cluster. You cannot use the operation to specify an unrelated cluster for an CloudHSM key store.</p>
+    /// <p>The request was rejected because the specified CloudHSM cluster has a different cluster certificate than the original cluster. You cannot use the operation to specify an unrelated cluster for an CloudHSM key store.</p>
     /// <p>Specify an CloudHSM cluster that shares a backup history with the original cluster. This includes clusters that were created from a backup of the current cluster, and clusters that were created from the same backup that produced the current cluster.</p>
     /// <p>CloudHSM clusters that share a backup history have the same cluster certificate. To view the cluster certificate of an CloudHSM cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
     CloudHsmClusterNotRelatedException(crate::types::error::CloudHsmClusterNotRelatedException),
     #[cfg(feature = "op_rotate_key_on_demand")]
-/// <p>The request was rejected because an automatic rotation of this key is currently in progress or scheduled to begin within the next 20 minutes.</p>
+    /// <p>The request was rejected because an automatic rotation of this key is currently in progress or scheduled to begin within the next 20 minutes.</p>
     ConflictException(crate::types::error::ConflictException),
     #[cfg(feature = "op_delete_custom_key_store")]
-/// <p>The request was rejected because the custom key store contains KMS keys. After verifying that you do not need to use the KMS keys, use the <code>ScheduleKeyDeletion</code> operation to delete the KMS keys. After they are deleted, you can delete the custom key store.</p>
+    /// <p>The request was rejected because the custom key store contains KMS keys. After verifying that you do not need to use the KMS keys, use the <code>ScheduleKeyDeletion</code> operation to delete the KMS keys. After they are deleted, you can delete the custom key store.</p>
     CustomKeyStoreHasCmKsException(crate::types::error::CustomKeyStoreHasCmKsException),
-    #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_key", feature = "op_delete_custom_key_store", feature = "op_disconnect_custom_key_store", feature = "op_generate_random", feature = "op_update_custom_key_store"))]
-/// <p>The request was rejected because of the <code>ConnectionState</code> of the custom key store. To get the <code>ConnectionState</code> of a custom key store, use the <code>DescribeCustomKeyStores</code> operation.</p>
+    #[cfg(any(
+        feature = "op_connect_custom_key_store",
+        feature = "op_create_key",
+        feature = "op_delete_custom_key_store",
+        feature = "op_disconnect_custom_key_store",
+        feature = "op_generate_random",
+        feature = "op_update_custom_key_store"
+    ))]
+    /// <p>The request was rejected because of the <code>ConnectionState</code> of the custom key store. To get the <code>ConnectionState</code> of a custom key store, use the <code>DescribeCustomKeyStores</code> operation.</p>
     /// <p>This exception is thrown under the following conditions:</p>
     /// <ul>
     /// <li>
@@ -56,55 +77,213 @@ pub enum Error {
     /// <p>You requested the <code>GenerateRandom</code> operation in an CloudHSM key store that is not connected. This operation is valid only when the CloudHSM key store <code>ConnectionState</code> is <code>CONNECTED</code>.</p></li>
     /// </ul>
     CustomKeyStoreInvalidStateException(crate::types::error::CustomKeyStoreInvalidStateException),
-    #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-/// <p>The request was rejected because the specified custom key store name is already assigned to another custom key store in the account. Try again with a custom key store name that is unique in the account.</p>
+    #[cfg(any(
+        feature = "op_create_custom_key_store",
+        feature = "op_update_custom_key_store"
+    ))]
+    /// <p>The request was rejected because the specified custom key store name is already assigned to another custom key store in the account. Try again with a custom key store name that is unique in the account.</p>
     CustomKeyStoreNameInUseException(crate::types::error::CustomKeyStoreNameInUseException),
-    #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_key", feature = "op_delete_custom_key_store", feature = "op_describe_custom_key_stores", feature = "op_disconnect_custom_key_store", feature = "op_generate_random", feature = "op_update_custom_key_store"))]
-/// <p>The request was rejected because KMS cannot find a custom key store with the specified key store name or ID.</p>
+    #[cfg(any(
+        feature = "op_connect_custom_key_store",
+        feature = "op_create_key",
+        feature = "op_delete_custom_key_store",
+        feature = "op_describe_custom_key_stores",
+        feature = "op_disconnect_custom_key_store",
+        feature = "op_generate_random",
+        feature = "op_update_custom_key_store"
+    ))]
+    /// <p>The request was rejected because KMS cannot find a custom key store with the specified key store name or ID.</p>
     CustomKeyStoreNotFoundException(crate::types::error::CustomKeyStoreNotFoundException),
-    #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_alias", feature = "op_create_grant", feature = "op_create_key", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_random", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_keys", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_update_alias", feature = "op_update_key_description", feature = "op_verify"))]
-/// <p>The system timed out while trying to fulfill the request. You can retry the request.</p>
+    #[cfg(any(
+        feature = "op_cancel_key_deletion",
+        feature = "op_create_alias",
+        feature = "op_create_grant",
+        feature = "op_create_key",
+        feature = "op_decrypt",
+        feature = "op_delete_alias",
+        feature = "op_delete_imported_key_material",
+        feature = "op_derive_shared_secret",
+        feature = "op_describe_key",
+        feature = "op_disable_key",
+        feature = "op_disable_key_rotation",
+        feature = "op_enable_key",
+        feature = "op_enable_key_rotation",
+        feature = "op_encrypt",
+        feature = "op_generate_data_key",
+        feature = "op_generate_data_key_pair",
+        feature = "op_generate_data_key_pair_without_plaintext",
+        feature = "op_generate_data_key_without_plaintext",
+        feature = "op_generate_random",
+        feature = "op_get_key_last_usage",
+        feature = "op_get_key_policy",
+        feature = "op_get_key_rotation_status",
+        feature = "op_get_parameters_for_import",
+        feature = "op_get_public_key",
+        feature = "op_import_key_material",
+        feature = "op_list_aliases",
+        feature = "op_list_grants",
+        feature = "op_list_key_policies",
+        feature = "op_list_keys",
+        feature = "op_list_retirable_grants",
+        feature = "op_put_key_policy",
+        feature = "op_re_encrypt",
+        feature = "op_retire_grant",
+        feature = "op_revoke_grant",
+        feature = "op_rotate_key_on_demand",
+        feature = "op_schedule_key_deletion",
+        feature = "op_sign",
+        feature = "op_update_alias",
+        feature = "op_update_key_description",
+        feature = "op_verify"
+    ))]
+    /// <p>The system timed out while trying to fulfill the request. You can retry the request.</p>
     DependencyTimeoutException(crate::types::error::DependencyTimeoutException),
-    #[cfg(any(feature = "op_create_grant", feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_disable_key_rotation", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_rotate_key_on_demand", feature = "op_sign", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-/// <p>The request was rejected because the specified KMS key is not enabled.</p>
+    #[cfg(any(
+        feature = "op_create_grant",
+        feature = "op_decrypt",
+        feature = "op_derive_shared_secret",
+        feature = "op_disable_key_rotation",
+        feature = "op_enable_key_rotation",
+        feature = "op_encrypt",
+        feature = "op_generate_data_key",
+        feature = "op_generate_data_key_pair",
+        feature = "op_generate_data_key_pair_without_plaintext",
+        feature = "op_generate_data_key_without_plaintext",
+        feature = "op_generate_mac",
+        feature = "op_get_public_key",
+        feature = "op_re_encrypt",
+        feature = "op_replicate_key",
+        feature = "op_rotate_key_on_demand",
+        feature = "op_sign",
+        feature = "op_update_primary_region",
+        feature = "op_verify",
+        feature = "op_verify_mac"
+    ))]
+    /// <p>The request was rejected because the specified KMS key is not enabled.</p>
     DisabledException(crate::types::error::DisabledException),
-    #[cfg(any(feature = "op_create_grant", feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_re_encrypt", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-/// <p>The request was rejected because the DryRun parameter was specified.</p>
+    #[cfg(any(
+        feature = "op_create_grant",
+        feature = "op_decrypt",
+        feature = "op_derive_shared_secret",
+        feature = "op_encrypt",
+        feature = "op_generate_data_key",
+        feature = "op_generate_data_key_pair",
+        feature = "op_generate_data_key_pair_without_plaintext",
+        feature = "op_generate_data_key_without_plaintext",
+        feature = "op_generate_mac",
+        feature = "op_re_encrypt",
+        feature = "op_retire_grant",
+        feature = "op_revoke_grant",
+        feature = "op_sign",
+        feature = "op_verify",
+        feature = "op_verify_mac"
+    ))]
+    /// <p>The request was rejected because the DryRun parameter was specified.</p>
     DryRunOperationException(crate::types::error::DryRunOperationException),
     #[cfg(feature = "op_import_key_material")]
-/// <p>The request was rejected because the specified import token is expired. Use <code>GetParametersForImport</code> to get a new import token and public key, use the new public key to encrypt the key material, and then try the request again.</p>
+    /// <p>The request was rejected because the specified import token is expired. Use <code>GetParametersForImport</code> to get a new import token and public key, use the new public key to encrypt the key material, and then try the request again.</p>
     ExpiredImportTokenException(crate::types::error::ExpiredImportTokenException),
     #[cfg(any(feature = "op_decrypt", feature = "op_re_encrypt"))]
-/// <p>The request was rejected because the specified KMS key cannot decrypt the data. The <code>KeyId</code> in a <code>Decrypt</code> request and the <code>SourceKeyId</code> in a <code>ReEncrypt</code> request must identify the same KMS key that was used to encrypt the ciphertext.</p>
+    /// <p>The request was rejected because the specified KMS key cannot decrypt the data. The <code>KeyId</code> in a <code>Decrypt</code> request and the <code>SourceKeyId</code> in a <code>ReEncrypt</code> request must identify the same KMS key that was used to encrypt the ciphertext.</p>
     IncorrectKeyException(crate::types::error::IncorrectKeyException),
     #[cfg(feature = "op_import_key_material")]
-/// <p>The request was rejected because the key material in the request is, expired, invalid, or does not meet expectations. For example, it is not the same key material that was previously imported or KMS expected new key material but the key material being imported is already associated with the KMS key.</p>
+    /// <p>The request was rejected because the key material in the request is, expired, invalid, or does not meet expectations. For example, it is not the same key material that was previously imported or KMS expected new key material but the key material being imported is already associated with the KMS key.</p>
     IncorrectKeyMaterialException(crate::types::error::IncorrectKeyMaterialException),
     #[cfg(feature = "op_create_custom_key_store")]
-/// <p>The request was rejected because the trust anchor certificate in the request to create an CloudHSM key store is not the trust anchor certificate for the specified CloudHSM cluster.</p>
+    /// <p>The request was rejected because the trust anchor certificate in the request to create an CloudHSM key store is not the trust anchor certificate for the specified CloudHSM cluster.</p>
     /// <p>When you <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr">initialize the CloudHSM cluster</a>, you create the trust anchor certificate and save it in the <code>customerCA.crt</code> file.</p>
     IncorrectTrustAnchorException(crate::types::error::IncorrectTrustAnchorException),
     #[cfg(feature = "op_create_alias")]
-/// <p>The request was rejected because the specified alias name is not valid.</p>
+    /// <p>The request was rejected because the specified alias name is not valid.</p>
     InvalidAliasNameException(crate::types::error::InvalidAliasNameException),
-    #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_grant", feature = "op_create_key", feature = "op_delete_imported_key_material", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_list_resource_tags", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_key_description", feature = "op_update_primary_region"))]
-/// <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not valid.</p>
+    #[cfg(any(
+        feature = "op_cancel_key_deletion",
+        feature = "op_create_grant",
+        feature = "op_create_key",
+        feature = "op_delete_imported_key_material",
+        feature = "op_describe_key",
+        feature = "op_disable_key",
+        feature = "op_disable_key_rotation",
+        feature = "op_enable_key",
+        feature = "op_enable_key_rotation",
+        feature = "op_get_key_last_usage",
+        feature = "op_get_key_policy",
+        feature = "op_get_key_rotation_status",
+        feature = "op_get_parameters_for_import",
+        feature = "op_get_public_key",
+        feature = "op_import_key_material",
+        feature = "op_list_aliases",
+        feature = "op_list_grants",
+        feature = "op_list_key_policies",
+        feature = "op_list_key_rotations",
+        feature = "op_list_resource_tags",
+        feature = "op_list_retirable_grants",
+        feature = "op_put_key_policy",
+        feature = "op_replicate_key",
+        feature = "op_retire_grant",
+        feature = "op_revoke_grant",
+        feature = "op_rotate_key_on_demand",
+        feature = "op_schedule_key_deletion",
+        feature = "op_tag_resource",
+        feature = "op_untag_resource",
+        feature = "op_update_key_description",
+        feature = "op_update_primary_region"
+    ))]
+    /// <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not valid.</p>
     InvalidArnException(crate::types::error::InvalidArnException),
-    #[cfg(any(feature = "op_decrypt", feature = "op_import_key_material", feature = "op_re_encrypt"))]
-/// <p>From the <code>Decrypt</code> or <code>ReEncrypt</code> operation, the request was rejected because the specified ciphertext, or additional authenticated data incorporated into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise invalid.</p>
+    #[cfg(any(
+        feature = "op_decrypt",
+        feature = "op_import_key_material",
+        feature = "op_re_encrypt"
+    ))]
+    /// <p>From the <code>Decrypt</code> or <code>ReEncrypt</code> operation, the request was rejected because the specified ciphertext, or additional authenticated data incorporated into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise invalid.</p>
     /// <p>From the <code>ImportKeyMaterial</code> operation, the request was rejected because KMS could not decrypt the encrypted (wrapped) key material.</p>
     InvalidCiphertextException(crate::types::error::InvalidCiphertextException),
-    #[cfg(any(feature = "op_list_grants", feature = "op_retire_grant", feature = "op_revoke_grant"))]
-/// <p>The request was rejected because the specified <code>GrantId</code> is not valid.</p>
+    #[cfg(any(
+        feature = "op_list_grants",
+        feature = "op_retire_grant",
+        feature = "op_revoke_grant"
+    ))]
+    /// <p>The request was rejected because the specified <code>GrantId</code> is not valid.</p>
     InvalidGrantIdException(crate::types::error::InvalidGrantIdException),
-    #[cfg(any(feature = "op_create_grant", feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_retire_grant", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-/// <p>The request was rejected because the specified grant token is not valid.</p>
+    #[cfg(any(
+        feature = "op_create_grant",
+        feature = "op_decrypt",
+        feature = "op_derive_shared_secret",
+        feature = "op_encrypt",
+        feature = "op_generate_data_key",
+        feature = "op_generate_data_key_pair",
+        feature = "op_generate_data_key_pair_without_plaintext",
+        feature = "op_generate_data_key_without_plaintext",
+        feature = "op_generate_mac",
+        feature = "op_get_public_key",
+        feature = "op_re_encrypt",
+        feature = "op_retire_grant",
+        feature = "op_sign",
+        feature = "op_verify",
+        feature = "op_verify_mac"
+    ))]
+    /// <p>The request was rejected because the specified grant token is not valid.</p>
     InvalidGrantTokenException(crate::types::error::InvalidGrantTokenException),
     #[cfg(feature = "op_import_key_material")]
-/// <p>The request was rejected because the provided import token is invalid or is associated with a different KMS key.</p>
+    /// <p>The request was rejected because the provided import token is invalid or is associated with a different KMS key.</p>
     InvalidImportTokenException(crate::types::error::InvalidImportTokenException),
-    #[cfg(any(feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-/// <p>The request was rejected for one of the following reasons:</p>
+    #[cfg(any(
+        feature = "op_decrypt",
+        feature = "op_derive_shared_secret",
+        feature = "op_encrypt",
+        feature = "op_generate_data_key",
+        feature = "op_generate_data_key_pair",
+        feature = "op_generate_data_key_pair_without_plaintext",
+        feature = "op_generate_data_key_without_plaintext",
+        feature = "op_generate_mac",
+        feature = "op_get_public_key",
+        feature = "op_re_encrypt",
+        feature = "op_sign",
+        feature = "op_verify",
+        feature = "op_verify_mac"
+    ))]
+    /// <p>The request was rejected for one of the following reasons:</p>
     /// <ul>
     /// <li>
     /// <p>The <code>KeyUsage</code> value of the KMS key is incompatible with the API operation.</p></li>
@@ -114,20 +293,124 @@ pub enum Error {
     /// <p>For encrypting, decrypting, re-encrypting, and generating data keys, the <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and verifying message authentication codes (MACs), the <code>KeyUsage</code> must be <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code> of a KMS key, use the <code>DescribeKey</code> operation.</p>
     /// <p>To find the encryption or signing algorithms supported for a particular KMS key, use the <code>DescribeKey</code> operation.</p>
     InvalidKeyUsageException(crate::types::error::InvalidKeyUsageException),
-    #[cfg(any(feature = "op_describe_custom_key_stores", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_rotations", feature = "op_list_keys", feature = "op_list_resource_tags", feature = "op_list_retirable_grants"))]
-/// <p>The request was rejected because the marker that specifies where pagination should next begin is not valid.</p>
+    #[cfg(any(
+        feature = "op_describe_custom_key_stores",
+        feature = "op_list_aliases",
+        feature = "op_list_grants",
+        feature = "op_list_key_rotations",
+        feature = "op_list_keys",
+        feature = "op_list_resource_tags",
+        feature = "op_list_retirable_grants"
+    ))]
+    /// <p>The request was rejected because the marker that specifies where pagination should next begin is not valid.</p>
     InvalidMarkerException(crate::types::error::InvalidMarkerException),
-    #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_connect_custom_key_store", feature = "op_create_alias", feature = "op_create_custom_key_store", feature = "op_create_grant", feature = "op_create_key", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_custom_key_store", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_describe_custom_key_stores", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_disconnect_custom_key_store", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_generate_random", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_list_keys", feature = "op_list_resource_tags", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_custom_key_store", feature = "op_update_key_description", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-/// <p>The request was rejected because an internal exception occurred. The request can be retried.</p>
+    #[cfg(any(
+        feature = "op_cancel_key_deletion",
+        feature = "op_connect_custom_key_store",
+        feature = "op_create_alias",
+        feature = "op_create_custom_key_store",
+        feature = "op_create_grant",
+        feature = "op_create_key",
+        feature = "op_decrypt",
+        feature = "op_delete_alias",
+        feature = "op_delete_custom_key_store",
+        feature = "op_delete_imported_key_material",
+        feature = "op_derive_shared_secret",
+        feature = "op_describe_custom_key_stores",
+        feature = "op_describe_key",
+        feature = "op_disable_key",
+        feature = "op_disable_key_rotation",
+        feature = "op_disconnect_custom_key_store",
+        feature = "op_enable_key",
+        feature = "op_enable_key_rotation",
+        feature = "op_encrypt",
+        feature = "op_generate_data_key",
+        feature = "op_generate_data_key_pair",
+        feature = "op_generate_data_key_pair_without_plaintext",
+        feature = "op_generate_data_key_without_plaintext",
+        feature = "op_generate_mac",
+        feature = "op_generate_random",
+        feature = "op_get_key_last_usage",
+        feature = "op_get_key_policy",
+        feature = "op_get_key_rotation_status",
+        feature = "op_get_parameters_for_import",
+        feature = "op_get_public_key",
+        feature = "op_import_key_material",
+        feature = "op_list_aliases",
+        feature = "op_list_grants",
+        feature = "op_list_key_policies",
+        feature = "op_list_key_rotations",
+        feature = "op_list_keys",
+        feature = "op_list_resource_tags",
+        feature = "op_list_retirable_grants",
+        feature = "op_put_key_policy",
+        feature = "op_re_encrypt",
+        feature = "op_replicate_key",
+        feature = "op_retire_grant",
+        feature = "op_revoke_grant",
+        feature = "op_rotate_key_on_demand",
+        feature = "op_schedule_key_deletion",
+        feature = "op_sign",
+        feature = "op_tag_resource",
+        feature = "op_untag_resource",
+        feature = "op_update_alias",
+        feature = "op_update_custom_key_store",
+        feature = "op_update_key_description",
+        feature = "op_update_primary_region",
+        feature = "op_verify",
+        feature = "op_verify_mac"
+    ))]
+    /// <p>The request was rejected because an internal exception occurred. The request can be retried.</p>
     KmsInternalException(crate::types::error::KmsInternalException),
     #[cfg(feature = "op_verify_mac")]
-/// <p>The request was rejected because the HMAC verification failed. HMAC verification fails when the HMAC computed by using the specified message, HMAC KMS key, and MAC algorithm does not match the HMAC specified in the request.</p>
+    /// <p>The request was rejected because the HMAC verification failed. HMAC verification fails when the HMAC computed by using the specified message, HMAC KMS key, and MAC algorithm does not match the HMAC specified in the request.</p>
     KmsInvalidMacException(crate::types::error::KmsInvalidMacException),
     #[cfg(feature = "op_verify")]
-/// <p>The request was rejected because the signature verification failed. Signature verification fails when it cannot confirm that signature was produced by signing the specified message with the specified KMS key and signing algorithm.</p>
+    /// <p>The request was rejected because the signature verification failed. Signature verification fails when it cannot confirm that signature was produced by signing the specified message with the specified KMS key and signing algorithm.</p>
     KmsInvalidSignatureException(crate::types::error::KmsInvalidSignatureException),
-    #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_alias", feature = "op_create_grant", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_key_description", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-/// <p>The request was rejected because the state of the specified resource is not valid for this request.</p>
+    #[cfg(any(
+        feature = "op_cancel_key_deletion",
+        feature = "op_create_alias",
+        feature = "op_create_grant",
+        feature = "op_decrypt",
+        feature = "op_delete_alias",
+        feature = "op_delete_imported_key_material",
+        feature = "op_derive_shared_secret",
+        feature = "op_disable_key",
+        feature = "op_disable_key_rotation",
+        feature = "op_enable_key",
+        feature = "op_enable_key_rotation",
+        feature = "op_encrypt",
+        feature = "op_generate_data_key",
+        feature = "op_generate_data_key_pair",
+        feature = "op_generate_data_key_pair_without_plaintext",
+        feature = "op_generate_data_key_without_plaintext",
+        feature = "op_generate_mac",
+        feature = "op_get_key_policy",
+        feature = "op_get_key_rotation_status",
+        feature = "op_get_parameters_for_import",
+        feature = "op_get_public_key",
+        feature = "op_import_key_material",
+        feature = "op_list_grants",
+        feature = "op_list_key_policies",
+        feature = "op_list_key_rotations",
+        feature = "op_put_key_policy",
+        feature = "op_re_encrypt",
+        feature = "op_replicate_key",
+        feature = "op_retire_grant",
+        feature = "op_revoke_grant",
+        feature = "op_rotate_key_on_demand",
+        feature = "op_schedule_key_deletion",
+        feature = "op_sign",
+        feature = "op_tag_resource",
+        feature = "op_untag_resource",
+        feature = "op_update_alias",
+        feature = "op_update_key_description",
+        feature = "op_update_primary_region",
+        feature = "op_verify",
+        feature = "op_verify_mac"
+    ))]
+    /// <p>The request was rejected because the state of the specified resource is not valid for this request.</p>
     /// <p>This exceptions means one of the following:</p>
     /// <ul>
     /// <li>
@@ -137,174 +420,717 @@ pub enum Error {
     /// <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p></li>
     /// </ul>
     KmsInvalidStateException(crate::types::error::KmsInvalidStateException),
-    #[cfg(any(feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-/// <p>The request was rejected because the specified KMS key was not available. You can retry the request.</p>
+    #[cfg(any(
+        feature = "op_decrypt",
+        feature = "op_derive_shared_secret",
+        feature = "op_encrypt",
+        feature = "op_generate_data_key",
+        feature = "op_generate_data_key_pair",
+        feature = "op_generate_data_key_pair_without_plaintext",
+        feature = "op_generate_data_key_without_plaintext",
+        feature = "op_generate_mac",
+        feature = "op_get_public_key",
+        feature = "op_re_encrypt",
+        feature = "op_sign",
+        feature = "op_verify",
+        feature = "op_verify_mac"
+    ))]
+    /// <p>The request was rejected because the specified KMS key was not available. You can retry the request.</p>
     KeyUnavailableException(crate::types::error::KeyUnavailableException),
-    #[cfg(any(feature = "op_create_alias", feature = "op_create_custom_key_store", feature = "op_create_grant", feature = "op_create_key", feature = "op_enable_key", feature = "op_put_key_policy", feature = "op_replicate_key", feature = "op_rotate_key_on_demand", feature = "op_tag_resource", feature = "op_update_alias"))]
-/// <p>The request was rejected because a length constraint or quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the <i>Key Management Service Developer Guide</i>.</p>
+    #[cfg(any(
+        feature = "op_create_alias",
+        feature = "op_create_custom_key_store",
+        feature = "op_create_grant",
+        feature = "op_create_key",
+        feature = "op_enable_key",
+        feature = "op_put_key_policy",
+        feature = "op_replicate_key",
+        feature = "op_rotate_key_on_demand",
+        feature = "op_tag_resource",
+        feature = "op_update_alias"
+    ))]
+    /// <p>The request was rejected because a length constraint or quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the <i>Key Management Service Developer Guide</i>.</p>
     LimitExceededException(crate::types::error::LimitExceededException),
-    #[cfg(any(feature = "op_create_key", feature = "op_put_key_policy", feature = "op_replicate_key"))]
-/// <p>The request was rejected because the specified policy is not syntactically or semantically correct.</p>
+    #[cfg(any(
+        feature = "op_create_key",
+        feature = "op_put_key_policy",
+        feature = "op_replicate_key"
+    ))]
+    /// <p>The request was rejected because the specified policy is not syntactically or semantically correct.</p>
     MalformedPolicyDocumentException(crate::types::error::MalformedPolicyDocumentException),
-    #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_alias", feature = "op_create_grant", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_list_resource_tags", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_key_description", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-/// <p>The request was rejected because the specified entity or resource could not be found.</p>
+    #[cfg(any(
+        feature = "op_cancel_key_deletion",
+        feature = "op_create_alias",
+        feature = "op_create_grant",
+        feature = "op_decrypt",
+        feature = "op_delete_alias",
+        feature = "op_delete_imported_key_material",
+        feature = "op_derive_shared_secret",
+        feature = "op_describe_key",
+        feature = "op_disable_key",
+        feature = "op_disable_key_rotation",
+        feature = "op_enable_key",
+        feature = "op_enable_key_rotation",
+        feature = "op_encrypt",
+        feature = "op_generate_data_key",
+        feature = "op_generate_data_key_pair",
+        feature = "op_generate_data_key_pair_without_plaintext",
+        feature = "op_generate_data_key_without_plaintext",
+        feature = "op_generate_mac",
+        feature = "op_get_key_last_usage",
+        feature = "op_get_key_policy",
+        feature = "op_get_key_rotation_status",
+        feature = "op_get_parameters_for_import",
+        feature = "op_get_public_key",
+        feature = "op_import_key_material",
+        feature = "op_list_aliases",
+        feature = "op_list_grants",
+        feature = "op_list_key_policies",
+        feature = "op_list_key_rotations",
+        feature = "op_list_resource_tags",
+        feature = "op_list_retirable_grants",
+        feature = "op_put_key_policy",
+        feature = "op_re_encrypt",
+        feature = "op_replicate_key",
+        feature = "op_retire_grant",
+        feature = "op_revoke_grant",
+        feature = "op_rotate_key_on_demand",
+        feature = "op_schedule_key_deletion",
+        feature = "op_sign",
+        feature = "op_tag_resource",
+        feature = "op_untag_resource",
+        feature = "op_update_alias",
+        feature = "op_update_key_description",
+        feature = "op_update_primary_region",
+        feature = "op_verify",
+        feature = "op_verify_mac"
+    ))]
+    /// <p>The request was rejected because the specified entity or resource could not be found.</p>
     NotFoundException(crate::types::error::NotFoundException),
-    #[cfg(any(feature = "op_create_key", feature = "op_replicate_key", feature = "op_tag_resource", feature = "op_untag_resource"))]
-/// <p>The request was rejected because one or more tags are not valid.</p>
+    #[cfg(any(
+        feature = "op_create_key",
+        feature = "op_replicate_key",
+        feature = "op_tag_resource",
+        feature = "op_untag_resource"
+    ))]
+    /// <p>The request was rejected because one or more tags are not valid.</p>
     TagException(crate::types::error::TagException),
-    #[cfg(any(feature = "op_create_key", feature = "op_delete_imported_key_material", feature = "op_disable_key_rotation", feature = "op_enable_key_rotation", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_random", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_key_rotations", feature = "op_put_key_policy", feature = "op_replicate_key", feature = "op_rotate_key_on_demand", feature = "op_update_primary_region"))]
-/// <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.</p>
+    #[cfg(any(
+        feature = "op_create_key",
+        feature = "op_delete_imported_key_material",
+        feature = "op_disable_key_rotation",
+        feature = "op_enable_key_rotation",
+        feature = "op_generate_data_key_pair",
+        feature = "op_generate_data_key_pair_without_plaintext",
+        feature = "op_generate_random",
+        feature = "op_get_key_rotation_status",
+        feature = "op_get_parameters_for_import",
+        feature = "op_get_public_key",
+        feature = "op_import_key_material",
+        feature = "op_list_key_rotations",
+        feature = "op_put_key_policy",
+        feature = "op_replicate_key",
+        feature = "op_rotate_key_on_demand",
+        feature = "op_update_primary_region"
+    ))]
+    /// <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.</p>
     UnsupportedOperationException(crate::types::error::UnsupportedOperationException),
     #[cfg(feature = "op_create_key")]
-/// <p>The request was rejected because the (<code>XksKeyId</code>) is already associated with another KMS key in this external key store. Each KMS key in an external key store must be associated with a different external key.</p>
+    /// <p>The request was rejected because the (<code>XksKeyId</code>) is already associated with another KMS key in this external key store. Each KMS key in an external key store must be associated with a different external key.</p>
     XksKeyAlreadyInUseException(crate::types::error::XksKeyAlreadyInUseException),
     #[cfg(feature = "op_create_key")]
-/// <p>The request was rejected because the external key specified by the <code>XksKeyId</code> parameter did not meet the configuration requirements for an external key store.</p>
+    /// <p>The request was rejected because the external key specified by the <code>XksKeyId</code> parameter did not meet the configuration requirements for an external key store.</p>
     /// <p>The external key must be an AES-256 symmetric key that is enabled and performs encryption and decryption.</p>
     XksKeyInvalidConfigurationException(crate::types::error::XksKeyInvalidConfigurationException),
     #[cfg(feature = "op_create_key")]
-/// <p>The request was rejected because the external key store proxy could not find the external key. This exception is thrown when the value of the <code>XksKeyId</code> parameter doesn't identify a key in the external key manager associated with the external key proxy.</p>
+    /// <p>The request was rejected because the external key store proxy could not find the external key. This exception is thrown when the value of the <code>XksKeyId</code> parameter doesn't identify a key in the external key manager associated with the external key proxy.</p>
     /// <p>Verify that the <code>XksKeyId</code> represents an existing key in the external key manager. Use the key identifier that the external key store proxy uses to identify the key. For details, see the documentation provided with your external key store proxy or key manager.</p>
     XksKeyNotFoundException(crate::types::error::XksKeyNotFoundException),
-    #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-/// <p>The request was rejected because the proxy credentials failed to authenticate to the specified external key store proxy. The specified external key store proxy rejected a status request from KMS due to invalid credentials. This can indicate an error in the credentials or in the identification of the external key store proxy.</p>
-    XksProxyIncorrectAuthenticationCredentialException(crate::types::error::XksProxyIncorrectAuthenticationCredentialException),
-    #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-/// <p>The request was rejected because the external key store proxy is not configured correctly. To identify the cause, see the error message that accompanies the exception.</p>
-    XksProxyInvalidConfigurationException(crate::types::error::XksProxyInvalidConfigurationException),
-    #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-/// <p></p>
+    #[cfg(any(
+        feature = "op_create_custom_key_store",
+        feature = "op_update_custom_key_store"
+    ))]
+    /// <p>The request was rejected because the proxy credentials failed to authenticate to the specified external key store proxy. The specified external key store proxy rejected a status request from KMS due to invalid credentials. This can indicate an error in the credentials or in the identification of the external key store proxy.</p>
+    XksProxyIncorrectAuthenticationCredentialException(
+        crate::types::error::XksProxyIncorrectAuthenticationCredentialException,
+    ),
+    #[cfg(any(
+        feature = "op_create_custom_key_store",
+        feature = "op_update_custom_key_store"
+    ))]
+    /// <p>The request was rejected because the external key store proxy is not configured correctly. To identify the cause, see the error message that accompanies the exception.</p>
+    XksProxyInvalidConfigurationException(
+        crate::types::error::XksProxyInvalidConfigurationException,
+    ),
+    #[cfg(any(
+        feature = "op_create_custom_key_store",
+        feature = "op_update_custom_key_store"
+    ))]
+    /// <p></p>
     /// <p>KMS cannot interpret the response it received from the external key store proxy. The problem might be a poorly constructed response, but it could also be a transient network issue. If you see this error repeatedly, report it to the proxy vendor.</p>
     XksProxyInvalidResponseException(crate::types::error::XksProxyInvalidResponseException),
-    #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-/// <p>The request was rejected because the <code>XksProxyUriEndpoint</code> is already associated with another external key store in this Amazon Web Services Region. To identify the cause, see the error message that accompanies the exception.</p>
+    #[cfg(any(
+        feature = "op_create_custom_key_store",
+        feature = "op_update_custom_key_store"
+    ))]
+    /// <p>The request was rejected because the <code>XksProxyUriEndpoint</code> is already associated with another external key store in this Amazon Web Services Region. To identify the cause, see the error message that accompanies the exception.</p>
     XksProxyUriEndpointInUseException(crate::types::error::XksProxyUriEndpointInUseException),
-    #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-/// <p>The request was rejected because the concatenation of the <code>XksProxyUriEndpoint</code> and <code>XksProxyUriPath</code> is already associated with another external key store in this Amazon Web Services Region. Each external key store in a Region must use a unique external key store proxy API address.</p>
+    #[cfg(any(
+        feature = "op_create_custom_key_store",
+        feature = "op_update_custom_key_store"
+    ))]
+    /// <p>The request was rejected because the concatenation of the <code>XksProxyUriEndpoint</code> and <code>XksProxyUriPath</code> is already associated with another external key store in this Amazon Web Services Region. Each external key store in a Region must use a unique external key store proxy API address.</p>
     XksProxyUriInUseException(crate::types::error::XksProxyUriInUseException),
-    #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-/// <p>KMS was unable to reach the specified <code>XksProxyUriPath</code>. The path must be reachable before you create the external key store or update its settings.</p>
+    #[cfg(any(
+        feature = "op_create_custom_key_store",
+        feature = "op_update_custom_key_store"
+    ))]
+    /// <p>KMS was unable to reach the specified <code>XksProxyUriPath</code>. The path must be reachable before you create the external key store or update its settings.</p>
     /// <p>This exception is also thrown when the external key store proxy response to a <code>GetHealthStatus</code> request indicates that all external key manager instances are unavailable.</p>
     XksProxyUriUnreachableException(crate::types::error::XksProxyUriUnreachableException),
-    #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-/// <p>The request was rejected because the specified Amazon VPC endpoint service is already associated with another external key store in this Amazon Web Services Region. Each external key store in a Region must use a different Amazon VPC endpoint service.</p>
-    XksProxyVpcEndpointServiceInUseException(crate::types::error::XksProxyVpcEndpointServiceInUseException),
-    #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-/// <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill the requirements for an external key store. To identify the cause, see the error message that accompanies the exception and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the requirements</a> for Amazon VPC endpoint service connectivity for an external key store.</p>
-    XksProxyVpcEndpointServiceInvalidConfigurationException(crate::types::error::XksProxyVpcEndpointServiceInvalidConfigurationException),
-    #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-/// <p>The request was rejected because KMS could not find the specified VPC endpoint service. Use <code>DescribeCustomKeyStores</code> to verify the VPC endpoint service name for the external key store. Also, confirm that the <code>Allow principals</code> list for the VPC endpoint service includes the KMS service principal for the Region, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p>
-    XksProxyVpcEndpointServiceNotFoundException(crate::types::error::XksProxyVpcEndpointServiceNotFoundException),
+    #[cfg(any(
+        feature = "op_create_custom_key_store",
+        feature = "op_update_custom_key_store"
+    ))]
+    /// <p>The request was rejected because the specified Amazon VPC endpoint service is already associated with another external key store in this Amazon Web Services Region. Each external key store in a Region must use a different Amazon VPC endpoint service.</p>
+    XksProxyVpcEndpointServiceInUseException(
+        crate::types::error::XksProxyVpcEndpointServiceInUseException,
+    ),
+    #[cfg(any(
+        feature = "op_create_custom_key_store",
+        feature = "op_update_custom_key_store"
+    ))]
+    /// <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill the requirements for an external key store. To identify the cause, see the error message that accompanies the exception and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the requirements</a> for Amazon VPC endpoint service connectivity for an external key store.</p>
+    XksProxyVpcEndpointServiceInvalidConfigurationException(
+        crate::types::error::XksProxyVpcEndpointServiceInvalidConfigurationException,
+    ),
+    #[cfg(any(
+        feature = "op_create_custom_key_store",
+        feature = "op_update_custom_key_store"
+    ))]
+    /// <p>The request was rejected because KMS could not find the specified VPC endpoint service. Use <code>DescribeCustomKeyStores</code> to verify the VPC endpoint service name for the external key store. Also, confirm that the <code>Allow principals</code> list for the VPC endpoint service includes the KMS service principal for the Region, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p>
+    XksProxyVpcEndpointServiceNotFoundException(
+        crate::types::error::XksProxyVpcEndpointServiceNotFoundException,
+    ),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(
+        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error."
+    )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             #[cfg(any(feature = "op_create_alias", feature = "op_replicate_key"))]
-Error::AlreadyExistsException(inner) => inner.fmt(f),
+            Error::AlreadyExistsException(inner) => inner.fmt(f),
             #[cfg(feature = "op_create_custom_key_store")]
-Error::CloudHsmClusterInUseException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_custom_key_store", feature = "op_create_key", feature = "op_update_custom_key_store"))]
-Error::CloudHsmClusterInvalidConfigurationException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::CloudHsmClusterNotActiveException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::CloudHsmClusterNotFoundException(inner) => inner.fmt(f),
+            Error::CloudHsmClusterInUseException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_custom_key_store",
+                feature = "op_create_key",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::CloudHsmClusterInvalidConfigurationException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::CloudHsmClusterNotActiveException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::CloudHsmClusterNotFoundException(inner) => inner.fmt(f),
             #[cfg(feature = "op_update_custom_key_store")]
-Error::CloudHsmClusterNotRelatedException(inner) => inner.fmt(f),
+            Error::CloudHsmClusterNotRelatedException(inner) => inner.fmt(f),
             #[cfg(feature = "op_rotate_key_on_demand")]
-Error::ConflictException(inner) => inner.fmt(f),
+            Error::ConflictException(inner) => inner.fmt(f),
             #[cfg(feature = "op_delete_custom_key_store")]
-Error::CustomKeyStoreHasCmKsException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_key", feature = "op_delete_custom_key_store", feature = "op_disconnect_custom_key_store", feature = "op_generate_random", feature = "op_update_custom_key_store"))]
-Error::CustomKeyStoreInvalidStateException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::CustomKeyStoreNameInUseException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_key", feature = "op_delete_custom_key_store", feature = "op_describe_custom_key_stores", feature = "op_disconnect_custom_key_store", feature = "op_generate_random", feature = "op_update_custom_key_store"))]
-Error::CustomKeyStoreNotFoundException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_alias", feature = "op_create_grant", feature = "op_create_key", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_random", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_keys", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_update_alias", feature = "op_update_key_description", feature = "op_verify"))]
-Error::DependencyTimeoutException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_grant", feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_disable_key_rotation", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_rotate_key_on_demand", feature = "op_sign", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-Error::DisabledException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_grant", feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_re_encrypt", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-Error::DryRunOperationException(inner) => inner.fmt(f),
+            Error::CustomKeyStoreHasCmKsException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_key",
+                feature = "op_delete_custom_key_store",
+                feature = "op_disconnect_custom_key_store",
+                feature = "op_generate_random",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::CustomKeyStoreInvalidStateException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::CustomKeyStoreNameInUseException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_key",
+                feature = "op_delete_custom_key_store",
+                feature = "op_describe_custom_key_stores",
+                feature = "op_disconnect_custom_key_store",
+                feature = "op_generate_random",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::CustomKeyStoreNotFoundException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_create_alias",
+                feature = "op_create_grant",
+                feature = "op_create_key",
+                feature = "op_decrypt",
+                feature = "op_delete_alias",
+                feature = "op_delete_imported_key_material",
+                feature = "op_derive_shared_secret",
+                feature = "op_describe_key",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_random",
+                feature = "op_get_key_last_usage",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_keys",
+                feature = "op_list_retirable_grants",
+                feature = "op_put_key_policy",
+                feature = "op_re_encrypt",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_sign",
+                feature = "op_update_alias",
+                feature = "op_update_key_description",
+                feature = "op_verify"
+            ))]
+            Error::DependencyTimeoutException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_public_key",
+                feature = "op_re_encrypt",
+                feature = "op_replicate_key",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_sign",
+                feature = "op_update_primary_region",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Error::DisabledException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_re_encrypt",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_sign",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Error::DryRunOperationException(inner) => inner.fmt(f),
             #[cfg(feature = "op_import_key_material")]
-Error::ExpiredImportTokenException(inner) => inner.fmt(f),
+            Error::ExpiredImportTokenException(inner) => inner.fmt(f),
             #[cfg(any(feature = "op_decrypt", feature = "op_re_encrypt"))]
-Error::IncorrectKeyException(inner) => inner.fmt(f),
+            Error::IncorrectKeyException(inner) => inner.fmt(f),
             #[cfg(feature = "op_import_key_material")]
-Error::IncorrectKeyMaterialException(inner) => inner.fmt(f),
+            Error::IncorrectKeyMaterialException(inner) => inner.fmt(f),
             #[cfg(feature = "op_create_custom_key_store")]
-Error::IncorrectTrustAnchorException(inner) => inner.fmt(f),
+            Error::IncorrectTrustAnchorException(inner) => inner.fmt(f),
             #[cfg(feature = "op_create_alias")]
-Error::InvalidAliasNameException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_grant", feature = "op_create_key", feature = "op_delete_imported_key_material", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_list_resource_tags", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_key_description", feature = "op_update_primary_region"))]
-Error::InvalidArnException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_decrypt", feature = "op_import_key_material", feature = "op_re_encrypt"))]
-Error::InvalidCiphertextException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_list_grants", feature = "op_retire_grant", feature = "op_revoke_grant"))]
-Error::InvalidGrantIdException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_grant", feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_retire_grant", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-Error::InvalidGrantTokenException(inner) => inner.fmt(f),
+            Error::InvalidAliasNameException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_create_grant",
+                feature = "op_create_key",
+                feature = "op_delete_imported_key_material",
+                feature = "op_describe_key",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_get_key_last_usage",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_key_rotations",
+                feature = "op_list_resource_tags",
+                feature = "op_list_retirable_grants",
+                feature = "op_put_key_policy",
+                feature = "op_replicate_key",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_key_description",
+                feature = "op_update_primary_region"
+            ))]
+            Error::InvalidArnException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_decrypt",
+                feature = "op_import_key_material",
+                feature = "op_re_encrypt"
+            ))]
+            Error::InvalidCiphertextException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_list_grants",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant"
+            ))]
+            Error::InvalidGrantIdException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_public_key",
+                feature = "op_re_encrypt",
+                feature = "op_retire_grant",
+                feature = "op_sign",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Error::InvalidGrantTokenException(inner) => inner.fmt(f),
             #[cfg(feature = "op_import_key_material")]
-Error::InvalidImportTokenException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-Error::InvalidKeyUsageException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_describe_custom_key_stores", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_rotations", feature = "op_list_keys", feature = "op_list_resource_tags", feature = "op_list_retirable_grants"))]
-Error::InvalidMarkerException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_connect_custom_key_store", feature = "op_create_alias", feature = "op_create_custom_key_store", feature = "op_create_grant", feature = "op_create_key", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_custom_key_store", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_describe_custom_key_stores", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_disconnect_custom_key_store", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_generate_random", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_list_keys", feature = "op_list_resource_tags", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_custom_key_store", feature = "op_update_key_description", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-Error::KmsInternalException(inner) => inner.fmt(f),
+            Error::InvalidImportTokenException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_public_key",
+                feature = "op_re_encrypt",
+                feature = "op_sign",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Error::InvalidKeyUsageException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_describe_custom_key_stores",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_rotations",
+                feature = "op_list_keys",
+                feature = "op_list_resource_tags",
+                feature = "op_list_retirable_grants"
+            ))]
+            Error::InvalidMarkerException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_alias",
+                feature = "op_create_custom_key_store",
+                feature = "op_create_grant",
+                feature = "op_create_key",
+                feature = "op_decrypt",
+                feature = "op_delete_alias",
+                feature = "op_delete_custom_key_store",
+                feature = "op_delete_imported_key_material",
+                feature = "op_derive_shared_secret",
+                feature = "op_describe_custom_key_stores",
+                feature = "op_describe_key",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_disconnect_custom_key_store",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_generate_random",
+                feature = "op_get_key_last_usage",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_key_rotations",
+                feature = "op_list_keys",
+                feature = "op_list_resource_tags",
+                feature = "op_list_retirable_grants",
+                feature = "op_put_key_policy",
+                feature = "op_re_encrypt",
+                feature = "op_replicate_key",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_sign",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_alias",
+                feature = "op_update_custom_key_store",
+                feature = "op_update_key_description",
+                feature = "op_update_primary_region",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Error::KmsInternalException(inner) => inner.fmt(f),
             #[cfg(feature = "op_verify_mac")]
-Error::KmsInvalidMacException(inner) => inner.fmt(f),
+            Error::KmsInvalidMacException(inner) => inner.fmt(f),
             #[cfg(feature = "op_verify")]
-Error::KmsInvalidSignatureException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_alias", feature = "op_create_grant", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_key_description", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-Error::KmsInvalidStateException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-Error::KeyUnavailableException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_alias", feature = "op_create_custom_key_store", feature = "op_create_grant", feature = "op_create_key", feature = "op_enable_key", feature = "op_put_key_policy", feature = "op_replicate_key", feature = "op_rotate_key_on_demand", feature = "op_tag_resource", feature = "op_update_alias"))]
-Error::LimitExceededException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_key", feature = "op_put_key_policy", feature = "op_replicate_key"))]
-Error::MalformedPolicyDocumentException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_alias", feature = "op_create_grant", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_list_resource_tags", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_key_description", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-Error::NotFoundException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_key", feature = "op_replicate_key", feature = "op_tag_resource", feature = "op_untag_resource"))]
-Error::TagException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_key", feature = "op_delete_imported_key_material", feature = "op_disable_key_rotation", feature = "op_enable_key_rotation", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_random", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_key_rotations", feature = "op_put_key_policy", feature = "op_replicate_key", feature = "op_rotate_key_on_demand", feature = "op_update_primary_region"))]
-Error::UnsupportedOperationException(inner) => inner.fmt(f),
+            Error::KmsInvalidSignatureException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_create_alias",
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_delete_alias",
+                feature = "op_delete_imported_key_material",
+                feature = "op_derive_shared_secret",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_key_rotations",
+                feature = "op_put_key_policy",
+                feature = "op_re_encrypt",
+                feature = "op_replicate_key",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_sign",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_alias",
+                feature = "op_update_key_description",
+                feature = "op_update_primary_region",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Error::KmsInvalidStateException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_public_key",
+                feature = "op_re_encrypt",
+                feature = "op_sign",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Error::KeyUnavailableException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_alias",
+                feature = "op_create_custom_key_store",
+                feature = "op_create_grant",
+                feature = "op_create_key",
+                feature = "op_enable_key",
+                feature = "op_put_key_policy",
+                feature = "op_replicate_key",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_tag_resource",
+                feature = "op_update_alias"
+            ))]
+            Error::LimitExceededException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_key",
+                feature = "op_put_key_policy",
+                feature = "op_replicate_key"
+            ))]
+            Error::MalformedPolicyDocumentException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_create_alias",
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_delete_alias",
+                feature = "op_delete_imported_key_material",
+                feature = "op_derive_shared_secret",
+                feature = "op_describe_key",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_key_last_usage",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_key_rotations",
+                feature = "op_list_resource_tags",
+                feature = "op_list_retirable_grants",
+                feature = "op_put_key_policy",
+                feature = "op_re_encrypt",
+                feature = "op_replicate_key",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_sign",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_alias",
+                feature = "op_update_key_description",
+                feature = "op_update_primary_region",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Error::NotFoundException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_key",
+                feature = "op_replicate_key",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource"
+            ))]
+            Error::TagException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_key",
+                feature = "op_delete_imported_key_material",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key_rotation",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_random",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_key_rotations",
+                feature = "op_put_key_policy",
+                feature = "op_replicate_key",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_update_primary_region"
+            ))]
+            Error::UnsupportedOperationException(inner) => inner.fmt(f),
             #[cfg(feature = "op_create_key")]
-Error::XksKeyAlreadyInUseException(inner) => inner.fmt(f),
+            Error::XksKeyAlreadyInUseException(inner) => inner.fmt(f),
             #[cfg(feature = "op_create_key")]
-Error::XksKeyInvalidConfigurationException(inner) => inner.fmt(f),
+            Error::XksKeyInvalidConfigurationException(inner) => inner.fmt(f),
             #[cfg(feature = "op_create_key")]
-Error::XksKeyNotFoundException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::XksProxyIncorrectAuthenticationCredentialException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::XksProxyInvalidConfigurationException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::XksProxyInvalidResponseException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::XksProxyUriEndpointInUseException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::XksProxyUriInUseException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::XksProxyUriUnreachableException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::XksProxyVpcEndpointServiceInUseException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::XksProxyVpcEndpointServiceInvalidConfigurationException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::XksProxyVpcEndpointServiceNotFoundException(inner) => inner.fmt(f),
+            Error::XksKeyNotFoundException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::XksProxyIncorrectAuthenticationCredentialException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::XksProxyInvalidConfigurationException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::XksProxyInvalidResponseException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::XksProxyUriEndpointInUseException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::XksProxyUriInUseException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::XksProxyUriUnreachableException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::XksProxyVpcEndpointServiceInUseException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::XksProxyVpcEndpointServiceInvalidConfigurationException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::XksProxyVpcEndpointServiceNotFoundException(inner) => inner.fmt(f),
             Error::Unhandled(_) => {
-                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                if let ::std::option::Option::Some(code) =
+                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+                {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -325,113 +1151,531 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
     fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
         match self {
             #[cfg(any(feature = "op_create_alias", feature = "op_replicate_key"))]
-Self::AlreadyExistsException(inner) => inner.meta(),
+            Self::AlreadyExistsException(inner) => inner.meta(),
             #[cfg(feature = "op_create_custom_key_store")]
-Self::CloudHsmClusterInUseException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_custom_key_store", feature = "op_create_key", feature = "op_update_custom_key_store"))]
-Self::CloudHsmClusterInvalidConfigurationException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::CloudHsmClusterNotActiveException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::CloudHsmClusterNotFoundException(inner) => inner.meta(),
+            Self::CloudHsmClusterInUseException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_custom_key_store",
+                feature = "op_create_key",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::CloudHsmClusterInvalidConfigurationException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::CloudHsmClusterNotActiveException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::CloudHsmClusterNotFoundException(inner) => inner.meta(),
             #[cfg(feature = "op_update_custom_key_store")]
-Self::CloudHsmClusterNotRelatedException(inner) => inner.meta(),
+            Self::CloudHsmClusterNotRelatedException(inner) => inner.meta(),
             #[cfg(feature = "op_rotate_key_on_demand")]
-Self::ConflictException(inner) => inner.meta(),
+            Self::ConflictException(inner) => inner.meta(),
             #[cfg(feature = "op_delete_custom_key_store")]
-Self::CustomKeyStoreHasCmKsException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_key", feature = "op_delete_custom_key_store", feature = "op_disconnect_custom_key_store", feature = "op_generate_random", feature = "op_update_custom_key_store"))]
-Self::CustomKeyStoreInvalidStateException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::CustomKeyStoreNameInUseException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_key", feature = "op_delete_custom_key_store", feature = "op_describe_custom_key_stores", feature = "op_disconnect_custom_key_store", feature = "op_generate_random", feature = "op_update_custom_key_store"))]
-Self::CustomKeyStoreNotFoundException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_alias", feature = "op_create_grant", feature = "op_create_key", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_random", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_keys", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_update_alias", feature = "op_update_key_description", feature = "op_verify"))]
-Self::DependencyTimeoutException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_grant", feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_disable_key_rotation", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_rotate_key_on_demand", feature = "op_sign", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-Self::DisabledException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_grant", feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_re_encrypt", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-Self::DryRunOperationException(inner) => inner.meta(),
+            Self::CustomKeyStoreHasCmKsException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_key",
+                feature = "op_delete_custom_key_store",
+                feature = "op_disconnect_custom_key_store",
+                feature = "op_generate_random",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::CustomKeyStoreInvalidStateException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::CustomKeyStoreNameInUseException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_key",
+                feature = "op_delete_custom_key_store",
+                feature = "op_describe_custom_key_stores",
+                feature = "op_disconnect_custom_key_store",
+                feature = "op_generate_random",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::CustomKeyStoreNotFoundException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_create_alias",
+                feature = "op_create_grant",
+                feature = "op_create_key",
+                feature = "op_decrypt",
+                feature = "op_delete_alias",
+                feature = "op_delete_imported_key_material",
+                feature = "op_derive_shared_secret",
+                feature = "op_describe_key",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_random",
+                feature = "op_get_key_last_usage",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_keys",
+                feature = "op_list_retirable_grants",
+                feature = "op_put_key_policy",
+                feature = "op_re_encrypt",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_sign",
+                feature = "op_update_alias",
+                feature = "op_update_key_description",
+                feature = "op_verify"
+            ))]
+            Self::DependencyTimeoutException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_public_key",
+                feature = "op_re_encrypt",
+                feature = "op_replicate_key",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_sign",
+                feature = "op_update_primary_region",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Self::DisabledException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_re_encrypt",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_sign",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Self::DryRunOperationException(inner) => inner.meta(),
             #[cfg(feature = "op_import_key_material")]
-Self::ExpiredImportTokenException(inner) => inner.meta(),
+            Self::ExpiredImportTokenException(inner) => inner.meta(),
             #[cfg(any(feature = "op_decrypt", feature = "op_re_encrypt"))]
-Self::IncorrectKeyException(inner) => inner.meta(),
+            Self::IncorrectKeyException(inner) => inner.meta(),
             #[cfg(feature = "op_import_key_material")]
-Self::IncorrectKeyMaterialException(inner) => inner.meta(),
+            Self::IncorrectKeyMaterialException(inner) => inner.meta(),
             #[cfg(feature = "op_create_custom_key_store")]
-Self::IncorrectTrustAnchorException(inner) => inner.meta(),
+            Self::IncorrectTrustAnchorException(inner) => inner.meta(),
             #[cfg(feature = "op_create_alias")]
-Self::InvalidAliasNameException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_grant", feature = "op_create_key", feature = "op_delete_imported_key_material", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_list_resource_tags", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_key_description", feature = "op_update_primary_region"))]
-Self::InvalidArnException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_decrypt", feature = "op_import_key_material", feature = "op_re_encrypt"))]
-Self::InvalidCiphertextException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_list_grants", feature = "op_retire_grant", feature = "op_revoke_grant"))]
-Self::InvalidGrantIdException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_grant", feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_retire_grant", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-Self::InvalidGrantTokenException(inner) => inner.meta(),
+            Self::InvalidAliasNameException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_create_grant",
+                feature = "op_create_key",
+                feature = "op_delete_imported_key_material",
+                feature = "op_describe_key",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_get_key_last_usage",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_key_rotations",
+                feature = "op_list_resource_tags",
+                feature = "op_list_retirable_grants",
+                feature = "op_put_key_policy",
+                feature = "op_replicate_key",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_key_description",
+                feature = "op_update_primary_region"
+            ))]
+            Self::InvalidArnException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_decrypt",
+                feature = "op_import_key_material",
+                feature = "op_re_encrypt"
+            ))]
+            Self::InvalidCiphertextException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_list_grants",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant"
+            ))]
+            Self::InvalidGrantIdException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_public_key",
+                feature = "op_re_encrypt",
+                feature = "op_retire_grant",
+                feature = "op_sign",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Self::InvalidGrantTokenException(inner) => inner.meta(),
             #[cfg(feature = "op_import_key_material")]
-Self::InvalidImportTokenException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-Self::InvalidKeyUsageException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_describe_custom_key_stores", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_rotations", feature = "op_list_keys", feature = "op_list_resource_tags", feature = "op_list_retirable_grants"))]
-Self::InvalidMarkerException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_connect_custom_key_store", feature = "op_create_alias", feature = "op_create_custom_key_store", feature = "op_create_grant", feature = "op_create_key", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_custom_key_store", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_describe_custom_key_stores", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_disconnect_custom_key_store", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_generate_random", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_list_keys", feature = "op_list_resource_tags", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_custom_key_store", feature = "op_update_key_description", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-Self::KmsInternalException(inner) => inner.meta(),
+            Self::InvalidImportTokenException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_public_key",
+                feature = "op_re_encrypt",
+                feature = "op_sign",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Self::InvalidKeyUsageException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_describe_custom_key_stores",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_rotations",
+                feature = "op_list_keys",
+                feature = "op_list_resource_tags",
+                feature = "op_list_retirable_grants"
+            ))]
+            Self::InvalidMarkerException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_alias",
+                feature = "op_create_custom_key_store",
+                feature = "op_create_grant",
+                feature = "op_create_key",
+                feature = "op_decrypt",
+                feature = "op_delete_alias",
+                feature = "op_delete_custom_key_store",
+                feature = "op_delete_imported_key_material",
+                feature = "op_derive_shared_secret",
+                feature = "op_describe_custom_key_stores",
+                feature = "op_describe_key",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_disconnect_custom_key_store",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_generate_random",
+                feature = "op_get_key_last_usage",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_key_rotations",
+                feature = "op_list_keys",
+                feature = "op_list_resource_tags",
+                feature = "op_list_retirable_grants",
+                feature = "op_put_key_policy",
+                feature = "op_re_encrypt",
+                feature = "op_replicate_key",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_sign",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_alias",
+                feature = "op_update_custom_key_store",
+                feature = "op_update_key_description",
+                feature = "op_update_primary_region",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Self::KmsInternalException(inner) => inner.meta(),
             #[cfg(feature = "op_verify_mac")]
-Self::KmsInvalidMacException(inner) => inner.meta(),
+            Self::KmsInvalidMacException(inner) => inner.meta(),
             #[cfg(feature = "op_verify")]
-Self::KmsInvalidSignatureException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_alias", feature = "op_create_grant", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_key_description", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-Self::KmsInvalidStateException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-Self::KeyUnavailableException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_alias", feature = "op_create_custom_key_store", feature = "op_create_grant", feature = "op_create_key", feature = "op_enable_key", feature = "op_put_key_policy", feature = "op_replicate_key", feature = "op_rotate_key_on_demand", feature = "op_tag_resource", feature = "op_update_alias"))]
-Self::LimitExceededException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_key", feature = "op_put_key_policy", feature = "op_replicate_key"))]
-Self::MalformedPolicyDocumentException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_alias", feature = "op_create_grant", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_list_resource_tags", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_key_description", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-Self::NotFoundException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_key", feature = "op_replicate_key", feature = "op_tag_resource", feature = "op_untag_resource"))]
-Self::TagException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_key", feature = "op_delete_imported_key_material", feature = "op_disable_key_rotation", feature = "op_enable_key_rotation", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_random", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_key_rotations", feature = "op_put_key_policy", feature = "op_replicate_key", feature = "op_rotate_key_on_demand", feature = "op_update_primary_region"))]
-Self::UnsupportedOperationException(inner) => inner.meta(),
+            Self::KmsInvalidSignatureException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_create_alias",
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_delete_alias",
+                feature = "op_delete_imported_key_material",
+                feature = "op_derive_shared_secret",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_key_rotations",
+                feature = "op_put_key_policy",
+                feature = "op_re_encrypt",
+                feature = "op_replicate_key",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_sign",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_alias",
+                feature = "op_update_key_description",
+                feature = "op_update_primary_region",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Self::KmsInvalidStateException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_public_key",
+                feature = "op_re_encrypt",
+                feature = "op_sign",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Self::KeyUnavailableException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_alias",
+                feature = "op_create_custom_key_store",
+                feature = "op_create_grant",
+                feature = "op_create_key",
+                feature = "op_enable_key",
+                feature = "op_put_key_policy",
+                feature = "op_replicate_key",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_tag_resource",
+                feature = "op_update_alias"
+            ))]
+            Self::LimitExceededException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_key",
+                feature = "op_put_key_policy",
+                feature = "op_replicate_key"
+            ))]
+            Self::MalformedPolicyDocumentException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_create_alias",
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_delete_alias",
+                feature = "op_delete_imported_key_material",
+                feature = "op_derive_shared_secret",
+                feature = "op_describe_key",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_key_last_usage",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_key_rotations",
+                feature = "op_list_resource_tags",
+                feature = "op_list_retirable_grants",
+                feature = "op_put_key_policy",
+                feature = "op_re_encrypt",
+                feature = "op_replicate_key",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_sign",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_alias",
+                feature = "op_update_key_description",
+                feature = "op_update_primary_region",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Self::NotFoundException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_key",
+                feature = "op_replicate_key",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource"
+            ))]
+            Self::TagException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_key",
+                feature = "op_delete_imported_key_material",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key_rotation",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_random",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_key_rotations",
+                feature = "op_put_key_policy",
+                feature = "op_replicate_key",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_update_primary_region"
+            ))]
+            Self::UnsupportedOperationException(inner) => inner.meta(),
             #[cfg(feature = "op_create_key")]
-Self::XksKeyAlreadyInUseException(inner) => inner.meta(),
+            Self::XksKeyAlreadyInUseException(inner) => inner.meta(),
             #[cfg(feature = "op_create_key")]
-Self::XksKeyInvalidConfigurationException(inner) => inner.meta(),
+            Self::XksKeyInvalidConfigurationException(inner) => inner.meta(),
             #[cfg(feature = "op_create_key")]
-Self::XksKeyNotFoundException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::XksProxyIncorrectAuthenticationCredentialException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::XksProxyInvalidConfigurationException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::XksProxyInvalidResponseException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::XksProxyUriEndpointInUseException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::XksProxyUriInUseException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::XksProxyUriUnreachableException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::XksProxyVpcEndpointServiceInUseException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::XksProxyVpcEndpointServiceInvalidConfigurationException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::XksProxyVpcEndpointServiceNotFoundException(inner) => inner.meta(),
+            Self::XksKeyNotFoundException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::XksProxyIncorrectAuthenticationCredentialException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::XksProxyInvalidConfigurationException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::XksProxyInvalidResponseException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::XksProxyUriEndpointInUseException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::XksProxyUriInUseException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::XksProxyUriUnreachableException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::XksProxyVpcEndpointServiceInUseException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::XksProxyVpcEndpointServiceInvalidConfigurationException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::XksProxyVpcEndpointServiceNotFoundException(inner) => inner.meta(),
             Self::Unhandled(inner) => &inner.meta,
         }
     }
 }
 #[cfg(feature = "op_cancel_key_deletion")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::cancel_key_deletion::CancelKeyDeletionError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::cancel_key_deletion::CancelKeyDeletionError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::cancel_key_deletion::CancelKeyDeletionError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::cancel_key_deletion::CancelKeyDeletionError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -455,15 +1699,26 @@ impl From<crate::operation::cancel_key_deletion::CancelKeyDeletionError> for Err
     }
 }
 #[cfg(feature = "op_connect_custom_key_store")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -493,13 +1748,26 @@ impl From<crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError
     }
 }
 #[cfg(feature = "op_create_alias")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_alias::CreateAliasError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_alias::CreateAliasError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_alias::CreateAliasError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_alias::CreateAliasError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -511,27 +1779,54 @@ where
 impl From<crate::operation::create_alias::CreateAliasError> for Error {
     fn from(err: crate::operation::create_alias::CreateAliasError) -> Self {
         match err {
-            crate::operation::create_alias::CreateAliasError::AlreadyExistsException(inner) => Error::AlreadyExistsException(inner),
-            crate::operation::create_alias::CreateAliasError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::create_alias::CreateAliasError::InvalidAliasNameException(inner) => Error::InvalidAliasNameException(inner),
-            crate::operation::create_alias::CreateAliasError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::create_alias::CreateAliasError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::create_alias::CreateAliasError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::create_alias::CreateAliasError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::create_alias::CreateAliasError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::create_alias::CreateAliasError::AlreadyExistsException(inner) => {
+                Error::AlreadyExistsException(inner)
+            }
+            crate::operation::create_alias::CreateAliasError::DependencyTimeoutException(inner) => {
+                Error::DependencyTimeoutException(inner)
+            }
+            crate::operation::create_alias::CreateAliasError::InvalidAliasNameException(inner) => {
+                Error::InvalidAliasNameException(inner)
+            }
+            crate::operation::create_alias::CreateAliasError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::create_alias::CreateAliasError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::create_alias::CreateAliasError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::create_alias::CreateAliasError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
+            crate::operation::create_alias::CreateAliasError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_create_custom_key_store")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_custom_key_store::CreateCustomKeyStoreError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_custom_key_store::CreateCustomKeyStoreError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_custom_key_store::CreateCustomKeyStoreError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_custom_key_store::CreateCustomKeyStoreError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -597,13 +1892,26 @@ impl From<crate::operation::create_custom_key_store::CreateCustomKeyStoreError> 
     }
 }
 #[cfg(feature = "op_create_grant")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_grant::CreateGrantError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_grant::CreateGrantError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_grant::CreateGrantError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_grant::CreateGrantError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -615,27 +1923,60 @@ where
 impl From<crate::operation::create_grant::CreateGrantError> for Error {
     fn from(err: crate::operation::create_grant::CreateGrantError) -> Self {
         match err {
-            crate::operation::create_grant::CreateGrantError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::create_grant::CreateGrantError::DisabledException(inner) => Error::DisabledException(inner),
-            crate::operation::create_grant::CreateGrantError::DryRunOperationException(inner) => Error::DryRunOperationException(inner),
-            crate::operation::create_grant::CreateGrantError::InvalidArnException(inner) => Error::InvalidArnException(inner),
-            crate::operation::create_grant::CreateGrantError::InvalidGrantTokenException(inner) => Error::InvalidGrantTokenException(inner),
-            crate::operation::create_grant::CreateGrantError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::create_grant::CreateGrantError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::create_grant::CreateGrantError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::create_grant::CreateGrantError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::create_grant::CreateGrantError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::create_grant::CreateGrantError::DependencyTimeoutException(inner) => {
+                Error::DependencyTimeoutException(inner)
+            }
+            crate::operation::create_grant::CreateGrantError::DisabledException(inner) => {
+                Error::DisabledException(inner)
+            }
+            crate::operation::create_grant::CreateGrantError::DryRunOperationException(inner) => {
+                Error::DryRunOperationException(inner)
+            }
+            crate::operation::create_grant::CreateGrantError::InvalidArnException(inner) => {
+                Error::InvalidArnException(inner)
+            }
+            crate::operation::create_grant::CreateGrantError::InvalidGrantTokenException(inner) => {
+                Error::InvalidGrantTokenException(inner)
+            }
+            crate::operation::create_grant::CreateGrantError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::create_grant::CreateGrantError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::create_grant::CreateGrantError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::create_grant::CreateGrantError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
+            crate::operation::create_grant::CreateGrantError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_create_key")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_key::CreateKeyError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_key::CreateKeyError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_key::CreateKeyError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_key::CreateKeyError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -671,13 +2012,26 @@ impl From<crate::operation::create_key::CreateKeyError> for Error {
     }
 }
 #[cfg(feature = "op_decrypt")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::decrypt::DecryptError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::decrypt::DecryptError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::decrypt::DecryptError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::decrypt::DecryptError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -689,29 +2043,64 @@ where
 impl From<crate::operation::decrypt::DecryptError> for Error {
     fn from(err: crate::operation::decrypt::DecryptError) -> Self {
         match err {
-            crate::operation::decrypt::DecryptError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::decrypt::DecryptError::DisabledException(inner) => Error::DisabledException(inner),
-            crate::operation::decrypt::DecryptError::DryRunOperationException(inner) => Error::DryRunOperationException(inner),
-            crate::operation::decrypt::DecryptError::IncorrectKeyException(inner) => Error::IncorrectKeyException(inner),
-            crate::operation::decrypt::DecryptError::InvalidCiphertextException(inner) => Error::InvalidCiphertextException(inner),
-            crate::operation::decrypt::DecryptError::InvalidGrantTokenException(inner) => Error::InvalidGrantTokenException(inner),
-            crate::operation::decrypt::DecryptError::InvalidKeyUsageException(inner) => Error::InvalidKeyUsageException(inner),
-            crate::operation::decrypt::DecryptError::KeyUnavailableException(inner) => Error::KeyUnavailableException(inner),
-            crate::operation::decrypt::DecryptError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::decrypt::DecryptError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::decrypt::DecryptError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::decrypt::DecryptError::DependencyTimeoutException(inner) => {
+                Error::DependencyTimeoutException(inner)
+            }
+            crate::operation::decrypt::DecryptError::DisabledException(inner) => {
+                Error::DisabledException(inner)
+            }
+            crate::operation::decrypt::DecryptError::DryRunOperationException(inner) => {
+                Error::DryRunOperationException(inner)
+            }
+            crate::operation::decrypt::DecryptError::IncorrectKeyException(inner) => {
+                Error::IncorrectKeyException(inner)
+            }
+            crate::operation::decrypt::DecryptError::InvalidCiphertextException(inner) => {
+                Error::InvalidCiphertextException(inner)
+            }
+            crate::operation::decrypt::DecryptError::InvalidGrantTokenException(inner) => {
+                Error::InvalidGrantTokenException(inner)
+            }
+            crate::operation::decrypt::DecryptError::InvalidKeyUsageException(inner) => {
+                Error::InvalidKeyUsageException(inner)
+            }
+            crate::operation::decrypt::DecryptError::KeyUnavailableException(inner) => {
+                Error::KeyUnavailableException(inner)
+            }
+            crate::operation::decrypt::DecryptError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::decrypt::DecryptError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::decrypt::DecryptError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
             crate::operation::decrypt::DecryptError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_delete_alias")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_alias::DeleteAliasError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_alias::DeleteAliasError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_alias::DeleteAliasError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_alias::DeleteAliasError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -723,24 +2112,45 @@ where
 impl From<crate::operation::delete_alias::DeleteAliasError> for Error {
     fn from(err: crate::operation::delete_alias::DeleteAliasError) -> Self {
         match err {
-            crate::operation::delete_alias::DeleteAliasError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::delete_alias::DeleteAliasError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::delete_alias::DeleteAliasError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::delete_alias::DeleteAliasError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::delete_alias::DeleteAliasError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::delete_alias::DeleteAliasError::DependencyTimeoutException(inner) => {
+                Error::DependencyTimeoutException(inner)
+            }
+            crate::operation::delete_alias::DeleteAliasError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::delete_alias::DeleteAliasError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::delete_alias::DeleteAliasError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
+            crate::operation::delete_alias::DeleteAliasError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_delete_custom_key_store")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -767,16 +2177,26 @@ impl From<crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError> 
     }
 }
 #[cfg(feature = "op_delete_imported_key_material")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -785,8 +2205,12 @@ where
     }
 }
 #[cfg(feature = "op_delete_imported_key_material")]
-impl From<crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError> for Error {
-    fn from(err: crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError) -> Self {
+impl From<crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError>
+    for Error
+{
+    fn from(
+        err: crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError,
+    ) -> Self {
         match err {
             crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::DependencyTimeoutException(inner) => {
                 Error::DependencyTimeoutException(inner)
@@ -811,13 +2235,26 @@ impl From<crate::operation::delete_imported_key_material::DeleteImportedKeyMater
     }
 }
 #[cfg(feature = "op_derive_shared_secret")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::derive_shared_secret::DeriveSharedSecretError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::derive_shared_secret::DeriveSharedSecretError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::derive_shared_secret::DeriveSharedSecretError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::derive_shared_secret::DeriveSharedSecretError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -853,16 +2290,26 @@ impl From<crate::operation::derive_shared_secret::DeriveSharedSecretError> for E
     }
 }
 #[cfg(feature = "op_describe_custom_key_stores")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -872,7 +2319,9 @@ where
 }
 #[cfg(feature = "op_describe_custom_key_stores")]
 impl From<crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError> for Error {
-    fn from(err: crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError) -> Self {
+    fn from(
+        err: crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError,
+    ) -> Self {
         match err {
             crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError::CustomKeyStoreNotFoundException(inner) => {
                 Error::CustomKeyStoreNotFoundException(inner)
@@ -888,13 +2337,26 @@ impl From<crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresE
     }
 }
 #[cfg(feature = "op_describe_key")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_key::DescribeKeyError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_key::DescribeKeyError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_key::DescribeKeyError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_key::DescribeKeyError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -906,22 +2368,45 @@ where
 impl From<crate::operation::describe_key::DescribeKeyError> for Error {
     fn from(err: crate::operation::describe_key::DescribeKeyError) -> Self {
         match err {
-            crate::operation::describe_key::DescribeKeyError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::describe_key::DescribeKeyError::InvalidArnException(inner) => Error::InvalidArnException(inner),
-            crate::operation::describe_key::DescribeKeyError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::describe_key::DescribeKeyError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::describe_key::DescribeKeyError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::describe_key::DescribeKeyError::DependencyTimeoutException(inner) => {
+                Error::DependencyTimeoutException(inner)
+            }
+            crate::operation::describe_key::DescribeKeyError::InvalidArnException(inner) => {
+                Error::InvalidArnException(inner)
+            }
+            crate::operation::describe_key::DescribeKeyError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::describe_key::DescribeKeyError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
+            crate::operation::describe_key::DescribeKeyError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_disable_key")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disable_key::DisableKeyError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::disable_key::DisableKeyError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disable_key::DisableKeyError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::disable_key::DisableKeyError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -933,23 +2418,48 @@ where
 impl From<crate::operation::disable_key::DisableKeyError> for Error {
     fn from(err: crate::operation::disable_key::DisableKeyError) -> Self {
         match err {
-            crate::operation::disable_key::DisableKeyError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::disable_key::DisableKeyError::InvalidArnException(inner) => Error::InvalidArnException(inner),
-            crate::operation::disable_key::DisableKeyError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::disable_key::DisableKeyError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::disable_key::DisableKeyError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::disable_key::DisableKeyError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::disable_key::DisableKeyError::DependencyTimeoutException(inner) => {
+                Error::DependencyTimeoutException(inner)
+            }
+            crate::operation::disable_key::DisableKeyError::InvalidArnException(inner) => {
+                Error::InvalidArnException(inner)
+            }
+            crate::operation::disable_key::DisableKeyError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::disable_key::DisableKeyError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::disable_key::DisableKeyError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
+            crate::operation::disable_key::DisableKeyError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_disable_key_rotation")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disable_key_rotation::DisableKeyRotationError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::disable_key_rotation::DisableKeyRotationError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disable_key_rotation::DisableKeyRotationError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::disable_key_rotation::DisableKeyRotationError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -979,16 +2489,26 @@ impl From<crate::operation::disable_key_rotation::DisableKeyRotationError> for E
     }
 }
 #[cfg(feature = "op_disconnect_custom_key_store")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -998,7 +2518,9 @@ where
 }
 #[cfg(feature = "op_disconnect_custom_key_store")]
 impl From<crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError> for Error {
-    fn from(err: crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError) -> Self {
+    fn from(
+        err: crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError,
+    ) -> Self {
         match err {
             crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError::CustomKeyStoreInvalidStateException(inner) => {
                 Error::CustomKeyStoreInvalidStateException(inner)
@@ -1014,13 +2536,26 @@ impl From<crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStor
     }
 }
 #[cfg(feature = "op_enable_key")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::enable_key::EnableKeyError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::enable_key::EnableKeyError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::enable_key::EnableKeyError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::enable_key::EnableKeyError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1032,24 +2567,51 @@ where
 impl From<crate::operation::enable_key::EnableKeyError> for Error {
     fn from(err: crate::operation::enable_key::EnableKeyError) -> Self {
         match err {
-            crate::operation::enable_key::EnableKeyError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::enable_key::EnableKeyError::InvalidArnException(inner) => Error::InvalidArnException(inner),
-            crate::operation::enable_key::EnableKeyError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::enable_key::EnableKeyError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::enable_key::EnableKeyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::enable_key::EnableKeyError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::enable_key::EnableKeyError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::enable_key::EnableKeyError::DependencyTimeoutException(inner) => {
+                Error::DependencyTimeoutException(inner)
+            }
+            crate::operation::enable_key::EnableKeyError::InvalidArnException(inner) => {
+                Error::InvalidArnException(inner)
+            }
+            crate::operation::enable_key::EnableKeyError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::enable_key::EnableKeyError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::enable_key::EnableKeyError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::enable_key::EnableKeyError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
+            crate::operation::enable_key::EnableKeyError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_enable_key_rotation")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::enable_key_rotation::EnableKeyRotationError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::enable_key_rotation::EnableKeyRotationError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::enable_key_rotation::EnableKeyRotationError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::enable_key_rotation::EnableKeyRotationError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1077,13 +2639,26 @@ impl From<crate::operation::enable_key_rotation::EnableKeyRotationError> for Err
     }
 }
 #[cfg(feature = "op_encrypt")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::encrypt::EncryptError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::encrypt::EncryptError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::encrypt::EncryptError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::encrypt::EncryptError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1095,27 +2670,58 @@ where
 impl From<crate::operation::encrypt::EncryptError> for Error {
     fn from(err: crate::operation::encrypt::EncryptError) -> Self {
         match err {
-            crate::operation::encrypt::EncryptError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::encrypt::EncryptError::DisabledException(inner) => Error::DisabledException(inner),
-            crate::operation::encrypt::EncryptError::DryRunOperationException(inner) => Error::DryRunOperationException(inner),
-            crate::operation::encrypt::EncryptError::InvalidGrantTokenException(inner) => Error::InvalidGrantTokenException(inner),
-            crate::operation::encrypt::EncryptError::InvalidKeyUsageException(inner) => Error::InvalidKeyUsageException(inner),
-            crate::operation::encrypt::EncryptError::KeyUnavailableException(inner) => Error::KeyUnavailableException(inner),
-            crate::operation::encrypt::EncryptError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::encrypt::EncryptError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::encrypt::EncryptError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::encrypt::EncryptError::DependencyTimeoutException(inner) => {
+                Error::DependencyTimeoutException(inner)
+            }
+            crate::operation::encrypt::EncryptError::DisabledException(inner) => {
+                Error::DisabledException(inner)
+            }
+            crate::operation::encrypt::EncryptError::DryRunOperationException(inner) => {
+                Error::DryRunOperationException(inner)
+            }
+            crate::operation::encrypt::EncryptError::InvalidGrantTokenException(inner) => {
+                Error::InvalidGrantTokenException(inner)
+            }
+            crate::operation::encrypt::EncryptError::InvalidKeyUsageException(inner) => {
+                Error::InvalidKeyUsageException(inner)
+            }
+            crate::operation::encrypt::EncryptError::KeyUnavailableException(inner) => {
+                Error::KeyUnavailableException(inner)
+            }
+            crate::operation::encrypt::EncryptError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::encrypt::EncryptError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::encrypt::EncryptError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
             crate::operation::encrypt::EncryptError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_generate_data_key")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::generate_data_key::GenerateDataKeyError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::generate_data_key::GenerateDataKeyError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::generate_data_key::GenerateDataKeyError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::generate_data_key::GenerateDataKeyError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1141,13 +2747,26 @@ impl From<crate::operation::generate_data_key::GenerateDataKeyError> for Error {
     }
 }
 #[cfg(feature = "op_generate_data_key_pair")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::generate_data_key_pair::GenerateDataKeyPairError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::generate_data_key_pair::GenerateDataKeyPairError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::generate_data_key_pair::GenerateDataKeyPairError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::generate_data_key_pair::GenerateDataKeyPairError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1280,8 +2899,14 @@ where
     }
 }
 #[cfg(feature = "op_generate_data_key_without_plaintext")]
-impl From<crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError> for Error {
-    fn from(err: crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError) -> Self {
+impl
+    From<
+        crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError,
+    > for Error
+{
+    fn from(
+        err: crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError,
+    ) -> Self {
         match err {
             crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::DependencyTimeoutException(inner) => {
                 Error::DependencyTimeoutException(inner)
@@ -1315,13 +2940,26 @@ impl From<crate::operation::generate_data_key_without_plaintext::GenerateDataKey
     }
 }
 #[cfg(feature = "op_generate_mac")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::generate_mac::GenerateMacError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::generate_mac::GenerateMacError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::generate_mac::GenerateMacError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::generate_mac::GenerateMacError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1333,26 +2971,57 @@ where
 impl From<crate::operation::generate_mac::GenerateMacError> for Error {
     fn from(err: crate::operation::generate_mac::GenerateMacError) -> Self {
         match err {
-            crate::operation::generate_mac::GenerateMacError::DisabledException(inner) => Error::DisabledException(inner),
-            crate::operation::generate_mac::GenerateMacError::DryRunOperationException(inner) => Error::DryRunOperationException(inner),
-            crate::operation::generate_mac::GenerateMacError::InvalidGrantTokenException(inner) => Error::InvalidGrantTokenException(inner),
-            crate::operation::generate_mac::GenerateMacError::InvalidKeyUsageException(inner) => Error::InvalidKeyUsageException(inner),
-            crate::operation::generate_mac::GenerateMacError::KeyUnavailableException(inner) => Error::KeyUnavailableException(inner),
-            crate::operation::generate_mac::GenerateMacError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::generate_mac::GenerateMacError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::generate_mac::GenerateMacError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::generate_mac::GenerateMacError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::generate_mac::GenerateMacError::DisabledException(inner) => {
+                Error::DisabledException(inner)
+            }
+            crate::operation::generate_mac::GenerateMacError::DryRunOperationException(inner) => {
+                Error::DryRunOperationException(inner)
+            }
+            crate::operation::generate_mac::GenerateMacError::InvalidGrantTokenException(inner) => {
+                Error::InvalidGrantTokenException(inner)
+            }
+            crate::operation::generate_mac::GenerateMacError::InvalidKeyUsageException(inner) => {
+                Error::InvalidKeyUsageException(inner)
+            }
+            crate::operation::generate_mac::GenerateMacError::KeyUnavailableException(inner) => {
+                Error::KeyUnavailableException(inner)
+            }
+            crate::operation::generate_mac::GenerateMacError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::generate_mac::GenerateMacError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::generate_mac::GenerateMacError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
+            crate::operation::generate_mac::GenerateMacError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_generate_random")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::generate_random::GenerateRandomError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::generate_random::GenerateRandomError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::generate_random::GenerateRandomError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::generate_random::GenerateRandomError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1380,13 +3049,26 @@ impl From<crate::operation::generate_random::GenerateRandomError> for Error {
     }
 }
 #[cfg(feature = "op_get_key_last_usage")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_key_last_usage::GetKeyLastUsageError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_key_last_usage::GetKeyLastUsageError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_key_last_usage::GetKeyLastUsageError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_key_last_usage::GetKeyLastUsageError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1407,13 +3089,26 @@ impl From<crate::operation::get_key_last_usage::GetKeyLastUsageError> for Error 
     }
 }
 #[cfg(feature = "op_get_key_policy")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_key_policy::GetKeyPolicyError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_key_policy::GetKeyPolicyError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_key_policy::GetKeyPolicyError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_key_policy::GetKeyPolicyError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1425,25 +3120,48 @@ where
 impl From<crate::operation::get_key_policy::GetKeyPolicyError> for Error {
     fn from(err: crate::operation::get_key_policy::GetKeyPolicyError) -> Self {
         match err {
-            crate::operation::get_key_policy::GetKeyPolicyError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::get_key_policy::GetKeyPolicyError::InvalidArnException(inner) => Error::InvalidArnException(inner),
-            crate::operation::get_key_policy::GetKeyPolicyError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::get_key_policy::GetKeyPolicyError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::get_key_policy::GetKeyPolicyError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::get_key_policy::GetKeyPolicyError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_key_policy::GetKeyPolicyError::DependencyTimeoutException(
+                inner,
+            ) => Error::DependencyTimeoutException(inner),
+            crate::operation::get_key_policy::GetKeyPolicyError::InvalidArnException(inner) => {
+                Error::InvalidArnException(inner)
+            }
+            crate::operation::get_key_policy::GetKeyPolicyError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::get_key_policy::GetKeyPolicyError::KmsInvalidStateException(
+                inner,
+            ) => Error::KmsInvalidStateException(inner),
+            crate::operation::get_key_policy::GetKeyPolicyError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
+            crate::operation::get_key_policy::GetKeyPolicyError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_get_key_rotation_status")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_key_rotation_status::GetKeyRotationStatusError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_key_rotation_status::GetKeyRotationStatusError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_key_rotation_status::GetKeyRotationStatusError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_key_rotation_status::GetKeyRotationStatusError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1472,16 +3190,26 @@ impl From<crate::operation::get_key_rotation_status::GetKeyRotationStatusError> 
     }
 }
 #[cfg(feature = "op_get_parameters_for_import")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_parameters_for_import::GetParametersForImportError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_parameters_for_import::GetParametersForImportError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_parameters_for_import::GetParametersForImportError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_parameters_for_import::GetParametersForImportError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1512,13 +3240,26 @@ impl From<crate::operation::get_parameters_for_import::GetParametersForImportErr
     }
 }
 #[cfg(feature = "op_get_public_key")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_public_key::GetPublicKeyError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_public_key::GetPublicKeyError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_public_key::GetPublicKeyError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_public_key::GetPublicKeyError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1530,28 +3271,63 @@ where
 impl From<crate::operation::get_public_key::GetPublicKeyError> for Error {
     fn from(err: crate::operation::get_public_key::GetPublicKeyError) -> Self {
         match err {
-            crate::operation::get_public_key::GetPublicKeyError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::get_public_key::GetPublicKeyError::DisabledException(inner) => Error::DisabledException(inner),
-            crate::operation::get_public_key::GetPublicKeyError::InvalidArnException(inner) => Error::InvalidArnException(inner),
-            crate::operation::get_public_key::GetPublicKeyError::InvalidGrantTokenException(inner) => Error::InvalidGrantTokenException(inner),
-            crate::operation::get_public_key::GetPublicKeyError::InvalidKeyUsageException(inner) => Error::InvalidKeyUsageException(inner),
-            crate::operation::get_public_key::GetPublicKeyError::KeyUnavailableException(inner) => Error::KeyUnavailableException(inner),
-            crate::operation::get_public_key::GetPublicKeyError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::get_public_key::GetPublicKeyError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::get_public_key::GetPublicKeyError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::get_public_key::GetPublicKeyError::UnsupportedOperationException(inner) => Error::UnsupportedOperationException(inner),
-            crate::operation::get_public_key::GetPublicKeyError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_public_key::GetPublicKeyError::DependencyTimeoutException(
+                inner,
+            ) => Error::DependencyTimeoutException(inner),
+            crate::operation::get_public_key::GetPublicKeyError::DisabledException(inner) => {
+                Error::DisabledException(inner)
+            }
+            crate::operation::get_public_key::GetPublicKeyError::InvalidArnException(inner) => {
+                Error::InvalidArnException(inner)
+            }
+            crate::operation::get_public_key::GetPublicKeyError::InvalidGrantTokenException(
+                inner,
+            ) => Error::InvalidGrantTokenException(inner),
+            crate::operation::get_public_key::GetPublicKeyError::InvalidKeyUsageException(
+                inner,
+            ) => Error::InvalidKeyUsageException(inner),
+            crate::operation::get_public_key::GetPublicKeyError::KeyUnavailableException(inner) => {
+                Error::KeyUnavailableException(inner)
+            }
+            crate::operation::get_public_key::GetPublicKeyError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::get_public_key::GetPublicKeyError::KmsInvalidStateException(
+                inner,
+            ) => Error::KmsInvalidStateException(inner),
+            crate::operation::get_public_key::GetPublicKeyError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
+            crate::operation::get_public_key::GetPublicKeyError::UnsupportedOperationException(
+                inner,
+            ) => Error::UnsupportedOperationException(inner),
+            crate::operation::get_public_key::GetPublicKeyError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_import_key_material")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::import_key_material::ImportKeyMaterialError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::import_key_material::ImportKeyMaterialError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::import_key_material::ImportKeyMaterialError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::import_key_material::ImportKeyMaterialError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1590,13 +3366,26 @@ impl From<crate::operation::import_key_material::ImportKeyMaterialError> for Err
     }
 }
 #[cfg(feature = "op_list_aliases")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_aliases::ListAliasesError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_aliases::ListAliasesError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_aliases::ListAliasesError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_aliases::ListAliasesError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1608,23 +3397,48 @@ where
 impl From<crate::operation::list_aliases::ListAliasesError> for Error {
     fn from(err: crate::operation::list_aliases::ListAliasesError) -> Self {
         match err {
-            crate::operation::list_aliases::ListAliasesError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::list_aliases::ListAliasesError::InvalidArnException(inner) => Error::InvalidArnException(inner),
-            crate::operation::list_aliases::ListAliasesError::InvalidMarkerException(inner) => Error::InvalidMarkerException(inner),
-            crate::operation::list_aliases::ListAliasesError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::list_aliases::ListAliasesError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::list_aliases::ListAliasesError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_aliases::ListAliasesError::DependencyTimeoutException(inner) => {
+                Error::DependencyTimeoutException(inner)
+            }
+            crate::operation::list_aliases::ListAliasesError::InvalidArnException(inner) => {
+                Error::InvalidArnException(inner)
+            }
+            crate::operation::list_aliases::ListAliasesError::InvalidMarkerException(inner) => {
+                Error::InvalidMarkerException(inner)
+            }
+            crate::operation::list_aliases::ListAliasesError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::list_aliases::ListAliasesError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
+            crate::operation::list_aliases::ListAliasesError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_list_grants")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_grants::ListGrantsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_grants::ListGrantsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_grants::ListGrantsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_grants::ListGrantsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1636,25 +3450,54 @@ where
 impl From<crate::operation::list_grants::ListGrantsError> for Error {
     fn from(err: crate::operation::list_grants::ListGrantsError) -> Self {
         match err {
-            crate::operation::list_grants::ListGrantsError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::list_grants::ListGrantsError::InvalidArnException(inner) => Error::InvalidArnException(inner),
-            crate::operation::list_grants::ListGrantsError::InvalidGrantIdException(inner) => Error::InvalidGrantIdException(inner),
-            crate::operation::list_grants::ListGrantsError::InvalidMarkerException(inner) => Error::InvalidMarkerException(inner),
-            crate::operation::list_grants::ListGrantsError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::list_grants::ListGrantsError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::list_grants::ListGrantsError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::list_grants::ListGrantsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_grants::ListGrantsError::DependencyTimeoutException(inner) => {
+                Error::DependencyTimeoutException(inner)
+            }
+            crate::operation::list_grants::ListGrantsError::InvalidArnException(inner) => {
+                Error::InvalidArnException(inner)
+            }
+            crate::operation::list_grants::ListGrantsError::InvalidGrantIdException(inner) => {
+                Error::InvalidGrantIdException(inner)
+            }
+            crate::operation::list_grants::ListGrantsError::InvalidMarkerException(inner) => {
+                Error::InvalidMarkerException(inner)
+            }
+            crate::operation::list_grants::ListGrantsError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::list_grants::ListGrantsError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::list_grants::ListGrantsError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
+            crate::operation::list_grants::ListGrantsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_list_key_policies")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_key_policies::ListKeyPoliciesError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_key_policies::ListKeyPoliciesError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_key_policies::ListKeyPoliciesError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_key_policies::ListKeyPoliciesError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1676,13 +3519,26 @@ impl From<crate::operation::list_key_policies::ListKeyPoliciesError> for Error {
     }
 }
 #[cfg(feature = "op_list_key_rotations")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_key_rotations::ListKeyRotationsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_key_rotations::ListKeyRotationsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_key_rotations::ListKeyRotationsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_key_rotations::ListKeyRotationsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1707,13 +3563,26 @@ impl From<crate::operation::list_key_rotations::ListKeyRotationsError> for Error
     }
 }
 #[cfg(feature = "op_list_keys")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_keys::ListKeysError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_keys::ListKeysError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_keys::ListKeysError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_keys::ListKeysError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1725,21 +3594,40 @@ where
 impl From<crate::operation::list_keys::ListKeysError> for Error {
     fn from(err: crate::operation::list_keys::ListKeysError) -> Self {
         match err {
-            crate::operation::list_keys::ListKeysError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::list_keys::ListKeysError::InvalidMarkerException(inner) => Error::InvalidMarkerException(inner),
-            crate::operation::list_keys::ListKeysError::KmsInternalException(inner) => Error::KmsInternalException(inner),
+            crate::operation::list_keys::ListKeysError::DependencyTimeoutException(inner) => {
+                Error::DependencyTimeoutException(inner)
+            }
+            crate::operation::list_keys::ListKeysError::InvalidMarkerException(inner) => {
+                Error::InvalidMarkerException(inner)
+            }
+            crate::operation::list_keys::ListKeysError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
             crate::operation::list_keys::ListKeysError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_resource_tags")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_resource_tags::ListResourceTagsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_resource_tags::ListResourceTagsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_resource_tags::ListResourceTagsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_resource_tags::ListResourceTagsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1751,22 +3639,45 @@ where
 impl From<crate::operation::list_resource_tags::ListResourceTagsError> for Error {
     fn from(err: crate::operation::list_resource_tags::ListResourceTagsError) -> Self {
         match err {
-            crate::operation::list_resource_tags::ListResourceTagsError::InvalidArnException(inner) => Error::InvalidArnException(inner),
-            crate::operation::list_resource_tags::ListResourceTagsError::InvalidMarkerException(inner) => Error::InvalidMarkerException(inner),
-            crate::operation::list_resource_tags::ListResourceTagsError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::list_resource_tags::ListResourceTagsError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::list_resource_tags::ListResourceTagsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_resource_tags::ListResourceTagsError::InvalidArnException(
+                inner,
+            ) => Error::InvalidArnException(inner),
+            crate::operation::list_resource_tags::ListResourceTagsError::InvalidMarkerException(
+                inner,
+            ) => Error::InvalidMarkerException(inner),
+            crate::operation::list_resource_tags::ListResourceTagsError::KmsInternalException(
+                inner,
+            ) => Error::KmsInternalException(inner),
+            crate::operation::list_resource_tags::ListResourceTagsError::NotFoundException(
+                inner,
+            ) => Error::NotFoundException(inner),
+            crate::operation::list_resource_tags::ListResourceTagsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_list_retirable_grants")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_retirable_grants::ListRetirableGrantsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_retirable_grants::ListRetirableGrantsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_retirable_grants::ListRetirableGrantsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_retirable_grants::ListRetirableGrantsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1790,13 +3701,26 @@ impl From<crate::operation::list_retirable_grants::ListRetirableGrantsError> for
     }
 }
 #[cfg(feature = "op_put_key_policy")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_key_policy::PutKeyPolicyError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_key_policy::PutKeyPolicyError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_key_policy::PutKeyPolicyError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_key_policy::PutKeyPolicyError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1823,13 +3747,26 @@ impl From<crate::operation::put_key_policy::PutKeyPolicyError> for Error {
     }
 }
 #[cfg(feature = "op_re_encrypt")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::re_encrypt::ReEncryptError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::re_encrypt::ReEncryptError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::re_encrypt::ReEncryptError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::re_encrypt::ReEncryptError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1841,29 +3778,66 @@ where
 impl From<crate::operation::re_encrypt::ReEncryptError> for Error {
     fn from(err: crate::operation::re_encrypt::ReEncryptError) -> Self {
         match err {
-            crate::operation::re_encrypt::ReEncryptError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::re_encrypt::ReEncryptError::DisabledException(inner) => Error::DisabledException(inner),
-            crate::operation::re_encrypt::ReEncryptError::DryRunOperationException(inner) => Error::DryRunOperationException(inner),
-            crate::operation::re_encrypt::ReEncryptError::IncorrectKeyException(inner) => Error::IncorrectKeyException(inner),
-            crate::operation::re_encrypt::ReEncryptError::InvalidCiphertextException(inner) => Error::InvalidCiphertextException(inner),
-            crate::operation::re_encrypt::ReEncryptError::InvalidGrantTokenException(inner) => Error::InvalidGrantTokenException(inner),
-            crate::operation::re_encrypt::ReEncryptError::InvalidKeyUsageException(inner) => Error::InvalidKeyUsageException(inner),
-            crate::operation::re_encrypt::ReEncryptError::KeyUnavailableException(inner) => Error::KeyUnavailableException(inner),
-            crate::operation::re_encrypt::ReEncryptError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::re_encrypt::ReEncryptError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::re_encrypt::ReEncryptError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::re_encrypt::ReEncryptError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::re_encrypt::ReEncryptError::DependencyTimeoutException(inner) => {
+                Error::DependencyTimeoutException(inner)
+            }
+            crate::operation::re_encrypt::ReEncryptError::DisabledException(inner) => {
+                Error::DisabledException(inner)
+            }
+            crate::operation::re_encrypt::ReEncryptError::DryRunOperationException(inner) => {
+                Error::DryRunOperationException(inner)
+            }
+            crate::operation::re_encrypt::ReEncryptError::IncorrectKeyException(inner) => {
+                Error::IncorrectKeyException(inner)
+            }
+            crate::operation::re_encrypt::ReEncryptError::InvalidCiphertextException(inner) => {
+                Error::InvalidCiphertextException(inner)
+            }
+            crate::operation::re_encrypt::ReEncryptError::InvalidGrantTokenException(inner) => {
+                Error::InvalidGrantTokenException(inner)
+            }
+            crate::operation::re_encrypt::ReEncryptError::InvalidKeyUsageException(inner) => {
+                Error::InvalidKeyUsageException(inner)
+            }
+            crate::operation::re_encrypt::ReEncryptError::KeyUnavailableException(inner) => {
+                Error::KeyUnavailableException(inner)
+            }
+            crate::operation::re_encrypt::ReEncryptError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::re_encrypt::ReEncryptError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::re_encrypt::ReEncryptError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
+            crate::operation::re_encrypt::ReEncryptError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_replicate_key")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::replicate_key::ReplicateKeyError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::replicate_key::ReplicateKeyError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::replicate_key::ReplicateKeyError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::replicate_key::ReplicateKeyError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1892,13 +3866,26 @@ impl From<crate::operation::replicate_key::ReplicateKeyError> for Error {
     }
 }
 #[cfg(feature = "op_retire_grant")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::retire_grant::RetireGrantError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::retire_grant::RetireGrantError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::retire_grant::RetireGrantError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::retire_grant::RetireGrantError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1910,26 +3897,57 @@ where
 impl From<crate::operation::retire_grant::RetireGrantError> for Error {
     fn from(err: crate::operation::retire_grant::RetireGrantError) -> Self {
         match err {
-            crate::operation::retire_grant::RetireGrantError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::retire_grant::RetireGrantError::DryRunOperationException(inner) => Error::DryRunOperationException(inner),
-            crate::operation::retire_grant::RetireGrantError::InvalidArnException(inner) => Error::InvalidArnException(inner),
-            crate::operation::retire_grant::RetireGrantError::InvalidGrantIdException(inner) => Error::InvalidGrantIdException(inner),
-            crate::operation::retire_grant::RetireGrantError::InvalidGrantTokenException(inner) => Error::InvalidGrantTokenException(inner),
-            crate::operation::retire_grant::RetireGrantError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::retire_grant::RetireGrantError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::retire_grant::RetireGrantError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::retire_grant::RetireGrantError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::retire_grant::RetireGrantError::DependencyTimeoutException(inner) => {
+                Error::DependencyTimeoutException(inner)
+            }
+            crate::operation::retire_grant::RetireGrantError::DryRunOperationException(inner) => {
+                Error::DryRunOperationException(inner)
+            }
+            crate::operation::retire_grant::RetireGrantError::InvalidArnException(inner) => {
+                Error::InvalidArnException(inner)
+            }
+            crate::operation::retire_grant::RetireGrantError::InvalidGrantIdException(inner) => {
+                Error::InvalidGrantIdException(inner)
+            }
+            crate::operation::retire_grant::RetireGrantError::InvalidGrantTokenException(inner) => {
+                Error::InvalidGrantTokenException(inner)
+            }
+            crate::operation::retire_grant::RetireGrantError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::retire_grant::RetireGrantError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::retire_grant::RetireGrantError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
+            crate::operation::retire_grant::RetireGrantError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_revoke_grant")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::revoke_grant::RevokeGrantError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::revoke_grant::RevokeGrantError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::revoke_grant::RevokeGrantError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::revoke_grant::RevokeGrantError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1941,25 +3959,54 @@ where
 impl From<crate::operation::revoke_grant::RevokeGrantError> for Error {
     fn from(err: crate::operation::revoke_grant::RevokeGrantError) -> Self {
         match err {
-            crate::operation::revoke_grant::RevokeGrantError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::revoke_grant::RevokeGrantError::DryRunOperationException(inner) => Error::DryRunOperationException(inner),
-            crate::operation::revoke_grant::RevokeGrantError::InvalidArnException(inner) => Error::InvalidArnException(inner),
-            crate::operation::revoke_grant::RevokeGrantError::InvalidGrantIdException(inner) => Error::InvalidGrantIdException(inner),
-            crate::operation::revoke_grant::RevokeGrantError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::revoke_grant::RevokeGrantError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::revoke_grant::RevokeGrantError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::revoke_grant::RevokeGrantError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::revoke_grant::RevokeGrantError::DependencyTimeoutException(inner) => {
+                Error::DependencyTimeoutException(inner)
+            }
+            crate::operation::revoke_grant::RevokeGrantError::DryRunOperationException(inner) => {
+                Error::DryRunOperationException(inner)
+            }
+            crate::operation::revoke_grant::RevokeGrantError::InvalidArnException(inner) => {
+                Error::InvalidArnException(inner)
+            }
+            crate::operation::revoke_grant::RevokeGrantError::InvalidGrantIdException(inner) => {
+                Error::InvalidGrantIdException(inner)
+            }
+            crate::operation::revoke_grant::RevokeGrantError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::revoke_grant::RevokeGrantError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::revoke_grant::RevokeGrantError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
+            crate::operation::revoke_grant::RevokeGrantError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_rotate_key_on_demand")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::rotate_key_on_demand::RotateKeyOnDemandError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::rotate_key_on_demand::RotateKeyOnDemandError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::rotate_key_on_demand::RotateKeyOnDemandError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::rotate_key_on_demand::RotateKeyOnDemandError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1989,13 +4036,26 @@ impl From<crate::operation::rotate_key_on_demand::RotateKeyOnDemandError> for Er
     }
 }
 #[cfg(feature = "op_schedule_key_deletion")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::schedule_key_deletion::ScheduleKeyDeletionError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::schedule_key_deletion::ScheduleKeyDeletionError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::schedule_key_deletion::ScheduleKeyDeletionError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::schedule_key_deletion::ScheduleKeyDeletionError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2021,13 +4081,22 @@ impl From<crate::operation::schedule_key_deletion::ScheduleKeyDeletionError> for
     }
 }
 #[cfg(feature = "op_sign")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::sign::SignError, R>> for Error
+impl<R>
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::sign::SignError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::sign::SignError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::sign::SignError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2039,27 +4108,58 @@ where
 impl From<crate::operation::sign::SignError> for Error {
     fn from(err: crate::operation::sign::SignError) -> Self {
         match err {
-            crate::operation::sign::SignError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::sign::SignError::DisabledException(inner) => Error::DisabledException(inner),
-            crate::operation::sign::SignError::DryRunOperationException(inner) => Error::DryRunOperationException(inner),
-            crate::operation::sign::SignError::InvalidGrantTokenException(inner) => Error::InvalidGrantTokenException(inner),
-            crate::operation::sign::SignError::InvalidKeyUsageException(inner) => Error::InvalidKeyUsageException(inner),
-            crate::operation::sign::SignError::KeyUnavailableException(inner) => Error::KeyUnavailableException(inner),
-            crate::operation::sign::SignError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::sign::SignError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::sign::SignError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::sign::SignError::DependencyTimeoutException(inner) => {
+                Error::DependencyTimeoutException(inner)
+            }
+            crate::operation::sign::SignError::DisabledException(inner) => {
+                Error::DisabledException(inner)
+            }
+            crate::operation::sign::SignError::DryRunOperationException(inner) => {
+                Error::DryRunOperationException(inner)
+            }
+            crate::operation::sign::SignError::InvalidGrantTokenException(inner) => {
+                Error::InvalidGrantTokenException(inner)
+            }
+            crate::operation::sign::SignError::InvalidKeyUsageException(inner) => {
+                Error::InvalidKeyUsageException(inner)
+            }
+            crate::operation::sign::SignError::KeyUnavailableException(inner) => {
+                Error::KeyUnavailableException(inner)
+            }
+            crate::operation::sign::SignError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::sign::SignError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::sign::SignError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
             crate::operation::sign::SignError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_tag_resource")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::tag_resource::TagResourceError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::tag_resource::TagResourceError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2071,24 +4171,51 @@ where
 impl From<crate::operation::tag_resource::TagResourceError> for Error {
     fn from(err: crate::operation::tag_resource::TagResourceError) -> Self {
         match err {
-            crate::operation::tag_resource::TagResourceError::InvalidArnException(inner) => Error::InvalidArnException(inner),
-            crate::operation::tag_resource::TagResourceError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::tag_resource::TagResourceError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::tag_resource::TagResourceError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::tag_resource::TagResourceError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::tag_resource::TagResourceError::TagException(inner) => Error::TagException(inner),
-            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::tag_resource::TagResourceError::InvalidArnException(inner) => {
+                Error::InvalidArnException(inner)
+            }
+            crate::operation::tag_resource::TagResourceError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::tag_resource::TagResourceError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::tag_resource::TagResourceError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::tag_resource::TagResourceError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
+            crate::operation::tag_resource::TagResourceError::TagException(inner) => {
+                Error::TagException(inner)
+            }
+            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_untag_resource")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::untag_resource::UntagResourceError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::untag_resource::UntagResourceError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2100,23 +4227,48 @@ where
 impl From<crate::operation::untag_resource::UntagResourceError> for Error {
     fn from(err: crate::operation::untag_resource::UntagResourceError) -> Self {
         match err {
-            crate::operation::untag_resource::UntagResourceError::InvalidArnException(inner) => Error::InvalidArnException(inner),
-            crate::operation::untag_resource::UntagResourceError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::untag_resource::UntagResourceError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::untag_resource::UntagResourceError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::untag_resource::UntagResourceError::TagException(inner) => Error::TagException(inner),
-            crate::operation::untag_resource::UntagResourceError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::untag_resource::UntagResourceError::InvalidArnException(inner) => {
+                Error::InvalidArnException(inner)
+            }
+            crate::operation::untag_resource::UntagResourceError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::untag_resource::UntagResourceError::KmsInvalidStateException(
+                inner,
+            ) => Error::KmsInvalidStateException(inner),
+            crate::operation::untag_resource::UntagResourceError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
+            crate::operation::untag_resource::UntagResourceError::TagException(inner) => {
+                Error::TagException(inner)
+            }
+            crate::operation::untag_resource::UntagResourceError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_update_alias")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_alias::UpdateAliasError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_alias::UpdateAliasError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_alias::UpdateAliasError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_alias::UpdateAliasError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2128,25 +4280,48 @@ where
 impl From<crate::operation::update_alias::UpdateAliasError> for Error {
     fn from(err: crate::operation::update_alias::UpdateAliasError) -> Self {
         match err {
-            crate::operation::update_alias::UpdateAliasError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::update_alias::UpdateAliasError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::update_alias::UpdateAliasError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::update_alias::UpdateAliasError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::update_alias::UpdateAliasError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::update_alias::UpdateAliasError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::update_alias::UpdateAliasError::DependencyTimeoutException(inner) => {
+                Error::DependencyTimeoutException(inner)
+            }
+            crate::operation::update_alias::UpdateAliasError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::update_alias::UpdateAliasError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::update_alias::UpdateAliasError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::update_alias::UpdateAliasError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
+            crate::operation::update_alias::UpdateAliasError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_update_custom_key_store")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_custom_key_store::UpdateCustomKeyStoreError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_custom_key_store::UpdateCustomKeyStoreError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_custom_key_store::UpdateCustomKeyStoreError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_custom_key_store::UpdateCustomKeyStoreError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2212,13 +4387,26 @@ impl From<crate::operation::update_custom_key_store::UpdateCustomKeyStoreError> 
     }
 }
 #[cfg(feature = "op_update_key_description")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_key_description::UpdateKeyDescriptionError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_key_description::UpdateKeyDescriptionError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_key_description::UpdateKeyDescriptionError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_key_description::UpdateKeyDescriptionError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2244,13 +4432,26 @@ impl From<crate::operation::update_key_description::UpdateKeyDescriptionError> f
     }
 }
 #[cfg(feature = "op_update_primary_region")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_primary_region::UpdatePrimaryRegionError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_primary_region::UpdatePrimaryRegionError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_primary_region::UpdatePrimaryRegionError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_primary_region::UpdatePrimaryRegionError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2277,13 +4478,26 @@ impl From<crate::operation::update_primary_region::UpdatePrimaryRegionError> for
     }
 }
 #[cfg(feature = "op_verify")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::verify::VerifyError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::verify::VerifyError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::verify::VerifyError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::verify::VerifyError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2295,28 +4509,61 @@ where
 impl From<crate::operation::verify::VerifyError> for Error {
     fn from(err: crate::operation::verify::VerifyError) -> Self {
         match err {
-            crate::operation::verify::VerifyError::DependencyTimeoutException(inner) => Error::DependencyTimeoutException(inner),
-            crate::operation::verify::VerifyError::DisabledException(inner) => Error::DisabledException(inner),
-            crate::operation::verify::VerifyError::DryRunOperationException(inner) => Error::DryRunOperationException(inner),
-            crate::operation::verify::VerifyError::InvalidGrantTokenException(inner) => Error::InvalidGrantTokenException(inner),
-            crate::operation::verify::VerifyError::InvalidKeyUsageException(inner) => Error::InvalidKeyUsageException(inner),
-            crate::operation::verify::VerifyError::KeyUnavailableException(inner) => Error::KeyUnavailableException(inner),
-            crate::operation::verify::VerifyError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::verify::VerifyError::KmsInvalidSignatureException(inner) => Error::KmsInvalidSignatureException(inner),
-            crate::operation::verify::VerifyError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::verify::VerifyError::NotFoundException(inner) => Error::NotFoundException(inner),
+            crate::operation::verify::VerifyError::DependencyTimeoutException(inner) => {
+                Error::DependencyTimeoutException(inner)
+            }
+            crate::operation::verify::VerifyError::DisabledException(inner) => {
+                Error::DisabledException(inner)
+            }
+            crate::operation::verify::VerifyError::DryRunOperationException(inner) => {
+                Error::DryRunOperationException(inner)
+            }
+            crate::operation::verify::VerifyError::InvalidGrantTokenException(inner) => {
+                Error::InvalidGrantTokenException(inner)
+            }
+            crate::operation::verify::VerifyError::InvalidKeyUsageException(inner) => {
+                Error::InvalidKeyUsageException(inner)
+            }
+            crate::operation::verify::VerifyError::KeyUnavailableException(inner) => {
+                Error::KeyUnavailableException(inner)
+            }
+            crate::operation::verify::VerifyError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::verify::VerifyError::KmsInvalidSignatureException(inner) => {
+                Error::KmsInvalidSignatureException(inner)
+            }
+            crate::operation::verify::VerifyError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::verify::VerifyError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
             crate::operation::verify::VerifyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_verify_mac")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::verify_mac::VerifyMacError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::verify_mac::VerifyMacError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::verify_mac::VerifyMacError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::verify_mac::VerifyMacError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2328,16 +4575,36 @@ where
 impl From<crate::operation::verify_mac::VerifyMacError> for Error {
     fn from(err: crate::operation::verify_mac::VerifyMacError) -> Self {
         match err {
-            crate::operation::verify_mac::VerifyMacError::DisabledException(inner) => Error::DisabledException(inner),
-            crate::operation::verify_mac::VerifyMacError::DryRunOperationException(inner) => Error::DryRunOperationException(inner),
-            crate::operation::verify_mac::VerifyMacError::InvalidGrantTokenException(inner) => Error::InvalidGrantTokenException(inner),
-            crate::operation::verify_mac::VerifyMacError::InvalidKeyUsageException(inner) => Error::InvalidKeyUsageException(inner),
-            crate::operation::verify_mac::VerifyMacError::KeyUnavailableException(inner) => Error::KeyUnavailableException(inner),
-            crate::operation::verify_mac::VerifyMacError::KmsInternalException(inner) => Error::KmsInternalException(inner),
-            crate::operation::verify_mac::VerifyMacError::KmsInvalidMacException(inner) => Error::KmsInvalidMacException(inner),
-            crate::operation::verify_mac::VerifyMacError::KmsInvalidStateException(inner) => Error::KmsInvalidStateException(inner),
-            crate::operation::verify_mac::VerifyMacError::NotFoundException(inner) => Error::NotFoundException(inner),
-            crate::operation::verify_mac::VerifyMacError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::verify_mac::VerifyMacError::DisabledException(inner) => {
+                Error::DisabledException(inner)
+            }
+            crate::operation::verify_mac::VerifyMacError::DryRunOperationException(inner) => {
+                Error::DryRunOperationException(inner)
+            }
+            crate::operation::verify_mac::VerifyMacError::InvalidGrantTokenException(inner) => {
+                Error::InvalidGrantTokenException(inner)
+            }
+            crate::operation::verify_mac::VerifyMacError::InvalidKeyUsageException(inner) => {
+                Error::InvalidKeyUsageException(inner)
+            }
+            crate::operation::verify_mac::VerifyMacError::KeyUnavailableException(inner) => {
+                Error::KeyUnavailableException(inner)
+            }
+            crate::operation::verify_mac::VerifyMacError::KmsInternalException(inner) => {
+                Error::KmsInternalException(inner)
+            }
+            crate::operation::verify_mac::VerifyMacError::KmsInvalidMacException(inner) => {
+                Error::KmsInvalidMacException(inner)
+            }
+            crate::operation::verify_mac::VerifyMacError::KmsInvalidStateException(inner) => {
+                Error::KmsInvalidStateException(inner)
+            }
+            crate::operation::verify_mac::VerifyMacError::NotFoundException(inner) => {
+                Error::NotFoundException(inner)
+            }
+            crate::operation::verify_mac::VerifyMacError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -2345,101 +4612,506 @@ impl ::std::error::Error for Error {
     fn source(&self) -> std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             #[cfg(any(feature = "op_create_alias", feature = "op_replicate_key"))]
-Error::AlreadyExistsException(inner) => inner.source(),
+            Error::AlreadyExistsException(inner) => inner.source(),
             #[cfg(feature = "op_create_custom_key_store")]
-Error::CloudHsmClusterInUseException(inner) => inner.source(),
-            #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_custom_key_store", feature = "op_create_key", feature = "op_update_custom_key_store"))]
-Error::CloudHsmClusterInvalidConfigurationException(inner) => inner.source(),
-            #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::CloudHsmClusterNotActiveException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::CloudHsmClusterNotFoundException(inner) => inner.source(),
+            Error::CloudHsmClusterInUseException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_custom_key_store",
+                feature = "op_create_key",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::CloudHsmClusterInvalidConfigurationException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::CloudHsmClusterNotActiveException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::CloudHsmClusterNotFoundException(inner) => inner.source(),
             #[cfg(feature = "op_update_custom_key_store")]
-Error::CloudHsmClusterNotRelatedException(inner) => inner.source(),
+            Error::CloudHsmClusterNotRelatedException(inner) => inner.source(),
             #[cfg(feature = "op_rotate_key_on_demand")]
-Error::ConflictException(inner) => inner.source(),
+            Error::ConflictException(inner) => inner.source(),
             #[cfg(feature = "op_delete_custom_key_store")]
-Error::CustomKeyStoreHasCmKsException(inner) => inner.source(),
-            #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_key", feature = "op_delete_custom_key_store", feature = "op_disconnect_custom_key_store", feature = "op_generate_random", feature = "op_update_custom_key_store"))]
-Error::CustomKeyStoreInvalidStateException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::CustomKeyStoreNameInUseException(inner) => inner.source(),
-            #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_key", feature = "op_delete_custom_key_store", feature = "op_describe_custom_key_stores", feature = "op_disconnect_custom_key_store", feature = "op_generate_random", feature = "op_update_custom_key_store"))]
-Error::CustomKeyStoreNotFoundException(inner) => inner.source(),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_alias", feature = "op_create_grant", feature = "op_create_key", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_random", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_keys", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_update_alias", feature = "op_update_key_description", feature = "op_verify"))]
-Error::DependencyTimeoutException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_grant", feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_disable_key_rotation", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_rotate_key_on_demand", feature = "op_sign", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-Error::DisabledException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_grant", feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_re_encrypt", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-Error::DryRunOperationException(inner) => inner.source(),
+            Error::CustomKeyStoreHasCmKsException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_key",
+                feature = "op_delete_custom_key_store",
+                feature = "op_disconnect_custom_key_store",
+                feature = "op_generate_random",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::CustomKeyStoreInvalidStateException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::CustomKeyStoreNameInUseException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_key",
+                feature = "op_delete_custom_key_store",
+                feature = "op_describe_custom_key_stores",
+                feature = "op_disconnect_custom_key_store",
+                feature = "op_generate_random",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::CustomKeyStoreNotFoundException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_create_alias",
+                feature = "op_create_grant",
+                feature = "op_create_key",
+                feature = "op_decrypt",
+                feature = "op_delete_alias",
+                feature = "op_delete_imported_key_material",
+                feature = "op_derive_shared_secret",
+                feature = "op_describe_key",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_random",
+                feature = "op_get_key_last_usage",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_keys",
+                feature = "op_list_retirable_grants",
+                feature = "op_put_key_policy",
+                feature = "op_re_encrypt",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_sign",
+                feature = "op_update_alias",
+                feature = "op_update_key_description",
+                feature = "op_verify"
+            ))]
+            Error::DependencyTimeoutException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_public_key",
+                feature = "op_re_encrypt",
+                feature = "op_replicate_key",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_sign",
+                feature = "op_update_primary_region",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Error::DisabledException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_re_encrypt",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_sign",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Error::DryRunOperationException(inner) => inner.source(),
             #[cfg(feature = "op_import_key_material")]
-Error::ExpiredImportTokenException(inner) => inner.source(),
+            Error::ExpiredImportTokenException(inner) => inner.source(),
             #[cfg(any(feature = "op_decrypt", feature = "op_re_encrypt"))]
-Error::IncorrectKeyException(inner) => inner.source(),
+            Error::IncorrectKeyException(inner) => inner.source(),
             #[cfg(feature = "op_import_key_material")]
-Error::IncorrectKeyMaterialException(inner) => inner.source(),
+            Error::IncorrectKeyMaterialException(inner) => inner.source(),
             #[cfg(feature = "op_create_custom_key_store")]
-Error::IncorrectTrustAnchorException(inner) => inner.source(),
+            Error::IncorrectTrustAnchorException(inner) => inner.source(),
             #[cfg(feature = "op_create_alias")]
-Error::InvalidAliasNameException(inner) => inner.source(),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_grant", feature = "op_create_key", feature = "op_delete_imported_key_material", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_list_resource_tags", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_key_description", feature = "op_update_primary_region"))]
-Error::InvalidArnException(inner) => inner.source(),
-            #[cfg(any(feature = "op_decrypt", feature = "op_import_key_material", feature = "op_re_encrypt"))]
-Error::InvalidCiphertextException(inner) => inner.source(),
-            #[cfg(any(feature = "op_list_grants", feature = "op_retire_grant", feature = "op_revoke_grant"))]
-Error::InvalidGrantIdException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_grant", feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_retire_grant", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-Error::InvalidGrantTokenException(inner) => inner.source(),
+            Error::InvalidAliasNameException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_create_grant",
+                feature = "op_create_key",
+                feature = "op_delete_imported_key_material",
+                feature = "op_describe_key",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_get_key_last_usage",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_key_rotations",
+                feature = "op_list_resource_tags",
+                feature = "op_list_retirable_grants",
+                feature = "op_put_key_policy",
+                feature = "op_replicate_key",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_key_description",
+                feature = "op_update_primary_region"
+            ))]
+            Error::InvalidArnException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_decrypt",
+                feature = "op_import_key_material",
+                feature = "op_re_encrypt"
+            ))]
+            Error::InvalidCiphertextException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_list_grants",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant"
+            ))]
+            Error::InvalidGrantIdException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_public_key",
+                feature = "op_re_encrypt",
+                feature = "op_retire_grant",
+                feature = "op_sign",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Error::InvalidGrantTokenException(inner) => inner.source(),
             #[cfg(feature = "op_import_key_material")]
-Error::InvalidImportTokenException(inner) => inner.source(),
-            #[cfg(any(feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-Error::InvalidKeyUsageException(inner) => inner.source(),
-            #[cfg(any(feature = "op_describe_custom_key_stores", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_rotations", feature = "op_list_keys", feature = "op_list_resource_tags", feature = "op_list_retirable_grants"))]
-Error::InvalidMarkerException(inner) => inner.source(),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_connect_custom_key_store", feature = "op_create_alias", feature = "op_create_custom_key_store", feature = "op_create_grant", feature = "op_create_key", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_custom_key_store", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_describe_custom_key_stores", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_disconnect_custom_key_store", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_generate_random", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_list_keys", feature = "op_list_resource_tags", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_custom_key_store", feature = "op_update_key_description", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-Error::KmsInternalException(inner) => inner.source(),
+            Error::InvalidImportTokenException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_public_key",
+                feature = "op_re_encrypt",
+                feature = "op_sign",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Error::InvalidKeyUsageException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_describe_custom_key_stores",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_rotations",
+                feature = "op_list_keys",
+                feature = "op_list_resource_tags",
+                feature = "op_list_retirable_grants"
+            ))]
+            Error::InvalidMarkerException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_alias",
+                feature = "op_create_custom_key_store",
+                feature = "op_create_grant",
+                feature = "op_create_key",
+                feature = "op_decrypt",
+                feature = "op_delete_alias",
+                feature = "op_delete_custom_key_store",
+                feature = "op_delete_imported_key_material",
+                feature = "op_derive_shared_secret",
+                feature = "op_describe_custom_key_stores",
+                feature = "op_describe_key",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_disconnect_custom_key_store",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_generate_random",
+                feature = "op_get_key_last_usage",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_key_rotations",
+                feature = "op_list_keys",
+                feature = "op_list_resource_tags",
+                feature = "op_list_retirable_grants",
+                feature = "op_put_key_policy",
+                feature = "op_re_encrypt",
+                feature = "op_replicate_key",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_sign",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_alias",
+                feature = "op_update_custom_key_store",
+                feature = "op_update_key_description",
+                feature = "op_update_primary_region",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Error::KmsInternalException(inner) => inner.source(),
             #[cfg(feature = "op_verify_mac")]
-Error::KmsInvalidMacException(inner) => inner.source(),
+            Error::KmsInvalidMacException(inner) => inner.source(),
             #[cfg(feature = "op_verify")]
-Error::KmsInvalidSignatureException(inner) => inner.source(),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_alias", feature = "op_create_grant", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_key_description", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-Error::KmsInvalidStateException(inner) => inner.source(),
-            #[cfg(any(feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-Error::KeyUnavailableException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_alias", feature = "op_create_custom_key_store", feature = "op_create_grant", feature = "op_create_key", feature = "op_enable_key", feature = "op_put_key_policy", feature = "op_replicate_key", feature = "op_rotate_key_on_demand", feature = "op_tag_resource", feature = "op_update_alias"))]
-Error::LimitExceededException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_key", feature = "op_put_key_policy", feature = "op_replicate_key"))]
-Error::MalformedPolicyDocumentException(inner) => inner.source(),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_alias", feature = "op_create_grant", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_list_resource_tags", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_key_description", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-Error::NotFoundException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_key", feature = "op_replicate_key", feature = "op_tag_resource", feature = "op_untag_resource"))]
-Error::TagException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_key", feature = "op_delete_imported_key_material", feature = "op_disable_key_rotation", feature = "op_enable_key_rotation", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_random", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_key_rotations", feature = "op_put_key_policy", feature = "op_replicate_key", feature = "op_rotate_key_on_demand", feature = "op_update_primary_region"))]
-Error::UnsupportedOperationException(inner) => inner.source(),
+            Error::KmsInvalidSignatureException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_create_alias",
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_delete_alias",
+                feature = "op_delete_imported_key_material",
+                feature = "op_derive_shared_secret",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_key_rotations",
+                feature = "op_put_key_policy",
+                feature = "op_re_encrypt",
+                feature = "op_replicate_key",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_sign",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_alias",
+                feature = "op_update_key_description",
+                feature = "op_update_primary_region",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Error::KmsInvalidStateException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_public_key",
+                feature = "op_re_encrypt",
+                feature = "op_sign",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Error::KeyUnavailableException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_alias",
+                feature = "op_create_custom_key_store",
+                feature = "op_create_grant",
+                feature = "op_create_key",
+                feature = "op_enable_key",
+                feature = "op_put_key_policy",
+                feature = "op_replicate_key",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_tag_resource",
+                feature = "op_update_alias"
+            ))]
+            Error::LimitExceededException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_key",
+                feature = "op_put_key_policy",
+                feature = "op_replicate_key"
+            ))]
+            Error::MalformedPolicyDocumentException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_create_alias",
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_delete_alias",
+                feature = "op_delete_imported_key_material",
+                feature = "op_derive_shared_secret",
+                feature = "op_describe_key",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_key_last_usage",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_key_rotations",
+                feature = "op_list_resource_tags",
+                feature = "op_list_retirable_grants",
+                feature = "op_put_key_policy",
+                feature = "op_re_encrypt",
+                feature = "op_replicate_key",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_sign",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_alias",
+                feature = "op_update_key_description",
+                feature = "op_update_primary_region",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Error::NotFoundException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_key",
+                feature = "op_replicate_key",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource"
+            ))]
+            Error::TagException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_key",
+                feature = "op_delete_imported_key_material",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key_rotation",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_random",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_key_rotations",
+                feature = "op_put_key_policy",
+                feature = "op_replicate_key",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_update_primary_region"
+            ))]
+            Error::UnsupportedOperationException(inner) => inner.source(),
             #[cfg(feature = "op_create_key")]
-Error::XksKeyAlreadyInUseException(inner) => inner.source(),
+            Error::XksKeyAlreadyInUseException(inner) => inner.source(),
             #[cfg(feature = "op_create_key")]
-Error::XksKeyInvalidConfigurationException(inner) => inner.source(),
+            Error::XksKeyInvalidConfigurationException(inner) => inner.source(),
             #[cfg(feature = "op_create_key")]
-Error::XksKeyNotFoundException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::XksProxyIncorrectAuthenticationCredentialException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::XksProxyInvalidConfigurationException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::XksProxyInvalidResponseException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::XksProxyUriEndpointInUseException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::XksProxyUriInUseException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::XksProxyUriUnreachableException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::XksProxyVpcEndpointServiceInUseException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::XksProxyVpcEndpointServiceInvalidConfigurationException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Error::XksProxyVpcEndpointServiceNotFoundException(inner) => inner.source(),
+            Error::XksKeyNotFoundException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::XksProxyIncorrectAuthenticationCredentialException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::XksProxyInvalidConfigurationException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::XksProxyInvalidResponseException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::XksProxyUriEndpointInUseException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::XksProxyUriInUseException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::XksProxyUriUnreachableException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::XksProxyVpcEndpointServiceInUseException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::XksProxyVpcEndpointServiceInvalidConfigurationException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Error::XksProxyVpcEndpointServiceNotFoundException(inner) => inner.source(),
             Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source),
         }
     }
@@ -2448,101 +5120,506 @@ impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
             #[cfg(any(feature = "op_create_alias", feature = "op_replicate_key"))]
-Self::AlreadyExistsException(e) => e.request_id(),
+            Self::AlreadyExistsException(e) => e.request_id(),
             #[cfg(feature = "op_create_custom_key_store")]
-Self::CloudHsmClusterInUseException(e) => e.request_id(),
-            #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_custom_key_store", feature = "op_create_key", feature = "op_update_custom_key_store"))]
-Self::CloudHsmClusterInvalidConfigurationException(e) => e.request_id(),
-            #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::CloudHsmClusterNotActiveException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::CloudHsmClusterNotFoundException(e) => e.request_id(),
+            Self::CloudHsmClusterInUseException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_custom_key_store",
+                feature = "op_create_key",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::CloudHsmClusterInvalidConfigurationException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::CloudHsmClusterNotActiveException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::CloudHsmClusterNotFoundException(e) => e.request_id(),
             #[cfg(feature = "op_update_custom_key_store")]
-Self::CloudHsmClusterNotRelatedException(e) => e.request_id(),
+            Self::CloudHsmClusterNotRelatedException(e) => e.request_id(),
             #[cfg(feature = "op_rotate_key_on_demand")]
-Self::ConflictException(e) => e.request_id(),
+            Self::ConflictException(e) => e.request_id(),
             #[cfg(feature = "op_delete_custom_key_store")]
-Self::CustomKeyStoreHasCmKsException(e) => e.request_id(),
-            #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_key", feature = "op_delete_custom_key_store", feature = "op_disconnect_custom_key_store", feature = "op_generate_random", feature = "op_update_custom_key_store"))]
-Self::CustomKeyStoreInvalidStateException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::CustomKeyStoreNameInUseException(e) => e.request_id(),
-            #[cfg(any(feature = "op_connect_custom_key_store", feature = "op_create_key", feature = "op_delete_custom_key_store", feature = "op_describe_custom_key_stores", feature = "op_disconnect_custom_key_store", feature = "op_generate_random", feature = "op_update_custom_key_store"))]
-Self::CustomKeyStoreNotFoundException(e) => e.request_id(),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_alias", feature = "op_create_grant", feature = "op_create_key", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_random", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_keys", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_update_alias", feature = "op_update_key_description", feature = "op_verify"))]
-Self::DependencyTimeoutException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_grant", feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_disable_key_rotation", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_rotate_key_on_demand", feature = "op_sign", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-Self::DisabledException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_grant", feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_re_encrypt", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-Self::DryRunOperationException(e) => e.request_id(),
+            Self::CustomKeyStoreHasCmKsException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_key",
+                feature = "op_delete_custom_key_store",
+                feature = "op_disconnect_custom_key_store",
+                feature = "op_generate_random",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::CustomKeyStoreInvalidStateException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::CustomKeyStoreNameInUseException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_key",
+                feature = "op_delete_custom_key_store",
+                feature = "op_describe_custom_key_stores",
+                feature = "op_disconnect_custom_key_store",
+                feature = "op_generate_random",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::CustomKeyStoreNotFoundException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_create_alias",
+                feature = "op_create_grant",
+                feature = "op_create_key",
+                feature = "op_decrypt",
+                feature = "op_delete_alias",
+                feature = "op_delete_imported_key_material",
+                feature = "op_derive_shared_secret",
+                feature = "op_describe_key",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_random",
+                feature = "op_get_key_last_usage",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_keys",
+                feature = "op_list_retirable_grants",
+                feature = "op_put_key_policy",
+                feature = "op_re_encrypt",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_sign",
+                feature = "op_update_alias",
+                feature = "op_update_key_description",
+                feature = "op_verify"
+            ))]
+            Self::DependencyTimeoutException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_public_key",
+                feature = "op_re_encrypt",
+                feature = "op_replicate_key",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_sign",
+                feature = "op_update_primary_region",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Self::DisabledException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_re_encrypt",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_sign",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Self::DryRunOperationException(e) => e.request_id(),
             #[cfg(feature = "op_import_key_material")]
-Self::ExpiredImportTokenException(e) => e.request_id(),
+            Self::ExpiredImportTokenException(e) => e.request_id(),
             #[cfg(any(feature = "op_decrypt", feature = "op_re_encrypt"))]
-Self::IncorrectKeyException(e) => e.request_id(),
+            Self::IncorrectKeyException(e) => e.request_id(),
             #[cfg(feature = "op_import_key_material")]
-Self::IncorrectKeyMaterialException(e) => e.request_id(),
+            Self::IncorrectKeyMaterialException(e) => e.request_id(),
             #[cfg(feature = "op_create_custom_key_store")]
-Self::IncorrectTrustAnchorException(e) => e.request_id(),
+            Self::IncorrectTrustAnchorException(e) => e.request_id(),
             #[cfg(feature = "op_create_alias")]
-Self::InvalidAliasNameException(e) => e.request_id(),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_grant", feature = "op_create_key", feature = "op_delete_imported_key_material", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_list_resource_tags", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_key_description", feature = "op_update_primary_region"))]
-Self::InvalidArnException(e) => e.request_id(),
-            #[cfg(any(feature = "op_decrypt", feature = "op_import_key_material", feature = "op_re_encrypt"))]
-Self::InvalidCiphertextException(e) => e.request_id(),
-            #[cfg(any(feature = "op_list_grants", feature = "op_retire_grant", feature = "op_revoke_grant"))]
-Self::InvalidGrantIdException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_grant", feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_retire_grant", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-Self::InvalidGrantTokenException(e) => e.request_id(),
+            Self::InvalidAliasNameException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_create_grant",
+                feature = "op_create_key",
+                feature = "op_delete_imported_key_material",
+                feature = "op_describe_key",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_get_key_last_usage",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_key_rotations",
+                feature = "op_list_resource_tags",
+                feature = "op_list_retirable_grants",
+                feature = "op_put_key_policy",
+                feature = "op_replicate_key",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_key_description",
+                feature = "op_update_primary_region"
+            ))]
+            Self::InvalidArnException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_decrypt",
+                feature = "op_import_key_material",
+                feature = "op_re_encrypt"
+            ))]
+            Self::InvalidCiphertextException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_list_grants",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant"
+            ))]
+            Self::InvalidGrantIdException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_public_key",
+                feature = "op_re_encrypt",
+                feature = "op_retire_grant",
+                feature = "op_sign",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Self::InvalidGrantTokenException(e) => e.request_id(),
             #[cfg(feature = "op_import_key_material")]
-Self::InvalidImportTokenException(e) => e.request_id(),
-            #[cfg(any(feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-Self::InvalidKeyUsageException(e) => e.request_id(),
-            #[cfg(any(feature = "op_describe_custom_key_stores", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_rotations", feature = "op_list_keys", feature = "op_list_resource_tags", feature = "op_list_retirable_grants"))]
-Self::InvalidMarkerException(e) => e.request_id(),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_connect_custom_key_store", feature = "op_create_alias", feature = "op_create_custom_key_store", feature = "op_create_grant", feature = "op_create_key", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_custom_key_store", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_describe_custom_key_stores", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_disconnect_custom_key_store", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_generate_random", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_list_keys", feature = "op_list_resource_tags", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_custom_key_store", feature = "op_update_key_description", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-Self::KmsInternalException(e) => e.request_id(),
+            Self::InvalidImportTokenException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_public_key",
+                feature = "op_re_encrypt",
+                feature = "op_sign",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Self::InvalidKeyUsageException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_describe_custom_key_stores",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_rotations",
+                feature = "op_list_keys",
+                feature = "op_list_resource_tags",
+                feature = "op_list_retirable_grants"
+            ))]
+            Self::InvalidMarkerException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_connect_custom_key_store",
+                feature = "op_create_alias",
+                feature = "op_create_custom_key_store",
+                feature = "op_create_grant",
+                feature = "op_create_key",
+                feature = "op_decrypt",
+                feature = "op_delete_alias",
+                feature = "op_delete_custom_key_store",
+                feature = "op_delete_imported_key_material",
+                feature = "op_derive_shared_secret",
+                feature = "op_describe_custom_key_stores",
+                feature = "op_describe_key",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_disconnect_custom_key_store",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_generate_random",
+                feature = "op_get_key_last_usage",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_key_rotations",
+                feature = "op_list_keys",
+                feature = "op_list_resource_tags",
+                feature = "op_list_retirable_grants",
+                feature = "op_put_key_policy",
+                feature = "op_re_encrypt",
+                feature = "op_replicate_key",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_sign",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_alias",
+                feature = "op_update_custom_key_store",
+                feature = "op_update_key_description",
+                feature = "op_update_primary_region",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Self::KmsInternalException(e) => e.request_id(),
             #[cfg(feature = "op_verify_mac")]
-Self::KmsInvalidMacException(e) => e.request_id(),
+            Self::KmsInvalidMacException(e) => e.request_id(),
             #[cfg(feature = "op_verify")]
-Self::KmsInvalidSignatureException(e) => e.request_id(),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_alias", feature = "op_create_grant", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_key_description", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-Self::KmsInvalidStateException(e) => e.request_id(),
-            #[cfg(any(feature = "op_decrypt", feature = "op_derive_shared_secret", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_public_key", feature = "op_re_encrypt", feature = "op_sign", feature = "op_verify", feature = "op_verify_mac"))]
-Self::KeyUnavailableException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_alias", feature = "op_create_custom_key_store", feature = "op_create_grant", feature = "op_create_key", feature = "op_enable_key", feature = "op_put_key_policy", feature = "op_replicate_key", feature = "op_rotate_key_on_demand", feature = "op_tag_resource", feature = "op_update_alias"))]
-Self::LimitExceededException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_key", feature = "op_put_key_policy", feature = "op_replicate_key"))]
-Self::MalformedPolicyDocumentException(e) => e.request_id(),
-            #[cfg(any(feature = "op_cancel_key_deletion", feature = "op_create_alias", feature = "op_create_grant", feature = "op_decrypt", feature = "op_delete_alias", feature = "op_delete_imported_key_material", feature = "op_derive_shared_secret", feature = "op_describe_key", feature = "op_disable_key", feature = "op_disable_key_rotation", feature = "op_enable_key", feature = "op_enable_key_rotation", feature = "op_encrypt", feature = "op_generate_data_key", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_data_key_without_plaintext", feature = "op_generate_mac", feature = "op_get_key_last_usage", feature = "op_get_key_policy", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_aliases", feature = "op_list_grants", feature = "op_list_key_policies", feature = "op_list_key_rotations", feature = "op_list_resource_tags", feature = "op_list_retirable_grants", feature = "op_put_key_policy", feature = "op_re_encrypt", feature = "op_replicate_key", feature = "op_retire_grant", feature = "op_revoke_grant", feature = "op_rotate_key_on_demand", feature = "op_schedule_key_deletion", feature = "op_sign", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_alias", feature = "op_update_key_description", feature = "op_update_primary_region", feature = "op_verify", feature = "op_verify_mac"))]
-Self::NotFoundException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_key", feature = "op_replicate_key", feature = "op_tag_resource", feature = "op_untag_resource"))]
-Self::TagException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_key", feature = "op_delete_imported_key_material", feature = "op_disable_key_rotation", feature = "op_enable_key_rotation", feature = "op_generate_data_key_pair", feature = "op_generate_data_key_pair_without_plaintext", feature = "op_generate_random", feature = "op_get_key_rotation_status", feature = "op_get_parameters_for_import", feature = "op_get_public_key", feature = "op_import_key_material", feature = "op_list_key_rotations", feature = "op_put_key_policy", feature = "op_replicate_key", feature = "op_rotate_key_on_demand", feature = "op_update_primary_region"))]
-Self::UnsupportedOperationException(e) => e.request_id(),
+            Self::KmsInvalidSignatureException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_create_alias",
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_delete_alias",
+                feature = "op_delete_imported_key_material",
+                feature = "op_derive_shared_secret",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_key_rotations",
+                feature = "op_put_key_policy",
+                feature = "op_re_encrypt",
+                feature = "op_replicate_key",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_sign",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_alias",
+                feature = "op_update_key_description",
+                feature = "op_update_primary_region",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Self::KmsInvalidStateException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_decrypt",
+                feature = "op_derive_shared_secret",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_public_key",
+                feature = "op_re_encrypt",
+                feature = "op_sign",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Self::KeyUnavailableException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_alias",
+                feature = "op_create_custom_key_store",
+                feature = "op_create_grant",
+                feature = "op_create_key",
+                feature = "op_enable_key",
+                feature = "op_put_key_policy",
+                feature = "op_replicate_key",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_tag_resource",
+                feature = "op_update_alias"
+            ))]
+            Self::LimitExceededException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_key",
+                feature = "op_put_key_policy",
+                feature = "op_replicate_key"
+            ))]
+            Self::MalformedPolicyDocumentException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_cancel_key_deletion",
+                feature = "op_create_alias",
+                feature = "op_create_grant",
+                feature = "op_decrypt",
+                feature = "op_delete_alias",
+                feature = "op_delete_imported_key_material",
+                feature = "op_derive_shared_secret",
+                feature = "op_describe_key",
+                feature = "op_disable_key",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key",
+                feature = "op_enable_key_rotation",
+                feature = "op_encrypt",
+                feature = "op_generate_data_key",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_data_key_without_plaintext",
+                feature = "op_generate_mac",
+                feature = "op_get_key_last_usage",
+                feature = "op_get_key_policy",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_aliases",
+                feature = "op_list_grants",
+                feature = "op_list_key_policies",
+                feature = "op_list_key_rotations",
+                feature = "op_list_resource_tags",
+                feature = "op_list_retirable_grants",
+                feature = "op_put_key_policy",
+                feature = "op_re_encrypt",
+                feature = "op_replicate_key",
+                feature = "op_retire_grant",
+                feature = "op_revoke_grant",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_schedule_key_deletion",
+                feature = "op_sign",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_alias",
+                feature = "op_update_key_description",
+                feature = "op_update_primary_region",
+                feature = "op_verify",
+                feature = "op_verify_mac"
+            ))]
+            Self::NotFoundException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_key",
+                feature = "op_replicate_key",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource"
+            ))]
+            Self::TagException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_key",
+                feature = "op_delete_imported_key_material",
+                feature = "op_disable_key_rotation",
+                feature = "op_enable_key_rotation",
+                feature = "op_generate_data_key_pair",
+                feature = "op_generate_data_key_pair_without_plaintext",
+                feature = "op_generate_random",
+                feature = "op_get_key_rotation_status",
+                feature = "op_get_parameters_for_import",
+                feature = "op_get_public_key",
+                feature = "op_import_key_material",
+                feature = "op_list_key_rotations",
+                feature = "op_put_key_policy",
+                feature = "op_replicate_key",
+                feature = "op_rotate_key_on_demand",
+                feature = "op_update_primary_region"
+            ))]
+            Self::UnsupportedOperationException(e) => e.request_id(),
             #[cfg(feature = "op_create_key")]
-Self::XksKeyAlreadyInUseException(e) => e.request_id(),
+            Self::XksKeyAlreadyInUseException(e) => e.request_id(),
             #[cfg(feature = "op_create_key")]
-Self::XksKeyInvalidConfigurationException(e) => e.request_id(),
+            Self::XksKeyInvalidConfigurationException(e) => e.request_id(),
             #[cfg(feature = "op_create_key")]
-Self::XksKeyNotFoundException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::XksProxyIncorrectAuthenticationCredentialException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::XksProxyInvalidConfigurationException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::XksProxyInvalidResponseException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::XksProxyUriEndpointInUseException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::XksProxyUriInUseException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::XksProxyUriUnreachableException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::XksProxyVpcEndpointServiceInUseException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::XksProxyVpcEndpointServiceInvalidConfigurationException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
-Self::XksProxyVpcEndpointServiceNotFoundException(e) => e.request_id(),
+            Self::XksKeyNotFoundException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::XksProxyIncorrectAuthenticationCredentialException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::XksProxyInvalidConfigurationException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::XksProxyInvalidResponseException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::XksProxyUriEndpointInUseException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::XksProxyUriInUseException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::XksProxyUriUnreachableException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::XksProxyVpcEndpointServiceInUseException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::XksProxyVpcEndpointServiceInvalidConfigurationException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_custom_key_store",
+                feature = "op_update_custom_key_store"
+            ))]
+            Self::XksProxyVpcEndpointServiceNotFoundException(e) => e.request_id(),
             Self::Unhandled(e) => e.meta.request_id(),
         }
     }

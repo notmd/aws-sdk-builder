@@ -16,7 +16,9 @@ pub fn ser_list_retirable_grants_input_input(
         object.key("RetiringPrincipal").string(var_3.as_str());
     }
     if let Some(var_4) = &input.retiring_service_principal {
-        object.key("RetiringServicePrincipal").string(var_4.as_str());
+        object
+            .key("RetiringServicePrincipal")
+            .string(var_4.as_str());
     }
     Ok(())
 }

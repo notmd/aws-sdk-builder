@@ -32,7 +32,9 @@ pub struct CreateScheduledQueryInput {
     /// <p>The initial state of the scheduled query. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. Default is <code>ENABLED</code>.</p>
     pub state: ::std::option::Option<crate::types::ScheduledQueryState>,
     /// <p>Key-value pairs to associate with the scheduled query for resource management and cost allocation.</p>
-    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub tags: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
 }
 impl CreateScheduledQueryInput {
     /// <p>The name of the scheduled query. The name must be unique within your account and region. Length must be between 1 and 300 characters.</p>
@@ -74,7 +76,9 @@ impl CreateScheduledQueryInput {
         self.end_time_offset
     }
     /// <p>Configuration for where to deliver query results. Supports Amazon S3 destinations for storing query output and lookup table destinations for automatically refreshing lookup tables with query results. You can configure one or both destination types.</p>
-    pub fn destination_configuration(&self) -> ::std::option::Option<&crate::types::DestinationConfiguration> {
+    pub fn destination_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::DestinationConfiguration> {
         self.destination_configuration.as_ref()
     }
     /// <p>The start time for the scheduled query in Unix epoch format. The query will not execute before this time.</p>
@@ -94,19 +98,26 @@ impl CreateScheduledQueryInput {
         self.state.as_ref()
     }
     /// <p>Key-value pairs to associate with the scheduled query for resource management and cost allocation.</p>
-    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn tags(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.tags.as_ref()
     }
 }
 impl CreateScheduledQueryInput {
     /// Creates a new builder-style object to manufacture [`CreateScheduledQueryInput`](crate::operation::create_scheduled_query::CreateScheduledQueryInput).
-    pub fn builder() -> crate::operation::create_scheduled_query::builders::CreateScheduledQueryInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::create_scheduled_query::builders::CreateScheduledQueryInputBuilder {
         crate::operation::create_scheduled_query::builders::CreateScheduledQueryInputBuilder::default()
     }
 }
 
 /// A builder for [`CreateScheduledQueryInput`](crate::operation::create_scheduled_query::CreateScheduledQueryInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateScheduledQueryInputBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -118,12 +129,15 @@ pub struct CreateScheduledQueryInputBuilder {
     pub(crate) timezone: ::std::option::Option<::std::string::String>,
     pub(crate) start_time_offset: ::std::option::Option<i64>,
     pub(crate) end_time_offset: ::std::option::Option<i64>,
-    pub(crate) destination_configuration: ::std::option::Option<crate::types::DestinationConfiguration>,
+    pub(crate) destination_configuration:
+        ::std::option::Option<crate::types::DestinationConfiguration>,
     pub(crate) schedule_start_time: ::std::option::Option<i64>,
     pub(crate) schedule_end_time: ::std::option::Option<i64>,
     pub(crate) execution_role_arn: ::std::option::Option<::std::string::String>,
     pub(crate) state: ::std::option::Option<crate::types::ScheduledQueryState>,
-    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) tags: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
 }
 impl CreateScheduledQueryInputBuilder {
     /// <p>The name of the scheduled query. The name must be unique within your account and region. Length must be between 1 and 300 characters.</p>
@@ -162,7 +176,10 @@ impl CreateScheduledQueryInputBuilder {
         self
     }
     /// <p>The query language to use for the scheduled query. Valid values are <code>CWLI</code>, <code>PPL</code>, and <code>SQL</code>.</p>
-    pub fn set_query_language(mut self, input: ::std::option::Option<crate::types::QueryLanguage>) -> Self {
+    pub fn set_query_language(
+        mut self,
+        input: ::std::option::Option<crate::types::QueryLanguage>,
+    ) -> Self {
         self.query_language = input;
         self
     }
@@ -190,29 +207,43 @@ impl CreateScheduledQueryInputBuilder {
     /// To override the contents of this collection use [`set_log_group_identifiers`](Self::set_log_group_identifiers).
     ///
     /// <p>An array of log group names or ARNs to query. You can specify between 1 and 50 log groups. Log groups can be identified by name or full ARN.</p>
-    pub fn log_group_identifiers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_group_identifiers(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.log_group_identifiers.unwrap_or_default();
         v.push(input.into());
         self.log_group_identifiers = ::std::option::Option::Some(v);
         self
     }
     /// <p>An array of log group names or ARNs to query. You can specify between 1 and 50 log groups. Log groups can be identified by name or full ARN.</p>
-    pub fn set_log_group_identifiers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_log_group_identifiers(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.log_group_identifiers = input;
         self
     }
     /// <p>An array of log group names or ARNs to query. You can specify between 1 and 50 log groups. Log groups can be identified by name or full ARN.</p>
-    pub fn get_log_group_identifiers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_group_identifiers(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.log_group_identifiers
     }
     /// <p>A cron expression that defines when the scheduled query runs. The expression uses standard cron syntax and supports minute-level precision. Maximum length is 256 characters.</p>
     /// This field is required.
-    pub fn schedule_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn schedule_expression(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.schedule_expression = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A cron expression that defines when the scheduled query runs. The expression uses standard cron syntax and supports minute-level precision. Maximum length is 256 characters.</p>
-    pub fn set_schedule_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_schedule_expression(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.schedule_expression = input;
         self
     }
@@ -263,17 +294,25 @@ impl CreateScheduledQueryInputBuilder {
         &self.end_time_offset
     }
     /// <p>Configuration for where to deliver query results. Supports Amazon S3 destinations for storing query output and lookup table destinations for automatically refreshing lookup tables with query results. You can configure one or both destination types.</p>
-    pub fn destination_configuration(mut self, input: crate::types::DestinationConfiguration) -> Self {
+    pub fn destination_configuration(
+        mut self,
+        input: crate::types::DestinationConfiguration,
+    ) -> Self {
         self.destination_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>Configuration for where to deliver query results. Supports Amazon S3 destinations for storing query output and lookup table destinations for automatically refreshing lookup tables with query results. You can configure one or both destination types.</p>
-    pub fn set_destination_configuration(mut self, input: ::std::option::Option<crate::types::DestinationConfiguration>) -> Self {
+    pub fn set_destination_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::DestinationConfiguration>,
+    ) -> Self {
         self.destination_configuration = input;
         self
     }
     /// <p>Configuration for where to deliver query results. Supports Amazon S3 destinations for storing query output and lookup table destinations for automatically refreshing lookup tables with query results. You can configure one or both destination types.</p>
-    pub fn get_destination_configuration(&self) -> &::std::option::Option<crate::types::DestinationConfiguration> {
+    pub fn get_destination_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::DestinationConfiguration> {
         &self.destination_configuration
     }
     /// <p>The start time for the scheduled query in Unix epoch format. The query will not execute before this time.</p>
@@ -306,12 +345,18 @@ impl CreateScheduledQueryInputBuilder {
     }
     /// <p>The ARN of the IAM role that grants permissions to execute the query and deliver results to the specified destination. The role must have permissions to read from the specified log groups and write to the destination.</p>
     /// This field is required.
-    pub fn execution_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn execution_role_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.execution_role_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the IAM role that grants permissions to execute the query and deliver results to the specified destination. The role must have permissions to read from the specified log groups and write to the destination.</p>
-    pub fn set_execution_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_execution_role_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.execution_role_arn = input;
         self
     }
@@ -325,7 +370,10 @@ impl CreateScheduledQueryInputBuilder {
         self
     }
     /// <p>The initial state of the scheduled query. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. Default is <code>ENABLED</code>.</p>
-    pub fn set_state(mut self, input: ::std::option::Option<crate::types::ScheduledQueryState>) -> Self {
+    pub fn set_state(
+        mut self,
+        input: ::std::option::Option<crate::types::ScheduledQueryState>,
+    ) -> Self {
         self.state = input;
         self
     }
@@ -338,42 +386,59 @@ impl CreateScheduledQueryInputBuilder {
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
     /// <p>Key-value pairs to associate with the scheduled query for resource management and cost allocation.</p>
-    pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn tags(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut hash_map = self.tags.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.tags = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>Key-value pairs to associate with the scheduled query for resource management and cost allocation.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
+    ) -> Self {
         self.tags = input;
         self
     }
     /// <p>Key-value pairs to associate with the scheduled query for resource management and cost allocation.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.tags
     }
     /// Consumes the builder and constructs a [`CreateScheduledQueryInput`](crate::operation::create_scheduled_query::CreateScheduledQueryInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::create_scheduled_query::CreateScheduledQueryInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::create_scheduled_query::CreateScheduledQueryInput {
-            name: self.name,
-            description: self.description,
-            query_language: self.query_language,
-            query_string: self.query_string,
-            log_group_identifiers: self.log_group_identifiers,
-            schedule_expression: self.schedule_expression,
-            timezone: self.timezone,
-            start_time_offset: self.start_time_offset,
-            end_time_offset: self.end_time_offset,
-            destination_configuration: self.destination_configuration,
-            schedule_start_time: self.schedule_start_time,
-            schedule_end_time: self.schedule_end_time,
-            execution_role_arn: self.execution_role_arn,
-            state: self.state,
-            tags: self.tags,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::create_scheduled_query::CreateScheduledQueryInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::create_scheduled_query::CreateScheduledQueryInput {
+                name: self.name,
+                description: self.description,
+                query_language: self.query_language,
+                query_string: self.query_string,
+                log_group_identifiers: self.log_group_identifiers,
+                schedule_expression: self.schedule_expression,
+                timezone: self.timezone,
+                start_time_offset: self.start_time_offset,
+                end_time_offset: self.end_time_offset,
+                destination_configuration: self.destination_configuration,
+                schedule_start_time: self.schedule_start_time,
+                schedule_end_time: self.schedule_end_time,
+                execution_role_arn: self.execution_role_arn,
+                state: self.state,
+                tags: self.tags,
+            },
+        )
     }
 }

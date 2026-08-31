@@ -14,7 +14,10 @@ impl super::Client {
     ///   - [`packages(Option<Vec::<AssociatedPackage>>)`](crate::operation::list_associated_packages::ListAssociatedPackagesOutput::packages): <p>The list of packages associated with the requested package group.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::list_associated_packages::ListAssociatedPackagesOutput::next_token): <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
     /// - On failure, responds with [`SdkError<ListAssociatedPackagesError>`](crate::operation::list_associated_packages::ListAssociatedPackagesError)
-    pub fn list_associated_packages(&self) -> crate::operation::list_associated_packages::builders::ListAssociatedPackagesFluentBuilder {
+    pub fn list_associated_packages(
+        &self,
+    ) -> crate::operation::list_associated_packages::builders::ListAssociatedPackagesFluentBuilder
+    {
         crate::operation::list_associated_packages::builders::ListAssociatedPackagesFluentBuilder::new(self.handle.clone())
     }
 }

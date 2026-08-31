@@ -29,7 +29,9 @@ impl GlobalTable {
 }
 
 /// A builder for [`GlobalTable`](crate::types::GlobalTable).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GlobalTableBuilder {
     pub(crate) global_table_name: ::std::option::Option<::std::string::String>,
@@ -37,12 +39,18 @@ pub struct GlobalTableBuilder {
 }
 impl GlobalTableBuilder {
     /// <p>The global table name.</p>
-    pub fn global_table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn global_table_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.global_table_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The global table name.</p>
-    pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_global_table_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.global_table_name = input;
         self
     }
@@ -62,12 +70,17 @@ impl GlobalTableBuilder {
         self
     }
     /// <p>The Regions where the global table has replicas.</p>
-    pub fn set_replication_group(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Replica>>) -> Self {
+    pub fn set_replication_group(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Replica>>,
+    ) -> Self {
         self.replication_group = input;
         self
     }
     /// <p>The Regions where the global table has replicas.</p>
-    pub fn get_replication_group(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Replica>> {
+    pub fn get_replication_group(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Replica>> {
         &self.replication_group
     }
     /// Consumes the builder and constructs a [`GlobalTable`](crate::types::GlobalTable).

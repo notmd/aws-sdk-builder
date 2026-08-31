@@ -53,7 +53,9 @@ impl PackageGroupDescription {
         self.description.as_deref()
     }
     /// <p>The package group origin configuration that determines how package versions can enter repositories.</p>
-    pub fn origin_configuration(&self) -> ::std::option::Option<&crate::types::PackageGroupOriginConfiguration> {
+    pub fn origin_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::PackageGroupOriginConfiguration> {
         self.origin_configuration.as_ref()
     }
     /// <p>The direct parent package group of the package group.</p>
@@ -69,7 +71,9 @@ impl PackageGroupDescription {
 }
 
 /// A builder for [`PackageGroupDescription`](crate::types::PackageGroupDescription).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PackageGroupDescriptionBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
@@ -79,7 +83,8 @@ pub struct PackageGroupDescriptionBuilder {
     pub(crate) created_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) contact_info: ::std::option::Option<::std::string::String>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
-    pub(crate) origin_configuration: ::std::option::Option<crate::types::PackageGroupOriginConfiguration>,
+    pub(crate) origin_configuration:
+        ::std::option::Option<crate::types::PackageGroupOriginConfiguration>,
     pub(crate) parent: ::std::option::Option<crate::types::PackageGroupReference>,
 }
 impl PackageGroupDescriptionBuilder {
@@ -145,7 +150,10 @@ impl PackageGroupDescriptionBuilder {
         self
     }
     /// <p>A timestamp that represents the date and time the package group was created.</p>
-    pub fn set_created_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_created_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.created_time = input;
         self
     }
@@ -182,17 +190,25 @@ impl PackageGroupDescriptionBuilder {
         &self.description
     }
     /// <p>The package group origin configuration that determines how package versions can enter repositories.</p>
-    pub fn origin_configuration(mut self, input: crate::types::PackageGroupOriginConfiguration) -> Self {
+    pub fn origin_configuration(
+        mut self,
+        input: crate::types::PackageGroupOriginConfiguration,
+    ) -> Self {
         self.origin_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>The package group origin configuration that determines how package versions can enter repositories.</p>
-    pub fn set_origin_configuration(mut self, input: ::std::option::Option<crate::types::PackageGroupOriginConfiguration>) -> Self {
+    pub fn set_origin_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::PackageGroupOriginConfiguration>,
+    ) -> Self {
         self.origin_configuration = input;
         self
     }
     /// <p>The package group origin configuration that determines how package versions can enter repositories.</p>
-    pub fn get_origin_configuration(&self) -> &::std::option::Option<crate::types::PackageGroupOriginConfiguration> {
+    pub fn get_origin_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::PackageGroupOriginConfiguration> {
         &self.origin_configuration
     }
     /// <p>The direct parent package group of the package group.</p>
@@ -201,7 +217,10 @@ impl PackageGroupDescriptionBuilder {
         self
     }
     /// <p>The direct parent package group of the package group.</p>
-    pub fn set_parent(mut self, input: ::std::option::Option<crate::types::PackageGroupReference>) -> Self {
+    pub fn set_parent(
+        mut self,
+        input: ::std::option::Option<crate::types::PackageGroupReference>,
+    ) -> Self {
         self.parent = input;
         self
     }

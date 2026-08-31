@@ -49,7 +49,10 @@ impl GuardrailImageBlockBuilder {
         self
     }
     /// <p>The format details for the file type of the image blocked by the guardrail.</p>
-    pub fn set_format(mut self, input: ::std::option::Option<crate::types::GuardrailImageFormat>) -> Self {
+    pub fn set_format(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailImageFormat>,
+    ) -> Self {
         self.format = input;
         self
     }
@@ -64,7 +67,10 @@ impl GuardrailImageBlockBuilder {
         self
     }
     /// <p>The image source (image bytes) details of the image blocked by the guardrail.</p>
-    pub fn set_source(mut self, input: ::std::option::Option<crate::types::GuardrailImageSource>) -> Self {
+    pub fn set_source(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailImageSource>,
+    ) -> Self {
         self.source = input;
         self
     }
@@ -75,7 +81,12 @@ impl GuardrailImageBlockBuilder {
     /// Consumes the builder and constructs a [`GuardrailImageBlock`](crate::types::GuardrailImageBlock).
     /// This method will fail if any of the following fields are not set:
     /// - [`format`](crate::types::builders::GuardrailImageBlockBuilder::format)
-    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailImageBlock, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::GuardrailImageBlock,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::GuardrailImageBlock {
             format: self.format.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

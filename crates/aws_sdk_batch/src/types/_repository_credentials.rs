@@ -21,7 +21,9 @@ impl RepositoryCredentials {
 }
 
 /// A builder for [`RepositoryCredentials`](crate::types::RepositoryCredentials).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RepositoryCredentialsBuilder {
     pub(crate) credentials_parameter: ::std::option::Option<::std::string::String>,
@@ -29,12 +31,18 @@ pub struct RepositoryCredentialsBuilder {
 impl RepositoryCredentialsBuilder {
     /// <p>The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p>
     /// This field is required.
-    pub fn credentials_parameter(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn credentials_parameter(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.credentials_parameter = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p>
-    pub fn set_credentials_parameter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_credentials_parameter(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.credentials_parameter = input;
         self
     }

@@ -6,7 +6,8 @@ pub struct DescribeConformancePackComplianceOutput {
     /// <p>Name of the conformance pack.</p>
     pub conformance_pack_name: ::std::string::String,
     /// <p>Returns a list of <code>ConformancePackRuleCompliance</code> objects.</p>
-    pub conformance_pack_rule_compliance_list: ::std::vec::Vec<crate::types::ConformancePackRuleCompliance>,
+    pub conformance_pack_rule_compliance_list:
+        ::std::vec::Vec<crate::types::ConformancePackRuleCompliance>,
     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -18,7 +19,9 @@ impl DescribeConformancePackComplianceOutput {
         self.conformance_pack_name.deref()
     }
     /// <p>Returns a list of <code>ConformancePackRuleCompliance</code> objects.</p>
-    pub fn conformance_pack_rule_compliance_list(&self) -> &[crate::types::ConformancePackRuleCompliance] {
+    pub fn conformance_pack_rule_compliance_list(
+        &self,
+    ) -> &[crate::types::ConformancePackRuleCompliance] {
         use std::ops::Deref;
         self.conformance_pack_rule_compliance_list.deref()
     }
@@ -34,29 +37,38 @@ impl ::aws_types::request_id::RequestId for DescribeConformancePackComplianceOut
 }
 impl DescribeConformancePackComplianceOutput {
     /// Creates a new builder-style object to manufacture [`DescribeConformancePackComplianceOutput`](crate::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceOutput).
-    pub fn builder() -> crate::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceOutputBuilder {
+    pub fn builder() -> crate::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceOutputBuilder{
         crate::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeConformancePackComplianceOutput`](crate::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeConformancePackComplianceOutputBuilder {
     pub(crate) conformance_pack_name: ::std::option::Option<::std::string::String>,
-    pub(crate) conformance_pack_rule_compliance_list: ::std::option::Option<::std::vec::Vec<crate::types::ConformancePackRuleCompliance>>,
+    pub(crate) conformance_pack_rule_compliance_list:
+        ::std::option::Option<::std::vec::Vec<crate::types::ConformancePackRuleCompliance>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl DescribeConformancePackComplianceOutputBuilder {
     /// <p>Name of the conformance pack.</p>
     /// This field is required.
-    pub fn conformance_pack_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn conformance_pack_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.conformance_pack_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Name of the conformance pack.</p>
-    pub fn set_conformance_pack_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_conformance_pack_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.conformance_pack_name = input;
         self
     }
@@ -69,8 +81,13 @@ impl DescribeConformancePackComplianceOutputBuilder {
     /// To override the contents of this collection use [`set_conformance_pack_rule_compliance_list`](Self::set_conformance_pack_rule_compliance_list).
     ///
     /// <p>Returns a list of <code>ConformancePackRuleCompliance</code> objects.</p>
-    pub fn conformance_pack_rule_compliance_list(mut self, input: crate::types::ConformancePackRuleCompliance) -> Self {
-        let mut v = self.conformance_pack_rule_compliance_list.unwrap_or_default();
+    pub fn conformance_pack_rule_compliance_list(
+        mut self,
+        input: crate::types::ConformancePackRuleCompliance,
+    ) -> Self {
+        let mut v = self
+            .conformance_pack_rule_compliance_list
+            .unwrap_or_default();
         v.push(input);
         self.conformance_pack_rule_compliance_list = ::std::option::Option::Some(v);
         self
@@ -84,7 +101,9 @@ impl DescribeConformancePackComplianceOutputBuilder {
         self
     }
     /// <p>Returns a list of <code>ConformancePackRuleCompliance</code> objects.</p>
-    pub fn get_conformance_pack_rule_compliance_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConformancePackRuleCompliance>> {
+    pub fn get_conformance_pack_rule_compliance_list(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ConformancePackRuleCompliance>> {
         &self.conformance_pack_rule_compliance_list
     }
     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
@@ -119,7 +138,7 @@ impl DescribeConformancePackComplianceOutputBuilder {
     ) -> ::std::result::Result<
         crate::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceOutput,
         ::aws_smithy_types::error::operation::BuildError,
-    > {
+    >{
         ::std::result::Result::Ok(
             crate::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceOutput {
                 conformance_pack_name: self.conformance_pack_name

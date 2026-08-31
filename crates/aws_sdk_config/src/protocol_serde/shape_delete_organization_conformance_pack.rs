@@ -91,14 +91,19 @@ pub fn de_delete_organization_conformance_pack_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackOutputBuilder::default();
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
 
 pub fn ser_delete_organization_conformance_pack_input(
     input: &crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+) -> ::std::result::Result<
+    ::aws_smithy_types::body::SdkBody,
+    ::aws_smithy_types::error::operation::SerializationError,
+> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_delete_organization_conformance_pack_input::ser_delete_organization_conformance_pack_input_input(

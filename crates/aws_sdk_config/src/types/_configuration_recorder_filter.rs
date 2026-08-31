@@ -13,7 +13,9 @@ pub struct ConfigurationRecorderFilter {
 }
 impl ConfigurationRecorderFilter {
     /// <p>The name of the type of filter. Currently, only <code>recordingScope</code> is supported.</p>
-    pub fn filter_name(&self) -> ::std::option::Option<&crate::types::ConfigurationRecorderFilterName> {
+    pub fn filter_name(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ConfigurationRecorderFilterName> {
         self.filter_name.as_ref()
     }
     /// <p>The value of the filter. For <code>recordingScope</code>, valid values include: <code>INTERNAL</code> and <code>PAID</code>.</p>
@@ -33,7 +35,9 @@ impl ConfigurationRecorderFilter {
 }
 
 /// A builder for [`ConfigurationRecorderFilter`](crate::types::ConfigurationRecorderFilter).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ConfigurationRecorderFilterBuilder {
     pub(crate) filter_name: ::std::option::Option<crate::types::ConfigurationRecorderFilterName>,
@@ -46,12 +50,17 @@ impl ConfigurationRecorderFilterBuilder {
         self
     }
     /// <p>The name of the type of filter. Currently, only <code>recordingScope</code> is supported.</p>
-    pub fn set_filter_name(mut self, input: ::std::option::Option<crate::types::ConfigurationRecorderFilterName>) -> Self {
+    pub fn set_filter_name(
+        mut self,
+        input: ::std::option::Option<crate::types::ConfigurationRecorderFilterName>,
+    ) -> Self {
         self.filter_name = input;
         self
     }
     /// <p>The name of the type of filter. Currently, only <code>recordingScope</code> is supported.</p>
-    pub fn get_filter_name(&self) -> &::std::option::Option<crate::types::ConfigurationRecorderFilterName> {
+    pub fn get_filter_name(
+        &self,
+    ) -> &::std::option::Option<crate::types::ConfigurationRecorderFilterName> {
         &self.filter_name
     }
     /// Appends an item to `filter_value`.
@@ -70,14 +79,19 @@ impl ConfigurationRecorderFilterBuilder {
     /// <p>The value of the filter. For <code>recordingScope</code>, valid values include: <code>INTERNAL</code> and <code>PAID</code>.</p>
     /// <p><code>INTERNAL</code> indicates that the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigurationItem.html">ConfigurationItems</a> in scope for the configuration recorder are recorded for free.</p>
     /// <p><code>PAID</code> indicates that the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigurationItem.html">ConfigurationItems</a> in scope for the configuration recorder impact the costs to your bill.</p>
-    pub fn set_filter_value(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_filter_value(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.filter_value = input;
         self
     }
     /// <p>The value of the filter. For <code>recordingScope</code>, valid values include: <code>INTERNAL</code> and <code>PAID</code>.</p>
     /// <p><code>INTERNAL</code> indicates that the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigurationItem.html">ConfigurationItems</a> in scope for the configuration recorder are recorded for free.</p>
     /// <p><code>PAID</code> indicates that the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigurationItem.html">ConfigurationItems</a> in scope for the configuration recorder impact the costs to your bill.</p>
-    pub fn get_filter_value(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_filter_value(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.filter_value
     }
     /// Consumes the builder and constructs a [`ConfigurationRecorderFilter`](crate::types::ConfigurationRecorderFilter).

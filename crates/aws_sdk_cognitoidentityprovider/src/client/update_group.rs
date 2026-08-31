@@ -11,7 +11,9 @@ impl super::Client {
     /// - On success, responds with [`UpdateGroupOutput`](crate::operation::update_group::UpdateGroupOutput) with field(s):
     ///   - [`group(Option<GroupType>)`](crate::operation::update_group::UpdateGroupOutput::group): <p>Contains the updated details of the group, including precedence, IAM role, and description.</p>
     /// - On failure, responds with [`SdkError<UpdateGroupError>`](crate::operation::update_group::UpdateGroupError)
-    pub fn update_group(&self) -> crate::operation::update_group::builders::UpdateGroupFluentBuilder {
+    pub fn update_group(
+        &self,
+    ) -> crate::operation::update_group::builders::UpdateGroupFluentBuilder {
         crate::operation::update_group::builders::UpdateGroupFluentBuilder::new(self.handle.clone())
     }
 }

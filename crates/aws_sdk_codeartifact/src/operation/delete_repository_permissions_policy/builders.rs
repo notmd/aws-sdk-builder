@@ -59,7 +59,7 @@ impl DeleteRepositoryPermissionsPolicyFluentBuilder {
         }
     }
     /// Access the DeleteRepositoryPermissionsPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -78,7 +78,7 @@ impl DeleteRepositoryPermissionsPolicyFluentBuilder {
             crate::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -98,15 +98,21 @@ impl DeleteRepositoryPermissionsPolicyFluentBuilder {
         crate::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyOutput,
         crate::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -153,12 +159,18 @@ impl DeleteRepositoryPermissionsPolicyFluentBuilder {
         self.inner.get_repository()
     }
     /// <p>The revision of the repository's resource policy to be deleted. This revision is used for optimistic locking, which prevents others from accidentally overwriting your changes to the repository's resource policy.</p>
-    pub fn policy_revision(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn policy_revision(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.policy_revision(input.into());
         self
     }
     /// <p>The revision of the repository's resource policy to be deleted. This revision is used for optimistic locking, which prevents others from accidentally overwriting your changes to the repository's resource policy.</p>
-    pub fn set_policy_revision(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_policy_revision(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_policy_revision(input);
         self
     }

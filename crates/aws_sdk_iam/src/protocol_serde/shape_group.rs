@@ -5,7 +5,9 @@ pub fn de_group(
     depth: u32,
 ) -> ::std::result::Result<crate::types::Group, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::Group::builder();

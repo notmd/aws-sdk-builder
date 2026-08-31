@@ -4,15 +4,26 @@ pub fn de_get_layer_version_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::get_layer_version::GetLayerVersionOutput, crate::operation::get_layer_version::GetLayerVersionError> {
+) -> std::result::Result<
+    crate::operation::get_layer_version::GetLayerVersionOutput,
+    crate::operation::get_layer_version::GetLayerVersionError,
+> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_layer_version::GetLayerVersionError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(crate::operation::get_layer_version::GetLayerVersionError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::get_layer_version::GetLayerVersionError::unhandled(generic)),
+        None => {
+            return Err(
+                crate::operation::get_layer_version::GetLayerVersionError::unhandled(generic),
+            )
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -96,13 +107,22 @@ pub fn de_get_layer_version_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::get_layer_version::GetLayerVersionOutput, crate::operation::get_layer_version::GetLayerVersionError> {
+) -> std::result::Result<
+    crate::operation::get_layer_version::GetLayerVersionOutput,
+    crate::operation::get_layer_version::GetLayerVersionError,
+> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::get_layer_version::builders::GetLayerVersionOutputBuilder::default();
-        output = crate::protocol_serde::shape_get_layer_version::de_get_layer_version(_response_body, output)
-            .map_err(crate::operation::get_layer_version::GetLayerVersionError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        let mut output =
+            crate::operation::get_layer_version::builders::GetLayerVersionOutputBuilder::default();
+        output = crate::protocol_serde::shape_get_layer_version::de_get_layer_version(
+            _response_body,
+            output,
+        )
+        .map_err(crate::operation::get_layer_version::GetLayerVersionError::unhandled)?;
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
@@ -114,7 +134,10 @@ pub(crate) fn de_get_layer_version(
     crate::operation::get_layer_version::builders::GetLayerVersionOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
+        crate::protocol_serde::or_empty_doc(_value),
+    )
+    .peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -122,79 +145,97 @@ pub(crate) fn de_get_layer_version(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "CompatibleArchitectures" => {
-                    builder = builder.set_compatible_architectures(
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "CompatibleArchitectures" => {
+                        builder = builder.set_compatible_architectures(
                         crate::protocol_serde::shape_compatible_architectures::de_compatible_architectures(tokens, _value, depth + 1)?,
                     );
-                }
-                "CompatibleRuntimes" => {
-                    builder = builder.set_compatible_runtimes(crate::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
+                    }
+                    "CompatibleRuntimes" => {
+                        builder = builder.set_compatible_runtimes(crate::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
                         tokens,
                         _value,
                         depth + 1,
                     )?);
-                }
-                "Content" => {
-                    builder = builder.set_content(
+                    }
+                    "Content" => {
+                        builder = builder.set_content(
                         crate::protocol_serde::shape_layer_version_content_output::de_layer_version_content_output(tokens, _value, depth + 1)?,
                     );
-                }
-                "CreatedDate" => {
-                    builder = builder.set_created_date(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                    }
+                    "CreatedDate" => {
+                        builder = builder.set_created_date(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                    );
-                }
-                "Description" => {
-                    builder = builder.set_description(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        );
+                    }
+                    "Description" => {
+                        builder = builder.set_description(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                    );
-                }
-                "LayerArn" => {
-                    builder = builder.set_layer_arn(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        );
+                    }
+                    "LayerArn" => {
+                        builder = builder.set_layer_arn(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                    );
-                }
-                "LayerVersionArn" => {
-                    builder = builder.set_layer_version_arn(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        );
+                    }
+                    "LayerVersionArn" => {
+                        builder = builder.set_layer_version_arn(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                    );
-                }
-                "LicenseInfo" => {
-                    builder = builder.set_license_info(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        );
+                    }
+                    "LicenseInfo" => {
+                        builder = builder.set_license_info(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                    );
-                }
-                "Version" => {
-                    builder = builder.set_version(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                        );
+                    }
+                    "Version" => {
+                        builder = builder.set_version(
+                            ::aws_smithy_json::deserialize::token::expect_number_or_null(
+                                tokens.next(),
+                            )?
                             .map(i64::try_from)
                             .transpose()?,
-                    );
+                        );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
+                return Err(
+                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                        "expected object key or end object, found: {other:?}"
+                    )),
+                )
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "found more JSON tokens after completing parsing",
+            ),
+        );
     }
     Ok(builder)
 }

@@ -118,13 +118,16 @@ impl ::aws_types::request_id::RequestId for ListObjectVersionsOutput {
 }
 impl ListObjectVersionsOutput {
     /// Creates a new builder-style object to manufacture [`ListObjectVersionsOutput`](crate::operation::list_object_versions::ListObjectVersionsOutput).
-    pub fn builder() -> crate::operation::list_object_versions::builders::ListObjectVersionsOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_object_versions::builders::ListObjectVersionsOutputBuilder {
         crate::operation::list_object_versions::builders::ListObjectVersionsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListObjectVersionsOutput`](crate::operation::list_object_versions::ListObjectVersionsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListObjectVersionsOutputBuilder {
     pub(crate) is_truncated: ::std::option::Option<bool>,
@@ -133,7 +136,8 @@ pub struct ListObjectVersionsOutputBuilder {
     pub(crate) next_key_marker: ::std::option::Option<::std::string::String>,
     pub(crate) next_version_id_marker: ::std::option::Option<::std::string::String>,
     pub(crate) versions: ::std::option::Option<::std::vec::Vec<crate::types::ObjectVersion>>,
-    pub(crate) delete_markers: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMarkerEntry>>,
+    pub(crate) delete_markers:
+        ::std::option::Option<::std::vec::Vec<crate::types::DeleteMarkerEntry>>,
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) prefix: ::std::option::Option<::std::string::String>,
     pub(crate) delimiter: ::std::option::Option<::std::string::String>,
@@ -174,12 +178,18 @@ impl ListObjectVersionsOutputBuilder {
         &self.key_marker
     }
     /// <p>Marks the last version of the key returned in a truncated response.</p>
-    pub fn version_id_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn version_id_marker(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.version_id_marker = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Marks the last version of the key returned in a truncated response.</p>
-    pub fn set_version_id_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_version_id_marker(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.version_id_marker = input;
         self
     }
@@ -188,12 +198,18 @@ impl ListObjectVersionsOutputBuilder {
         &self.version_id_marker
     }
     /// <p>When the number of responses exceeds the value of <code>MaxKeys</code>, <code>NextKeyMarker</code> specifies the first key not returned that satisfies the search criteria. Use this value for the key-marker request parameter in a subsequent request.</p>
-    pub fn next_key_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn next_key_marker(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.next_key_marker = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>When the number of responses exceeds the value of <code>MaxKeys</code>, <code>NextKeyMarker</code> specifies the first key not returned that satisfies the search criteria. Use this value for the key-marker request parameter in a subsequent request.</p>
-    pub fn set_next_key_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_next_key_marker(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.next_key_marker = input;
         self
     }
@@ -202,12 +218,18 @@ impl ListObjectVersionsOutputBuilder {
         &self.next_key_marker
     }
     /// <p>When the number of responses exceeds the value of <code>MaxKeys</code>, <code>NextVersionIdMarker</code> specifies the first object version not returned that satisfies the search criteria. Use this value for the <code>version-id-marker</code> request parameter in a subsequent request.</p>
-    pub fn next_version_id_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn next_version_id_marker(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.next_version_id_marker = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>When the number of responses exceeds the value of <code>MaxKeys</code>, <code>NextVersionIdMarker</code> specifies the first object version not returned that satisfies the search criteria. Use this value for the <code>version-id-marker</code> request parameter in a subsequent request.</p>
-    pub fn set_next_version_id_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_next_version_id_marker(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.next_version_id_marker = input;
         self
     }
@@ -227,12 +249,17 @@ impl ListObjectVersionsOutputBuilder {
         self
     }
     /// <p>Container for version information.</p>
-    pub fn set_versions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ObjectVersion>>) -> Self {
+    pub fn set_versions(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ObjectVersion>>,
+    ) -> Self {
         self.versions = input;
         self
     }
     /// <p>Container for version information.</p>
-    pub fn get_versions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ObjectVersion>> {
+    pub fn get_versions(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ObjectVersion>> {
         &self.versions
     }
     /// Appends an item to `delete_markers`.
@@ -247,12 +274,17 @@ impl ListObjectVersionsOutputBuilder {
         self
     }
     /// <p>Container for an object that is a delete marker. To learn more about delete markers, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html">Working with delete markers</a>.</p>
-    pub fn set_delete_markers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMarkerEntry>>) -> Self {
+    pub fn set_delete_markers(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMarkerEntry>>,
+    ) -> Self {
         self.delete_markers = input;
         self
     }
     /// <p>Container for an object that is a delete marker. To learn more about delete markers, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html">Working with delete markers</a>.</p>
-    pub fn get_delete_markers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeleteMarkerEntry>> {
+    pub fn get_delete_markers(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DeleteMarkerEntry>> {
         &self.delete_markers
     }
     /// <p>The bucket name.</p>
@@ -323,12 +355,17 @@ impl ListObjectVersionsOutputBuilder {
         self
     }
     /// <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
-    pub fn set_common_prefixes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>>) -> Self {
+    pub fn set_common_prefixes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>>,
+    ) -> Self {
         self.common_prefixes = input;
         self
     }
     /// <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
-    pub fn get_common_prefixes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>> {
+    pub fn get_common_prefixes(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>> {
         &self.common_prefixes
     }
     /// <p>Encoding type used by Amazon S3 to encode object key names in the XML response.</p>
@@ -341,7 +378,10 @@ impl ListObjectVersionsOutputBuilder {
     /// <p>Encoding type used by Amazon S3 to encode object key names in the XML response.</p>
     /// <p>If you specify the <code>encoding-type</code> request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
     /// <p><code>KeyMarker, NextKeyMarker, Prefix, Key</code>, and <code>Delimiter</code>.</p>
-    pub fn set_encoding_type(mut self, input: ::std::option::Option<crate::types::EncodingType>) -> Self {
+    pub fn set_encoding_type(
+        mut self,
+        input: ::std::option::Option<crate::types::EncodingType>,
+    ) -> Self {
         self.encoding_type = input;
         self
     }
@@ -361,7 +401,10 @@ impl ListObjectVersionsOutputBuilder {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+    pub fn set_request_charged(
+        mut self,
+        input: ::std::option::Option<crate::types::RequestCharged>,
+    ) -> Self {
         self.request_charged = input;
         self
     }
@@ -376,7 +419,10 @@ impl ListObjectVersionsOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(
+        &mut self,
+        extended_request_id: Option<String>,
+    ) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

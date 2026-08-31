@@ -8,12 +8,19 @@ pub(crate) fn de_list_message_move_tasks_result_entry_list<'a, I>(
     ::aws_smithy_json::deserialize::error::DeserializeError,
 >
 where
-    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+    I: Iterator<
+        Item = Result<
+            ::aws_smithy_json::deserialize::Token<'a>,
+            ::aws_smithy_json::deserialize::error::DeserializeError,
+        >,
+    >,
 {
     if depth >= 128u32 {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "maximum nesting depth exceeded",
+            ),
+        );
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -34,17 +41,21 @@ where
                         if let Some(value) = value {
                             items.push(value);
                         } else {
-                            return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                "dense list cannot contain null values",
-                            ));
+                            return Err(
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "dense list cannot contain null values",
+                                ),
+                            );
                         }
                     }
                 }
             }
             Ok(Some(items))
         }
-        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "expected start array or null",
-        )),
+        _ => Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start array or null",
+            ),
+        ),
     }
 }

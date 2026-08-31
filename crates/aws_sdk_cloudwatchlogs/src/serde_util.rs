@@ -4,13 +4,17 @@ pub(crate) fn rejected_entity_info_correct_errors(
     mut builder: crate::types::builders::RejectedEntityInfoBuilder,
 ) -> crate::types::builders::RejectedEntityInfoBuilder {
     if builder.error_type.is_none() {
-        builder.error_type = "no value was set".parse::<crate::types::EntityRejectionErrorType>().ok()
+        builder.error_type = "no value was set"
+            .parse::<crate::types::EntityRejectionErrorType>()
+            .ok()
     }
     builder
 }
 
 #[cfg(feature = "op_list_anomalies")]
-pub(crate) fn anomaly_correct_errors(mut builder: crate::types::builders::AnomalyBuilder) -> crate::types::builders::AnomalyBuilder {
+pub(crate) fn anomaly_correct_errors(
+    mut builder: crate::types::builders::AnomalyBuilder,
+) -> crate::types::builders::AnomalyBuilder {
     if builder.anomaly_id.is_none() {
         builder.anomaly_id = Some(Default::default())
     }
@@ -53,7 +57,11 @@ pub(crate) fn anomaly_correct_errors(mut builder: crate::types::builders::Anomal
     builder
 }
 
-#[cfg(any(feature = "op_describe_delivery_destinations", feature = "op_get_delivery_destination", feature = "op_put_delivery_destination"))]
+#[cfg(any(
+    feature = "op_describe_delivery_destinations",
+    feature = "op_get_delivery_destination",
+    feature = "op_put_delivery_destination"
+))]
 pub(crate) fn delivery_destination_configuration_correct_errors(
     mut builder: crate::types::builders::DeliveryDestinationConfigurationBuilder,
 ) -> crate::types::builders::DeliveryDestinationConfigurationBuilder {
@@ -64,17 +72,26 @@ pub(crate) fn delivery_destination_configuration_correct_errors(
 }
 
 #[cfg(feature = "op_describe_import_task_batches")]
-pub(crate) fn import_batch_correct_errors(mut builder: crate::types::builders::ImportBatchBuilder) -> crate::types::builders::ImportBatchBuilder {
+pub(crate) fn import_batch_correct_errors(
+    mut builder: crate::types::builders::ImportBatchBuilder,
+) -> crate::types::builders::ImportBatchBuilder {
     if builder.batch_id.is_none() {
         builder.batch_id = Some(Default::default())
     }
     if builder.status.is_none() {
-        builder.status = "no value was set".parse::<crate::types::ImportStatus>().ok()
+        builder.status = "no value was set"
+            .parse::<crate::types::ImportStatus>()
+            .ok()
     }
     builder
 }
 
-#[cfg(any(feature = "op_create_scheduled_query", feature = "op_get_scheduled_query", feature = "op_list_scheduled_queries", feature = "op_update_scheduled_query"))]
+#[cfg(any(
+    feature = "op_create_scheduled_query",
+    feature = "op_get_scheduled_query",
+    feature = "op_list_scheduled_queries",
+    feature = "op_update_scheduled_query"
+))]
 pub(crate) fn lookup_table_configuration_correct_errors(
     mut builder: crate::types::builders::LookupTableConfigurationBuilder,
 ) -> crate::types::builders::LookupTableConfigurationBuilder {
@@ -87,7 +104,12 @@ pub(crate) fn lookup_table_configuration_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_scheduled_query", feature = "op_get_scheduled_query", feature = "op_list_scheduled_queries", feature = "op_update_scheduled_query"))]
+#[cfg(any(
+    feature = "op_create_scheduled_query",
+    feature = "op_get_scheduled_query",
+    feature = "op_list_scheduled_queries",
+    feature = "op_update_scheduled_query"
+))]
 pub(crate) fn s3_configuration_correct_errors(
     mut builder: crate::types::builders::S3ConfigurationBuilder,
 ) -> crate::types::builders::S3ConfigurationBuilder {
@@ -100,31 +122,52 @@ pub(crate) fn s3_configuration_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
-pub(crate) fn add_keys_correct_errors(mut builder: crate::types::builders::AddKeysBuilder) -> crate::types::builders::AddKeysBuilder {
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
+pub(crate) fn add_keys_correct_errors(
+    mut builder: crate::types::builders::AddKeysBuilder,
+) -> crate::types::builders::AddKeysBuilder {
     if builder.entries.is_none() {
         builder.entries = Some(Default::default())
     }
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
-pub(crate) fn copy_value_correct_errors(mut builder: crate::types::builders::CopyValueBuilder) -> crate::types::builders::CopyValueBuilder {
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
+pub(crate) fn copy_value_correct_errors(
+    mut builder: crate::types::builders::CopyValueBuilder,
+) -> crate::types::builders::CopyValueBuilder {
     if builder.entries.is_none() {
         builder.entries = Some(Default::default())
     }
     builder
 }
 
-#[cfg(any(feature = "op_associate_source_to_s3_table_integration", feature = "op_list_sources_for_s3_table_integration"))]
-pub(crate) fn data_source_correct_errors(mut builder: crate::types::builders::DataSourceBuilder) -> crate::types::builders::DataSourceBuilder {
+#[cfg(any(
+    feature = "op_associate_source_to_s3_table_integration",
+    feature = "op_list_sources_for_s3_table_integration"
+))]
+pub(crate) fn data_source_correct_errors(
+    mut builder: crate::types::builders::DataSourceBuilder,
+) -> crate::types::builders::DataSourceBuilder {
     if builder.name.is_none() {
         builder.name = Some(Default::default())
     }
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
 pub(crate) fn date_time_converter_correct_errors(
     mut builder: crate::types::builders::DateTimeConverterBuilder,
 ) -> crate::types::builders::DateTimeConverterBuilder {
@@ -140,24 +183,42 @@ pub(crate) fn date_time_converter_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
-pub(crate) fn delete_keys_correct_errors(mut builder: crate::types::builders::DeleteKeysBuilder) -> crate::types::builders::DeleteKeysBuilder {
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
+pub(crate) fn delete_keys_correct_errors(
+    mut builder: crate::types::builders::DeleteKeysBuilder,
+) -> crate::types::builders::DeleteKeysBuilder {
     if builder.with_keys.is_none() {
         builder.with_keys = Some(Default::default())
     }
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
-pub(crate) fn grok_correct_errors(mut builder: crate::types::builders::GrokBuilder) -> crate::types::builders::GrokBuilder {
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
+pub(crate) fn grok_correct_errors(
+    mut builder: crate::types::builders::GrokBuilder,
+) -> crate::types::builders::GrokBuilder {
     if builder.r#match.is_none() {
         builder.r#match = Some(Default::default())
     }
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
-pub(crate) fn list_to_map_correct_errors(mut builder: crate::types::builders::ListToMapBuilder) -> crate::types::builders::ListToMapBuilder {
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
+pub(crate) fn list_to_map_correct_errors(
+    mut builder: crate::types::builders::ListToMapBuilder,
+) -> crate::types::builders::ListToMapBuilder {
     if builder.source.is_none() {
         builder.source = Some(Default::default())
     }
@@ -167,7 +228,11 @@ pub(crate) fn list_to_map_correct_errors(mut builder: crate::types::builders::Li
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
 pub(crate) fn lower_case_string_correct_errors(
     mut builder: crate::types::builders::LowerCaseStringBuilder,
 ) -> crate::types::builders::LowerCaseStringBuilder {
@@ -177,16 +242,28 @@ pub(crate) fn lower_case_string_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
-pub(crate) fn move_keys_correct_errors(mut builder: crate::types::builders::MoveKeysBuilder) -> crate::types::builders::MoveKeysBuilder {
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
+pub(crate) fn move_keys_correct_errors(
+    mut builder: crate::types::builders::MoveKeysBuilder,
+) -> crate::types::builders::MoveKeysBuilder {
     if builder.entries.is_none() {
         builder.entries = Some(Default::default())
     }
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
-pub(crate) fn parse_to_ocsf_correct_errors(mut builder: crate::types::builders::ParseToOcsfBuilder) -> crate::types::builders::ParseToOcsfBuilder {
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
+pub(crate) fn parse_to_ocsf_correct_errors(
+    mut builder: crate::types::builders::ParseToOcsfBuilder,
+) -> crate::types::builders::ParseToOcsfBuilder {
     if builder.event_source.is_none() {
         builder.event_source = "no value was set".parse::<crate::types::EventSource>().ok()
     }
@@ -196,23 +273,39 @@ pub(crate) fn parse_to_ocsf_correct_errors(mut builder: crate::types::builders::
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
-pub(crate) fn rename_keys_correct_errors(mut builder: crate::types::builders::RenameKeysBuilder) -> crate::types::builders::RenameKeysBuilder {
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
+pub(crate) fn rename_keys_correct_errors(
+    mut builder: crate::types::builders::RenameKeysBuilder,
+) -> crate::types::builders::RenameKeysBuilder {
     if builder.entries.is_none() {
         builder.entries = Some(Default::default())
     }
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
-pub(crate) fn split_string_correct_errors(mut builder: crate::types::builders::SplitStringBuilder) -> crate::types::builders::SplitStringBuilder {
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
+pub(crate) fn split_string_correct_errors(
+    mut builder: crate::types::builders::SplitStringBuilder,
+) -> crate::types::builders::SplitStringBuilder {
     if builder.entries.is_none() {
         builder.entries = Some(Default::default())
     }
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
 pub(crate) fn substitute_string_correct_errors(
     mut builder: crate::types::builders::SubstituteStringBuilder,
 ) -> crate::types::builders::SubstituteStringBuilder {
@@ -222,15 +315,25 @@ pub(crate) fn substitute_string_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
-pub(crate) fn trim_string_correct_errors(mut builder: crate::types::builders::TrimStringBuilder) -> crate::types::builders::TrimStringBuilder {
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
+pub(crate) fn trim_string_correct_errors(
+    mut builder: crate::types::builders::TrimStringBuilder,
+) -> crate::types::builders::TrimStringBuilder {
     if builder.with_keys.is_none() {
         builder.with_keys = Some(Default::default())
     }
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
 pub(crate) fn type_converter_correct_errors(
     mut builder: crate::types::builders::TypeConverterBuilder,
 ) -> crate::types::builders::TypeConverterBuilder {
@@ -240,7 +343,11 @@ pub(crate) fn type_converter_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
 pub(crate) fn upper_case_string_correct_errors(
     mut builder: crate::types::builders::UpperCaseStringBuilder,
 ) -> crate::types::builders::UpperCaseStringBuilder {
@@ -268,7 +375,10 @@ pub(crate) fn delivery_source_configuration_schema_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_describe_metric_filters", feature = "op_put_metric_filter"))]
+#[cfg(any(
+    feature = "op_describe_metric_filters",
+    feature = "op_put_metric_filter"
+))]
 pub(crate) fn metric_transformation_correct_errors(
     mut builder: crate::types::builders::MetricTransformationBuilder,
 ) -> crate::types::builders::MetricTransformationBuilder {
@@ -284,7 +394,10 @@ pub(crate) fn metric_transformation_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_describe_query_definitions", feature = "op_put_query_definition"))]
+#[cfg(any(
+    feature = "op_describe_query_definitions",
+    feature = "op_put_query_definition"
+))]
 pub(crate) fn query_parameter_correct_errors(
     mut builder: crate::types::builders::QueryParameterBuilder,
 ) -> crate::types::builders::QueryParameterBuilder {
@@ -294,8 +407,14 @@ pub(crate) fn query_parameter_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
-pub(crate) fn add_key_entry_correct_errors(mut builder: crate::types::builders::AddKeyEntryBuilder) -> crate::types::builders::AddKeyEntryBuilder {
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
+pub(crate) fn add_key_entry_correct_errors(
+    mut builder: crate::types::builders::AddKeyEntryBuilder,
+) -> crate::types::builders::AddKeyEntryBuilder {
     if builder.key.is_none() {
         builder.key = Some(Default::default())
     }
@@ -305,7 +424,11 @@ pub(crate) fn add_key_entry_correct_errors(mut builder: crate::types::builders::
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
 pub(crate) fn copy_value_entry_correct_errors(
     mut builder: crate::types::builders::CopyValueEntryBuilder,
 ) -> crate::types::builders::CopyValueEntryBuilder {
@@ -318,8 +441,14 @@ pub(crate) fn copy_value_entry_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
-pub(crate) fn move_key_entry_correct_errors(mut builder: crate::types::builders::MoveKeyEntryBuilder) -> crate::types::builders::MoveKeyEntryBuilder {
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
+pub(crate) fn move_key_entry_correct_errors(
+    mut builder: crate::types::builders::MoveKeyEntryBuilder,
+) -> crate::types::builders::MoveKeyEntryBuilder {
     if builder.source.is_none() {
         builder.source = Some(Default::default())
     }
@@ -329,7 +458,11 @@ pub(crate) fn move_key_entry_correct_errors(mut builder: crate::types::builders:
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
 pub(crate) fn rename_key_entry_correct_errors(
     mut builder: crate::types::builders::RenameKeyEntryBuilder,
 ) -> crate::types::builders::RenameKeyEntryBuilder {
@@ -342,7 +475,11 @@ pub(crate) fn rename_key_entry_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
 pub(crate) fn split_string_entry_correct_errors(
     mut builder: crate::types::builders::SplitStringEntryBuilder,
 ) -> crate::types::builders::SplitStringEntryBuilder {
@@ -355,7 +492,11 @@ pub(crate) fn split_string_entry_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
 pub(crate) fn substitute_string_entry_correct_errors(
     mut builder: crate::types::builders::SubstituteStringEntryBuilder,
 ) -> crate::types::builders::SubstituteStringEntryBuilder {
@@ -371,7 +512,11 @@ pub(crate) fn substitute_string_entry_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_get_transformer", feature = "op_put_transformer", feature = "op_test_transformer"))]
+#[cfg(any(
+    feature = "op_get_transformer",
+    feature = "op_put_transformer",
+    feature = "op_test_transformer"
+))]
 pub(crate) fn type_converter_entry_correct_errors(
     mut builder: crate::types::builders::TypeConverterEntryBuilder,
 ) -> crate::types::builders::TypeConverterEntryBuilder {

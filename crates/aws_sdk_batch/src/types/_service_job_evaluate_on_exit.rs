@@ -27,7 +27,9 @@ impl ServiceJobEvaluateOnExit {
 }
 
 /// A builder for [`ServiceJobEvaluateOnExit`](crate::types::ServiceJobEvaluateOnExit).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ServiceJobEvaluateOnExitBuilder {
     pub(crate) action: ::std::option::Option<crate::types::ServiceJobRetryAction>,
@@ -40,7 +42,10 @@ impl ServiceJobEvaluateOnExitBuilder {
         self
     }
     /// <p>The action to take if the service job exits with the specified condition. Valid values are <code>RETRY</code> and <code>EXIT</code>.</p>
-    pub fn set_action(mut self, input: ::std::option::Option<crate::types::ServiceJobRetryAction>) -> Self {
+    pub fn set_action(
+        mut self,
+        input: ::std::option::Option<crate::types::ServiceJobRetryAction>,
+    ) -> Self {
         self.action = input;
         self
     }
@@ -49,12 +54,18 @@ impl ServiceJobEvaluateOnExitBuilder {
         &self.action
     }
     /// <p>Contains a glob pattern to match against the StatusReason returned for a job. The pattern can contain up to 512 characters and can contain all printable characters. It can optionally end with an asterisk (*) so that only the start of the string needs to be an exact match.</p>
-    pub fn on_status_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn on_status_reason(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.on_status_reason = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Contains a glob pattern to match against the StatusReason returned for a job. The pattern can contain up to 512 characters and can contain all printable characters. It can optionally end with an asterisk (*) so that only the start of the string needs to be an exact match.</p>
-    pub fn set_on_status_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_on_status_reason(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.on_status_reason = input;
         self
     }

@@ -70,7 +70,9 @@ impl ToolResultContentBlock {
     }
     /// Tries to convert the enum instance into [`SearchResult`](crate::types::ToolResultContentBlock::SearchResult), extracting the inner [`SearchResultBlock`](crate::types::SearchResultBlock).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_search_result(&self) -> ::std::result::Result<&crate::types::SearchResultBlock, &Self> {
+    pub fn as_search_result(
+        &self,
+    ) -> ::std::result::Result<&crate::types::SearchResultBlock, &Self> {
         if let ToolResultContentBlock::SearchResult(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

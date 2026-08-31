@@ -26,19 +26,25 @@ impl UpdateCodeSigningConfigInput {
         self.allowed_publishers.as_ref()
     }
     /// <p>The code signing policy.</p>
-    pub fn code_signing_policies(&self) -> ::std::option::Option<&crate::types::CodeSigningPolicies> {
+    pub fn code_signing_policies(
+        &self,
+    ) -> ::std::option::Option<&crate::types::CodeSigningPolicies> {
         self.code_signing_policies.as_ref()
     }
 }
 impl UpdateCodeSigningConfigInput {
     /// Creates a new builder-style object to manufacture [`UpdateCodeSigningConfigInput`](crate::operation::update_code_signing_config::UpdateCodeSigningConfigInput).
-    pub fn builder() -> crate::operation::update_code_signing_config::builders::UpdateCodeSigningConfigInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_code_signing_config::builders::UpdateCodeSigningConfigInputBuilder
+    {
         crate::operation::update_code_signing_config::builders::UpdateCodeSigningConfigInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateCodeSigningConfigInput`](crate::operation::update_code_signing_config::UpdateCodeSigningConfigInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateCodeSigningConfigInputBuilder {
     pub(crate) code_signing_config_arn: ::std::option::Option<::std::string::String>,
@@ -49,12 +55,18 @@ pub struct UpdateCodeSigningConfigInputBuilder {
 impl UpdateCodeSigningConfigInputBuilder {
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
     /// This field is required.
-    pub fn code_signing_config_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn code_signing_config_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.code_signing_config_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-    pub fn set_code_signing_config_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_code_signing_config_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.code_signing_config_arn = input;
         self
     }
@@ -82,12 +94,17 @@ impl UpdateCodeSigningConfigInputBuilder {
         self
     }
     /// <p>Signing profiles for this code signing configuration.</p>
-    pub fn set_allowed_publishers(mut self, input: ::std::option::Option<crate::types::AllowedPublishers>) -> Self {
+    pub fn set_allowed_publishers(
+        mut self,
+        input: ::std::option::Option<crate::types::AllowedPublishers>,
+    ) -> Self {
         self.allowed_publishers = input;
         self
     }
     /// <p>Signing profiles for this code signing configuration.</p>
-    pub fn get_allowed_publishers(&self) -> &::std::option::Option<crate::types::AllowedPublishers> {
+    pub fn get_allowed_publishers(
+        &self,
+    ) -> &::std::option::Option<crate::types::AllowedPublishers> {
         &self.allowed_publishers
     }
     /// <p>The code signing policy.</p>
@@ -96,12 +113,17 @@ impl UpdateCodeSigningConfigInputBuilder {
         self
     }
     /// <p>The code signing policy.</p>
-    pub fn set_code_signing_policies(mut self, input: ::std::option::Option<crate::types::CodeSigningPolicies>) -> Self {
+    pub fn set_code_signing_policies(
+        mut self,
+        input: ::std::option::Option<crate::types::CodeSigningPolicies>,
+    ) -> Self {
         self.code_signing_policies = input;
         self
     }
     /// <p>The code signing policy.</p>
-    pub fn get_code_signing_policies(&self) -> &::std::option::Option<crate::types::CodeSigningPolicies> {
+    pub fn get_code_signing_policies(
+        &self,
+    ) -> &::std::option::Option<crate::types::CodeSigningPolicies> {
         &self.code_signing_policies
     }
     /// Consumes the builder and constructs a [`UpdateCodeSigningConfigInput`](crate::operation::update_code_signing_config::UpdateCodeSigningConfigInput).
@@ -111,11 +133,13 @@ impl UpdateCodeSigningConfigInputBuilder {
         crate::operation::update_code_signing_config::UpdateCodeSigningConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::update_code_signing_config::UpdateCodeSigningConfigInput {
-            code_signing_config_arn: self.code_signing_config_arn,
-            description: self.description,
-            allowed_publishers: self.allowed_publishers,
-            code_signing_policies: self.code_signing_policies,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::update_code_signing_config::UpdateCodeSigningConfigInput {
+                code_signing_config_arn: self.code_signing_config_arn,
+                description: self.description,
+                allowed_publishers: self.allowed_publishers,
+                code_signing_policies: self.code_signing_policies,
+            },
+        )
     }
 }

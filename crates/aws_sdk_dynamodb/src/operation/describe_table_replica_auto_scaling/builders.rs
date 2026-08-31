@@ -57,7 +57,7 @@ impl DescribeTableReplicaAutoScalingFluentBuilder {
         }
     }
     /// Access the DescribeTableReplicaAutoScaling as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_table_replica_auto_scaling::builders::DescribeTableReplicaAutoScalingInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::describe_table_replica_auto_scaling::builders::DescribeTableReplicaAutoScalingInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +76,7 @@ impl DescribeTableReplicaAutoScalingFluentBuilder {
             crate::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -96,15 +96,21 @@ impl DescribeTableReplicaAutoScalingFluentBuilder {
         crate::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingOutput,
         crate::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }

@@ -25,7 +25,9 @@ impl InstanceProfileExistsFluentBuilder {
         }
     }
     /// Access the GetInstanceProfile as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_instance_profile::builders::GetInstanceProfileInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_instance_profile::builders::GetInstanceProfileInputBuilder {
         &self.inner
     }
     /// Wait for `instance_profile_exists`
@@ -36,23 +38,31 @@ impl InstanceProfileExistsFluentBuilder {
         crate::waiters::instance_profile_exists::InstanceProfileExistsFinalPoll,
         crate::waiters::instance_profile_exists::WaitUntilInstanceProfileExistsError,
     > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_instance_profile::GetInstanceProfile::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            ::std::option::Option::None,
-        )
-        .with_operation_plugin(crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
+        let input = self.inner.build().map_err(
+            ::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure,
+        )?;
+        let runtime_plugins =
+            crate::operation::get_instance_profile::GetInstanceProfile::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                ::std::option::Option::None,
+            )
+            .with_operation_plugin(
+                crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new(),
+            );
         let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
         let runtime_components_builder = runtime_plugins
             .apply_client_configuration(&mut cfg)
-            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
+            .map_err(
+                ::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure,
+            )?;
         let time_components = runtime_components_builder.into_time_components();
-        let sleep_impl = time_components.sleep_impl().expect("a sleep impl is required by waiters");
-        let time_source = time_components.time_source().expect("a time source is required by waiters");
+        let sleep_impl = time_components
+            .sleep_impl()
+            .expect("a sleep impl is required by waiters");
+        let time_source = time_components
+            .time_source()
+            .expect("a time source is required by waiters");
 
         let acceptor = move |result: ::std::result::Result<
             &crate::operation::get_instance_profile::GetInstanceProfileOutput,
@@ -71,7 +81,13 @@ impl InstanceProfileExistsFluentBuilder {
         let operation = move || {
             let input = input.clone();
             let runtime_plugins = runtime_plugins.clone();
-            async move { crate::operation::get_instance_profile::GetInstanceProfile::orchestrate(&runtime_plugins, input).await }
+            async move {
+                crate::operation::get_instance_profile::GetInstanceProfile::orchestrate(
+                    &runtime_plugins,
+                    input,
+                )
+                .await
+            }
         };
         let orchestrator = ::aws_smithy_runtime::client::waiters::WaiterOrchestrator::builder()
             .min_delay(::std::time::Duration::from_secs(1))
@@ -82,17 +98,26 @@ impl InstanceProfileExistsFluentBuilder {
             .acceptor(acceptor)
             .operation(operation)
             .build();
-        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(orchestrator.orchestrate()).await
+        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(
+            orchestrator.orchestrate(),
+        )
+        .await
     }
     /// <p>The name of the instance profile to get information about.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn instance_profile_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn instance_profile_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.instance_profile_name(input.into());
         self
     }
     /// <p>The name of the instance profile to get information about.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_instance_profile_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_instance_profile_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_instance_profile_name(input);
         self
     }
@@ -113,7 +138,8 @@ pub type InstanceProfileExistsFinalPoll = ::aws_smithy_runtime_api::client::wait
 >;
 
 /// Error type for the `instance_profile_exists` waiter.
-pub type WaitUntilInstanceProfileExistsError = ::aws_smithy_runtime_api::client::waiters::error::WaiterError<
-    crate::operation::get_instance_profile::GetInstanceProfileOutput,
-    crate::operation::get_instance_profile::GetInstanceProfileError,
->;
+pub type WaitUntilInstanceProfileExistsError =
+    ::aws_smithy_runtime_api::client::waiters::error::WaiterError<
+        crate::operation::get_instance_profile::GetInstanceProfileOutput,
+        crate::operation::get_instance_profile::GetInstanceProfileError,
+    >;

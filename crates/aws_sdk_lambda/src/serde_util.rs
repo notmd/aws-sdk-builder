@@ -2,7 +2,8 @@
 #[cfg(feature = "op_checkpoint_durable_execution")]
 pub(crate) fn checkpoint_durable_execution_output_output_correct_errors(
     mut builder: crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionOutputBuilder,
-) -> crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionOutputBuilder {
+) -> crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionOutputBuilder
+{
     if builder.new_execution_state.is_none() {
         builder.new_execution_state = {
             let builder = crate::types::builders::CheckpointUpdatedExecutionStateBuilder::default();
@@ -19,12 +20,13 @@ pub(crate) fn create_capacity_provider_output_output_correct_errors(
     if builder.capacity_provider.is_none() {
         builder.capacity_provider = {
             let builder = crate::types::builders::CapacityProviderBuilder::default();
-            crate::serde_util::capacity_provider_correct_errors(builder).build().ok()
+            crate::serde_util::capacity_provider_correct_errors(builder)
+                .build()
+                .ok()
         }
     }
     builder
 }
-
 
 #[cfg(feature = "op_create_function_url_config")]
 pub(crate) fn create_function_url_config_output_output_correct_errors(
@@ -37,7 +39,9 @@ pub(crate) fn create_function_url_config_output_output_correct_errors(
         builder.function_arn = Some(Default::default())
     }
     if builder.auth_type.is_none() {
-        builder.auth_type = "no value was set".parse::<crate::types::FunctionUrlAuthType>().ok()
+        builder.auth_type = "no value was set"
+            .parse::<crate::types::FunctionUrlAuthType>()
+            .ok()
     }
     if builder.creation_time.is_none() {
         builder.creation_time = Some(Default::default())
@@ -52,7 +56,9 @@ pub(crate) fn delete_capacity_provider_output_output_correct_errors(
     if builder.capacity_provider.is_none() {
         builder.capacity_provider = {
             let builder = crate::types::builders::CapacityProviderBuilder::default();
-            crate::serde_util::capacity_provider_correct_errors(builder).build().ok()
+            crate::serde_util::capacity_provider_correct_errors(builder)
+                .build()
+                .ok()
         }
     }
     builder
@@ -65,7 +71,9 @@ pub(crate) fn get_capacity_provider_output_output_correct_errors(
     if builder.capacity_provider.is_none() {
         builder.capacity_provider = {
             let builder = crate::types::builders::CapacityProviderBuilder::default();
-            crate::serde_util::capacity_provider_correct_errors(builder).build().ok()
+            crate::serde_util::capacity_provider_correct_errors(builder)
+                .build()
+                .ok()
         }
     }
     builder
@@ -78,7 +86,9 @@ pub(crate) fn get_code_signing_config_output_output_correct_errors(
     if builder.code_signing_config.is_none() {
         builder.code_signing_config = {
             let builder = crate::types::builders::CodeSigningConfigBuilder::default();
-            crate::serde_util::code_signing_config_correct_errors(builder).build().ok()
+            crate::serde_util::code_signing_config_correct_errors(builder)
+                .build()
+                .ok()
         }
     }
     builder
@@ -101,7 +111,9 @@ pub(crate) fn get_durable_execution_output_output_correct_errors(
         builder.start_timestamp = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     if builder.status.is_none() {
-        builder.status = "no value was set".parse::<crate::types::ExecutionStatus>().ok()
+        builder.status = "no value was set"
+            .parse::<crate::types::ExecutionStatus>()
+            .ok()
     }
     builder
 }
@@ -109,7 +121,7 @@ pub(crate) fn get_durable_execution_output_output_correct_errors(
 #[cfg(feature = "op_get_durable_execution_history")]
 pub(crate) fn get_durable_execution_history_output_output_correct_errors(
     mut builder: crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder,
-) -> crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder {
+) -> crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder{
     if builder.events.is_none() {
         builder.events = Some(Default::default())
     }
@@ -119,7 +131,8 @@ pub(crate) fn get_durable_execution_history_output_output_correct_errors(
 #[cfg(feature = "op_get_durable_execution_state")]
 pub(crate) fn get_durable_execution_state_output_output_correct_errors(
     mut builder: crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateOutputBuilder,
-) -> crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateOutputBuilder {
+) -> crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateOutputBuilder
+{
     if builder.operations.is_none() {
         builder.operations = Some(Default::default())
     }
@@ -129,7 +142,7 @@ pub(crate) fn get_durable_execution_state_output_output_correct_errors(
 #[cfg(feature = "op_get_function_code_signing_config")]
 pub(crate) fn get_function_code_signing_config_output_output_correct_errors(
     mut builder: crate::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigOutputBuilder,
-) -> crate::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigOutputBuilder {
+) -> crate::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigOutputBuilder{
     if builder.code_signing_config_arn.is_none() {
         builder.code_signing_config_arn = Some(Default::default())
     }
@@ -150,7 +163,9 @@ pub(crate) fn get_function_url_config_output_output_correct_errors(
         builder.function_arn = Some(Default::default())
     }
     if builder.auth_type.is_none() {
-        builder.auth_type = "no value was set".parse::<crate::types::FunctionUrlAuthType>().ok()
+        builder.auth_type = "no value was set"
+            .parse::<crate::types::FunctionUrlAuthType>()
+            .ok()
     }
     if builder.creation_time.is_none() {
         builder.creation_time = Some(Default::default())
@@ -184,7 +199,7 @@ pub(crate) fn list_function_url_configs_output_output_correct_errors(
 #[cfg(feature = "op_list_function_versions_by_capacity_provider")]
 pub(crate) fn list_function_versions_by_capacity_provider_output_output_correct_errors(
     mut builder: crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderOutputBuilder,
-) -> crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderOutputBuilder {
+) -> crate::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderOutputBuilder{
     if builder.capacity_provider_arn.is_none() {
         builder.capacity_provider_arn = Some(Default::default())
     }
@@ -197,7 +212,7 @@ pub(crate) fn list_function_versions_by_capacity_provider_output_output_correct_
 #[cfg(feature = "op_put_function_code_signing_config")]
 pub(crate) fn put_function_code_signing_config_output_output_correct_errors(
     mut builder: crate::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigOutputBuilder,
-) -> crate::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigOutputBuilder {
+) -> crate::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigOutputBuilder{
     if builder.code_signing_config_arn.is_none() {
         builder.code_signing_config_arn = Some(Default::default())
     }
@@ -210,9 +225,11 @@ pub(crate) fn put_function_code_signing_config_output_output_correct_errors(
 #[cfg(feature = "op_put_runtime_management_config")]
 pub(crate) fn put_runtime_management_config_output_output_correct_errors(
     mut builder: crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigOutputBuilder,
-) -> crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigOutputBuilder {
+) -> crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigOutputBuilder{
     if builder.update_runtime_on.is_none() {
-        builder.update_runtime_on = "no value was set".parse::<crate::types::UpdateRuntimeOn>().ok()
+        builder.update_runtime_on = "no value was set"
+            .parse::<crate::types::UpdateRuntimeOn>()
+            .ok()
     }
     if builder.function_arn.is_none() {
         builder.function_arn = Some(Default::default())
@@ -237,7 +254,9 @@ pub(crate) fn update_capacity_provider_output_output_correct_errors(
     if builder.capacity_provider.is_none() {
         builder.capacity_provider = {
             let builder = crate::types::builders::CapacityProviderBuilder::default();
-            crate::serde_util::capacity_provider_correct_errors(builder).build().ok()
+            crate::serde_util::capacity_provider_correct_errors(builder)
+                .build()
+                .ok()
         }
     }
     builder
@@ -250,7 +269,9 @@ pub(crate) fn update_code_signing_config_output_output_correct_errors(
     if builder.code_signing_config.is_none() {
         builder.code_signing_config = {
             let builder = crate::types::builders::CodeSigningConfigBuilder::default();
-            crate::serde_util::code_signing_config_correct_errors(builder).build().ok()
+            crate::serde_util::code_signing_config_correct_errors(builder)
+                .build()
+                .ok()
         }
     }
     builder
@@ -267,7 +288,9 @@ pub(crate) fn update_function_url_config_output_output_correct_errors(
         builder.function_arn = Some(Default::default())
     }
     if builder.auth_type.is_none() {
-        builder.auth_type = "no value was set".parse::<crate::types::FunctionUrlAuthType>().ok()
+        builder.auth_type = "no value was set"
+            .parse::<crate::types::FunctionUrlAuthType>()
+            .ok()
     }
     if builder.creation_time.is_none() {
         builder.creation_time = Some(Default::default())
@@ -278,7 +301,13 @@ pub(crate) fn update_function_url_config_output_output_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
+#[cfg(any(
+    feature = "op_create_capacity_provider",
+    feature = "op_delete_capacity_provider",
+    feature = "op_get_capacity_provider",
+    feature = "op_list_capacity_providers",
+    feature = "op_update_capacity_provider"
+))]
 pub(crate) fn capacity_provider_correct_errors(
     mut builder: crate::types::builders::CapacityProviderBuilder,
 ) -> crate::types::builders::CapacityProviderBuilder {
@@ -286,17 +315,22 @@ pub(crate) fn capacity_provider_correct_errors(
         builder.capacity_provider_arn = Some(Default::default())
     }
     if builder.state.is_none() {
-        builder.state = "no value was set".parse::<crate::types::CapacityProviderState>().ok()
+        builder.state = "no value was set"
+            .parse::<crate::types::CapacityProviderState>()
+            .ok()
     }
     if builder.vpc_config.is_none() {
         builder.vpc_config = {
             let builder = crate::types::builders::CapacityProviderVpcConfigBuilder::default();
-            crate::serde_util::capacity_provider_vpc_config_correct_errors(builder).build().ok()
+            crate::serde_util::capacity_provider_vpc_config_correct_errors(builder)
+                .build()
+                .ok()
         }
     }
     if builder.permissions_config.is_none() {
         builder.permissions_config = {
-            let builder = crate::types::builders::CapacityProviderPermissionsConfigBuilder::default();
+            let builder =
+                crate::types::builders::CapacityProviderPermissionsConfigBuilder::default();
             crate::serde_util::capacity_provider_permissions_config_correct_errors(builder)
                 .build()
                 .ok()
@@ -305,7 +339,11 @@ pub(crate) fn capacity_provider_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_get_code_signing_config", feature = "op_list_code_signing_configs", feature = "op_update_code_signing_config"))]
+#[cfg(any(
+    feature = "op_get_code_signing_config",
+    feature = "op_list_code_signing_configs",
+    feature = "op_update_code_signing_config"
+))]
 pub(crate) fn code_signing_config_correct_errors(
     mut builder: crate::types::builders::CodeSigningConfigBuilder,
 ) -> crate::types::builders::CodeSigningConfigBuilder {
@@ -318,7 +356,9 @@ pub(crate) fn code_signing_config_correct_errors(
     if builder.allowed_publishers.is_none() {
         builder.allowed_publishers = {
             let builder = crate::types::builders::AllowedPublishersBuilder::default();
-            crate::serde_util::allowed_publishers_correct_errors(builder).build().ok()
+            crate::serde_util::allowed_publishers_correct_errors(builder)
+                .build()
+                .ok()
         }
     }
     if builder.code_signing_policies.is_none() {
@@ -333,22 +373,43 @@ pub(crate) fn code_signing_config_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub(crate) fn capacity_provider_config_correct_errors(
     mut builder: crate::types::builders::CapacityProviderConfigBuilder,
 ) -> crate::types::builders::CapacityProviderConfigBuilder {
-    if builder.lambda_managed_instances_capacity_provider_config.is_none() {
+    if builder
+        .lambda_managed_instances_capacity_provider_config
+        .is_none()
+    {
         builder.lambda_managed_instances_capacity_provider_config = {
             let builder = crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder::default();
-            crate::serde_util::lambda_managed_instances_capacity_provider_config_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::lambda_managed_instances_capacity_provider_config_correct_errors(
+                builder,
+            )
+            .build()
+            .ok()
         }
     }
     builder
 }
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub(crate) fn ephemeral_storage_correct_errors(
     mut builder: crate::types::builders::EphemeralStorageBuilder,
 ) -> crate::types::builders::EphemeralStorageBuilder {
@@ -359,7 +420,9 @@ pub(crate) fn ephemeral_storage_correct_errors(
 }
 
 #[cfg(feature = "op_get_function")]
-pub(crate) fn tags_error_correct_errors(mut builder: crate::types::builders::TagsErrorBuilder) -> crate::types::builders::TagsErrorBuilder {
+pub(crate) fn tags_error_correct_errors(
+    mut builder: crate::types::builders::TagsErrorBuilder,
+) -> crate::types::builders::TagsErrorBuilder {
     if builder.error_code.is_none() {
         builder.error_code = Some(Default::default())
     }
@@ -369,17 +432,33 @@ pub(crate) fn tags_error_correct_errors(mut builder: crate::types::builders::Tag
     builder
 }
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub(crate) fn tenancy_config_correct_errors(
     mut builder: crate::types::builders::TenancyConfigBuilder,
 ) -> crate::types::builders::TenancyConfigBuilder {
     if builder.tenant_isolation_mode.is_none() {
-        builder.tenant_isolation_mode = "no value was set".parse::<crate::types::TenantIsolationMode>().ok()
+        builder.tenant_isolation_mode = "no value was set"
+            .parse::<crate::types::TenantIsolationMode>()
+            .ok()
     }
     builder
 }
 
-#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
+#[cfg(any(
+    feature = "op_create_capacity_provider",
+    feature = "op_delete_capacity_provider",
+    feature = "op_get_capacity_provider",
+    feature = "op_list_capacity_providers",
+    feature = "op_update_capacity_provider"
+))]
 pub(crate) fn capacity_provider_vpc_config_correct_errors(
     mut builder: crate::types::builders::CapacityProviderVpcConfigBuilder,
 ) -> crate::types::builders::CapacityProviderVpcConfigBuilder {
@@ -392,7 +471,13 @@ pub(crate) fn capacity_provider_vpc_config_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
+#[cfg(any(
+    feature = "op_create_capacity_provider",
+    feature = "op_delete_capacity_provider",
+    feature = "op_get_capacity_provider",
+    feature = "op_list_capacity_providers",
+    feature = "op_update_capacity_provider"
+))]
 pub(crate) fn capacity_provider_permissions_config_correct_errors(
     mut builder: crate::types::builders::CapacityProviderPermissionsConfigBuilder,
 ) -> crate::types::builders::CapacityProviderPermissionsConfigBuilder {
@@ -402,7 +487,11 @@ pub(crate) fn capacity_provider_permissions_config_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_get_code_signing_config", feature = "op_list_code_signing_configs", feature = "op_update_code_signing_config"))]
+#[cfg(any(
+    feature = "op_get_code_signing_config",
+    feature = "op_list_code_signing_configs",
+    feature = "op_update_code_signing_config"
+))]
 pub(crate) fn allowed_publishers_correct_errors(
     mut builder: crate::types::builders::AllowedPublishersBuilder,
 ) -> crate::types::builders::AllowedPublishersBuilder {
@@ -413,7 +502,9 @@ pub(crate) fn allowed_publishers_correct_errors(
 }
 
 #[cfg(feature = "op_list_durable_executions_by_function")]
-pub(crate) fn execution_correct_errors(mut builder: crate::types::builders::ExecutionBuilder) -> crate::types::builders::ExecutionBuilder {
+pub(crate) fn execution_correct_errors(
+    mut builder: crate::types::builders::ExecutionBuilder,
+) -> crate::types::builders::ExecutionBuilder {
     if builder.durable_execution_arn.is_none() {
         builder.durable_execution_arn = Some(Default::default())
     }
@@ -424,7 +515,9 @@ pub(crate) fn execution_correct_errors(mut builder: crate::types::builders::Exec
         builder.function_arn = Some(Default::default())
     }
     if builder.status.is_none() {
-        builder.status = "no value was set".parse::<crate::types::ExecutionStatus>().ok()
+        builder.status = "no value was set"
+            .parse::<crate::types::ExecutionStatus>()
+            .ok()
     }
     if builder.start_timestamp.is_none() {
         builder.start_timestamp = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
@@ -432,7 +525,15 @@ pub(crate) fn execution_correct_errors(mut builder: crate::types::builders::Exec
     builder
 }
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub(crate) fn file_system_config_correct_errors(
     mut builder: crate::types::builders::FileSystemConfigBuilder,
 ) -> crate::types::builders::FileSystemConfigBuilder {
@@ -462,7 +563,9 @@ pub(crate) fn function_url_config_correct_errors(
         builder.last_modified_time = Some(Default::default())
     }
     if builder.auth_type.is_none() {
-        builder.auth_type = "no value was set".parse::<crate::types::FunctionUrlAuthType>().ok()
+        builder.auth_type = "no value was set"
+            .parse::<crate::types::FunctionUrlAuthType>()
+            .ok()
     }
     builder
 }
@@ -480,7 +583,15 @@ pub(crate) fn function_versions_by_capacity_provider_list_item_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub(crate) fn lambda_managed_instances_capacity_provider_config_correct_errors(
     mut builder: crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder,
 ) -> crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder {
@@ -490,19 +601,28 @@ pub(crate) fn lambda_managed_instances_capacity_provider_config_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution_state"))]
-pub(crate) fn operation_correct_errors(mut builder: crate::types::builders::OperationBuilder) -> crate::types::builders::OperationBuilder {
+#[cfg(any(
+    feature = "op_checkpoint_durable_execution",
+    feature = "op_get_durable_execution_state"
+))]
+pub(crate) fn operation_correct_errors(
+    mut builder: crate::types::builders::OperationBuilder,
+) -> crate::types::builders::OperationBuilder {
     if builder.id.is_none() {
         builder.id = Some(Default::default())
     }
     if builder.r#type.is_none() {
-        builder.r#type = "no value was set".parse::<crate::types::OperationType>().ok()
+        builder.r#type = "no value was set"
+            .parse::<crate::types::OperationType>()
+            .ok()
     }
     if builder.start_timestamp.is_none() {
         builder.start_timestamp = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     if builder.status.is_none() {
-        builder.status = "no value was set".parse::<crate::types::OperationStatus>().ok()
+        builder.status = "no value was set"
+            .parse::<crate::types::OperationStatus>()
+            .ok()
     }
     builder
 }
@@ -761,17 +881,26 @@ pub(crate) fn wait_started_details_correct_errors(
         builder.duration = Some(Default::default())
     }
     if builder.scheduled_end_timestamp.is_none() {
-        builder.scheduled_end_timestamp = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.scheduled_end_timestamp =
+            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }
 
-#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
+#[cfg(any(
+    feature = "op_create_capacity_provider",
+    feature = "op_delete_capacity_provider",
+    feature = "op_get_capacity_provider",
+    feature = "op_list_capacity_providers",
+    feature = "op_update_capacity_provider"
+))]
 pub(crate) fn target_tracking_scaling_policy_correct_errors(
     mut builder: crate::types::builders::TargetTrackingScalingPolicyBuilder,
 ) -> crate::types::builders::TargetTrackingScalingPolicyBuilder {
     if builder.predefined_metric_type.is_none() {
-        builder.predefined_metric_type = "no value was set".parse::<crate::types::CapacityProviderPredefinedMetricType>().ok()
+        builder.predefined_metric_type = "no value was set"
+            .parse::<crate::types::CapacityProviderPredefinedMetricType>()
+            .ok()
     }
     if builder.target_value.is_none() {
         builder.target_value = Some(Default::default())

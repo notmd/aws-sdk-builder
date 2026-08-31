@@ -26,13 +26,16 @@ impl DeletePackageGroupInput {
 }
 impl DeletePackageGroupInput {
     /// Creates a new builder-style object to manufacture [`DeletePackageGroupInput`](crate::operation::delete_package_group::DeletePackageGroupInput).
-    pub fn builder() -> crate::operation::delete_package_group::builders::DeletePackageGroupInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::delete_package_group::builders::DeletePackageGroupInputBuilder {
         crate::operation::delete_package_group::builders::DeletePackageGroupInputBuilder::default()
     }
 }
 
 /// A builder for [`DeletePackageGroupInput`](crate::operation::delete_package_group::DeletePackageGroupInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeletePackageGroupInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -71,12 +74,18 @@ impl DeletePackageGroupInputBuilder {
     }
     /// <p>The pattern of the package group to be deleted.</p>
     /// This field is required.
-    pub fn package_group(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn package_group(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.package_group = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The pattern of the package group to be deleted.</p>
-    pub fn set_package_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_package_group(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.package_group = input;
         self
     }
@@ -87,12 +96,16 @@ impl DeletePackageGroupInputBuilder {
     /// Consumes the builder and constructs a [`DeletePackageGroupInput`](crate::operation::delete_package_group::DeletePackageGroupInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_package_group::DeletePackageGroupInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::delete_package_group::DeletePackageGroupInput {
-            domain: self.domain,
-            domain_owner: self.domain_owner,
-            package_group: self.package_group,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::delete_package_group::DeletePackageGroupInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::delete_package_group::DeletePackageGroupInput {
+                domain: self.domain,
+                domain_owner: self.domain_owner,
+                package_group: self.package_group,
+            },
+        )
     }
 }

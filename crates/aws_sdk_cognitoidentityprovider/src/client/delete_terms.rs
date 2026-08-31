@@ -7,7 +7,9 @@ impl super::Client {
     ///   - [`user_pool_id(impl Into<String>)`](crate::operation::delete_terms::builders::DeleteTermsFluentBuilder::user_pool_id) / [`set_user_pool_id(Option<String>)`](crate::operation::delete_terms::builders::DeleteTermsFluentBuilder::set_user_pool_id):<br>required: **true**<br><p>The ID of the user pool that contains the terms documents that you want to delete.</p><br>
     /// - On success, responds with [`DeleteTermsOutput`](crate::operation::delete_terms::DeleteTermsOutput)
     /// - On failure, responds with [`SdkError<DeleteTermsError>`](crate::operation::delete_terms::DeleteTermsError)
-    pub fn delete_terms(&self) -> crate::operation::delete_terms::builders::DeleteTermsFluentBuilder {
+    pub fn delete_terms(
+        &self,
+    ) -> crate::operation::delete_terms::builders::DeleteTermsFluentBuilder {
         crate::operation::delete_terms::builders::DeleteTermsFluentBuilder::new(self.handle.clone())
     }
 }

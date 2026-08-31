@@ -64,7 +64,9 @@ impl UpdateUserAttributesFluentBuilder {
         }
     }
     /// Access the UpdateUserAttributes as a reference.
-    pub fn as_input(&self) -> &crate::operation::update_user_attributes::builders::UpdateUserAttributesInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::update_user_attributes::builders::UpdateUserAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -93,7 +95,11 @@ impl UpdateUserAttributesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::update_user_attributes::UpdateUserAttributes::orchestrate(&runtime_plugins, input).await
+        crate::operation::update_user_attributes::UpdateUserAttributes::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -106,12 +112,18 @@ impl UpdateUserAttributesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -130,14 +142,19 @@ impl UpdateUserAttributesFluentBuilder {
     /// <p>An array of name-value pairs representing user attributes.</p>
     /// <p>For custom attributes, you must add a <code>custom:</code> prefix to the attribute name.</p>
     /// <p>If you have set an attribute to require verification before Amazon Cognito updates its value, this request doesn’t immediately update the value of that attribute. After your user receives and responds to a verification message to verify the new value, Amazon Cognito updates the attribute value. Your user can sign in and receive messages with the original attribute value until they verify the new value.</p>
-    pub fn set_user_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>) -> Self {
+    pub fn set_user_attributes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
+    ) -> Self {
         self.inner = self.inner.set_user_attributes(input);
         self
     }
     /// <p>An array of name-value pairs representing user attributes.</p>
     /// <p>For custom attributes, you must add a <code>custom:</code> prefix to the attribute name.</p>
     /// <p>If you have set an attribute to require verification before Amazon Cognito updates its value, this request doesn’t immediately update the value of that attribute. After your user receives and responds to a verification message to verify the new value, Amazon Cognito updates the attribute value. Your user can sign in and receive messages with the original attribute value until they verify the new value.</p>
-    pub fn get_user_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
+    pub fn get_user_attributes(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
         self.inner.get_user_attributes()
     }
     /// <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
@@ -195,7 +212,9 @@ impl UpdateUserAttributesFluentBuilder {
     /// </note>
     pub fn set_client_metadata(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
     ) -> Self {
         self.inner = self.inner.set_client_metadata(input);
         self
@@ -213,7 +232,11 @@ impl UpdateUserAttributesFluentBuilder {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub fn get_client_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_client_metadata(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.inner.get_client_metadata()
     }
 }

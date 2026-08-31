@@ -24,7 +24,8 @@ pub struct PutBucketLifecycleConfigurationInput {
     /// <p><code>varies_by_storage_class</code> - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.</p></li>
     /// </ul>
     /// <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule. Custom filters always take precedence over the default transition behavior.</p>
-    pub transition_default_minimum_object_size: ::std::option::Option<crate::types::TransitionDefaultMinimumObjectSize>,
+    pub transition_default_minimum_object_size:
+        ::std::option::Option<crate::types::TransitionDefaultMinimumObjectSize>,
 }
 impl PutBucketLifecycleConfigurationInput {
     /// <p>The name of the bucket for which to set the configuration.</p>
@@ -37,7 +38,9 @@ impl PutBucketLifecycleConfigurationInput {
         self.checksum_algorithm.as_ref()
     }
     /// <p>Container for lifecycle rules. You can add as many as 1,000 rules.</p>
-    pub fn lifecycle_configuration(&self) -> ::std::option::Option<&crate::types::BucketLifecycleConfiguration> {
+    pub fn lifecycle_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::BucketLifecycleConfiguration> {
         self.lifecycle_configuration.as_ref()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
@@ -56,26 +59,32 @@ impl PutBucketLifecycleConfigurationInput {
     /// <p><code>varies_by_storage_class</code> - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.</p></li>
     /// </ul>
     /// <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule. Custom filters always take precedence over the default transition behavior.</p>
-    pub fn transition_default_minimum_object_size(&self) -> ::std::option::Option<&crate::types::TransitionDefaultMinimumObjectSize> {
+    pub fn transition_default_minimum_object_size(
+        &self,
+    ) -> ::std::option::Option<&crate::types::TransitionDefaultMinimumObjectSize> {
         self.transition_default_minimum_object_size.as_ref()
     }
 }
 impl PutBucketLifecycleConfigurationInput {
     /// Creates a new builder-style object to manufacture [`PutBucketLifecycleConfigurationInput`](crate::operation::put_bucket_lifecycle_configuration::PutBucketLifecycleConfigurationInput).
-    pub fn builder() -> crate::operation::put_bucket_lifecycle_configuration::builders::PutBucketLifecycleConfigurationInputBuilder {
+    pub fn builder() -> crate::operation::put_bucket_lifecycle_configuration::builders::PutBucketLifecycleConfigurationInputBuilder{
         crate::operation::put_bucket_lifecycle_configuration::builders::PutBucketLifecycleConfigurationInputBuilder::default()
     }
 }
 
 /// A builder for [`PutBucketLifecycleConfigurationInput`](crate::operation::put_bucket_lifecycle_configuration::PutBucketLifecycleConfigurationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutBucketLifecycleConfigurationInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
     pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-    pub(crate) lifecycle_configuration: ::std::option::Option<crate::types::BucketLifecycleConfiguration>,
+    pub(crate) lifecycle_configuration:
+        ::std::option::Option<crate::types::BucketLifecycleConfiguration>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
-    pub(crate) transition_default_minimum_object_size: ::std::option::Option<crate::types::TransitionDefaultMinimumObjectSize>,
+    pub(crate) transition_default_minimum_object_size:
+        ::std::option::Option<crate::types::TransitionDefaultMinimumObjectSize>,
 }
 impl PutBucketLifecycleConfigurationInputBuilder {
     /// <p>The name of the bucket for which to set the configuration.</p>
@@ -101,40 +110,59 @@ impl PutBucketLifecycleConfigurationInputBuilder {
     }
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
+    pub fn set_checksum_algorithm(
+        mut self,
+        input: ::std::option::Option<crate::types::ChecksumAlgorithm>,
+    ) -> Self {
         self.checksum_algorithm = input;
         self
     }
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(
+        &self,
+    ) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         &self.checksum_algorithm
     }
     /// <p>Container for lifecycle rules. You can add as many as 1,000 rules.</p>
-    pub fn lifecycle_configuration(mut self, input: crate::types::BucketLifecycleConfiguration) -> Self {
+    pub fn lifecycle_configuration(
+        mut self,
+        input: crate::types::BucketLifecycleConfiguration,
+    ) -> Self {
         self.lifecycle_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>Container for lifecycle rules. You can add as many as 1,000 rules.</p>
-    pub fn set_lifecycle_configuration(mut self, input: ::std::option::Option<crate::types::BucketLifecycleConfiguration>) -> Self {
+    pub fn set_lifecycle_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::BucketLifecycleConfiguration>,
+    ) -> Self {
         self.lifecycle_configuration = input;
         self
     }
     /// <p>Container for lifecycle rules. You can add as many as 1,000 rules.</p>
-    pub fn get_lifecycle_configuration(&self) -> &::std::option::Option<crate::types::BucketLifecycleConfiguration> {
+    pub fn get_lifecycle_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::BucketLifecycleConfiguration> {
         &self.lifecycle_configuration
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
     /// </note>
-    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
     /// </note>
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -154,7 +182,10 @@ impl PutBucketLifecycleConfigurationInputBuilder {
     /// <p><code>varies_by_storage_class</code> - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.</p></li>
     /// </ul>
     /// <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule. Custom filters always take precedence over the default transition behavior.</p>
-    pub fn transition_default_minimum_object_size(mut self, input: crate::types::TransitionDefaultMinimumObjectSize) -> Self {
+    pub fn transition_default_minimum_object_size(
+        mut self,
+        input: crate::types::TransitionDefaultMinimumObjectSize,
+    ) -> Self {
         self.transition_default_minimum_object_size = ::std::option::Option::Some(input);
         self
     }
@@ -185,7 +216,9 @@ impl PutBucketLifecycleConfigurationInputBuilder {
     /// <p><code>varies_by_storage_class</code> - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.</p></li>
     /// </ul>
     /// <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule. Custom filters always take precedence over the default transition behavior.</p>
-    pub fn get_transition_default_minimum_object_size(&self) -> &::std::option::Option<crate::types::TransitionDefaultMinimumObjectSize> {
+    pub fn get_transition_default_minimum_object_size(
+        &self,
+    ) -> &::std::option::Option<crate::types::TransitionDefaultMinimumObjectSize> {
         &self.transition_default_minimum_object_size
     }
     /// Consumes the builder and constructs a [`PutBucketLifecycleConfigurationInput`](crate::operation::put_bucket_lifecycle_configuration::PutBucketLifecycleConfigurationInput).

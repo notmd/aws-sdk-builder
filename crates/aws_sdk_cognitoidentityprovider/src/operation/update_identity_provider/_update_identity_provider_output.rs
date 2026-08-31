@@ -20,13 +20,17 @@ impl ::aws_types::request_id::RequestId for UpdateIdentityProviderOutput {
 }
 impl UpdateIdentityProviderOutput {
     /// Creates a new builder-style object to manufacture [`UpdateIdentityProviderOutput`](crate::operation::update_identity_provider::UpdateIdentityProviderOutput).
-    pub fn builder() -> crate::operation::update_identity_provider::builders::UpdateIdentityProviderOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_identity_provider::builders::UpdateIdentityProviderOutputBuilder
+    {
         crate::operation::update_identity_provider::builders::UpdateIdentityProviderOutputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateIdentityProviderOutput`](crate::operation::update_identity_provider::UpdateIdentityProviderOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateIdentityProviderOutputBuilder {
     pub(crate) identity_provider: ::std::option::Option<crate::types::IdentityProviderType>,
@@ -40,12 +44,17 @@ impl UpdateIdentityProviderOutputBuilder {
         self
     }
     /// <p>The identity provider details.</p>
-    pub fn set_identity_provider(mut self, input: ::std::option::Option<crate::types::IdentityProviderType>) -> Self {
+    pub fn set_identity_provider(
+        mut self,
+        input: ::std::option::Option<crate::types::IdentityProviderType>,
+    ) -> Self {
         self.identity_provider = input;
         self
     }
     /// <p>The identity provider details.</p>
-    pub fn get_identity_provider(&self) -> &::std::option::Option<crate::types::IdentityProviderType> {
+    pub fn get_identity_provider(
+        &self,
+    ) -> &::std::option::Option<crate::types::IdentityProviderType> {
         &self.identity_provider
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

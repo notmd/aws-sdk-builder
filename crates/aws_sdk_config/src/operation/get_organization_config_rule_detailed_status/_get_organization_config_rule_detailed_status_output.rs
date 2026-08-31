@@ -4,7 +4,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetOrganizationConfigRuleDetailedStatusOutput {
     /// <p>A list of <code>MemberAccountStatus</code> objects.</p>
-    pub organization_config_rule_detailed_status: ::std::option::Option<::std::vec::Vec<crate::types::MemberAccountStatus>>,
+    pub organization_config_rule_detailed_status:
+        ::std::option::Option<::std::vec::Vec<crate::types::MemberAccountStatus>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -14,7 +15,9 @@ impl GetOrganizationConfigRuleDetailedStatusOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.organization_config_rule_detailed_status.is_none()`.
     pub fn organization_config_rule_detailed_status(&self) -> &[crate::types::MemberAccountStatus] {
-        self.organization_config_rule_detailed_status.as_deref().unwrap_or_default()
+        self.organization_config_rule_detailed_status
+            .as_deref()
+            .unwrap_or_default()
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -29,16 +32,19 @@ impl ::aws_types::request_id::RequestId for GetOrganizationConfigRuleDetailedSta
 impl GetOrganizationConfigRuleDetailedStatusOutput {
     /// Creates a new builder-style object to manufacture [`GetOrganizationConfigRuleDetailedStatusOutput`](crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusOutput).
     pub fn builder() -> crate::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusOutputBuilder
-    {
+{
         crate::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetOrganizationConfigRuleDetailedStatusOutput`](crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetOrganizationConfigRuleDetailedStatusOutputBuilder {
-    pub(crate) organization_config_rule_detailed_status: ::std::option::Option<::std::vec::Vec<crate::types::MemberAccountStatus>>,
+    pub(crate) organization_config_rule_detailed_status:
+        ::std::option::Option<::std::vec::Vec<crate::types::MemberAccountStatus>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -48,8 +54,13 @@ impl GetOrganizationConfigRuleDetailedStatusOutputBuilder {
     /// To override the contents of this collection use [`set_organization_config_rule_detailed_status`](Self::set_organization_config_rule_detailed_status).
     ///
     /// <p>A list of <code>MemberAccountStatus</code> objects.</p>
-    pub fn organization_config_rule_detailed_status(mut self, input: crate::types::MemberAccountStatus) -> Self {
-        let mut v = self.organization_config_rule_detailed_status.unwrap_or_default();
+    pub fn organization_config_rule_detailed_status(
+        mut self,
+        input: crate::types::MemberAccountStatus,
+    ) -> Self {
+        let mut v = self
+            .organization_config_rule_detailed_status
+            .unwrap_or_default();
         v.push(input);
         self.organization_config_rule_detailed_status = ::std::option::Option::Some(v);
         self
@@ -63,7 +74,9 @@ impl GetOrganizationConfigRuleDetailedStatusOutputBuilder {
         self
     }
     /// <p>A list of <code>MemberAccountStatus</code> objects.</p>
-    pub fn get_organization_config_rule_detailed_status(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MemberAccountStatus>> {
+    pub fn get_organization_config_rule_detailed_status(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MemberAccountStatus>> {
         &self.organization_config_rule_detailed_status
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -90,7 +103,7 @@ impl GetOrganizationConfigRuleDetailedStatusOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetOrganizationConfigRuleDetailedStatusOutput`](crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusOutput).
-    pub fn build(self) -> crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusOutput {
+    pub fn build(self) -> crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusOutput{
         crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusOutput {
             organization_config_rule_detailed_status: self.organization_config_rule_detailed_status,
             next_token: self.next_token,

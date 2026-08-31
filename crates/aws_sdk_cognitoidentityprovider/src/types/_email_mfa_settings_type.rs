@@ -27,7 +27,9 @@ impl EmailMfaSettingsType {
 }
 
 /// A builder for [`EmailMfaSettingsType`](crate::types::EmailMfaSettingsType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct EmailMfaSettingsTypeBuilder {
     pub(crate) enabled: ::std::option::Option<bool>,

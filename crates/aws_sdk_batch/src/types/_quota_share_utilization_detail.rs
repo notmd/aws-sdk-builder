@@ -5,7 +5,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct QuotaShareUtilizationDetail {
     /// <p>A list of the top capacity utilizations across quota shares associated with a job queue.</p>
-    pub top_capacity_utilization: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityUtilization>>,
+    pub top_capacity_utilization:
+        ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityUtilization>>,
 }
 impl QuotaShareUtilizationDetail {
     /// <p>A list of the top capacity utilizations across quota shares associated with a job queue.</p>
@@ -23,10 +24,13 @@ impl QuotaShareUtilizationDetail {
 }
 
 /// A builder for [`QuotaShareUtilizationDetail`](crate::types::QuotaShareUtilizationDetail).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct QuotaShareUtilizationDetailBuilder {
-    pub(crate) top_capacity_utilization: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityUtilization>>,
+    pub(crate) top_capacity_utilization:
+        ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityUtilization>>,
 }
 impl QuotaShareUtilizationDetailBuilder {
     /// Appends an item to `top_capacity_utilization`.
@@ -34,7 +38,10 @@ impl QuotaShareUtilizationDetailBuilder {
     /// To override the contents of this collection use [`set_top_capacity_utilization`](Self::set_top_capacity_utilization).
     ///
     /// <p>A list of the top capacity utilizations across quota shares associated with a job queue.</p>
-    pub fn top_capacity_utilization(mut self, input: crate::types::QuotaShareCapacityUtilization) -> Self {
+    pub fn top_capacity_utilization(
+        mut self,
+        input: crate::types::QuotaShareCapacityUtilization,
+    ) -> Self {
         let mut v = self.top_capacity_utilization.unwrap_or_default();
         v.push(input);
         self.top_capacity_utilization = ::std::option::Option::Some(v);
@@ -49,7 +56,9 @@ impl QuotaShareUtilizationDetailBuilder {
         self
     }
     /// <p>A list of the top capacity utilizations across quota shares associated with a job queue.</p>
-    pub fn get_top_capacity_utilization(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityUtilization>> {
+    pub fn get_top_capacity_utilization(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::QuotaShareCapacityUtilization>> {
         &self.top_capacity_utilization
     }
     /// Consumes the builder and constructs a [`QuotaShareUtilizationDetail`](crate::types::QuotaShareUtilizationDetail).

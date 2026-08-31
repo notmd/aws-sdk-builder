@@ -17,7 +17,7 @@ impl DescribeKinesisStreamingDestination {
             crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
             ::aws_smithy_runtime_api::client::interceptors::context::Error,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -27,9 +27,13 @@ impl DescribeKinesisStreamingDestination {
                     .expect("correct error type")
             })
         };
-        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-            .await
-            .map_err(map_err)?;
+        let context = Self::orchestrate_with_stop_point(
+            runtime_plugins,
+            input,
+            ::aws_smithy_runtime::client::orchestrator::StopPoint::None,
+        )
+        .await
+        .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
@@ -81,37 +85,50 @@ impl DescribeKinesisStreamingDestination {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
-                config_override,
-                client_config.config.clone(),
-                &client_config.runtime_components,
-            ));
+            runtime_plugins = runtime_plugins.with_operation_plugin(
+                crate::config::ConfigOverrideRuntimePlugin::new(
+                    config_override,
+                    client_config.config.clone(),
+                    &client_config.runtime_components,
+                ),
+            );
         }
         runtime_plugins
     }
 }
-impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DescribeKinesisStreamingDestination {
+impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
+    for DescribeKinesisStreamingDestination
+{
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
-        let mut cfg = ::aws_smithy_types::config_bag::Layer::new("DescribeKinesisStreamingDestination");
+        let mut cfg =
+            ::aws_smithy_types::config_bag::Layer::new("DescribeKinesisStreamingDestination");
 
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-            DescribeKinesisStreamingDestinationRequestSerializer,
-        ));
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
-            DescribeKinesisStreamingDestinationResponseDeserializer,
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+                DescribeKinesisStreamingDestinationRequestSerializer,
+            ),
+        );
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
+                DescribeKinesisStreamingDestinationResponseDeserializer,
+            ),
+        );
 
-        cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
-                .operation_name("DescribeKinesisStreamingDestination")
-                .build()
-                .expect("required fields set"),
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
+                crate::config::auth::Params::builder()
+                    .operation_name("DescribeKinesisStreamingDestination")
+                    .build()
+                    .expect("required fields set"),
+            ),
+        );
 
-        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-            "DescribeKinesisStreamingDestination",
-            "DynamoDB",
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+                "DescribeKinesisStreamingDestination",
+                "DynamoDB",
+            ),
+        );
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -129,7 +146,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Describ
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+    ) -> ::std::borrow::Cow<
+        '_,
+        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
+    > {
         #[allow(unused_mut)]
         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DescribeKinesisStreamingDestination")
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -159,7 +179,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Describ
 struct DescribeKinesisStreamingDestinationTelemetryInputCaptureInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DescribeKinesisStreamingDestinationTelemetryInputCaptureInterceptor {
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept
+    for DescribeKinesisStreamingDestinationTelemetryInputCaptureInterceptor
+{
     fn name(&self) -> &'static str {
         "DescribeKinesisStreamingDestinationTelemetryInputCaptureInterceptor"
     }
@@ -182,7 +204,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DescribeKines
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) = context.input().downcast_ref::<DescribeKinesisStreamingDestinationInput>() else {
+        let ::std::option::Option::Some(input) = context
+            .input()
+            .downcast_ref::<DescribeKinesisStreamingDestinationInput>(
+        ) else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -200,7 +225,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DescribeKines
 }
 #[derive(Debug)]
 struct DescribeKinesisStreamingDestinationResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for DescribeKinesisStreamingDestinationResponseDeserializer {
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
+    for DescribeKinesisStreamingDestinationResponseDeserializer
+{
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -226,13 +253,23 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for DescribeK
 }
 #[derive(Debug)]
 struct DescribeKinesisStreamingDestinationRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribeKinesisStreamingDestinationRequestSerializer {
-    #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
+    for DescribeKinesisStreamingDestinationRequestSerializer
+{
+    #[allow(
+        unused_mut,
+        clippy::let_and_return,
+        clippy::needless_borrow,
+        clippy::useless_conversion
+    )]
     fn serialize_input(
         &self,
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+    ) -> ::std::result::Result<
+        ::aws_smithy_runtime_api::client::orchestrator::HttpRequest,
+        ::aws_smithy_runtime_api::box_error::BoxError,
+    > {
         let input = input
             .downcast::<crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput>()
             .expect("correct type");
@@ -245,7 +282,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribeKine
             fn uri_base(
                 _input: &crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
+            {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -254,13 +292,20 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribeKine
             fn update_http_builder(
                 input: &crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<
+                ::http_1x::request::Builder,
+                ::aws_smithy_types::error::operation::BuildError,
+            > {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
+            builder = _header_serialization_settings.set_default_header(
+                builder,
+                ::http_1x::header::CONTENT_TYPE,
+                "application/x-amz-json-1.0",
+            );
             builder = _header_serialization_settings.set_default_header(
                 builder,
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
@@ -273,16 +318,28 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DescribeKine
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+            request_builder = _header_serialization_settings.set_default_header(
+                request_builder,
+                ::http_1x::header::CONTENT_LENGTH,
+                &content_length,
+            );
         }
-        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
+        ::std::result::Result::Ok(
+            request_builder
+                .body(body)
+                .expect("valid request")
+                .try_into()
+                .unwrap(),
+        )
     }
 }
 #[derive(Debug)]
 struct DescribeKinesisStreamingDestinationEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DescribeKinesisStreamingDestinationEndpointParamsInterceptor {
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept
+    for DescribeKinesisStreamingDestinationEndpointParamsInterceptor
+{
     fn name(&self) -> &'static str {
         "DescribeKinesisStreamingDestinationEndpointParamsInterceptor"
     }
@@ -303,10 +360,22 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DescribeKines
             .ok_or("failed to downcast to DescribeKinesisStreamingDestinationInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-            .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
+            .set_region(
+                cfg.load::<::aws_types::region::Region>()
+                    .map(|r| r.as_ref().to_owned()),
+            )
+            .set_use_dual_stack(
+                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
+                    .map(|ty| ty.0),
+            )
+            .set_use_fips(
+                cfg.load::<::aws_types::endpoint_config::UseFips>()
+                    .map(|ty| ty.0),
+            )
+            .set_endpoint(
+                cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
+                    .map(|ty| ty.0.clone()),
+            )
             .set_account_id_endpoint_mode(::std::option::Option::Some(
                 cfg.load::<::aws_types::endpoint_config::AccountIdEndpointMode>()
                     .cloned()
@@ -318,14 +387,23 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DescribeKines
                     .table_name
                     .clone()
                     .filter(|f| !AsRef::<str>::as_ref(f).trim().is_empty())
-                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("table_name", "A required field was not set"))?,
+                    .ok_or_else(|| {
+                        ::aws_smithy_types::error::operation::BuildError::missing_field(
+                            "table_name",
+                            "A required field was not set",
+                        )
+                    })?,
             ))
             .build()
             .map_err(|err| {
-                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
+                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(
+                    "endpoint params could not be built",
+                    err,
+                )
             })?;
-        cfg.interceptor_state()
-            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
+        cfg.interceptor_state().store_put(
+            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
+        );
         ::std::result::Result::Ok(())
     }
 }
@@ -344,18 +422,24 @@ pub enum DescribeKinesisStreamingDestinationError {
     /// <p>The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
     ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(
+        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-DescribeKinesisStreamingDestinationError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-DescribeKinesisStreamingDestinationError) for what information is available for the error."
+    )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl DescribeKinesisStreamingDestinationError {
     /// Creates the `DescribeKinesisStreamingDestinationError::Unhandled` variant from any error type.
     pub fn unhandled(
-        err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
+        err: impl ::std::convert::Into<
+            ::std::boxed::Box<
+                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
+            >,
+        >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.into(),
@@ -376,9 +460,15 @@ impl DescribeKinesisStreamingDestinationError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::InternalServerError(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::InvalidEndpointException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InternalServerError(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::InvalidEndpointException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::ResourceNotFoundException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -412,7 +502,9 @@ impl ::std::fmt::Display for DescribeKinesisStreamingDestinationError {
             Self::InvalidEndpointException(_inner) => _inner.fmt(f),
             Self::ResourceNotFoundException(_inner) => _inner.fmt(f),
             Self::Unhandled(_inner) => {
-                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                if let ::std::option::Option::Some(code) =
+                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+                {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -429,19 +521,31 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for DescribeKinesisStreamingDes
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DescribeKinesisStreamingDestinationError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
+    for DescribeKinesisStreamingDestinationError
+{
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::InternalServerError(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidEndpointException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::ResourceNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::InternalServerError(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::InvalidEndpointException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::ResourceNotFoundException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DescribeKinesisStreamingDestinationError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
+    for DescribeKinesisStreamingDestinationError
+{
     fn create_unhandled_error(
-        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+        source: ::std::boxed::Box<
+            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
+        >,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {

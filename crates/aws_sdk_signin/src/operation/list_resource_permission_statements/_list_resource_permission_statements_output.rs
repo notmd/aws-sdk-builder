@@ -28,16 +28,19 @@ impl ::aws_types::request_id::RequestId for ListResourcePermissionStatementsOutp
 }
 impl ListResourcePermissionStatementsOutput {
     /// Creates a new builder-style object to manufacture [`ListResourcePermissionStatementsOutput`](crate::operation::list_resource_permission_statements::ListResourcePermissionStatementsOutput).
-    pub fn builder() -> crate::operation::list_resource_permission_statements::builders::ListResourcePermissionStatementsOutputBuilder {
+    pub fn builder() -> crate::operation::list_resource_permission_statements::builders::ListResourcePermissionStatementsOutputBuilder{
         crate::operation::list_resource_permission_statements::builders::ListResourcePermissionStatementsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListResourcePermissionStatementsOutput`](crate::operation::list_resource_permission_statements::ListResourcePermissionStatementsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListResourcePermissionStatementsOutputBuilder {
-    pub(crate) permission_statements: ::std::option::Option<::std::vec::Vec<crate::types::PermissionStatementSummary>>,
+    pub(crate) permission_statements:
+        ::std::option::Option<::std::vec::Vec<crate::types::PermissionStatementSummary>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -47,19 +50,27 @@ impl ListResourcePermissionStatementsOutputBuilder {
     /// To override the contents of this collection use [`set_permission_statements`](Self::set_permission_statements).
     ///
     /// List of permission statement summaries
-    pub fn permission_statements(mut self, input: crate::types::PermissionStatementSummary) -> Self {
+    pub fn permission_statements(
+        mut self,
+        input: crate::types::PermissionStatementSummary,
+    ) -> Self {
         let mut v = self.permission_statements.unwrap_or_default();
         v.push(input);
         self.permission_statements = ::std::option::Option::Some(v);
         self
     }
     /// List of permission statement summaries
-    pub fn set_permission_statements(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PermissionStatementSummary>>) -> Self {
+    pub fn set_permission_statements(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::PermissionStatementSummary>>,
+    ) -> Self {
         self.permission_statements = input;
         self
     }
     /// List of permission statement summaries
-    pub fn get_permission_statements(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PermissionStatementSummary>> {
+    pub fn get_permission_statements(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::PermissionStatementSummary>> {
         &self.permission_statements
     }
     /// Token for next page of results
@@ -93,7 +104,7 @@ impl ListResourcePermissionStatementsOutputBuilder {
     ) -> ::std::result::Result<
         crate::operation::list_resource_permission_statements::ListResourcePermissionStatementsOutput,
         ::aws_smithy_types::error::operation::BuildError,
-    > {
+    >{
         ::std::result::Result::Ok(
             crate::operation::list_resource_permission_statements::ListResourcePermissionStatementsOutput {
                 permission_statements: self.permission_statements.ok_or_else(|| {

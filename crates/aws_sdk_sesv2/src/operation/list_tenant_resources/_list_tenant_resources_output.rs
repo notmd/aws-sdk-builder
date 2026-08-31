@@ -29,16 +29,21 @@ impl ::aws_types::request_id::RequestId for ListTenantResourcesOutput {
 }
 impl ListTenantResourcesOutput {
     /// Creates a new builder-style object to manufacture [`ListTenantResourcesOutput`](crate::operation::list_tenant_resources::ListTenantResourcesOutput).
-    pub fn builder() -> crate::operation::list_tenant_resources::builders::ListTenantResourcesOutputBuilder {
-        crate::operation::list_tenant_resources::builders::ListTenantResourcesOutputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::list_tenant_resources::builders::ListTenantResourcesOutputBuilder {
+        crate::operation::list_tenant_resources::builders::ListTenantResourcesOutputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`ListTenantResourcesOutput`](crate::operation::list_tenant_resources::ListTenantResourcesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListTenantResourcesOutputBuilder {
-    pub(crate) tenant_resources: ::std::option::Option<::std::vec::Vec<crate::types::TenantResource>>,
+    pub(crate) tenant_resources:
+        ::std::option::Option<::std::vec::Vec<crate::types::TenantResource>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -55,12 +60,17 @@ impl ListTenantResourcesOutputBuilder {
         self
     }
     /// <p>An array that contains information about each resource associated with the tenant.</p>
-    pub fn set_tenant_resources(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TenantResource>>) -> Self {
+    pub fn set_tenant_resources(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::TenantResource>>,
+    ) -> Self {
         self.tenant_resources = input;
         self
     }
     /// <p>An array that contains information about each resource associated with the tenant.</p>
-    pub fn get_tenant_resources(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TenantResource>> {
+    pub fn get_tenant_resources(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::TenantResource>> {
         &self.tenant_resources
     }
     /// <p>A token that indicates that there are additional resources to list. To view additional resources, issue another request to <code>ListTenantResources</code>, and pass this token in the <code>NextToken</code> parameter.</p>

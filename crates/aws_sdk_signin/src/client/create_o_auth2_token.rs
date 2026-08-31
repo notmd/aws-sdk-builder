@@ -7,7 +7,11 @@ impl super::Client {
     /// - On success, responds with [`CreateOAuth2TokenOutput`](crate::operation::create_o_auth2_token::CreateOAuth2TokenOutput) with field(s):
     ///   - [`token_output(Option<CreateOAuth2TokenResponseBody>)`](crate::operation::create_o_auth2_token::CreateOAuth2TokenOutput::token_output): Flattened token operation outputs The specific response fields depend on the grant_type used in the request
     /// - On failure, responds with [`SdkError<CreateOAuth2TokenError>`](crate::operation::create_o_auth2_token::CreateOAuth2TokenError)
-    pub fn create_o_auth2_token(&self) -> crate::operation::create_o_auth2_token::builders::CreateOAuth2TokenFluentBuilder {
-        crate::operation::create_o_auth2_token::builders::CreateOAuth2TokenFluentBuilder::new(self.handle.clone())
+    pub fn create_o_auth2_token(
+        &self,
+    ) -> crate::operation::create_o_auth2_token::builders::CreateOAuth2TokenFluentBuilder {
+        crate::operation::create_o_auth2_token::builders::CreateOAuth2TokenFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

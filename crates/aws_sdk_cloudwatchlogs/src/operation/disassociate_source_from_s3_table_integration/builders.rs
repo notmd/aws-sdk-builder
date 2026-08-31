@@ -59,7 +59,7 @@ impl DisassociateSourceFromS3TableIntegrationFluentBuilder {
     /// Access the DisassociateSourceFromS3TableIntegration as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationInputBuilder {
+    ) -> &crate::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -78,7 +78,7 @@ impl DisassociateSourceFromS3TableIntegrationFluentBuilder {
             crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -103,15 +103,21 @@ impl DisassociateSourceFromS3TableIntegrationFluentBuilder {
         crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput,
         crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }

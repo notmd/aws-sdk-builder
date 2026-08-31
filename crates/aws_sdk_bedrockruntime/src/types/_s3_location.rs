@@ -28,7 +28,9 @@ impl S3Location {
 }
 
 /// A builder for [`S3Location`](crate::types::S3Location).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct S3LocationBuilder {
     pub(crate) uri: ::std::option::Option<::std::string::String>,
@@ -67,7 +69,12 @@ impl S3LocationBuilder {
     /// Consumes the builder and constructs a [`S3Location`](crate::types::S3Location).
     /// This method will fail if any of the following fields are not set:
     /// - [`uri`](crate::types::builders::S3LocationBuilder::uri)
-    pub fn build(self) -> ::std::result::Result<crate::types::S3Location, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::S3Location,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::S3Location {
             uri: self.uri.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

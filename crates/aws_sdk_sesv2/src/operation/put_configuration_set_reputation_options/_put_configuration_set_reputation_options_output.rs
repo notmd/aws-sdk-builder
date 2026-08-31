@@ -13,13 +13,15 @@ impl ::aws_types::request_id::RequestId for PutConfigurationSetReputationOptions
 }
 impl PutConfigurationSetReputationOptionsOutput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetReputationOptionsOutput`](crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsOutput).
-    pub fn builder() -> crate::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsOutputBuilder {
+    pub fn builder() -> crate::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsOutputBuilder{
         crate::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsOutputBuilder::default()
     }
 }
 
 /// A builder for [`PutConfigurationSetReputationOptionsOutput`](crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutConfigurationSetReputationOptionsOutputBuilder {
     _request_id: Option<String>,
@@ -35,7 +37,7 @@ impl PutConfigurationSetReputationOptionsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutConfigurationSetReputationOptionsOutput`](crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsOutput).
-    pub fn build(self) -> crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsOutput {
+    pub fn build(self) -> crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsOutput{
         crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsOutput {
             _request_id: self._request_id,
         }

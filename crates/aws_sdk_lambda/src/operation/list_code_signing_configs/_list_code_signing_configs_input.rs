@@ -20,13 +20,17 @@ impl ListCodeSigningConfigsInput {
 }
 impl ListCodeSigningConfigsInput {
     /// Creates a new builder-style object to manufacture [`ListCodeSigningConfigsInput`](crate::operation::list_code_signing_configs::ListCodeSigningConfigsInput).
-    pub fn builder() -> crate::operation::list_code_signing_configs::builders::ListCodeSigningConfigsInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_code_signing_configs::builders::ListCodeSigningConfigsInputBuilder
+    {
         crate::operation::list_code_signing_configs::builders::ListCodeSigningConfigsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListCodeSigningConfigsInput`](crate::operation::list_code_signing_configs::ListCodeSigningConfigsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListCodeSigningConfigsInputBuilder {
     pub(crate) marker: ::std::option::Option<::std::string::String>,
@@ -68,9 +72,11 @@ impl ListCodeSigningConfigsInputBuilder {
         crate::operation::list_code_signing_configs::ListCodeSigningConfigsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_code_signing_configs::ListCodeSigningConfigsInput {
-            marker: self.marker,
-            max_items: self.max_items,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::list_code_signing_configs::ListCodeSigningConfigsInput {
+                marker: self.marker,
+                max_items: self.max_items,
+            },
+        )
     }
 }

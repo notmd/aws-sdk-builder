@@ -57,13 +57,15 @@ impl PutResourcePermissionStatementInput {
 }
 impl PutResourcePermissionStatementInput {
     /// Creates a new builder-style object to manufacture [`PutResourcePermissionStatementInput`](crate::operation::put_resource_permission_statement::PutResourcePermissionStatementInput).
-    pub fn builder() -> crate::operation::put_resource_permission_statement::builders::PutResourcePermissionStatementInputBuilder {
+    pub fn builder() -> crate::operation::put_resource_permission_statement::builders::PutResourcePermissionStatementInputBuilder{
         crate::operation::put_resource_permission_statement::builders::PutResourcePermissionStatementInputBuilder::default()
     }
 }
 
 /// A builder for [`PutResourcePermissionStatementInput`](crate::operation::put_resource_permission_statement::PutResourcePermissionStatementInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutResourcePermissionStatementInputBuilder {
     pub(crate) source_vpc: ::std::option::Option<::std::string::String>,
@@ -91,12 +93,18 @@ impl PutResourcePermissionStatementInputBuilder {
         &self.source_vpc
     }
     /// SignIn VPC endpoint identifier
-    pub fn signin_source_vpce(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn signin_source_vpce(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.signin_source_vpce = ::std::option::Option::Some(input.into());
         self
     }
     /// SignIn VPC endpoint identifier
-    pub fn set_signin_source_vpce(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_signin_source_vpce(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.signin_source_vpce = input;
         self
     }
@@ -105,12 +113,18 @@ impl PutResourcePermissionStatementInputBuilder {
         &self.signin_source_vpce
     }
     /// Console VPC endpoint identifier
-    pub fn console_source_vpce(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn console_source_vpce(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.console_source_vpce = ::std::option::Option::Some(input.into());
         self
     }
     /// Console VPC endpoint identifier
-    pub fn set_console_source_vpce(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_console_source_vpce(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.console_source_vpce = input;
         self
     }
@@ -119,12 +133,18 @@ impl PutResourcePermissionStatementInputBuilder {
         &self.console_source_vpce
     }
     /// Source IP address within VPC
-    pub fn vpc_source_ip(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn vpc_source_ip(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.vpc_source_ip = ::std::option::Option::Some(input.into());
         self
     }
     /// Source IP address within VPC
-    pub fn set_vpc_source_ip(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_vpc_source_ip(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.vpc_source_ip = input;
         self
     }
@@ -147,12 +167,18 @@ impl PutResourcePermissionStatementInputBuilder {
         &self.source_ip
     }
     /// AWS region where the VPC and VPC endpoint reside Required when sourceVpc or signinSourceVpce/consoleSourceVpce is provided
-    pub fn requested_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn requested_region(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.requested_region = ::std::option::Option::Some(input.into());
         self
     }
     /// AWS region where the VPC and VPC endpoint reside Required when sourceVpc or signinSourceVpce/consoleSourceVpce is provided
-    pub fn set_requested_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_requested_region(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.requested_region = input;
         self
     }
@@ -161,12 +187,18 @@ impl PutResourcePermissionStatementInputBuilder {
         &self.requested_region
     }
     /// Principal to exclude from the permission statement
-    pub fn excluded_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn excluded_principal(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.excluded_principal = ::std::option::Option::Some(input.into());
         self
     }
     /// Principal to exclude from the permission statement
-    pub fn set_excluded_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_excluded_principal(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.excluded_principal = input;
         self
     }

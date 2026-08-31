@@ -72,13 +72,15 @@ impl PutRuntimeManagementConfigInput {
 }
 impl PutRuntimeManagementConfigInput {
     /// Creates a new builder-style object to manufacture [`PutRuntimeManagementConfigInput`](crate::operation::put_runtime_management_config::PutRuntimeManagementConfigInput).
-    pub fn builder() -> crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigInputBuilder {
+    pub fn builder() -> crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigInputBuilder{
         crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigInputBuilder::default()
     }
 }
 
 /// A builder for [`PutRuntimeManagementConfigInput`](crate::operation::put_runtime_management_config::PutRuntimeManagementConfigInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutRuntimeManagementConfigInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -99,7 +101,10 @@ impl PutRuntimeManagementConfigInputBuilder {
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
@@ -114,7 +119,10 @@ impl PutRuntimeManagementConfigInputBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.function_name = input;
         self
     }
@@ -169,7 +177,10 @@ impl PutRuntimeManagementConfigInputBuilder {
     /// <li>
     /// <p><b>Manual</b> - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback">Roll back a runtime version</a>.</p></li>
     /// </ul>
-    pub fn set_update_runtime_on(mut self, input: ::std::option::Option<crate::types::UpdateRuntimeOn>) -> Self {
+    pub fn set_update_runtime_on(
+        mut self,
+        input: ::std::option::Option<crate::types::UpdateRuntimeOn>,
+    ) -> Self {
         self.update_runtime_on = input;
         self
     }
@@ -188,14 +199,20 @@ impl PutRuntimeManagementConfigInputBuilder {
     /// <p>The ARN of the runtime version you want the function to use.</p><note>
     /// <p>This is only required if you're using the <b>Manual</b> runtime update mode.</p>
     /// </note>
-    pub fn runtime_version_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn runtime_version_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.runtime_version_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the runtime version you want the function to use.</p><note>
     /// <p>This is only required if you're using the <b>Manual</b> runtime update mode.</p>
     /// </note>
-    pub fn set_runtime_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_runtime_version_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.runtime_version_arn = input;
         self
     }
@@ -212,11 +229,13 @@ impl PutRuntimeManagementConfigInputBuilder {
         crate::operation::put_runtime_management_config::PutRuntimeManagementConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::put_runtime_management_config::PutRuntimeManagementConfigInput {
-            function_name: self.function_name,
-            qualifier: self.qualifier,
-            update_runtime_on: self.update_runtime_on,
-            runtime_version_arn: self.runtime_version_arn,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::put_runtime_management_config::PutRuntimeManagementConfigInput {
+                function_name: self.function_name,
+                qualifier: self.qualifier,
+                update_runtime_on: self.update_runtime_on,
+                runtime_version_arn: self.runtime_version_arn,
+            },
+        )
     }
 }

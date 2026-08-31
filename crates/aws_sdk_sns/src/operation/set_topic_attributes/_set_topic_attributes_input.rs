@@ -243,13 +243,16 @@ impl SetTopicAttributesInput {
 }
 impl SetTopicAttributesInput {
     /// Creates a new builder-style object to manufacture [`SetTopicAttributesInput`](crate::operation::set_topic_attributes::SetTopicAttributesInput).
-    pub fn builder() -> crate::operation::set_topic_attributes::builders::SetTopicAttributesInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::set_topic_attributes::builders::SetTopicAttributesInputBuilder {
         crate::operation::set_topic_attributes::builders::SetTopicAttributesInputBuilder::default()
     }
 }
 
 /// A builder for [`SetTopicAttributesInput`](crate::operation::set_topic_attributes::SetTopicAttributesInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SetTopicAttributesInputBuilder {
     pub(crate) topic_arn: ::std::option::Option<::std::string::String>,
@@ -382,7 +385,10 @@ impl SetTopicAttributesInputBuilder {
     /// </ul></li>
     /// </ul>
     /// This field is required.
-    pub fn attribute_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn attribute_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.attribute_name = ::std::option::Option::Some(input.into());
         self
     }
@@ -495,7 +501,10 @@ impl SetTopicAttributesInputBuilder {
     /// <p><code>MessageGroup</code> – The scope of deduplication is within each individual message group, which enables higher throughput per topic subject to regional quotas. For more information on quotas or to request an increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/sns.html">Amazon SNS service quotas</a> in the Amazon Web Services General Reference.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_attribute_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.attribute_name = input;
         self
     }
@@ -612,12 +621,18 @@ impl SetTopicAttributesInputBuilder {
         &self.attribute_name
     }
     /// <p>The new value for the attribute.</p>
-    pub fn attribute_value(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn attribute_value(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.attribute_value = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The new value for the attribute.</p>
-    pub fn set_attribute_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_attribute_value(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.attribute_value = input;
         self
     }
@@ -628,12 +643,16 @@ impl SetTopicAttributesInputBuilder {
     /// Consumes the builder and constructs a [`SetTopicAttributesInput`](crate::operation::set_topic_attributes::SetTopicAttributesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::set_topic_attributes::SetTopicAttributesInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::set_topic_attributes::SetTopicAttributesInput {
-            topic_arn: self.topic_arn,
-            attribute_name: self.attribute_name,
-            attribute_value: self.attribute_value,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::set_topic_attributes::SetTopicAttributesInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::set_topic_attributes::SetTopicAttributesInput {
+                topic_arn: self.topic_arn,
+                attribute_name: self.attribute_name,
+                attribute_value: self.attribute_value,
+            },
+        )
     }
 }

@@ -5,13 +5,15 @@
 pub struct EnableOrganizationsRootSessionsInput {}
 impl EnableOrganizationsRootSessionsInput {
     /// Creates a new builder-style object to manufacture [`EnableOrganizationsRootSessionsInput`](crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsInput).
-    pub fn builder() -> crate::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsInputBuilder {
+    pub fn builder() -> crate::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsInputBuilder{
         crate::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsInputBuilder::default()
     }
 }
 
 /// A builder for [`EnableOrganizationsRootSessionsInput`](crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct EnableOrganizationsRootSessionsInputBuilder {}
 impl EnableOrganizationsRootSessionsInputBuilder {

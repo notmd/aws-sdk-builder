@@ -35,7 +35,9 @@ impl ::std::fmt::Debug for ListWebAuthnCredentialsInput {
 }
 impl ListWebAuthnCredentialsInput {
     /// Creates a new builder-style object to manufacture [`ListWebAuthnCredentialsInput`](crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsInput).
-    pub fn builder() -> crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsInputBuilder
+    {
         crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsInputBuilder::default()
     }
 }
@@ -99,11 +101,13 @@ impl ListWebAuthnCredentialsInputBuilder {
         crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsInput {
-            access_token: self.access_token,
-            next_token: self.next_token,
-            max_results: self.max_results,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsInput {
+                access_token: self.access_token,
+                next_token: self.next_token,
+                max_results: self.max_results,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for ListWebAuthnCredentialsInputBuilder {

@@ -24,7 +24,10 @@ pub fn ser_create_repository_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_9 = array_7.value().start_object();
-                crate::protocol_serde::shape_upstream_repository::ser_upstream_repository(&mut object_9, item_8)?;
+                crate::protocol_serde::shape_upstream_repository::ser_upstream_repository(
+                    &mut object_9,
+                    item_8,
+                )?;
                 object_9.finish();
             }
         }

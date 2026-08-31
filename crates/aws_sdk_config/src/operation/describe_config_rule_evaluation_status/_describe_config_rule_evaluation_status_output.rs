@@ -5,7 +5,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeConfigRuleEvaluationStatusOutput {
     /// <p>Status information about your Config managed rules.</p>
-    pub config_rules_evaluation_status: ::std::option::Option<::std::vec::Vec<crate::types::ConfigRuleEvaluationStatus>>,
+    pub config_rules_evaluation_status:
+        ::std::option::Option<::std::vec::Vec<crate::types::ConfigRuleEvaluationStatus>>,
     /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -15,7 +16,9 @@ impl DescribeConfigRuleEvaluationStatusOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.config_rules_evaluation_status.is_none()`.
     pub fn config_rules_evaluation_status(&self) -> &[crate::types::ConfigRuleEvaluationStatus] {
-        self.config_rules_evaluation_status.as_deref().unwrap_or_default()
+        self.config_rules_evaluation_status
+            .as_deref()
+            .unwrap_or_default()
     }
     /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -29,16 +32,19 @@ impl ::aws_types::request_id::RequestId for DescribeConfigRuleEvaluationStatusOu
 }
 impl DescribeConfigRuleEvaluationStatusOutput {
     /// Creates a new builder-style object to manufacture [`DescribeConfigRuleEvaluationStatusOutput`](crate::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusOutput).
-    pub fn builder() -> crate::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusOutputBuilder {
+    pub fn builder() -> crate::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusOutputBuilder{
         crate::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeConfigRuleEvaluationStatusOutput`](crate::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeConfigRuleEvaluationStatusOutputBuilder {
-    pub(crate) config_rules_evaluation_status: ::std::option::Option<::std::vec::Vec<crate::types::ConfigRuleEvaluationStatus>>,
+    pub(crate) config_rules_evaluation_status:
+        ::std::option::Option<::std::vec::Vec<crate::types::ConfigRuleEvaluationStatus>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -48,7 +54,10 @@ impl DescribeConfigRuleEvaluationStatusOutputBuilder {
     /// To override the contents of this collection use [`set_config_rules_evaluation_status`](Self::set_config_rules_evaluation_status).
     ///
     /// <p>Status information about your Config managed rules.</p>
-    pub fn config_rules_evaluation_status(mut self, input: crate::types::ConfigRuleEvaluationStatus) -> Self {
+    pub fn config_rules_evaluation_status(
+        mut self,
+        input: crate::types::ConfigRuleEvaluationStatus,
+    ) -> Self {
         let mut v = self.config_rules_evaluation_status.unwrap_or_default();
         v.push(input);
         self.config_rules_evaluation_status = ::std::option::Option::Some(v);
@@ -63,7 +72,9 @@ impl DescribeConfigRuleEvaluationStatusOutputBuilder {
         self
     }
     /// <p>Status information about your Config managed rules.</p>
-    pub fn get_config_rules_evaluation_status(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConfigRuleEvaluationStatus>> {
+    pub fn get_config_rules_evaluation_status(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ConfigRuleEvaluationStatus>> {
         &self.config_rules_evaluation_status
     }
     /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
@@ -90,7 +101,7 @@ impl DescribeConfigRuleEvaluationStatusOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeConfigRuleEvaluationStatusOutput`](crate::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusOutput).
-    pub fn build(self) -> crate::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusOutput {
+    pub fn build(self) -> crate::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusOutput{
         crate::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusOutput {
             config_rules_evaluation_status: self.config_rules_evaluation_status,
             next_token: self.next_token,

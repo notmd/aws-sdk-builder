@@ -27,13 +27,15 @@ impl PutConfigurationSetTrackingOptionsInput {
 }
 impl PutConfigurationSetTrackingOptionsInput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetTrackingOptionsInput`](crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsInput).
-    pub fn builder() -> crate::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsInputBuilder {
+    pub fn builder() -> crate::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsInputBuilder{
         crate::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsInputBuilder::default()
     }
 }
 
 /// A builder for [`PutConfigurationSetTrackingOptionsInput`](crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutConfigurationSetTrackingOptionsInputBuilder {
     pub(crate) configuration_set_name: ::std::option::Option<::std::string::String>,
@@ -43,12 +45,18 @@ pub struct PutConfigurationSetTrackingOptionsInputBuilder {
 impl PutConfigurationSetTrackingOptionsInputBuilder {
     /// <p>The name of the configuration set.</p>
     /// This field is required.
-    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn configuration_set_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.configuration_set_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the configuration set.</p>
-    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_configuration_set_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.configuration_set_name = input;
         self
     }
@@ -57,12 +65,18 @@ impl PutConfigurationSetTrackingOptionsInputBuilder {
         &self.configuration_set_name
     }
     /// <p>The domain to use to track open and click events.</p>
-    pub fn custom_redirect_domain(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn custom_redirect_domain(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.custom_redirect_domain = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The domain to use to track open and click events.</p>
-    pub fn set_custom_redirect_domain(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_custom_redirect_domain(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.custom_redirect_domain = input;
         self
     }
@@ -76,7 +90,10 @@ impl PutConfigurationSetTrackingOptionsInputBuilder {
         self
     }
     /// <p>The https policy to use for tracking open and click events. If the value is OPTIONAL or HttpsPolicy is not specified, the open trackers use HTTP and click tracker use the original protocol of the link. If the value is REQUIRE, both open and click tracker uses HTTPS and if the value is REQUIRE_OPEN_ONLY open tracker uses HTTPS and link tracker is same as original protocol of the link.</p>
-    pub fn set_https_policy(mut self, input: ::std::option::Option<crate::types::HttpsPolicy>) -> Self {
+    pub fn set_https_policy(
+        mut self,
+        input: ::std::option::Option<crate::types::HttpsPolicy>,
+    ) -> Self {
         self.https_policy = input;
         self
     }
@@ -90,7 +107,7 @@ impl PutConfigurationSetTrackingOptionsInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsInput,
         ::aws_smithy_types::error::operation::BuildError,
-    > {
+    >{
         ::std::result::Result::Ok(
             crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsInput {
                 configuration_set_name: self.configuration_set_name,

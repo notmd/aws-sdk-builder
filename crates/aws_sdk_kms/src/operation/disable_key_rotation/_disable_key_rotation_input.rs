@@ -32,13 +32,16 @@ impl DisableKeyRotationInput {
 }
 impl DisableKeyRotationInput {
     /// Creates a new builder-style object to manufacture [`DisableKeyRotationInput`](crate::operation::disable_key_rotation::DisableKeyRotationInput).
-    pub fn builder() -> crate::operation::disable_key_rotation::builders::DisableKeyRotationInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::disable_key_rotation::builders::DisableKeyRotationInputBuilder {
         crate::operation::disable_key_rotation::builders::DisableKeyRotationInputBuilder::default()
     }
 }
 
 /// A builder for [`DisableKeyRotationInput`](crate::operation::disable_key_rotation::DisableKeyRotationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DisableKeyRotationInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -89,8 +92,14 @@ impl DisableKeyRotationInputBuilder {
     /// Consumes the builder and constructs a [`DisableKeyRotationInput`](crate::operation::disable_key_rotation::DisableKeyRotationInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::disable_key_rotation::DisableKeyRotationInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::disable_key_rotation::DisableKeyRotationInput { key_id: self.key_id })
+    ) -> ::std::result::Result<
+        crate::operation::disable_key_rotation::DisableKeyRotationInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::disable_key_rotation::DisableKeyRotationInput {
+                key_id: self.key_id,
+            },
+        )
     }
 }

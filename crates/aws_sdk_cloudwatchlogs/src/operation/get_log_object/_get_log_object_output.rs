@@ -5,15 +5,20 @@
 #[derive(::std::fmt::Debug)]
 pub struct GetLogObjectOutput {
     /// <p>A stream of structured log data returned by the GetLogObject operation. This stream contains log events with their associated metadata and extracted fields.</p>
-    pub field_stream:
-        crate::event_receiver::EventReceiver<crate::types::GetLogObjectResponseStream, crate::types::error::GetLogObjectResponseStreamError>,
+    pub field_stream: crate::event_receiver::EventReceiver<
+        crate::types::GetLogObjectResponseStream,
+        crate::types::error::GetLogObjectResponseStreamError,
+    >,
     _request_id: Option<String>,
 }
 impl GetLogObjectOutput {
     /// <p>A stream of structured log data returned by the GetLogObject operation. This stream contains log events with their associated metadata and extracted fields.</p>
     pub fn field_stream(
         &self,
-    ) -> &crate::event_receiver::EventReceiver<crate::types::GetLogObjectResponseStream, crate::types::error::GetLogObjectResponseStreamError> {
+    ) -> &crate::event_receiver::EventReceiver<
+        crate::types::GetLogObjectResponseStream,
+        crate::types::error::GetLogObjectResponseStreamError,
+    > {
         &self.field_stream
     }
 }
@@ -28,7 +33,9 @@ impl GetLogObjectOutput {
         crate::operation::get_log_object::builders::GetLogObjectOutputBuilder::default()
     }
     #[allow(unused)]
-    pub(crate) fn into_builder(self) -> crate::operation::get_log_object::builders::GetLogObjectOutputBuilder {
+    pub(crate) fn into_builder(
+        self,
+    ) -> crate::operation::get_log_object::builders::GetLogObjectOutputBuilder {
         Self::builder().field_stream(self.field_stream)
     }
 }
@@ -38,7 +45,10 @@ impl GetLogObjectOutput {
 #[non_exhaustive]
 pub struct GetLogObjectOutputBuilder {
     pub(crate) field_stream: ::std::option::Option<
-        crate::event_receiver::EventReceiver<crate::types::GetLogObjectResponseStream, crate::types::error::GetLogObjectResponseStreamError>,
+        crate::event_receiver::EventReceiver<
+            crate::types::GetLogObjectResponseStream,
+            crate::types::error::GetLogObjectResponseStreamError,
+        >,
     >,
     _request_id: Option<String>,
 }
@@ -46,7 +56,10 @@ impl GetLogObjectOutputBuilder {
     /// <p>A stream of structured log data returned by the GetLogObject operation. This stream contains log events with their associated metadata and extracted fields.</p>
     pub fn field_stream(
         mut self,
-        input: crate::event_receiver::EventReceiver<crate::types::GetLogObjectResponseStream, crate::types::error::GetLogObjectResponseStreamError>,
+        input: crate::event_receiver::EventReceiver<
+            crate::types::GetLogObjectResponseStream,
+            crate::types::error::GetLogObjectResponseStreamError,
+        >,
     ) -> Self {
         self.field_stream = ::std::option::Option::Some(input);
         self
@@ -55,7 +68,10 @@ impl GetLogObjectOutputBuilder {
     pub fn set_field_stream(
         mut self,
         input: ::std::option::Option<
-            crate::event_receiver::EventReceiver<crate::types::GetLogObjectResponseStream, crate::types::error::GetLogObjectResponseStreamError>,
+            crate::event_receiver::EventReceiver<
+                crate::types::GetLogObjectResponseStream,
+                crate::types::error::GetLogObjectResponseStreamError,
+            >,
         >,
     ) -> Self {
         self.field_stream = input;
@@ -65,7 +81,10 @@ impl GetLogObjectOutputBuilder {
     pub fn get_field_stream(
         &self,
     ) -> &::std::option::Option<
-        crate::event_receiver::EventReceiver<crate::types::GetLogObjectResponseStream, crate::types::error::GetLogObjectResponseStreamError>,
+        crate::event_receiver::EventReceiver<
+            crate::types::GetLogObjectResponseStream,
+            crate::types::error::GetLogObjectResponseStreamError,
+        >,
     > {
         &self.field_stream
     }
@@ -83,7 +102,10 @@ impl GetLogObjectOutputBuilder {
     /// - [`field_stream`](crate::operation::get_log_object::builders::GetLogObjectOutputBuilder::field_stream)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_log_object::GetLogObjectOutput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::get_log_object::GetLogObjectOutput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::get_log_object::GetLogObjectOutput {
             field_stream: self.field_stream.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

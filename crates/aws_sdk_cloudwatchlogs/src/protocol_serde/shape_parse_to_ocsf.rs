@@ -7,10 +7,14 @@ pub fn ser_parse_to_ocsf(
         object.key("source").string(var_1.as_str());
     }
     {
-        object.key("eventSource").string(input.event_source.as_str());
+        object
+            .key("eventSource")
+            .string(input.event_source.as_str());
     }
     {
-        object.key("ocsfVersion").string(input.ocsf_version.as_str());
+        object
+            .key("ocsfVersion")
+            .string(input.ocsf_version.as_str());
     }
     if let Some(var_2) = &input.mapping_version {
         object.key("mappingVersion").string(var_2.as_str());
@@ -22,14 +26,24 @@ pub(crate) fn de_parse_to_ocsf<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::ParseToOcsf>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<
+    Option<crate::types::ParseToOcsf>,
+    ::aws_smithy_json::deserialize::error::DeserializeError,
+>
 where
-    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+    I: Iterator<
+        Item = Result<
+            ::aws_smithy_json::deserialize::Token<'a>,
+            ::aws_smithy_json::deserialize::error::DeserializeError,
+        >,
+    >,
 {
     if depth >= 128u32 {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "maximum nesting depth exceeded",
+            ),
+        );
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -39,50 +53,77 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "source" => {
-                            builder = builder.set_source(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "source" => {
+                                builder = builder.set_source(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                        tokens.next(),
+                                    )?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                            );
-                        }
-                        "eventSource" => {
-                            builder = builder.set_event_source(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::EventSource::from(u.as_ref())))
+                                );
+                            }
+                            "eventSource" => {
+                                builder = builder.set_event_source(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                        tokens.next(),
+                                    )?
+                                    .map(|s| {
+                                        s.to_unescaped()
+                                            .map(|u| crate::types::EventSource::from(u.as_ref()))
+                                    })
                                     .transpose()?,
-                            );
-                        }
-                        "ocsfVersion" => {
-                            builder = builder.set_ocsf_version(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::OcsfVersion::from(u.as_ref())))
+                                );
+                            }
+                            "ocsfVersion" => {
+                                builder = builder.set_ocsf_version(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                        tokens.next(),
+                                    )?
+                                    .map(|s| {
+                                        s.to_unescaped()
+                                            .map(|u| crate::types::OcsfVersion::from(u.as_ref()))
+                                    })
                                     .transpose()?,
-                            );
-                        }
-                        "mappingVersion" => {
-                            builder = builder.set_mapping_version(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                );
+                            }
+                            "mappingVersion" => {
+                                builder = builder.set_mapping_version(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                        tokens.next(),
+                                    )?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                            );
+                                );
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
-                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )))
+                        return Err(
+                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                format!("expected object key or end object, found: {other:?}"),
+                            ),
+                        )
                     }
                 }
             }
-            Ok(Some(crate::serde_util::parse_to_ocsf_correct_errors(builder).build().map_err(|err| {
-                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
-            })?))
+            Ok(Some(
+                crate::serde_util::parse_to_ocsf_correct_errors(builder)
+                    .build()
+                    .map_err(|err| {
+                        ::aws_smithy_json::deserialize::error::DeserializeError::custom_source(
+                            "Response was invalid",
+                            err,
+                        )
+                    })?,
+            ))
         }
-        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "expected start object or null",
-        )),
+        _ => Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ),
+        ),
     }
 }

@@ -108,7 +108,9 @@ impl PutKeyPolicyInput {
 }
 
 /// A builder for [`PutKeyPolicyInput`](crate::operation::put_key_policy::PutKeyPolicyInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutKeyPolicyInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -268,7 +270,10 @@ impl PutKeyPolicyInputBuilder {
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
     /// </important>
     /// <p>Use this parameter only when you intend to prevent the principal that is making the request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a> request on the KMS key.</p>
-    pub fn set_bypass_policy_lockout_safety_check(mut self, input: ::std::option::Option<bool>) -> Self {
+    pub fn set_bypass_policy_lockout_safety_check(
+        mut self,
+        input: ::std::option::Option<bool>,
+    ) -> Self {
         self.bypass_policy_lockout_safety_check = input;
         self
     }
@@ -283,7 +288,10 @@ impl PutKeyPolicyInputBuilder {
     /// Consumes the builder and constructs a [`PutKeyPolicyInput`](crate::operation::put_key_policy::PutKeyPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::put_key_policy::PutKeyPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::put_key_policy::PutKeyPolicyInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::put_key_policy::PutKeyPolicyInput {
             key_id: self.key_id,
             policy_name: self.policy_name,

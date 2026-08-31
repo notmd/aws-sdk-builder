@@ -35,12 +35,18 @@ pub struct ExecutionDetailsBuilder {
 }
 impl ExecutionDetailsBuilder {
     /// <p>The original input payload provided for the durable execution.</p>
-    pub fn input_payload(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn input_payload(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.input_payload = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The original input payload provided for the durable execution.</p>
-    pub fn set_input_payload(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_input_payload(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.input_payload = input;
         self
     }

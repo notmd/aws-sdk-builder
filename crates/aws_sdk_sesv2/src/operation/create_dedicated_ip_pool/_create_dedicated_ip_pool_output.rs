@@ -13,13 +13,17 @@ impl ::aws_types::request_id::RequestId for CreateDedicatedIpPoolOutput {
 }
 impl CreateDedicatedIpPoolOutput {
     /// Creates a new builder-style object to manufacture [`CreateDedicatedIpPoolOutput`](crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolOutput).
-    pub fn builder() -> crate::operation::create_dedicated_ip_pool::builders::CreateDedicatedIpPoolOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::create_dedicated_ip_pool::builders::CreateDedicatedIpPoolOutputBuilder
+    {
         crate::operation::create_dedicated_ip_pool::builders::CreateDedicatedIpPoolOutputBuilder::default()
     }
 }
 
 /// A builder for [`CreateDedicatedIpPoolOutput`](crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateDedicatedIpPoolOutputBuilder {
     _request_id: Option<String>,

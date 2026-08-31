@@ -100,22 +100,34 @@ impl UnsubscribeFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The ARN of the subscription to be deleted.</p>
-    pub fn subscription_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn subscription_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.subscription_arn(input.into());
         self
     }
     /// <p>The ARN of the subscription to be deleted.</p>
-    pub fn set_subscription_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_subscription_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_subscription_arn(input);
         self
     }

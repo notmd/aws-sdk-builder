@@ -27,7 +27,9 @@ impl EksContainerEnvironmentVariable {
 }
 
 /// A builder for [`EksContainerEnvironmentVariable`](crate::types::EksContainerEnvironmentVariable).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct EksContainerEnvironmentVariableBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,

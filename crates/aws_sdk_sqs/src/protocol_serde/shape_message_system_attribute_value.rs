@@ -7,7 +7,9 @@ pub fn ser_message_system_attribute_value(
         object.key("StringValue").string(var_1.as_str());
     }
     if let Some(var_2) = &input.binary_value {
-        object.key("BinaryValue").string_unchecked(&::aws_smithy_types::base64::encode(var_2));
+        object
+            .key("BinaryValue")
+            .string_unchecked(&::aws_smithy_types::base64::encode(var_2));
     }
     if let Some(var_3) = &input.string_list_values {
         let mut array_4 = object.key("StringListValues").start_array();
@@ -22,7 +24,9 @@ pub fn ser_message_system_attribute_value(
         let mut array_7 = object.key("BinaryListValues").start_array();
         for item_8 in var_6 {
             {
-                array_7.value().string_unchecked(&::aws_smithy_types::base64::encode(item_8));
+                array_7
+                    .value()
+                    .string_unchecked(&::aws_smithy_types::base64::encode(item_8));
             }
         }
         array_7.finish();

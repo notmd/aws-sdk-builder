@@ -68,7 +68,9 @@ pub fn de_list_instance_profiles_for_role_http_response(
         let mut output = crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleOutputBuilder::default();
         output = crate::protocol_serde::shape_list_instance_profiles_for_role::de_list_instance_profiles_for_role(_response_body, output)
             .map_err(crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         crate::serde_util::list_instance_profiles_for_role_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::unhandled)?
@@ -82,7 +84,7 @@ pub fn de_list_instance_profiles_for_role(
 ) -> std::result::Result<
     crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+>{
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

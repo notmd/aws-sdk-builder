@@ -13,7 +13,10 @@ pub fn ser_keys_and_attributes(
                     {
                         #[allow(unused_mut)]
                         let mut object_6 = object_3.key(key_4.as_str()).start_object();
-                        crate::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_6, value_5)?;
+                        crate::protocol_serde::shape_attribute_value::ser_attribute_value(
+                            &mut object_6,
+                            value_5,
+                        )?;
                         object_6.finish();
                     }
                 }
@@ -54,14 +57,24 @@ pub(crate) fn de_keys_and_attributes<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::KeysAndAttributes>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<
+    Option<crate::types::KeysAndAttributes>,
+    ::aws_smithy_json::deserialize::error::DeserializeError,
+>
 where
-    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+    I: Iterator<
+        Item = Result<
+            ::aws_smithy_json::deserialize::Token<'a>,
+            ::aws_smithy_json::deserialize::error::DeserializeError,
+        >,
+    >,
 {
     if depth >= 128u32 {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "maximum nesting depth exceeded",
+            ),
+        );
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -71,51 +84,76 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "Keys" => {
-                            builder = builder.set_keys(crate::protocol_serde::shape_key_list::de_key_list(tokens, _value, depth + 1)?);
-                        }
-                        "AttributesToGet" => {
-                            builder = builder.set_attributes_to_get(crate::protocol_serde::shape_attribute_name_list::de_attribute_name_list(
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "Keys" => {
+                                builder = builder.set_keys(
+                                    crate::protocol_serde::shape_key_list::de_key_list(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
+                            }
+                            "AttributesToGet" => {
+                                builder = builder.set_attributes_to_get(crate::protocol_serde::shape_attribute_name_list::de_attribute_name_list(
                                 tokens,
                                 _value,
                                 depth + 1,
                             )?);
-                        }
-                        "ConsistentRead" => {
-                            builder = builder.set_consistent_read(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                        }
-                        "ProjectionExpression" => {
-                            builder = builder.set_projection_expression(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            }
+                            "ConsistentRead" => {
+                                builder = builder.set_consistent_read(
+                                    ::aws_smithy_json::deserialize::token::expect_bool_or_null(
+                                        tokens.next(),
+                                    )?,
+                                );
+                            }
+                            "ProjectionExpression" => {
+                                builder = builder.set_projection_expression(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                        tokens.next(),
+                                    )?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                            );
-                        }
-                        "ExpressionAttributeNames" => {
-                            builder = builder.set_expression_attribute_names(
+                                );
+                            }
+                            "ExpressionAttributeNames" => {
+                                builder = builder.set_expression_attribute_names(
                                 crate::protocol_serde::shape_expression_attribute_name_map::de_expression_attribute_name_map(
                                     tokens,
                                     _value,
                                     depth + 1,
                                 )?,
                             );
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
-                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )))
+                        return Err(
+                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                format!("expected object key or end object, found: {other:?}"),
+                            ),
+                        )
                     }
                 }
             }
-            Ok(Some(crate::serde_util::keys_and_attributes_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(
+                crate::serde_util::keys_and_attributes_correct_errors(builder)
+                    .build()
+                    .map_err(|err| {
+                        ::aws_smithy_json::deserialize::error::DeserializeError::custom_source(
+                            "Response was invalid",
+                            err,
+                        )
+                    })?,
+            ))
         }
-        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "expected start object or null",
-        )),
+        _ => Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ),
+        ),
     }
 }

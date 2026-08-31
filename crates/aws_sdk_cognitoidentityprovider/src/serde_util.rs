@@ -87,7 +87,8 @@ pub(crate) fn describe_resource_server_output_output_correct_errors(
 #[cfg(feature = "op_describe_risk_configuration")]
 pub(crate) fn describe_risk_configuration_output_output_correct_errors(
     mut builder: crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationOutputBuilder,
-) -> crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationOutputBuilder {
+) -> crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationOutputBuilder
+{
     if builder.risk_configuration.is_none() {
         builder.risk_configuration = {
             let builder = crate::types::builders::RiskConfigurationTypeBuilder::default();
@@ -113,7 +114,7 @@ pub(crate) fn get_device_output_output_correct_errors(
 #[cfg(feature = "op_get_identity_provider_by_identifier")]
 pub(crate) fn get_identity_provider_by_identifier_output_output_correct_errors(
     mut builder: crate::operation::get_identity_provider_by_identifier::builders::GetIdentityProviderByIdentifierOutputBuilder,
-) -> crate::operation::get_identity_provider_by_identifier::builders::GetIdentityProviderByIdentifierOutputBuilder {
+) -> crate::operation::get_identity_provider_by_identifier::builders::GetIdentityProviderByIdentifierOutputBuilder{
     if builder.identity_provider.is_none() {
         builder.identity_provider = {
             let builder = crate::types::builders::IdentityProviderTypeBuilder::default();
@@ -254,7 +255,8 @@ pub(crate) fn sign_up_output_output_correct_errors(
 #[cfg(feature = "op_start_web_authn_registration")]
 pub(crate) fn start_web_authn_registration_output_output_correct_errors(
     mut builder: crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationOutputBuilder,
-) -> crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationOutputBuilder {
+) -> crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationOutputBuilder
+{
     if builder.credential_creation_options.is_none() {
         builder.credential_creation_options = Some(Default::default())
     }
@@ -300,12 +302,19 @@ pub(crate) fn update_resource_server_output_output_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_get_provisioned_limit", feature = "op_update_provisioned_limit"))]
-pub(crate) fn limit_type_correct_errors(mut builder: crate::types::builders::LimitTypeBuilder) -> crate::types::builders::LimitTypeBuilder {
+#[cfg(any(
+    feature = "op_get_provisioned_limit",
+    feature = "op_update_provisioned_limit"
+))]
+pub(crate) fn limit_type_correct_errors(
+    mut builder: crate::types::builders::LimitTypeBuilder,
+) -> crate::types::builders::LimitTypeBuilder {
     if builder.limit_definition.is_none() {
         builder.limit_definition = {
             let builder = crate::types::builders::LimitDefinitionTypeBuilder::default();
-            crate::serde_util::limit_definition_type_correct_errors(builder).build().ok()
+            crate::serde_util::limit_definition_type_correct_errors(builder)
+                .build()
+                .ok()
         }
     }
     if builder.provisioned_limit_value.is_none() {
@@ -317,7 +326,10 @@ pub(crate) fn limit_type_correct_errors(mut builder: crate::types::builders::Lim
     builder
 }
 
-#[cfg(any(feature = "op_get_log_delivery_configuration", feature = "op_set_log_delivery_configuration"))]
+#[cfg(any(
+    feature = "op_get_log_delivery_configuration",
+    feature = "op_set_log_delivery_configuration"
+))]
 pub(crate) fn log_delivery_configuration_type_correct_errors(
     mut builder: crate::types::builders::LogDeliveryConfigurationTypeBuilder,
 ) -> crate::types::builders::LogDeliveryConfigurationTypeBuilder {
@@ -330,8 +342,14 @@ pub(crate) fn log_delivery_configuration_type_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_terms", feature = "op_describe_terms", feature = "op_update_terms"))]
-pub(crate) fn terms_type_correct_errors(mut builder: crate::types::builders::TermsTypeBuilder) -> crate::types::builders::TermsTypeBuilder {
+#[cfg(any(
+    feature = "op_create_terms",
+    feature = "op_describe_terms",
+    feature = "op_update_terms"
+))]
+pub(crate) fn terms_type_correct_errors(
+    mut builder: crate::types::builders::TermsTypeBuilder,
+) -> crate::types::builders::TermsTypeBuilder {
     if builder.terms_id.is_none() {
         builder.terms_id = Some(Default::default())
     }
@@ -345,10 +363,14 @@ pub(crate) fn terms_type_correct_errors(mut builder: crate::types::builders::Ter
         builder.terms_name = Some(Default::default())
     }
     if builder.terms_source.is_none() {
-        builder.terms_source = "no value was set".parse::<crate::types::TermsSourceType>().ok()
+        builder.terms_source = "no value was set"
+            .parse::<crate::types::TermsSourceType>()
+            .ok()
     }
     if builder.enforcement.is_none() {
-        builder.enforcement = "no value was set".parse::<crate::types::TermsEnforcementType>().ok()
+        builder.enforcement = "no value was set"
+            .parse::<crate::types::TermsEnforcementType>()
+            .ok()
     }
     if builder.links.is_none() {
         builder.links = Some(Default::default())
@@ -357,12 +379,16 @@ pub(crate) fn terms_type_correct_errors(mut builder: crate::types::builders::Ter
         builder.creation_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     if builder.last_modified_date.is_none() {
-        builder.last_modified_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.last_modified_date =
+            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }
 
-#[cfg(any(feature = "op_get_provisioned_limit", feature = "op_update_provisioned_limit"))]
+#[cfg(any(
+    feature = "op_get_provisioned_limit",
+    feature = "op_update_provisioned_limit"
+))]
 pub(crate) fn limit_definition_type_correct_errors(
     mut builder: crate::types::builders::LimitDefinitionTypeBuilder,
 ) -> crate::types::builders::LimitDefinitionTypeBuilder {
@@ -375,7 +401,10 @@ pub(crate) fn limit_definition_type_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
+#[cfg(any(
+    feature = "op_describe_risk_configuration",
+    feature = "op_set_risk_configuration"
+))]
 pub(crate) fn account_takeover_risk_configuration_type_correct_errors(
     mut builder: crate::types::builders::AccountTakeoverRiskConfigurationTypeBuilder,
 ) -> crate::types::builders::AccountTakeoverRiskConfigurationTypeBuilder {
@@ -388,7 +417,20 @@ pub(crate) fn account_takeover_risk_configuration_type_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_admin_create_user", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_list_devices", feature = "op_admin_update_user_attributes", feature = "op_get_device", feature = "op_get_user", feature = "op_list_devices", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_sign_up", feature = "op_update_user_attributes"))]
+#[cfg(any(
+    feature = "op_admin_create_user",
+    feature = "op_admin_get_device",
+    feature = "op_admin_get_user",
+    feature = "op_admin_list_devices",
+    feature = "op_admin_update_user_attributes",
+    feature = "op_get_device",
+    feature = "op_get_user",
+    feature = "op_list_devices",
+    feature = "op_list_users",
+    feature = "op_list_users_in_group",
+    feature = "op_sign_up",
+    feature = "op_update_user_attributes"
+))]
 pub(crate) fn attribute_type_correct_errors(
     mut builder: crate::types::builders::AttributeTypeBuilder,
 ) -> crate::types::builders::AttributeTypeBuilder {
@@ -398,13 +440,17 @@ pub(crate) fn attribute_type_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
+#[cfg(any(
+    feature = "op_describe_risk_configuration",
+    feature = "op_set_risk_configuration"
+))]
 pub(crate) fn compromised_credentials_risk_configuration_type_correct_errors(
     mut builder: crate::types::builders::CompromisedCredentialsRiskConfigurationTypeBuilder,
 ) -> crate::types::builders::CompromisedCredentialsRiskConfigurationTypeBuilder {
     if builder.actions.is_none() {
         builder.actions = {
-            let builder = crate::types::builders::CompromisedCredentialsActionsTypeBuilder::default();
+            let builder =
+                crate::types::builders::CompromisedCredentialsActionsTypeBuilder::default();
             crate::serde_util::compromised_credentials_actions_type_correct_errors(builder)
                 .build()
                 .ok()
@@ -413,7 +459,11 @@ pub(crate) fn compromised_credentials_risk_configuration_type_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_user_pool_domain", feature = "op_describe_user_pool_domain", feature = "op_update_user_pool_domain"))]
+#[cfg(any(
+    feature = "op_create_user_pool_domain",
+    feature = "op_describe_user_pool_domain",
+    feature = "op_update_user_pool_domain"
+))]
 pub(crate) fn custom_domain_config_type_correct_errors(
     mut builder: crate::types::builders::CustomDomainConfigTypeBuilder,
 ) -> crate::types::builders::CustomDomainConfigTypeBuilder {
@@ -423,8 +473,14 @@ pub(crate) fn custom_domain_config_type_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_user_pool_domain", feature = "op_describe_user_pool_domain", feature = "op_update_user_pool_domain"))]
-pub(crate) fn failover_type_correct_errors(mut builder: crate::types::builders::FailoverTypeBuilder) -> crate::types::builders::FailoverTypeBuilder {
+#[cfg(any(
+    feature = "op_create_user_pool_domain",
+    feature = "op_describe_user_pool_domain",
+    feature = "op_update_user_pool_domain"
+))]
+pub(crate) fn failover_type_correct_errors(
+    mut builder: crate::types::builders::FailoverTypeBuilder,
+) -> crate::types::builders::FailoverTypeBuilder {
     if builder.secondary_region.is_none() {
         builder.secondary_region = Some(Default::default())
     }
@@ -434,7 +490,11 @@ pub(crate) fn failover_type_correct_errors(mut builder: crate::types::builders::
     builder
 }
 
-#[cfg(any(feature = "op_create_user_pool_client", feature = "op_describe_user_pool_client", feature = "op_update_user_pool_client"))]
+#[cfg(any(
+    feature = "op_create_user_pool_client",
+    feature = "op_describe_user_pool_client",
+    feature = "op_update_user_pool_client"
+))]
 pub(crate) fn refresh_token_rotation_type_correct_errors(
     mut builder: crate::types::builders::RefreshTokenRotationTypeBuilder,
 ) -> crate::types::builders::RefreshTokenRotationTypeBuilder {
@@ -455,23 +515,32 @@ pub(crate) fn terms_description_type_correct_errors(
         builder.terms_name = Some(Default::default())
     }
     if builder.enforcement.is_none() {
-        builder.enforcement = "no value was set".parse::<crate::types::TermsEnforcementType>().ok()
+        builder.enforcement = "no value was set"
+            .parse::<crate::types::TermsEnforcementType>()
+            .ok()
     }
     if builder.creation_date.is_none() {
         builder.creation_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     if builder.last_modified_date.is_none() {
-        builder.last_modified_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.last_modified_date =
+            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }
 
-#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
+#[cfg(any(
+    feature = "op_create_user_pool",
+    feature = "op_describe_user_pool",
+    feature = "op_update_user_pool"
+))]
 pub(crate) fn user_pool_add_ons_type_correct_errors(
     mut builder: crate::types::builders::UserPoolAddOnsTypeBuilder,
 ) -> crate::types::builders::UserPoolAddOnsTypeBuilder {
     if builder.advanced_security_mode.is_none() {
-        builder.advanced_security_mode = "no value was set".parse::<crate::types::AdvancedSecurityModeType>().ok()
+        builder.advanced_security_mode = "no value was set"
+            .parse::<crate::types::AdvancedSecurityModeType>()
+            .ok()
     }
     builder
 }
@@ -508,36 +577,61 @@ pub(crate) fn web_authn_credential_description_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_managed_login_branding", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_update_managed_login_branding"))]
-pub(crate) fn asset_type_correct_errors(mut builder: crate::types::builders::AssetTypeBuilder) -> crate::types::builders::AssetTypeBuilder {
+#[cfg(any(
+    feature = "op_create_managed_login_branding",
+    feature = "op_describe_managed_login_branding",
+    feature = "op_describe_managed_login_branding_by_client",
+    feature = "op_update_managed_login_branding"
+))]
+pub(crate) fn asset_type_correct_errors(
+    mut builder: crate::types::builders::AssetTypeBuilder,
+) -> crate::types::builders::AssetTypeBuilder {
     if builder.category.is_none() {
-        builder.category = "no value was set".parse::<crate::types::AssetCategoryType>().ok()
+        builder.category = "no value was set"
+            .parse::<crate::types::AssetCategoryType>()
+            .ok()
     }
     if builder.color_mode.is_none() {
-        builder.color_mode = "no value was set".parse::<crate::types::ColorSchemeModeType>().ok()
+        builder.color_mode = "no value was set"
+            .parse::<crate::types::ColorSchemeModeType>()
+            .ok()
     }
     if builder.extension.is_none() {
-        builder.extension = "no value was set".parse::<crate::types::AssetExtensionType>().ok()
+        builder.extension = "no value was set"
+            .parse::<crate::types::AssetExtensionType>()
+            .ok()
     }
     builder
 }
 
-#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
+#[cfg(any(
+    feature = "op_describe_risk_configuration",
+    feature = "op_set_risk_configuration"
+))]
 pub(crate) fn compromised_credentials_actions_type_correct_errors(
     mut builder: crate::types::builders::CompromisedCredentialsActionsTypeBuilder,
 ) -> crate::types::builders::CompromisedCredentialsActionsTypeBuilder {
     if builder.event_action.is_none() {
-        builder.event_action = "no value was set".parse::<crate::types::CompromisedCredentialsEventActionType>().ok()
+        builder.event_action = "no value was set"
+            .parse::<crate::types::CompromisedCredentialsEventActionType>()
+            .ok()
     }
     builder
 }
 
-#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_list_user_pools", feature = "op_update_user_pool"))]
+#[cfg(any(
+    feature = "op_create_user_pool",
+    feature = "op_describe_user_pool",
+    feature = "op_list_user_pools",
+    feature = "op_update_user_pool"
+))]
 pub(crate) fn custom_email_lambda_version_config_type_correct_errors(
     mut builder: crate::types::builders::CustomEmailLambdaVersionConfigTypeBuilder,
 ) -> crate::types::builders::CustomEmailLambdaVersionConfigTypeBuilder {
     if builder.lambda_version.is_none() {
-        builder.lambda_version = "no value was set".parse::<crate::types::CustomEmailSenderLambdaVersionType>().ok()
+        builder.lambda_version = "no value was set"
+            .parse::<crate::types::CustomEmailSenderLambdaVersionType>()
+            .ok()
     }
     if builder.lambda_arn.is_none() {
         builder.lambda_arn = Some(Default::default())
@@ -545,12 +639,19 @@ pub(crate) fn custom_email_lambda_version_config_type_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_list_user_pools", feature = "op_update_user_pool"))]
+#[cfg(any(
+    feature = "op_create_user_pool",
+    feature = "op_describe_user_pool",
+    feature = "op_list_user_pools",
+    feature = "op_update_user_pool"
+))]
 pub(crate) fn custom_sms_lambda_version_config_type_correct_errors(
     mut builder: crate::types::builders::CustomSmsLambdaVersionConfigTypeBuilder,
 ) -> crate::types::builders::CustomSmsLambdaVersionConfigTypeBuilder {
     if builder.lambda_version.is_none() {
-        builder.lambda_version = "no value was set".parse::<crate::types::CustomSmsSenderLambdaVersionType>().ok()
+        builder.lambda_version = "no value was set"
+            .parse::<crate::types::CustomSmsSenderLambdaVersionType>()
+            .ok()
     }
     if builder.lambda_arn.is_none() {
         builder.lambda_arn = Some(Default::default())
@@ -558,7 +659,13 @@ pub(crate) fn custom_sms_lambda_version_config_type_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config", feature = "op_update_user_pool"))]
+#[cfg(any(
+    feature = "op_create_user_pool",
+    feature = "op_describe_user_pool",
+    feature = "op_get_user_pool_mfa_config",
+    feature = "op_set_user_pool_mfa_config",
+    feature = "op_update_user_pool"
+))]
 pub(crate) fn eums_sms_configuration_type_correct_errors(
     mut builder: crate::types::builders::EumsSmsConfigurationTypeBuilder,
 ) -> crate::types::builders::EumsSmsConfigurationTypeBuilder {
@@ -573,7 +680,9 @@ pub(crate) fn event_feedback_type_correct_errors(
     mut builder: crate::types::builders::EventFeedbackTypeBuilder,
 ) -> crate::types::builders::EventFeedbackTypeBuilder {
     if builder.feedback_value.is_none() {
-        builder.feedback_value = "no value was set".parse::<crate::types::FeedbackValueType>().ok()
+        builder.feedback_value = "no value was set"
+            .parse::<crate::types::FeedbackValueType>()
+            .ok()
     }
     if builder.provider.is_none() {
         builder.provider = Some(Default::default())
@@ -581,12 +690,19 @@ pub(crate) fn event_feedback_type_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_list_user_pools", feature = "op_update_user_pool"))]
+#[cfg(any(
+    feature = "op_create_user_pool",
+    feature = "op_describe_user_pool",
+    feature = "op_list_user_pools",
+    feature = "op_update_user_pool"
+))]
 pub(crate) fn inbound_federation_lambda_type_correct_errors(
     mut builder: crate::types::builders::InboundFederationLambdaTypeBuilder,
 ) -> crate::types::builders::InboundFederationLambdaTypeBuilder {
     if builder.lambda_version.is_none() {
-        builder.lambda_version = "no value was set".parse::<crate::types::InboundFederationLambdaVersionType>().ok()
+        builder.lambda_version = "no value was set"
+            .parse::<crate::types::InboundFederationLambdaVersionType>()
+            .ok()
     }
     if builder.lambda_arn.is_none() {
         builder.lambda_arn = Some(Default::default())
@@ -594,7 +710,10 @@ pub(crate) fn inbound_federation_lambda_type_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_get_log_delivery_configuration", feature = "op_set_log_delivery_configuration"))]
+#[cfg(any(
+    feature = "op_get_log_delivery_configuration",
+    feature = "op_set_log_delivery_configuration"
+))]
 pub(crate) fn log_configuration_type_correct_errors(
     mut builder: crate::types::builders::LogConfigurationTypeBuilder,
 ) -> crate::types::builders::LogConfigurationTypeBuilder {
@@ -602,12 +721,17 @@ pub(crate) fn log_configuration_type_correct_errors(
         builder.log_level = "no value was set".parse::<crate::types::LogLevel>().ok()
     }
     if builder.event_source.is_none() {
-        builder.event_source = "no value was set".parse::<crate::types::EventSourceName>().ok()
+        builder.event_source = "no value was set"
+            .parse::<crate::types::EventSourceName>()
+            .ok()
     }
     builder
 }
 
-#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
+#[cfg(any(
+    feature = "op_describe_risk_configuration",
+    feature = "op_set_risk_configuration"
+))]
 pub(crate) fn notify_configuration_type_correct_errors(
     mut builder: crate::types::builders::NotifyConfigurationTypeBuilder,
 ) -> crate::types::builders::NotifyConfigurationTypeBuilder {
@@ -617,12 +741,19 @@ pub(crate) fn notify_configuration_type_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_list_user_pools", feature = "op_update_user_pool"))]
+#[cfg(any(
+    feature = "op_create_user_pool",
+    feature = "op_describe_user_pool",
+    feature = "op_list_user_pools",
+    feature = "op_update_user_pool"
+))]
 pub(crate) fn pre_token_generation_version_config_type_correct_errors(
     mut builder: crate::types::builders::PreTokenGenerationVersionConfigTypeBuilder,
 ) -> crate::types::builders::PreTokenGenerationVersionConfigTypeBuilder {
     if builder.lambda_version.is_none() {
-        builder.lambda_version = "no value was set".parse::<crate::types::PreTokenGenerationLambdaVersionType>().ok()
+        builder.lambda_version = "no value was set"
+            .parse::<crate::types::PreTokenGenerationLambdaVersionType>()
+            .ok()
     }
     if builder.lambda_arn.is_none() {
         builder.lambda_arn = Some(Default::default())
@@ -630,7 +761,12 @@ pub(crate) fn pre_token_generation_version_config_type_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_resource_server", feature = "op_describe_resource_server", feature = "op_list_resource_servers", feature = "op_update_resource_server"))]
+#[cfg(any(
+    feature = "op_create_resource_server",
+    feature = "op_describe_resource_server",
+    feature = "op_list_resource_servers",
+    feature = "op_update_resource_server"
+))]
 pub(crate) fn resource_server_scope_type_correct_errors(
     mut builder: crate::types::builders::ResourceServerScopeTypeBuilder,
 ) -> crate::types::builders::ResourceServerScopeTypeBuilder {
@@ -643,7 +779,10 @@ pub(crate) fn resource_server_scope_type_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
+#[cfg(any(
+    feature = "op_describe_risk_configuration",
+    feature = "op_set_risk_configuration"
+))]
 pub(crate) fn account_takeover_action_type_correct_errors(
     mut builder: crate::types::builders::AccountTakeoverActionTypeBuilder,
 ) -> crate::types::builders::AccountTakeoverActionTypeBuilder {
@@ -651,12 +790,17 @@ pub(crate) fn account_takeover_action_type_correct_errors(
         builder.notify = Some(Default::default())
     }
     if builder.event_action.is_none() {
-        builder.event_action = "no value was set".parse::<crate::types::AccountTakeoverEventActionType>().ok()
+        builder.event_action = "no value was set"
+            .parse::<crate::types::AccountTakeoverEventActionType>()
+            .ok()
     }
     builder
 }
 
-#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
+#[cfg(any(
+    feature = "op_describe_risk_configuration",
+    feature = "op_set_risk_configuration"
+))]
 pub(crate) fn notify_email_type_correct_errors(
     mut builder: crate::types::builders::NotifyEmailTypeBuilder,
 ) -> crate::types::builders::NotifyEmailTypeBuilder {
@@ -666,7 +810,11 @@ pub(crate) fn notify_email_type_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
+#[cfg(any(
+    feature = "op_create_user_pool",
+    feature = "op_describe_user_pool",
+    feature = "op_update_user_pool"
+))]
 pub(crate) fn recovery_option_type_correct_errors(
     mut builder: crate::types::builders::RecoveryOptionTypeBuilder,
 ) -> crate::types::builders::RecoveryOptionTypeBuilder {
@@ -674,7 +822,9 @@ pub(crate) fn recovery_option_type_correct_errors(
         builder.priority = Some(Default::default())
     }
     if builder.name.is_none() {
-        builder.name = "no value was set".parse::<crate::types::RecoveryOptionNameType>().ok()
+        builder.name = "no value was set"
+            .parse::<crate::types::RecoveryOptionNameType>()
+            .ok()
     }
     builder
 }

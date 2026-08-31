@@ -58,7 +58,7 @@ impl PutBearerTokenAuthenticationFluentBuilder {
         }
     }
     /// Access the PutBearerTokenAuthentication as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -100,12 +100,18 @@ impl PutBearerTokenAuthenticationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -114,7 +120,10 @@ impl PutBearerTokenAuthenticationFluentBuilder {
     /// <p>Length Constraints: Minimum length of 1. Maximum length of 512.</p>
     /// <p>Pattern: <code>\[\.\-_/#A-Za-z0-9\]+</code></p>
     /// <p>Required: Yes</p>
-    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_group_identifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.log_group_identifier(input.into());
         self
     }
@@ -123,7 +132,10 @@ impl PutBearerTokenAuthenticationFluentBuilder {
     /// <p>Length Constraints: Minimum length of 1. Maximum length of 512.</p>
     /// <p>Pattern: <code>\[\.\-_/#A-Za-z0-9\]+</code></p>
     /// <p>Required: Yes</p>
-    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_log_group_identifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_log_group_identifier(input);
         self
     }
@@ -145,7 +157,10 @@ impl PutBearerTokenAuthenticationFluentBuilder {
     /// <p>Whether to enable bearer token authentication.</p>
     /// <p>Type: Boolean</p>
     /// <p>Required: Yes</p>
-    pub fn set_bearer_token_authentication_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
+    pub fn set_bearer_token_authentication_enabled(
+        mut self,
+        input: ::std::option::Option<bool>,
+    ) -> Self {
         self.inner = self.inner.set_bearer_token_authentication_enabled(input);
         self
     }

@@ -36,7 +36,9 @@ impl CreateUserPoolDomainInput {
     /// <p>The configuration for a custom domain. Configures your domain with an Certificate Manager certificate in the <code>us-east-1</code> Region.</p>
     /// <p>Provide this parameter only if you want to use a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">custom domain</a> for your user pool. Otherwise, you can omit this parameter and use a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain-prefix.html">prefix domain</a> instead.</p>
     /// <p>When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.</p>
-    pub fn custom_domain_config(&self) -> ::std::option::Option<&crate::types::CustomDomainConfigType> {
+    pub fn custom_domain_config(
+        &self,
+    ) -> ::std::option::Option<&crate::types::CustomDomainConfigType> {
         self.custom_domain_config.as_ref()
     }
     /// <p>The configuration of routing for requests to the domain for replicas of a replicated user pool. The routing configuration is currently only supported for custom domains.</p>
@@ -46,13 +48,16 @@ impl CreateUserPoolDomainInput {
 }
 impl CreateUserPoolDomainInput {
     /// Creates a new builder-style object to manufacture [`CreateUserPoolDomainInput`](crate::operation::create_user_pool_domain::CreateUserPoolDomainInput).
-    pub fn builder() -> crate::operation::create_user_pool_domain::builders::CreateUserPoolDomainInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::create_user_pool_domain::builders::CreateUserPoolDomainInputBuilder {
         crate::operation::create_user_pool_domain::builders::CreateUserPoolDomainInputBuilder::default()
     }
 }
 
 /// A builder for [`CreateUserPoolDomainInput`](crate::operation::create_user_pool_domain::CreateUserPoolDomainInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateUserPoolDomainInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -122,14 +127,19 @@ impl CreateUserPoolDomainInputBuilder {
     /// <p>The configuration for a custom domain. Configures your domain with an Certificate Manager certificate in the <code>us-east-1</code> Region.</p>
     /// <p>Provide this parameter only if you want to use a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">custom domain</a> for your user pool. Otherwise, you can omit this parameter and use a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain-prefix.html">prefix domain</a> instead.</p>
     /// <p>When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.</p>
-    pub fn set_custom_domain_config(mut self, input: ::std::option::Option<crate::types::CustomDomainConfigType>) -> Self {
+    pub fn set_custom_domain_config(
+        mut self,
+        input: ::std::option::Option<crate::types::CustomDomainConfigType>,
+    ) -> Self {
         self.custom_domain_config = input;
         self
     }
     /// <p>The configuration for a custom domain. Configures your domain with an Certificate Manager certificate in the <code>us-east-1</code> Region.</p>
     /// <p>Provide this parameter only if you want to use a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">custom domain</a> for your user pool. Otherwise, you can omit this parameter and use a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain-prefix.html">prefix domain</a> instead.</p>
     /// <p>When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.</p>
-    pub fn get_custom_domain_config(&self) -> &::std::option::Option<crate::types::CustomDomainConfigType> {
+    pub fn get_custom_domain_config(
+        &self,
+    ) -> &::std::option::Option<crate::types::CustomDomainConfigType> {
         &self.custom_domain_config
     }
     /// <p>The configuration of routing for requests to the domain for replicas of a replicated user pool. The routing configuration is currently only supported for custom domains.</p>
@@ -149,14 +159,18 @@ impl CreateUserPoolDomainInputBuilder {
     /// Consumes the builder and constructs a [`CreateUserPoolDomainInput`](crate::operation::create_user_pool_domain::CreateUserPoolDomainInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::create_user_pool_domain::CreateUserPoolDomainInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::create_user_pool_domain::CreateUserPoolDomainInput {
-            domain: self.domain,
-            user_pool_id: self.user_pool_id,
-            managed_login_version: self.managed_login_version,
-            custom_domain_config: self.custom_domain_config,
-            routing: self.routing,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::create_user_pool_domain::CreateUserPoolDomainInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::create_user_pool_domain::CreateUserPoolDomainInput {
+                domain: self.domain,
+                user_pool_id: self.user_pool_id,
+                managed_login_version: self.managed_login_version,
+                custom_domain_config: self.custom_domain_config,
+                routing: self.routing,
+            },
+        )
     }
 }

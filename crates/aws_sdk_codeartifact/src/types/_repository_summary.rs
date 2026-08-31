@@ -57,7 +57,9 @@ impl RepositorySummary {
 }
 
 /// A builder for [`RepositorySummary`](crate::types::RepositorySummary).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RepositorySummaryBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -84,12 +86,18 @@ impl RepositorySummaryBuilder {
         &self.name
     }
     /// <p>The Amazon Web Services account ID that manages the repository.</p>
-    pub fn administrator_account(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn administrator_account(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.administrator_account = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Web Services account ID that manages the repository.</p>
-    pub fn set_administrator_account(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_administrator_account(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.administrator_account = input;
         self
     }
@@ -159,7 +167,10 @@ impl RepositorySummaryBuilder {
         self
     }
     /// <p>A timestamp that represents the date and time the repository was created.</p>
-    pub fn set_created_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_created_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.created_time = input;
         self
     }

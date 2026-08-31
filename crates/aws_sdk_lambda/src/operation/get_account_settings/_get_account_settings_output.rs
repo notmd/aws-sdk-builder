@@ -26,13 +26,16 @@ impl ::aws_types::request_id::RequestId for GetAccountSettingsOutput {
 }
 impl GetAccountSettingsOutput {
     /// Creates a new builder-style object to manufacture [`GetAccountSettingsOutput`](crate::operation::get_account_settings::GetAccountSettingsOutput).
-    pub fn builder() -> crate::operation::get_account_settings::builders::GetAccountSettingsOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::get_account_settings::builders::GetAccountSettingsOutputBuilder {
         crate::operation::get_account_settings::builders::GetAccountSettingsOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetAccountSettingsOutput`](crate::operation::get_account_settings::GetAccountSettingsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetAccountSettingsOutputBuilder {
     pub(crate) account_limit: ::std::option::Option<crate::types::AccountLimit>,
@@ -46,7 +49,10 @@ impl GetAccountSettingsOutputBuilder {
         self
     }
     /// <p>Limits that are related to concurrency and code storage.</p>
-    pub fn set_account_limit(mut self, input: ::std::option::Option<crate::types::AccountLimit>) -> Self {
+    pub fn set_account_limit(
+        mut self,
+        input: ::std::option::Option<crate::types::AccountLimit>,
+    ) -> Self {
         self.account_limit = input;
         self
     }
@@ -60,7 +66,10 @@ impl GetAccountSettingsOutputBuilder {
         self
     }
     /// <p>The number of functions and amount of storage in use.</p>
-    pub fn set_account_usage(mut self, input: ::std::option::Option<crate::types::AccountUsage>) -> Self {
+    pub fn set_account_usage(
+        mut self,
+        input: ::std::option::Option<crate::types::AccountUsage>,
+    ) -> Self {
         self.account_usage = input;
         self
     }

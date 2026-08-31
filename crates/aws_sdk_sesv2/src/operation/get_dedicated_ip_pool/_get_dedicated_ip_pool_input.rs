@@ -15,13 +15,16 @@ impl GetDedicatedIpPoolInput {
 }
 impl GetDedicatedIpPoolInput {
     /// Creates a new builder-style object to manufacture [`GetDedicatedIpPoolInput`](crate::operation::get_dedicated_ip_pool::GetDedicatedIpPoolInput).
-    pub fn builder() -> crate::operation::get_dedicated_ip_pool::builders::GetDedicatedIpPoolInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::get_dedicated_ip_pool::builders::GetDedicatedIpPoolInputBuilder {
         crate::operation::get_dedicated_ip_pool::builders::GetDedicatedIpPoolInputBuilder::default()
     }
 }
 
 /// A builder for [`GetDedicatedIpPoolInput`](crate::operation::get_dedicated_ip_pool::GetDedicatedIpPoolInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetDedicatedIpPoolInputBuilder {
     pub(crate) pool_name: ::std::option::Option<::std::string::String>,
@@ -45,8 +48,14 @@ impl GetDedicatedIpPoolInputBuilder {
     /// Consumes the builder and constructs a [`GetDedicatedIpPoolInput`](crate::operation::get_dedicated_ip_pool::GetDedicatedIpPoolInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_dedicated_ip_pool::GetDedicatedIpPoolInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::get_dedicated_ip_pool::GetDedicatedIpPoolInput { pool_name: self.pool_name })
+    ) -> ::std::result::Result<
+        crate::operation::get_dedicated_ip_pool::GetDedicatedIpPoolInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::get_dedicated_ip_pool::GetDedicatedIpPoolInput {
+                pool_name: self.pool_name,
+            },
+        )
     }
 }

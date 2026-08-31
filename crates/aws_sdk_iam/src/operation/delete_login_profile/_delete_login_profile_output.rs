@@ -12,13 +12,16 @@ impl ::aws_types::request_id::RequestId for DeleteLoginProfileOutput {
 }
 impl DeleteLoginProfileOutput {
     /// Creates a new builder-style object to manufacture [`DeleteLoginProfileOutput`](crate::operation::delete_login_profile::DeleteLoginProfileOutput).
-    pub fn builder() -> crate::operation::delete_login_profile::builders::DeleteLoginProfileOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::delete_login_profile::builders::DeleteLoginProfileOutputBuilder {
         crate::operation::delete_login_profile::builders::DeleteLoginProfileOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteLoginProfileOutput`](crate::operation::delete_login_profile::DeleteLoginProfileOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteLoginProfileOutputBuilder {
     _request_id: Option<String>,

@@ -21,7 +21,9 @@ impl WebAuthnMfaSettingsType {
 }
 
 /// A builder for [`WebAuthnMfaSettingsType`](crate::types::WebAuthnMfaSettingsType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct WebAuthnMfaSettingsTypeBuilder {
     pub(crate) enabled: ::std::option::Option<bool>,

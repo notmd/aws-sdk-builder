@@ -13,13 +13,15 @@ impl ::aws_types::request_id::RequestId for CreateCustomVerificationEmailTemplat
 }
 impl CreateCustomVerificationEmailTemplateOutput {
     /// Creates a new builder-style object to manufacture [`CreateCustomVerificationEmailTemplateOutput`](crate::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateOutput).
-    pub fn builder() -> crate::operation::create_custom_verification_email_template::builders::CreateCustomVerificationEmailTemplateOutputBuilder {
+    pub fn builder() -> crate::operation::create_custom_verification_email_template::builders::CreateCustomVerificationEmailTemplateOutputBuilder{
         crate::operation::create_custom_verification_email_template::builders::CreateCustomVerificationEmailTemplateOutputBuilder::default()
     }
 }
 
 /// A builder for [`CreateCustomVerificationEmailTemplateOutput`](crate::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateCustomVerificationEmailTemplateOutputBuilder {
     _request_id: Option<String>,
@@ -35,7 +37,7 @@ impl CreateCustomVerificationEmailTemplateOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateCustomVerificationEmailTemplateOutput`](crate::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateOutput).
-    pub fn build(self) -> crate::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateOutput {
+    pub fn build(self) -> crate::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateOutput{
         crate::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateOutput {
             _request_id: self._request_id,
         }

@@ -51,7 +51,9 @@ impl AccessDeniedException {
 }
 
 /// A builder for [`AccessDeniedException`](crate::types::error::AccessDeniedException).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AccessDeniedExceptionBuilder {
     pub(crate) error: ::std::option::Option<crate::types::OAuth2ErrorCode>,
@@ -66,7 +68,10 @@ impl AccessDeniedExceptionBuilder {
         self
     }
     /// OAuth 2.0 error code indicating the specific type of access denial Can be TOKEN_EXPIRED, AUTHCODE_EXPIRED, USER_CREDENTIALS_CHANGED, or INSUFFICIENT_PERMISSIONS
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::OAuth2ErrorCode>) -> Self {
+    pub fn set_error(
+        mut self,
+        input: ::std::option::Option<crate::types::OAuth2ErrorCode>,
+    ) -> Self {
         self.error = input;
         self
     }
@@ -96,7 +101,10 @@ impl AccessDeniedExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
+    pub fn set_meta(
+        &mut self,
+        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
+    ) -> &mut Self {
         self.meta = meta;
         self
     }
@@ -104,7 +112,12 @@ impl AccessDeniedExceptionBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`error`](crate::types::error::builders::AccessDeniedExceptionBuilder::error)
     /// - [`message`](crate::types::error::builders::AccessDeniedExceptionBuilder::message)
-    pub fn build(self) -> ::std::result::Result<crate::types::error::AccessDeniedException, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::error::AccessDeniedException,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::error::AccessDeniedException {
             error: self.error.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

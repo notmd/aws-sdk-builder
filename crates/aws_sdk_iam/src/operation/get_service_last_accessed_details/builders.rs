@@ -60,7 +60,7 @@ impl
             crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput,
             crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -74,7 +74,7 @@ impl GetServiceLastAccessedDetailsFluentBuilder {
         }
     }
     /// Access the GetServiceLastAccessedDetails as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -116,12 +116,18 @@ impl GetServiceLastAccessedDetailsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }

@@ -10,7 +10,9 @@ pub struct PutConnectorInput {
 }
 impl PutConnectorInput {
     /// <p>The provider-specific configuration for connecting to the third-party cloud service provider.</p>
-    pub fn connector_configuration(&self) -> ::std::option::Option<&crate::types::ConnectorConfiguration> {
+    pub fn connector_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ConnectorConfiguration> {
         self.connector_configuration.as_ref()
     }
     /// <p>The tags for the connector. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -28,7 +30,9 @@ impl PutConnectorInput {
 }
 
 /// A builder for [`PutConnectorInput`](crate::operation::put_connector::PutConnectorInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutConnectorInputBuilder {
     pub(crate) connector_configuration: ::std::option::Option<crate::types::ConnectorConfiguration>,
@@ -42,12 +46,17 @@ impl PutConnectorInputBuilder {
         self
     }
     /// <p>The provider-specific configuration for connecting to the third-party cloud service provider.</p>
-    pub fn set_connector_configuration(mut self, input: ::std::option::Option<crate::types::ConnectorConfiguration>) -> Self {
+    pub fn set_connector_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::ConnectorConfiguration>,
+    ) -> Self {
         self.connector_configuration = input;
         self
     }
     /// <p>The provider-specific configuration for connecting to the third-party cloud service provider.</p>
-    pub fn get_connector_configuration(&self) -> &::std::option::Option<crate::types::ConnectorConfiguration> {
+    pub fn get_connector_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::ConnectorConfiguration> {
         &self.connector_configuration
     }
     /// Appends an item to `tags`.
@@ -62,7 +71,10 @@ impl PutConnectorInputBuilder {
         self
     }
     /// <p>The tags for the connector. Each tag consists of a key and an optional value, both of which you define.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.tags = input;
         self
     }
@@ -73,7 +85,10 @@ impl PutConnectorInputBuilder {
     /// Consumes the builder and constructs a [`PutConnectorInput`](crate::operation::put_connector::PutConnectorInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::put_connector::PutConnectorInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::put_connector::PutConnectorInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::put_connector::PutConnectorInput {
             connector_configuration: self.connector_configuration,
             tags: self.tags,

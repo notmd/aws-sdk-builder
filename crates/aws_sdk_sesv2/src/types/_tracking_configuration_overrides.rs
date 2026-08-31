@@ -61,7 +61,9 @@ impl TrackingConfigurationOverrides {
 }
 
 /// A builder for [`TrackingConfigurationOverrides`](crate::types::TrackingConfigurationOverrides).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct TrackingConfigurationOverridesBuilder {
     pub(crate) open_tracking_enabled: ::std::option::Option<crate::types::FeatureStatus>,
@@ -88,7 +90,10 @@ impl TrackingConfigurationOverridesBuilder {
     /// <p><code>DISABLED</code> – Amazon SES doesn't track opens for this message, even when your account-level or configuration set settings enable open tracking. Amazon SES doesn't add the tracking image to the message.</p></li>
     /// </ul>
     /// <p>If you don't specify this value, Amazon SES uses the open tracking setting that would otherwise apply to the message.</p>
-    pub fn set_open_tracking_enabled(mut self, input: ::std::option::Option<crate::types::FeatureStatus>) -> Self {
+    pub fn set_open_tracking_enabled(
+        mut self,
+        input: ::std::option::Option<crate::types::FeatureStatus>,
+    ) -> Self {
         self.open_tracking_enabled = input;
         self
     }
@@ -127,7 +132,10 @@ impl TrackingConfigurationOverridesBuilder {
     /// <p>If you don't specify this value, Amazon SES uses the click tracking setting that would otherwise apply to the message.</p><note>
     /// <p>Enabling open or click tracking with an override doesn't create an event destination. Amazon SES records the resulting open and click events in VDM, where you can review them using VDM metrics and Message Insights. To also receive these events at a destination that you own, the configuration set that the message uses must have an event destination that publishes open and click events.</p>
     /// </note>
-    pub fn set_click_tracking_enabled(mut self, input: ::std::option::Option<crate::types::FeatureStatus>) -> Self {
+    pub fn set_click_tracking_enabled(
+        mut self,
+        input: ::std::option::Option<crate::types::FeatureStatus>,
+    ) -> Self {
         self.click_tracking_enabled = input;
         self
     }
@@ -141,7 +149,9 @@ impl TrackingConfigurationOverridesBuilder {
     /// <p>If you don't specify this value, Amazon SES uses the click tracking setting that would otherwise apply to the message.</p><note>
     /// <p>Enabling open or click tracking with an override doesn't create an event destination. Amazon SES records the resulting open and click events in VDM, where you can review them using VDM metrics and Message Insights. To also receive these events at a destination that you own, the configuration set that the message uses must have an event destination that publishes open and click events.</p>
     /// </note>
-    pub fn get_click_tracking_enabled(&self) -> &::std::option::Option<crate::types::FeatureStatus> {
+    pub fn get_click_tracking_enabled(
+        &self,
+    ) -> &::std::option::Option<crate::types::FeatureStatus> {
         &self.click_tracking_enabled
     }
     /// Consumes the builder and constructs a [`TrackingConfigurationOverrides`](crate::types::TrackingConfigurationOverrides).

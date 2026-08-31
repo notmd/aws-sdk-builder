@@ -32,13 +32,17 @@ impl ::aws_types::request_id::RequestId for UpdateConsumableResourceOutput {
 }
 impl UpdateConsumableResourceOutput {
     /// Creates a new builder-style object to manufacture [`UpdateConsumableResourceOutput`](crate::operation::update_consumable_resource::UpdateConsumableResourceOutput).
-    pub fn builder() -> crate::operation::update_consumable_resource::builders::UpdateConsumableResourceOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_consumable_resource::builders::UpdateConsumableResourceOutputBuilder
+    {
         crate::operation::update_consumable_resource::builders::UpdateConsumableResourceOutputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateConsumableResourceOutput`](crate::operation::update_consumable_resource::UpdateConsumableResourceOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateConsumableResourceOutputBuilder {
     pub(crate) consumable_resource_name: ::std::option::Option<::std::string::String>,
@@ -49,12 +53,18 @@ pub struct UpdateConsumableResourceOutputBuilder {
 impl UpdateConsumableResourceOutputBuilder {
     /// <p>The name of the consumable resource to be updated.</p>
     /// This field is required.
-    pub fn consumable_resource_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn consumable_resource_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.consumable_resource_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the consumable resource to be updated.</p>
-    pub fn set_consumable_resource_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_consumable_resource_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.consumable_resource_name = input;
         self
     }
@@ -64,12 +74,18 @@ impl UpdateConsumableResourceOutputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the consumable resource.</p>
     /// This field is required.
-    pub fn consumable_resource_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn consumable_resource_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.consumable_resource_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the consumable resource.</p>
-    pub fn set_consumable_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_consumable_resource_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.consumable_resource_arn = input;
         self
     }
@@ -101,7 +117,9 @@ impl UpdateConsumableResourceOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateConsumableResourceOutput`](crate::operation::update_consumable_resource::UpdateConsumableResourceOutput).
-    pub fn build(self) -> crate::operation::update_consumable_resource::UpdateConsumableResourceOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::update_consumable_resource::UpdateConsumableResourceOutput {
         crate::operation::update_consumable_resource::UpdateConsumableResourceOutput {
             consumable_resource_name: self.consumable_resource_name,
             consumable_resource_arn: self.consumable_resource_arn,

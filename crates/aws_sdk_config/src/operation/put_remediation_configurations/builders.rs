@@ -69,7 +69,7 @@ impl PutRemediationConfigurationsFluentBuilder {
         }
     }
     /// Access the PutRemediationConfigurations as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_remediation_configurations::builders::PutRemediationConfigurationsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_remediation_configurations::builders::PutRemediationConfigurationsInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -98,7 +98,11 @@ impl PutRemediationConfigurationsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_remediation_configurations::PutRemediationConfigurations::orchestrate(&runtime_plugins, input).await
+        crate::operation::put_remediation_configurations::PutRemediationConfigurations::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -111,12 +115,18 @@ impl PutRemediationConfigurationsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -126,17 +136,25 @@ impl PutRemediationConfigurationsFluentBuilder {
     /// To override the contents of this collection use [`set_remediation_configurations`](Self::set_remediation_configurations).
     ///
     /// <p>A list of remediation configuration objects.</p>
-    pub fn remediation_configurations(mut self, input: crate::types::RemediationConfiguration) -> Self {
+    pub fn remediation_configurations(
+        mut self,
+        input: crate::types::RemediationConfiguration,
+    ) -> Self {
         self.inner = self.inner.remediation_configurations(input);
         self
     }
     /// <p>A list of remediation configuration objects.</p>
-    pub fn set_remediation_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RemediationConfiguration>>) -> Self {
+    pub fn set_remediation_configurations(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::RemediationConfiguration>>,
+    ) -> Self {
         self.inner = self.inner.set_remediation_configurations(input);
         self
     }
     /// <p>A list of remediation configuration objects.</p>
-    pub fn get_remediation_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RemediationConfiguration>> {
+    pub fn get_remediation_configurations(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::RemediationConfiguration>> {
         self.inner.get_remediation_configurations()
     }
 }

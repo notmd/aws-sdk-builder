@@ -9,7 +9,9 @@ pub struct UpdateManagedLoginBrandingOutput {
 }
 impl UpdateManagedLoginBrandingOutput {
     /// <p>The details of the branding style that you updated.</p>
-    pub fn managed_login_branding(&self) -> ::std::option::Option<&crate::types::ManagedLoginBrandingType> {
+    pub fn managed_login_branding(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ManagedLoginBrandingType> {
         self.managed_login_branding.as_ref()
     }
 }
@@ -20,16 +22,19 @@ impl ::aws_types::request_id::RequestId for UpdateManagedLoginBrandingOutput {
 }
 impl UpdateManagedLoginBrandingOutput {
     /// Creates a new builder-style object to manufacture [`UpdateManagedLoginBrandingOutput`](crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingOutput).
-    pub fn builder() -> crate::operation::update_managed_login_branding::builders::UpdateManagedLoginBrandingOutputBuilder {
+    pub fn builder() -> crate::operation::update_managed_login_branding::builders::UpdateManagedLoginBrandingOutputBuilder{
         crate::operation::update_managed_login_branding::builders::UpdateManagedLoginBrandingOutputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateManagedLoginBrandingOutput`](crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateManagedLoginBrandingOutputBuilder {
-    pub(crate) managed_login_branding: ::std::option::Option<crate::types::ManagedLoginBrandingType>,
+    pub(crate) managed_login_branding:
+        ::std::option::Option<crate::types::ManagedLoginBrandingType>,
     _request_id: Option<String>,
 }
 impl UpdateManagedLoginBrandingOutputBuilder {
@@ -39,12 +44,17 @@ impl UpdateManagedLoginBrandingOutputBuilder {
         self
     }
     /// <p>The details of the branding style that you updated.</p>
-    pub fn set_managed_login_branding(mut self, input: ::std::option::Option<crate::types::ManagedLoginBrandingType>) -> Self {
+    pub fn set_managed_login_branding(
+        mut self,
+        input: ::std::option::Option<crate::types::ManagedLoginBrandingType>,
+    ) -> Self {
         self.managed_login_branding = input;
         self
     }
     /// <p>The details of the branding style that you updated.</p>
-    pub fn get_managed_login_branding(&self) -> &::std::option::Option<crate::types::ManagedLoginBrandingType> {
+    pub fn get_managed_login_branding(
+        &self,
+    ) -> &::std::option::Option<crate::types::ManagedLoginBrandingType> {
         &self.managed_login_branding
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -57,7 +67,9 @@ impl UpdateManagedLoginBrandingOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateManagedLoginBrandingOutput`](crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingOutput).
-    pub fn build(self) -> crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingOutput {
         crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingOutput {
             managed_login_branding: self.managed_login_branding,
             _request_id: self._request_id,

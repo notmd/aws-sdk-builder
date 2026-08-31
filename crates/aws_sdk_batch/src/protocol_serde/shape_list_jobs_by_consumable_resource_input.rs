@@ -12,7 +12,10 @@ pub fn ser_list_jobs_by_consumable_resource_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_5 = array_3.value().start_object();
-                crate::protocol_serde::shape_key_values_pair::ser_key_values_pair(&mut object_5, item_4)?;
+                crate::protocol_serde::shape_key_values_pair::ser_key_values_pair(
+                    &mut object_5,
+                    item_4,
+                )?;
                 object_5.finish();
             }
         }

@@ -21,7 +21,9 @@ impl WaitCancelledDetails {
 }
 
 /// A builder for [`WaitCancelledDetails`](crate::types::WaitCancelledDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct WaitCancelledDetailsBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EventError>,

@@ -4,7 +4,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeSubscriptionFiltersOutput {
     /// <p>The subscription filters.</p>
-    pub subscription_filters: ::std::option::Option<::std::vec::Vec<crate::types::SubscriptionFilter>>,
+    pub subscription_filters:
+        ::std::option::Option<::std::vec::Vec<crate::types::SubscriptionFilter>>,
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -28,16 +29,19 @@ impl ::aws_types::request_id::RequestId for DescribeSubscriptionFiltersOutput {
 }
 impl DescribeSubscriptionFiltersOutput {
     /// Creates a new builder-style object to manufacture [`DescribeSubscriptionFiltersOutput`](crate::operation::describe_subscription_filters::DescribeSubscriptionFiltersOutput).
-    pub fn builder() -> crate::operation::describe_subscription_filters::builders::DescribeSubscriptionFiltersOutputBuilder {
+    pub fn builder() -> crate::operation::describe_subscription_filters::builders::DescribeSubscriptionFiltersOutputBuilder{
         crate::operation::describe_subscription_filters::builders::DescribeSubscriptionFiltersOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeSubscriptionFiltersOutput`](crate::operation::describe_subscription_filters::DescribeSubscriptionFiltersOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeSubscriptionFiltersOutputBuilder {
-    pub(crate) subscription_filters: ::std::option::Option<::std::vec::Vec<crate::types::SubscriptionFilter>>,
+    pub(crate) subscription_filters:
+        ::std::option::Option<::std::vec::Vec<crate::types::SubscriptionFilter>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -54,12 +58,17 @@ impl DescribeSubscriptionFiltersOutputBuilder {
         self
     }
     /// <p>The subscription filters.</p>
-    pub fn set_subscription_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SubscriptionFilter>>) -> Self {
+    pub fn set_subscription_filters(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::SubscriptionFilter>>,
+    ) -> Self {
         self.subscription_filters = input;
         self
     }
     /// <p>The subscription filters.</p>
-    pub fn get_subscription_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SubscriptionFilter>> {
+    pub fn get_subscription_filters(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SubscriptionFilter>> {
         &self.subscription_filters
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -86,7 +95,9 @@ impl DescribeSubscriptionFiltersOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeSubscriptionFiltersOutput`](crate::operation::describe_subscription_filters::DescribeSubscriptionFiltersOutput).
-    pub fn build(self) -> crate::operation::describe_subscription_filters::DescribeSubscriptionFiltersOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::describe_subscription_filters::DescribeSubscriptionFiltersOutput {
         crate::operation::describe_subscription_filters::DescribeSubscriptionFiltersOutput {
             subscription_filters: self.subscription_filters,
             next_token: self.next_token,

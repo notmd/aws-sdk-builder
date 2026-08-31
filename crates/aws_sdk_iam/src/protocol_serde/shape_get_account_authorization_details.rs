@@ -53,7 +53,9 @@ pub fn de_get_account_authorization_details_http_response(
         let mut output = crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsOutputBuilder::default();
         output = crate::protocol_serde::shape_get_account_authorization_details::de_get_account_authorization_details(_response_body, output)
             .map_err(crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
@@ -65,7 +67,7 @@ pub fn de_get_account_authorization_details(
 ) -> std::result::Result<
     crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+>{
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

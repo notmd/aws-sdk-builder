@@ -66,7 +66,10 @@ impl CreateUserPoolReplicaFluentBuilder {
         }
     }
     /// Access the CreateUserPoolReplica as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_user_pool_replica::builders::CreateUserPoolReplicaInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::create_user_pool_replica::builders::CreateUserPoolReplicaInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -95,7 +98,11 @@ impl CreateUserPoolReplicaFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::create_user_pool_replica::CreateUserPoolReplica::orchestrate(&runtime_plugins, input).await
+        crate::operation::create_user_pool_replica::CreateUserPoolReplica::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -108,12 +115,18 @@ impl CreateUserPoolReplicaFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -162,13 +175,19 @@ impl CreateUserPoolReplicaFluentBuilder {
     /// <p>A map of tags to assign to the replica user pool. Each tag consists of a key and an optional value, both of which you define. You can maintain tags independently on replica user pools.</p>
     pub fn set_user_pool_tags(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
     ) -> Self {
         self.inner = self.inner.set_user_pool_tags(input);
         self
     }
     /// <p>A map of tags to assign to the replica user pool. Each tag consists of a key and an optional value, both of which you define. You can maintain tags independently on replica user pools.</p>
-    pub fn get_user_pool_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_user_pool_tags(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.inner.get_user_pool_tags()
     }
 }

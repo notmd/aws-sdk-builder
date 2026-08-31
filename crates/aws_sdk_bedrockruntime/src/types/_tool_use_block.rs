@@ -41,7 +41,9 @@ impl ToolUseBlock {
 }
 
 /// A builder for [`ToolUseBlock`](crate::types::ToolUseBlock).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ToolUseBlockBuilder {
     pub(crate) tool_use_id: ::std::option::Option<::std::string::String>,
@@ -114,7 +116,12 @@ impl ToolUseBlockBuilder {
     /// - [`tool_use_id`](crate::types::builders::ToolUseBlockBuilder::tool_use_id)
     /// - [`name`](crate::types::builders::ToolUseBlockBuilder::name)
     /// - [`input`](crate::types::builders::ToolUseBlockBuilder::input)
-    pub fn build(self) -> ::std::result::Result<crate::types::ToolUseBlock, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::ToolUseBlock,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::ToolUseBlock {
             tool_use_id: self.tool_use_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

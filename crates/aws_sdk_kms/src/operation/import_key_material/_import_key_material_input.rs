@@ -106,13 +106,16 @@ impl ImportKeyMaterialInput {
 }
 impl ImportKeyMaterialInput {
     /// Creates a new builder-style object to manufacture [`ImportKeyMaterialInput`](crate::operation::import_key_material::ImportKeyMaterialInput).
-    pub fn builder() -> crate::operation::import_key_material::builders::ImportKeyMaterialInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::import_key_material::builders::ImportKeyMaterialInputBuilder {
         crate::operation::import_key_material::builders::ImportKeyMaterialInputBuilder::default()
     }
 }
 
 /// A builder for [`ImportKeyMaterialInput`](crate::operation::import_key_material::ImportKeyMaterialInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ImportKeyMaterialInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -177,7 +180,10 @@ impl ImportKeyMaterialInputBuilder {
         self
     }
     /// <p>The import token that you received in the response to a previous <code>GetParametersForImport</code> request. It must be from the same response that contained the public key that you used to encrypt the key material.</p>
-    pub fn set_import_token(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
+    pub fn set_import_token(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::Blob>,
+    ) -> Self {
         self.import_token = input;
         self
     }
@@ -192,7 +198,10 @@ impl ImportKeyMaterialInputBuilder {
         self
     }
     /// <p>The encrypted key material to import. The key material must be encrypted under the public wrapping key that <code>GetParametersForImport</code> returned, using the wrapping algorithm that you specified in the same <code>GetParametersForImport</code> request.</p>
-    pub fn set_encrypted_key_material(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
+    pub fn set_encrypted_key_material(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::Blob>,
+    ) -> Self {
         self.encrypted_key_material = input;
         self
     }
@@ -212,7 +221,10 @@ impl ImportKeyMaterialInputBuilder {
     /// <p>The value of this parameter must be a future date and time. The maximum value is 365 days from the request date.</p>
     /// <p>When the key material expires, KMS deletes the key material from the KMS key. Without its key material, the KMS key is unusable. To use the KMS key in cryptographic operations, you must reimport the same key material.</p>
     /// <p>You cannot change the <code>ExpirationModel</code> or <code>ValidTo</code> values for the current import after the request completes. To change either value, you must delete (<code>DeleteImportedKeyMaterial</code>) and reimport the key material.</p>
-    pub fn set_valid_to(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_valid_to(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.valid_to = input;
         self
     }
@@ -233,14 +245,19 @@ impl ImportKeyMaterialInputBuilder {
     /// <p>Specifies whether the key material expires. The default is <code>KEY_MATERIAL_EXPIRES</code>. For help with this choice, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html#importing-keys-expiration">Setting an expiration time</a> in the <i>Key Management Service Developer Guide</i>.</p>
     /// <p>When the value of <code>ExpirationModel</code> is <code>KEY_MATERIAL_EXPIRES</code>, you must specify a value for the <code>ValidTo</code> parameter. When value is <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>, you must omit the <code>ValidTo</code> parameter.</p>
     /// <p>You cannot change the <code>ExpirationModel</code> or <code>ValidTo</code> values for the current import after the request completes. To change either value, you must reimport the key material.</p>
-    pub fn set_expiration_model(mut self, input: ::std::option::Option<crate::types::ExpirationModelType>) -> Self {
+    pub fn set_expiration_model(
+        mut self,
+        input: ::std::option::Option<crate::types::ExpirationModelType>,
+    ) -> Self {
         self.expiration_model = input;
         self
     }
     /// <p>Specifies whether the key material expires. The default is <code>KEY_MATERIAL_EXPIRES</code>. For help with this choice, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html#importing-keys-expiration">Setting an expiration time</a> in the <i>Key Management Service Developer Guide</i>.</p>
     /// <p>When the value of <code>ExpirationModel</code> is <code>KEY_MATERIAL_EXPIRES</code>, you must specify a value for the <code>ValidTo</code> parameter. When value is <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>, you must omit the <code>ValidTo</code> parameter.</p>
     /// <p>You cannot change the <code>ExpirationModel</code> or <code>ValidTo</code> values for the current import after the request completes. To change either value, you must reimport the key material.</p>
-    pub fn get_expiration_model(&self) -> &::std::option::Option<crate::types::ExpirationModelType> {
+    pub fn get_expiration_model(
+        &self,
+    ) -> &::std::option::Option<crate::types::ExpirationModelType> {
         &self.expiration_model
     }
     /// <p>Indicates whether the key material being imported is previously associated with this KMS key or not. This parameter is optional and only usable with symmetric encryption keys. If no key material has ever been imported into the KMS key, and this parameter is omitted, the parameter defaults to <code>NEW_KEY_MATERIAL</code>. After the first key material is imported, if this parameter is omitted then the parameter defaults to <code>EXISTING_KEY_MATERIAL</code>.</p>
@@ -251,7 +268,10 @@ impl ImportKeyMaterialInputBuilder {
     }
     /// <p>Indicates whether the key material being imported is previously associated with this KMS key or not. This parameter is optional and only usable with symmetric encryption keys. If no key material has ever been imported into the KMS key, and this parameter is omitted, the parameter defaults to <code>NEW_KEY_MATERIAL</code>. After the first key material is imported, if this parameter is omitted then the parameter defaults to <code>EXISTING_KEY_MATERIAL</code>.</p>
     /// <p>For multi-Region keys, you must first import new key material into the primary Region key. You should use the <code>NEW_KEY_MATERIAL</code> import type when importing key material into the primary Region key. Then, you can import the same key material into the replica Region key. The import type for the replica Region key should be <code>EXISTING_KEY_MATERIAL</code>.</p>
-    pub fn set_import_type(mut self, input: ::std::option::Option<crate::types::ImportType>) -> Self {
+    pub fn set_import_type(
+        mut self,
+        input: ::std::option::Option<crate::types::ImportType>,
+    ) -> Self {
         self.import_type = input;
         self
     }
@@ -261,12 +281,18 @@ impl ImportKeyMaterialInputBuilder {
         &self.import_type
     }
     /// <p>Description for the key material being imported. This parameter is optional and only usable with symmetric encryption keys. If you do not specify a key material description, KMS retains the value you specified when you last imported the same key material into this KMS key.</p>
-    pub fn key_material_description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn key_material_description(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.key_material_description = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Description for the key material being imported. This parameter is optional and only usable with symmetric encryption keys. If you do not specify a key material description, KMS retains the value you specified when you last imported the same key material into this KMS key.</p>
-    pub fn set_key_material_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_key_material_description(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.key_material_description = input;
         self
     }
@@ -284,7 +310,10 @@ impl ImportKeyMaterialInputBuilder {
     /// <p>Verifies that the key material ID is already associated with the KMS key</p></li>
     /// </ul>
     /// <p>To get the list of key material IDs associated with a KMS key, use <code>ListKeyRotations</code>.</p>
-    pub fn key_material_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn key_material_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.key_material_id = ::std::option::Option::Some(input.into());
         self
     }
@@ -298,7 +327,10 @@ impl ImportKeyMaterialInputBuilder {
     /// <p>Verifies that the key material ID is already associated with the KMS key</p></li>
     /// </ul>
     /// <p>To get the list of key material IDs associated with a KMS key, use <code>ListKeyRotations</code>.</p>
-    pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_key_material_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.key_material_id = input;
         self
     }
@@ -318,16 +350,21 @@ impl ImportKeyMaterialInputBuilder {
     /// Consumes the builder and constructs a [`ImportKeyMaterialInput`](crate::operation::import_key_material::ImportKeyMaterialInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::import_key_material::ImportKeyMaterialInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::import_key_material::ImportKeyMaterialInput {
-            key_id: self.key_id,
-            import_token: self.import_token,
-            encrypted_key_material: self.encrypted_key_material,
-            valid_to: self.valid_to,
-            expiration_model: self.expiration_model,
-            import_type: self.import_type,
-            key_material_description: self.key_material_description,
-            key_material_id: self.key_material_id,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::import_key_material::ImportKeyMaterialInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::import_key_material::ImportKeyMaterialInput {
+                key_id: self.key_id,
+                import_token: self.import_token,
+                encrypted_key_material: self.encrypted_key_material,
+                valid_to: self.valid_to,
+                expiration_model: self.expiration_model,
+                import_type: self.import_type,
+                key_material_description: self.key_material_description,
+                key_material_id: self.key_material_id,
+            },
+        )
     }
 }

@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteBucketInventoryConfigurationError>`](crate::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationError)
     pub fn delete_bucket_inventory_configuration(
         &self,
-    ) -> crate::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationFluentBuilder {
+    ) -> crate::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationFluentBuilder{
         crate::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

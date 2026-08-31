@@ -30,7 +30,9 @@ impl TagRoleInput {
 }
 
 /// A builder for [`TagRoleInput`](crate::operation::tag_role::TagRoleInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct TagRoleInputBuilder {
     pub(crate) role_name: ::std::option::Option<::std::string::String>,
@@ -67,7 +69,10 @@ impl TagRoleInputBuilder {
         self
     }
     /// <p>The list of tags that you want to attach to the IAM role. Each tag consists of a key name and an associated value.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.tags = input;
         self
     }
@@ -76,7 +81,12 @@ impl TagRoleInputBuilder {
         &self.tags
     }
     /// Consumes the builder and constructs a [`TagRoleInput`](crate::operation::tag_role::TagRoleInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::tag_role::TagRoleInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::tag_role::TagRoleInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::tag_role::TagRoleInput {
             role_name: self.role_name,
             tags: self.tags,

@@ -60,7 +60,7 @@ impl GetOrganizationConformancePackDetailedStatusFluentBuilder {
     pub fn as_input(
         &self,
     ) -> &crate::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusInputBuilder
-    {
+{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -79,7 +79,7 @@ impl GetOrganizationConformancePackDetailedStatusFluentBuilder {
             crate::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -103,15 +103,21 @@ impl GetOrganizationConformancePackDetailedStatusFluentBuilder {
         crate::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusOutput,
         crate::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -120,38 +126,54 @@ impl GetOrganizationConformancePackDetailedStatusFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::get_organization_conformance_pack_detailed_status::paginator::GetOrganizationConformancePackDetailedStatusPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::get_organization_conformance_pack_detailed_status::paginator::GetOrganizationConformancePackDetailedStatusPaginator {
+    ) -> crate::operation::get_organization_conformance_pack_detailed_status::paginator::GetOrganizationConformancePackDetailedStatusPaginator{
         crate::operation::get_organization_conformance_pack_detailed_status::paginator::GetOrganizationConformancePackDetailedStatusPaginator::new(
             self.handle,
             self.inner,
         )
     }
     /// <p>The name of organization conformance pack for which you want status details for member accounts.</p>
-    pub fn organization_conformance_pack_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn organization_conformance_pack_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.organization_conformance_pack_name(input.into());
         self
     }
     /// <p>The name of organization conformance pack for which you want status details for member accounts.</p>
-    pub fn set_organization_conformance_pack_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_organization_conformance_pack_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_organization_conformance_pack_name(input);
         self
     }
     /// <p>The name of organization conformance pack for which you want status details for member accounts.</p>
-    pub fn get_organization_conformance_pack_name(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_organization_conformance_pack_name(
+        &self,
+    ) -> &::std::option::Option<::std::string::String> {
         self.inner.get_organization_conformance_pack_name()
     }
     /// <p>An <code>OrganizationResourceDetailedStatusFilters</code> object.</p>
-    pub fn filters(mut self, input: crate::types::OrganizationResourceDetailedStatusFilters) -> Self {
+    pub fn filters(
+        mut self,
+        input: crate::types::OrganizationResourceDetailedStatusFilters,
+    ) -> Self {
         self.inner = self.inner.filters(input);
         self
     }
     /// <p>An <code>OrganizationResourceDetailedStatusFilters</code> object.</p>
-    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::OrganizationResourceDetailedStatusFilters>) -> Self {
+    pub fn set_filters(
+        mut self,
+        input: ::std::option::Option<crate::types::OrganizationResourceDetailedStatusFilters>,
+    ) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
     /// <p>An <code>OrganizationResourceDetailedStatusFilters</code> object.</p>
-    pub fn get_filters(&self) -> &::std::option::Option<crate::types::OrganizationResourceDetailedStatusFilters> {
+    pub fn get_filters(
+        &self,
+    ) -> &::std::option::Option<crate::types::OrganizationResourceDetailedStatusFilters> {
         self.inner.get_filters()
     }
     /// <p>The maximum number of <code>OrganizationConformancePackDetailedStatuses</code> returned on each page. If you do not specify a number, Config uses the default. The default is 100.</p>

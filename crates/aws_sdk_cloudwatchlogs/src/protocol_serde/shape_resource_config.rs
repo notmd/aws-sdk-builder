@@ -11,9 +11,11 @@ pub fn ser_resource_config(
             object_1.finish();
         }
         crate::types::ResourceConfig::Unknown => {
-            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                "ResourceConfig",
-            ))
+            return Err(
+                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
+                    "ResourceConfig",
+                ),
+            )
         }
     }
     Ok(())

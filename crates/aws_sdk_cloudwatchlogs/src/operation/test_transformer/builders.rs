@@ -57,7 +57,9 @@ impl TestTransformerFluentBuilder {
         }
     }
     /// Access the TestTransformer as a reference.
-    pub fn as_input(&self) -> &crate::operation::test_transformer::builders::TestTransformerInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::test_transformer::builders::TestTransformerInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,12 +83,14 @@ impl TestTransformerFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::test_transformer::TestTransformer::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::test_transformer::TestTransformer::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::test_transformer::TestTransformer::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::test_transformer::TestTransformer::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,12 +103,18 @@ impl TestTransformerFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -119,12 +129,17 @@ impl TestTransformerFluentBuilder {
         self
     }
     /// <p>This structure contains the configuration of this log transformer that you want to test. A log transformer is an array of processors, where each processor applies one type of transformation to the log events that are ingested.</p>
-    pub fn set_transformer_config(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Processor>>) -> Self {
+    pub fn set_transformer_config(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Processor>>,
+    ) -> Self {
         self.inner = self.inner.set_transformer_config(input);
         self
     }
     /// <p>This structure contains the configuration of this log transformer that you want to test. A log transformer is an array of processors, where each processor applies one type of transformation to the log events that are ingested.</p>
-    pub fn get_transformer_config(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Processor>> {
+    pub fn get_transformer_config(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Processor>> {
         self.inner.get_transformer_config()
     }
     ///
@@ -133,17 +148,25 @@ impl TestTransformerFluentBuilder {
     /// To override the contents of this collection use [`set_log_event_messages`](Self::set_log_event_messages).
     ///
     /// <p>An array of the raw log events that you want to use to test this transformer.</p>
-    pub fn log_event_messages(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_event_messages(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.log_event_messages(input.into());
         self
     }
     /// <p>An array of the raw log events that you want to use to test this transformer.</p>
-    pub fn set_log_event_messages(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_log_event_messages(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.inner = self.inner.set_log_event_messages(input);
         self
     }
     /// <p>An array of the raw log events that you want to use to test this transformer.</p>
-    pub fn get_log_event_messages(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_event_messages(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_log_event_messages()
     }
 }

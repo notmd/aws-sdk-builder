@@ -40,13 +40,16 @@ impl GetFunctionUrlConfigInput {
 }
 impl GetFunctionUrlConfigInput {
     /// Creates a new builder-style object to manufacture [`GetFunctionUrlConfigInput`](crate::operation::get_function_url_config::GetFunctionUrlConfigInput).
-    pub fn builder() -> crate::operation::get_function_url_config::builders::GetFunctionUrlConfigInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::get_function_url_config::builders::GetFunctionUrlConfigInputBuilder {
         crate::operation::get_function_url_config::builders::GetFunctionUrlConfigInputBuilder::default()
     }
 }
 
 /// A builder for [`GetFunctionUrlConfigInput`](crate::operation::get_function_url_config::GetFunctionUrlConfigInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetFunctionUrlConfigInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -65,7 +68,10 @@ impl GetFunctionUrlConfigInputBuilder {
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
@@ -80,7 +86,10 @@ impl GetFunctionUrlConfigInputBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.function_name = input;
         self
     }
@@ -115,11 +124,15 @@ impl GetFunctionUrlConfigInputBuilder {
     /// Consumes the builder and constructs a [`GetFunctionUrlConfigInput`](crate::operation::get_function_url_config::GetFunctionUrlConfigInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_function_url_config::GetFunctionUrlConfigInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::get_function_url_config::GetFunctionUrlConfigInput {
-            function_name: self.function_name,
-            qualifier: self.qualifier,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::get_function_url_config::GetFunctionUrlConfigInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::get_function_url_config::GetFunctionUrlConfigInput {
+                function_name: self.function_name,
+                qualifier: self.qualifier,
+            },
+        )
     }
 }

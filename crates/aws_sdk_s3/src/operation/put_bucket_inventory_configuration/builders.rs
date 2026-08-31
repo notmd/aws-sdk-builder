@@ -105,7 +105,7 @@ impl
             crate::operation::put_bucket_inventory_configuration::PutBucketInventoryConfigurationOutput,
             crate::operation::put_bucket_inventory_configuration::PutBucketInventoryConfigurationError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -119,7 +119,7 @@ impl PutBucketInventoryConfigurationFluentBuilder {
         }
     }
     /// Access the PutBucketInventoryConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_bucket_inventory_configuration::builders::PutBucketInventoryConfigurationInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_bucket_inventory_configuration::builders::PutBucketInventoryConfigurationInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -138,7 +138,7 @@ impl PutBucketInventoryConfigurationFluentBuilder {
             crate::operation::put_bucket_inventory_configuration::PutBucketInventoryConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -161,12 +161,18 @@ impl PutBucketInventoryConfigurationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -207,25 +213,36 @@ impl PutBucketInventoryConfigurationFluentBuilder {
         self
     }
     /// <p>Specifies the inventory configuration.</p>
-    pub fn set_inventory_configuration(mut self, input: ::std::option::Option<crate::types::InventoryConfiguration>) -> Self {
+    pub fn set_inventory_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::InventoryConfiguration>,
+    ) -> Self {
         self.inner = self.inner.set_inventory_configuration(input);
         self
     }
     /// <p>Specifies the inventory configuration.</p>
-    pub fn get_inventory_configuration(&self) -> &::std::option::Option<crate::types::InventoryConfiguration> {
+    pub fn get_inventory_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::InventoryConfiguration> {
         self.inner.get_inventory_configuration()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
-    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

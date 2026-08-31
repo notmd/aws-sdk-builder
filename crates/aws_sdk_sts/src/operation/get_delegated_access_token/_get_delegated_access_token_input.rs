@@ -21,7 +21,9 @@ impl ::std::fmt::Debug for GetDelegatedAccessTokenInput {
 }
 impl GetDelegatedAccessTokenInput {
     /// Creates a new builder-style object to manufacture [`GetDelegatedAccessTokenInput`](crate::operation::get_delegated_access_token::GetDelegatedAccessTokenInput).
-    pub fn builder() -> crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenInputBuilder
+    {
         crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenInputBuilder::default()
     }
 }
@@ -35,12 +37,18 @@ pub struct GetDelegatedAccessTokenInputBuilder {
 impl GetDelegatedAccessTokenInputBuilder {
     /// <p>The token to exchange for temporary Amazon Web Services credentials. This token must be valid and unexpired at the time of the request.</p>
     /// This field is required.
-    pub fn trade_in_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn trade_in_token(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.trade_in_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The token to exchange for temporary Amazon Web Services credentials. This token must be valid and unexpired at the time of the request.</p>
-    pub fn set_trade_in_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_trade_in_token(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.trade_in_token = input;
         self
     }
@@ -55,9 +63,11 @@ impl GetDelegatedAccessTokenInputBuilder {
         crate::operation::get_delegated_access_token::GetDelegatedAccessTokenInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_delegated_access_token::GetDelegatedAccessTokenInput {
-            trade_in_token: self.trade_in_token,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::get_delegated_access_token::GetDelegatedAccessTokenInput {
+                trade_in_token: self.trade_in_token,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for GetDelegatedAccessTokenInputBuilder {

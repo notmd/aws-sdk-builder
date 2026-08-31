@@ -46,24 +46,33 @@ impl UpdateContactInput {
 }
 
 /// A builder for [`UpdateContactInput`](crate::operation::update_contact::UpdateContactInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateContactInputBuilder {
     pub(crate) contact_list_name: ::std::option::Option<::std::string::String>,
     pub(crate) email_address: ::std::option::Option<::std::string::String>,
-    pub(crate) topic_preferences: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
+    pub(crate) topic_preferences:
+        ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
     pub(crate) unsubscribe_all: ::std::option::Option<bool>,
     pub(crate) attributes_data: ::std::option::Option<::std::string::String>,
 }
 impl UpdateContactInputBuilder {
     /// <p>The name of the contact list.</p>
     /// This field is required.
-    pub fn contact_list_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn contact_list_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.contact_list_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the contact list.</p>
-    pub fn set_contact_list_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_contact_list_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.contact_list_name = input;
         self
     }
@@ -73,12 +82,18 @@ impl UpdateContactInputBuilder {
     }
     /// <p>The contact's email address.</p>
     /// This field is required.
-    pub fn email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn email_address(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.email_address = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The contact's email address.</p>
-    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_email_address(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.email_address = input;
         self
     }
@@ -98,12 +113,17 @@ impl UpdateContactInputBuilder {
         self
     }
     /// <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
-    pub fn set_topic_preferences(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>) -> Self {
+    pub fn set_topic_preferences(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
+    ) -> Self {
         self.topic_preferences = input;
         self
     }
     /// <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
-    pub fn get_topic_preferences(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>> {
+    pub fn get_topic_preferences(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>> {
         &self.topic_preferences
     }
     /// <p>A boolean value status noting if the contact is unsubscribed from all contact list topics.</p>
@@ -121,12 +141,18 @@ impl UpdateContactInputBuilder {
         &self.unsubscribe_all
     }
     /// <p>The attribute data attached to a contact.</p>
-    pub fn attributes_data(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn attributes_data(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.attributes_data = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The attribute data attached to a contact.</p>
-    pub fn set_attributes_data(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_attributes_data(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.attributes_data = input;
         self
     }
@@ -137,7 +163,10 @@ impl UpdateContactInputBuilder {
     /// Consumes the builder and constructs a [`UpdateContactInput`](crate::operation::update_contact::UpdateContactInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::update_contact::UpdateContactInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::update_contact::UpdateContactInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::update_contact::UpdateContactInput {
             contact_list_name: self.contact_list_name,
             email_address: self.email_address,

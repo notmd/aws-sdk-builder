@@ -7,7 +7,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteAccountPasswordPolicyError>`](crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError)
     pub fn delete_account_password_policy(
         &self,
-    ) -> crate::operation::delete_account_password_policy::builders::DeleteAccountPasswordPolicyFluentBuilder {
+    ) -> crate::operation::delete_account_password_policy::builders::DeleteAccountPasswordPolicyFluentBuilder{
         crate::operation::delete_account_password_policy::builders::DeleteAccountPasswordPolicyFluentBuilder::new(self.handle.clone())
     }
 }

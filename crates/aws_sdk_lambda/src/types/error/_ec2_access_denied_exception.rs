@@ -53,7 +53,9 @@ impl Ec2AccessDeniedException {
 }
 
 /// A builder for [`Ec2AccessDeniedException`](crate::types::error::Ec2AccessDeniedException).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct Ec2AccessDeniedExceptionBuilder {
     pub(crate) r#type: ::std::option::Option<::std::string::String>,
@@ -96,7 +98,10 @@ impl Ec2AccessDeniedExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
+    pub fn set_meta(
+        &mut self,
+        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
+    ) -> &mut Self {
         self.meta = meta;
         self
     }

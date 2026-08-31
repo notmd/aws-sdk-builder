@@ -26,13 +26,16 @@ impl ListIntegrationsInput {
 }
 impl ListIntegrationsInput {
     /// Creates a new builder-style object to manufacture [`ListIntegrationsInput`](crate::operation::list_integrations::ListIntegrationsInput).
-    pub fn builder() -> crate::operation::list_integrations::builders::ListIntegrationsInputBuilder {
+    pub fn builder() -> crate::operation::list_integrations::builders::ListIntegrationsInputBuilder
+    {
         crate::operation::list_integrations::builders::ListIntegrationsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListIntegrationsInput`](crate::operation::list_integrations::ListIntegrationsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListIntegrationsInputBuilder {
     pub(crate) integration_name_prefix: ::std::option::Option<::std::string::String>,
@@ -41,12 +44,18 @@ pub struct ListIntegrationsInputBuilder {
 }
 impl ListIntegrationsInputBuilder {
     /// <p>To limit the results to integrations that start with a certain name prefix, specify that name prefix here.</p>
-    pub fn integration_name_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn integration_name_prefix(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.integration_name_prefix = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>To limit the results to integrations that start with a certain name prefix, specify that name prefix here.</p>
-    pub fn set_integration_name_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_integration_name_prefix(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.integration_name_prefix = input;
         self
     }
@@ -60,7 +69,10 @@ impl ListIntegrationsInputBuilder {
         self
     }
     /// <p>To limit the results to integrations of a certain type, specify that type here.</p>
-    pub fn set_integration_type(mut self, input: ::std::option::Option<crate::types::IntegrationType>) -> Self {
+    pub fn set_integration_type(
+        mut self,
+        input: ::std::option::Option<crate::types::IntegrationType>,
+    ) -> Self {
         self.integration_type = input;
         self
     }
@@ -74,18 +86,26 @@ impl ListIntegrationsInputBuilder {
         self
     }
     /// <p>To limit the results to integrations with a certain status, specify that status here.</p>
-    pub fn set_integration_status(mut self, input: ::std::option::Option<crate::types::IntegrationStatus>) -> Self {
+    pub fn set_integration_status(
+        mut self,
+        input: ::std::option::Option<crate::types::IntegrationStatus>,
+    ) -> Self {
         self.integration_status = input;
         self
     }
     /// <p>To limit the results to integrations with a certain status, specify that status here.</p>
-    pub fn get_integration_status(&self) -> &::std::option::Option<crate::types::IntegrationStatus> {
+    pub fn get_integration_status(
+        &self,
+    ) -> &::std::option::Option<crate::types::IntegrationStatus> {
         &self.integration_status
     }
     /// Consumes the builder and constructs a [`ListIntegrationsInput`](crate::operation::list_integrations::ListIntegrationsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_integrations::ListIntegrationsInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::list_integrations::ListIntegrationsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::list_integrations::ListIntegrationsInput {
             integration_name_prefix: self.integration_name_prefix,
             integration_type: self.integration_type,

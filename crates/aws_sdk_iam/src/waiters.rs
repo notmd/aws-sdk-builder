@@ -16,7 +16,12 @@ pub mod role_exists;
 /// Supporting types for the `user_exists` waiter.
 pub mod user_exists;
 
-#[cfg(any(feature = "op_get_instance_profile", feature = "op_get_policy", feature = "op_get_role", feature = "op_get_user"))]
+#[cfg(any(
+    feature = "op_get_instance_profile",
+    feature = "op_get_policy",
+    feature = "op_get_role",
+    feature = "op_get_user"
+))]
 #[allow(clippy::needless_lifetimes)]
 #[allow(clippy::let_and_return)]
 pub(crate) mod matchers;

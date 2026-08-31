@@ -97,7 +97,12 @@ impl ImageBlockBuilder {
     /// Consumes the builder and constructs a [`ImageBlock`](crate::types::ImageBlock).
     /// This method will fail if any of the following fields are not set:
     /// - [`format`](crate::types::builders::ImageBlockBuilder::format)
-    pub fn build(self) -> ::std::result::Result<crate::types::ImageBlock, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::ImageBlock,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::ImageBlock {
             format: self.format.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -11,7 +11,11 @@ impl super::Client {
     /// - On success, responds with [`StartAsyncInvokeOutput`](crate::operation::start_async_invoke::StartAsyncInvokeOutput) with field(s):
     ///   - [`invocation_arn(String)`](crate::operation::start_async_invoke::StartAsyncInvokeOutput::invocation_arn): <p>The ARN of the invocation.</p>
     /// - On failure, responds with [`SdkError<StartAsyncInvokeError>`](crate::operation::start_async_invoke::StartAsyncInvokeError)
-    pub fn start_async_invoke(&self) -> crate::operation::start_async_invoke::builders::StartAsyncInvokeFluentBuilder {
-        crate::operation::start_async_invoke::builders::StartAsyncInvokeFluentBuilder::new(self.handle.clone())
+    pub fn start_async_invoke(
+        &self,
+    ) -> crate::operation::start_async_invoke::builders::StartAsyncInvokeFluentBuilder {
+        crate::operation::start_async_invoke::builders::StartAsyncInvokeFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -4,7 +4,9 @@ pub fn ser_chained_invoke_options(
     input: &crate::types::ChainedInvokeOptions,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     {
-        object.key("FunctionName").string(input.function_name.as_str());
+        object
+            .key("FunctionName")
+            .string(input.function_name.as_str());
     }
     if let Some(var_1) = &input.tenant_id {
         object.key("TenantId").string(var_1.as_str());

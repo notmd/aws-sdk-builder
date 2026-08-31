@@ -58,7 +58,9 @@ impl GetSSHPublicKeyFluentBuilder {
         }
     }
     /// Access the GetSSHPublicKey as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_ssh_public_key::builders::GetSshPublicKeyInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_ssh_public_key::builders::GetSshPublicKeyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,12 +84,14 @@ impl GetSSHPublicKeyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_ssh_public_key::GetSSHPublicKey::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_ssh_public_key::GetSSHPublicKey::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::get_ssh_public_key::GetSSHPublicKey::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::get_ssh_public_key::GetSSHPublicKey::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -100,12 +104,18 @@ impl GetSSHPublicKeyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -128,13 +138,19 @@ impl GetSSHPublicKeyFluentBuilder {
     }
     /// <p>The unique identifier for the SSH public key.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
-    pub fn ssh_public_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn ssh_public_key_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.ssh_public_key_id(input.into());
         self
     }
     /// <p>The unique identifier for the SSH public key.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
-    pub fn set_ssh_public_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_ssh_public_key_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_ssh_public_key_id(input);
         self
     }
@@ -149,7 +165,10 @@ impl GetSSHPublicKeyFluentBuilder {
         self
     }
     /// <p>Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use <code>SSH</code>. To retrieve the public key in PEM format, use <code>PEM</code>.</p>
-    pub fn set_encoding(mut self, input: ::std::option::Option<crate::types::EncodingType>) -> Self {
+    pub fn set_encoding(
+        mut self,
+        input: ::std::option::Option<crate::types::EncodingType>,
+    ) -> Self {
         self.inner = self.inner.set_encoding(input);
         self
     }

@@ -5,7 +5,19 @@ pub use crate::types::_create_o_auth2_token_request_body::CreateOAuth2TokenReque
 #[cfg(feature = "op_create_o_auth2_token")]
 pub use crate::types::_create_o_auth2_token_response_body::CreateOAuth2TokenResponseBody;
 
-#[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
+#[cfg(any(
+    feature = "op_create_o_auth2_token",
+    feature = "op_create_o_auth2_token_with_iam",
+    feature = "op_delete_console_authorization_configuration",
+    feature = "op_delete_resource_permission_statement",
+    feature = "op_get_console_authorization_configuration",
+    feature = "op_get_resource_policy",
+    feature = "op_introspect_o_auth2_token_with_iam",
+    feature = "op_list_resource_permission_statements",
+    feature = "op_put_console_authorization_configuration",
+    feature = "op_put_resource_permission_statement",
+    feature = "op_revoke_o_auth2_token_with_iam"
+))]
 pub use crate::types::_o_auth2_error_code::OAuth2ErrorCode;
 
 #[cfg(feature = "op_get_resource_policy")]
@@ -29,7 +41,19 @@ mod _create_o_auth2_token_request_body;
 #[cfg(feature = "op_create_o_auth2_token")]
 mod _create_o_auth2_token_response_body;
 
-#[cfg(any(feature = "op_create_o_auth2_token", feature = "op_create_o_auth2_token_with_iam", feature = "op_delete_console_authorization_configuration", feature = "op_delete_resource_permission_statement", feature = "op_get_console_authorization_configuration", feature = "op_get_resource_policy", feature = "op_introspect_o_auth2_token_with_iam", feature = "op_list_resource_permission_statements", feature = "op_put_console_authorization_configuration", feature = "op_put_resource_permission_statement", feature = "op_revoke_o_auth2_token_with_iam"))]
+#[cfg(any(
+    feature = "op_create_o_auth2_token",
+    feature = "op_create_o_auth2_token_with_iam",
+    feature = "op_delete_console_authorization_configuration",
+    feature = "op_delete_resource_permission_statement",
+    feature = "op_get_console_authorization_configuration",
+    feature = "op_get_resource_policy",
+    feature = "op_introspect_o_auth2_token_with_iam",
+    feature = "op_list_resource_permission_statements",
+    feature = "op_put_console_authorization_configuration",
+    feature = "op_put_resource_permission_statement",
+    feature = "op_revoke_o_auth2_token_with_iam"
+))]
 mod _o_auth2_error_code;
 
 #[cfg(feature = "op_list_resource_permission_statements")]

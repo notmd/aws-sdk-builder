@@ -8,7 +8,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteDataProtectionPolicyError>`](crate::operation::delete_data_protection_policy::DeleteDataProtectionPolicyError)
     pub fn delete_data_protection_policy(
         &self,
-    ) -> crate::operation::delete_data_protection_policy::builders::DeleteDataProtectionPolicyFluentBuilder {
+    ) -> crate::operation::delete_data_protection_policy::builders::DeleteDataProtectionPolicyFluentBuilder{
         crate::operation::delete_data_protection_policy::builders::DeleteDataProtectionPolicyFluentBuilder::new(self.handle.clone())
     }
 }

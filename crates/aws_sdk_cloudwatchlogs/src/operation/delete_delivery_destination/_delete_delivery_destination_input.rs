@@ -14,13 +14,15 @@ impl DeleteDeliveryDestinationInput {
 }
 impl DeleteDeliveryDestinationInput {
     /// Creates a new builder-style object to manufacture [`DeleteDeliveryDestinationInput`](crate::operation::delete_delivery_destination::DeleteDeliveryDestinationInput).
-    pub fn builder() -> crate::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationInputBuilder {
+    pub fn builder() -> crate::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationInputBuilder{
         crate::operation::delete_delivery_destination::builders::DeleteDeliveryDestinationInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteDeliveryDestinationInput`](crate::operation::delete_delivery_destination::DeleteDeliveryDestinationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteDeliveryDestinationInputBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -48,6 +50,10 @@ impl DeleteDeliveryDestinationInputBuilder {
         crate::operation::delete_delivery_destination::DeleteDeliveryDestinationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::delete_delivery_destination::DeleteDeliveryDestinationInput { name: self.name })
+        ::std::result::Result::Ok(
+            crate::operation::delete_delivery_destination::DeleteDeliveryDestinationInput {
+                name: self.name,
+            },
+        )
     }
 }

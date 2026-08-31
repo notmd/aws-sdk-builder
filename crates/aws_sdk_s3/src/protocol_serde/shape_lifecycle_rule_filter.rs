@@ -3,9 +3,14 @@
 pub fn de_lifecycle_rule_filter(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::LifecycleRuleFilter, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<
+    crate::types::LifecycleRuleFilter,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::LifecycleRuleFilter::builder();
@@ -104,7 +109,10 @@ pub fn ser_lifecycle_rule_filter(
     }
     if let Some(var_10) = &input.and {
         let inner_writer = scope.start_el("And");
-        crate::protocol_serde::shape_lifecycle_rule_and_operator::ser_lifecycle_rule_and_operator(var_10, inner_writer)?
+        crate::protocol_serde::shape_lifecycle_rule_and_operator::ser_lifecycle_rule_and_operator(
+            var_10,
+            inner_writer,
+        )?
     }
     scope.finish();
     Ok(())

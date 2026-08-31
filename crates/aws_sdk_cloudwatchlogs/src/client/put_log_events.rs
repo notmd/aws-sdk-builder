@@ -13,7 +13,11 @@ impl super::Client {
     ///   - [`rejected_log_events_info(Option<RejectedLogEventsInfo>)`](crate::operation::put_log_events::PutLogEventsOutput::rejected_log_events_info): <p>The rejected events.</p>
     ///   - [`rejected_entity_info(Option<RejectedEntityInfo>)`](crate::operation::put_log_events::PutLogEventsOutput::rejected_entity_info): <p>Information about why the entity is rejected when calling <code>PutLogEvents</code>. Only returned when the entity is rejected.</p><note>  <p>When the entity is rejected, the events may still be accepted.</p> </note>
     /// - On failure, responds with [`SdkError<PutLogEventsError>`](crate::operation::put_log_events::PutLogEventsError)
-    pub fn put_log_events(&self) -> crate::operation::put_log_events::builders::PutLogEventsFluentBuilder {
-        crate::operation::put_log_events::builders::PutLogEventsFluentBuilder::new(self.handle.clone())
+    pub fn put_log_events(
+        &self,
+    ) -> crate::operation::put_log_events::builders::PutLogEventsFluentBuilder {
+        crate::operation::put_log_events::builders::PutLogEventsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

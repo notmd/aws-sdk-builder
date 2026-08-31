@@ -57,7 +57,9 @@ impl GetAsyncInvokeFluentBuilder {
         }
     }
     /// Access the GetAsyncInvoke as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_async_invoke::builders::GetAsyncInvokeInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_async_invoke::builders::GetAsyncInvokeInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,12 +83,14 @@ impl GetAsyncInvokeFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_async_invoke::GetAsyncInvoke::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_async_invoke::GetAsyncInvoke::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::get_async_invoke::GetAsyncInvoke::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::get_async_invoke::GetAsyncInvoke::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,22 +103,34 @@ impl GetAsyncInvokeFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The invocation's ARN.</p>
-    pub fn invocation_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn invocation_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.invocation_arn(input.into());
         self
     }
     /// <p>The invocation's ARN.</p>
-    pub fn set_invocation_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_invocation_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_invocation_arn(input);
         self
     }

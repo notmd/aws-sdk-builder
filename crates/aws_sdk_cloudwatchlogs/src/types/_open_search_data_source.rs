@@ -28,7 +28,9 @@ impl OpenSearchDataSource {
 }
 
 /// A builder for [`OpenSearchDataSource`](crate::types::OpenSearchDataSource).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct OpenSearchDataSourceBuilder {
     pub(crate) data_source_name: ::std::option::Option<::std::string::String>,
@@ -36,12 +38,18 @@ pub struct OpenSearchDataSourceBuilder {
 }
 impl OpenSearchDataSourceBuilder {
     /// <p>The name of the OpenSearch Service data source.</p>
-    pub fn data_source_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn data_source_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.data_source_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the OpenSearch Service data source.</p>
-    pub fn set_data_source_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_data_source_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.data_source_name = input;
         self
     }
@@ -55,7 +63,10 @@ impl OpenSearchDataSourceBuilder {
         self
     }
     /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::OpenSearchResourceStatus>) -> Self {
+    pub fn set_status(
+        mut self,
+        input: ::std::option::Option<crate::types::OpenSearchResourceStatus>,
+    ) -> Self {
         self.status = input;
         self
     }

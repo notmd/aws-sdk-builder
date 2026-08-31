@@ -14,7 +14,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListBucketMetricsConfigurationsError>`](crate::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsError)
     pub fn list_bucket_metrics_configurations(
         &self,
-    ) -> crate::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsFluentBuilder {
+    ) -> crate::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsFluentBuilder{
         crate::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsFluentBuilder::new(self.handle.clone())
     }
 }

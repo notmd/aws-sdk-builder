@@ -9,7 +9,10 @@ pub fn ser_type_converter(
             {
                 #[allow(unused_mut)]
                 let mut object_3 = array_1.value().start_object();
-                crate::protocol_serde::shape_type_converter_entry::ser_type_converter_entry(&mut object_3, item_2)?;
+                crate::protocol_serde::shape_type_converter_entry::ser_type_converter_entry(
+                    &mut object_3,
+                    item_2,
+                )?;
                 object_3.finish();
             }
         }
@@ -22,14 +25,24 @@ pub(crate) fn de_type_converter<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::TypeConverter>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<
+    Option<crate::types::TypeConverter>,
+    ::aws_smithy_json::deserialize::error::DeserializeError,
+>
 where
-    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+    I: Iterator<
+        Item = Result<
+            ::aws_smithy_json::deserialize::Token<'a>,
+            ::aws_smithy_json::deserialize::error::DeserializeError,
+        >,
+    >,
 {
     if depth >= 128u32 {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "maximum nesting depth exceeded",
+            ),
+        );
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -39,29 +52,42 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "entries" => {
-                            builder = builder.set_entries(crate::protocol_serde::shape_type_converter_entries::de_type_converter_entries(
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "entries" => {
+                                builder = builder.set_entries(crate::protocol_serde::shape_type_converter_entries::de_type_converter_entries(
                                 tokens,
                                 _value,
                                 depth + 1,
                             )?);
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
-                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )))
+                        return Err(
+                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                format!("expected object key or end object, found: {other:?}"),
+                            ),
+                        )
                     }
                 }
             }
-            Ok(Some(crate::serde_util::type_converter_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(
+                crate::serde_util::type_converter_correct_errors(builder)
+                    .build()
+                    .map_err(|err| {
+                        ::aws_smithy_json::deserialize::error::DeserializeError::custom_source(
+                            "Response was invalid",
+                            err,
+                        )
+                    })?,
+            ))
         }
-        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "expected start object or null",
-        )),
+        _ => Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ),
+        ),
     }
 }

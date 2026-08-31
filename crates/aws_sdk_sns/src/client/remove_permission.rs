@@ -7,7 +7,11 @@ impl super::Client {
     ///   - [`label(impl Into<String>)`](crate::operation::remove_permission::builders::RemovePermissionFluentBuilder::label) / [`set_label(Option<String>)`](crate::operation::remove_permission::builders::RemovePermissionFluentBuilder::set_label):<br>required: **true**<br><p>The unique label of the statement you want to remove.</p><br>
     /// - On success, responds with [`RemovePermissionOutput`](crate::operation::remove_permission::RemovePermissionOutput)
     /// - On failure, responds with [`SdkError<RemovePermissionError>`](crate::operation::remove_permission::RemovePermissionError)
-    pub fn remove_permission(&self) -> crate::operation::remove_permission::builders::RemovePermissionFluentBuilder {
-        crate::operation::remove_permission::builders::RemovePermissionFluentBuilder::new(self.handle.clone())
+    pub fn remove_permission(
+        &self,
+    ) -> crate::operation::remove_permission::builders::RemovePermissionFluentBuilder {
+        crate::operation::remove_permission::builders::RemovePermissionFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

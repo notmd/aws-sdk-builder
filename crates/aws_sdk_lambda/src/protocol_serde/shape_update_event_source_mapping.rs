@@ -9,17 +9,23 @@ pub fn de_update_event_source_mapping_http_error(
     crate::operation::update_event_source_mapping::UpdateEventSourceMappingError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(
+        crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled,
+    )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled(
+        None => return Err(
+            crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled(
                 generic,
-            ))
-        }
+            ),
+        ),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -144,14 +150,19 @@ pub fn de_update_event_source_mapping_http_response(
         let mut output = crate::operation::update_event_source_mapping::builders::UpdateEventSourceMappingOutputBuilder::default();
         output = crate::protocol_serde::shape_update_event_source_mapping::de_update_event_source_mapping(_response_body, output)
             .map_err(crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
 
 pub fn ser_update_event_source_mapping_input(
     input: &crate::operation::update_event_source_mapping::UpdateEventSourceMappingInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+) -> ::std::result::Result<
+    ::aws_smithy_types::body::SdkBody,
+    ::aws_smithy_types::error::operation::SerializationError,
+> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_update_event_source_mapping_input::ser_update_event_source_mapping_input_input(&mut object, input)?;
@@ -166,7 +177,10 @@ pub(crate) fn de_update_event_source_mapping(
     crate::operation::update_event_source_mapping::builders::UpdateEventSourceMappingOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
+        crate::protocol_serde::or_empty_doc(_value),
+    )
+    .peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -174,7 +188,10 @@ pub(crate) fn de_update_event_source_mapping(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key
+                .to_unescaped()?
+                .as_ref()
+            {
                 "AmazonManagedKafkaEventSourceConfig" => {
                     builder = builder.set_amazon_managed_kafka_event_source_config(
                         crate::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
@@ -186,20 +203,26 @@ pub(crate) fn de_update_event_source_mapping(
                 }
                 "BatchSize" => {
                     builder = builder.set_batch_size(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(
+                            tokens.next(),
+                        )?
+                        .map(i32::try_from)
+                        .transpose()?,
                     );
                 }
                 "BisectBatchOnFunctionError" => {
-                    builder = builder.set_bisect_batch_on_function_error(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                    builder = builder.set_bisect_batch_on_function_error(
+                        ::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?,
+                    );
                 }
                 "DestinationConfig" => {
-                    builder = builder.set_destination_config(crate::protocol_serde::shape_destination_config::de_destination_config(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_destination_config(
+                        crate::protocol_serde::shape_destination_config::de_destination_config(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
                 }
                 "DocumentDBEventSourceConfig" => {
                     builder = builder.set_document_db_event_source_config(
@@ -208,24 +231,30 @@ pub(crate) fn de_update_event_source_mapping(
                 }
                 "EventSourceArn" => {
                     builder = builder.set_event_source_arn(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                            tokens.next(),
+                        )?
+                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                        .transpose()?,
                     );
                 }
                 "EventSourceMappingArn" => {
                     builder = builder.set_event_source_mapping_arn(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                            tokens.next(),
+                        )?
+                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                        .transpose()?,
                     );
                 }
                 "FilterCriteria" => {
-                    builder = builder.set_filter_criteria(crate::protocol_serde::shape_filter_criteria::de_filter_criteria(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_filter_criteria(
+                        crate::protocol_serde::shape_filter_criteria::de_filter_criteria(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
                 }
                 "FilterCriteriaError" => {
                     builder = builder.set_filter_criteria_error(crate::protocol_serde::shape_filter_criteria_error::de_filter_criteria_error(
@@ -236,9 +265,11 @@ pub(crate) fn de_update_event_source_mapping(
                 }
                 "FunctionArn" => {
                     builder = builder.set_function_arn(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                            tokens.next(),
+                        )?
+                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                        .transpose()?,
                     );
                 }
                 "FunctionResponseTypes" => {
@@ -248,22 +279,28 @@ pub(crate) fn de_update_event_source_mapping(
                 }
                 "KMSKeyArn" => {
                     builder = builder.set_kms_key_arn(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                            tokens.next(),
+                        )?
+                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                        .transpose()?,
                     );
                 }
                 "LastModified" => {
-                    builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-                        tokens.next(),
-                        ::aws_smithy_types::date_time::Format::EpochSeconds,
-                    )?);
+                    builder = builder.set_last_modified(
+                        ::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                            tokens.next(),
+                            ::aws_smithy_types::date_time::Format::EpochSeconds,
+                        )?,
+                    );
                 }
                 "LastProcessingResult" => {
                     builder = builder.set_last_processing_result(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                            tokens.next(),
+                        )?
+                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                        .transpose()?,
                     );
                 }
                 "LoggingConfig" => {
@@ -277,23 +314,29 @@ pub(crate) fn de_update_event_source_mapping(
                 }
                 "MaximumBatchingWindowInSeconds" => {
                     builder = builder.set_maximum_batching_window_in_seconds(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(
+                            tokens.next(),
+                        )?
+                        .map(i32::try_from)
+                        .transpose()?,
                     );
                 }
                 "MaximumRecordAgeInSeconds" => {
                     builder = builder.set_maximum_record_age_in_seconds(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(
+                            tokens.next(),
+                        )?
+                        .map(i32::try_from)
+                        .transpose()?,
                     );
                 }
                 "MaximumRetryAttempts" => {
                     builder = builder.set_maximum_retry_attempts(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(
+                            tokens.next(),
+                        )?
+                        .map(i32::try_from)
+                        .transpose()?,
                     );
                 }
                 "MetricsConfig" => {
@@ -307,9 +350,11 @@ pub(crate) fn de_update_event_source_mapping(
                 }
                 "ParallelizationFactor" => {
                     builder = builder.set_parallelization_factor(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(
+                            tokens.next(),
+                        )?
+                        .map(i32::try_from)
+                        .transpose()?,
                     );
                 }
                 "ProvisionedPollerConfig" => {
@@ -318,10 +363,20 @@ pub(crate) fn de_update_event_source_mapping(
                     );
                 }
                 "Queues" => {
-                    builder = builder.set_queues(crate::protocol_serde::shape_queues::de_queues(tokens, _value, depth + 1)?);
+                    builder = builder.set_queues(crate::protocol_serde::shape_queues::de_queues(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "ScalingConfig" => {
-                    builder = builder.set_scaling_config(crate::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
+                    builder = builder.set_scaling_config(
+                        crate::protocol_serde::shape_scaling_config::de_scaling_config(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
                 }
                 "SelfManagedEventSource" => {
                     builder = builder.set_self_managed_event_source(
@@ -344,61 +399,84 @@ pub(crate) fn de_update_event_source_mapping(
                 }
                 "StartingPosition" => {
                     builder = builder.set_starting_position(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::EventSourcePosition::from(u.as_ref())))
-                            .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                            tokens.next(),
+                        )?
+                        .map(|s| {
+                            s.to_unescaped()
+                                .map(|u| crate::types::EventSourcePosition::from(u.as_ref()))
+                        })
+                        .transpose()?,
                     );
                 }
                 "StartingPositionTimestamp" => {
-                    builder = builder.set_starting_position_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-                        tokens.next(),
-                        ::aws_smithy_types::date_time::Format::EpochSeconds,
-                    )?);
+                    builder = builder.set_starting_position_timestamp(
+                        ::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                            tokens.next(),
+                            ::aws_smithy_types::date_time::Format::EpochSeconds,
+                        )?,
+                    );
                 }
                 "State" => {
                     builder = builder.set_state(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                            tokens.next(),
+                        )?
+                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                        .transpose()?,
                     );
                 }
                 "StateTransitionReason" => {
                     builder = builder.set_state_transition_reason(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                            tokens.next(),
+                        )?
+                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                        .transpose()?,
                     );
                 }
                 "Topics" => {
-                    builder = builder.set_topics(crate::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
+                    builder = builder.set_topics(crate::protocol_serde::shape_topics::de_topics(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "TumblingWindowInSeconds" => {
                     builder = builder.set_tumbling_window_in_seconds(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                            .map(i32::try_from)
-                            .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(
+                            tokens.next(),
+                        )?
+                        .map(i32::try_from)
+                        .transpose()?,
                     );
                 }
                 "UUID" => {
                     builder = builder.set_uuid(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                            tokens.next(),
+                        )?
+                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                        .transpose()?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
             other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
+                return Err(
+                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                        "expected object key or end object, found: {other:?}"
+                    )),
+                )
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "found more JSON tokens after completing parsing",
+            ),
+        );
     }
     Ok(builder)
 }

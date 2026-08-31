@@ -21,13 +21,15 @@ impl ListResourcePermissionStatementsInput {
 }
 impl ListResourcePermissionStatementsInput {
     /// Creates a new builder-style object to manufacture [`ListResourcePermissionStatementsInput`](crate::operation::list_resource_permission_statements::ListResourcePermissionStatementsInput).
-    pub fn builder() -> crate::operation::list_resource_permission_statements::builders::ListResourcePermissionStatementsInputBuilder {
+    pub fn builder() -> crate::operation::list_resource_permission_statements::builders::ListResourcePermissionStatementsInputBuilder{
         crate::operation::list_resource_permission_statements::builders::ListResourcePermissionStatementsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListResourcePermissionStatementsInput`](crate::operation::list_resource_permission_statements::ListResourcePermissionStatementsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListResourcePermissionStatementsInputBuilder {
     pub(crate) max_results: ::std::option::Option<i32>,
@@ -68,7 +70,7 @@ impl ListResourcePermissionStatementsInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::list_resource_permission_statements::ListResourcePermissionStatementsInput,
         ::aws_smithy_types::error::operation::BuildError,
-    > {
+    >{
         ::std::result::Result::Ok(
             crate::operation::list_resource_permission_statements::ListResourcePermissionStatementsInput {
                 max_results: self.max_results,

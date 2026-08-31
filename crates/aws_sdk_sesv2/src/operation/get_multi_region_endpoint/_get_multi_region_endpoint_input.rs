@@ -15,13 +15,17 @@ impl GetMultiRegionEndpointInput {
 }
 impl GetMultiRegionEndpointInput {
     /// Creates a new builder-style object to manufacture [`GetMultiRegionEndpointInput`](crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointInput).
-    pub fn builder() -> crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointInputBuilder
+    {
         crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointInputBuilder::default()
     }
 }
 
 /// A builder for [`GetMultiRegionEndpointInput`](crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetMultiRegionEndpointInputBuilder {
     pub(crate) endpoint_name: ::std::option::Option<::std::string::String>,
@@ -29,12 +33,18 @@ pub struct GetMultiRegionEndpointInputBuilder {
 impl GetMultiRegionEndpointInputBuilder {
     /// <p>The name of the multi-region endpoint (global-endpoint).</p>
     /// This field is required.
-    pub fn endpoint_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn endpoint_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.endpoint_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the multi-region endpoint (global-endpoint).</p>
-    pub fn set_endpoint_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_endpoint_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.endpoint_name = input;
         self
     }
@@ -49,8 +59,10 @@ impl GetMultiRegionEndpointInputBuilder {
         crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointInput {
-            endpoint_name: self.endpoint_name,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointInput {
+                endpoint_name: self.endpoint_name,
+            },
+        )
     }
 }

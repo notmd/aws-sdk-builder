@@ -9,7 +9,12 @@ impl super::Client {
     ///   - [`results(Option<GuardrailChecksResults>)`](crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksOutput::results): <p>The per-check results containing findings from the guardrail evaluation.</p>
     ///   - [`usage(Option<GuardrailChecksUsageResults>)`](crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksOutput::usage): <p>The per-check text unit consumption for the guardrail evaluation.</p>
     /// - On failure, responds with [`SdkError<InvokeGuardrailChecksError>`](crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksError)
-    pub fn invoke_guardrail_checks(&self) -> crate::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksFluentBuilder {
-        crate::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksFluentBuilder::new(self.handle.clone())
+    pub fn invoke_guardrail_checks(
+        &self,
+    ) -> crate::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksFluentBuilder
+    {
+        crate::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

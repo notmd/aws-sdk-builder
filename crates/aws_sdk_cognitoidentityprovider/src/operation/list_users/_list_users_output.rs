@@ -35,7 +35,9 @@ impl ListUsersOutput {
 }
 
 /// A builder for [`ListUsersOutput`](crate::operation::list_users::ListUsersOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListUsersOutputBuilder {
     pub(crate) users: ::std::option::Option<::std::vec::Vec<crate::types::UserType>>,
@@ -55,7 +57,10 @@ impl ListUsersOutputBuilder {
         self
     }
     /// <p>An array of user pool users who match your query, and their attributes. Between different requests, you might observe variations in the sequence that users in this response object are sorted into. The sort order of users isn't guaranteed to follow a single pattern, but the paginated list from a single chain of requests won't return duplicates.</p>
-    pub fn set_users(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::UserType>>) -> Self {
+    pub fn set_users(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::UserType>>,
+    ) -> Self {
         self.users = input;
         self
     }
@@ -64,12 +69,18 @@ impl ListUsersOutputBuilder {
         &self.users
     }
     /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
-    pub fn pagination_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn pagination_token(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.pagination_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
-    pub fn set_pagination_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_pagination_token(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.pagination_token = input;
         self
     }

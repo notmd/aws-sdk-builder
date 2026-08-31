@@ -13,7 +13,8 @@ pub struct PutAccountDetailsInput {
     /// <p>A description of the types of email that you plan to send.</p>
     pub use_case_description: ::std::option::Option<::std::string::String>,
     /// <p>Additional email addresses that you would like to be notified regarding Amazon SES matters.</p>
-    pub additional_contact_email_addresses: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub additional_contact_email_addresses:
+        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>Indicates whether or not your account should have production access in the current Amazon Web Services Region.</p>
     /// <p>If the value is <code>false</code>, then your account is in the <i>sandbox</i>. When your account is in the sandbox, you can only send email to verified identities.</p>
     /// <p>If the value is <code>true</code>, then your account has production access. When your account has production access, you can send email to any address. The sending quota and maximum sending rate for your account vary based on your specific use case.</p>
@@ -40,7 +41,9 @@ impl PutAccountDetailsInput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.additional_contact_email_addresses.is_none()`.
     pub fn additional_contact_email_addresses(&self) -> &[::std::string::String] {
-        self.additional_contact_email_addresses.as_deref().unwrap_or_default()
+        self.additional_contact_email_addresses
+            .as_deref()
+            .unwrap_or_default()
     }
     /// <p>Indicates whether or not your account should have production access in the current Amazon Web Services Region.</p>
     /// <p>If the value is <code>false</code>, then your account is in the <i>sandbox</i>. When your account is in the sandbox, you can only send email to verified identities.</p>
@@ -56,14 +59,18 @@ impl ::std::fmt::Debug for PutAccountDetailsInput {
         formatter.field("website_url", &"*** Sensitive Data Redacted ***");
         formatter.field("contact_language", &self.contact_language);
         formatter.field("use_case_description", &"*** Sensitive Data Redacted ***");
-        formatter.field("additional_contact_email_addresses", &"*** Sensitive Data Redacted ***");
+        formatter.field(
+            "additional_contact_email_addresses",
+            &"*** Sensitive Data Redacted ***",
+        );
         formatter.field("production_access_enabled", &self.production_access_enabled);
         formatter.finish()
     }
 }
 impl PutAccountDetailsInput {
     /// Creates a new builder-style object to manufacture [`PutAccountDetailsInput`](crate::operation::put_account_details::PutAccountDetailsInput).
-    pub fn builder() -> crate::operation::put_account_details::builders::PutAccountDetailsInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::put_account_details::builders::PutAccountDetailsInputBuilder {
         crate::operation::put_account_details::builders::PutAccountDetailsInputBuilder::default()
     }
 }
@@ -76,7 +83,8 @@ pub struct PutAccountDetailsInputBuilder {
     pub(crate) website_url: ::std::option::Option<::std::string::String>,
     pub(crate) contact_language: ::std::option::Option<crate::types::ContactLanguage>,
     pub(crate) use_case_description: ::std::option::Option<::std::string::String>,
-    pub(crate) additional_contact_email_addresses: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) additional_contact_email_addresses:
+        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) production_access_enabled: ::std::option::Option<bool>,
 }
 impl PutAccountDetailsInputBuilder {
@@ -116,7 +124,10 @@ impl PutAccountDetailsInputBuilder {
         self
     }
     /// <p>The language you would prefer to be contacted with.</p>
-    pub fn set_contact_language(mut self, input: ::std::option::Option<crate::types::ContactLanguage>) -> Self {
+    pub fn set_contact_language(
+        mut self,
+        input: ::std::option::Option<crate::types::ContactLanguage>,
+    ) -> Self {
         self.contact_language = input;
         self
     }
@@ -125,12 +136,18 @@ impl PutAccountDetailsInputBuilder {
         &self.contact_language
     }
     /// <p>A description of the types of email that you plan to send.</p>
-    pub fn use_case_description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn use_case_description(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.use_case_description = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A description of the types of email that you plan to send.</p>
-    pub fn set_use_case_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_use_case_description(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.use_case_description = input;
         self
     }
@@ -143,19 +160,27 @@ impl PutAccountDetailsInputBuilder {
     /// To override the contents of this collection use [`set_additional_contact_email_addresses`](Self::set_additional_contact_email_addresses).
     ///
     /// <p>Additional email addresses that you would like to be notified regarding Amazon SES matters.</p>
-    pub fn additional_contact_email_addresses(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn additional_contact_email_addresses(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.additional_contact_email_addresses.unwrap_or_default();
         v.push(input.into());
         self.additional_contact_email_addresses = ::std::option::Option::Some(v);
         self
     }
     /// <p>Additional email addresses that you would like to be notified regarding Amazon SES matters.</p>
-    pub fn set_additional_contact_email_addresses(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_additional_contact_email_addresses(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.additional_contact_email_addresses = input;
         self
     }
     /// <p>Additional email addresses that you would like to be notified regarding Amazon SES matters.</p>
-    pub fn get_additional_contact_email_addresses(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_additional_contact_email_addresses(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.additional_contact_email_addresses
     }
     /// <p>Indicates whether or not your account should have production access in the current Amazon Web Services Region.</p>
@@ -181,15 +206,20 @@ impl PutAccountDetailsInputBuilder {
     /// Consumes the builder and constructs a [`PutAccountDetailsInput`](crate::operation::put_account_details::PutAccountDetailsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::put_account_details::PutAccountDetailsInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::put_account_details::PutAccountDetailsInput {
-            mail_type: self.mail_type,
-            website_url: self.website_url,
-            contact_language: self.contact_language,
-            use_case_description: self.use_case_description,
-            additional_contact_email_addresses: self.additional_contact_email_addresses,
-            production_access_enabled: self.production_access_enabled,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::put_account_details::PutAccountDetailsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::put_account_details::PutAccountDetailsInput {
+                mail_type: self.mail_type,
+                website_url: self.website_url,
+                contact_language: self.contact_language,
+                use_case_description: self.use_case_description,
+                additional_contact_email_addresses: self.additional_contact_email_addresses,
+                production_access_enabled: self.production_access_enabled,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for PutAccountDetailsInputBuilder {
@@ -199,7 +229,10 @@ impl ::std::fmt::Debug for PutAccountDetailsInputBuilder {
         formatter.field("website_url", &"*** Sensitive Data Redacted ***");
         formatter.field("contact_language", &self.contact_language);
         formatter.field("use_case_description", &"*** Sensitive Data Redacted ***");
-        formatter.field("additional_contact_email_addresses", &"*** Sensitive Data Redacted ***");
+        formatter.field(
+            "additional_contact_email_addresses",
+            &"*** Sensitive Data Redacted ***",
+        );
         formatter.field("production_access_enabled", &self.production_access_enabled);
         formatter.finish()
     }

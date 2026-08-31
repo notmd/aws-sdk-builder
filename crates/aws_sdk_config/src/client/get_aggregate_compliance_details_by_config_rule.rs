@@ -17,7 +17,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetAggregateComplianceDetailsByConfigRuleError>`](crate::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleError)
     pub fn get_aggregate_compliance_details_by_config_rule(
         &self,
-    ) -> crate::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleFluentBuilder {
+    ) -> crate::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleFluentBuilder{
         crate::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleFluentBuilder::new(
             self.handle.clone(),
         )

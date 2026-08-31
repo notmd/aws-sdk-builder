@@ -32,7 +32,9 @@ impl CreateJobQueueOutput {
 }
 
 /// A builder for [`CreateJobQueueOutput`](crate::operation::create_job_queue::CreateJobQueueOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateJobQueueOutputBuilder {
     pub(crate) job_queue_name: ::std::option::Option<::std::string::String>,
@@ -42,12 +44,18 @@ pub struct CreateJobQueueOutputBuilder {
 impl CreateJobQueueOutputBuilder {
     /// <p>The name of the job queue.</p>
     /// This field is required.
-    pub fn job_queue_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn job_queue_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.job_queue_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the job queue.</p>
-    pub fn set_job_queue_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_job_queue_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.job_queue_name = input;
         self
     }
@@ -57,12 +65,18 @@ impl CreateJobQueueOutputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the job queue.</p>
     /// This field is required.
-    pub fn job_queue_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn job_queue_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.job_queue_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the job queue.</p>
-    pub fn set_job_queue_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_job_queue_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.job_queue_arn = input;
         self
     }

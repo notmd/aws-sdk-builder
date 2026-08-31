@@ -38,13 +38,17 @@ impl ListAttachedRolePoliciesInput {
 }
 impl ListAttachedRolePoliciesInput {
     /// Creates a new builder-style object to manufacture [`ListAttachedRolePoliciesInput`](crate::operation::list_attached_role_policies::ListAttachedRolePoliciesInput).
-    pub fn builder() -> crate::operation::list_attached_role_policies::builders::ListAttachedRolePoliciesInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_attached_role_policies::builders::ListAttachedRolePoliciesInputBuilder
+    {
         crate::operation::list_attached_role_policies::builders::ListAttachedRolePoliciesInputBuilder::default()
     }
 }
 
 /// A builder for [`ListAttachedRolePoliciesInput`](crate::operation::list_attached_role_policies::ListAttachedRolePoliciesInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListAttachedRolePoliciesInputBuilder {
     pub(crate) role_name: ::std::option::Option<::std::string::String>,
@@ -126,11 +130,13 @@ impl ListAttachedRolePoliciesInputBuilder {
         crate::operation::list_attached_role_policies::ListAttachedRolePoliciesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_attached_role_policies::ListAttachedRolePoliciesInput {
-            role_name: self.role_name,
-            path_prefix: self.path_prefix,
-            marker: self.marker,
-            max_items: self.max_items,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::list_attached_role_policies::ListAttachedRolePoliciesInput {
+                role_name: self.role_name,
+                path_prefix: self.path_prefix,
+                marker: self.marker,
+                max_items: self.max_items,
+            },
+        )
     }
 }

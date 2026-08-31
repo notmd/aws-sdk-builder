@@ -21,7 +21,9 @@ impl RejectedEntityInfo {
 }
 
 /// A builder for [`RejectedEntityInfo`](crate::types::RejectedEntityInfo).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RejectedEntityInfoBuilder {
     pub(crate) error_type: ::std::option::Option<crate::types::EntityRejectionErrorType>,
@@ -34,7 +36,10 @@ impl RejectedEntityInfoBuilder {
         self
     }
     /// <p>The type of error that caused the rejection of the entity when calling <code>PutLogEvents</code>.</p>
-    pub fn set_error_type(mut self, input: ::std::option::Option<crate::types::EntityRejectionErrorType>) -> Self {
+    pub fn set_error_type(
+        mut self,
+        input: ::std::option::Option<crate::types::EntityRejectionErrorType>,
+    ) -> Self {
         self.error_type = input;
         self
     }
@@ -45,7 +50,12 @@ impl RejectedEntityInfoBuilder {
     /// Consumes the builder and constructs a [`RejectedEntityInfo`](crate::types::RejectedEntityInfo).
     /// This method will fail if any of the following fields are not set:
     /// - [`error_type`](crate::types::builders::RejectedEntityInfoBuilder::error_type)
-    pub fn build(self) -> ::std::result::Result<crate::types::RejectedEntityInfo, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::RejectedEntityInfo,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::RejectedEntityInfo {
             error_type: self.error_type.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

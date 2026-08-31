@@ -9,8 +9,14 @@ pub fn de_update_email_identity_policy_http_error(
     crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(
+        crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError::unhandled,
+    )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
@@ -85,14 +91,19 @@ pub fn de_update_email_identity_policy_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyOutputBuilder::default();
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
 
 pub fn ser_update_email_identity_policy_input(
     input: &crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+) -> ::std::result::Result<
+    ::aws_smithy_types::body::SdkBody,
+    ::aws_smithy_types::error::operation::SerializationError,
+> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_update_email_identity_policy_input::ser_update_email_identity_policy_input_input(&mut object, input)?;

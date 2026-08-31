@@ -13,13 +13,15 @@ impl ::aws_types::request_id::RequestId for RevokeOAuth2TokenWithIamOutput {
 }
 impl RevokeOAuth2TokenWithIamOutput {
     /// Creates a new builder-style object to manufacture [`RevokeOAuth2TokenWithIamOutput`](crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIamOutput).
-    pub fn builder() -> crate::operation::revoke_o_auth2_token_with_iam::builders::RevokeOAuth2TokenWithIamOutputBuilder {
+    pub fn builder() -> crate::operation::revoke_o_auth2_token_with_iam::builders::RevokeOAuth2TokenWithIamOutputBuilder{
         crate::operation::revoke_o_auth2_token_with_iam::builders::RevokeOAuth2TokenWithIamOutputBuilder::default()
     }
 }
 
 /// A builder for [`RevokeOAuth2TokenWithIamOutput`](crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIamOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RevokeOAuth2TokenWithIamOutputBuilder {
     _request_id: Option<String>,
@@ -35,7 +37,9 @@ impl RevokeOAuth2TokenWithIamOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`RevokeOAuth2TokenWithIamOutput`](crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIamOutput).
-    pub fn build(self) -> crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIamOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIamOutput {
         crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIamOutput {
             _request_id: self._request_id,
         }

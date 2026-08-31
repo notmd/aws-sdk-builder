@@ -4,7 +4,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeSchedulingPoliciesOutput {
     /// <p>The list of scheduling policies.</p>
-    pub scheduling_policies: ::std::option::Option<::std::vec::Vec<crate::types::SchedulingPolicyDetail>>,
+    pub scheduling_policies:
+        ::std::option::Option<::std::vec::Vec<crate::types::SchedulingPolicyDetail>>,
     _request_id: Option<String>,
 }
 impl DescribeSchedulingPoliciesOutput {
@@ -22,16 +23,19 @@ impl ::aws_types::request_id::RequestId for DescribeSchedulingPoliciesOutput {
 }
 impl DescribeSchedulingPoliciesOutput {
     /// Creates a new builder-style object to manufacture [`DescribeSchedulingPoliciesOutput`](crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesOutput).
-    pub fn builder() -> crate::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesOutputBuilder {
+    pub fn builder() -> crate::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesOutputBuilder{
         crate::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeSchedulingPoliciesOutput`](crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeSchedulingPoliciesOutputBuilder {
-    pub(crate) scheduling_policies: ::std::option::Option<::std::vec::Vec<crate::types::SchedulingPolicyDetail>>,
+    pub(crate) scheduling_policies:
+        ::std::option::Option<::std::vec::Vec<crate::types::SchedulingPolicyDetail>>,
     _request_id: Option<String>,
 }
 impl DescribeSchedulingPoliciesOutputBuilder {
@@ -47,12 +51,17 @@ impl DescribeSchedulingPoliciesOutputBuilder {
         self
     }
     /// <p>The list of scheduling policies.</p>
-    pub fn set_scheduling_policies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SchedulingPolicyDetail>>) -> Self {
+    pub fn set_scheduling_policies(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::SchedulingPolicyDetail>>,
+    ) -> Self {
         self.scheduling_policies = input;
         self
     }
     /// <p>The list of scheduling policies.</p>
-    pub fn get_scheduling_policies(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SchedulingPolicyDetail>> {
+    pub fn get_scheduling_policies(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SchedulingPolicyDetail>> {
         &self.scheduling_policies
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -65,7 +74,9 @@ impl DescribeSchedulingPoliciesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeSchedulingPoliciesOutput`](crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesOutput).
-    pub fn build(self) -> crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesOutput {
         crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesOutput {
             scheduling_policies: self.scheduling_policies,
             _request_id: self._request_id,

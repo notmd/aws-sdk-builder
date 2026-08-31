@@ -7,13 +7,15 @@
 pub struct GetDeliverabilityDashboardOptionsInput {}
 impl GetDeliverabilityDashboardOptionsInput {
     /// Creates a new builder-style object to manufacture [`GetDeliverabilityDashboardOptionsInput`](crate::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsInput).
-    pub fn builder() -> crate::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsInputBuilder {
+    pub fn builder() -> crate::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsInputBuilder{
         crate::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsInputBuilder::default()
     }
 }
 
 /// A builder for [`GetDeliverabilityDashboardOptionsInput`](crate::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetDeliverabilityDashboardOptionsInputBuilder {}
 impl GetDeliverabilityDashboardOptionsInputBuilder {
@@ -23,7 +25,7 @@ impl GetDeliverabilityDashboardOptionsInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsInput,
         ::aws_smithy_types::error::operation::BuildError,
-    > {
+    >{
         ::std::result::Result::Ok(crate::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsInput {})
     }
 }

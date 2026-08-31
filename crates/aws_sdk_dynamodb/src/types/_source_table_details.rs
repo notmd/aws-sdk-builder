@@ -60,7 +60,9 @@ impl SourceTableDetails {
         &self.table_creation_date_time
     }
     /// <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
-    pub fn provisioned_throughput(&self) -> ::std::option::Option<&crate::types::ProvisionedThroughput> {
+    pub fn provisioned_throughput(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ProvisionedThroughput> {
         self.provisioned_throughput.as_ref()
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
@@ -90,7 +92,9 @@ impl SourceTableDetails {
 }
 
 /// A builder for [`SourceTableDetails`](crate::types::SourceTableDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SourceTableDetailsBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
@@ -175,12 +179,17 @@ impl SourceTableDetailsBuilder {
         self
     }
     /// <p>Schema of the table.</p>
-    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
+    pub fn set_key_schema(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>,
+    ) -> Self {
         self.key_schema = input;
         self
     }
     /// <p>Schema of the table.</p>
-    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> {
+    pub fn get_key_schema(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> {
         &self.key_schema
     }
     /// <p>Time when the source table was created.</p>
@@ -190,12 +199,17 @@ impl SourceTableDetailsBuilder {
         self
     }
     /// <p>Time when the source table was created.</p>
-    pub fn set_table_creation_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_table_creation_date_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.table_creation_date_time = input;
         self
     }
     /// <p>Time when the source table was created.</p>
-    pub fn get_table_creation_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_table_creation_date_time(
+        &self,
+    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.table_creation_date_time
     }
     /// <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
@@ -205,12 +219,17 @@ impl SourceTableDetailsBuilder {
         self
     }
     /// <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
-    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
+    pub fn set_provisioned_throughput(
+        mut self,
+        input: ::std::option::Option<crate::types::ProvisionedThroughput>,
+    ) -> Self {
         self.provisioned_throughput = input;
         self
     }
     /// <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
-    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
+    pub fn get_provisioned_throughput(
+        &self,
+    ) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
         &self.provisioned_throughput
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
@@ -219,12 +238,17 @@ impl SourceTableDetailsBuilder {
         self
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
+    pub fn set_on_demand_throughput(
+        mut self,
+        input: ::std::option::Option<crate::types::OnDemandThroughput>,
+    ) -> Self {
         self.on_demand_throughput = input;
         self
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
+    pub fn get_on_demand_throughput(
+        &self,
+    ) -> &::std::option::Option<crate::types::OnDemandThroughput> {
         &self.on_demand_throughput
     }
     /// <p>Number of items in the table. Note that this is an approximate value.</p>
@@ -259,7 +283,10 @@ impl SourceTableDetailsBuilder {
     /// <li>
     /// <p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li>
     /// </ul>
-    pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
+    pub fn set_billing_mode(
+        mut self,
+        input: ::std::option::Option<crate::types::BillingMode>,
+    ) -> Self {
         self.billing_mode = input;
         self
     }
@@ -279,7 +306,12 @@ impl SourceTableDetailsBuilder {
     /// - [`table_id`](crate::types::builders::SourceTableDetailsBuilder::table_id)
     /// - [`key_schema`](crate::types::builders::SourceTableDetailsBuilder::key_schema)
     /// - [`table_creation_date_time`](crate::types::builders::SourceTableDetailsBuilder::table_creation_date_time)
-    pub fn build(self) -> ::std::result::Result<crate::types::SourceTableDetails, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::SourceTableDetails,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::SourceTableDetails {
             table_name: self.table_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

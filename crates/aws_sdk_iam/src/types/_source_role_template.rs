@@ -28,7 +28,9 @@ impl SourceRoleTemplate {
 }
 
 /// A builder for [`SourceRoleTemplate`](crate::types::SourceRoleTemplate).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SourceRoleTemplateBuilder {
     pub(crate) template_arn: ::std::option::Option<::std::string::String>,
@@ -69,7 +71,12 @@ impl SourceRoleTemplateBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`template_arn`](crate::types::builders::SourceRoleTemplateBuilder::template_arn)
     /// - [`template_minor_version`](crate::types::builders::SourceRoleTemplateBuilder::template_minor_version)
-    pub fn build(self) -> ::std::result::Result<crate::types::SourceRoleTemplate, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::SourceRoleTemplate,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::SourceRoleTemplate {
             template_arn: self.template_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

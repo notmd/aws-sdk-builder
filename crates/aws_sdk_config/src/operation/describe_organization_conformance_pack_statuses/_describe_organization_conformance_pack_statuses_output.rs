@@ -4,7 +4,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeOrganizationConformancePackStatusesOutput {
     /// <p>A list of <code>OrganizationConformancePackStatus</code> objects.</p>
-    pub organization_conformance_pack_statuses: ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConformancePackStatus>>,
+    pub organization_conformance_pack_statuses:
+        ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConformancePackStatus>>,
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -13,8 +14,12 @@ impl DescribeOrganizationConformancePackStatusesOutput {
     /// <p>A list of <code>OrganizationConformancePackStatus</code> objects.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.organization_conformance_pack_statuses.is_none()`.
-    pub fn organization_conformance_pack_statuses(&self) -> &[crate::types::OrganizationConformancePackStatus] {
-        self.organization_conformance_pack_statuses.as_deref().unwrap_or_default()
+    pub fn organization_conformance_pack_statuses(
+        &self,
+    ) -> &[crate::types::OrganizationConformancePackStatus] {
+        self.organization_conformance_pack_statuses
+            .as_deref()
+            .unwrap_or_default()
     }
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -29,17 +34,20 @@ impl ::aws_types::request_id::RequestId for DescribeOrganizationConformancePackS
 impl DescribeOrganizationConformancePackStatusesOutput {
     /// Creates a new builder-style object to manufacture [`DescribeOrganizationConformancePackStatusesOutput`](crate::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesOutput).
     pub fn builder(
-    ) -> crate::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesOutputBuilder {
+    ) -> crate::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesOutputBuilder{
         crate::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesOutputBuilder::default(
         )
     }
 }
 
 /// A builder for [`DescribeOrganizationConformancePackStatusesOutput`](crate::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeOrganizationConformancePackStatusesOutputBuilder {
-    pub(crate) organization_conformance_pack_statuses: ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConformancePackStatus>>,
+    pub(crate) organization_conformance_pack_statuses:
+        ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConformancePackStatus>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -49,8 +57,13 @@ impl DescribeOrganizationConformancePackStatusesOutputBuilder {
     /// To override the contents of this collection use [`set_organization_conformance_pack_statuses`](Self::set_organization_conformance_pack_statuses).
     ///
     /// <p>A list of <code>OrganizationConformancePackStatus</code> objects.</p>
-    pub fn organization_conformance_pack_statuses(mut self, input: crate::types::OrganizationConformancePackStatus) -> Self {
-        let mut v = self.organization_conformance_pack_statuses.unwrap_or_default();
+    pub fn organization_conformance_pack_statuses(
+        mut self,
+        input: crate::types::OrganizationConformancePackStatus,
+    ) -> Self {
+        let mut v = self
+            .organization_conformance_pack_statuses
+            .unwrap_or_default();
         v.push(input);
         self.organization_conformance_pack_statuses = ::std::option::Option::Some(v);
         self
@@ -58,7 +71,9 @@ impl DescribeOrganizationConformancePackStatusesOutputBuilder {
     /// <p>A list of <code>OrganizationConformancePackStatus</code> objects.</p>
     pub fn set_organization_conformance_pack_statuses(
         mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConformancePackStatus>>,
+        input: ::std::option::Option<
+            ::std::vec::Vec<crate::types::OrganizationConformancePackStatus>,
+        >,
     ) -> Self {
         self.organization_conformance_pack_statuses = input;
         self
@@ -66,7 +81,8 @@ impl DescribeOrganizationConformancePackStatusesOutputBuilder {
     /// <p>A list of <code>OrganizationConformancePackStatus</code> objects.</p>
     pub fn get_organization_conformance_pack_statuses(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::OrganizationConformancePackStatus>> {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::OrganizationConformancePackStatus>>
+    {
         &self.organization_conformance_pack_statuses
     }
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -93,7 +109,7 @@ impl DescribeOrganizationConformancePackStatusesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeOrganizationConformancePackStatusesOutput`](crate::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesOutput).
-    pub fn build(self) -> crate::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesOutput {
+    pub fn build(self) -> crate::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesOutput{
         crate::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesOutput {
             organization_conformance_pack_statuses: self.organization_conformance_pack_statuses,
             next_token: self.next_token,

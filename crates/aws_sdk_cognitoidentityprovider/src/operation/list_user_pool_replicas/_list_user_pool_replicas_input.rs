@@ -20,13 +20,16 @@ impl ListUserPoolReplicasInput {
 }
 impl ListUserPoolReplicasInput {
     /// Creates a new builder-style object to manufacture [`ListUserPoolReplicasInput`](crate::operation::list_user_pool_replicas::ListUserPoolReplicasInput).
-    pub fn builder() -> crate::operation::list_user_pool_replicas::builders::ListUserPoolReplicasInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_user_pool_replicas::builders::ListUserPoolReplicasInputBuilder {
         crate::operation::list_user_pool_replicas::builders::ListUserPoolReplicasInputBuilder::default()
     }
 }
 
 /// A builder for [`ListUserPoolReplicasInput`](crate::operation::list_user_pool_replicas::ListUserPoolReplicasInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListUserPoolReplicasInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
@@ -65,11 +68,15 @@ impl ListUserPoolReplicasInputBuilder {
     /// Consumes the builder and constructs a [`ListUserPoolReplicasInput`](crate::operation::list_user_pool_replicas::ListUserPoolReplicasInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_user_pool_replicas::ListUserPoolReplicasInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::list_user_pool_replicas::ListUserPoolReplicasInput {
-            user_pool_id: self.user_pool_id,
-            next_token: self.next_token,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::list_user_pool_replicas::ListUserPoolReplicasInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::list_user_pool_replicas::ListUserPoolReplicasInput {
+                user_pool_id: self.user_pool_id,
+                next_token: self.next_token,
+            },
+        )
     }
 }

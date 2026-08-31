@@ -5,13 +5,19 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct SearchResultItem {
     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the projected attributes of the item returned by the vector search.</p>
-    pub item: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    pub item: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
+    >,
     /// <p>The similarity score for this item relative to the search vector. The interpretation depends on the distance function configured for the vector index.</p>
     pub score: f64,
 }
 impl SearchResultItem {
     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the projected attributes of the item returned by the vector search.</p>
-    pub fn item(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+    pub fn item(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
+    > {
         self.item.as_ref()
     }
     /// <p>The similarity score for this item relative to the search vector. The interpretation depends on the distance function configured for the vector index.</p>
@@ -27,10 +33,14 @@ impl SearchResultItem {
 }
 
 /// A builder for [`SearchResultItem`](crate::types::SearchResultItem).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SearchResultItemBuilder {
-    pub(crate) item: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    pub(crate) item: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
+    >,
     pub(crate) score: ::std::option::Option<f64>,
 }
 impl SearchResultItemBuilder {
@@ -39,7 +49,11 @@ impl SearchResultItemBuilder {
     /// To override the contents of this collection use [`set_item`](Self::set_item).
     ///
     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the projected attributes of the item returned by the vector search.</p>
-    pub fn item(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
+    pub fn item(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: crate::types::AttributeValue,
+    ) -> Self {
         let mut hash_map = self.item.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.item = ::std::option::Option::Some(hash_map);
@@ -48,13 +62,19 @@ impl SearchResultItemBuilder {
     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the projected attributes of the item returned by the vector search.</p>
     pub fn set_item(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
+        >,
     ) -> Self {
         self.item = input;
         self
     }
     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the projected attributes of the item returned by the vector search.</p>
-    pub fn get_item(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+    pub fn get_item(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
+    > {
         &self.item
     }
     /// <p>The similarity score for this item relative to the search vector. The interpretation depends on the distance function configured for the vector index.</p>

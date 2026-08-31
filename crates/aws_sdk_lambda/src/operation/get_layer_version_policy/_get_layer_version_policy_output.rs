@@ -26,13 +26,17 @@ impl ::aws_types::request_id::RequestId for GetLayerVersionPolicyOutput {
 }
 impl GetLayerVersionPolicyOutput {
     /// Creates a new builder-style object to manufacture [`GetLayerVersionPolicyOutput`](crate::operation::get_layer_version_policy::GetLayerVersionPolicyOutput).
-    pub fn builder() -> crate::operation::get_layer_version_policy::builders::GetLayerVersionPolicyOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::get_layer_version_policy::builders::GetLayerVersionPolicyOutputBuilder
+    {
         crate::operation::get_layer_version_policy::builders::GetLayerVersionPolicyOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetLayerVersionPolicyOutput`](crate::operation::get_layer_version_policy::GetLayerVersionPolicyOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetLayerVersionPolicyOutputBuilder {
     pub(crate) policy: ::std::option::Option<::std::string::String>,

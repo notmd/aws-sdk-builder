@@ -34,7 +34,9 @@ impl UntagResourceInput {
 }
 
 /// A builder for [`UntagResourceInput`](crate::operation::untag_resource::UntagResourceInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UntagResourceInputBuilder {
     pub(crate) resource_arn: ::std::option::Option<::std::string::String>,
@@ -77,7 +79,10 @@ impl UntagResourceInputBuilder {
         self
     }
     /// <p>The list of tag keys to remove from the resource.</p>
-    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_tag_keys(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.tag_keys = input;
         self
     }
@@ -88,7 +93,10 @@ impl UntagResourceInputBuilder {
     /// Consumes the builder and constructs a [`UntagResourceInput`](crate::operation::untag_resource::UntagResourceInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::untag_resource::UntagResourceInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::untag_resource::UntagResourceInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::untag_resource::UntagResourceInput {
             resource_arn: self.resource_arn,
             tag_keys: self.tag_keys,

@@ -3,7 +3,9 @@ pub use crate::operation::add_role_to_instance_profile::_add_role_to_instance_pr
 
 pub use crate::operation::add_role_to_instance_profile::_add_role_to_instance_profile_output::AddRoleToInstanceProfileOutputBuilder;
 
-impl crate::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileInputBuilder {
+impl
+    crate::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -62,7 +64,7 @@ impl AddRoleToInstanceProfileFluentBuilder {
         }
     }
     /// Access the AddRoleToInstanceProfile as a reference.
-    pub fn as_input(&self) -> &crate::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -91,7 +93,11 @@ impl AddRoleToInstanceProfileFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfile::orchestrate(&runtime_plugins, input).await
+        crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfile::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -104,24 +110,36 @@ impl AddRoleToInstanceProfileFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the instance profile to update.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn instance_profile_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn instance_profile_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.instance_profile_name(input.into());
         self
     }
     /// <p>The name of the instance profile to update.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_instance_profile_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_instance_profile_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_instance_profile_name(input);
         self
     }

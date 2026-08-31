@@ -35,7 +35,9 @@ impl LogFieldType {
 }
 
 /// A builder for [`LogFieldType`](crate::types::LogFieldType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct LogFieldTypeBuilder {
     pub(crate) r#type: ::std::option::Option<::std::string::String>,
@@ -58,17 +60,25 @@ impl LogFieldTypeBuilder {
         &self.r#type
     }
     /// <p>For array or collection types, specifies the element type information.</p>
-    pub fn element(mut self, input: impl ::std::convert::Into<::std::boxed::Box<crate::types::LogFieldType>>) -> Self {
+    pub fn element(
+        mut self,
+        input: impl ::std::convert::Into<::std::boxed::Box<crate::types::LogFieldType>>,
+    ) -> Self {
         self.element = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>For array or collection types, specifies the element type information.</p>
-    pub fn set_element(mut self, input: ::std::option::Option<::std::boxed::Box<crate::types::LogFieldType>>) -> Self {
+    pub fn set_element(
+        mut self,
+        input: ::std::option::Option<::std::boxed::Box<crate::types::LogFieldType>>,
+    ) -> Self {
         self.element = input;
         self
     }
     /// <p>For array or collection types, specifies the element type information.</p>
-    pub fn get_element(&self) -> &::std::option::Option<::std::boxed::Box<crate::types::LogFieldType>> {
+    pub fn get_element(
+        &self,
+    ) -> &::std::option::Option<::std::boxed::Box<crate::types::LogFieldType>> {
         &self.element
     }
     /// Appends an item to `fields`.
@@ -83,12 +93,17 @@ impl LogFieldTypeBuilder {
         self
     }
     /// <p>For complex types, contains the nested field definitions.</p>
-    pub fn set_fields(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LogFieldsListItem>>) -> Self {
+    pub fn set_fields(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::LogFieldsListItem>>,
+    ) -> Self {
         self.fields = input;
         self
     }
     /// <p>For complex types, contains the nested field definitions.</p>
-    pub fn get_fields(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LogFieldsListItem>> {
+    pub fn get_fields(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::LogFieldsListItem>> {
         &self.fields
     }
     /// Consumes the builder and constructs a [`LogFieldType`](crate::types::LogFieldType).

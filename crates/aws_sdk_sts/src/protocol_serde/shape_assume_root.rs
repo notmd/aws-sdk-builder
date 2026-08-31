@@ -4,49 +4,66 @@ pub fn de_assume_root_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::assume_root::AssumeRootOutput, crate::operation::assume_root::AssumeRootError> {
+) -> std::result::Result<
+    crate::operation::assume_root::AssumeRootOutput,
+    crate::operation::assume_root::AssumeRootError,
+> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::assume_root::AssumeRootError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(crate::operation::assume_root::AssumeRootError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::assume_root::AssumeRootError::unhandled(generic)),
+        None => {
+            return Err(crate::operation::assume_root::AssumeRootError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "ExpiredTokenException" => crate::operation::assume_root::AssumeRootError::ExpiredTokenException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "ExpiredTokenException" => {
+            crate::operation::assume_root::AssumeRootError::ExpiredTokenException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ExpiredTokenExceptionBuilder::default();
-                output = crate::protocol_serde::shape_expired_token_exception::de_expired_token_exception_xml_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output =
+                        crate::types::error::builders::ExpiredTokenExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_expired_token_exception::de_expired_token_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::assume_root::AssumeRootError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "RegionDisabledException" => crate::operation::assume_root::AssumeRootError::RegionDisabledException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "RegionDisabledException" => {
+            crate::operation::assume_root::AssumeRootError::RegionDisabledException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::RegionDisabledExceptionBuilder::default();
-                output = crate::protocol_serde::shape_region_disabled_exception::de_region_disabled_exception_xml_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output =
+                        crate::types::error::builders::RegionDisabledExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_region_disabled_exception::de_region_disabled_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::assume_root::AssumeRootError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::assume_root::AssumeRootError::generic(generic),
     })
 }
@@ -56,13 +73,19 @@ pub fn de_assume_root_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::assume_root::AssumeRootOutput, crate::operation::assume_root::AssumeRootError> {
+) -> std::result::Result<
+    crate::operation::assume_root::AssumeRootOutput,
+    crate::operation::assume_root::AssumeRootError,
+> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::assume_root::builders::AssumeRootOutputBuilder::default();
+        let mut output =
+            crate::operation::assume_root::builders::AssumeRootOutputBuilder::default();
         output = crate::protocol_serde::shape_assume_root::de_assume_root(_response_body, output)
             .map_err(crate::operation::assume_root::AssumeRootError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
@@ -71,7 +94,10 @@ pub fn de_assume_root_http_response(
 pub fn de_assume_root(
     inp: &[u8],
     mut builder: crate::operation::assume_root::builders::AssumeRootOutputBuilder,
-) -> std::result::Result<crate::operation::assume_root::builders::AssumeRootOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> std::result::Result<
+    crate::operation::assume_root::builders::AssumeRootOutputBuilder,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]
@@ -121,7 +147,9 @@ pub fn de_assume_root(
         }
         }
     } else {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected AssumeRootResult tag"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "expected AssumeRootResult tag",
+        ));
     };
     Ok(builder)
 }

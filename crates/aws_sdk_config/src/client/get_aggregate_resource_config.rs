@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetAggregateResourceConfigError>`](crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigError)
     pub fn get_aggregate_resource_config(
         &self,
-    ) -> crate::operation::get_aggregate_resource_config::builders::GetAggregateResourceConfigFluentBuilder {
+    ) -> crate::operation::get_aggregate_resource_config::builders::GetAggregateResourceConfigFluentBuilder{
         crate::operation::get_aggregate_resource_config::builders::GetAggregateResourceConfigFluentBuilder::new(self.handle.clone())
     }
 }

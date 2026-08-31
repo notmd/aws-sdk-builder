@@ -57,7 +57,9 @@ impl ListImportJobsFluentBuilder {
         }
     }
     /// Access the ListImportJobs as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_import_jobs::builders::ListImportJobsInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_import_jobs::builders::ListImportJobsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,12 +83,14 @@ impl ListImportJobsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_import_jobs::ListImportJobs::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_import_jobs::ListImportJobs::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::list_import_jobs::ListImportJobs::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_import_jobs::ListImportJobs::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,20 +103,31 @@ impl ListImportJobsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_import_jobs::paginator::ListImportJobsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_import_jobs::paginator::ListImportJobsPaginator {
-        crate::operation::list_import_jobs::paginator::ListImportJobsPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_import_jobs::paginator::ListImportJobsPaginator {
+        crate::operation::list_import_jobs::paginator::ListImportJobsPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The destination of the import job, which can be used to list import jobs that have a certain <code>ImportDestinationType</code>.</p>
     pub fn import_destination_type(mut self, input: crate::types::ImportDestinationType) -> Self {
@@ -120,12 +135,17 @@ impl ListImportJobsFluentBuilder {
         self
     }
     /// <p>The destination of the import job, which can be used to list import jobs that have a certain <code>ImportDestinationType</code>.</p>
-    pub fn set_import_destination_type(mut self, input: ::std::option::Option<crate::types::ImportDestinationType>) -> Self {
+    pub fn set_import_destination_type(
+        mut self,
+        input: ::std::option::Option<crate::types::ImportDestinationType>,
+    ) -> Self {
         self.inner = self.inner.set_import_destination_type(input);
         self
     }
     /// <p>The destination of the import job, which can be used to list import jobs that have a certain <code>ImportDestinationType</code>.</p>
-    pub fn get_import_destination_type(&self) -> &::std::option::Option<crate::types::ImportDestinationType> {
+    pub fn get_import_destination_type(
+        &self,
+    ) -> &::std::option::Option<crate::types::ImportDestinationType> {
         self.inner.get_import_destination_type()
     }
     /// <p>A string token indicating that there might be additional import jobs available to be listed. Copy this token to a subsequent call to <code>ListImportJobs</code> with the same parameters to retrieve the next page of import jobs.</p>

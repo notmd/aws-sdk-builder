@@ -30,7 +30,9 @@ impl AddUserToGroupInput {
 }
 
 /// A builder for [`AddUserToGroupInput`](crate::operation::add_user_to_group::AddUserToGroupInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AddUserToGroupInputBuilder {
     pub(crate) group_name: ::std::option::Option<::std::string::String>,
@@ -76,7 +78,10 @@ impl AddUserToGroupInputBuilder {
     /// Consumes the builder and constructs a [`AddUserToGroupInput`](crate::operation::add_user_to_group::AddUserToGroupInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::add_user_to_group::AddUserToGroupInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::add_user_to_group::AddUserToGroupInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::add_user_to_group::AddUserToGroupInput {
             group_name: self.group_name,
             user_name: self.user_name,

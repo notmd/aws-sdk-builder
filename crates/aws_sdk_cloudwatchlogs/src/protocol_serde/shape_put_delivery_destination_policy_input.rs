@@ -7,7 +7,9 @@ pub fn ser_put_delivery_destination_policy_input_input(
         object.key("deliveryDestinationName").string(var_1.as_str());
     }
     if let Some(var_2) = &input.delivery_destination_policy {
-        object.key("deliveryDestinationPolicy").string(var_2.as_str());
+        object
+            .key("deliveryDestinationPolicy")
+            .string(var_2.as_str());
     }
     Ok(())
 }

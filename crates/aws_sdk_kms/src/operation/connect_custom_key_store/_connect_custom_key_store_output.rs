@@ -12,13 +12,17 @@ impl ::aws_types::request_id::RequestId for ConnectCustomKeyStoreOutput {
 }
 impl ConnectCustomKeyStoreOutput {
     /// Creates a new builder-style object to manufacture [`ConnectCustomKeyStoreOutput`](crate::operation::connect_custom_key_store::ConnectCustomKeyStoreOutput).
-    pub fn builder() -> crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreOutputBuilder
+    {
         crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreOutputBuilder::default()
     }
 }
 
 /// A builder for [`ConnectCustomKeyStoreOutput`](crate::operation::connect_custom_key_store::ConnectCustomKeyStoreOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ConnectCustomKeyStoreOutputBuilder {
     _request_id: Option<String>,

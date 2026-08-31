@@ -5,7 +5,7 @@ use crate::{
     transform::{self, Coverage, TransformError},
 };
 use std::{
-    collections::{BTreeMap, BTreeSet},
+    collections::BTreeSet,
     ffi::OsString,
     fmt::Write,
     fs,
@@ -67,12 +67,12 @@ fn run_generation(manifest: &Manifest, root: &Path) -> Result<(), ConformanceErr
         path: root.to_owned(),
         source,
     })?;
-    let upstream = prepare_upstreams(manifest, workspace.path())?;
+    let upstream = prepare_upstream(manifest, workspace.path())?;
     for service in &manifest.services {
         let model = load_model(service, &upstream)?;
         let operations = model.operations()?;
         let staged = stage_service(service, &upstream, workspace.path(), &operations)?;
-        write_stage_artifacts(service, &staged, &upstream, &operations)?;
+        write_stage_artifacts(manifest, service, &staged, &upstream, &operations)?;
         install_atomically(&staged, &root.join(&service.output_dir), workspace.path())?;
         println!(
             "{}: generated {} operations at {}",
@@ -89,7 +89,7 @@ fn run_conformance(manifest: &Manifest, root: &Path) -> Result<(), ConformanceEr
         path: root.to_owned(),
         source,
     })?;
-    let upstream = prepare_upstreams(manifest, workspace.path())?;
+    let upstream = prepare_upstream(manifest, workspace.path())?;
     let previous = fs::read_to_string(root.join("conformance/summary.md")).ok();
     let mut reports = Vec::new();
     for service in &manifest.services {
@@ -97,8 +97,9 @@ fn run_conformance(manifest: &Manifest, root: &Path) -> Result<(), ConformanceEr
         let operations = model.operations()?;
         let staged = stage_service(service, &upstream, workspace.path(), &operations)?;
         verify_service(service, &staged, &operations)?;
-        let changed_files = write_stage_artifacts(service, &staged, &upstream, &operations)?;
-        verify_diff_artifacts(&staged)?;
+        let changed_files =
+            write_stage_artifacts(manifest, service, &staged, &upstream, &operations)?;
+        verify_diff_artifacts(&staged, &changed_files)?;
         let feature_matrix =
             check_feature_matrix(service, &staged, &model, &operations, workspace.path())?;
         check_public_api(service, &staged, &operations, workspace.path())?;
@@ -131,33 +132,35 @@ fn run_conformance(manifest: &Manifest, root: &Path) -> Result<(), ConformanceEr
 }
 
 fn write_stage_artifacts(
+    manifest: &Manifest,
     service: &ServiceManifest,
     staged: &Path,
-    upstreams: &BTreeMap<(String, String), PathBuf>,
+    upstream: &Path,
     operations: &[Operation],
 ) -> Result<Vec<String>, ConformanceError> {
-    let upstream = upstreams
-        .get(&(service.repository.clone(), service.revision.clone()))
-        .expect("prepared upstream");
     let before = diff::snapshot(&upstream.join(&service.upstream_path))?;
     let after = diff::snapshot(staged)?;
     let changed_files = diff::changed_files(&before, &after);
+    let file_patches = diff::file_patches(&before, &after);
     let patch = diff::unified_patch(&before, &after);
-    write_diff_artifacts(service, staged, operations, &changed_files, &patch)?;
+    write_diff_artifacts(
+        manifest,
+        service,
+        staged,
+        operations,
+        &changed_files,
+        &file_patches,
+        &patch,
+    )?;
     Ok(changed_files)
 }
 
 fn stage_service(
     service: &ServiceManifest,
-    upstreams: &BTreeMap<(String, String), PathBuf>,
+    upstream: &Path,
     workspace: &Path,
     operations: &[Operation],
 ) -> Result<PathBuf, ConformanceError> {
-    let upstream = upstreams
-        .get(&(service.repository.clone(), service.revision.clone()))
-        .ok_or_else(|| {
-            ConformanceError::Message(format!("no downloaded source for {}", service.key))
-        })?;
     let source = safe_join(upstream, &service.upstream_path)?;
     if !source.join("src").is_dir() {
         return Err(ConformanceError::Message(format!(
@@ -173,78 +176,76 @@ fn stage_service(
         &service.library_name,
         operations,
     )?;
+    let manifest_path = stage.join("Cargo.toml");
+    let manifest_path = manifest_path
+        .to_str()
+        .ok_or_else(|| ConformanceError::Message("staged manifest path is not UTF-8".to_owned()))?;
+    run_process(
+        "cargo",
+        &[
+            "fmt",
+            "--manifest-path",
+            manifest_path,
+            "--all",
+            "--",
+            "--config",
+            "edition=2021",
+        ],
+        &stage,
+    )?;
     Ok(stage)
 }
 
-fn load_model(
-    service: &ServiceManifest,
-    upstreams: &BTreeMap<(String, String), PathBuf>,
-) -> Result<Model, ConformanceError> {
-    let upstream = upstreams
-        .get(&(service.repository.clone(), service.revision.clone()))
-        .ok_or_else(|| {
-            ConformanceError::Message(format!("no downloaded source for {}", service.key))
-        })?;
+fn load_model(service: &ServiceManifest, upstream: &Path) -> Result<Model, ConformanceError> {
     let path = safe_join(upstream, &service.model_path)?;
     Ok(Model::load(&path)?)
 }
 
-fn prepare_upstreams(
-    manifest: &Manifest,
-    workspace: &Path,
-) -> Result<BTreeMap<(String, String), PathBuf>, ConformanceError> {
-    let mut result = BTreeMap::new();
-    let mut keys = BTreeSet::new();
-    for service in &manifest.services {
-        keys.insert((service.repository.clone(), service.revision.clone()));
-    }
-    for (repository, revision) in keys {
-        let archive = workspace.join(format!("{}.tar.gz", revision));
-        let unpacked = workspace.join(format!("unpacked-{revision}"));
-        fs::create_dir_all(&unpacked).map_err(|source| ConformanceError::Io {
-            path: unpacked.clone(),
+fn prepare_upstream(manifest: &Manifest, workspace: &Path) -> Result<PathBuf, ConformanceError> {
+    let archive = workspace.join(format!("{}.tar.gz", manifest.revision));
+    let unpacked = workspace.join(format!("unpacked-{}", manifest.revision));
+    fs::create_dir_all(&unpacked).map_err(|source| ConformanceError::Io {
+        path: unpacked.clone(),
+        source,
+    })?;
+    if let Some(local_archive) = std::env::var_os("AWS_SDK_MODULARIZER_ARCHIVE") {
+        fs::copy(&local_archive, &archive).map_err(|source| ConformanceError::Io {
+            path: archive.clone(),
             source,
         })?;
-        if let Some(local_archive) = std::env::var_os("AWS_SDK_MODULARIZER_ARCHIVE") {
-            fs::copy(&local_archive, &archive).map_err(|source| ConformanceError::Io {
-                path: archive.clone(),
-                source,
-            })?;
-        } else {
-            run_process(
-                "curl",
-                &[
-                    "-L",
-                    "--fail",
-                    "--silent",
-                    "--show-error",
-                    &archive_url(&repository, &revision)?,
-                    "-o",
-                    archive.to_str().ok_or_else(|| {
-                        ConformanceError::Message("archive path is not UTF-8".to_owned())
-                    })?,
-                ],
-                workspace,
-            )?;
-        }
+    } else {
+        let url = archive_url(&manifest.repository, &manifest.revision)?;
         run_process(
-            "tar",
+            "curl",
             &[
-                "-xzf",
+                "-L",
+                "--fail",
+                "--silent",
+                "--show-error",
+                &url,
+                "-o",
                 archive.to_str().ok_or_else(|| {
                     ConformanceError::Message("archive path is not UTF-8".to_owned())
-                })?,
-                "-C",
-                unpacked.to_str().ok_or_else(|| {
-                    ConformanceError::Message("unpack path is not UTF-8".to_owned())
                 })?,
             ],
             workspace,
         )?;
-        let root = single_directory(&unpacked)?;
-        result.insert((repository, revision), root);
     }
-    Ok(result)
+    run_process(
+        "tar",
+        &[
+            "-xzf",
+            archive
+                .to_str()
+                .ok_or_else(|| ConformanceError::Message("archive path is not UTF-8".to_owned()))?,
+            "-C",
+            unpacked
+                .to_str()
+                .ok_or_else(|| ConformanceError::Message("unpack path is not UTF-8".to_owned()))?,
+        ],
+        workspace,
+    )?;
+    single_directory(&unpacked)
 }
 
 fn archive_url(repository: &str, revision: &str) -> Result<String, ConformanceError> {
@@ -553,15 +554,17 @@ mod tests {
 }
 
 fn write_diff_artifacts(
+    manifest: &Manifest,
     service: &ServiceManifest,
     stage: &Path,
     operations: &[Operation],
     changed_files: &[String],
+    file_patches: &[(String, String)],
     patch: &str,
 ) -> Result<(), ConformanceError> {
     let mut report = String::new();
     report.push_str("# AWS SDK modularizer diff\n\n");
-    report.push_str(&format!("- repository: `{}`\n- revision: `{}`\n- service: `{}`\n- model: `{}`\n- package: `{}`\n- library: `{}`\n- tests exclusion: `tests/**` is excluded from the comparison.\n\n", service.repository, service.revision, service.upstream_path, service.model_path, service.package_name, service.library_name));
+    report.push_str(&format!("- repository: `{}`\n- revision: `{}`\n- service: `{}`\n- model: `{}`\n- package: `{}`\n- library: `{}`\n- tests exclusion: `tests/**` is excluded from the comparison.\n\n", manifest.repository, manifest.revision, service.upstream_path, service.model_path, service.package_name, service.library_name));
     report.push_str("## Operations\n\n");
     for operation in operations {
         report.push_str(&format!(
@@ -573,6 +576,24 @@ fn write_diff_artifacts(
     for file in changed_files {
         report.push_str(&format!("- `{file}`\n"));
     }
+    report.push_str("\n## File diffs\n\n");
+    for (file, file_patch) in file_patches {
+        report.push_str(&format!("### `{file}`\n\n```diff\n"));
+        report.push_str(file_patch);
+        if !file_patch.ends_with('\n') {
+            report.push('\n');
+        }
+        report.push_str("```\n\n");
+    }
+    if file_patches.is_empty() {
+        report.push_str("No textual changes.\n\n");
+    }
+    report.push_str("## Unified diff\n\n```diff\n");
+    report.push_str(patch);
+    if !patch.ends_with('\n') {
+        report.push('\n');
+    }
+    report.push_str("```\n\n");
     report.push_str("\n## Customizations\n\n- Add one non-default Cargo feature and matching cfg gates for each model operation.\n- Rename the Cargo package/library from manifest data.\n- Remove upstream `tests/` from generated output.\n\n## Reproduction\n\n```text\ncargo run -p aws-sdk-modularizer -- --manifest services-manifest.json\n```\n");
     fs::write(stage.join("DIFF.MD"), report).map_err(|source| ConformanceError::Io {
         path: stage.join("DIFF.MD"),
@@ -585,7 +606,7 @@ fn write_diff_artifacts(
     Ok(())
 }
 
-fn verify_diff_artifacts(stage: &Path) -> Result<(), ConformanceError> {
+fn verify_diff_artifacts(stage: &Path, changed_files: &[String]) -> Result<(), ConformanceError> {
     let report_path = stage.join("DIFF.MD");
     let report = fs::read_to_string(&report_path).map_err(|source| ConformanceError::Io {
         path: report_path.clone(),
@@ -606,6 +627,34 @@ fn verify_diff_artifacts(stage: &Path) -> Result<(), ConformanceError> {
         return Err(ConformanceError::Message(format!(
             "{} contains tests/ hunks",
             patch_path.display()
+        )));
+    }
+    if !report.contains("## File diffs") {
+        return Err(ConformanceError::Message(format!(
+            "{} does not contain per-file diffs",
+            report_path.display()
+        )));
+    }
+    for file in changed_files {
+        let heading = format!("### `{file}`");
+        let marker = format!("diff --git a/{file} b/{file}");
+        if !report.contains(&heading) || !report.contains(&marker) {
+            return Err(ConformanceError::Message(format!(
+                "{} does not embed the diff for {file}",
+                report_path.display()
+            )));
+        }
+    }
+    if !report.contains("## Unified diff") {
+        return Err(ConformanceError::Message(format!(
+            "{} does not contain the unified diff",
+            report_path.display()
+        )));
+    }
+    if !patch.is_empty() && !report.contains(&patch) {
+        return Err(ConformanceError::Message(format!(
+            "{} does not embed the unified diff",
+            report_path.display()
         )));
     }
     Ok(())

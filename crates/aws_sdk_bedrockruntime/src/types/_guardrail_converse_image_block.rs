@@ -49,7 +49,10 @@ impl GuardrailConverseImageBlockBuilder {
         self
     }
     /// <p>The format details for the image type of the guardrail converse image block.</p>
-    pub fn set_format(mut self, input: ::std::option::Option<crate::types::GuardrailConverseImageFormat>) -> Self {
+    pub fn set_format(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailConverseImageFormat>,
+    ) -> Self {
         self.format = input;
         self
     }
@@ -64,7 +67,10 @@ impl GuardrailConverseImageBlockBuilder {
         self
     }
     /// <p>The image source (image bytes) of the guardrail converse image block.</p>
-    pub fn set_source(mut self, input: ::std::option::Option<crate::types::GuardrailConverseImageSource>) -> Self {
+    pub fn set_source(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailConverseImageSource>,
+    ) -> Self {
         self.source = input;
         self
     }
@@ -75,7 +81,12 @@ impl GuardrailConverseImageBlockBuilder {
     /// Consumes the builder and constructs a [`GuardrailConverseImageBlock`](crate::types::GuardrailConverseImageBlock).
     /// This method will fail if any of the following fields are not set:
     /// - [`format`](crate::types::builders::GuardrailConverseImageBlockBuilder::format)
-    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailConverseImageBlock, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::GuardrailConverseImageBlock,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::GuardrailConverseImageBlock {
             format: self.format.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

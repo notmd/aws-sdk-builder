@@ -57,7 +57,7 @@ impl GetOrganizationCustomRulePolicyFluentBuilder {
         }
     }
     /// Access the GetOrganizationCustomRulePolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_organization_custom_rule_policy::builders::GetOrganizationCustomRulePolicyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_organization_custom_rule_policy::builders::GetOrganizationCustomRulePolicyInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +76,7 @@ impl GetOrganizationCustomRulePolicyFluentBuilder {
             crate::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -96,30 +96,44 @@ impl GetOrganizationCustomRulePolicyFluentBuilder {
         crate::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyOutput,
         crate::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of your organization Config Custom Policy rule.</p>
-    pub fn organization_config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn organization_config_rule_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.organization_config_rule_name(input.into());
         self
     }
     /// <p>The name of your organization Config Custom Policy rule.</p>
-    pub fn set_organization_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_organization_config_rule_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_organization_config_rule_name(input);
         self
     }
     /// <p>The name of your organization Config Custom Policy rule.</p>
-    pub fn get_organization_config_rule_name(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_organization_config_rule_name(
+        &self,
+    ) -> &::std::option::Option<::std::string::String> {
         self.inner.get_organization_config_rule_name()
     }
 }

@@ -59,7 +59,7 @@ impl DescribeConfigurationAggregatorSourcesStatusFluentBuilder {
     /// Access the DescribeConfigurationAggregatorSourcesStatus as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder {
+    ) -> &crate::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -78,7 +78,7 @@ impl DescribeConfigurationAggregatorSourcesStatusFluentBuilder {
             crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -102,15 +102,21 @@ impl DescribeConfigurationAggregatorSourcesStatusFluentBuilder {
         crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusOutput,
         crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -119,24 +125,32 @@ impl DescribeConfigurationAggregatorSourcesStatusFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::describe_configuration_aggregator_sources_status::paginator::DescribeConfigurationAggregatorSourcesStatusPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::describe_configuration_aggregator_sources_status::paginator::DescribeConfigurationAggregatorSourcesStatusPaginator {
+    ) -> crate::operation::describe_configuration_aggregator_sources_status::paginator::DescribeConfigurationAggregatorSourcesStatusPaginator{
         crate::operation::describe_configuration_aggregator_sources_status::paginator::DescribeConfigurationAggregatorSourcesStatusPaginator::new(
             self.handle,
             self.inner,
         )
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn configuration_aggregator_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.configuration_aggregator_name(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_configuration_aggregator_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_configuration_aggregator_name(input);
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(
+        &self,
+    ) -> &::std::option::Option<::std::string::String> {
         self.inner.get_configuration_aggregator_name()
     }
     ///
@@ -166,7 +180,10 @@ impl DescribeConfigurationAggregatorSourcesStatusFluentBuilder {
     /// <li>
     /// <p>Valid value OUTDATED indicates the data is not the most recent.</p></li>
     /// </ul>
-    pub fn set_update_status(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>>) -> Self {
+    pub fn set_update_status(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>>,
+    ) -> Self {
         self.inner = self.inner.set_update_status(input);
         self
     }
@@ -179,7 +196,9 @@ impl DescribeConfigurationAggregatorSourcesStatusFluentBuilder {
     /// <li>
     /// <p>Valid value OUTDATED indicates the data is not the most recent.</p></li>
     /// </ul>
-    pub fn get_update_status(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>> {
+    pub fn get_update_status(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatusType>> {
         self.inner.get_update_status()
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>

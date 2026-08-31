@@ -24,7 +24,10 @@ pub fn ser_create_grant_input_input(
     if let Some(var_7) = &input.constraints {
         #[allow(unused_mut)]
         let mut object_8 = object.key("Constraints").start_object();
-        crate::protocol_serde::shape_grant_constraints::ser_grant_constraints(&mut object_8, var_7)?;
+        crate::protocol_serde::shape_grant_constraints::ser_grant_constraints(
+            &mut object_8,
+            var_7,
+        )?;
         object_8.finish();
     }
     if let Some(var_9) = &input.grant_tokens {
@@ -43,10 +46,14 @@ pub fn ser_create_grant_input_input(
         object.key("DryRun").boolean(*var_13);
     }
     if let Some(var_14) = &input.grantee_service_principal {
-        object.key("GranteeServicePrincipal").string(var_14.as_str());
+        object
+            .key("GranteeServicePrincipal")
+            .string(var_14.as_str());
     }
     if let Some(var_15) = &input.retiring_service_principal {
-        object.key("RetiringServicePrincipal").string(var_15.as_str());
+        object
+            .key("RetiringServicePrincipal")
+            .string(var_15.as_str());
     }
     Ok(())
 }

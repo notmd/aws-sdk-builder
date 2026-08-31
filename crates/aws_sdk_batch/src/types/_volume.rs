@@ -13,7 +13,8 @@ pub struct Volume {
     /// <p>This parameter is specified when you're using an Amazon Elastic File System file system for job storage. Jobs that are running on Fargate resources must specify a <code>platformVersion</code> of at least <code>1.4.0</code>.</p>
     pub efs_volume_configuration: ::std::option::Option<crate::types::EfsVolumeConfiguration>,
     /// <p>This parameter is specified when you're using an S3Files file system for job storage.</p>
-    pub s3files_volume_configuration: ::std::option::Option<crate::types::S3FilesVolumeConfiguration>,
+    pub s3files_volume_configuration:
+        ::std::option::Option<crate::types::S3FilesVolumeConfiguration>,
 }
 impl Volume {
     /// <p>The contents of the <code>host</code> parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.</p><note>
@@ -27,11 +28,15 @@ impl Volume {
         self.name.as_deref()
     }
     /// <p>This parameter is specified when you're using an Amazon Elastic File System file system for job storage. Jobs that are running on Fargate resources must specify a <code>platformVersion</code> of at least <code>1.4.0</code>.</p>
-    pub fn efs_volume_configuration(&self) -> ::std::option::Option<&crate::types::EfsVolumeConfiguration> {
+    pub fn efs_volume_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::EfsVolumeConfiguration> {
         self.efs_volume_configuration.as_ref()
     }
     /// <p>This parameter is specified when you're using an S3Files file system for job storage.</p>
-    pub fn s3files_volume_configuration(&self) -> ::std::option::Option<&crate::types::S3FilesVolumeConfiguration> {
+    pub fn s3files_volume_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::S3FilesVolumeConfiguration> {
         self.s3files_volume_configuration.as_ref()
     }
 }
@@ -43,13 +48,17 @@ impl Volume {
 }
 
 /// A builder for [`Volume`](crate::types::Volume).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct VolumeBuilder {
     pub(crate) host: ::std::option::Option<crate::types::Host>,
     pub(crate) name: ::std::option::Option<::std::string::String>,
-    pub(crate) efs_volume_configuration: ::std::option::Option<crate::types::EfsVolumeConfiguration>,
-    pub(crate) s3files_volume_configuration: ::std::option::Option<crate::types::S3FilesVolumeConfiguration>,
+    pub(crate) efs_volume_configuration:
+        ::std::option::Option<crate::types::EfsVolumeConfiguration>,
+    pub(crate) s3files_volume_configuration:
+        ::std::option::Option<crate::types::S3FilesVolumeConfiguration>,
 }
 impl VolumeBuilder {
     /// <p>The contents of the <code>host</code> parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.</p><note>
@@ -92,26 +101,39 @@ impl VolumeBuilder {
         self
     }
     /// <p>This parameter is specified when you're using an Amazon Elastic File System file system for job storage. Jobs that are running on Fargate resources must specify a <code>platformVersion</code> of at least <code>1.4.0</code>.</p>
-    pub fn set_efs_volume_configuration(mut self, input: ::std::option::Option<crate::types::EfsVolumeConfiguration>) -> Self {
+    pub fn set_efs_volume_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::EfsVolumeConfiguration>,
+    ) -> Self {
         self.efs_volume_configuration = input;
         self
     }
     /// <p>This parameter is specified when you're using an Amazon Elastic File System file system for job storage. Jobs that are running on Fargate resources must specify a <code>platformVersion</code> of at least <code>1.4.0</code>.</p>
-    pub fn get_efs_volume_configuration(&self) -> &::std::option::Option<crate::types::EfsVolumeConfiguration> {
+    pub fn get_efs_volume_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::EfsVolumeConfiguration> {
         &self.efs_volume_configuration
     }
     /// <p>This parameter is specified when you're using an S3Files file system for job storage.</p>
-    pub fn s3files_volume_configuration(mut self, input: crate::types::S3FilesVolumeConfiguration) -> Self {
+    pub fn s3files_volume_configuration(
+        mut self,
+        input: crate::types::S3FilesVolumeConfiguration,
+    ) -> Self {
         self.s3files_volume_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>This parameter is specified when you're using an S3Files file system for job storage.</p>
-    pub fn set_s3files_volume_configuration(mut self, input: ::std::option::Option<crate::types::S3FilesVolumeConfiguration>) -> Self {
+    pub fn set_s3files_volume_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::S3FilesVolumeConfiguration>,
+    ) -> Self {
         self.s3files_volume_configuration = input;
         self
     }
     /// <p>This parameter is specified when you're using an S3Files file system for job storage.</p>
-    pub fn get_s3files_volume_configuration(&self) -> &::std::option::Option<crate::types::S3FilesVolumeConfiguration> {
+    pub fn get_s3files_volume_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::S3FilesVolumeConfiguration> {
         &self.s3files_volume_configuration
     }
     /// Consumes the builder and constructs a [`Volume`](crate::types::Volume).

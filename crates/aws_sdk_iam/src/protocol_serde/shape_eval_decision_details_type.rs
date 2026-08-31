@@ -7,7 +7,9 @@ pub fn de_eval_decision_details_type(
     ::aws_smithy_xml::decode::XmlDecodeError,
 > {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     let mut out = ::std::collections::HashMap::new();
     while let Some(mut tag) = decoder.next_tag() {
@@ -23,11 +25,16 @@ pub fn de_eval_decision_details_type(
 
 pub fn de_eval_decision_details_type_entry(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
-    out: &mut ::std::collections::HashMap<::std::string::String, crate::types::PolicyEvaluationDecisionType>,
+    out: &mut ::std::collections::HashMap<
+        ::std::string::String,
+        crate::types::PolicyEvaluationDecisionType,
+    >,
     depth: u32,
 ) -> ::std::result::Result<(), ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     let mut k: Option<::std::string::String> = None;
     let mut v: Option<crate::types::PolicyEvaluationDecisionType> = None;
@@ -57,8 +64,11 @@ pub fn de_eval_decision_details_type_entry(
             _ => {}
         }
     }
-    let k = k.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing key map entry"))?;
-    let v = v.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing value map entry"))?;
+    let k =
+        k.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing key map entry"))?;
+    let v = v.ok_or_else(|| {
+        ::aws_smithy_xml::decode::XmlDecodeError::custom("missing value map entry")
+    })?;
     out.insert(k, v);
     Ok(())
 }

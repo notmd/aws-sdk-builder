@@ -19,7 +19,9 @@ impl LoggingConfig {
         self.log_format.as_ref()
     }
     /// <p>Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where <code>TRACE</code> is the highest level and <code>FATAL</code> is the lowest.</p>
-    pub fn application_log_level(&self) -> ::std::option::Option<&crate::types::ApplicationLogLevel> {
+    pub fn application_log_level(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ApplicationLogLevel> {
         self.application_log_level.as_ref()
     }
     /// <p>Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
@@ -39,7 +41,9 @@ impl LoggingConfig {
 }
 
 /// A builder for [`LoggingConfig`](crate::types::LoggingConfig).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct LoggingConfigBuilder {
     pub(crate) log_format: ::std::option::Option<crate::types::LogFormat>,
@@ -68,12 +72,17 @@ impl LoggingConfigBuilder {
         self
     }
     /// <p>Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where <code>TRACE</code> is the highest level and <code>FATAL</code> is the lowest.</p>
-    pub fn set_application_log_level(mut self, input: ::std::option::Option<crate::types::ApplicationLogLevel>) -> Self {
+    pub fn set_application_log_level(
+        mut self,
+        input: ::std::option::Option<crate::types::ApplicationLogLevel>,
+    ) -> Self {
         self.application_log_level = input;
         self
     }
     /// <p>Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where <code>TRACE</code> is the highest level and <code>FATAL</code> is the lowest.</p>
-    pub fn get_application_log_level(&self) -> &::std::option::Option<crate::types::ApplicationLogLevel> {
+    pub fn get_application_log_level(
+        &self,
+    ) -> &::std::option::Option<crate::types::ApplicationLogLevel> {
         &self.application_log_level
     }
     /// <p>Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
@@ -82,7 +91,10 @@ impl LoggingConfigBuilder {
         self
     }
     /// <p>Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
-    pub fn set_system_log_level(mut self, input: ::std::option::Option<crate::types::SystemLogLevel>) -> Self {
+    pub fn set_system_log_level(
+        mut self,
+        input: ::std::option::Option<crate::types::SystemLogLevel>,
+    ) -> Self {
         self.system_log_level = input;
         self
     }

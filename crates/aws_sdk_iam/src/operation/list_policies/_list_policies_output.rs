@@ -41,7 +41,9 @@ impl ListPoliciesOutput {
 }
 
 /// A builder for [`ListPoliciesOutput`](crate::operation::list_policies::ListPoliciesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListPoliciesOutputBuilder {
     pub(crate) policies: ::std::option::Option<::std::vec::Vec<crate::types::Policy>>,
@@ -62,7 +64,10 @@ impl ListPoliciesOutputBuilder {
         self
     }
     /// <p>A list of policies.</p>
-    pub fn set_policies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Policy>>) -> Self {
+    pub fn set_policies(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Policy>>,
+    ) -> Self {
         self.policies = input;
         self
     }

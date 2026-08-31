@@ -12,12 +12,19 @@ impl GetAccountInput {
 }
 
 /// A builder for [`GetAccountInput`](crate::operation::get_account::GetAccountInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetAccountInputBuilder {}
 impl GetAccountInputBuilder {
     /// Consumes the builder and constructs a [`GetAccountInput`](crate::operation::get_account::GetAccountInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::get_account::GetAccountInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::get_account::GetAccountInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::get_account::GetAccountInput {})
     }
 }

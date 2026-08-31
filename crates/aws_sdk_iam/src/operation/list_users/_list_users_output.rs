@@ -40,7 +40,9 @@ impl ListUsersOutput {
 }
 
 /// A builder for [`ListUsersOutput`](crate::operation::list_users::ListUsersOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListUsersOutputBuilder {
     pub(crate) users: ::std::option::Option<::std::vec::Vec<crate::types::User>>,
@@ -61,7 +63,10 @@ impl ListUsersOutputBuilder {
         self
     }
     /// <p>A list of users.</p>
-    pub fn set_users(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::User>>) -> Self {
+    pub fn set_users(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::User>>,
+    ) -> Self {
         self.users = input;
         self
     }
@@ -109,7 +114,12 @@ impl ListUsersOutputBuilder {
     /// Consumes the builder and constructs a [`ListUsersOutput`](crate::operation::list_users::ListUsersOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`users`](crate::operation::list_users::builders::ListUsersOutputBuilder::users)
-    pub fn build(self) -> ::std::result::Result<crate::operation::list_users::ListUsersOutput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::list_users::ListUsersOutput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::list_users::ListUsersOutput {
             users: self.users.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

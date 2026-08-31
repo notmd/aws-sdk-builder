@@ -28,13 +28,17 @@ impl ::aws_types::request_id::RequestId for DescribeImportTasksOutput {
 }
 impl DescribeImportTasksOutput {
     /// Creates a new builder-style object to manufacture [`DescribeImportTasksOutput`](crate::operation::describe_import_tasks::DescribeImportTasksOutput).
-    pub fn builder() -> crate::operation::describe_import_tasks::builders::DescribeImportTasksOutputBuilder {
-        crate::operation::describe_import_tasks::builders::DescribeImportTasksOutputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::describe_import_tasks::builders::DescribeImportTasksOutputBuilder {
+        crate::operation::describe_import_tasks::builders::DescribeImportTasksOutputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`DescribeImportTasksOutput`](crate::operation::describe_import_tasks::DescribeImportTasksOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeImportTasksOutputBuilder {
     pub(crate) imports: ::std::option::Option<::std::vec::Vec<crate::types::Import>>,
@@ -54,7 +58,10 @@ impl DescribeImportTasksOutputBuilder {
         self
     }
     /// <p>The list of import tasks that match the request filters.</p>
-    pub fn set_imports(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Import>>) -> Self {
+    pub fn set_imports(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Import>>,
+    ) -> Self {
         self.imports = input;
         self
     }

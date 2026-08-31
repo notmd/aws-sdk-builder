@@ -12,7 +12,11 @@ impl super::Client {
     ///   - [`quota_share_name(Option<String>)`](crate::operation::update_quota_share::UpdateQuotaShareOutput::quota_share_name): <p>The name of the quota share.</p>
     ///   - [`quota_share_arn(Option<String>)`](crate::operation::update_quota_share::UpdateQuotaShareOutput::quota_share_arn): <p>The Amazon Resource Name (ARN) of the quota share.</p>
     /// - On failure, responds with [`SdkError<UpdateQuotaShareError>`](crate::operation::update_quota_share::UpdateQuotaShareError)
-    pub fn update_quota_share(&self) -> crate::operation::update_quota_share::builders::UpdateQuotaShareFluentBuilder {
-        crate::operation::update_quota_share::builders::UpdateQuotaShareFluentBuilder::new(self.handle.clone())
+    pub fn update_quota_share(
+        &self,
+    ) -> crate::operation::update_quota_share::builders::UpdateQuotaShareFluentBuilder {
+        crate::operation::update_quota_share::builders::UpdateQuotaShareFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

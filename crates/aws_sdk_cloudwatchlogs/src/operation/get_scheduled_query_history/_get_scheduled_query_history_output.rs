@@ -40,18 +40,21 @@ impl ::aws_types::request_id::RequestId for GetScheduledQueryHistoryOutput {
 }
 impl GetScheduledQueryHistoryOutput {
     /// Creates a new builder-style object to manufacture [`GetScheduledQueryHistoryOutput`](crate::operation::get_scheduled_query_history::GetScheduledQueryHistoryOutput).
-    pub fn builder() -> crate::operation::get_scheduled_query_history::builders::GetScheduledQueryHistoryOutputBuilder {
+    pub fn builder() -> crate::operation::get_scheduled_query_history::builders::GetScheduledQueryHistoryOutputBuilder{
         crate::operation::get_scheduled_query_history::builders::GetScheduledQueryHistoryOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetScheduledQueryHistoryOutput`](crate::operation::get_scheduled_query_history::GetScheduledQueryHistoryOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetScheduledQueryHistoryOutputBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) scheduled_query_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) trigger_history: ::std::option::Option<::std::vec::Vec<crate::types::TriggerHistoryRecord>>,
+    pub(crate) trigger_history:
+        ::std::option::Option<::std::vec::Vec<crate::types::TriggerHistoryRecord>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -71,12 +74,18 @@ impl GetScheduledQueryHistoryOutputBuilder {
         &self.name
     }
     /// <p>The ARN of the scheduled query.</p>
-    pub fn scheduled_query_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn scheduled_query_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.scheduled_query_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the scheduled query.</p>
-    pub fn set_scheduled_query_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_scheduled_query_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.scheduled_query_arn = input;
         self
     }
@@ -96,12 +105,17 @@ impl GetScheduledQueryHistoryOutputBuilder {
         self
     }
     /// <p>An array of execution history records for the scheduled query.</p>
-    pub fn set_trigger_history(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TriggerHistoryRecord>>) -> Self {
+    pub fn set_trigger_history(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::TriggerHistoryRecord>>,
+    ) -> Self {
         self.trigger_history = input;
         self
     }
     /// <p>An array of execution history records for the scheduled query.</p>
-    pub fn get_trigger_history(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TriggerHistoryRecord>> {
+    pub fn get_trigger_history(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::TriggerHistoryRecord>> {
         &self.trigger_history
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -128,7 +142,9 @@ impl GetScheduledQueryHistoryOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetScheduledQueryHistoryOutput`](crate::operation::get_scheduled_query_history::GetScheduledQueryHistoryOutput).
-    pub fn build(self) -> crate::operation::get_scheduled_query_history::GetScheduledQueryHistoryOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::get_scheduled_query_history::GetScheduledQueryHistoryOutput {
         crate::operation::get_scheduled_query_history::GetScheduledQueryHistoryOutput {
             name: self.name,
             scheduled_query_arn: self.scheduled_query_arn,

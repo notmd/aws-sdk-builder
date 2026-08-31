@@ -12,7 +12,10 @@ pub fn ser_template(
     if let Some(var_3) = &input.template_content {
         #[allow(unused_mut)]
         let mut object_4 = object.key("TemplateContent").start_object();
-        crate::protocol_serde::shape_email_template_content::ser_email_template_content(&mut object_4, var_3)?;
+        crate::protocol_serde::shape_email_template_content::ser_email_template_content(
+            &mut object_4,
+            var_3,
+        )?;
         object_4.finish();
     }
     if let Some(var_5) = &input.template_data {
@@ -24,7 +27,10 @@ pub fn ser_template(
             {
                 #[allow(unused_mut)]
                 let mut object_9 = array_7.value().start_object();
-                crate::protocol_serde::shape_message_header::ser_message_header(&mut object_9, item_8)?;
+                crate::protocol_serde::shape_message_header::ser_message_header(
+                    &mut object_9,
+                    item_8,
+                )?;
                 object_9.finish();
             }
         }

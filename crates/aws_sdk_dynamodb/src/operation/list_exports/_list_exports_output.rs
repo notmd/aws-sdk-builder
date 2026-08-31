@@ -34,10 +34,13 @@ impl ListExportsOutput {
 }
 
 /// A builder for [`ListExportsOutput`](crate::operation::list_exports::ListExportsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListExportsOutputBuilder {
-    pub(crate) export_summaries: ::std::option::Option<::std::vec::Vec<crate::types::ExportSummary>>,
+    pub(crate) export_summaries:
+        ::std::option::Option<::std::vec::Vec<crate::types::ExportSummary>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -54,12 +57,17 @@ impl ListExportsOutputBuilder {
         self
     }
     /// <p>A list of <code>ExportSummary</code> objects.</p>
-    pub fn set_export_summaries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ExportSummary>>) -> Self {
+    pub fn set_export_summaries(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ExportSummary>>,
+    ) -> Self {
         self.export_summaries = input;
         self
     }
     /// <p>A list of <code>ExportSummary</code> objects.</p>
-    pub fn get_export_summaries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ExportSummary>> {
+    pub fn get_export_summaries(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ExportSummary>> {
         &self.export_summaries
     }
     /// <p>If this value is returned, there are additional results to be displayed. To retrieve them, call <code>ListExports</code> again, with <code>NextToken</code> set to this value.</p>

@@ -22,7 +22,9 @@ impl CorsConfiguration {
 }
 
 /// A builder for [`CorsConfiguration`](crate::types::CorsConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CorsConfigurationBuilder {
     pub(crate) cors_rules: ::std::option::Option<::std::vec::Vec<crate::types::CorsRule>>,
@@ -40,18 +42,28 @@ impl CorsConfigurationBuilder {
         self
     }
     /// <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>
-    pub fn set_cors_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CorsRule>>) -> Self {
+    pub fn set_cors_rules(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::CorsRule>>,
+    ) -> Self {
         self.cors_rules = input;
         self
     }
     /// <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>
-    pub fn get_cors_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CorsRule>> {
+    pub fn get_cors_rules(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::CorsRule>> {
         &self.cors_rules
     }
     /// Consumes the builder and constructs a [`CorsConfiguration`](crate::types::CorsConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`cors_rules`](crate::types::builders::CorsConfigurationBuilder::cors_rules)
-    pub fn build(self) -> ::std::result::Result<crate::types::CorsConfiguration, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::CorsConfiguration,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::CorsConfiguration {
             cors_rules: self.cors_rules.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

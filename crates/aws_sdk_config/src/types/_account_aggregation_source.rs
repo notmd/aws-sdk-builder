@@ -36,7 +36,9 @@ impl AccountAggregationSource {
 }
 
 /// A builder for [`AccountAggregationSource`](crate::types::AccountAggregationSource).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AccountAggregationSourceBuilder {
     pub(crate) account_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -56,12 +58,17 @@ impl AccountAggregationSourceBuilder {
         self
     }
     /// <p>The 12-digit account ID of the account being aggregated.</p>
-    pub fn set_account_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_account_ids(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.account_ids = input;
         self
     }
     /// <p>The 12-digit account ID of the account being aggregated.</p>
-    pub fn get_account_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_account_ids(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.account_ids
     }
     /// <p>If true, aggregate existing Config regions and future regions.</p>
@@ -90,18 +97,28 @@ impl AccountAggregationSourceBuilder {
         self
     }
     /// <p>The source regions being aggregated.</p>
-    pub fn set_aws_regions(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_aws_regions(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.aws_regions = input;
         self
     }
     /// <p>The source regions being aggregated.</p>
-    pub fn get_aws_regions(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_aws_regions(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.aws_regions
     }
     /// Consumes the builder and constructs a [`AccountAggregationSource`](crate::types::AccountAggregationSource).
     /// This method will fail if any of the following fields are not set:
     /// - [`account_ids`](crate::types::builders::AccountAggregationSourceBuilder::account_ids)
-    pub fn build(self) -> ::std::result::Result<crate::types::AccountAggregationSource, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::AccountAggregationSource,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::AccountAggregationSource {
             account_ids: self.account_ids.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

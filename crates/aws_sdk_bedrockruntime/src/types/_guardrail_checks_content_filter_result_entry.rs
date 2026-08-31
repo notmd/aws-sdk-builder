@@ -27,7 +27,9 @@ impl GuardrailChecksContentFilterResultEntry {
 }
 
 /// A builder for [`GuardrailChecksContentFilterResultEntry`](crate::types::GuardrailChecksContentFilterResultEntry).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GuardrailChecksContentFilterResultEntryBuilder {
     pub(crate) category: ::std::option::Option<crate::types::GuardrailChecksContentFilterCategory>,
@@ -41,12 +43,17 @@ impl GuardrailChecksContentFilterResultEntryBuilder {
         self
     }
     /// <p>The content filter category that was evaluated.</p>
-    pub fn set_category(mut self, input: ::std::option::Option<crate::types::GuardrailChecksContentFilterCategory>) -> Self {
+    pub fn set_category(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailChecksContentFilterCategory>,
+    ) -> Self {
         self.category = input;
         self
     }
     /// <p>The content filter category that was evaluated.</p>
-    pub fn get_category(&self) -> &::std::option::Option<crate::types::GuardrailChecksContentFilterCategory> {
+    pub fn get_category(
+        &self,
+    ) -> &::std::option::Option<crate::types::GuardrailChecksContentFilterCategory> {
         &self.category
     }
     /// <p>The severity score for the category, ranging from 0.0 to 1.0. Higher values indicate greater severity.</p>
@@ -70,7 +77,10 @@ impl GuardrailChecksContentFilterResultEntryBuilder {
     /// - [`severity_score`](crate::types::builders::GuardrailChecksContentFilterResultEntryBuilder::severity_score)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::types::GuardrailChecksContentFilterResultEntry, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::types::GuardrailChecksContentFilterResultEntry,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::GuardrailChecksContentFilterResultEntry {
             category: self.category.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

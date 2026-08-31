@@ -21,7 +21,9 @@ impl WaitOptions {
 }
 
 /// A builder for [`WaitOptions`](crate::types::WaitOptions).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct WaitOptionsBuilder {
     pub(crate) wait_seconds: ::std::option::Option<i32>,

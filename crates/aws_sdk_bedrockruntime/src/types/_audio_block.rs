@@ -97,7 +97,12 @@ impl AudioBlockBuilder {
     /// Consumes the builder and constructs a [`AudioBlock`](crate::types::AudioBlock).
     /// This method will fail if any of the following fields are not set:
     /// - [`format`](crate::types::builders::AudioBlockBuilder::format)
-    pub fn build(self) -> ::std::result::Result<crate::types::AudioBlock, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::AudioBlock,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::AudioBlock {
             format: self.format.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

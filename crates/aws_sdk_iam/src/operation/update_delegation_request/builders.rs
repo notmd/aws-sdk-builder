@@ -27,7 +27,8 @@ impl crate::operation::update_delegation_request::builders::UpdateDelegationRequ
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateDelegationRequestFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::update_delegation_request::builders::UpdateDelegationRequestInputBuilder,
+    inner:
+        crate::operation::update_delegation_request::builders::UpdateDelegationRequestInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -58,7 +59,10 @@ impl UpdateDelegationRequestFluentBuilder {
         }
     }
     /// Access the UpdateDelegationRequest as a reference.
-    pub fn as_input(&self) -> &crate::operation::update_delegation_request::builders::UpdateDelegationRequestInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::update_delegation_request::builders::UpdateDelegationRequestInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,7 +91,11 @@ impl UpdateDelegationRequestFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::update_delegation_request::UpdateDelegationRequest::orchestrate(&runtime_plugins, input).await
+        crate::operation::update_delegation_request::UpdateDelegationRequest::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -100,22 +108,34 @@ impl UpdateDelegationRequestFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The unique identifier of the delegation request to update.</p>
-    pub fn delegation_request_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn delegation_request_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.delegation_request_id(input.into());
         self
     }
     /// <p>The unique identifier of the delegation request to update.</p>
-    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_delegation_request_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_delegation_request_id(input);
         self
     }

@@ -13,7 +13,11 @@ impl super::Client {
     ///   - [`lookup_table_arn(Option<String>)`](crate::operation::create_lookup_table::CreateLookupTableOutput::lookup_table_arn): <p>The ARN of the lookup table that was created.</p>
     ///   - [`created_at(Option<i64>)`](crate::operation::create_lookup_table::CreateLookupTableOutput::created_at): <p>The time when the lookup table was created, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
     /// - On failure, responds with [`SdkError<CreateLookupTableError>`](crate::operation::create_lookup_table::CreateLookupTableError)
-    pub fn create_lookup_table(&self) -> crate::operation::create_lookup_table::builders::CreateLookupTableFluentBuilder {
-        crate::operation::create_lookup_table::builders::CreateLookupTableFluentBuilder::new(self.handle.clone())
+    pub fn create_lookup_table(
+        &self,
+    ) -> crate::operation::create_lookup_table::builders::CreateLookupTableFluentBuilder {
+        crate::operation::create_lookup_table::builders::CreateLookupTableFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -15,13 +15,15 @@ impl DeletePlatformApplicationInput {
 }
 impl DeletePlatformApplicationInput {
     /// Creates a new builder-style object to manufacture [`DeletePlatformApplicationInput`](crate::operation::delete_platform_application::DeletePlatformApplicationInput).
-    pub fn builder() -> crate::operation::delete_platform_application::builders::DeletePlatformApplicationInputBuilder {
+    pub fn builder() -> crate::operation::delete_platform_application::builders::DeletePlatformApplicationInputBuilder{
         crate::operation::delete_platform_application::builders::DeletePlatformApplicationInputBuilder::default()
     }
 }
 
 /// A builder for [`DeletePlatformApplicationInput`](crate::operation::delete_platform_application::DeletePlatformApplicationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeletePlatformApplicationInputBuilder {
     pub(crate) platform_application_arn: ::std::option::Option<::std::string::String>,
@@ -29,12 +31,18 @@ pub struct DeletePlatformApplicationInputBuilder {
 impl DeletePlatformApplicationInputBuilder {
     /// <p><code>PlatformApplicationArn</code> of platform application object to delete.</p>
     /// This field is required.
-    pub fn platform_application_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn platform_application_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.platform_application_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p><code>PlatformApplicationArn</code> of platform application object to delete.</p>
-    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_platform_application_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.platform_application_arn = input;
         self
     }
@@ -49,8 +57,10 @@ impl DeletePlatformApplicationInputBuilder {
         crate::operation::delete_platform_application::DeletePlatformApplicationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::delete_platform_application::DeletePlatformApplicationInput {
-            platform_application_arn: self.platform_application_arn,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::delete_platform_application::DeletePlatformApplicationInput {
+                platform_application_arn: self.platform_application_arn,
+            },
+        )
     }
 }

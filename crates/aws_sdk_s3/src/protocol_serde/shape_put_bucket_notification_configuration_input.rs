@@ -11,7 +11,8 @@ pub fn ser_notification_configuration_http_payload(
 
 pub fn ser_notification_configuration_payload(
     input: &crate::types::NotificationConfiguration,
-) -> std::result::Result<std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
+) -> std::result::Result<std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     {
         let mut writer = ::aws_smithy_xml::encode::XmlWriter::new(&mut out);
@@ -19,7 +20,9 @@ pub fn ser_notification_configuration_payload(
         let mut root = writer
             .start_el("NotificationConfiguration")
             .write_ns("http://s3.amazonaws.com/doc/2006-03-01/", None);
-        crate::protocol_serde::shape_notification_configuration::ser_notification_configuration(input, root)?
+        crate::protocol_serde::shape_notification_configuration::ser_notification_configuration(
+            input, root,
+        )?
     }
     Ok(out.into_bytes())
 }

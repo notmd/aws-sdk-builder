@@ -45,7 +45,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(
-    ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
+    ::std::clone::Clone,
+    ::std::cmp::Eq,
+    ::std::cmp::Ord,
+    ::std::cmp::PartialEq,
+    ::std::cmp::PartialOrd,
+    ::std::fmt::Debug,
+    ::std::hash::Hash,
 )]
 pub enum RecommendationType {
     #[allow(missing_docs)] // documentation missing in model
@@ -65,7 +71,9 @@ pub enum RecommendationType {
     #[allow(missing_docs)] // documentation missing in model
     Spf,
     /// `Unknown` contains new variants that have been added since this code was generated.
-    #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
+    #[deprecated(
+        note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants."
+    )]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for RecommendationType {
@@ -79,7 +87,9 @@ impl ::std::convert::From<&str> for RecommendationType {
             "FEEDBACK_3P" => RecommendationType::Feedback3P,
             "IP_LISTING" => RecommendationType::IpListing,
             "SPF" => RecommendationType::Spf,
-            other => RecommendationType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
+            other => RecommendationType::Unknown(
+                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
+            ),
         }
     }
 }
@@ -107,7 +117,16 @@ impl RecommendationType {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["BIMI", "BOUNCE", "COMPLAINT", "DKIM", "DMARC", "FEEDBACK_3P", "IP_LISTING", "SPF"]
+        &[
+            "BIMI",
+            "BOUNCE",
+            "COMPLAINT",
+            "DKIM",
+            "DMARC",
+            "FEEDBACK_3P",
+            "IP_LISTING",
+            "SPF",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for RecommendationType {
@@ -119,10 +138,14 @@ impl RecommendationType {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(
+        value: &str,
+    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
+            Self::Unknown(_) => {
+                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
+            }
             known => Ok(known),
         }
     }

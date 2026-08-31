@@ -19,11 +19,17 @@ pub fn ser_destination(
     }
     if let Some(var_3) = &input.access_control_translation {
         let inner_writer = scope.start_el("AccessControlTranslation");
-        crate::protocol_serde::shape_access_control_translation::ser_access_control_translation(var_3, inner_writer)?
+        crate::protocol_serde::shape_access_control_translation::ser_access_control_translation(
+            var_3,
+            inner_writer,
+        )?
     }
     if let Some(var_4) = &input.encryption_configuration {
         let inner_writer = scope.start_el("EncryptionConfiguration");
-        crate::protocol_serde::shape_encryption_configuration::ser_encryption_configuration(var_4, inner_writer)?
+        crate::protocol_serde::shape_encryption_configuration::ser_encryption_configuration(
+            var_4,
+            inner_writer,
+        )?
     }
     if let Some(var_5) = &input.replication_time {
         let inner_writer = scope.start_el("ReplicationTime");
@@ -43,7 +49,9 @@ pub fn de_destination(
     depth: u32,
 ) -> ::std::result::Result<crate::types::Destination, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::Destination::builder();

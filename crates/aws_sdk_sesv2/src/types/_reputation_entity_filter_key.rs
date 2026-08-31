@@ -59,7 +59,13 @@
 /// </ul>
 #[non_exhaustive]
 #[derive(
-    ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
+    ::std::clone::Clone,
+    ::std::cmp::Eq,
+    ::std::cmp::Ord,
+    ::std::cmp::PartialEq,
+    ::std::cmp::PartialOrd,
+    ::std::fmt::Debug,
+    ::std::hash::Hash,
 )]
 pub enum ReputationEntityFilterKey {
     #[allow(missing_docs)] // documentation missing in model
@@ -71,7 +77,9 @@ pub enum ReputationEntityFilterKey {
     #[allow(missing_docs)] // documentation missing in model
     Status,
     /// `Unknown` contains new variants that have been added since this code was generated.
-    #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
+    #[deprecated(
+        note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants."
+    )]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for ReputationEntityFilterKey {
@@ -81,7 +89,9 @@ impl ::std::convert::From<&str> for ReputationEntityFilterKey {
             "ENTITY_TYPE" => ReputationEntityFilterKey::EntityType,
             "REPUTATION_IMPACT" => ReputationEntityFilterKey::ReputationImpact,
             "SENDING_STATUS" => ReputationEntityFilterKey::Status,
-            other => ReputationEntityFilterKey::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
+            other => ReputationEntityFilterKey::Unknown(
+                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
+            ),
         }
     }
 }
@@ -105,7 +115,12 @@ impl ReputationEntityFilterKey {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["ENTITY_REFERENCE_PREFIX", "ENTITY_TYPE", "REPUTATION_IMPACT", "SENDING_STATUS"]
+        &[
+            "ENTITY_REFERENCE_PREFIX",
+            "ENTITY_TYPE",
+            "REPUTATION_IMPACT",
+            "SENDING_STATUS",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for ReputationEntityFilterKey {
@@ -117,10 +132,14 @@ impl ReputationEntityFilterKey {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(
+        value: &str,
+    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
+            Self::Unknown(_) => {
+                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
+            }
             known => Ok(known),
         }
     }
@@ -128,7 +147,9 @@ impl ReputationEntityFilterKey {
 impl ::std::fmt::Display for ReputationEntityFilterKey {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
-            ReputationEntityFilterKey::EntityReferencePrefix => write!(f, "ENTITY_REFERENCE_PREFIX"),
+            ReputationEntityFilterKey::EntityReferencePrefix => {
+                write!(f, "ENTITY_REFERENCE_PREFIX")
+            }
             ReputationEntityFilterKey::EntityType => write!(f, "ENTITY_TYPE"),
             ReputationEntityFilterKey::ReputationImpact => write!(f, "REPUTATION_IMPACT"),
             ReputationEntityFilterKey::Status => write!(f, "SENDING_STATUS"),

@@ -3,8 +3,15 @@
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
 pub enum Error {
-    #[cfg(any(feature = "op_associate_resource_types", feature = "op_delete_service_linked_configuration_recorder", feature = "op_disassociate_resource_types", feature = "op_put_connector", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_third_party_service_linked_configuration_recorder"))]
-/// <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html">PutServiceLinkedConfigurationRecorder</a>, you cannot create a service-linked recorder because a service-linked recorder already exists for the specified service.</p>
+    #[cfg(any(
+        feature = "op_associate_resource_types",
+        feature = "op_delete_service_linked_configuration_recorder",
+        feature = "op_disassociate_resource_types",
+        feature = "op_put_connector",
+        feature = "op_put_service_linked_configuration_recorder",
+        feature = "op_put_third_party_service_linked_configuration_recorder"
+    ))]
+    /// <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html">PutServiceLinkedConfigurationRecorder</a>, you cannot create a service-linked recorder because a service-linked recorder already exists for the specified service.</p>
     /// <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutThirdPartyServiceLinkedConfigurationRecorder.html">PutThirdPartyServiceLinkedConfigurationRecorder</a>, you cannot create a service-linked recorder because the specified service principal does not support multiple configuration recorders and one already exists.</p>
     /// <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutThirdPartyServiceLinkedConfigurationRecorder.html">PutThirdPartyServiceLinkedConfigurationRecorder</a>, another in-progress operation is currently referencing the same connector or service principal. Please try again later.</p>
     /// <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConnector.html">PutConnector</a>, you cannot create a connector because a connector already exists for the specified connector configuration.</p>
@@ -21,16 +28,31 @@ pub enum Error {
     /// </ul>
     ConflictException(crate::types::error::ConflictException),
     #[cfg(feature = "op_put_conformance_pack")]
-/// <p>You have specified a template that is not valid or supported.</p>
-    ConformancePackTemplateValidationException(crate::types::error::ConformancePackTemplateValidationException),
+    /// <p>You have specified a template that is not valid or supported.</p>
+    ConformancePackTemplateValidationException(
+        crate::types::error::ConformancePackTemplateValidationException,
+    ),
     #[cfg(feature = "op_start_resource_evaluation")]
-/// <p>Using the same client token with one or more different parameters. Specify a new client token with the parameter changes and try again.</p>
+    /// <p>Using the same client token with one or more different parameters. Specify a new client token with the parameter changes and try again.</p>
     IdempotentParameterMismatch(crate::types::error::IdempotentParameterMismatch),
     #[cfg(feature = "op_put_delivery_channel")]
-/// <p>Your Amazon S3 bucket policy does not allow Config to write to it.</p>
+    /// <p>Your Amazon S3 bucket policy does not allow Config to write to it.</p>
     InsufficientDeliveryPolicyException(crate::types::error::InsufficientDeliveryPolicyException),
-    #[cfg(any(feature = "op_delete_remediation_configuration", feature = "op_put_config_rule", feature = "op_put_conformance_pack", feature = "op_put_connector", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_put_remediation_configurations", feature = "op_put_remediation_exceptions", feature = "op_put_resource_config", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_third_party_service_linked_configuration_recorder", feature = "op_start_remediation_execution"))]
-/// <p>Indicates one of the following errors:</p>
+    #[cfg(any(
+        feature = "op_delete_remediation_configuration",
+        feature = "op_put_config_rule",
+        feature = "op_put_conformance_pack",
+        feature = "op_put_connector",
+        feature = "op_put_organization_config_rule",
+        feature = "op_put_organization_conformance_pack",
+        feature = "op_put_remediation_configurations",
+        feature = "op_put_remediation_exceptions",
+        feature = "op_put_resource_config",
+        feature = "op_put_service_linked_configuration_recorder",
+        feature = "op_put_third_party_service_linked_configuration_recorder",
+        feature = "op_start_remediation_execution"
+    ))]
+    /// <p>Indicates one of the following errors:</p>
     /// <ul>
     /// <li>
     /// <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html">PutConfigRule</a>, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p></li>
@@ -53,25 +75,138 @@ pub enum Error {
     /// </ul>
     InsufficientPermissionsException(crate::types::error::InsufficientPermissionsException),
     #[cfg(feature = "op_put_configuration_recorder")]
-/// <p>The configuration recorder name is not valid. The prefix "<code>AWSConfigurationRecorderFor</code>" is reserved for service-linked configuration recorders.</p>
-    InvalidConfigurationRecorderNameException(crate::types::error::InvalidConfigurationRecorderNameException),
+    /// <p>The configuration recorder name is not valid. The prefix "<code>AWSConfigurationRecorderFor</code>" is reserved for service-linked configuration recorders.</p>
+    InvalidConfigurationRecorderNameException(
+        crate::types::error::InvalidConfigurationRecorderNameException,
+    ),
     #[cfg(feature = "op_put_delivery_channel")]
-/// <p>The specified delivery channel name is not valid.</p>
+    /// <p>The specified delivery channel name is not valid.</p>
     InvalidDeliveryChannelNameException(crate::types::error::InvalidDeliveryChannelNameException),
-    #[cfg(any(feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
-/// <p>The syntax of the query is incorrect.</p>
+    #[cfg(any(
+        feature = "op_select_aggregate_resource_config",
+        feature = "op_select_resource_config"
+    ))]
+    /// <p>The syntax of the query is incorrect.</p>
     InvalidExpressionException(crate::types::error::InvalidExpressionException),
-    #[cfg(any(feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_aggregation_authorizations", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_pack_status", feature = "op_describe_conformance_packs", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_describe_pending_aggregation_requests", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_conformance_pack_compliance_details", feature = "op_get_conformance_pack_compliance_summary", feature = "op_get_discovered_resource_counts", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_conformance_pack_detailed_status", feature = "op_get_resource_config_history", feature = "op_list_aggregate_discovered_resources", feature = "op_list_conformance_pack_compliance_scores", feature = "op_list_discovered_resources", feature = "op_list_tags_for_resource", feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
-/// <p>The specified limit is outside the allowable range.</p>
+    #[cfg(any(
+        feature = "op_describe_aggregate_compliance_by_config_rules",
+        feature = "op_describe_aggregate_compliance_by_conformance_packs",
+        feature = "op_describe_aggregation_authorizations",
+        feature = "op_describe_configuration_aggregator_sources_status",
+        feature = "op_describe_configuration_aggregators",
+        feature = "op_describe_conformance_pack_compliance",
+        feature = "op_describe_conformance_pack_status",
+        feature = "op_describe_conformance_packs",
+        feature = "op_describe_organization_config_rule_statuses",
+        feature = "op_describe_organization_config_rules",
+        feature = "op_describe_organization_conformance_pack_statuses",
+        feature = "op_describe_organization_conformance_packs",
+        feature = "op_describe_pending_aggregation_requests",
+        feature = "op_get_aggregate_compliance_details_by_config_rule",
+        feature = "op_get_aggregate_config_rule_compliance_summary",
+        feature = "op_get_aggregate_conformance_pack_compliance_summary",
+        feature = "op_get_aggregate_discovered_resource_counts",
+        feature = "op_get_conformance_pack_compliance_details",
+        feature = "op_get_conformance_pack_compliance_summary",
+        feature = "op_get_discovered_resource_counts",
+        feature = "op_get_organization_config_rule_detailed_status",
+        feature = "op_get_organization_conformance_pack_detailed_status",
+        feature = "op_get_resource_config_history",
+        feature = "op_list_aggregate_discovered_resources",
+        feature = "op_list_conformance_pack_compliance_scores",
+        feature = "op_list_discovered_resources",
+        feature = "op_list_tags_for_resource",
+        feature = "op_select_aggregate_resource_config",
+        feature = "op_select_resource_config"
+    ))]
+    /// <p>The specified limit is outside the allowable range.</p>
     InvalidLimitException(crate::types::error::InvalidLimitException),
-    #[cfg(any(feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_aggregation_authorizations", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_compliance_by_resource", feature = "op_describe_config_rule_evaluation_status", feature = "op_describe_config_rules", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_pack_status", feature = "op_describe_conformance_packs", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_describe_pending_aggregation_requests", feature = "op_describe_remediation_exceptions", feature = "op_describe_remediation_execution_status", feature = "op_describe_retention_configurations", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_conformance_pack_compliance_details", feature = "op_get_conformance_pack_compliance_summary", feature = "op_get_discovered_resource_counts", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_conformance_pack_detailed_status", feature = "op_get_resource_config_history", feature = "op_list_aggregate_discovered_resources", feature = "op_list_conformance_pack_compliance_scores", feature = "op_list_discovered_resources", feature = "op_list_resource_evaluations", feature = "op_list_stored_queries", feature = "op_list_tags_for_resource", feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
-/// <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
+    #[cfg(any(
+        feature = "op_describe_aggregate_compliance_by_config_rules",
+        feature = "op_describe_aggregate_compliance_by_conformance_packs",
+        feature = "op_describe_aggregation_authorizations",
+        feature = "op_describe_compliance_by_config_rule",
+        feature = "op_describe_compliance_by_resource",
+        feature = "op_describe_config_rule_evaluation_status",
+        feature = "op_describe_config_rules",
+        feature = "op_describe_configuration_aggregator_sources_status",
+        feature = "op_describe_configuration_aggregators",
+        feature = "op_describe_conformance_pack_compliance",
+        feature = "op_describe_conformance_pack_status",
+        feature = "op_describe_conformance_packs",
+        feature = "op_describe_organization_config_rule_statuses",
+        feature = "op_describe_organization_config_rules",
+        feature = "op_describe_organization_conformance_pack_statuses",
+        feature = "op_describe_organization_conformance_packs",
+        feature = "op_describe_pending_aggregation_requests",
+        feature = "op_describe_remediation_exceptions",
+        feature = "op_describe_remediation_execution_status",
+        feature = "op_describe_retention_configurations",
+        feature = "op_get_aggregate_compliance_details_by_config_rule",
+        feature = "op_get_aggregate_config_rule_compliance_summary",
+        feature = "op_get_aggregate_conformance_pack_compliance_summary",
+        feature = "op_get_aggregate_discovered_resource_counts",
+        feature = "op_get_compliance_details_by_config_rule",
+        feature = "op_get_conformance_pack_compliance_details",
+        feature = "op_get_conformance_pack_compliance_summary",
+        feature = "op_get_discovered_resource_counts",
+        feature = "op_get_organization_config_rule_detailed_status",
+        feature = "op_get_organization_conformance_pack_detailed_status",
+        feature = "op_get_resource_config_history",
+        feature = "op_list_aggregate_discovered_resources",
+        feature = "op_list_conformance_pack_compliance_scores",
+        feature = "op_list_discovered_resources",
+        feature = "op_list_resource_evaluations",
+        feature = "op_list_stored_queries",
+        feature = "op_list_tags_for_resource",
+        feature = "op_select_aggregate_resource_config",
+        feature = "op_select_resource_config"
+    ))]
+    /// <p>The specified next token is not valid. Specify the <code>nextToken</code> string that was returned in the previous response to get the next page of results.</p>
     InvalidNextTokenException(crate::types::error::InvalidNextTokenException),
-    #[cfg(any(feature = "op_delete_aggregation_authorization", feature = "op_delete_pending_aggregation_request", feature = "op_delete_remediation_configuration", feature = "op_delete_retention_configuration", feature = "op_describe_aggregation_authorizations", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_compliance_by_resource", feature = "op_describe_config_rule_evaluation_status", feature = "op_describe_config_rules", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_pack_status", feature = "op_describe_conformance_packs", feature = "op_describe_pending_aggregation_requests", feature = "op_describe_remediation_exceptions", feature = "op_describe_remediation_execution_status", feature = "op_describe_retention_configurations", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_compliance_details_by_resource", feature = "op_get_compliance_summary_by_resource_type", feature = "op_get_conformance_pack_compliance_details", feature = "op_list_conformance_pack_compliance_scores", feature = "op_list_resource_evaluations", feature = "op_put_aggregation_authorization", feature = "op_put_config_rule", feature = "op_put_configuration_aggregator", feature = "op_put_conformance_pack", feature = "op_put_evaluations", feature = "op_put_external_evaluation", feature = "op_put_organization_config_rule", feature = "op_put_remediation_configurations", feature = "op_put_remediation_exceptions", feature = "op_put_retention_configuration", feature = "op_start_config_rules_evaluation", feature = "op_start_remediation_execution", feature = "op_start_resource_evaluation"))]
-/// <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
+    #[cfg(any(
+        feature = "op_delete_aggregation_authorization",
+        feature = "op_delete_pending_aggregation_request",
+        feature = "op_delete_remediation_configuration",
+        feature = "op_delete_retention_configuration",
+        feature = "op_describe_aggregation_authorizations",
+        feature = "op_describe_compliance_by_config_rule",
+        feature = "op_describe_compliance_by_resource",
+        feature = "op_describe_config_rule_evaluation_status",
+        feature = "op_describe_config_rules",
+        feature = "op_describe_configuration_aggregator_sources_status",
+        feature = "op_describe_configuration_aggregators",
+        feature = "op_describe_conformance_pack_compliance",
+        feature = "op_describe_conformance_pack_status",
+        feature = "op_describe_conformance_packs",
+        feature = "op_describe_pending_aggregation_requests",
+        feature = "op_describe_remediation_exceptions",
+        feature = "op_describe_remediation_execution_status",
+        feature = "op_describe_retention_configurations",
+        feature = "op_get_compliance_details_by_config_rule",
+        feature = "op_get_compliance_details_by_resource",
+        feature = "op_get_compliance_summary_by_resource_type",
+        feature = "op_get_conformance_pack_compliance_details",
+        feature = "op_list_conformance_pack_compliance_scores",
+        feature = "op_list_resource_evaluations",
+        feature = "op_put_aggregation_authorization",
+        feature = "op_put_config_rule",
+        feature = "op_put_configuration_aggregator",
+        feature = "op_put_conformance_pack",
+        feature = "op_put_evaluations",
+        feature = "op_put_external_evaluation",
+        feature = "op_put_organization_config_rule",
+        feature = "op_put_remediation_configurations",
+        feature = "op_put_remediation_exceptions",
+        feature = "op_put_retention_configuration",
+        feature = "op_start_config_rules_evaluation",
+        feature = "op_start_remediation_execution",
+        feature = "op_start_resource_evaluation"
+    ))]
+    /// <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
     InvalidParameterValueException(crate::types::error::InvalidParameterValueException),
     #[cfg(feature = "op_put_configuration_recorder")]
-/// <p>One of the following errors:</p>
+    /// <p>One of the following errors:</p>
     /// <ul>
     /// <li>
     /// <p>You have provided a combination of parameter values that is not valid. For example:</p>
@@ -90,109 +225,247 @@ pub enum Error {
     /// </ul>
     InvalidRecordingGroupException(crate::types::error::InvalidRecordingGroupException),
     #[cfg(feature = "op_put_evaluations")]
-/// <p>The specified <code>ResultToken</code> is not valid.</p>
+    /// <p>The specified <code>ResultToken</code> is not valid.</p>
     InvalidResultTokenException(crate::types::error::InvalidResultTokenException),
-    #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_configuration_recorder"))]
-/// <p>You have provided a null or empty Amazon Resource Name (ARN) for the IAM role assumed by Config and used by the customer managed configuration recorder.</p>
+    #[cfg(any(
+        feature = "op_put_configuration_aggregator",
+        feature = "op_put_configuration_recorder"
+    ))]
+    /// <p>You have provided a null or empty Amazon Resource Name (ARN) for the IAM role assumed by Config and used by the customer managed configuration recorder.</p>
     InvalidRoleException(crate::types::error::InvalidRoleException),
     #[cfg(feature = "op_put_delivery_channel")]
-/// <p>The specified Amazon S3 key prefix is not valid.</p>
+    /// <p>The specified Amazon S3 key prefix is not valid.</p>
     InvalidS3KeyPrefixException(crate::types::error::InvalidS3KeyPrefixException),
     #[cfg(feature = "op_put_delivery_channel")]
-/// <p>The specified Amazon KMS Key ARN is not valid.</p>
+    /// <p>The specified Amazon KMS Key ARN is not valid.</p>
     InvalidS3KmsKeyArnException(crate::types::error::InvalidS3KmsKeyArnException),
     #[cfg(feature = "op_put_delivery_channel")]
-/// <p>The specified Amazon SNS topic does not exist.</p>
+    /// <p>The specified Amazon SNS topic does not exist.</p>
     InvalidSnsTopicArnException(crate::types::error::InvalidSnsTopicArnException),
-    #[cfg(any(feature = "op_get_resource_config_history", feature = "op_list_resource_evaluations"))]
-/// <p>The specified time range is not valid. The earlier time is not chronologically before the later time.</p>
+    #[cfg(any(
+        feature = "op_get_resource_config_history",
+        feature = "op_list_resource_evaluations"
+    ))]
+    /// <p>The specified time range is not valid. The earlier time is not chronologically before the later time.</p>
     InvalidTimeRangeException(crate::types::error::InvalidTimeRangeException),
     #[cfg(feature = "op_delete_delivery_channel")]
-/// <p>You cannot delete the delivery channel you specified because the customer managed configuration recorder is running.</p>
-    LastDeliveryChannelDeleteFailedException(crate::types::error::LastDeliveryChannelDeleteFailedException),
-    #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_service_linked_configuration_recorder", feature = "op_start_config_rules_evaluation"))]
-/// <p>For <code>PutServiceLinkedConfigurationRecorder</code> API, this exception is thrown if the number of service-linked roles in the account exceeds the limit.</p>
+    /// <p>You cannot delete the delivery channel you specified because the customer managed configuration recorder is running.</p>
+    LastDeliveryChannelDeleteFailedException(
+        crate::types::error::LastDeliveryChannelDeleteFailedException,
+    ),
+    #[cfg(any(
+        feature = "op_put_configuration_aggregator",
+        feature = "op_put_service_linked_configuration_recorder",
+        feature = "op_start_config_rules_evaluation"
+    ))]
+    /// <p>For <code>PutServiceLinkedConfigurationRecorder</code> API, this exception is thrown if the number of service-linked roles in the account exceeds the limit.</p>
     /// <p>For <code>StartConfigRulesEvaluation</code> API, this exception is thrown if an evaluation is in progress or if you call the <code>StartConfigRulesEvaluation</code> API more than once per minute.</p>
     /// <p>For <code>PutConfigurationAggregator</code> API, this exception is thrown if the number of accounts and aggregators exceeds the limit.</p>
     LimitExceededException(crate::types::error::LimitExceededException),
     #[cfg(feature = "op_put_resource_config")]
-/// <p>You have reached the limit of active custom resource types in your account. There is a limit of 100,000. Delete unused resources using <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteResourceConfig.html">DeleteResourceConfig</a> <code></code>.</p>
+    /// <p>You have reached the limit of active custom resource types in your account. There is a limit of 100,000. Delete unused resources using <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteResourceConfig.html">DeleteResourceConfig</a> <code></code>.</p>
     MaxActiveResourcesExceededException(crate::types::error::MaxActiveResourcesExceededException),
     #[cfg(feature = "op_put_config_rule")]
-/// <p>Failed to add the Config rule because the account already contains the maximum number of 1000 rules. Consider deleting any deactivated rules before you add new rules.</p>
-    MaxNumberOfConfigRulesExceededException(crate::types::error::MaxNumberOfConfigRulesExceededException),
+    /// <p>Failed to add the Config rule because the account already contains the maximum number of 1000 rules. Consider deleting any deactivated rules before you add new rules.</p>
+    MaxNumberOfConfigRulesExceededException(
+        crate::types::error::MaxNumberOfConfigRulesExceededException,
+    ),
     #[cfg(feature = "op_put_configuration_recorder")]
-/// <p>You have reached the limit of the number of configuration recorders you can create.</p>
-    MaxNumberOfConfigurationRecordersExceededException(crate::types::error::MaxNumberOfConfigurationRecordersExceededException),
+    /// <p>You have reached the limit of the number of configuration recorders you can create.</p>
+    MaxNumberOfConfigurationRecordersExceededException(
+        crate::types::error::MaxNumberOfConfigurationRecordersExceededException,
+    ),
     #[cfg(feature = "op_put_conformance_pack")]
-/// <p>You have reached the limit of the number of conformance packs you can create in an account. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html"> <b>Service Limits</b> </a> in the <i>Config Developer Guide</i>.</p>
-    MaxNumberOfConformancePacksExceededException(crate::types::error::MaxNumberOfConformancePacksExceededException),
+    /// <p>You have reached the limit of the number of conformance packs you can create in an account. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html"> <b>Service Limits</b> </a> in the <i>Config Developer Guide</i>.</p>
+    MaxNumberOfConformancePacksExceededException(
+        crate::types::error::MaxNumberOfConformancePacksExceededException,
+    ),
     #[cfg(feature = "op_put_connector")]
-/// <p>You have reached the limit of the number of connectors in your account.</p>
-    MaxNumberOfConnectorsExceededException(crate::types::error::MaxNumberOfConnectorsExceededException),
+    /// <p>You have reached the limit of the number of connectors in your account.</p>
+    MaxNumberOfConnectorsExceededException(
+        crate::types::error::MaxNumberOfConnectorsExceededException,
+    ),
     #[cfg(feature = "op_put_delivery_channel")]
-/// <p>You have reached the limit of the number of delivery channels you can create.</p>
-    MaxNumberOfDeliveryChannelsExceededException(crate::types::error::MaxNumberOfDeliveryChannelsExceededException),
+    /// <p>You have reached the limit of the number of delivery channels you can create.</p>
+    MaxNumberOfDeliveryChannelsExceededException(
+        crate::types::error::MaxNumberOfDeliveryChannelsExceededException,
+    ),
     #[cfg(feature = "op_put_organization_config_rule")]
-/// <p>You have reached the limit of the number of organization Config rules you can create. For more information, see see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html"> <b>Service Limits</b> </a> in the <i>Config Developer Guide</i>.</p>
-    MaxNumberOfOrganizationConfigRulesExceededException(crate::types::error::MaxNumberOfOrganizationConfigRulesExceededException),
+    /// <p>You have reached the limit of the number of organization Config rules you can create. For more information, see see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html"> <b>Service Limits</b> </a> in the <i>Config Developer Guide</i>.</p>
+    MaxNumberOfOrganizationConfigRulesExceededException(
+        crate::types::error::MaxNumberOfOrganizationConfigRulesExceededException,
+    ),
     #[cfg(feature = "op_put_organization_conformance_pack")]
-/// <p>You have reached the limit of the number of organization conformance packs you can create in an account. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html"> <b>Service Limits</b> </a> in the <i>Config Developer Guide</i>.</p>
-    MaxNumberOfOrganizationConformancePacksExceededException(crate::types::error::MaxNumberOfOrganizationConformancePacksExceededException),
+    /// <p>You have reached the limit of the number of organization conformance packs you can create in an account. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html"> <b>Service Limits</b> </a> in the <i>Config Developer Guide</i>.</p>
+    MaxNumberOfOrganizationConformancePacksExceededException(
+        crate::types::error::MaxNumberOfOrganizationConformancePacksExceededException,
+    ),
     #[cfg(feature = "op_put_retention_configuration")]
-/// <p>Failed to add the retention configuration because a retention configuration with that name already exists.</p>
-    MaxNumberOfRetentionConfigurationsExceededException(crate::types::error::MaxNumberOfRetentionConfigurationsExceededException),
-    #[cfg(any(feature = "op_batch_get_resource_config", feature = "op_deliver_config_snapshot", feature = "op_get_resource_config_history", feature = "op_list_discovered_resources", feature = "op_put_config_rule", feature = "op_put_delivery_channel"))]
-/// <p>There are no customer managed configuration recorders available to record your resources. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html">PutConfigurationRecorder</a> operation to create the customer managed configuration recorder.</p>
-    NoAvailableConfigurationRecorderException(crate::types::error::NoAvailableConfigurationRecorderException),
+    /// <p>Failed to add the retention configuration because a retention configuration with that name already exists.</p>
+    MaxNumberOfRetentionConfigurationsExceededException(
+        crate::types::error::MaxNumberOfRetentionConfigurationsExceededException,
+    ),
+    #[cfg(any(
+        feature = "op_batch_get_resource_config",
+        feature = "op_deliver_config_snapshot",
+        feature = "op_get_resource_config_history",
+        feature = "op_list_discovered_resources",
+        feature = "op_put_config_rule",
+        feature = "op_put_delivery_channel"
+    ))]
+    /// <p>There are no customer managed configuration recorders available to record your resources. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html">PutConfigurationRecorder</a> operation to create the customer managed configuration recorder.</p>
+    NoAvailableConfigurationRecorderException(
+        crate::types::error::NoAvailableConfigurationRecorderException,
+    ),
     #[cfg(feature = "op_start_configuration_recorder")]
-/// <p>There is no delivery channel available to record configurations.</p>
+    /// <p>There is no delivery channel available to record configurations.</p>
     NoAvailableDeliveryChannelException(crate::types::error::NoAvailableDeliveryChannelException),
-    #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack"))]
-/// <p>Organization is no longer available.</p>
+    #[cfg(any(
+        feature = "op_put_configuration_aggregator",
+        feature = "op_put_organization_config_rule",
+        feature = "op_put_organization_conformance_pack"
+    ))]
+    /// <p>Organization is no longer available.</p>
     NoAvailableOrganizationException(crate::types::error::NoAvailableOrganizationException),
-    #[cfg(any(feature = "op_delete_resource_config", feature = "op_deliver_config_snapshot", feature = "op_put_resource_config"))]
-/// <p>There is no configuration recorder running.</p>
-    NoRunningConfigurationRecorderException(crate::types::error::NoRunningConfigurationRecorderException),
+    #[cfg(any(
+        feature = "op_delete_resource_config",
+        feature = "op_deliver_config_snapshot",
+        feature = "op_put_resource_config"
+    ))]
+    /// <p>There is no configuration recorder running.</p>
+    NoRunningConfigurationRecorderException(
+        crate::types::error::NoRunningConfigurationRecorderException,
+    ),
     #[cfg(feature = "op_put_delivery_channel")]
-/// <p>The specified Amazon S3 bucket does not exist.</p>
+    /// <p>The specified Amazon S3 bucket does not exist.</p>
     NoSuchBucketException(crate::types::error::NoSuchBucketException),
-    #[cfg(any(feature = "op_delete_config_rule", feature = "op_delete_evaluation_results", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_config_rule_evaluation_status", feature = "op_describe_config_rules", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_custom_rule_policy", feature = "op_put_evaluations", feature = "op_put_external_evaluation", feature = "op_start_config_rules_evaluation"))]
-/// <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+    #[cfg(any(
+        feature = "op_delete_config_rule",
+        feature = "op_delete_evaluation_results",
+        feature = "op_describe_compliance_by_config_rule",
+        feature = "op_describe_config_rule_evaluation_status",
+        feature = "op_describe_config_rules",
+        feature = "op_get_compliance_details_by_config_rule",
+        feature = "op_get_custom_rule_policy",
+        feature = "op_put_evaluations",
+        feature = "op_put_external_evaluation",
+        feature = "op_start_config_rules_evaluation"
+    ))]
+    /// <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
     NoSuchConfigRuleException(crate::types::error::NoSuchConfigRuleException),
-    #[cfg(any(feature = "op_describe_conformance_pack_compliance", feature = "op_get_conformance_pack_compliance_details"))]
-/// <p>Config rule that you passed in the filter does not exist.</p>
-    NoSuchConfigRuleInConformancePackException(crate::types::error::NoSuchConfigRuleInConformancePackException),
-    #[cfg(any(feature = "op_batch_get_aggregate_resource_config", feature = "op_delete_configuration_aggregator", feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_aggregate_resource_config", feature = "op_list_aggregate_discovered_resources", feature = "op_select_aggregate_resource_config"))]
-/// <p>You have specified a configuration aggregator that does not exist.</p>
-    NoSuchConfigurationAggregatorException(crate::types::error::NoSuchConfigurationAggregatorException),
-    #[cfg(any(feature = "op_associate_resource_types", feature = "op_delete_configuration_recorder", feature = "op_delete_service_linked_configuration_recorder", feature = "op_describe_configuration_recorder_status", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_start_configuration_recorder", feature = "op_stop_configuration_recorder"))]
-/// <p>You have specified a configuration recorder that does not exist.</p>
+    #[cfg(any(
+        feature = "op_describe_conformance_pack_compliance",
+        feature = "op_get_conformance_pack_compliance_details"
+    ))]
+    /// <p>Config rule that you passed in the filter does not exist.</p>
+    NoSuchConfigRuleInConformancePackException(
+        crate::types::error::NoSuchConfigRuleInConformancePackException,
+    ),
+    #[cfg(any(
+        feature = "op_batch_get_aggregate_resource_config",
+        feature = "op_delete_configuration_aggregator",
+        feature = "op_describe_aggregate_compliance_by_config_rules",
+        feature = "op_describe_aggregate_compliance_by_conformance_packs",
+        feature = "op_describe_configuration_aggregator_sources_status",
+        feature = "op_describe_configuration_aggregators",
+        feature = "op_get_aggregate_compliance_details_by_config_rule",
+        feature = "op_get_aggregate_config_rule_compliance_summary",
+        feature = "op_get_aggregate_conformance_pack_compliance_summary",
+        feature = "op_get_aggregate_discovered_resource_counts",
+        feature = "op_get_aggregate_resource_config",
+        feature = "op_list_aggregate_discovered_resources",
+        feature = "op_select_aggregate_resource_config"
+    ))]
+    /// <p>You have specified a configuration aggregator that does not exist.</p>
+    NoSuchConfigurationAggregatorException(
+        crate::types::error::NoSuchConfigurationAggregatorException,
+    ),
+    #[cfg(any(
+        feature = "op_associate_resource_types",
+        feature = "op_delete_configuration_recorder",
+        feature = "op_delete_service_linked_configuration_recorder",
+        feature = "op_describe_configuration_recorder_status",
+        feature = "op_describe_configuration_recorders",
+        feature = "op_disassociate_resource_types",
+        feature = "op_start_configuration_recorder",
+        feature = "op_stop_configuration_recorder"
+    ))]
+    /// <p>You have specified a configuration recorder that does not exist.</p>
     NoSuchConfigurationRecorderException(crate::types::error::NoSuchConfigurationRecorderException),
-    #[cfg(any(feature = "op_delete_conformance_pack", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_packs", feature = "op_get_conformance_pack_compliance_details", feature = "op_get_conformance_pack_compliance_summary"))]
-/// <p>You specified one or more conformance packs that do not exist.</p>
+    #[cfg(any(
+        feature = "op_delete_conformance_pack",
+        feature = "op_describe_conformance_pack_compliance",
+        feature = "op_describe_conformance_packs",
+        feature = "op_get_conformance_pack_compliance_details",
+        feature = "op_get_conformance_pack_compliance_summary"
+    ))]
+    /// <p>You specified one or more conformance packs that do not exist.</p>
     NoSuchConformancePackException(crate::types::error::NoSuchConformancePackException),
-    #[cfg(any(feature = "op_delete_delivery_channel", feature = "op_deliver_config_snapshot", feature = "op_describe_delivery_channel_status", feature = "op_describe_delivery_channels"))]
-/// <p>You have specified a delivery channel that does not exist.</p>
+    #[cfg(any(
+        feature = "op_delete_delivery_channel",
+        feature = "op_deliver_config_snapshot",
+        feature = "op_describe_delivery_channel_status",
+        feature = "op_describe_delivery_channels"
+    ))]
+    /// <p>You have specified a delivery channel that does not exist.</p>
     NoSuchDeliveryChannelException(crate::types::error::NoSuchDeliveryChannelException),
-    #[cfg(any(feature = "op_delete_organization_config_rule", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_custom_rule_policy"))]
-/// <p>The Config rule in the request is not valid. Verify that the rule is an organization Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
-    NoSuchOrganizationConfigRuleException(crate::types::error::NoSuchOrganizationConfigRuleException),
-    #[cfg(any(feature = "op_delete_organization_conformance_pack", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_get_organization_conformance_pack_detailed_status"))]
-/// <p>Config organization conformance pack that you passed in the filter does not exist.</p>
+    #[cfg(any(
+        feature = "op_delete_organization_config_rule",
+        feature = "op_describe_organization_config_rule_statuses",
+        feature = "op_describe_organization_config_rules",
+        feature = "op_get_organization_config_rule_detailed_status",
+        feature = "op_get_organization_custom_rule_policy"
+    ))]
+    /// <p>The Config rule in the request is not valid. Verify that the rule is an organization Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+    NoSuchOrganizationConfigRuleException(
+        crate::types::error::NoSuchOrganizationConfigRuleException,
+    ),
+    #[cfg(any(
+        feature = "op_delete_organization_conformance_pack",
+        feature = "op_describe_organization_conformance_pack_statuses",
+        feature = "op_describe_organization_conformance_packs",
+        feature = "op_get_organization_conformance_pack_detailed_status"
+    ))]
+    /// <p>Config organization conformance pack that you passed in the filter does not exist.</p>
     /// <p>For DeleteOrganizationConformancePack, you tried to delete an organization conformance pack that does not exist.</p>
-    NoSuchOrganizationConformancePackException(crate::types::error::NoSuchOrganizationConformancePackException),
-    #[cfg(any(feature = "op_delete_remediation_configuration", feature = "op_describe_remediation_execution_status", feature = "op_start_remediation_execution"))]
-/// <p>You specified an Config rule without a remediation configuration.</p>
-    NoSuchRemediationConfigurationException(crate::types::error::NoSuchRemediationConfigurationException),
+    NoSuchOrganizationConformancePackException(
+        crate::types::error::NoSuchOrganizationConformancePackException,
+    ),
+    #[cfg(any(
+        feature = "op_delete_remediation_configuration",
+        feature = "op_describe_remediation_execution_status",
+        feature = "op_start_remediation_execution"
+    ))]
+    /// <p>You specified an Config rule without a remediation configuration.</p>
+    NoSuchRemediationConfigurationException(
+        crate::types::error::NoSuchRemediationConfigurationException,
+    ),
     #[cfg(feature = "op_delete_remediation_exceptions")]
-/// <p>You tried to delete a remediation exception that does not exist.</p>
+    /// <p>You tried to delete a remediation exception that does not exist.</p>
     NoSuchRemediationExceptionException(crate::types::error::NoSuchRemediationExceptionException),
-    #[cfg(any(feature = "op_delete_retention_configuration", feature = "op_describe_retention_configurations"))]
-/// <p>You have specified a retention configuration that does not exist.</p>
-    NoSuchRetentionConfigurationException(crate::types::error::NoSuchRetentionConfigurationException),
-    #[cfg(any(feature = "op_delete_organization_config_rule", feature = "op_delete_organization_conformance_pack", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_conformance_pack_detailed_status", feature = "op_get_organization_custom_rule_policy", feature = "op_put_configuration_aggregator", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack"))]
-/// <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p>
+    #[cfg(any(
+        feature = "op_delete_retention_configuration",
+        feature = "op_describe_retention_configurations"
+    ))]
+    /// <p>You have specified a retention configuration that does not exist.</p>
+    NoSuchRetentionConfigurationException(
+        crate::types::error::NoSuchRetentionConfigurationException,
+    ),
+    #[cfg(any(
+        feature = "op_delete_organization_config_rule",
+        feature = "op_delete_organization_conformance_pack",
+        feature = "op_describe_organization_config_rule_statuses",
+        feature = "op_describe_organization_config_rules",
+        feature = "op_describe_organization_conformance_pack_statuses",
+        feature = "op_describe_organization_conformance_packs",
+        feature = "op_get_organization_config_rule_detailed_status",
+        feature = "op_get_organization_conformance_pack_detailed_status",
+        feature = "op_get_organization_custom_rule_policy",
+        feature = "op_put_configuration_aggregator",
+        feature = "op_put_organization_config_rule",
+        feature = "op_put_organization_conformance_pack"
+    ))]
+    /// <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p>
     /// <ul>
     /// <li>
     /// <p>No permission to call <code>EnableAWSServiceAccess</code> API</p></li>
@@ -205,23 +478,44 @@ pub enum Error {
     /// </ul>
     /// <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
     OrganizationAccessDeniedException(crate::types::error::OrganizationAccessDeniedException),
-    #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack"))]
-/// <p>Config resource cannot be created because your organization does not have all features enabled.</p>
-    OrganizationAllFeaturesNotEnabledException(crate::types::error::OrganizationAllFeaturesNotEnabledException),
+    #[cfg(any(
+        feature = "op_put_configuration_aggregator",
+        feature = "op_put_organization_config_rule",
+        feature = "op_put_organization_conformance_pack"
+    ))]
+    /// <p>Config resource cannot be created because your organization does not have all features enabled.</p>
+    OrganizationAllFeaturesNotEnabledException(
+        crate::types::error::OrganizationAllFeaturesNotEnabledException,
+    ),
     #[cfg(feature = "op_put_organization_conformance_pack")]
-/// <p>You have specified a template that is not valid or supported.</p>
-    OrganizationConformancePackTemplateValidationException(crate::types::error::OrganizationConformancePackTemplateValidationException),
+    /// <p>You have specified a template that is not valid or supported.</p>
+    OrganizationConformancePackTemplateValidationException(
+        crate::types::error::OrganizationConformancePackTemplateValidationException,
+    ),
     #[cfg(feature = "op_get_aggregate_resource_config")]
-/// <p>The configuration item size is outside the allowable range.</p>
+    /// <p>The configuration item size is outside the allowable range.</p>
     OversizedConfigurationItemException(crate::types::error::OversizedConfigurationItemException),
     #[cfg(feature = "op_delete_remediation_configuration")]
-/// <p>Remediation action is in progress. You can either cancel execution in Amazon Web Services Systems Manager or wait and try again later.</p>
+    /// <p>Remediation action is in progress. You can either cancel execution in Amazon Web Services Systems Manager or wait and try again later.</p>
     RemediationInProgressException(crate::types::error::RemediationInProgressException),
     #[cfg(feature = "op_put_stored_query")]
-/// <p>Two users are trying to modify the same query at the same time. Wait for a moment and try again.</p>
-    ResourceConcurrentModificationException(crate::types::error::ResourceConcurrentModificationException),
-    #[cfg(any(feature = "op_delete_config_rule", feature = "op_delete_conformance_pack", feature = "op_delete_evaluation_results", feature = "op_delete_organization_config_rule", feature = "op_delete_organization_conformance_pack", feature = "op_put_config_rule", feature = "op_put_conformance_pack", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_start_config_rules_evaluation"))]
-/// <p>You see this exception in the following cases:</p>
+    /// <p>Two users are trying to modify the same query at the same time. Wait for a moment and try again.</p>
+    ResourceConcurrentModificationException(
+        crate::types::error::ResourceConcurrentModificationException,
+    ),
+    #[cfg(any(
+        feature = "op_delete_config_rule",
+        feature = "op_delete_conformance_pack",
+        feature = "op_delete_evaluation_results",
+        feature = "op_delete_organization_config_rule",
+        feature = "op_delete_organization_conformance_pack",
+        feature = "op_put_config_rule",
+        feature = "op_put_conformance_pack",
+        feature = "op_put_organization_config_rule",
+        feature = "op_put_organization_conformance_pack",
+        feature = "op_start_config_rules_evaluation"
+    ))]
+    /// <p>You see this exception in the following cases:</p>
     /// <ul>
     /// <li>
     /// <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p></li>
@@ -239,23 +533,78 @@ pub enum Error {
     /// <p>For DeleteConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p></li>
     /// </ul>
     ResourceInUseException(crate::types::error::ResourceInUseException),
-    #[cfg(any(feature = "op_get_aggregate_resource_config", feature = "op_get_resource_config_history"))]
-/// <p>You have specified a resource that is either unknown or has not been discovered.</p>
+    #[cfg(any(
+        feature = "op_get_aggregate_resource_config",
+        feature = "op_get_resource_config_history"
+    ))]
+    /// <p>You have specified a resource that is either unknown or has not been discovered.</p>
     ResourceNotDiscoveredException(crate::types::error::ResourceNotDiscoveredException),
-    #[cfg(any(feature = "op_delete_connector", feature = "op_delete_stored_query", feature = "op_get_connector", feature = "op_get_resource_evaluation_summary", feature = "op_get_stored_query", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource"))]
-/// <p>You have specified a resource that does not exist.</p>
+    #[cfg(any(
+        feature = "op_delete_connector",
+        feature = "op_delete_stored_query",
+        feature = "op_get_connector",
+        feature = "op_get_resource_evaluation_summary",
+        feature = "op_get_stored_query",
+        feature = "op_list_tags_for_resource",
+        feature = "op_tag_resource",
+        feature = "op_untag_resource"
+    ))]
+    /// <p>You have specified a resource that does not exist.</p>
     ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
     #[cfg(any(feature = "op_put_stored_query", feature = "op_tag_resource"))]
-/// <p>You have reached the limit of the number of tags you can use. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html"> <b>Service Limits</b> </a> in the <i>Config Developer Guide</i>.</p>
+    /// <p>You have reached the limit of the number of tags you can use. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html"> <b>Service Limits</b> </a> in the <i>Config Developer Guide</i>.</p>
     TooManyTagsException(crate::types::error::TooManyTagsException),
-    #[cfg(any(feature = "op_delete_configuration_recorder", feature = "op_put_configuration_recorder", feature = "op_start_configuration_recorder", feature = "op_stop_configuration_recorder"))]
-/// <p>The requested operation is not valid.</p>
+    #[cfg(any(
+        feature = "op_delete_configuration_recorder",
+        feature = "op_put_configuration_recorder",
+        feature = "op_start_configuration_recorder",
+        feature = "op_stop_configuration_recorder"
+    ))]
+    /// <p>The requested operation is not valid.</p>
     /// <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html">PutConfigurationRecorder</a>, you will see this exception because you cannot use this operation to create a service-linked configuration recorder. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html">PutServiceLinkedConfigurationRecorder</a> operation to create a service-linked configuration recorder.</p>
     /// <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConfigurationRecorder.html">DeleteConfigurationRecorder</a>, you will see this exception because you cannot use this operation to delete a service-linked configuration recorder. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html">DeleteServiceLinkedConfigurationRecorder</a> operation to delete a service-linked configuration recorder.</p>
     /// <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigurationRecorder.html">StartConfigurationRecorder</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html">StopConfigurationRecorder</a>, you will see this exception because these operations do not affect service-linked configuration recorders. Service-linked configuration recorders are always recording. To stop recording, you must delete the service-linked configuration recorder. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html">DeleteServiceLinkedConfigurationRecorder</a> operation to delete a service-linked configuration recorder.</p>
     UnmodifiableEntityException(crate::types::error::UnmodifiableEntityException),
-    #[cfg(any(feature = "op_associate_resource_types", feature = "op_batch_get_aggregate_resource_config", feature = "op_batch_get_resource_config", feature = "op_delete_connector", feature = "op_delete_resource_config", feature = "op_delete_service_linked_configuration_recorder", feature = "op_delete_stored_query", feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_configuration_recorder_status", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_aggregate_resource_config", feature = "op_get_connector", feature = "op_get_discovered_resource_counts", feature = "op_get_resource_config_history", feature = "op_get_stored_query", feature = "op_list_aggregate_discovered_resources", feature = "op_list_configuration_recorders", feature = "op_list_connectors", feature = "op_list_discovered_resources", feature = "op_list_stored_queries", feature = "op_list_tags_for_resource", feature = "op_put_configuration_recorder", feature = "op_put_connector", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_put_resource_config", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_stored_query", feature = "op_put_third_party_service_linked_configuration_recorder", feature = "op_tag_resource", feature = "op_untag_resource"))]
-/// <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p>
+    #[cfg(any(
+        feature = "op_associate_resource_types",
+        feature = "op_batch_get_aggregate_resource_config",
+        feature = "op_batch_get_resource_config",
+        feature = "op_delete_connector",
+        feature = "op_delete_resource_config",
+        feature = "op_delete_service_linked_configuration_recorder",
+        feature = "op_delete_stored_query",
+        feature = "op_describe_aggregate_compliance_by_config_rules",
+        feature = "op_describe_aggregate_compliance_by_conformance_packs",
+        feature = "op_describe_configuration_recorder_status",
+        feature = "op_describe_configuration_recorders",
+        feature = "op_disassociate_resource_types",
+        feature = "op_get_aggregate_compliance_details_by_config_rule",
+        feature = "op_get_aggregate_config_rule_compliance_summary",
+        feature = "op_get_aggregate_conformance_pack_compliance_summary",
+        feature = "op_get_aggregate_discovered_resource_counts",
+        feature = "op_get_aggregate_resource_config",
+        feature = "op_get_connector",
+        feature = "op_get_discovered_resource_counts",
+        feature = "op_get_resource_config_history",
+        feature = "op_get_stored_query",
+        feature = "op_list_aggregate_discovered_resources",
+        feature = "op_list_configuration_recorders",
+        feature = "op_list_connectors",
+        feature = "op_list_discovered_resources",
+        feature = "op_list_stored_queries",
+        feature = "op_list_tags_for_resource",
+        feature = "op_put_configuration_recorder",
+        feature = "op_put_connector",
+        feature = "op_put_organization_config_rule",
+        feature = "op_put_organization_conformance_pack",
+        feature = "op_put_resource_config",
+        feature = "op_put_service_linked_configuration_recorder",
+        feature = "op_put_stored_query",
+        feature = "op_put_third_party_service_linked_configuration_recorder",
+        feature = "op_tag_resource",
+        feature = "op_untag_resource"
+    ))]
+    /// <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p>
     /// <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html">PutStoredQuery</a>, one of the following errors:</p>
     /// <ul>
     /// <li>
@@ -290,133 +639,442 @@ pub enum Error {
     /// </ul>
     ValidationException(crate::types::error::ValidationException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(
+        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error."
+    )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            #[cfg(any(feature = "op_associate_resource_types", feature = "op_delete_service_linked_configuration_recorder", feature = "op_disassociate_resource_types", feature = "op_put_connector", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_third_party_service_linked_configuration_recorder"))]
-Error::ConflictException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_associate_resource_types",
+                feature = "op_delete_service_linked_configuration_recorder",
+                feature = "op_disassociate_resource_types",
+                feature = "op_put_connector",
+                feature = "op_put_service_linked_configuration_recorder",
+                feature = "op_put_third_party_service_linked_configuration_recorder"
+            ))]
+            Error::ConflictException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_conformance_pack")]
-Error::ConformancePackTemplateValidationException(inner) => inner.fmt(f),
+            Error::ConformancePackTemplateValidationException(inner) => inner.fmt(f),
             #[cfg(feature = "op_start_resource_evaluation")]
-Error::IdempotentParameterMismatch(inner) => inner.fmt(f),
+            Error::IdempotentParameterMismatch(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_delivery_channel")]
-Error::InsufficientDeliveryPolicyException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_delete_remediation_configuration", feature = "op_put_config_rule", feature = "op_put_conformance_pack", feature = "op_put_connector", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_put_remediation_configurations", feature = "op_put_remediation_exceptions", feature = "op_put_resource_config", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_third_party_service_linked_configuration_recorder", feature = "op_start_remediation_execution"))]
-Error::InsufficientPermissionsException(inner) => inner.fmt(f),
+            Error::InsufficientDeliveryPolicyException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_delete_remediation_configuration",
+                feature = "op_put_config_rule",
+                feature = "op_put_conformance_pack",
+                feature = "op_put_connector",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack",
+                feature = "op_put_remediation_configurations",
+                feature = "op_put_remediation_exceptions",
+                feature = "op_put_resource_config",
+                feature = "op_put_service_linked_configuration_recorder",
+                feature = "op_put_third_party_service_linked_configuration_recorder",
+                feature = "op_start_remediation_execution"
+            ))]
+            Error::InsufficientPermissionsException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_configuration_recorder")]
-Error::InvalidConfigurationRecorderNameException(inner) => inner.fmt(f),
+            Error::InvalidConfigurationRecorderNameException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_delivery_channel")]
-Error::InvalidDeliveryChannelNameException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
-Error::InvalidExpressionException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_aggregation_authorizations", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_pack_status", feature = "op_describe_conformance_packs", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_describe_pending_aggregation_requests", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_conformance_pack_compliance_details", feature = "op_get_conformance_pack_compliance_summary", feature = "op_get_discovered_resource_counts", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_conformance_pack_detailed_status", feature = "op_get_resource_config_history", feature = "op_list_aggregate_discovered_resources", feature = "op_list_conformance_pack_compliance_scores", feature = "op_list_discovered_resources", feature = "op_list_tags_for_resource", feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
-Error::InvalidLimitException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_aggregation_authorizations", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_compliance_by_resource", feature = "op_describe_config_rule_evaluation_status", feature = "op_describe_config_rules", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_pack_status", feature = "op_describe_conformance_packs", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_describe_pending_aggregation_requests", feature = "op_describe_remediation_exceptions", feature = "op_describe_remediation_execution_status", feature = "op_describe_retention_configurations", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_conformance_pack_compliance_details", feature = "op_get_conformance_pack_compliance_summary", feature = "op_get_discovered_resource_counts", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_conformance_pack_detailed_status", feature = "op_get_resource_config_history", feature = "op_list_aggregate_discovered_resources", feature = "op_list_conformance_pack_compliance_scores", feature = "op_list_discovered_resources", feature = "op_list_resource_evaluations", feature = "op_list_stored_queries", feature = "op_list_tags_for_resource", feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
-Error::InvalidNextTokenException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_delete_aggregation_authorization", feature = "op_delete_pending_aggregation_request", feature = "op_delete_remediation_configuration", feature = "op_delete_retention_configuration", feature = "op_describe_aggregation_authorizations", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_compliance_by_resource", feature = "op_describe_config_rule_evaluation_status", feature = "op_describe_config_rules", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_pack_status", feature = "op_describe_conformance_packs", feature = "op_describe_pending_aggregation_requests", feature = "op_describe_remediation_exceptions", feature = "op_describe_remediation_execution_status", feature = "op_describe_retention_configurations", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_compliance_details_by_resource", feature = "op_get_compliance_summary_by_resource_type", feature = "op_get_conformance_pack_compliance_details", feature = "op_list_conformance_pack_compliance_scores", feature = "op_list_resource_evaluations", feature = "op_put_aggregation_authorization", feature = "op_put_config_rule", feature = "op_put_configuration_aggregator", feature = "op_put_conformance_pack", feature = "op_put_evaluations", feature = "op_put_external_evaluation", feature = "op_put_organization_config_rule", feature = "op_put_remediation_configurations", feature = "op_put_remediation_exceptions", feature = "op_put_retention_configuration", feature = "op_start_config_rules_evaluation", feature = "op_start_remediation_execution", feature = "op_start_resource_evaluation"))]
-Error::InvalidParameterValueException(inner) => inner.fmt(f),
+            Error::InvalidDeliveryChannelNameException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_select_aggregate_resource_config",
+                feature = "op_select_resource_config"
+            ))]
+            Error::InvalidExpressionException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_describe_aggregate_compliance_by_config_rules",
+                feature = "op_describe_aggregate_compliance_by_conformance_packs",
+                feature = "op_describe_aggregation_authorizations",
+                feature = "op_describe_configuration_aggregator_sources_status",
+                feature = "op_describe_configuration_aggregators",
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_describe_conformance_pack_status",
+                feature = "op_describe_conformance_packs",
+                feature = "op_describe_organization_config_rule_statuses",
+                feature = "op_describe_organization_config_rules",
+                feature = "op_describe_organization_conformance_pack_statuses",
+                feature = "op_describe_organization_conformance_packs",
+                feature = "op_describe_pending_aggregation_requests",
+                feature = "op_get_aggregate_compliance_details_by_config_rule",
+                feature = "op_get_aggregate_config_rule_compliance_summary",
+                feature = "op_get_aggregate_conformance_pack_compliance_summary",
+                feature = "op_get_aggregate_discovered_resource_counts",
+                feature = "op_get_conformance_pack_compliance_details",
+                feature = "op_get_conformance_pack_compliance_summary",
+                feature = "op_get_discovered_resource_counts",
+                feature = "op_get_organization_config_rule_detailed_status",
+                feature = "op_get_organization_conformance_pack_detailed_status",
+                feature = "op_get_resource_config_history",
+                feature = "op_list_aggregate_discovered_resources",
+                feature = "op_list_conformance_pack_compliance_scores",
+                feature = "op_list_discovered_resources",
+                feature = "op_list_tags_for_resource",
+                feature = "op_select_aggregate_resource_config",
+                feature = "op_select_resource_config"
+            ))]
+            Error::InvalidLimitException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_describe_aggregate_compliance_by_config_rules",
+                feature = "op_describe_aggregate_compliance_by_conformance_packs",
+                feature = "op_describe_aggregation_authorizations",
+                feature = "op_describe_compliance_by_config_rule",
+                feature = "op_describe_compliance_by_resource",
+                feature = "op_describe_config_rule_evaluation_status",
+                feature = "op_describe_config_rules",
+                feature = "op_describe_configuration_aggregator_sources_status",
+                feature = "op_describe_configuration_aggregators",
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_describe_conformance_pack_status",
+                feature = "op_describe_conformance_packs",
+                feature = "op_describe_organization_config_rule_statuses",
+                feature = "op_describe_organization_config_rules",
+                feature = "op_describe_organization_conformance_pack_statuses",
+                feature = "op_describe_organization_conformance_packs",
+                feature = "op_describe_pending_aggregation_requests",
+                feature = "op_describe_remediation_exceptions",
+                feature = "op_describe_remediation_execution_status",
+                feature = "op_describe_retention_configurations",
+                feature = "op_get_aggregate_compliance_details_by_config_rule",
+                feature = "op_get_aggregate_config_rule_compliance_summary",
+                feature = "op_get_aggregate_conformance_pack_compliance_summary",
+                feature = "op_get_aggregate_discovered_resource_counts",
+                feature = "op_get_compliance_details_by_config_rule",
+                feature = "op_get_conformance_pack_compliance_details",
+                feature = "op_get_conformance_pack_compliance_summary",
+                feature = "op_get_discovered_resource_counts",
+                feature = "op_get_organization_config_rule_detailed_status",
+                feature = "op_get_organization_conformance_pack_detailed_status",
+                feature = "op_get_resource_config_history",
+                feature = "op_list_aggregate_discovered_resources",
+                feature = "op_list_conformance_pack_compliance_scores",
+                feature = "op_list_discovered_resources",
+                feature = "op_list_resource_evaluations",
+                feature = "op_list_stored_queries",
+                feature = "op_list_tags_for_resource",
+                feature = "op_select_aggregate_resource_config",
+                feature = "op_select_resource_config"
+            ))]
+            Error::InvalidNextTokenException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_delete_aggregation_authorization",
+                feature = "op_delete_pending_aggregation_request",
+                feature = "op_delete_remediation_configuration",
+                feature = "op_delete_retention_configuration",
+                feature = "op_describe_aggregation_authorizations",
+                feature = "op_describe_compliance_by_config_rule",
+                feature = "op_describe_compliance_by_resource",
+                feature = "op_describe_config_rule_evaluation_status",
+                feature = "op_describe_config_rules",
+                feature = "op_describe_configuration_aggregator_sources_status",
+                feature = "op_describe_configuration_aggregators",
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_describe_conformance_pack_status",
+                feature = "op_describe_conformance_packs",
+                feature = "op_describe_pending_aggregation_requests",
+                feature = "op_describe_remediation_exceptions",
+                feature = "op_describe_remediation_execution_status",
+                feature = "op_describe_retention_configurations",
+                feature = "op_get_compliance_details_by_config_rule",
+                feature = "op_get_compliance_details_by_resource",
+                feature = "op_get_compliance_summary_by_resource_type",
+                feature = "op_get_conformance_pack_compliance_details",
+                feature = "op_list_conformance_pack_compliance_scores",
+                feature = "op_list_resource_evaluations",
+                feature = "op_put_aggregation_authorization",
+                feature = "op_put_config_rule",
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_conformance_pack",
+                feature = "op_put_evaluations",
+                feature = "op_put_external_evaluation",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_remediation_configurations",
+                feature = "op_put_remediation_exceptions",
+                feature = "op_put_retention_configuration",
+                feature = "op_start_config_rules_evaluation",
+                feature = "op_start_remediation_execution",
+                feature = "op_start_resource_evaluation"
+            ))]
+            Error::InvalidParameterValueException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_configuration_recorder")]
-Error::InvalidRecordingGroupException(inner) => inner.fmt(f),
+            Error::InvalidRecordingGroupException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_evaluations")]
-Error::InvalidResultTokenException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_configuration_recorder"))]
-Error::InvalidRoleException(inner) => inner.fmt(f),
+            Error::InvalidResultTokenException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_configuration_recorder"
+            ))]
+            Error::InvalidRoleException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_delivery_channel")]
-Error::InvalidS3KeyPrefixException(inner) => inner.fmt(f),
+            Error::InvalidS3KeyPrefixException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_delivery_channel")]
-Error::InvalidS3KmsKeyArnException(inner) => inner.fmt(f),
+            Error::InvalidS3KmsKeyArnException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_delivery_channel")]
-Error::InvalidSnsTopicArnException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_get_resource_config_history", feature = "op_list_resource_evaluations"))]
-Error::InvalidTimeRangeException(inner) => inner.fmt(f),
+            Error::InvalidSnsTopicArnException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_get_resource_config_history",
+                feature = "op_list_resource_evaluations"
+            ))]
+            Error::InvalidTimeRangeException(inner) => inner.fmt(f),
             #[cfg(feature = "op_delete_delivery_channel")]
-Error::LastDeliveryChannelDeleteFailedException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_service_linked_configuration_recorder", feature = "op_start_config_rules_evaluation"))]
-Error::LimitExceededException(inner) => inner.fmt(f),
+            Error::LastDeliveryChannelDeleteFailedException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_service_linked_configuration_recorder",
+                feature = "op_start_config_rules_evaluation"
+            ))]
+            Error::LimitExceededException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_resource_config")]
-Error::MaxActiveResourcesExceededException(inner) => inner.fmt(f),
+            Error::MaxActiveResourcesExceededException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_config_rule")]
-Error::MaxNumberOfConfigRulesExceededException(inner) => inner.fmt(f),
+            Error::MaxNumberOfConfigRulesExceededException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_configuration_recorder")]
-Error::MaxNumberOfConfigurationRecordersExceededException(inner) => inner.fmt(f),
+            Error::MaxNumberOfConfigurationRecordersExceededException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_conformance_pack")]
-Error::MaxNumberOfConformancePacksExceededException(inner) => inner.fmt(f),
+            Error::MaxNumberOfConformancePacksExceededException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_connector")]
-Error::MaxNumberOfConnectorsExceededException(inner) => inner.fmt(f),
+            Error::MaxNumberOfConnectorsExceededException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_delivery_channel")]
-Error::MaxNumberOfDeliveryChannelsExceededException(inner) => inner.fmt(f),
+            Error::MaxNumberOfDeliveryChannelsExceededException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_organization_config_rule")]
-Error::MaxNumberOfOrganizationConfigRulesExceededException(inner) => inner.fmt(f),
+            Error::MaxNumberOfOrganizationConfigRulesExceededException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_organization_conformance_pack")]
-Error::MaxNumberOfOrganizationConformancePacksExceededException(inner) => inner.fmt(f),
+            Error::MaxNumberOfOrganizationConformancePacksExceededException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_retention_configuration")]
-Error::MaxNumberOfRetentionConfigurationsExceededException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_batch_get_resource_config", feature = "op_deliver_config_snapshot", feature = "op_get_resource_config_history", feature = "op_list_discovered_resources", feature = "op_put_config_rule", feature = "op_put_delivery_channel"))]
-Error::NoAvailableConfigurationRecorderException(inner) => inner.fmt(f),
+            Error::MaxNumberOfRetentionConfigurationsExceededException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_batch_get_resource_config",
+                feature = "op_deliver_config_snapshot",
+                feature = "op_get_resource_config_history",
+                feature = "op_list_discovered_resources",
+                feature = "op_put_config_rule",
+                feature = "op_put_delivery_channel"
+            ))]
+            Error::NoAvailableConfigurationRecorderException(inner) => inner.fmt(f),
             #[cfg(feature = "op_start_configuration_recorder")]
-Error::NoAvailableDeliveryChannelException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack"))]
-Error::NoAvailableOrganizationException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_delete_resource_config", feature = "op_deliver_config_snapshot", feature = "op_put_resource_config"))]
-Error::NoRunningConfigurationRecorderException(inner) => inner.fmt(f),
+            Error::NoAvailableDeliveryChannelException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack"
+            ))]
+            Error::NoAvailableOrganizationException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_delete_resource_config",
+                feature = "op_deliver_config_snapshot",
+                feature = "op_put_resource_config"
+            ))]
+            Error::NoRunningConfigurationRecorderException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_delivery_channel")]
-Error::NoSuchBucketException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_delete_config_rule", feature = "op_delete_evaluation_results", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_config_rule_evaluation_status", feature = "op_describe_config_rules", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_custom_rule_policy", feature = "op_put_evaluations", feature = "op_put_external_evaluation", feature = "op_start_config_rules_evaluation"))]
-Error::NoSuchConfigRuleException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_describe_conformance_pack_compliance", feature = "op_get_conformance_pack_compliance_details"))]
-Error::NoSuchConfigRuleInConformancePackException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_batch_get_aggregate_resource_config", feature = "op_delete_configuration_aggregator", feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_aggregate_resource_config", feature = "op_list_aggregate_discovered_resources", feature = "op_select_aggregate_resource_config"))]
-Error::NoSuchConfigurationAggregatorException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_associate_resource_types", feature = "op_delete_configuration_recorder", feature = "op_delete_service_linked_configuration_recorder", feature = "op_describe_configuration_recorder_status", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_start_configuration_recorder", feature = "op_stop_configuration_recorder"))]
-Error::NoSuchConfigurationRecorderException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_delete_conformance_pack", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_packs", feature = "op_get_conformance_pack_compliance_details", feature = "op_get_conformance_pack_compliance_summary"))]
-Error::NoSuchConformancePackException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_delete_delivery_channel", feature = "op_deliver_config_snapshot", feature = "op_describe_delivery_channel_status", feature = "op_describe_delivery_channels"))]
-Error::NoSuchDeliveryChannelException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_delete_organization_config_rule", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_custom_rule_policy"))]
-Error::NoSuchOrganizationConfigRuleException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_delete_organization_conformance_pack", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_get_organization_conformance_pack_detailed_status"))]
-Error::NoSuchOrganizationConformancePackException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_delete_remediation_configuration", feature = "op_describe_remediation_execution_status", feature = "op_start_remediation_execution"))]
-Error::NoSuchRemediationConfigurationException(inner) => inner.fmt(f),
+            Error::NoSuchBucketException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_delete_config_rule",
+                feature = "op_delete_evaluation_results",
+                feature = "op_describe_compliance_by_config_rule",
+                feature = "op_describe_config_rule_evaluation_status",
+                feature = "op_describe_config_rules",
+                feature = "op_get_compliance_details_by_config_rule",
+                feature = "op_get_custom_rule_policy",
+                feature = "op_put_evaluations",
+                feature = "op_put_external_evaluation",
+                feature = "op_start_config_rules_evaluation"
+            ))]
+            Error::NoSuchConfigRuleException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_get_conformance_pack_compliance_details"
+            ))]
+            Error::NoSuchConfigRuleInConformancePackException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_batch_get_aggregate_resource_config",
+                feature = "op_delete_configuration_aggregator",
+                feature = "op_describe_aggregate_compliance_by_config_rules",
+                feature = "op_describe_aggregate_compliance_by_conformance_packs",
+                feature = "op_describe_configuration_aggregator_sources_status",
+                feature = "op_describe_configuration_aggregators",
+                feature = "op_get_aggregate_compliance_details_by_config_rule",
+                feature = "op_get_aggregate_config_rule_compliance_summary",
+                feature = "op_get_aggregate_conformance_pack_compliance_summary",
+                feature = "op_get_aggregate_discovered_resource_counts",
+                feature = "op_get_aggregate_resource_config",
+                feature = "op_list_aggregate_discovered_resources",
+                feature = "op_select_aggregate_resource_config"
+            ))]
+            Error::NoSuchConfigurationAggregatorException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_associate_resource_types",
+                feature = "op_delete_configuration_recorder",
+                feature = "op_delete_service_linked_configuration_recorder",
+                feature = "op_describe_configuration_recorder_status",
+                feature = "op_describe_configuration_recorders",
+                feature = "op_disassociate_resource_types",
+                feature = "op_start_configuration_recorder",
+                feature = "op_stop_configuration_recorder"
+            ))]
+            Error::NoSuchConfigurationRecorderException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_delete_conformance_pack",
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_describe_conformance_packs",
+                feature = "op_get_conformance_pack_compliance_details",
+                feature = "op_get_conformance_pack_compliance_summary"
+            ))]
+            Error::NoSuchConformancePackException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_delete_delivery_channel",
+                feature = "op_deliver_config_snapshot",
+                feature = "op_describe_delivery_channel_status",
+                feature = "op_describe_delivery_channels"
+            ))]
+            Error::NoSuchDeliveryChannelException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_delete_organization_config_rule",
+                feature = "op_describe_organization_config_rule_statuses",
+                feature = "op_describe_organization_config_rules",
+                feature = "op_get_organization_config_rule_detailed_status",
+                feature = "op_get_organization_custom_rule_policy"
+            ))]
+            Error::NoSuchOrganizationConfigRuleException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_delete_organization_conformance_pack",
+                feature = "op_describe_organization_conformance_pack_statuses",
+                feature = "op_describe_organization_conformance_packs",
+                feature = "op_get_organization_conformance_pack_detailed_status"
+            ))]
+            Error::NoSuchOrganizationConformancePackException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_delete_remediation_configuration",
+                feature = "op_describe_remediation_execution_status",
+                feature = "op_start_remediation_execution"
+            ))]
+            Error::NoSuchRemediationConfigurationException(inner) => inner.fmt(f),
             #[cfg(feature = "op_delete_remediation_exceptions")]
-Error::NoSuchRemediationExceptionException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_delete_retention_configuration", feature = "op_describe_retention_configurations"))]
-Error::NoSuchRetentionConfigurationException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_delete_organization_config_rule", feature = "op_delete_organization_conformance_pack", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_conformance_pack_detailed_status", feature = "op_get_organization_custom_rule_policy", feature = "op_put_configuration_aggregator", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack"))]
-Error::OrganizationAccessDeniedException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack"))]
-Error::OrganizationAllFeaturesNotEnabledException(inner) => inner.fmt(f),
+            Error::NoSuchRemediationExceptionException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_delete_retention_configuration",
+                feature = "op_describe_retention_configurations"
+            ))]
+            Error::NoSuchRetentionConfigurationException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_delete_organization_config_rule",
+                feature = "op_delete_organization_conformance_pack",
+                feature = "op_describe_organization_config_rule_statuses",
+                feature = "op_describe_organization_config_rules",
+                feature = "op_describe_organization_conformance_pack_statuses",
+                feature = "op_describe_organization_conformance_packs",
+                feature = "op_get_organization_config_rule_detailed_status",
+                feature = "op_get_organization_conformance_pack_detailed_status",
+                feature = "op_get_organization_custom_rule_policy",
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack"
+            ))]
+            Error::OrganizationAccessDeniedException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack"
+            ))]
+            Error::OrganizationAllFeaturesNotEnabledException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_organization_conformance_pack")]
-Error::OrganizationConformancePackTemplateValidationException(inner) => inner.fmt(f),
+            Error::OrganizationConformancePackTemplateValidationException(inner) => inner.fmt(f),
             #[cfg(feature = "op_get_aggregate_resource_config")]
-Error::OversizedConfigurationItemException(inner) => inner.fmt(f),
+            Error::OversizedConfigurationItemException(inner) => inner.fmt(f),
             #[cfg(feature = "op_delete_remediation_configuration")]
-Error::RemediationInProgressException(inner) => inner.fmt(f),
+            Error::RemediationInProgressException(inner) => inner.fmt(f),
             #[cfg(feature = "op_put_stored_query")]
-Error::ResourceConcurrentModificationException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_delete_config_rule", feature = "op_delete_conformance_pack", feature = "op_delete_evaluation_results", feature = "op_delete_organization_config_rule", feature = "op_delete_organization_conformance_pack", feature = "op_put_config_rule", feature = "op_put_conformance_pack", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_start_config_rules_evaluation"))]
-Error::ResourceInUseException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_get_aggregate_resource_config", feature = "op_get_resource_config_history"))]
-Error::ResourceNotDiscoveredException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_delete_connector", feature = "op_delete_stored_query", feature = "op_get_connector", feature = "op_get_resource_evaluation_summary", feature = "op_get_stored_query", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource"))]
-Error::ResourceNotFoundException(inner) => inner.fmt(f),
+            Error::ResourceConcurrentModificationException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_delete_config_rule",
+                feature = "op_delete_conformance_pack",
+                feature = "op_delete_evaluation_results",
+                feature = "op_delete_organization_config_rule",
+                feature = "op_delete_organization_conformance_pack",
+                feature = "op_put_config_rule",
+                feature = "op_put_conformance_pack",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack",
+                feature = "op_start_config_rules_evaluation"
+            ))]
+            Error::ResourceInUseException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_get_aggregate_resource_config",
+                feature = "op_get_resource_config_history"
+            ))]
+            Error::ResourceNotDiscoveredException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_delete_connector",
+                feature = "op_delete_stored_query",
+                feature = "op_get_connector",
+                feature = "op_get_resource_evaluation_summary",
+                feature = "op_get_stored_query",
+                feature = "op_list_tags_for_resource",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource"
+            ))]
+            Error::ResourceNotFoundException(inner) => inner.fmt(f),
             #[cfg(any(feature = "op_put_stored_query", feature = "op_tag_resource"))]
-Error::TooManyTagsException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_delete_configuration_recorder", feature = "op_put_configuration_recorder", feature = "op_start_configuration_recorder", feature = "op_stop_configuration_recorder"))]
-Error::UnmodifiableEntityException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_associate_resource_types", feature = "op_batch_get_aggregate_resource_config", feature = "op_batch_get_resource_config", feature = "op_delete_connector", feature = "op_delete_resource_config", feature = "op_delete_service_linked_configuration_recorder", feature = "op_delete_stored_query", feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_configuration_recorder_status", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_aggregate_resource_config", feature = "op_get_connector", feature = "op_get_discovered_resource_counts", feature = "op_get_resource_config_history", feature = "op_get_stored_query", feature = "op_list_aggregate_discovered_resources", feature = "op_list_configuration_recorders", feature = "op_list_connectors", feature = "op_list_discovered_resources", feature = "op_list_stored_queries", feature = "op_list_tags_for_resource", feature = "op_put_configuration_recorder", feature = "op_put_connector", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_put_resource_config", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_stored_query", feature = "op_put_third_party_service_linked_configuration_recorder", feature = "op_tag_resource", feature = "op_untag_resource"))]
-Error::ValidationException(inner) => inner.fmt(f),
+            Error::TooManyTagsException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_delete_configuration_recorder",
+                feature = "op_put_configuration_recorder",
+                feature = "op_start_configuration_recorder",
+                feature = "op_stop_configuration_recorder"
+            ))]
+            Error::UnmodifiableEntityException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_associate_resource_types",
+                feature = "op_batch_get_aggregate_resource_config",
+                feature = "op_batch_get_resource_config",
+                feature = "op_delete_connector",
+                feature = "op_delete_resource_config",
+                feature = "op_delete_service_linked_configuration_recorder",
+                feature = "op_delete_stored_query",
+                feature = "op_describe_aggregate_compliance_by_config_rules",
+                feature = "op_describe_aggregate_compliance_by_conformance_packs",
+                feature = "op_describe_configuration_recorder_status",
+                feature = "op_describe_configuration_recorders",
+                feature = "op_disassociate_resource_types",
+                feature = "op_get_aggregate_compliance_details_by_config_rule",
+                feature = "op_get_aggregate_config_rule_compliance_summary",
+                feature = "op_get_aggregate_conformance_pack_compliance_summary",
+                feature = "op_get_aggregate_discovered_resource_counts",
+                feature = "op_get_aggregate_resource_config",
+                feature = "op_get_connector",
+                feature = "op_get_discovered_resource_counts",
+                feature = "op_get_resource_config_history",
+                feature = "op_get_stored_query",
+                feature = "op_list_aggregate_discovered_resources",
+                feature = "op_list_configuration_recorders",
+                feature = "op_list_connectors",
+                feature = "op_list_discovered_resources",
+                feature = "op_list_stored_queries",
+                feature = "op_list_tags_for_resource",
+                feature = "op_put_configuration_recorder",
+                feature = "op_put_connector",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack",
+                feature = "op_put_resource_config",
+                feature = "op_put_service_linked_configuration_recorder",
+                feature = "op_put_stored_query",
+                feature = "op_put_third_party_service_linked_configuration_recorder",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource"
+            ))]
+            Error::ValidationException(inner) => inner.fmt(f),
             Error::Unhandled(_) => {
-                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                if let ::std::option::Option::Some(code) =
+                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+                {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -436,134 +1094,450 @@ impl From<::aws_smithy_types::error::operation::BuildError> for Error {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
     fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
         match self {
-            #[cfg(any(feature = "op_associate_resource_types", feature = "op_delete_service_linked_configuration_recorder", feature = "op_disassociate_resource_types", feature = "op_put_connector", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_third_party_service_linked_configuration_recorder"))]
-Self::ConflictException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_associate_resource_types",
+                feature = "op_delete_service_linked_configuration_recorder",
+                feature = "op_disassociate_resource_types",
+                feature = "op_put_connector",
+                feature = "op_put_service_linked_configuration_recorder",
+                feature = "op_put_third_party_service_linked_configuration_recorder"
+            ))]
+            Self::ConflictException(inner) => inner.meta(),
             #[cfg(feature = "op_put_conformance_pack")]
-Self::ConformancePackTemplateValidationException(inner) => inner.meta(),
+            Self::ConformancePackTemplateValidationException(inner) => inner.meta(),
             #[cfg(feature = "op_start_resource_evaluation")]
-Self::IdempotentParameterMismatch(inner) => inner.meta(),
+            Self::IdempotentParameterMismatch(inner) => inner.meta(),
             #[cfg(feature = "op_put_delivery_channel")]
-Self::InsufficientDeliveryPolicyException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_delete_remediation_configuration", feature = "op_put_config_rule", feature = "op_put_conformance_pack", feature = "op_put_connector", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_put_remediation_configurations", feature = "op_put_remediation_exceptions", feature = "op_put_resource_config", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_third_party_service_linked_configuration_recorder", feature = "op_start_remediation_execution"))]
-Self::InsufficientPermissionsException(inner) => inner.meta(),
+            Self::InsufficientDeliveryPolicyException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_delete_remediation_configuration",
+                feature = "op_put_config_rule",
+                feature = "op_put_conformance_pack",
+                feature = "op_put_connector",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack",
+                feature = "op_put_remediation_configurations",
+                feature = "op_put_remediation_exceptions",
+                feature = "op_put_resource_config",
+                feature = "op_put_service_linked_configuration_recorder",
+                feature = "op_put_third_party_service_linked_configuration_recorder",
+                feature = "op_start_remediation_execution"
+            ))]
+            Self::InsufficientPermissionsException(inner) => inner.meta(),
             #[cfg(feature = "op_put_configuration_recorder")]
-Self::InvalidConfigurationRecorderNameException(inner) => inner.meta(),
+            Self::InvalidConfigurationRecorderNameException(inner) => inner.meta(),
             #[cfg(feature = "op_put_delivery_channel")]
-Self::InvalidDeliveryChannelNameException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
-Self::InvalidExpressionException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_aggregation_authorizations", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_pack_status", feature = "op_describe_conformance_packs", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_describe_pending_aggregation_requests", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_conformance_pack_compliance_details", feature = "op_get_conformance_pack_compliance_summary", feature = "op_get_discovered_resource_counts", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_conformance_pack_detailed_status", feature = "op_get_resource_config_history", feature = "op_list_aggregate_discovered_resources", feature = "op_list_conformance_pack_compliance_scores", feature = "op_list_discovered_resources", feature = "op_list_tags_for_resource", feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
-Self::InvalidLimitException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_aggregation_authorizations", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_compliance_by_resource", feature = "op_describe_config_rule_evaluation_status", feature = "op_describe_config_rules", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_pack_status", feature = "op_describe_conformance_packs", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_describe_pending_aggregation_requests", feature = "op_describe_remediation_exceptions", feature = "op_describe_remediation_execution_status", feature = "op_describe_retention_configurations", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_conformance_pack_compliance_details", feature = "op_get_conformance_pack_compliance_summary", feature = "op_get_discovered_resource_counts", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_conformance_pack_detailed_status", feature = "op_get_resource_config_history", feature = "op_list_aggregate_discovered_resources", feature = "op_list_conformance_pack_compliance_scores", feature = "op_list_discovered_resources", feature = "op_list_resource_evaluations", feature = "op_list_stored_queries", feature = "op_list_tags_for_resource", feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
-Self::InvalidNextTokenException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_delete_aggregation_authorization", feature = "op_delete_pending_aggregation_request", feature = "op_delete_remediation_configuration", feature = "op_delete_retention_configuration", feature = "op_describe_aggregation_authorizations", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_compliance_by_resource", feature = "op_describe_config_rule_evaluation_status", feature = "op_describe_config_rules", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_pack_status", feature = "op_describe_conformance_packs", feature = "op_describe_pending_aggregation_requests", feature = "op_describe_remediation_exceptions", feature = "op_describe_remediation_execution_status", feature = "op_describe_retention_configurations", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_compliance_details_by_resource", feature = "op_get_compliance_summary_by_resource_type", feature = "op_get_conformance_pack_compliance_details", feature = "op_list_conformance_pack_compliance_scores", feature = "op_list_resource_evaluations", feature = "op_put_aggregation_authorization", feature = "op_put_config_rule", feature = "op_put_configuration_aggregator", feature = "op_put_conformance_pack", feature = "op_put_evaluations", feature = "op_put_external_evaluation", feature = "op_put_organization_config_rule", feature = "op_put_remediation_configurations", feature = "op_put_remediation_exceptions", feature = "op_put_retention_configuration", feature = "op_start_config_rules_evaluation", feature = "op_start_remediation_execution", feature = "op_start_resource_evaluation"))]
-Self::InvalidParameterValueException(inner) => inner.meta(),
+            Self::InvalidDeliveryChannelNameException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_select_aggregate_resource_config",
+                feature = "op_select_resource_config"
+            ))]
+            Self::InvalidExpressionException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_describe_aggregate_compliance_by_config_rules",
+                feature = "op_describe_aggregate_compliance_by_conformance_packs",
+                feature = "op_describe_aggregation_authorizations",
+                feature = "op_describe_configuration_aggregator_sources_status",
+                feature = "op_describe_configuration_aggregators",
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_describe_conformance_pack_status",
+                feature = "op_describe_conformance_packs",
+                feature = "op_describe_organization_config_rule_statuses",
+                feature = "op_describe_organization_config_rules",
+                feature = "op_describe_organization_conformance_pack_statuses",
+                feature = "op_describe_organization_conformance_packs",
+                feature = "op_describe_pending_aggregation_requests",
+                feature = "op_get_aggregate_compliance_details_by_config_rule",
+                feature = "op_get_aggregate_config_rule_compliance_summary",
+                feature = "op_get_aggregate_conformance_pack_compliance_summary",
+                feature = "op_get_aggregate_discovered_resource_counts",
+                feature = "op_get_conformance_pack_compliance_details",
+                feature = "op_get_conformance_pack_compliance_summary",
+                feature = "op_get_discovered_resource_counts",
+                feature = "op_get_organization_config_rule_detailed_status",
+                feature = "op_get_organization_conformance_pack_detailed_status",
+                feature = "op_get_resource_config_history",
+                feature = "op_list_aggregate_discovered_resources",
+                feature = "op_list_conformance_pack_compliance_scores",
+                feature = "op_list_discovered_resources",
+                feature = "op_list_tags_for_resource",
+                feature = "op_select_aggregate_resource_config",
+                feature = "op_select_resource_config"
+            ))]
+            Self::InvalidLimitException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_describe_aggregate_compliance_by_config_rules",
+                feature = "op_describe_aggregate_compliance_by_conformance_packs",
+                feature = "op_describe_aggregation_authorizations",
+                feature = "op_describe_compliance_by_config_rule",
+                feature = "op_describe_compliance_by_resource",
+                feature = "op_describe_config_rule_evaluation_status",
+                feature = "op_describe_config_rules",
+                feature = "op_describe_configuration_aggregator_sources_status",
+                feature = "op_describe_configuration_aggregators",
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_describe_conformance_pack_status",
+                feature = "op_describe_conformance_packs",
+                feature = "op_describe_organization_config_rule_statuses",
+                feature = "op_describe_organization_config_rules",
+                feature = "op_describe_organization_conformance_pack_statuses",
+                feature = "op_describe_organization_conformance_packs",
+                feature = "op_describe_pending_aggregation_requests",
+                feature = "op_describe_remediation_exceptions",
+                feature = "op_describe_remediation_execution_status",
+                feature = "op_describe_retention_configurations",
+                feature = "op_get_aggregate_compliance_details_by_config_rule",
+                feature = "op_get_aggregate_config_rule_compliance_summary",
+                feature = "op_get_aggregate_conformance_pack_compliance_summary",
+                feature = "op_get_aggregate_discovered_resource_counts",
+                feature = "op_get_compliance_details_by_config_rule",
+                feature = "op_get_conformance_pack_compliance_details",
+                feature = "op_get_conformance_pack_compliance_summary",
+                feature = "op_get_discovered_resource_counts",
+                feature = "op_get_organization_config_rule_detailed_status",
+                feature = "op_get_organization_conformance_pack_detailed_status",
+                feature = "op_get_resource_config_history",
+                feature = "op_list_aggregate_discovered_resources",
+                feature = "op_list_conformance_pack_compliance_scores",
+                feature = "op_list_discovered_resources",
+                feature = "op_list_resource_evaluations",
+                feature = "op_list_stored_queries",
+                feature = "op_list_tags_for_resource",
+                feature = "op_select_aggregate_resource_config",
+                feature = "op_select_resource_config"
+            ))]
+            Self::InvalidNextTokenException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_delete_aggregation_authorization",
+                feature = "op_delete_pending_aggregation_request",
+                feature = "op_delete_remediation_configuration",
+                feature = "op_delete_retention_configuration",
+                feature = "op_describe_aggregation_authorizations",
+                feature = "op_describe_compliance_by_config_rule",
+                feature = "op_describe_compliance_by_resource",
+                feature = "op_describe_config_rule_evaluation_status",
+                feature = "op_describe_config_rules",
+                feature = "op_describe_configuration_aggregator_sources_status",
+                feature = "op_describe_configuration_aggregators",
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_describe_conformance_pack_status",
+                feature = "op_describe_conformance_packs",
+                feature = "op_describe_pending_aggregation_requests",
+                feature = "op_describe_remediation_exceptions",
+                feature = "op_describe_remediation_execution_status",
+                feature = "op_describe_retention_configurations",
+                feature = "op_get_compliance_details_by_config_rule",
+                feature = "op_get_compliance_details_by_resource",
+                feature = "op_get_compliance_summary_by_resource_type",
+                feature = "op_get_conformance_pack_compliance_details",
+                feature = "op_list_conformance_pack_compliance_scores",
+                feature = "op_list_resource_evaluations",
+                feature = "op_put_aggregation_authorization",
+                feature = "op_put_config_rule",
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_conformance_pack",
+                feature = "op_put_evaluations",
+                feature = "op_put_external_evaluation",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_remediation_configurations",
+                feature = "op_put_remediation_exceptions",
+                feature = "op_put_retention_configuration",
+                feature = "op_start_config_rules_evaluation",
+                feature = "op_start_remediation_execution",
+                feature = "op_start_resource_evaluation"
+            ))]
+            Self::InvalidParameterValueException(inner) => inner.meta(),
             #[cfg(feature = "op_put_configuration_recorder")]
-Self::InvalidRecordingGroupException(inner) => inner.meta(),
+            Self::InvalidRecordingGroupException(inner) => inner.meta(),
             #[cfg(feature = "op_put_evaluations")]
-Self::InvalidResultTokenException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_configuration_recorder"))]
-Self::InvalidRoleException(inner) => inner.meta(),
+            Self::InvalidResultTokenException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_configuration_recorder"
+            ))]
+            Self::InvalidRoleException(inner) => inner.meta(),
             #[cfg(feature = "op_put_delivery_channel")]
-Self::InvalidS3KeyPrefixException(inner) => inner.meta(),
+            Self::InvalidS3KeyPrefixException(inner) => inner.meta(),
             #[cfg(feature = "op_put_delivery_channel")]
-Self::InvalidS3KmsKeyArnException(inner) => inner.meta(),
+            Self::InvalidS3KmsKeyArnException(inner) => inner.meta(),
             #[cfg(feature = "op_put_delivery_channel")]
-Self::InvalidSnsTopicArnException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_get_resource_config_history", feature = "op_list_resource_evaluations"))]
-Self::InvalidTimeRangeException(inner) => inner.meta(),
+            Self::InvalidSnsTopicArnException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_get_resource_config_history",
+                feature = "op_list_resource_evaluations"
+            ))]
+            Self::InvalidTimeRangeException(inner) => inner.meta(),
             #[cfg(feature = "op_delete_delivery_channel")]
-Self::LastDeliveryChannelDeleteFailedException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_service_linked_configuration_recorder", feature = "op_start_config_rules_evaluation"))]
-Self::LimitExceededException(inner) => inner.meta(),
+            Self::LastDeliveryChannelDeleteFailedException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_service_linked_configuration_recorder",
+                feature = "op_start_config_rules_evaluation"
+            ))]
+            Self::LimitExceededException(inner) => inner.meta(),
             #[cfg(feature = "op_put_resource_config")]
-Self::MaxActiveResourcesExceededException(inner) => inner.meta(),
+            Self::MaxActiveResourcesExceededException(inner) => inner.meta(),
             #[cfg(feature = "op_put_config_rule")]
-Self::MaxNumberOfConfigRulesExceededException(inner) => inner.meta(),
+            Self::MaxNumberOfConfigRulesExceededException(inner) => inner.meta(),
             #[cfg(feature = "op_put_configuration_recorder")]
-Self::MaxNumberOfConfigurationRecordersExceededException(inner) => inner.meta(),
+            Self::MaxNumberOfConfigurationRecordersExceededException(inner) => inner.meta(),
             #[cfg(feature = "op_put_conformance_pack")]
-Self::MaxNumberOfConformancePacksExceededException(inner) => inner.meta(),
+            Self::MaxNumberOfConformancePacksExceededException(inner) => inner.meta(),
             #[cfg(feature = "op_put_connector")]
-Self::MaxNumberOfConnectorsExceededException(inner) => inner.meta(),
+            Self::MaxNumberOfConnectorsExceededException(inner) => inner.meta(),
             #[cfg(feature = "op_put_delivery_channel")]
-Self::MaxNumberOfDeliveryChannelsExceededException(inner) => inner.meta(),
+            Self::MaxNumberOfDeliveryChannelsExceededException(inner) => inner.meta(),
             #[cfg(feature = "op_put_organization_config_rule")]
-Self::MaxNumberOfOrganizationConfigRulesExceededException(inner) => inner.meta(),
+            Self::MaxNumberOfOrganizationConfigRulesExceededException(inner) => inner.meta(),
             #[cfg(feature = "op_put_organization_conformance_pack")]
-Self::MaxNumberOfOrganizationConformancePacksExceededException(inner) => inner.meta(),
+            Self::MaxNumberOfOrganizationConformancePacksExceededException(inner) => inner.meta(),
             #[cfg(feature = "op_put_retention_configuration")]
-Self::MaxNumberOfRetentionConfigurationsExceededException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_batch_get_resource_config", feature = "op_deliver_config_snapshot", feature = "op_get_resource_config_history", feature = "op_list_discovered_resources", feature = "op_put_config_rule", feature = "op_put_delivery_channel"))]
-Self::NoAvailableConfigurationRecorderException(inner) => inner.meta(),
+            Self::MaxNumberOfRetentionConfigurationsExceededException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_batch_get_resource_config",
+                feature = "op_deliver_config_snapshot",
+                feature = "op_get_resource_config_history",
+                feature = "op_list_discovered_resources",
+                feature = "op_put_config_rule",
+                feature = "op_put_delivery_channel"
+            ))]
+            Self::NoAvailableConfigurationRecorderException(inner) => inner.meta(),
             #[cfg(feature = "op_start_configuration_recorder")]
-Self::NoAvailableDeliveryChannelException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack"))]
-Self::NoAvailableOrganizationException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_delete_resource_config", feature = "op_deliver_config_snapshot", feature = "op_put_resource_config"))]
-Self::NoRunningConfigurationRecorderException(inner) => inner.meta(),
+            Self::NoAvailableDeliveryChannelException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack"
+            ))]
+            Self::NoAvailableOrganizationException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_delete_resource_config",
+                feature = "op_deliver_config_snapshot",
+                feature = "op_put_resource_config"
+            ))]
+            Self::NoRunningConfigurationRecorderException(inner) => inner.meta(),
             #[cfg(feature = "op_put_delivery_channel")]
-Self::NoSuchBucketException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_delete_config_rule", feature = "op_delete_evaluation_results", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_config_rule_evaluation_status", feature = "op_describe_config_rules", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_custom_rule_policy", feature = "op_put_evaluations", feature = "op_put_external_evaluation", feature = "op_start_config_rules_evaluation"))]
-Self::NoSuchConfigRuleException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_describe_conformance_pack_compliance", feature = "op_get_conformance_pack_compliance_details"))]
-Self::NoSuchConfigRuleInConformancePackException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_batch_get_aggregate_resource_config", feature = "op_delete_configuration_aggregator", feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_aggregate_resource_config", feature = "op_list_aggregate_discovered_resources", feature = "op_select_aggregate_resource_config"))]
-Self::NoSuchConfigurationAggregatorException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_associate_resource_types", feature = "op_delete_configuration_recorder", feature = "op_delete_service_linked_configuration_recorder", feature = "op_describe_configuration_recorder_status", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_start_configuration_recorder", feature = "op_stop_configuration_recorder"))]
-Self::NoSuchConfigurationRecorderException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_delete_conformance_pack", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_packs", feature = "op_get_conformance_pack_compliance_details", feature = "op_get_conformance_pack_compliance_summary"))]
-Self::NoSuchConformancePackException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_delete_delivery_channel", feature = "op_deliver_config_snapshot", feature = "op_describe_delivery_channel_status", feature = "op_describe_delivery_channels"))]
-Self::NoSuchDeliveryChannelException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_delete_organization_config_rule", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_custom_rule_policy"))]
-Self::NoSuchOrganizationConfigRuleException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_delete_organization_conformance_pack", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_get_organization_conformance_pack_detailed_status"))]
-Self::NoSuchOrganizationConformancePackException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_delete_remediation_configuration", feature = "op_describe_remediation_execution_status", feature = "op_start_remediation_execution"))]
-Self::NoSuchRemediationConfigurationException(inner) => inner.meta(),
+            Self::NoSuchBucketException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_delete_config_rule",
+                feature = "op_delete_evaluation_results",
+                feature = "op_describe_compliance_by_config_rule",
+                feature = "op_describe_config_rule_evaluation_status",
+                feature = "op_describe_config_rules",
+                feature = "op_get_compliance_details_by_config_rule",
+                feature = "op_get_custom_rule_policy",
+                feature = "op_put_evaluations",
+                feature = "op_put_external_evaluation",
+                feature = "op_start_config_rules_evaluation"
+            ))]
+            Self::NoSuchConfigRuleException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_get_conformance_pack_compliance_details"
+            ))]
+            Self::NoSuchConfigRuleInConformancePackException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_batch_get_aggregate_resource_config",
+                feature = "op_delete_configuration_aggregator",
+                feature = "op_describe_aggregate_compliance_by_config_rules",
+                feature = "op_describe_aggregate_compliance_by_conformance_packs",
+                feature = "op_describe_configuration_aggregator_sources_status",
+                feature = "op_describe_configuration_aggregators",
+                feature = "op_get_aggregate_compliance_details_by_config_rule",
+                feature = "op_get_aggregate_config_rule_compliance_summary",
+                feature = "op_get_aggregate_conformance_pack_compliance_summary",
+                feature = "op_get_aggregate_discovered_resource_counts",
+                feature = "op_get_aggregate_resource_config",
+                feature = "op_list_aggregate_discovered_resources",
+                feature = "op_select_aggregate_resource_config"
+            ))]
+            Self::NoSuchConfigurationAggregatorException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_associate_resource_types",
+                feature = "op_delete_configuration_recorder",
+                feature = "op_delete_service_linked_configuration_recorder",
+                feature = "op_describe_configuration_recorder_status",
+                feature = "op_describe_configuration_recorders",
+                feature = "op_disassociate_resource_types",
+                feature = "op_start_configuration_recorder",
+                feature = "op_stop_configuration_recorder"
+            ))]
+            Self::NoSuchConfigurationRecorderException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_delete_conformance_pack",
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_describe_conformance_packs",
+                feature = "op_get_conformance_pack_compliance_details",
+                feature = "op_get_conformance_pack_compliance_summary"
+            ))]
+            Self::NoSuchConformancePackException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_delete_delivery_channel",
+                feature = "op_deliver_config_snapshot",
+                feature = "op_describe_delivery_channel_status",
+                feature = "op_describe_delivery_channels"
+            ))]
+            Self::NoSuchDeliveryChannelException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_delete_organization_config_rule",
+                feature = "op_describe_organization_config_rule_statuses",
+                feature = "op_describe_organization_config_rules",
+                feature = "op_get_organization_config_rule_detailed_status",
+                feature = "op_get_organization_custom_rule_policy"
+            ))]
+            Self::NoSuchOrganizationConfigRuleException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_delete_organization_conformance_pack",
+                feature = "op_describe_organization_conformance_pack_statuses",
+                feature = "op_describe_organization_conformance_packs",
+                feature = "op_get_organization_conformance_pack_detailed_status"
+            ))]
+            Self::NoSuchOrganizationConformancePackException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_delete_remediation_configuration",
+                feature = "op_describe_remediation_execution_status",
+                feature = "op_start_remediation_execution"
+            ))]
+            Self::NoSuchRemediationConfigurationException(inner) => inner.meta(),
             #[cfg(feature = "op_delete_remediation_exceptions")]
-Self::NoSuchRemediationExceptionException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_delete_retention_configuration", feature = "op_describe_retention_configurations"))]
-Self::NoSuchRetentionConfigurationException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_delete_organization_config_rule", feature = "op_delete_organization_conformance_pack", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_conformance_pack_detailed_status", feature = "op_get_organization_custom_rule_policy", feature = "op_put_configuration_aggregator", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack"))]
-Self::OrganizationAccessDeniedException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack"))]
-Self::OrganizationAllFeaturesNotEnabledException(inner) => inner.meta(),
+            Self::NoSuchRemediationExceptionException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_delete_retention_configuration",
+                feature = "op_describe_retention_configurations"
+            ))]
+            Self::NoSuchRetentionConfigurationException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_delete_organization_config_rule",
+                feature = "op_delete_organization_conformance_pack",
+                feature = "op_describe_organization_config_rule_statuses",
+                feature = "op_describe_organization_config_rules",
+                feature = "op_describe_organization_conformance_pack_statuses",
+                feature = "op_describe_organization_conformance_packs",
+                feature = "op_get_organization_config_rule_detailed_status",
+                feature = "op_get_organization_conformance_pack_detailed_status",
+                feature = "op_get_organization_custom_rule_policy",
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack"
+            ))]
+            Self::OrganizationAccessDeniedException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack"
+            ))]
+            Self::OrganizationAllFeaturesNotEnabledException(inner) => inner.meta(),
             #[cfg(feature = "op_put_organization_conformance_pack")]
-Self::OrganizationConformancePackTemplateValidationException(inner) => inner.meta(),
+            Self::OrganizationConformancePackTemplateValidationException(inner) => inner.meta(),
             #[cfg(feature = "op_get_aggregate_resource_config")]
-Self::OversizedConfigurationItemException(inner) => inner.meta(),
+            Self::OversizedConfigurationItemException(inner) => inner.meta(),
             #[cfg(feature = "op_delete_remediation_configuration")]
-Self::RemediationInProgressException(inner) => inner.meta(),
+            Self::RemediationInProgressException(inner) => inner.meta(),
             #[cfg(feature = "op_put_stored_query")]
-Self::ResourceConcurrentModificationException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_delete_config_rule", feature = "op_delete_conformance_pack", feature = "op_delete_evaluation_results", feature = "op_delete_organization_config_rule", feature = "op_delete_organization_conformance_pack", feature = "op_put_config_rule", feature = "op_put_conformance_pack", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_start_config_rules_evaluation"))]
-Self::ResourceInUseException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_get_aggregate_resource_config", feature = "op_get_resource_config_history"))]
-Self::ResourceNotDiscoveredException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_delete_connector", feature = "op_delete_stored_query", feature = "op_get_connector", feature = "op_get_resource_evaluation_summary", feature = "op_get_stored_query", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource"))]
-Self::ResourceNotFoundException(inner) => inner.meta(),
+            Self::ResourceConcurrentModificationException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_delete_config_rule",
+                feature = "op_delete_conformance_pack",
+                feature = "op_delete_evaluation_results",
+                feature = "op_delete_organization_config_rule",
+                feature = "op_delete_organization_conformance_pack",
+                feature = "op_put_config_rule",
+                feature = "op_put_conformance_pack",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack",
+                feature = "op_start_config_rules_evaluation"
+            ))]
+            Self::ResourceInUseException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_get_aggregate_resource_config",
+                feature = "op_get_resource_config_history"
+            ))]
+            Self::ResourceNotDiscoveredException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_delete_connector",
+                feature = "op_delete_stored_query",
+                feature = "op_get_connector",
+                feature = "op_get_resource_evaluation_summary",
+                feature = "op_get_stored_query",
+                feature = "op_list_tags_for_resource",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource"
+            ))]
+            Self::ResourceNotFoundException(inner) => inner.meta(),
             #[cfg(any(feature = "op_put_stored_query", feature = "op_tag_resource"))]
-Self::TooManyTagsException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_delete_configuration_recorder", feature = "op_put_configuration_recorder", feature = "op_start_configuration_recorder", feature = "op_stop_configuration_recorder"))]
-Self::UnmodifiableEntityException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_associate_resource_types", feature = "op_batch_get_aggregate_resource_config", feature = "op_batch_get_resource_config", feature = "op_delete_connector", feature = "op_delete_resource_config", feature = "op_delete_service_linked_configuration_recorder", feature = "op_delete_stored_query", feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_configuration_recorder_status", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_aggregate_resource_config", feature = "op_get_connector", feature = "op_get_discovered_resource_counts", feature = "op_get_resource_config_history", feature = "op_get_stored_query", feature = "op_list_aggregate_discovered_resources", feature = "op_list_configuration_recorders", feature = "op_list_connectors", feature = "op_list_discovered_resources", feature = "op_list_stored_queries", feature = "op_list_tags_for_resource", feature = "op_put_configuration_recorder", feature = "op_put_connector", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_put_resource_config", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_stored_query", feature = "op_put_third_party_service_linked_configuration_recorder", feature = "op_tag_resource", feature = "op_untag_resource"))]
-Self::ValidationException(inner) => inner.meta(),
+            Self::TooManyTagsException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_delete_configuration_recorder",
+                feature = "op_put_configuration_recorder",
+                feature = "op_start_configuration_recorder",
+                feature = "op_stop_configuration_recorder"
+            ))]
+            Self::UnmodifiableEntityException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_associate_resource_types",
+                feature = "op_batch_get_aggregate_resource_config",
+                feature = "op_batch_get_resource_config",
+                feature = "op_delete_connector",
+                feature = "op_delete_resource_config",
+                feature = "op_delete_service_linked_configuration_recorder",
+                feature = "op_delete_stored_query",
+                feature = "op_describe_aggregate_compliance_by_config_rules",
+                feature = "op_describe_aggregate_compliance_by_conformance_packs",
+                feature = "op_describe_configuration_recorder_status",
+                feature = "op_describe_configuration_recorders",
+                feature = "op_disassociate_resource_types",
+                feature = "op_get_aggregate_compliance_details_by_config_rule",
+                feature = "op_get_aggregate_config_rule_compliance_summary",
+                feature = "op_get_aggregate_conformance_pack_compliance_summary",
+                feature = "op_get_aggregate_discovered_resource_counts",
+                feature = "op_get_aggregate_resource_config",
+                feature = "op_get_connector",
+                feature = "op_get_discovered_resource_counts",
+                feature = "op_get_resource_config_history",
+                feature = "op_get_stored_query",
+                feature = "op_list_aggregate_discovered_resources",
+                feature = "op_list_configuration_recorders",
+                feature = "op_list_connectors",
+                feature = "op_list_discovered_resources",
+                feature = "op_list_stored_queries",
+                feature = "op_list_tags_for_resource",
+                feature = "op_put_configuration_recorder",
+                feature = "op_put_connector",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack",
+                feature = "op_put_resource_config",
+                feature = "op_put_service_linked_configuration_recorder",
+                feature = "op_put_stored_query",
+                feature = "op_put_third_party_service_linked_configuration_recorder",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource"
+            ))]
+            Self::ValidationException(inner) => inner.meta(),
             Self::Unhandled(inner) => &inner.meta,
         }
     }
 }
 #[cfg(feature = "op_associate_resource_types")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::associate_resource_types::AssociateResourceTypesError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::associate_resource_types::AssociateResourceTypesError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::associate_resource_types::AssociateResourceTypesError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::associate_resource_types::AssociateResourceTypesError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -611,8 +1585,14 @@ where
     }
 }
 #[cfg(feature = "op_batch_get_aggregate_resource_config")]
-impl From<crate::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfigError> for Error {
-    fn from(err: crate::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfigError) -> Self {
+impl
+    From<
+        crate::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfigError,
+    > for Error
+{
+    fn from(
+        err: crate::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfigError,
+    ) -> Self {
         match err {
             crate::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfigError::NoSuchConfigurationAggregatorException(
                 inner,
@@ -625,16 +1605,26 @@ impl From<crate::operation::batch_get_aggregate_resource_config::BatchGetAggrega
     }
 }
 #[cfg(feature = "op_batch_get_resource_config")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_get_resource_config::BatchGetResourceConfigError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::batch_get_resource_config::BatchGetResourceConfigError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::batch_get_resource_config::BatchGetResourceConfigError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::batch_get_resource_config::BatchGetResourceConfigError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -672,7 +1662,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -681,8 +1673,12 @@ where
     }
 }
 #[cfg(feature = "op_delete_aggregation_authorization")]
-impl From<crate::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationError> for Error {
-    fn from(err: crate::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationError) -> Self {
+impl From<crate::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationError>
+    for Error
+{
+    fn from(
+        err: crate::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationError,
+    ) -> Self {
         match err {
             crate::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -692,13 +1688,26 @@ impl From<crate::operation::delete_aggregation_authorization::DeleteAggregationA
     }
 }
 #[cfg(feature = "op_delete_config_rule")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_config_rule::DeleteConfigRuleError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_config_rule::DeleteConfigRuleError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_config_rule::DeleteConfigRuleError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_config_rule::DeleteConfigRuleError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -718,8 +1727,12 @@ impl From<crate::operation::delete_config_rule::DeleteConfigRuleError> for Error
 }
 #[cfg(feature = "op_delete_configuration_aggregator")]
 impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorError, R>>
-    for Error
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -730,7 +1743,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -739,8 +1754,12 @@ where
     }
 }
 #[cfg(feature = "op_delete_configuration_aggregator")]
-impl From<crate::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorError> for Error {
-    fn from(err: crate::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorError) -> Self {
+impl From<crate::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorError>
+    for Error
+{
+    fn from(
+        err: crate::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorError,
+    ) -> Self {
         match err {
             crate::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorError::NoSuchConfigurationAggregatorException(inner) => {
                 Error::NoSuchConfigurationAggregatorException(inner)
@@ -750,16 +1769,26 @@ impl From<crate::operation::delete_configuration_aggregator::DeleteConfiguration
     }
 }
 #[cfg(feature = "op_delete_configuration_recorder")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_configuration_recorder::DeleteConfigurationRecorderError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_configuration_recorder::DeleteConfigurationRecorderError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_configuration_recorder::DeleteConfigurationRecorderError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_configuration_recorder::DeleteConfigurationRecorderError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -768,8 +1797,12 @@ where
     }
 }
 #[cfg(feature = "op_delete_configuration_recorder")]
-impl From<crate::operation::delete_configuration_recorder::DeleteConfigurationRecorderError> for Error {
-    fn from(err: crate::operation::delete_configuration_recorder::DeleteConfigurationRecorderError) -> Self {
+impl From<crate::operation::delete_configuration_recorder::DeleteConfigurationRecorderError>
+    for Error
+{
+    fn from(
+        err: crate::operation::delete_configuration_recorder::DeleteConfigurationRecorderError,
+    ) -> Self {
         match err {
             crate::operation::delete_configuration_recorder::DeleteConfigurationRecorderError::NoSuchConfigurationRecorderException(inner) => {
                 Error::NoSuchConfigurationRecorderException(inner)
@@ -782,15 +1815,26 @@ impl From<crate::operation::delete_configuration_recorder::DeleteConfigurationRe
     }
 }
 #[cfg(feature = "op_delete_conformance_pack")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_conformance_pack::DeleteConformancePackError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_conformance_pack::DeleteConformancePackError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_conformance_pack::DeleteConformancePackError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_conformance_pack::DeleteConformancePackError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -813,13 +1857,26 @@ impl From<crate::operation::delete_conformance_pack::DeleteConformancePackError>
     }
 }
 #[cfg(feature = "op_delete_connector")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_connector::DeleteConnectorError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_connector::DeleteConnectorError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_connector::DeleteConnectorError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_connector::DeleteConnectorError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -831,22 +1888,39 @@ where
 impl From<crate::operation::delete_connector::DeleteConnectorError> for Error {
     fn from(err: crate::operation::delete_connector::DeleteConnectorError) -> Self {
         match err {
-            crate::operation::delete_connector::DeleteConnectorError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::delete_connector::DeleteConnectorError::ValidationException(inner) => Error::ValidationException(inner),
-            crate::operation::delete_connector::DeleteConnectorError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::delete_connector::DeleteConnectorError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::delete_connector::DeleteConnectorError::ValidationException(
+                inner,
+            ) => Error::ValidationException(inner),
+            crate::operation::delete_connector::DeleteConnectorError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_delete_delivery_channel")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_delivery_channel::DeleteDeliveryChannelError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_delivery_channel::DeleteDeliveryChannelError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_delivery_channel::DeleteDeliveryChannelError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_delivery_channel::DeleteDeliveryChannelError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -869,16 +1943,26 @@ impl From<crate::operation::delete_delivery_channel::DeleteDeliveryChannelError>
     }
 }
 #[cfg(feature = "op_delete_evaluation_results")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_evaluation_results::DeleteEvaluationResultsError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_evaluation_results::DeleteEvaluationResultsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_evaluation_results::DeleteEvaluationResultsError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_evaluation_results::DeleteEvaluationResultsError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -888,7 +1972,9 @@ where
 }
 #[cfg(feature = "op_delete_evaluation_results")]
 impl From<crate::operation::delete_evaluation_results::DeleteEvaluationResultsError> for Error {
-    fn from(err: crate::operation::delete_evaluation_results::DeleteEvaluationResultsError) -> Self {
+    fn from(
+        err: crate::operation::delete_evaluation_results::DeleteEvaluationResultsError,
+    ) -> Self {
         match err {
             crate::operation::delete_evaluation_results::DeleteEvaluationResultsError::NoSuchConfigRuleException(inner) => {
                 Error::NoSuchConfigRuleException(inner)
@@ -902,8 +1988,12 @@ impl From<crate::operation::delete_evaluation_results::DeleteEvaluationResultsEr
 }
 #[cfg(feature = "op_delete_organization_config_rule")]
 impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleError, R>>
-    for Error
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -914,7 +2004,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -923,8 +2015,12 @@ where
     }
 }
 #[cfg(feature = "op_delete_organization_config_rule")]
-impl From<crate::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleError> for Error {
-    fn from(err: crate::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleError) -> Self {
+impl From<crate::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleError>
+    for Error
+{
+    fn from(
+        err: crate::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleError,
+    ) -> Self {
         match err {
             crate::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleError::NoSuchOrganizationConfigRuleException(inner) => {
                 Error::NoSuchOrganizationConfigRuleException(inner)
@@ -1003,8 +2099,13 @@ where
     }
 }
 #[cfg(feature = "op_delete_pending_aggregation_request")]
-impl From<crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError> for Error {
-    fn from(err: crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError) -> Self {
+impl
+    From<crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError>
+    for Error
+{
+    fn from(
+        err: crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError,
+    ) -> Self {
         match err {
             crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -1031,7 +2132,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1040,8 +2143,12 @@ where
     }
 }
 #[cfg(feature = "op_delete_remediation_configuration")]
-impl From<crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationError> for Error {
-    fn from(err: crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationError) -> Self {
+impl From<crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationError>
+    for Error
+{
+    fn from(
+        err: crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationError,
+    ) -> Self {
         match err {
             crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationError::InsufficientPermissionsException(inner) => {
                 Error::InsufficientPermissionsException(inner)
@@ -1060,16 +2167,26 @@ impl From<crate::operation::delete_remediation_configuration::DeleteRemediationC
     }
 }
 #[cfg(feature = "op_delete_remediation_exceptions")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_remediation_exceptions::DeleteRemediationExceptionsError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_remediation_exceptions::DeleteRemediationExceptionsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_remediation_exceptions::DeleteRemediationExceptionsError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_remediation_exceptions::DeleteRemediationExceptionsError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1078,8 +2195,12 @@ where
     }
 }
 #[cfg(feature = "op_delete_remediation_exceptions")]
-impl From<crate::operation::delete_remediation_exceptions::DeleteRemediationExceptionsError> for Error {
-    fn from(err: crate::operation::delete_remediation_exceptions::DeleteRemediationExceptionsError) -> Self {
+impl From<crate::operation::delete_remediation_exceptions::DeleteRemediationExceptionsError>
+    for Error
+{
+    fn from(
+        err: crate::operation::delete_remediation_exceptions::DeleteRemediationExceptionsError,
+    ) -> Self {
         match err {
             crate::operation::delete_remediation_exceptions::DeleteRemediationExceptionsError::NoSuchRemediationExceptionException(inner) => {
                 Error::NoSuchRemediationExceptionException(inner)
@@ -1089,13 +2210,26 @@ impl From<crate::operation::delete_remediation_exceptions::DeleteRemediationExce
     }
 }
 #[cfg(feature = "op_delete_resource_config")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_resource_config::DeleteResourceConfigError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_resource_config::DeleteResourceConfigError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_resource_config::DeleteResourceConfigError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_resource_config::DeleteResourceConfigError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1117,8 +2251,12 @@ impl From<crate::operation::delete_resource_config::DeleteResourceConfigError> f
 }
 #[cfg(feature = "op_delete_retention_configuration")]
 impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_retention_configuration::DeleteRetentionConfigurationError, R>>
-    for Error
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_retention_configuration::DeleteRetentionConfigurationError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -1129,7 +2267,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1138,8 +2278,12 @@ where
     }
 }
 #[cfg(feature = "op_delete_retention_configuration")]
-impl From<crate::operation::delete_retention_configuration::DeleteRetentionConfigurationError> for Error {
-    fn from(err: crate::operation::delete_retention_configuration::DeleteRetentionConfigurationError) -> Self {
+impl From<crate::operation::delete_retention_configuration::DeleteRetentionConfigurationError>
+    for Error
+{
+    fn from(
+        err: crate::operation::delete_retention_configuration::DeleteRetentionConfigurationError,
+    ) -> Self {
         match err {
             crate::operation::delete_retention_configuration::DeleteRetentionConfigurationError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -1189,13 +2333,26 @@ impl From<crate::operation::delete_service_linked_configuration_recorder::Delete
     }
 }
 #[cfg(feature = "op_delete_stored_query")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_stored_query::DeleteStoredQueryError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_stored_query::DeleteStoredQueryError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_stored_query::DeleteStoredQueryError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_stored_query::DeleteStoredQueryError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1216,15 +2373,26 @@ impl From<crate::operation::delete_stored_query::DeleteStoredQueryError> for Err
     }
 }
 #[cfg(feature = "op_deliver_config_snapshot")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::deliver_config_snapshot::DeliverConfigSnapshotError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::deliver_config_snapshot::DeliverConfigSnapshotError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::deliver_config_snapshot::DeliverConfigSnapshotError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::deliver_config_snapshot::DeliverConfigSnapshotError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1397,8 +2565,12 @@ where
     }
 }
 #[cfg(feature = "op_describe_compliance_by_config_rule")]
-impl From<crate::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleError> for Error {
-    fn from(err: crate::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleError) -> Self {
+impl From<crate::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleError>
+    for Error
+{
+    fn from(
+        err: crate::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleError,
+    ) -> Self {
         match err {
             crate::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleError::InvalidNextTokenException(inner) => {
                 Error::InvalidNextTokenException(inner)
@@ -1415,8 +2587,12 @@ impl From<crate::operation::describe_compliance_by_config_rule::DescribeComplian
 }
 #[cfg(feature = "op_describe_compliance_by_resource")]
 impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceError, R>>
-    for Error
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -1427,7 +2603,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1436,8 +2614,12 @@ where
     }
 }
 #[cfg(feature = "op_describe_compliance_by_resource")]
-impl From<crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceError> for Error {
-    fn from(err: crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceError) -> Self {
+impl From<crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceError>
+    for Error
+{
+    fn from(
+        err: crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceError,
+    ) -> Self {
         match err {
             crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceError::InvalidNextTokenException(inner) => {
                 Error::InvalidNextTokenException(inner)
@@ -1495,13 +2677,26 @@ impl From<crate::operation::describe_config_rule_evaluation_status::DescribeConf
     }
 }
 #[cfg(feature = "op_describe_config_rules")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_config_rules::DescribeConfigRulesError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_config_rules::DescribeConfigRulesError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_config_rules::DescribeConfigRulesError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_config_rules::DescribeConfigRulesError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1553,8 +2748,14 @@ where
     }
 }
 #[cfg(feature = "op_describe_configuration_aggregators")]
-impl From<crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError> for Error {
-    fn from(err: crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError) -> Self {
+impl
+    From<
+        crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError,
+    > for Error
+{
+    fn from(
+        err: crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError,
+    ) -> Self {
         match err {
             crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError::InvalidLimitException(inner) => {
                 Error::InvalidLimitException(inner)
@@ -1628,7 +2829,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1637,8 +2840,12 @@ where
     }
 }
 #[cfg(feature = "op_describe_configuration_recorders")]
-impl From<crate::operation::describe_configuration_recorders::DescribeConfigurationRecordersError> for Error {
-    fn from(err: crate::operation::describe_configuration_recorders::DescribeConfigurationRecordersError) -> Self {
+impl From<crate::operation::describe_configuration_recorders::DescribeConfigurationRecordersError>
+    for Error
+{
+    fn from(
+        err: crate::operation::describe_configuration_recorders::DescribeConfigurationRecordersError,
+    ) -> Self {
         match err {
             crate::operation::describe_configuration_recorders::DescribeConfigurationRecordersError::NoSuchConfigurationRecorderException(inner) => {
                 Error::NoSuchConfigurationRecorderException(inner)
@@ -1726,16 +2933,26 @@ impl From<crate::operation::describe_conformance_pack_compliance::DescribeConfor
     }
 }
 #[cfg(feature = "op_describe_conformance_packs")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_conformance_packs::DescribeConformancePacksError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_conformance_packs::DescribeConformancePacksError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_conformance_packs::DescribeConformancePacksError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_conformance_packs::DescribeConformancePacksError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1745,7 +2962,9 @@ where
 }
 #[cfg(feature = "op_describe_conformance_packs")]
 impl From<crate::operation::describe_conformance_packs::DescribeConformancePacksError> for Error {
-    fn from(err: crate::operation::describe_conformance_packs::DescribeConformancePacksError) -> Self {
+    fn from(
+        err: crate::operation::describe_conformance_packs::DescribeConformancePacksError,
+    ) -> Self {
         match err {
             crate::operation::describe_conformance_packs::DescribeConformancePacksError::InvalidLimitException(inner) => {
                 Error::InvalidLimitException(inner)
@@ -1766,7 +2985,10 @@ impl From<crate::operation::describe_conformance_packs::DescribeConformancePacks
 #[cfg(feature = "op_describe_conformance_pack_status")]
 impl<R>
     From<
-        ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_conformance_pack_status::DescribeConformancePackStatusError, R>,
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_conformance_pack_status::DescribeConformancePackStatusError,
+            R,
+        >,
     > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -1778,7 +3000,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1787,8 +3011,12 @@ where
     }
 }
 #[cfg(feature = "op_describe_conformance_pack_status")]
-impl From<crate::operation::describe_conformance_pack_status::DescribeConformancePackStatusError> for Error {
-    fn from(err: crate::operation::describe_conformance_pack_status::DescribeConformancePackStatusError) -> Self {
+impl From<crate::operation::describe_conformance_pack_status::DescribeConformancePackStatusError>
+    for Error
+{
+    fn from(
+        err: crate::operation::describe_conformance_pack_status::DescribeConformancePackStatusError,
+    ) -> Self {
         match err {
             crate::operation::describe_conformance_pack_status::DescribeConformancePackStatusError::InvalidLimitException(inner) => {
                 Error::InvalidLimitException(inner)
@@ -1804,16 +3032,26 @@ impl From<crate::operation::describe_conformance_pack_status::DescribeConformanc
     }
 }
 #[cfg(feature = "op_describe_delivery_channels")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_delivery_channels::DescribeDeliveryChannelsError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_delivery_channels::DescribeDeliveryChannelsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_delivery_channels::DescribeDeliveryChannelsError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_delivery_channels::DescribeDeliveryChannelsError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1823,7 +3061,9 @@ where
 }
 #[cfg(feature = "op_describe_delivery_channels")]
 impl From<crate::operation::describe_delivery_channels::DescribeDeliveryChannelsError> for Error {
-    fn from(err: crate::operation::describe_delivery_channels::DescribeDeliveryChannelsError) -> Self {
+    fn from(
+        err: crate::operation::describe_delivery_channels::DescribeDeliveryChannelsError,
+    ) -> Self {
         match err {
             crate::operation::describe_delivery_channels::DescribeDeliveryChannelsError::NoSuchDeliveryChannelException(inner) => {
                 Error::NoSuchDeliveryChannelException(inner)
@@ -1835,7 +3075,10 @@ impl From<crate::operation::describe_delivery_channels::DescribeDeliveryChannels
 #[cfg(feature = "op_describe_delivery_channel_status")]
 impl<R>
     From<
-        ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusError, R>,
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusError,
+            R,
+        >,
     > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -1847,7 +3090,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1856,8 +3101,12 @@ where
     }
 }
 #[cfg(feature = "op_describe_delivery_channel_status")]
-impl From<crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusError> for Error {
-    fn from(err: crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusError) -> Self {
+impl From<crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusError>
+    for Error
+{
+    fn from(
+        err: crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusError,
+    ) -> Self {
         match err {
             crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusError::NoSuchDeliveryChannelException(inner) => {
                 Error::NoSuchDeliveryChannelException(inner)
@@ -1893,8 +3142,13 @@ where
     }
 }
 #[cfg(feature = "op_describe_organization_config_rules")]
-impl From<crate::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError> for Error {
-    fn from(err: crate::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError) -> Self {
+impl
+    From<crate::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError>
+    for Error
+{
+    fn from(
+        err: crate::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError,
+    ) -> Self {
         match err {
             crate::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError::InvalidLimitException(inner) => {
                 Error::InvalidLimitException(inner)
@@ -2109,8 +3363,12 @@ impl From<crate::operation::describe_remediation_configurations::DescribeRemedia
 }
 #[cfg(feature = "op_describe_remediation_exceptions")]
 impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsError, R>>
-    for Error
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -2121,7 +3379,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2130,8 +3390,12 @@ where
     }
 }
 #[cfg(feature = "op_describe_remediation_exceptions")]
-impl From<crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsError> for Error {
-    fn from(err: crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsError) -> Self {
+impl From<crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsError>
+    for Error
+{
+    fn from(
+        err: crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsError,
+    ) -> Self {
         match err {
             crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsError::InvalidNextTokenException(inner) => {
                 Error::InvalidNextTokenException(inner)
@@ -2207,8 +3471,12 @@ where
     }
 }
 #[cfg(feature = "op_describe_retention_configurations")]
-impl From<crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsError> for Error {
-    fn from(err: crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsError) -> Self {
+impl From<crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsError>
+    for Error
+{
+    fn from(
+        err: crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsError,
+    ) -> Self {
         match err {
             crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsError::InvalidNextTokenException(inner) => {
                 Error::InvalidNextTokenException(inner)
@@ -2224,16 +3492,26 @@ impl From<crate::operation::describe_retention_configurations::DescribeRetention
     }
 }
 #[cfg(feature = "op_disassociate_resource_types")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disassociate_resource_types::DisassociateResourceTypesError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::disassociate_resource_types::DisassociateResourceTypesError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::disassociate_resource_types::DisassociateResourceTypesError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::disassociate_resource_types::DisassociateResourceTypesError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2243,7 +3521,9 @@ where
 }
 #[cfg(feature = "op_disassociate_resource_types")]
 impl From<crate::operation::disassociate_resource_types::DisassociateResourceTypesError> for Error {
-    fn from(err: crate::operation::disassociate_resource_types::DisassociateResourceTypesError) -> Self {
+    fn from(
+        err: crate::operation::disassociate_resource_types::DisassociateResourceTypesError,
+    ) -> Self {
         match err {
             crate::operation::disassociate_resource_types::DisassociateResourceTypesError::ConflictException(inner) => {
                 Error::ConflictException(inner)
@@ -2411,16 +3691,26 @@ impl From<crate::operation::get_aggregate_discovered_resource_counts::GetAggrega
     }
 }
 #[cfg(feature = "op_get_aggregate_resource_config")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2429,8 +3719,12 @@ where
     }
 }
 #[cfg(feature = "op_get_aggregate_resource_config")]
-impl From<crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigError> for Error {
-    fn from(err: crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigError) -> Self {
+impl From<crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigError>
+    for Error
+{
+    fn from(
+        err: crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigError,
+    ) -> Self {
         match err {
             crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigError::NoSuchConfigurationAggregatorException(inner) => {
                 Error::NoSuchConfigurationAggregatorException(inner)
@@ -2520,8 +3814,12 @@ where
     }
 }
 #[cfg(feature = "op_get_compliance_details_by_resource")]
-impl From<crate::operation::get_compliance_details_by_resource::GetComplianceDetailsByResourceError> for Error {
-    fn from(err: crate::operation::get_compliance_details_by_resource::GetComplianceDetailsByResourceError) -> Self {
+impl From<crate::operation::get_compliance_details_by_resource::GetComplianceDetailsByResourceError>
+    for Error
+{
+    fn from(
+        err: crate::operation::get_compliance_details_by_resource::GetComplianceDetailsByResourceError,
+    ) -> Self {
         match err {
             crate::operation::get_compliance_details_by_resource::GetComplianceDetailsByResourceError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -2690,13 +3988,26 @@ impl From<crate::operation::get_conformance_pack_compliance_summary::GetConforma
     }
 }
 #[cfg(feature = "op_get_connector")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_connector::GetConnectorError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_connector::GetConnectorError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_connector::GetConnectorError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_connector::GetConnectorError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2708,20 +4019,39 @@ where
 impl From<crate::operation::get_connector::GetConnectorError> for Error {
     fn from(err: crate::operation::get_connector::GetConnectorError) -> Self {
         match err {
-            crate::operation::get_connector::GetConnectorError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::get_connector::GetConnectorError::ValidationException(inner) => Error::ValidationException(inner),
-            crate::operation::get_connector::GetConnectorError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_connector::GetConnectorError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::get_connector::GetConnectorError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::get_connector::GetConnectorError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_get_custom_rule_policy")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_custom_rule_policy::GetCustomRulePolicyError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_custom_rule_policy::GetCustomRulePolicyError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_custom_rule_policy::GetCustomRulePolicyError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_custom_rule_policy::GetCustomRulePolicyError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2742,8 +4072,12 @@ impl From<crate::operation::get_custom_rule_policy::GetCustomRulePolicyError> fo
 }
 #[cfg(feature = "op_get_discovered_resource_counts")]
 impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsError, R>>
-    for Error
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -2754,7 +4088,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2763,8 +4099,12 @@ where
     }
 }
 #[cfg(feature = "op_get_discovered_resource_counts")]
-impl From<crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsError> for Error {
-    fn from(err: crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsError) -> Self {
+impl From<crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsError>
+    for Error
+{
+    fn from(
+        err: crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsError,
+    ) -> Self {
         match err {
             crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsError::InvalidLimitException(inner) => {
                 Error::InvalidLimitException(inner)
@@ -2882,8 +4222,14 @@ where
     }
 }
 #[cfg(feature = "op_get_organization_custom_rule_policy")]
-impl From<crate::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyError> for Error {
-    fn from(err: crate::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyError) -> Self {
+impl
+    From<
+        crate::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyError,
+    > for Error
+{
+    fn from(
+        err: crate::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyError,
+    ) -> Self {
         match err {
             crate::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyError::NoSuchOrganizationConfigRuleException(
                 inner,
@@ -2896,16 +4242,26 @@ impl From<crate::operation::get_organization_custom_rule_policy::GetOrganization
     }
 }
 #[cfg(feature = "op_get_resource_config_history")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_resource_config_history::GetResourceConfigHistoryError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_resource_config_history::GetResourceConfigHistoryError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_resource_config_history::GetResourceConfigHistoryError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_resource_config_history::GetResourceConfigHistoryError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2915,7 +4271,9 @@ where
 }
 #[cfg(feature = "op_get_resource_config_history")]
 impl From<crate::operation::get_resource_config_history::GetResourceConfigHistoryError> for Error {
-    fn from(err: crate::operation::get_resource_config_history::GetResourceConfigHistoryError) -> Self {
+    fn from(
+        err: crate::operation::get_resource_config_history::GetResourceConfigHistoryError,
+    ) -> Self {
         match err {
             crate::operation::get_resource_config_history::GetResourceConfigHistoryError::InvalidLimitException(inner) => {
                 Error::InvalidLimitException(inner)
@@ -2941,8 +4299,12 @@ impl From<crate::operation::get_resource_config_history::GetResourceConfigHistor
 }
 #[cfg(feature = "op_get_resource_evaluation_summary")]
 impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryError, R>>
-    for Error
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -2953,7 +4315,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2962,8 +4326,12 @@ where
     }
 }
 #[cfg(feature = "op_get_resource_evaluation_summary")]
-impl From<crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryError> for Error {
-    fn from(err: crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryError) -> Self {
+impl From<crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryError>
+    for Error
+{
+    fn from(
+        err: crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryError,
+    ) -> Self {
         match err {
             crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
@@ -2973,13 +4341,26 @@ impl From<crate::operation::get_resource_evaluation_summary::GetResourceEvaluati
     }
 }
 #[cfg(feature = "op_get_stored_query")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_stored_query::GetStoredQueryError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_stored_query::GetStoredQueryError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_stored_query::GetStoredQueryError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_stored_query::GetStoredQueryError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2991,9 +4372,15 @@ where
 impl From<crate::operation::get_stored_query::GetStoredQueryError> for Error {
     fn from(err: crate::operation::get_stored_query::GetStoredQueryError) -> Self {
         match err {
-            crate::operation::get_stored_query::GetStoredQueryError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::get_stored_query::GetStoredQueryError::ValidationException(inner) => Error::ValidationException(inner),
-            crate::operation::get_stored_query::GetStoredQueryError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_stored_query::GetStoredQueryError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::get_stored_query::GetStoredQueryError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::get_stored_query::GetStoredQueryError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -3044,16 +4431,26 @@ impl From<crate::operation::list_aggregate_discovered_resources::ListAggregateDi
     }
 }
 #[cfg(feature = "op_list_configuration_recorders")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_configuration_recorders::ListConfigurationRecordersError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_configuration_recorders::ListConfigurationRecordersError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_configuration_recorders::ListConfigurationRecordersError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_configuration_recorders::ListConfigurationRecordersError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3062,8 +4459,12 @@ where
     }
 }
 #[cfg(feature = "op_list_configuration_recorders")]
-impl From<crate::operation::list_configuration_recorders::ListConfigurationRecordersError> for Error {
-    fn from(err: crate::operation::list_configuration_recorders::ListConfigurationRecordersError) -> Self {
+impl From<crate::operation::list_configuration_recorders::ListConfigurationRecordersError>
+    for Error
+{
+    fn from(
+        err: crate::operation::list_configuration_recorders::ListConfigurationRecordersError,
+    ) -> Self {
         match err {
             crate::operation::list_configuration_recorders::ListConfigurationRecordersError::ValidationException(inner) => {
                 Error::ValidationException(inner)
@@ -3118,13 +4519,26 @@ impl From<crate::operation::list_conformance_pack_compliance_scores::ListConform
     }
 }
 #[cfg(feature = "op_list_connectors")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_connectors::ListConnectorsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_connectors::ListConnectorsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_connectors::ListConnectorsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_connectors::ListConnectorsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3136,22 +4550,36 @@ where
 impl From<crate::operation::list_connectors::ListConnectorsError> for Error {
     fn from(err: crate::operation::list_connectors::ListConnectorsError) -> Self {
         match err {
-            crate::operation::list_connectors::ListConnectorsError::ValidationException(inner) => Error::ValidationException(inner),
-            crate::operation::list_connectors::ListConnectorsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_connectors::ListConnectorsError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::list_connectors::ListConnectorsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_list_discovered_resources")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_discovered_resources::ListDiscoveredResourcesError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_discovered_resources::ListDiscoveredResourcesError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_discovered_resources::ListDiscoveredResourcesError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_discovered_resources::ListDiscoveredResourcesError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3161,7 +4589,9 @@ where
 }
 #[cfg(feature = "op_list_discovered_resources")]
 impl From<crate::operation::list_discovered_resources::ListDiscoveredResourcesError> for Error {
-    fn from(err: crate::operation::list_discovered_resources::ListDiscoveredResourcesError) -> Self {
+    fn from(
+        err: crate::operation::list_discovered_resources::ListDiscoveredResourcesError,
+    ) -> Self {
         match err {
             crate::operation::list_discovered_resources::ListDiscoveredResourcesError::InvalidLimitException(inner) => {
                 Error::InvalidLimitException(inner)
@@ -3180,16 +4610,26 @@ impl From<crate::operation::list_discovered_resources::ListDiscoveredResourcesEr
     }
 }
 #[cfg(feature = "op_list_resource_evaluations")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_resource_evaluations::ListResourceEvaluationsError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_resource_evaluations::ListResourceEvaluationsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_resource_evaluations::ListResourceEvaluationsError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_resource_evaluations::ListResourceEvaluationsError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3199,7 +4639,9 @@ where
 }
 #[cfg(feature = "op_list_resource_evaluations")]
 impl From<crate::operation::list_resource_evaluations::ListResourceEvaluationsError> for Error {
-    fn from(err: crate::operation::list_resource_evaluations::ListResourceEvaluationsError) -> Self {
+    fn from(
+        err: crate::operation::list_resource_evaluations::ListResourceEvaluationsError,
+    ) -> Self {
         match err {
             crate::operation::list_resource_evaluations::ListResourceEvaluationsError::InvalidNextTokenException(inner) => {
                 Error::InvalidNextTokenException(inner)
@@ -3215,13 +4657,26 @@ impl From<crate::operation::list_resource_evaluations::ListResourceEvaluationsEr
     }
 }
 #[cfg(feature = "op_list_stored_queries")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_stored_queries::ListStoredQueriesError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_stored_queries::ListStoredQueriesError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_stored_queries::ListStoredQueriesError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_stored_queries::ListStoredQueriesError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3242,13 +4697,26 @@ impl From<crate::operation::list_stored_queries::ListStoredQueriesError> for Err
     }
 }
 #[cfg(feature = "op_list_tags_for_resource")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_tags_for_resource::ListTagsForResourceError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_tags_for_resource::ListTagsForResourceError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3273,16 +4741,26 @@ impl From<crate::operation::list_tags_for_resource::ListTagsForResourceError> fo
     }
 }
 #[cfg(feature = "op_put_aggregation_authorization")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_aggregation_authorization::PutAggregationAuthorizationError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_aggregation_authorization::PutAggregationAuthorizationError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_aggregation_authorization::PutAggregationAuthorizationError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_aggregation_authorization::PutAggregationAuthorizationError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3291,8 +4769,12 @@ where
     }
 }
 #[cfg(feature = "op_put_aggregation_authorization")]
-impl From<crate::operation::put_aggregation_authorization::PutAggregationAuthorizationError> for Error {
-    fn from(err: crate::operation::put_aggregation_authorization::PutAggregationAuthorizationError) -> Self {
+impl From<crate::operation::put_aggregation_authorization::PutAggregationAuthorizationError>
+    for Error
+{
+    fn from(
+        err: crate::operation::put_aggregation_authorization::PutAggregationAuthorizationError,
+    ) -> Self {
         match err {
             crate::operation::put_aggregation_authorization::PutAggregationAuthorizationError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -3302,13 +4784,26 @@ impl From<crate::operation::put_aggregation_authorization::PutAggregationAuthori
     }
 }
 #[cfg(feature = "op_put_config_rule")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_config_rule::PutConfigRuleError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_config_rule::PutConfigRuleError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_config_rule::PutConfigRuleError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_config_rule::PutConfigRuleError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3338,16 +4833,26 @@ impl From<crate::operation::put_config_rule::PutConfigRuleError> for Error {
     }
 }
 #[cfg(feature = "op_put_configuration_aggregator")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_configuration_aggregator::PutConfigurationAggregatorError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_configuration_aggregator::PutConfigurationAggregatorError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_configuration_aggregator::PutConfigurationAggregatorError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_configuration_aggregator::PutConfigurationAggregatorError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3356,8 +4861,12 @@ where
     }
 }
 #[cfg(feature = "op_put_configuration_aggregator")]
-impl From<crate::operation::put_configuration_aggregator::PutConfigurationAggregatorError> for Error {
-    fn from(err: crate::operation::put_configuration_aggregator::PutConfigurationAggregatorError) -> Self {
+impl From<crate::operation::put_configuration_aggregator::PutConfigurationAggregatorError>
+    for Error
+{
+    fn from(
+        err: crate::operation::put_configuration_aggregator::PutConfigurationAggregatorError,
+    ) -> Self {
         match err {
             crate::operation::put_configuration_aggregator::PutConfigurationAggregatorError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -3382,16 +4891,26 @@ impl From<crate::operation::put_configuration_aggregator::PutConfigurationAggreg
     }
 }
 #[cfg(feature = "op_put_configuration_recorder")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_configuration_recorder::PutConfigurationRecorderError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_configuration_recorder::PutConfigurationRecorderError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_configuration_recorder::PutConfigurationRecorderError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_configuration_recorder::PutConfigurationRecorderError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3401,7 +4920,9 @@ where
 }
 #[cfg(feature = "op_put_configuration_recorder")]
 impl From<crate::operation::put_configuration_recorder::PutConfigurationRecorderError> for Error {
-    fn from(err: crate::operation::put_configuration_recorder::PutConfigurationRecorderError) -> Self {
+    fn from(
+        err: crate::operation::put_configuration_recorder::PutConfigurationRecorderError,
+    ) -> Self {
         match err {
             crate::operation::put_configuration_recorder::PutConfigurationRecorderError::InvalidConfigurationRecorderNameException(inner) => {
                 Error::InvalidConfigurationRecorderNameException(inner)
@@ -3426,13 +4947,26 @@ impl From<crate::operation::put_configuration_recorder::PutConfigurationRecorder
     }
 }
 #[cfg(feature = "op_put_conformance_pack")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_conformance_pack::PutConformancePackError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_conformance_pack::PutConformancePackError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_conformance_pack::PutConformancePackError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_conformance_pack::PutConformancePackError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3462,13 +4996,26 @@ impl From<crate::operation::put_conformance_pack::PutConformancePackError> for E
     }
 }
 #[cfg(feature = "op_put_connector")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_connector::PutConnectorError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_connector::PutConnectorError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_connector::PutConnectorError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_connector::PutConnectorError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3493,13 +5040,26 @@ impl From<crate::operation::put_connector::PutConnectorError> for Error {
     }
 }
 #[cfg(feature = "op_put_delivery_channel")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_delivery_channel::PutDeliveryChannelError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_delivery_channel::PutDeliveryChannelError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_delivery_channel::PutDeliveryChannelError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_delivery_channel::PutDeliveryChannelError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3538,13 +5098,26 @@ impl From<crate::operation::put_delivery_channel::PutDeliveryChannelError> for E
     }
 }
 #[cfg(feature = "op_put_evaluations")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_evaluations::PutEvaluationsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_evaluations::PutEvaluationsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_evaluations::PutEvaluationsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_evaluations::PutEvaluationsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3566,15 +5139,26 @@ impl From<crate::operation::put_evaluations::PutEvaluationsError> for Error {
     }
 }
 #[cfg(feature = "op_put_external_evaluation")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_external_evaluation::PutExternalEvaluationError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_external_evaluation::PutExternalEvaluationError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_external_evaluation::PutExternalEvaluationError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_external_evaluation::PutExternalEvaluationError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3597,16 +5181,26 @@ impl From<crate::operation::put_external_evaluation::PutExternalEvaluationError>
     }
 }
 #[cfg(feature = "op_put_organization_config_rule")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_organization_config_rule::PutOrganizationConfigRuleError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_organization_config_rule::PutOrganizationConfigRuleError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_organization_config_rule::PutOrganizationConfigRuleError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_organization_config_rule::PutOrganizationConfigRuleError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3615,8 +5209,12 @@ where
     }
 }
 #[cfg(feature = "op_put_organization_config_rule")]
-impl From<crate::operation::put_organization_config_rule::PutOrganizationConfigRuleError> for Error {
-    fn from(err: crate::operation::put_organization_config_rule::PutOrganizationConfigRuleError) -> Self {
+impl From<crate::operation::put_organization_config_rule::PutOrganizationConfigRuleError>
+    for Error
+{
+    fn from(
+        err: crate::operation::put_organization_config_rule::PutOrganizationConfigRuleError,
+    ) -> Self {
         match err {
             crate::operation::put_organization_config_rule::PutOrganizationConfigRuleError::InsufficientPermissionsException(inner) => {
                 Error::InsufficientPermissionsException(inner)
@@ -3673,8 +5271,12 @@ where
     }
 }
 #[cfg(feature = "op_put_organization_conformance_pack")]
-impl From<crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError> for Error {
-    fn from(err: crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError) -> Self {
+impl From<crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError>
+    for Error
+{
+    fn from(
+        err: crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError,
+    ) -> Self {
         match err {
             crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::InsufficientPermissionsException(inner) => Error::InsufficientPermissionsException(inner),
             crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError::MaxNumberOfOrganizationConformancePacksExceededException(inner) => Error::MaxNumberOfOrganizationConformancePacksExceededException(inner),
@@ -3690,8 +5292,12 @@ impl From<crate::operation::put_organization_conformance_pack::PutOrganizationCo
 }
 #[cfg(feature = "op_put_remediation_configurations")]
 impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_remediation_configurations::PutRemediationConfigurationsError, R>>
-    for Error
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_remediation_configurations::PutRemediationConfigurationsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -3702,7 +5308,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3711,8 +5319,12 @@ where
     }
 }
 #[cfg(feature = "op_put_remediation_configurations")]
-impl From<crate::operation::put_remediation_configurations::PutRemediationConfigurationsError> for Error {
-    fn from(err: crate::operation::put_remediation_configurations::PutRemediationConfigurationsError) -> Self {
+impl From<crate::operation::put_remediation_configurations::PutRemediationConfigurationsError>
+    for Error
+{
+    fn from(
+        err: crate::operation::put_remediation_configurations::PutRemediationConfigurationsError,
+    ) -> Self {
         match err {
             crate::operation::put_remediation_configurations::PutRemediationConfigurationsError::InsufficientPermissionsException(inner) => {
                 Error::InsufficientPermissionsException(inner)
@@ -3725,16 +5337,26 @@ impl From<crate::operation::put_remediation_configurations::PutRemediationConfig
     }
 }
 #[cfg(feature = "op_put_remediation_exceptions")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_remediation_exceptions::PutRemediationExceptionsError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_remediation_exceptions::PutRemediationExceptionsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_remediation_exceptions::PutRemediationExceptionsError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_remediation_exceptions::PutRemediationExceptionsError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3744,7 +5366,9 @@ where
 }
 #[cfg(feature = "op_put_remediation_exceptions")]
 impl From<crate::operation::put_remediation_exceptions::PutRemediationExceptionsError> for Error {
-    fn from(err: crate::operation::put_remediation_exceptions::PutRemediationExceptionsError) -> Self {
+    fn from(
+        err: crate::operation::put_remediation_exceptions::PutRemediationExceptionsError,
+    ) -> Self {
         match err {
             crate::operation::put_remediation_exceptions::PutRemediationExceptionsError::InsufficientPermissionsException(inner) => {
                 Error::InsufficientPermissionsException(inner)
@@ -3757,13 +5381,26 @@ impl From<crate::operation::put_remediation_exceptions::PutRemediationExceptions
     }
 }
 #[cfg(feature = "op_put_resource_config")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_resource_config::PutResourceConfigError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_resource_config::PutResourceConfigError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_resource_config::PutResourceConfigError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_resource_config::PutResourceConfigError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3790,16 +5427,26 @@ impl From<crate::operation::put_resource_config::PutResourceConfigError> for Err
     }
 }
 #[cfg(feature = "op_put_retention_configuration")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_retention_configuration::PutRetentionConfigurationError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_retention_configuration::PutRetentionConfigurationError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_retention_configuration::PutRetentionConfigurationError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_retention_configuration::PutRetentionConfigurationError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3809,7 +5456,9 @@ where
 }
 #[cfg(feature = "op_put_retention_configuration")]
 impl From<crate::operation::put_retention_configuration::PutRetentionConfigurationError> for Error {
-    fn from(err: crate::operation::put_retention_configuration::PutRetentionConfigurationError) -> Self {
+    fn from(
+        err: crate::operation::put_retention_configuration::PutRetentionConfigurationError,
+    ) -> Self {
         match err {
             crate::operation::put_retention_configuration::PutRetentionConfigurationError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -3860,13 +5509,26 @@ impl From<crate::operation::put_service_linked_configuration_recorder::PutServic
     }
 }
 #[cfg(feature = "op_put_stored_query")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_stored_query::PutStoredQueryError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_stored_query::PutStoredQueryError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_stored_query::PutStoredQueryError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::put_stored_query::PutStoredQueryError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3929,7 +5591,10 @@ impl From<crate::operation::put_third_party_service_linked_configuration_recorde
 #[cfg(feature = "op_select_aggregate_resource_config")]
 impl<R>
     From<
-        ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigError, R>,
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigError,
+            R,
+        >,
     > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -3941,7 +5606,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3950,8 +5617,12 @@ where
     }
 }
 #[cfg(feature = "op_select_aggregate_resource_config")]
-impl From<crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigError> for Error {
-    fn from(err: crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigError) -> Self {
+impl From<crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigError>
+    for Error
+{
+    fn from(
+        err: crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigError,
+    ) -> Self {
         match err {
             crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigError::InvalidExpressionException(inner) => {
                 Error::InvalidExpressionException(inner)
@@ -3970,13 +5641,26 @@ impl From<crate::operation::select_aggregate_resource_config::SelectAggregateRes
     }
 }
 #[cfg(feature = "op_select_resource_config")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::select_resource_config::SelectResourceConfigError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::select_resource_config::SelectResourceConfigError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::select_resource_config::SelectResourceConfigError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::select_resource_config::SelectResourceConfigError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4000,16 +5684,26 @@ impl From<crate::operation::select_resource_config::SelectResourceConfigError> f
     }
 }
 #[cfg(feature = "op_start_config_rules_evaluation")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4018,8 +5712,12 @@ where
     }
 }
 #[cfg(feature = "op_start_config_rules_evaluation")]
-impl From<crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError> for Error {
-    fn from(err: crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError) -> Self {
+impl From<crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError>
+    for Error
+{
+    fn from(
+        err: crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError,
+    ) -> Self {
         match err {
             crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError::InvalidParameterValueException(inner) => {
                 Error::InvalidParameterValueException(inner)
@@ -4038,16 +5736,26 @@ impl From<crate::operation::start_config_rules_evaluation::StartConfigRulesEvalu
     }
 }
 #[cfg(feature = "op_start_configuration_recorder")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_configuration_recorder::StartConfigurationRecorderError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_configuration_recorder::StartConfigurationRecorderError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_configuration_recorder::StartConfigurationRecorderError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_configuration_recorder::StartConfigurationRecorderError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4056,8 +5764,12 @@ where
     }
 }
 #[cfg(feature = "op_start_configuration_recorder")]
-impl From<crate::operation::start_configuration_recorder::StartConfigurationRecorderError> for Error {
-    fn from(err: crate::operation::start_configuration_recorder::StartConfigurationRecorderError) -> Self {
+impl From<crate::operation::start_configuration_recorder::StartConfigurationRecorderError>
+    for Error
+{
+    fn from(
+        err: crate::operation::start_configuration_recorder::StartConfigurationRecorderError,
+    ) -> Self {
         match err {
             crate::operation::start_configuration_recorder::StartConfigurationRecorderError::NoAvailableDeliveryChannelException(inner) => {
                 Error::NoAvailableDeliveryChannelException(inner)
@@ -4073,16 +5785,26 @@ impl From<crate::operation::start_configuration_recorder::StartConfigurationReco
     }
 }
 #[cfg(feature = "op_start_remediation_execution")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_remediation_execution::StartRemediationExecutionError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_remediation_execution::StartRemediationExecutionError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_remediation_execution::StartRemediationExecutionError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_remediation_execution::StartRemediationExecutionError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4092,7 +5814,9 @@ where
 }
 #[cfg(feature = "op_start_remediation_execution")]
 impl From<crate::operation::start_remediation_execution::StartRemediationExecutionError> for Error {
-    fn from(err: crate::operation::start_remediation_execution::StartRemediationExecutionError) -> Self {
+    fn from(
+        err: crate::operation::start_remediation_execution::StartRemediationExecutionError,
+    ) -> Self {
         match err {
             crate::operation::start_remediation_execution::StartRemediationExecutionError::InsufficientPermissionsException(inner) => {
                 Error::InsufficientPermissionsException(inner)
@@ -4108,16 +5832,26 @@ impl From<crate::operation::start_remediation_execution::StartRemediationExecuti
     }
 }
 #[cfg(feature = "op_start_resource_evaluation")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_resource_evaluation::StartResourceEvaluationError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_resource_evaluation::StartResourceEvaluationError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_resource_evaluation::StartResourceEvaluationError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_resource_evaluation::StartResourceEvaluationError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4127,7 +5861,9 @@ where
 }
 #[cfg(feature = "op_start_resource_evaluation")]
 impl From<crate::operation::start_resource_evaluation::StartResourceEvaluationError> for Error {
-    fn from(err: crate::operation::start_resource_evaluation::StartResourceEvaluationError) -> Self {
+    fn from(
+        err: crate::operation::start_resource_evaluation::StartResourceEvaluationError,
+    ) -> Self {
         match err {
             crate::operation::start_resource_evaluation::StartResourceEvaluationError::IdempotentParameterMismatch(inner) => {
                 Error::IdempotentParameterMismatch(inner)
@@ -4140,16 +5876,26 @@ impl From<crate::operation::start_resource_evaluation::StartResourceEvaluationEr
     }
 }
 #[cfg(feature = "op_stop_configuration_recorder")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::stop_configuration_recorder::StopConfigurationRecorderError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::stop_configuration_recorder::StopConfigurationRecorderError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::stop_configuration_recorder::StopConfigurationRecorderError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::stop_configuration_recorder::StopConfigurationRecorderError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4159,7 +5905,9 @@ where
 }
 #[cfg(feature = "op_stop_configuration_recorder")]
 impl From<crate::operation::stop_configuration_recorder::StopConfigurationRecorderError> for Error {
-    fn from(err: crate::operation::stop_configuration_recorder::StopConfigurationRecorderError) -> Self {
+    fn from(
+        err: crate::operation::stop_configuration_recorder::StopConfigurationRecorderError,
+    ) -> Self {
         match err {
             crate::operation::stop_configuration_recorder::StopConfigurationRecorderError::NoSuchConfigurationRecorderException(inner) => {
                 Error::NoSuchConfigurationRecorderException(inner)
@@ -4172,13 +5920,26 @@ impl From<crate::operation::stop_configuration_recorder::StopConfigurationRecord
     }
 }
 #[cfg(feature = "op_tag_resource")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::tag_resource::TagResourceError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::tag_resource::TagResourceError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4190,21 +5951,42 @@ where
 impl From<crate::operation::tag_resource::TagResourceError> for Error {
     fn from(err: crate::operation::tag_resource::TagResourceError) -> Self {
         match err {
-            crate::operation::tag_resource::TagResourceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::tag_resource::TagResourceError::TooManyTagsException(inner) => Error::TooManyTagsException(inner),
-            crate::operation::tag_resource::TagResourceError::ValidationException(inner) => Error::ValidationException(inner),
-            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::tag_resource::TagResourceError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::tag_resource::TagResourceError::TooManyTagsException(inner) => {
+                Error::TooManyTagsException(inner)
+            }
+            crate::operation::tag_resource::TagResourceError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_untag_resource")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::untag_resource::UntagResourceError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::untag_resource::UntagResourceError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4216,129 +5998,442 @@ where
 impl From<crate::operation::untag_resource::UntagResourceError> for Error {
     fn from(err: crate::operation::untag_resource::UntagResourceError) -> Self {
         match err {
-            crate::operation::untag_resource::UntagResourceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::untag_resource::UntagResourceError::ValidationException(inner) => Error::ValidationException(inner),
-            crate::operation::untag_resource::UntagResourceError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::untag_resource::UntagResourceError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::untag_resource::UntagResourceError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
+            crate::operation::untag_resource::UntagResourceError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 impl ::std::error::Error for Error {
     fn source(&self) -> std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            #[cfg(any(feature = "op_associate_resource_types", feature = "op_delete_service_linked_configuration_recorder", feature = "op_disassociate_resource_types", feature = "op_put_connector", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_third_party_service_linked_configuration_recorder"))]
-Error::ConflictException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_associate_resource_types",
+                feature = "op_delete_service_linked_configuration_recorder",
+                feature = "op_disassociate_resource_types",
+                feature = "op_put_connector",
+                feature = "op_put_service_linked_configuration_recorder",
+                feature = "op_put_third_party_service_linked_configuration_recorder"
+            ))]
+            Error::ConflictException(inner) => inner.source(),
             #[cfg(feature = "op_put_conformance_pack")]
-Error::ConformancePackTemplateValidationException(inner) => inner.source(),
+            Error::ConformancePackTemplateValidationException(inner) => inner.source(),
             #[cfg(feature = "op_start_resource_evaluation")]
-Error::IdempotentParameterMismatch(inner) => inner.source(),
+            Error::IdempotentParameterMismatch(inner) => inner.source(),
             #[cfg(feature = "op_put_delivery_channel")]
-Error::InsufficientDeliveryPolicyException(inner) => inner.source(),
-            #[cfg(any(feature = "op_delete_remediation_configuration", feature = "op_put_config_rule", feature = "op_put_conformance_pack", feature = "op_put_connector", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_put_remediation_configurations", feature = "op_put_remediation_exceptions", feature = "op_put_resource_config", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_third_party_service_linked_configuration_recorder", feature = "op_start_remediation_execution"))]
-Error::InsufficientPermissionsException(inner) => inner.source(),
+            Error::InsufficientDeliveryPolicyException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_delete_remediation_configuration",
+                feature = "op_put_config_rule",
+                feature = "op_put_conformance_pack",
+                feature = "op_put_connector",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack",
+                feature = "op_put_remediation_configurations",
+                feature = "op_put_remediation_exceptions",
+                feature = "op_put_resource_config",
+                feature = "op_put_service_linked_configuration_recorder",
+                feature = "op_put_third_party_service_linked_configuration_recorder",
+                feature = "op_start_remediation_execution"
+            ))]
+            Error::InsufficientPermissionsException(inner) => inner.source(),
             #[cfg(feature = "op_put_configuration_recorder")]
-Error::InvalidConfigurationRecorderNameException(inner) => inner.source(),
+            Error::InvalidConfigurationRecorderNameException(inner) => inner.source(),
             #[cfg(feature = "op_put_delivery_channel")]
-Error::InvalidDeliveryChannelNameException(inner) => inner.source(),
-            #[cfg(any(feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
-Error::InvalidExpressionException(inner) => inner.source(),
-            #[cfg(any(feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_aggregation_authorizations", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_pack_status", feature = "op_describe_conformance_packs", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_describe_pending_aggregation_requests", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_conformance_pack_compliance_details", feature = "op_get_conformance_pack_compliance_summary", feature = "op_get_discovered_resource_counts", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_conformance_pack_detailed_status", feature = "op_get_resource_config_history", feature = "op_list_aggregate_discovered_resources", feature = "op_list_conformance_pack_compliance_scores", feature = "op_list_discovered_resources", feature = "op_list_tags_for_resource", feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
-Error::InvalidLimitException(inner) => inner.source(),
-            #[cfg(any(feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_aggregation_authorizations", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_compliance_by_resource", feature = "op_describe_config_rule_evaluation_status", feature = "op_describe_config_rules", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_pack_status", feature = "op_describe_conformance_packs", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_describe_pending_aggregation_requests", feature = "op_describe_remediation_exceptions", feature = "op_describe_remediation_execution_status", feature = "op_describe_retention_configurations", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_conformance_pack_compliance_details", feature = "op_get_conformance_pack_compliance_summary", feature = "op_get_discovered_resource_counts", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_conformance_pack_detailed_status", feature = "op_get_resource_config_history", feature = "op_list_aggregate_discovered_resources", feature = "op_list_conformance_pack_compliance_scores", feature = "op_list_discovered_resources", feature = "op_list_resource_evaluations", feature = "op_list_stored_queries", feature = "op_list_tags_for_resource", feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
-Error::InvalidNextTokenException(inner) => inner.source(),
-            #[cfg(any(feature = "op_delete_aggregation_authorization", feature = "op_delete_pending_aggregation_request", feature = "op_delete_remediation_configuration", feature = "op_delete_retention_configuration", feature = "op_describe_aggregation_authorizations", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_compliance_by_resource", feature = "op_describe_config_rule_evaluation_status", feature = "op_describe_config_rules", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_pack_status", feature = "op_describe_conformance_packs", feature = "op_describe_pending_aggregation_requests", feature = "op_describe_remediation_exceptions", feature = "op_describe_remediation_execution_status", feature = "op_describe_retention_configurations", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_compliance_details_by_resource", feature = "op_get_compliance_summary_by_resource_type", feature = "op_get_conformance_pack_compliance_details", feature = "op_list_conformance_pack_compliance_scores", feature = "op_list_resource_evaluations", feature = "op_put_aggregation_authorization", feature = "op_put_config_rule", feature = "op_put_configuration_aggregator", feature = "op_put_conformance_pack", feature = "op_put_evaluations", feature = "op_put_external_evaluation", feature = "op_put_organization_config_rule", feature = "op_put_remediation_configurations", feature = "op_put_remediation_exceptions", feature = "op_put_retention_configuration", feature = "op_start_config_rules_evaluation", feature = "op_start_remediation_execution", feature = "op_start_resource_evaluation"))]
-Error::InvalidParameterValueException(inner) => inner.source(),
+            Error::InvalidDeliveryChannelNameException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_select_aggregate_resource_config",
+                feature = "op_select_resource_config"
+            ))]
+            Error::InvalidExpressionException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_describe_aggregate_compliance_by_config_rules",
+                feature = "op_describe_aggregate_compliance_by_conformance_packs",
+                feature = "op_describe_aggregation_authorizations",
+                feature = "op_describe_configuration_aggregator_sources_status",
+                feature = "op_describe_configuration_aggregators",
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_describe_conformance_pack_status",
+                feature = "op_describe_conformance_packs",
+                feature = "op_describe_organization_config_rule_statuses",
+                feature = "op_describe_organization_config_rules",
+                feature = "op_describe_organization_conformance_pack_statuses",
+                feature = "op_describe_organization_conformance_packs",
+                feature = "op_describe_pending_aggregation_requests",
+                feature = "op_get_aggregate_compliance_details_by_config_rule",
+                feature = "op_get_aggregate_config_rule_compliance_summary",
+                feature = "op_get_aggregate_conformance_pack_compliance_summary",
+                feature = "op_get_aggregate_discovered_resource_counts",
+                feature = "op_get_conformance_pack_compliance_details",
+                feature = "op_get_conformance_pack_compliance_summary",
+                feature = "op_get_discovered_resource_counts",
+                feature = "op_get_organization_config_rule_detailed_status",
+                feature = "op_get_organization_conformance_pack_detailed_status",
+                feature = "op_get_resource_config_history",
+                feature = "op_list_aggregate_discovered_resources",
+                feature = "op_list_conformance_pack_compliance_scores",
+                feature = "op_list_discovered_resources",
+                feature = "op_list_tags_for_resource",
+                feature = "op_select_aggregate_resource_config",
+                feature = "op_select_resource_config"
+            ))]
+            Error::InvalidLimitException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_describe_aggregate_compliance_by_config_rules",
+                feature = "op_describe_aggregate_compliance_by_conformance_packs",
+                feature = "op_describe_aggregation_authorizations",
+                feature = "op_describe_compliance_by_config_rule",
+                feature = "op_describe_compliance_by_resource",
+                feature = "op_describe_config_rule_evaluation_status",
+                feature = "op_describe_config_rules",
+                feature = "op_describe_configuration_aggregator_sources_status",
+                feature = "op_describe_configuration_aggregators",
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_describe_conformance_pack_status",
+                feature = "op_describe_conformance_packs",
+                feature = "op_describe_organization_config_rule_statuses",
+                feature = "op_describe_organization_config_rules",
+                feature = "op_describe_organization_conformance_pack_statuses",
+                feature = "op_describe_organization_conformance_packs",
+                feature = "op_describe_pending_aggregation_requests",
+                feature = "op_describe_remediation_exceptions",
+                feature = "op_describe_remediation_execution_status",
+                feature = "op_describe_retention_configurations",
+                feature = "op_get_aggregate_compliance_details_by_config_rule",
+                feature = "op_get_aggregate_config_rule_compliance_summary",
+                feature = "op_get_aggregate_conformance_pack_compliance_summary",
+                feature = "op_get_aggregate_discovered_resource_counts",
+                feature = "op_get_compliance_details_by_config_rule",
+                feature = "op_get_conformance_pack_compliance_details",
+                feature = "op_get_conformance_pack_compliance_summary",
+                feature = "op_get_discovered_resource_counts",
+                feature = "op_get_organization_config_rule_detailed_status",
+                feature = "op_get_organization_conformance_pack_detailed_status",
+                feature = "op_get_resource_config_history",
+                feature = "op_list_aggregate_discovered_resources",
+                feature = "op_list_conformance_pack_compliance_scores",
+                feature = "op_list_discovered_resources",
+                feature = "op_list_resource_evaluations",
+                feature = "op_list_stored_queries",
+                feature = "op_list_tags_for_resource",
+                feature = "op_select_aggregate_resource_config",
+                feature = "op_select_resource_config"
+            ))]
+            Error::InvalidNextTokenException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_delete_aggregation_authorization",
+                feature = "op_delete_pending_aggregation_request",
+                feature = "op_delete_remediation_configuration",
+                feature = "op_delete_retention_configuration",
+                feature = "op_describe_aggregation_authorizations",
+                feature = "op_describe_compliance_by_config_rule",
+                feature = "op_describe_compliance_by_resource",
+                feature = "op_describe_config_rule_evaluation_status",
+                feature = "op_describe_config_rules",
+                feature = "op_describe_configuration_aggregator_sources_status",
+                feature = "op_describe_configuration_aggregators",
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_describe_conformance_pack_status",
+                feature = "op_describe_conformance_packs",
+                feature = "op_describe_pending_aggregation_requests",
+                feature = "op_describe_remediation_exceptions",
+                feature = "op_describe_remediation_execution_status",
+                feature = "op_describe_retention_configurations",
+                feature = "op_get_compliance_details_by_config_rule",
+                feature = "op_get_compliance_details_by_resource",
+                feature = "op_get_compliance_summary_by_resource_type",
+                feature = "op_get_conformance_pack_compliance_details",
+                feature = "op_list_conformance_pack_compliance_scores",
+                feature = "op_list_resource_evaluations",
+                feature = "op_put_aggregation_authorization",
+                feature = "op_put_config_rule",
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_conformance_pack",
+                feature = "op_put_evaluations",
+                feature = "op_put_external_evaluation",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_remediation_configurations",
+                feature = "op_put_remediation_exceptions",
+                feature = "op_put_retention_configuration",
+                feature = "op_start_config_rules_evaluation",
+                feature = "op_start_remediation_execution",
+                feature = "op_start_resource_evaluation"
+            ))]
+            Error::InvalidParameterValueException(inner) => inner.source(),
             #[cfg(feature = "op_put_configuration_recorder")]
-Error::InvalidRecordingGroupException(inner) => inner.source(),
+            Error::InvalidRecordingGroupException(inner) => inner.source(),
             #[cfg(feature = "op_put_evaluations")]
-Error::InvalidResultTokenException(inner) => inner.source(),
-            #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_configuration_recorder"))]
-Error::InvalidRoleException(inner) => inner.source(),
+            Error::InvalidResultTokenException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_configuration_recorder"
+            ))]
+            Error::InvalidRoleException(inner) => inner.source(),
             #[cfg(feature = "op_put_delivery_channel")]
-Error::InvalidS3KeyPrefixException(inner) => inner.source(),
+            Error::InvalidS3KeyPrefixException(inner) => inner.source(),
             #[cfg(feature = "op_put_delivery_channel")]
-Error::InvalidS3KmsKeyArnException(inner) => inner.source(),
+            Error::InvalidS3KmsKeyArnException(inner) => inner.source(),
             #[cfg(feature = "op_put_delivery_channel")]
-Error::InvalidSnsTopicArnException(inner) => inner.source(),
-            #[cfg(any(feature = "op_get_resource_config_history", feature = "op_list_resource_evaluations"))]
-Error::InvalidTimeRangeException(inner) => inner.source(),
+            Error::InvalidSnsTopicArnException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_get_resource_config_history",
+                feature = "op_list_resource_evaluations"
+            ))]
+            Error::InvalidTimeRangeException(inner) => inner.source(),
             #[cfg(feature = "op_delete_delivery_channel")]
-Error::LastDeliveryChannelDeleteFailedException(inner) => inner.source(),
-            #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_service_linked_configuration_recorder", feature = "op_start_config_rules_evaluation"))]
-Error::LimitExceededException(inner) => inner.source(),
+            Error::LastDeliveryChannelDeleteFailedException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_service_linked_configuration_recorder",
+                feature = "op_start_config_rules_evaluation"
+            ))]
+            Error::LimitExceededException(inner) => inner.source(),
             #[cfg(feature = "op_put_resource_config")]
-Error::MaxActiveResourcesExceededException(inner) => inner.source(),
+            Error::MaxActiveResourcesExceededException(inner) => inner.source(),
             #[cfg(feature = "op_put_config_rule")]
-Error::MaxNumberOfConfigRulesExceededException(inner) => inner.source(),
+            Error::MaxNumberOfConfigRulesExceededException(inner) => inner.source(),
             #[cfg(feature = "op_put_configuration_recorder")]
-Error::MaxNumberOfConfigurationRecordersExceededException(inner) => inner.source(),
+            Error::MaxNumberOfConfigurationRecordersExceededException(inner) => inner.source(),
             #[cfg(feature = "op_put_conformance_pack")]
-Error::MaxNumberOfConformancePacksExceededException(inner) => inner.source(),
+            Error::MaxNumberOfConformancePacksExceededException(inner) => inner.source(),
             #[cfg(feature = "op_put_connector")]
-Error::MaxNumberOfConnectorsExceededException(inner) => inner.source(),
+            Error::MaxNumberOfConnectorsExceededException(inner) => inner.source(),
             #[cfg(feature = "op_put_delivery_channel")]
-Error::MaxNumberOfDeliveryChannelsExceededException(inner) => inner.source(),
+            Error::MaxNumberOfDeliveryChannelsExceededException(inner) => inner.source(),
             #[cfg(feature = "op_put_organization_config_rule")]
-Error::MaxNumberOfOrganizationConfigRulesExceededException(inner) => inner.source(),
+            Error::MaxNumberOfOrganizationConfigRulesExceededException(inner) => inner.source(),
             #[cfg(feature = "op_put_organization_conformance_pack")]
-Error::MaxNumberOfOrganizationConformancePacksExceededException(inner) => inner.source(),
+            Error::MaxNumberOfOrganizationConformancePacksExceededException(inner) => {
+                inner.source()
+            }
             #[cfg(feature = "op_put_retention_configuration")]
-Error::MaxNumberOfRetentionConfigurationsExceededException(inner) => inner.source(),
-            #[cfg(any(feature = "op_batch_get_resource_config", feature = "op_deliver_config_snapshot", feature = "op_get_resource_config_history", feature = "op_list_discovered_resources", feature = "op_put_config_rule", feature = "op_put_delivery_channel"))]
-Error::NoAvailableConfigurationRecorderException(inner) => inner.source(),
+            Error::MaxNumberOfRetentionConfigurationsExceededException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_batch_get_resource_config",
+                feature = "op_deliver_config_snapshot",
+                feature = "op_get_resource_config_history",
+                feature = "op_list_discovered_resources",
+                feature = "op_put_config_rule",
+                feature = "op_put_delivery_channel"
+            ))]
+            Error::NoAvailableConfigurationRecorderException(inner) => inner.source(),
             #[cfg(feature = "op_start_configuration_recorder")]
-Error::NoAvailableDeliveryChannelException(inner) => inner.source(),
-            #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack"))]
-Error::NoAvailableOrganizationException(inner) => inner.source(),
-            #[cfg(any(feature = "op_delete_resource_config", feature = "op_deliver_config_snapshot", feature = "op_put_resource_config"))]
-Error::NoRunningConfigurationRecorderException(inner) => inner.source(),
+            Error::NoAvailableDeliveryChannelException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack"
+            ))]
+            Error::NoAvailableOrganizationException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_delete_resource_config",
+                feature = "op_deliver_config_snapshot",
+                feature = "op_put_resource_config"
+            ))]
+            Error::NoRunningConfigurationRecorderException(inner) => inner.source(),
             #[cfg(feature = "op_put_delivery_channel")]
-Error::NoSuchBucketException(inner) => inner.source(),
-            #[cfg(any(feature = "op_delete_config_rule", feature = "op_delete_evaluation_results", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_config_rule_evaluation_status", feature = "op_describe_config_rules", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_custom_rule_policy", feature = "op_put_evaluations", feature = "op_put_external_evaluation", feature = "op_start_config_rules_evaluation"))]
-Error::NoSuchConfigRuleException(inner) => inner.source(),
-            #[cfg(any(feature = "op_describe_conformance_pack_compliance", feature = "op_get_conformance_pack_compliance_details"))]
-Error::NoSuchConfigRuleInConformancePackException(inner) => inner.source(),
-            #[cfg(any(feature = "op_batch_get_aggregate_resource_config", feature = "op_delete_configuration_aggregator", feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_aggregate_resource_config", feature = "op_list_aggregate_discovered_resources", feature = "op_select_aggregate_resource_config"))]
-Error::NoSuchConfigurationAggregatorException(inner) => inner.source(),
-            #[cfg(any(feature = "op_associate_resource_types", feature = "op_delete_configuration_recorder", feature = "op_delete_service_linked_configuration_recorder", feature = "op_describe_configuration_recorder_status", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_start_configuration_recorder", feature = "op_stop_configuration_recorder"))]
-Error::NoSuchConfigurationRecorderException(inner) => inner.source(),
-            #[cfg(any(feature = "op_delete_conformance_pack", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_packs", feature = "op_get_conformance_pack_compliance_details", feature = "op_get_conformance_pack_compliance_summary"))]
-Error::NoSuchConformancePackException(inner) => inner.source(),
-            #[cfg(any(feature = "op_delete_delivery_channel", feature = "op_deliver_config_snapshot", feature = "op_describe_delivery_channel_status", feature = "op_describe_delivery_channels"))]
-Error::NoSuchDeliveryChannelException(inner) => inner.source(),
-            #[cfg(any(feature = "op_delete_organization_config_rule", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_custom_rule_policy"))]
-Error::NoSuchOrganizationConfigRuleException(inner) => inner.source(),
-            #[cfg(any(feature = "op_delete_organization_conformance_pack", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_get_organization_conformance_pack_detailed_status"))]
-Error::NoSuchOrganizationConformancePackException(inner) => inner.source(),
-            #[cfg(any(feature = "op_delete_remediation_configuration", feature = "op_describe_remediation_execution_status", feature = "op_start_remediation_execution"))]
-Error::NoSuchRemediationConfigurationException(inner) => inner.source(),
+            Error::NoSuchBucketException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_delete_config_rule",
+                feature = "op_delete_evaluation_results",
+                feature = "op_describe_compliance_by_config_rule",
+                feature = "op_describe_config_rule_evaluation_status",
+                feature = "op_describe_config_rules",
+                feature = "op_get_compliance_details_by_config_rule",
+                feature = "op_get_custom_rule_policy",
+                feature = "op_put_evaluations",
+                feature = "op_put_external_evaluation",
+                feature = "op_start_config_rules_evaluation"
+            ))]
+            Error::NoSuchConfigRuleException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_get_conformance_pack_compliance_details"
+            ))]
+            Error::NoSuchConfigRuleInConformancePackException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_batch_get_aggregate_resource_config",
+                feature = "op_delete_configuration_aggregator",
+                feature = "op_describe_aggregate_compliance_by_config_rules",
+                feature = "op_describe_aggregate_compliance_by_conformance_packs",
+                feature = "op_describe_configuration_aggregator_sources_status",
+                feature = "op_describe_configuration_aggregators",
+                feature = "op_get_aggregate_compliance_details_by_config_rule",
+                feature = "op_get_aggregate_config_rule_compliance_summary",
+                feature = "op_get_aggregate_conformance_pack_compliance_summary",
+                feature = "op_get_aggregate_discovered_resource_counts",
+                feature = "op_get_aggregate_resource_config",
+                feature = "op_list_aggregate_discovered_resources",
+                feature = "op_select_aggregate_resource_config"
+            ))]
+            Error::NoSuchConfigurationAggregatorException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_associate_resource_types",
+                feature = "op_delete_configuration_recorder",
+                feature = "op_delete_service_linked_configuration_recorder",
+                feature = "op_describe_configuration_recorder_status",
+                feature = "op_describe_configuration_recorders",
+                feature = "op_disassociate_resource_types",
+                feature = "op_start_configuration_recorder",
+                feature = "op_stop_configuration_recorder"
+            ))]
+            Error::NoSuchConfigurationRecorderException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_delete_conformance_pack",
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_describe_conformance_packs",
+                feature = "op_get_conformance_pack_compliance_details",
+                feature = "op_get_conformance_pack_compliance_summary"
+            ))]
+            Error::NoSuchConformancePackException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_delete_delivery_channel",
+                feature = "op_deliver_config_snapshot",
+                feature = "op_describe_delivery_channel_status",
+                feature = "op_describe_delivery_channels"
+            ))]
+            Error::NoSuchDeliveryChannelException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_delete_organization_config_rule",
+                feature = "op_describe_organization_config_rule_statuses",
+                feature = "op_describe_organization_config_rules",
+                feature = "op_get_organization_config_rule_detailed_status",
+                feature = "op_get_organization_custom_rule_policy"
+            ))]
+            Error::NoSuchOrganizationConfigRuleException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_delete_organization_conformance_pack",
+                feature = "op_describe_organization_conformance_pack_statuses",
+                feature = "op_describe_organization_conformance_packs",
+                feature = "op_get_organization_conformance_pack_detailed_status"
+            ))]
+            Error::NoSuchOrganizationConformancePackException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_delete_remediation_configuration",
+                feature = "op_describe_remediation_execution_status",
+                feature = "op_start_remediation_execution"
+            ))]
+            Error::NoSuchRemediationConfigurationException(inner) => inner.source(),
             #[cfg(feature = "op_delete_remediation_exceptions")]
-Error::NoSuchRemediationExceptionException(inner) => inner.source(),
-            #[cfg(any(feature = "op_delete_retention_configuration", feature = "op_describe_retention_configurations"))]
-Error::NoSuchRetentionConfigurationException(inner) => inner.source(),
-            #[cfg(any(feature = "op_delete_organization_config_rule", feature = "op_delete_organization_conformance_pack", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_conformance_pack_detailed_status", feature = "op_get_organization_custom_rule_policy", feature = "op_put_configuration_aggregator", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack"))]
-Error::OrganizationAccessDeniedException(inner) => inner.source(),
-            #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack"))]
-Error::OrganizationAllFeaturesNotEnabledException(inner) => inner.source(),
+            Error::NoSuchRemediationExceptionException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_delete_retention_configuration",
+                feature = "op_describe_retention_configurations"
+            ))]
+            Error::NoSuchRetentionConfigurationException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_delete_organization_config_rule",
+                feature = "op_delete_organization_conformance_pack",
+                feature = "op_describe_organization_config_rule_statuses",
+                feature = "op_describe_organization_config_rules",
+                feature = "op_describe_organization_conformance_pack_statuses",
+                feature = "op_describe_organization_conformance_packs",
+                feature = "op_get_organization_config_rule_detailed_status",
+                feature = "op_get_organization_conformance_pack_detailed_status",
+                feature = "op_get_organization_custom_rule_policy",
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack"
+            ))]
+            Error::OrganizationAccessDeniedException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack"
+            ))]
+            Error::OrganizationAllFeaturesNotEnabledException(inner) => inner.source(),
             #[cfg(feature = "op_put_organization_conformance_pack")]
-Error::OrganizationConformancePackTemplateValidationException(inner) => inner.source(),
+            Error::OrganizationConformancePackTemplateValidationException(inner) => inner.source(),
             #[cfg(feature = "op_get_aggregate_resource_config")]
-Error::OversizedConfigurationItemException(inner) => inner.source(),
+            Error::OversizedConfigurationItemException(inner) => inner.source(),
             #[cfg(feature = "op_delete_remediation_configuration")]
-Error::RemediationInProgressException(inner) => inner.source(),
+            Error::RemediationInProgressException(inner) => inner.source(),
             #[cfg(feature = "op_put_stored_query")]
-Error::ResourceConcurrentModificationException(inner) => inner.source(),
-            #[cfg(any(feature = "op_delete_config_rule", feature = "op_delete_conformance_pack", feature = "op_delete_evaluation_results", feature = "op_delete_organization_config_rule", feature = "op_delete_organization_conformance_pack", feature = "op_put_config_rule", feature = "op_put_conformance_pack", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_start_config_rules_evaluation"))]
-Error::ResourceInUseException(inner) => inner.source(),
-            #[cfg(any(feature = "op_get_aggregate_resource_config", feature = "op_get_resource_config_history"))]
-Error::ResourceNotDiscoveredException(inner) => inner.source(),
-            #[cfg(any(feature = "op_delete_connector", feature = "op_delete_stored_query", feature = "op_get_connector", feature = "op_get_resource_evaluation_summary", feature = "op_get_stored_query", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource"))]
-Error::ResourceNotFoundException(inner) => inner.source(),
+            Error::ResourceConcurrentModificationException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_delete_config_rule",
+                feature = "op_delete_conformance_pack",
+                feature = "op_delete_evaluation_results",
+                feature = "op_delete_organization_config_rule",
+                feature = "op_delete_organization_conformance_pack",
+                feature = "op_put_config_rule",
+                feature = "op_put_conformance_pack",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack",
+                feature = "op_start_config_rules_evaluation"
+            ))]
+            Error::ResourceInUseException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_get_aggregate_resource_config",
+                feature = "op_get_resource_config_history"
+            ))]
+            Error::ResourceNotDiscoveredException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_delete_connector",
+                feature = "op_delete_stored_query",
+                feature = "op_get_connector",
+                feature = "op_get_resource_evaluation_summary",
+                feature = "op_get_stored_query",
+                feature = "op_list_tags_for_resource",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource"
+            ))]
+            Error::ResourceNotFoundException(inner) => inner.source(),
             #[cfg(any(feature = "op_put_stored_query", feature = "op_tag_resource"))]
-Error::TooManyTagsException(inner) => inner.source(),
-            #[cfg(any(feature = "op_delete_configuration_recorder", feature = "op_put_configuration_recorder", feature = "op_start_configuration_recorder", feature = "op_stop_configuration_recorder"))]
-Error::UnmodifiableEntityException(inner) => inner.source(),
-            #[cfg(any(feature = "op_associate_resource_types", feature = "op_batch_get_aggregate_resource_config", feature = "op_batch_get_resource_config", feature = "op_delete_connector", feature = "op_delete_resource_config", feature = "op_delete_service_linked_configuration_recorder", feature = "op_delete_stored_query", feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_configuration_recorder_status", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_aggregate_resource_config", feature = "op_get_connector", feature = "op_get_discovered_resource_counts", feature = "op_get_resource_config_history", feature = "op_get_stored_query", feature = "op_list_aggregate_discovered_resources", feature = "op_list_configuration_recorders", feature = "op_list_connectors", feature = "op_list_discovered_resources", feature = "op_list_stored_queries", feature = "op_list_tags_for_resource", feature = "op_put_configuration_recorder", feature = "op_put_connector", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_put_resource_config", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_stored_query", feature = "op_put_third_party_service_linked_configuration_recorder", feature = "op_tag_resource", feature = "op_untag_resource"))]
-Error::ValidationException(inner) => inner.source(),
+            Error::TooManyTagsException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_delete_configuration_recorder",
+                feature = "op_put_configuration_recorder",
+                feature = "op_start_configuration_recorder",
+                feature = "op_stop_configuration_recorder"
+            ))]
+            Error::UnmodifiableEntityException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_associate_resource_types",
+                feature = "op_batch_get_aggregate_resource_config",
+                feature = "op_batch_get_resource_config",
+                feature = "op_delete_connector",
+                feature = "op_delete_resource_config",
+                feature = "op_delete_service_linked_configuration_recorder",
+                feature = "op_delete_stored_query",
+                feature = "op_describe_aggregate_compliance_by_config_rules",
+                feature = "op_describe_aggregate_compliance_by_conformance_packs",
+                feature = "op_describe_configuration_recorder_status",
+                feature = "op_describe_configuration_recorders",
+                feature = "op_disassociate_resource_types",
+                feature = "op_get_aggregate_compliance_details_by_config_rule",
+                feature = "op_get_aggregate_config_rule_compliance_summary",
+                feature = "op_get_aggregate_conformance_pack_compliance_summary",
+                feature = "op_get_aggregate_discovered_resource_counts",
+                feature = "op_get_aggregate_resource_config",
+                feature = "op_get_connector",
+                feature = "op_get_discovered_resource_counts",
+                feature = "op_get_resource_config_history",
+                feature = "op_get_stored_query",
+                feature = "op_list_aggregate_discovered_resources",
+                feature = "op_list_configuration_recorders",
+                feature = "op_list_connectors",
+                feature = "op_list_discovered_resources",
+                feature = "op_list_stored_queries",
+                feature = "op_list_tags_for_resource",
+                feature = "op_put_configuration_recorder",
+                feature = "op_put_connector",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack",
+                feature = "op_put_resource_config",
+                feature = "op_put_service_linked_configuration_recorder",
+                feature = "op_put_stored_query",
+                feature = "op_put_third_party_service_linked_configuration_recorder",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource"
+            ))]
+            Error::ValidationException(inner) => inner.source(),
             Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source),
         }
     }
@@ -4346,120 +6441,425 @@ Error::ValidationException(inner) => inner.source(),
 impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
-            #[cfg(any(feature = "op_associate_resource_types", feature = "op_delete_service_linked_configuration_recorder", feature = "op_disassociate_resource_types", feature = "op_put_connector", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_third_party_service_linked_configuration_recorder"))]
-Self::ConflictException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_associate_resource_types",
+                feature = "op_delete_service_linked_configuration_recorder",
+                feature = "op_disassociate_resource_types",
+                feature = "op_put_connector",
+                feature = "op_put_service_linked_configuration_recorder",
+                feature = "op_put_third_party_service_linked_configuration_recorder"
+            ))]
+            Self::ConflictException(e) => e.request_id(),
             #[cfg(feature = "op_put_conformance_pack")]
-Self::ConformancePackTemplateValidationException(e) => e.request_id(),
+            Self::ConformancePackTemplateValidationException(e) => e.request_id(),
             #[cfg(feature = "op_start_resource_evaluation")]
-Self::IdempotentParameterMismatch(e) => e.request_id(),
+            Self::IdempotentParameterMismatch(e) => e.request_id(),
             #[cfg(feature = "op_put_delivery_channel")]
-Self::InsufficientDeliveryPolicyException(e) => e.request_id(),
-            #[cfg(any(feature = "op_delete_remediation_configuration", feature = "op_put_config_rule", feature = "op_put_conformance_pack", feature = "op_put_connector", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_put_remediation_configurations", feature = "op_put_remediation_exceptions", feature = "op_put_resource_config", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_third_party_service_linked_configuration_recorder", feature = "op_start_remediation_execution"))]
-Self::InsufficientPermissionsException(e) => e.request_id(),
+            Self::InsufficientDeliveryPolicyException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_delete_remediation_configuration",
+                feature = "op_put_config_rule",
+                feature = "op_put_conformance_pack",
+                feature = "op_put_connector",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack",
+                feature = "op_put_remediation_configurations",
+                feature = "op_put_remediation_exceptions",
+                feature = "op_put_resource_config",
+                feature = "op_put_service_linked_configuration_recorder",
+                feature = "op_put_third_party_service_linked_configuration_recorder",
+                feature = "op_start_remediation_execution"
+            ))]
+            Self::InsufficientPermissionsException(e) => e.request_id(),
             #[cfg(feature = "op_put_configuration_recorder")]
-Self::InvalidConfigurationRecorderNameException(e) => e.request_id(),
+            Self::InvalidConfigurationRecorderNameException(e) => e.request_id(),
             #[cfg(feature = "op_put_delivery_channel")]
-Self::InvalidDeliveryChannelNameException(e) => e.request_id(),
-            #[cfg(any(feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
-Self::InvalidExpressionException(e) => e.request_id(),
-            #[cfg(any(feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_aggregation_authorizations", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_pack_status", feature = "op_describe_conformance_packs", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_describe_pending_aggregation_requests", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_conformance_pack_compliance_details", feature = "op_get_conformance_pack_compliance_summary", feature = "op_get_discovered_resource_counts", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_conformance_pack_detailed_status", feature = "op_get_resource_config_history", feature = "op_list_aggregate_discovered_resources", feature = "op_list_conformance_pack_compliance_scores", feature = "op_list_discovered_resources", feature = "op_list_tags_for_resource", feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
-Self::InvalidLimitException(e) => e.request_id(),
-            #[cfg(any(feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_aggregation_authorizations", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_compliance_by_resource", feature = "op_describe_config_rule_evaluation_status", feature = "op_describe_config_rules", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_pack_status", feature = "op_describe_conformance_packs", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_describe_pending_aggregation_requests", feature = "op_describe_remediation_exceptions", feature = "op_describe_remediation_execution_status", feature = "op_describe_retention_configurations", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_conformance_pack_compliance_details", feature = "op_get_conformance_pack_compliance_summary", feature = "op_get_discovered_resource_counts", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_conformance_pack_detailed_status", feature = "op_get_resource_config_history", feature = "op_list_aggregate_discovered_resources", feature = "op_list_conformance_pack_compliance_scores", feature = "op_list_discovered_resources", feature = "op_list_resource_evaluations", feature = "op_list_stored_queries", feature = "op_list_tags_for_resource", feature = "op_select_aggregate_resource_config", feature = "op_select_resource_config"))]
-Self::InvalidNextTokenException(e) => e.request_id(),
-            #[cfg(any(feature = "op_delete_aggregation_authorization", feature = "op_delete_pending_aggregation_request", feature = "op_delete_remediation_configuration", feature = "op_delete_retention_configuration", feature = "op_describe_aggregation_authorizations", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_compliance_by_resource", feature = "op_describe_config_rule_evaluation_status", feature = "op_describe_config_rules", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_pack_status", feature = "op_describe_conformance_packs", feature = "op_describe_pending_aggregation_requests", feature = "op_describe_remediation_exceptions", feature = "op_describe_remediation_execution_status", feature = "op_describe_retention_configurations", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_compliance_details_by_resource", feature = "op_get_compliance_summary_by_resource_type", feature = "op_get_conformance_pack_compliance_details", feature = "op_list_conformance_pack_compliance_scores", feature = "op_list_resource_evaluations", feature = "op_put_aggregation_authorization", feature = "op_put_config_rule", feature = "op_put_configuration_aggregator", feature = "op_put_conformance_pack", feature = "op_put_evaluations", feature = "op_put_external_evaluation", feature = "op_put_organization_config_rule", feature = "op_put_remediation_configurations", feature = "op_put_remediation_exceptions", feature = "op_put_retention_configuration", feature = "op_start_config_rules_evaluation", feature = "op_start_remediation_execution", feature = "op_start_resource_evaluation"))]
-Self::InvalidParameterValueException(e) => e.request_id(),
+            Self::InvalidDeliveryChannelNameException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_select_aggregate_resource_config",
+                feature = "op_select_resource_config"
+            ))]
+            Self::InvalidExpressionException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_describe_aggregate_compliance_by_config_rules",
+                feature = "op_describe_aggregate_compliance_by_conformance_packs",
+                feature = "op_describe_aggregation_authorizations",
+                feature = "op_describe_configuration_aggregator_sources_status",
+                feature = "op_describe_configuration_aggregators",
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_describe_conformance_pack_status",
+                feature = "op_describe_conformance_packs",
+                feature = "op_describe_organization_config_rule_statuses",
+                feature = "op_describe_organization_config_rules",
+                feature = "op_describe_organization_conformance_pack_statuses",
+                feature = "op_describe_organization_conformance_packs",
+                feature = "op_describe_pending_aggregation_requests",
+                feature = "op_get_aggregate_compliance_details_by_config_rule",
+                feature = "op_get_aggregate_config_rule_compliance_summary",
+                feature = "op_get_aggregate_conformance_pack_compliance_summary",
+                feature = "op_get_aggregate_discovered_resource_counts",
+                feature = "op_get_conformance_pack_compliance_details",
+                feature = "op_get_conformance_pack_compliance_summary",
+                feature = "op_get_discovered_resource_counts",
+                feature = "op_get_organization_config_rule_detailed_status",
+                feature = "op_get_organization_conformance_pack_detailed_status",
+                feature = "op_get_resource_config_history",
+                feature = "op_list_aggregate_discovered_resources",
+                feature = "op_list_conformance_pack_compliance_scores",
+                feature = "op_list_discovered_resources",
+                feature = "op_list_tags_for_resource",
+                feature = "op_select_aggregate_resource_config",
+                feature = "op_select_resource_config"
+            ))]
+            Self::InvalidLimitException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_describe_aggregate_compliance_by_config_rules",
+                feature = "op_describe_aggregate_compliance_by_conformance_packs",
+                feature = "op_describe_aggregation_authorizations",
+                feature = "op_describe_compliance_by_config_rule",
+                feature = "op_describe_compliance_by_resource",
+                feature = "op_describe_config_rule_evaluation_status",
+                feature = "op_describe_config_rules",
+                feature = "op_describe_configuration_aggregator_sources_status",
+                feature = "op_describe_configuration_aggregators",
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_describe_conformance_pack_status",
+                feature = "op_describe_conformance_packs",
+                feature = "op_describe_organization_config_rule_statuses",
+                feature = "op_describe_organization_config_rules",
+                feature = "op_describe_organization_conformance_pack_statuses",
+                feature = "op_describe_organization_conformance_packs",
+                feature = "op_describe_pending_aggregation_requests",
+                feature = "op_describe_remediation_exceptions",
+                feature = "op_describe_remediation_execution_status",
+                feature = "op_describe_retention_configurations",
+                feature = "op_get_aggregate_compliance_details_by_config_rule",
+                feature = "op_get_aggregate_config_rule_compliance_summary",
+                feature = "op_get_aggregate_conformance_pack_compliance_summary",
+                feature = "op_get_aggregate_discovered_resource_counts",
+                feature = "op_get_compliance_details_by_config_rule",
+                feature = "op_get_conformance_pack_compliance_details",
+                feature = "op_get_conformance_pack_compliance_summary",
+                feature = "op_get_discovered_resource_counts",
+                feature = "op_get_organization_config_rule_detailed_status",
+                feature = "op_get_organization_conformance_pack_detailed_status",
+                feature = "op_get_resource_config_history",
+                feature = "op_list_aggregate_discovered_resources",
+                feature = "op_list_conformance_pack_compliance_scores",
+                feature = "op_list_discovered_resources",
+                feature = "op_list_resource_evaluations",
+                feature = "op_list_stored_queries",
+                feature = "op_list_tags_for_resource",
+                feature = "op_select_aggregate_resource_config",
+                feature = "op_select_resource_config"
+            ))]
+            Self::InvalidNextTokenException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_delete_aggregation_authorization",
+                feature = "op_delete_pending_aggregation_request",
+                feature = "op_delete_remediation_configuration",
+                feature = "op_delete_retention_configuration",
+                feature = "op_describe_aggregation_authorizations",
+                feature = "op_describe_compliance_by_config_rule",
+                feature = "op_describe_compliance_by_resource",
+                feature = "op_describe_config_rule_evaluation_status",
+                feature = "op_describe_config_rules",
+                feature = "op_describe_configuration_aggregator_sources_status",
+                feature = "op_describe_configuration_aggregators",
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_describe_conformance_pack_status",
+                feature = "op_describe_conformance_packs",
+                feature = "op_describe_pending_aggregation_requests",
+                feature = "op_describe_remediation_exceptions",
+                feature = "op_describe_remediation_execution_status",
+                feature = "op_describe_retention_configurations",
+                feature = "op_get_compliance_details_by_config_rule",
+                feature = "op_get_compliance_details_by_resource",
+                feature = "op_get_compliance_summary_by_resource_type",
+                feature = "op_get_conformance_pack_compliance_details",
+                feature = "op_list_conformance_pack_compliance_scores",
+                feature = "op_list_resource_evaluations",
+                feature = "op_put_aggregation_authorization",
+                feature = "op_put_config_rule",
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_conformance_pack",
+                feature = "op_put_evaluations",
+                feature = "op_put_external_evaluation",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_remediation_configurations",
+                feature = "op_put_remediation_exceptions",
+                feature = "op_put_retention_configuration",
+                feature = "op_start_config_rules_evaluation",
+                feature = "op_start_remediation_execution",
+                feature = "op_start_resource_evaluation"
+            ))]
+            Self::InvalidParameterValueException(e) => e.request_id(),
             #[cfg(feature = "op_put_configuration_recorder")]
-Self::InvalidRecordingGroupException(e) => e.request_id(),
+            Self::InvalidRecordingGroupException(e) => e.request_id(),
             #[cfg(feature = "op_put_evaluations")]
-Self::InvalidResultTokenException(e) => e.request_id(),
-            #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_configuration_recorder"))]
-Self::InvalidRoleException(e) => e.request_id(),
+            Self::InvalidResultTokenException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_configuration_recorder"
+            ))]
+            Self::InvalidRoleException(e) => e.request_id(),
             #[cfg(feature = "op_put_delivery_channel")]
-Self::InvalidS3KeyPrefixException(e) => e.request_id(),
+            Self::InvalidS3KeyPrefixException(e) => e.request_id(),
             #[cfg(feature = "op_put_delivery_channel")]
-Self::InvalidS3KmsKeyArnException(e) => e.request_id(),
+            Self::InvalidS3KmsKeyArnException(e) => e.request_id(),
             #[cfg(feature = "op_put_delivery_channel")]
-Self::InvalidSnsTopicArnException(e) => e.request_id(),
-            #[cfg(any(feature = "op_get_resource_config_history", feature = "op_list_resource_evaluations"))]
-Self::InvalidTimeRangeException(e) => e.request_id(),
+            Self::InvalidSnsTopicArnException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_get_resource_config_history",
+                feature = "op_list_resource_evaluations"
+            ))]
+            Self::InvalidTimeRangeException(e) => e.request_id(),
             #[cfg(feature = "op_delete_delivery_channel")]
-Self::LastDeliveryChannelDeleteFailedException(e) => e.request_id(),
-            #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_service_linked_configuration_recorder", feature = "op_start_config_rules_evaluation"))]
-Self::LimitExceededException(e) => e.request_id(),
+            Self::LastDeliveryChannelDeleteFailedException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_service_linked_configuration_recorder",
+                feature = "op_start_config_rules_evaluation"
+            ))]
+            Self::LimitExceededException(e) => e.request_id(),
             #[cfg(feature = "op_put_resource_config")]
-Self::MaxActiveResourcesExceededException(e) => e.request_id(),
+            Self::MaxActiveResourcesExceededException(e) => e.request_id(),
             #[cfg(feature = "op_put_config_rule")]
-Self::MaxNumberOfConfigRulesExceededException(e) => e.request_id(),
+            Self::MaxNumberOfConfigRulesExceededException(e) => e.request_id(),
             #[cfg(feature = "op_put_configuration_recorder")]
-Self::MaxNumberOfConfigurationRecordersExceededException(e) => e.request_id(),
+            Self::MaxNumberOfConfigurationRecordersExceededException(e) => e.request_id(),
             #[cfg(feature = "op_put_conformance_pack")]
-Self::MaxNumberOfConformancePacksExceededException(e) => e.request_id(),
+            Self::MaxNumberOfConformancePacksExceededException(e) => e.request_id(),
             #[cfg(feature = "op_put_connector")]
-Self::MaxNumberOfConnectorsExceededException(e) => e.request_id(),
+            Self::MaxNumberOfConnectorsExceededException(e) => e.request_id(),
             #[cfg(feature = "op_put_delivery_channel")]
-Self::MaxNumberOfDeliveryChannelsExceededException(e) => e.request_id(),
+            Self::MaxNumberOfDeliveryChannelsExceededException(e) => e.request_id(),
             #[cfg(feature = "op_put_organization_config_rule")]
-Self::MaxNumberOfOrganizationConfigRulesExceededException(e) => e.request_id(),
+            Self::MaxNumberOfOrganizationConfigRulesExceededException(e) => e.request_id(),
             #[cfg(feature = "op_put_organization_conformance_pack")]
-Self::MaxNumberOfOrganizationConformancePacksExceededException(e) => e.request_id(),
+            Self::MaxNumberOfOrganizationConformancePacksExceededException(e) => e.request_id(),
             #[cfg(feature = "op_put_retention_configuration")]
-Self::MaxNumberOfRetentionConfigurationsExceededException(e) => e.request_id(),
-            #[cfg(any(feature = "op_batch_get_resource_config", feature = "op_deliver_config_snapshot", feature = "op_get_resource_config_history", feature = "op_list_discovered_resources", feature = "op_put_config_rule", feature = "op_put_delivery_channel"))]
-Self::NoAvailableConfigurationRecorderException(e) => e.request_id(),
+            Self::MaxNumberOfRetentionConfigurationsExceededException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_batch_get_resource_config",
+                feature = "op_deliver_config_snapshot",
+                feature = "op_get_resource_config_history",
+                feature = "op_list_discovered_resources",
+                feature = "op_put_config_rule",
+                feature = "op_put_delivery_channel"
+            ))]
+            Self::NoAvailableConfigurationRecorderException(e) => e.request_id(),
             #[cfg(feature = "op_start_configuration_recorder")]
-Self::NoAvailableDeliveryChannelException(e) => e.request_id(),
-            #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack"))]
-Self::NoAvailableOrganizationException(e) => e.request_id(),
-            #[cfg(any(feature = "op_delete_resource_config", feature = "op_deliver_config_snapshot", feature = "op_put_resource_config"))]
-Self::NoRunningConfigurationRecorderException(e) => e.request_id(),
+            Self::NoAvailableDeliveryChannelException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack"
+            ))]
+            Self::NoAvailableOrganizationException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_delete_resource_config",
+                feature = "op_deliver_config_snapshot",
+                feature = "op_put_resource_config"
+            ))]
+            Self::NoRunningConfigurationRecorderException(e) => e.request_id(),
             #[cfg(feature = "op_put_delivery_channel")]
-Self::NoSuchBucketException(e) => e.request_id(),
-            #[cfg(any(feature = "op_delete_config_rule", feature = "op_delete_evaluation_results", feature = "op_describe_compliance_by_config_rule", feature = "op_describe_config_rule_evaluation_status", feature = "op_describe_config_rules", feature = "op_get_compliance_details_by_config_rule", feature = "op_get_custom_rule_policy", feature = "op_put_evaluations", feature = "op_put_external_evaluation", feature = "op_start_config_rules_evaluation"))]
-Self::NoSuchConfigRuleException(e) => e.request_id(),
-            #[cfg(any(feature = "op_describe_conformance_pack_compliance", feature = "op_get_conformance_pack_compliance_details"))]
-Self::NoSuchConfigRuleInConformancePackException(e) => e.request_id(),
-            #[cfg(any(feature = "op_batch_get_aggregate_resource_config", feature = "op_delete_configuration_aggregator", feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_configuration_aggregator_sources_status", feature = "op_describe_configuration_aggregators", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_aggregate_resource_config", feature = "op_list_aggregate_discovered_resources", feature = "op_select_aggregate_resource_config"))]
-Self::NoSuchConfigurationAggregatorException(e) => e.request_id(),
-            #[cfg(any(feature = "op_associate_resource_types", feature = "op_delete_configuration_recorder", feature = "op_delete_service_linked_configuration_recorder", feature = "op_describe_configuration_recorder_status", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_start_configuration_recorder", feature = "op_stop_configuration_recorder"))]
-Self::NoSuchConfigurationRecorderException(e) => e.request_id(),
-            #[cfg(any(feature = "op_delete_conformance_pack", feature = "op_describe_conformance_pack_compliance", feature = "op_describe_conformance_packs", feature = "op_get_conformance_pack_compliance_details", feature = "op_get_conformance_pack_compliance_summary"))]
-Self::NoSuchConformancePackException(e) => e.request_id(),
-            #[cfg(any(feature = "op_delete_delivery_channel", feature = "op_deliver_config_snapshot", feature = "op_describe_delivery_channel_status", feature = "op_describe_delivery_channels"))]
-Self::NoSuchDeliveryChannelException(e) => e.request_id(),
-            #[cfg(any(feature = "op_delete_organization_config_rule", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_custom_rule_policy"))]
-Self::NoSuchOrganizationConfigRuleException(e) => e.request_id(),
-            #[cfg(any(feature = "op_delete_organization_conformance_pack", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_get_organization_conformance_pack_detailed_status"))]
-Self::NoSuchOrganizationConformancePackException(e) => e.request_id(),
-            #[cfg(any(feature = "op_delete_remediation_configuration", feature = "op_describe_remediation_execution_status", feature = "op_start_remediation_execution"))]
-Self::NoSuchRemediationConfigurationException(e) => e.request_id(),
+            Self::NoSuchBucketException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_delete_config_rule",
+                feature = "op_delete_evaluation_results",
+                feature = "op_describe_compliance_by_config_rule",
+                feature = "op_describe_config_rule_evaluation_status",
+                feature = "op_describe_config_rules",
+                feature = "op_get_compliance_details_by_config_rule",
+                feature = "op_get_custom_rule_policy",
+                feature = "op_put_evaluations",
+                feature = "op_put_external_evaluation",
+                feature = "op_start_config_rules_evaluation"
+            ))]
+            Self::NoSuchConfigRuleException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_get_conformance_pack_compliance_details"
+            ))]
+            Self::NoSuchConfigRuleInConformancePackException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_batch_get_aggregate_resource_config",
+                feature = "op_delete_configuration_aggregator",
+                feature = "op_describe_aggregate_compliance_by_config_rules",
+                feature = "op_describe_aggregate_compliance_by_conformance_packs",
+                feature = "op_describe_configuration_aggregator_sources_status",
+                feature = "op_describe_configuration_aggregators",
+                feature = "op_get_aggregate_compliance_details_by_config_rule",
+                feature = "op_get_aggregate_config_rule_compliance_summary",
+                feature = "op_get_aggregate_conformance_pack_compliance_summary",
+                feature = "op_get_aggregate_discovered_resource_counts",
+                feature = "op_get_aggregate_resource_config",
+                feature = "op_list_aggregate_discovered_resources",
+                feature = "op_select_aggregate_resource_config"
+            ))]
+            Self::NoSuchConfigurationAggregatorException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_associate_resource_types",
+                feature = "op_delete_configuration_recorder",
+                feature = "op_delete_service_linked_configuration_recorder",
+                feature = "op_describe_configuration_recorder_status",
+                feature = "op_describe_configuration_recorders",
+                feature = "op_disassociate_resource_types",
+                feature = "op_start_configuration_recorder",
+                feature = "op_stop_configuration_recorder"
+            ))]
+            Self::NoSuchConfigurationRecorderException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_delete_conformance_pack",
+                feature = "op_describe_conformance_pack_compliance",
+                feature = "op_describe_conformance_packs",
+                feature = "op_get_conformance_pack_compliance_details",
+                feature = "op_get_conformance_pack_compliance_summary"
+            ))]
+            Self::NoSuchConformancePackException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_delete_delivery_channel",
+                feature = "op_deliver_config_snapshot",
+                feature = "op_describe_delivery_channel_status",
+                feature = "op_describe_delivery_channels"
+            ))]
+            Self::NoSuchDeliveryChannelException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_delete_organization_config_rule",
+                feature = "op_describe_organization_config_rule_statuses",
+                feature = "op_describe_organization_config_rules",
+                feature = "op_get_organization_config_rule_detailed_status",
+                feature = "op_get_organization_custom_rule_policy"
+            ))]
+            Self::NoSuchOrganizationConfigRuleException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_delete_organization_conformance_pack",
+                feature = "op_describe_organization_conformance_pack_statuses",
+                feature = "op_describe_organization_conformance_packs",
+                feature = "op_get_organization_conformance_pack_detailed_status"
+            ))]
+            Self::NoSuchOrganizationConformancePackException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_delete_remediation_configuration",
+                feature = "op_describe_remediation_execution_status",
+                feature = "op_start_remediation_execution"
+            ))]
+            Self::NoSuchRemediationConfigurationException(e) => e.request_id(),
             #[cfg(feature = "op_delete_remediation_exceptions")]
-Self::NoSuchRemediationExceptionException(e) => e.request_id(),
-            #[cfg(any(feature = "op_delete_retention_configuration", feature = "op_describe_retention_configurations"))]
-Self::NoSuchRetentionConfigurationException(e) => e.request_id(),
-            #[cfg(any(feature = "op_delete_organization_config_rule", feature = "op_delete_organization_conformance_pack", feature = "op_describe_organization_config_rule_statuses", feature = "op_describe_organization_config_rules", feature = "op_describe_organization_conformance_pack_statuses", feature = "op_describe_organization_conformance_packs", feature = "op_get_organization_config_rule_detailed_status", feature = "op_get_organization_conformance_pack_detailed_status", feature = "op_get_organization_custom_rule_policy", feature = "op_put_configuration_aggregator", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack"))]
-Self::OrganizationAccessDeniedException(e) => e.request_id(),
-            #[cfg(any(feature = "op_put_configuration_aggregator", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack"))]
-Self::OrganizationAllFeaturesNotEnabledException(e) => e.request_id(),
+            Self::NoSuchRemediationExceptionException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_delete_retention_configuration",
+                feature = "op_describe_retention_configurations"
+            ))]
+            Self::NoSuchRetentionConfigurationException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_delete_organization_config_rule",
+                feature = "op_delete_organization_conformance_pack",
+                feature = "op_describe_organization_config_rule_statuses",
+                feature = "op_describe_organization_config_rules",
+                feature = "op_describe_organization_conformance_pack_statuses",
+                feature = "op_describe_organization_conformance_packs",
+                feature = "op_get_organization_config_rule_detailed_status",
+                feature = "op_get_organization_conformance_pack_detailed_status",
+                feature = "op_get_organization_custom_rule_policy",
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack"
+            ))]
+            Self::OrganizationAccessDeniedException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_put_configuration_aggregator",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack"
+            ))]
+            Self::OrganizationAllFeaturesNotEnabledException(e) => e.request_id(),
             #[cfg(feature = "op_put_organization_conformance_pack")]
-Self::OrganizationConformancePackTemplateValidationException(e) => e.request_id(),
+            Self::OrganizationConformancePackTemplateValidationException(e) => e.request_id(),
             #[cfg(feature = "op_get_aggregate_resource_config")]
-Self::OversizedConfigurationItemException(e) => e.request_id(),
+            Self::OversizedConfigurationItemException(e) => e.request_id(),
             #[cfg(feature = "op_delete_remediation_configuration")]
-Self::RemediationInProgressException(e) => e.request_id(),
+            Self::RemediationInProgressException(e) => e.request_id(),
             #[cfg(feature = "op_put_stored_query")]
-Self::ResourceConcurrentModificationException(e) => e.request_id(),
-            #[cfg(any(feature = "op_delete_config_rule", feature = "op_delete_conformance_pack", feature = "op_delete_evaluation_results", feature = "op_delete_organization_config_rule", feature = "op_delete_organization_conformance_pack", feature = "op_put_config_rule", feature = "op_put_conformance_pack", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_start_config_rules_evaluation"))]
-Self::ResourceInUseException(e) => e.request_id(),
-            #[cfg(any(feature = "op_get_aggregate_resource_config", feature = "op_get_resource_config_history"))]
-Self::ResourceNotDiscoveredException(e) => e.request_id(),
-            #[cfg(any(feature = "op_delete_connector", feature = "op_delete_stored_query", feature = "op_get_connector", feature = "op_get_resource_evaluation_summary", feature = "op_get_stored_query", feature = "op_list_tags_for_resource", feature = "op_tag_resource", feature = "op_untag_resource"))]
-Self::ResourceNotFoundException(e) => e.request_id(),
+            Self::ResourceConcurrentModificationException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_delete_config_rule",
+                feature = "op_delete_conformance_pack",
+                feature = "op_delete_evaluation_results",
+                feature = "op_delete_organization_config_rule",
+                feature = "op_delete_organization_conformance_pack",
+                feature = "op_put_config_rule",
+                feature = "op_put_conformance_pack",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack",
+                feature = "op_start_config_rules_evaluation"
+            ))]
+            Self::ResourceInUseException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_get_aggregate_resource_config",
+                feature = "op_get_resource_config_history"
+            ))]
+            Self::ResourceNotDiscoveredException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_delete_connector",
+                feature = "op_delete_stored_query",
+                feature = "op_get_connector",
+                feature = "op_get_resource_evaluation_summary",
+                feature = "op_get_stored_query",
+                feature = "op_list_tags_for_resource",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource"
+            ))]
+            Self::ResourceNotFoundException(e) => e.request_id(),
             #[cfg(any(feature = "op_put_stored_query", feature = "op_tag_resource"))]
-Self::TooManyTagsException(e) => e.request_id(),
-            #[cfg(any(feature = "op_delete_configuration_recorder", feature = "op_put_configuration_recorder", feature = "op_start_configuration_recorder", feature = "op_stop_configuration_recorder"))]
-Self::UnmodifiableEntityException(e) => e.request_id(),
-            #[cfg(any(feature = "op_associate_resource_types", feature = "op_batch_get_aggregate_resource_config", feature = "op_batch_get_resource_config", feature = "op_delete_connector", feature = "op_delete_resource_config", feature = "op_delete_service_linked_configuration_recorder", feature = "op_delete_stored_query", feature = "op_describe_aggregate_compliance_by_config_rules", feature = "op_describe_aggregate_compliance_by_conformance_packs", feature = "op_describe_configuration_recorder_status", feature = "op_describe_configuration_recorders", feature = "op_disassociate_resource_types", feature = "op_get_aggregate_compliance_details_by_config_rule", feature = "op_get_aggregate_config_rule_compliance_summary", feature = "op_get_aggregate_conformance_pack_compliance_summary", feature = "op_get_aggregate_discovered_resource_counts", feature = "op_get_aggregate_resource_config", feature = "op_get_connector", feature = "op_get_discovered_resource_counts", feature = "op_get_resource_config_history", feature = "op_get_stored_query", feature = "op_list_aggregate_discovered_resources", feature = "op_list_configuration_recorders", feature = "op_list_connectors", feature = "op_list_discovered_resources", feature = "op_list_stored_queries", feature = "op_list_tags_for_resource", feature = "op_put_configuration_recorder", feature = "op_put_connector", feature = "op_put_organization_config_rule", feature = "op_put_organization_conformance_pack", feature = "op_put_resource_config", feature = "op_put_service_linked_configuration_recorder", feature = "op_put_stored_query", feature = "op_put_third_party_service_linked_configuration_recorder", feature = "op_tag_resource", feature = "op_untag_resource"))]
-Self::ValidationException(e) => e.request_id(),
+            Self::TooManyTagsException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_delete_configuration_recorder",
+                feature = "op_put_configuration_recorder",
+                feature = "op_start_configuration_recorder",
+                feature = "op_stop_configuration_recorder"
+            ))]
+            Self::UnmodifiableEntityException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_associate_resource_types",
+                feature = "op_batch_get_aggregate_resource_config",
+                feature = "op_batch_get_resource_config",
+                feature = "op_delete_connector",
+                feature = "op_delete_resource_config",
+                feature = "op_delete_service_linked_configuration_recorder",
+                feature = "op_delete_stored_query",
+                feature = "op_describe_aggregate_compliance_by_config_rules",
+                feature = "op_describe_aggregate_compliance_by_conformance_packs",
+                feature = "op_describe_configuration_recorder_status",
+                feature = "op_describe_configuration_recorders",
+                feature = "op_disassociate_resource_types",
+                feature = "op_get_aggregate_compliance_details_by_config_rule",
+                feature = "op_get_aggregate_config_rule_compliance_summary",
+                feature = "op_get_aggregate_conformance_pack_compliance_summary",
+                feature = "op_get_aggregate_discovered_resource_counts",
+                feature = "op_get_aggregate_resource_config",
+                feature = "op_get_connector",
+                feature = "op_get_discovered_resource_counts",
+                feature = "op_get_resource_config_history",
+                feature = "op_get_stored_query",
+                feature = "op_list_aggregate_discovered_resources",
+                feature = "op_list_configuration_recorders",
+                feature = "op_list_connectors",
+                feature = "op_list_discovered_resources",
+                feature = "op_list_stored_queries",
+                feature = "op_list_tags_for_resource",
+                feature = "op_put_configuration_recorder",
+                feature = "op_put_connector",
+                feature = "op_put_organization_config_rule",
+                feature = "op_put_organization_conformance_pack",
+                feature = "op_put_resource_config",
+                feature = "op_put_service_linked_configuration_recorder",
+                feature = "op_put_stored_query",
+                feature = "op_put_third_party_service_linked_configuration_recorder",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource"
+            ))]
+            Self::ValidationException(e) => e.request_id(),
             Self::Unhandled(e) => e.meta.request_id(),
         }
     }

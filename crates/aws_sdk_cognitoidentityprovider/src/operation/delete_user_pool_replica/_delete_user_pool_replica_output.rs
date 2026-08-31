@@ -20,13 +20,17 @@ impl ::aws_types::request_id::RequestId for DeleteUserPoolReplicaOutput {
 }
 impl DeleteUserPoolReplicaOutput {
     /// Creates a new builder-style object to manufacture [`DeleteUserPoolReplicaOutput`](crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaOutput).
-    pub fn builder() -> crate::operation::delete_user_pool_replica::builders::DeleteUserPoolReplicaOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::delete_user_pool_replica::builders::DeleteUserPoolReplicaOutputBuilder
+    {
         crate::operation::delete_user_pool_replica::builders::DeleteUserPoolReplicaOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteUserPoolReplicaOutput`](crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteUserPoolReplicaOutputBuilder {
     pub(crate) user_pool_replica: ::std::option::Option<crate::types::UserPoolReplicaType>,
@@ -39,12 +43,17 @@ impl DeleteUserPoolReplicaOutputBuilder {
         self
     }
     /// <p>Information about the deleted user pool replica.</p>
-    pub fn set_user_pool_replica(mut self, input: ::std::option::Option<crate::types::UserPoolReplicaType>) -> Self {
+    pub fn set_user_pool_replica(
+        mut self,
+        input: ::std::option::Option<crate::types::UserPoolReplicaType>,
+    ) -> Self {
         self.user_pool_replica = input;
         self
     }
     /// <p>Information about the deleted user pool replica.</p>
-    pub fn get_user_pool_replica(&self) -> &::std::option::Option<crate::types::UserPoolReplicaType> {
+    pub fn get_user_pool_replica(
+        &self,
+    ) -> &::std::option::Option<crate::types::UserPoolReplicaType> {
         &self.user_pool_replica
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

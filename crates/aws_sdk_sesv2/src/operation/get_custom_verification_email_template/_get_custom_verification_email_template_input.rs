@@ -15,13 +15,15 @@ impl GetCustomVerificationEmailTemplateInput {
 }
 impl GetCustomVerificationEmailTemplateInput {
     /// Creates a new builder-style object to manufacture [`GetCustomVerificationEmailTemplateInput`](crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateInput).
-    pub fn builder() -> crate::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateInputBuilder {
+    pub fn builder() -> crate::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateInputBuilder{
         crate::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateInputBuilder::default()
     }
 }
 
 /// A builder for [`GetCustomVerificationEmailTemplateInput`](crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetCustomVerificationEmailTemplateInputBuilder {
     pub(crate) template_name: ::std::option::Option<::std::string::String>,
@@ -29,12 +31,18 @@ pub struct GetCustomVerificationEmailTemplateInputBuilder {
 impl GetCustomVerificationEmailTemplateInputBuilder {
     /// <p>The name of the custom verification email template that you want to retrieve.</p>
     /// This field is required.
-    pub fn template_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn template_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.template_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the custom verification email template that you want to retrieve.</p>
-    pub fn set_template_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_template_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.template_name = input;
         self
     }
@@ -48,7 +56,7 @@ impl GetCustomVerificationEmailTemplateInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateInput,
         ::aws_smithy_types::error::operation::BuildError,
-    > {
+    >{
         ::std::result::Result::Ok(
             crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateInput {
                 template_name: self.template_name,

@@ -5,136 +5,382 @@ pub use crate::types::_account_limit::AccountLimitBuilder;
 #[cfg(feature = "op_get_account_settings")]
 pub use crate::types::_account_usage::AccountUsageBuilder;
 
-#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_get_function_event_invoke_config", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_put_function_event_invoke_config", feature = "op_update_event_source_mapping", feature = "op_update_function_event_invoke_config"))]
+#[cfg(any(
+    feature = "op_delete_event_source_mapping",
+    feature = "op_get_event_source_mapping",
+    feature = "op_get_function_event_invoke_config",
+    feature = "op_list_event_source_mappings",
+    feature = "op_list_function_event_invoke_configs",
+    feature = "op_put_function_event_invoke_config",
+    feature = "op_update_event_source_mapping",
+    feature = "op_update_function_event_invoke_config"
+))]
 pub use crate::types::_destination_config::DestinationConfigBuilder;
 
-#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution", feature = "op_get_durable_execution_history", feature = "op_get_durable_execution_state", feature = "op_send_durable_execution_callback_failure", feature = "op_stop_durable_execution"))]
+#[cfg(any(
+    feature = "op_checkpoint_durable_execution",
+    feature = "op_get_durable_execution",
+    feature = "op_get_durable_execution_history",
+    feature = "op_get_durable_execution_state",
+    feature = "op_send_durable_execution_callback_failure",
+    feature = "op_stop_durable_execution"
+))]
 pub use crate::types::_error_object::ErrorObjectBuilder;
 
-#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
+#[cfg(any(
+    feature = "op_create_capacity_provider",
+    feature = "op_delete_capacity_provider",
+    feature = "op_get_capacity_provider",
+    feature = "op_list_capacity_providers",
+    feature = "op_update_capacity_provider"
+))]
 pub use crate::types::_capacity_provider_vpc_config::CapacityProviderVpcConfigBuilder;
 
-#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
+#[cfg(any(
+    feature = "op_create_capacity_provider",
+    feature = "op_delete_capacity_provider",
+    feature = "op_get_capacity_provider",
+    feature = "op_list_capacity_providers",
+    feature = "op_update_capacity_provider"
+))]
 pub use crate::types::_capacity_provider_permissions_config::CapacityProviderPermissionsConfigBuilder;
 
-#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
+#[cfg(any(
+    feature = "op_create_capacity_provider",
+    feature = "op_delete_capacity_provider",
+    feature = "op_get_capacity_provider",
+    feature = "op_list_capacity_providers",
+    feature = "op_update_capacity_provider"
+))]
 pub use crate::types::_instance_requirements::InstanceRequirementsBuilder;
 
-#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
+#[cfg(any(
+    feature = "op_create_capacity_provider",
+    feature = "op_delete_capacity_provider",
+    feature = "op_get_capacity_provider",
+    feature = "op_list_capacity_providers",
+    feature = "op_update_capacity_provider"
+))]
 pub use crate::types::_capacity_provider_scaling_config::CapacityProviderScalingConfigBuilder;
 
-#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
+#[cfg(any(
+    feature = "op_create_capacity_provider",
+    feature = "op_delete_capacity_provider",
+    feature = "op_get_capacity_provider",
+    feature = "op_list_capacity_providers",
+    feature = "op_update_capacity_provider"
+))]
 pub use crate::types::_propagate_tags::PropagateTagsBuilder;
 
-#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
+#[cfg(any(
+    feature = "op_create_capacity_provider",
+    feature = "op_delete_capacity_provider",
+    feature = "op_get_capacity_provider",
+    feature = "op_list_capacity_providers",
+    feature = "op_update_capacity_provider"
+))]
 pub use crate::types::_capacity_provider_telemetry_config::CapacityProviderTelemetryConfigBuilder;
 
-#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
+#[cfg(any(
+    feature = "op_create_capacity_provider",
+    feature = "op_delete_capacity_provider",
+    feature = "op_get_capacity_provider",
+    feature = "op_list_capacity_providers",
+    feature = "op_update_capacity_provider"
+))]
 pub use crate::types::_capacity_provider::CapacityProviderBuilder;
 
-#[cfg(any(feature = "op_get_code_signing_config", feature = "op_list_code_signing_configs", feature = "op_update_code_signing_config"))]
+#[cfg(any(
+    feature = "op_get_code_signing_config",
+    feature = "op_list_code_signing_configs",
+    feature = "op_update_code_signing_config"
+))]
 pub use crate::types::_allowed_publishers::AllowedPublishersBuilder;
 
-#[cfg(any(feature = "op_get_code_signing_config", feature = "op_list_code_signing_configs", feature = "op_update_code_signing_config"))]
+#[cfg(any(
+    feature = "op_get_code_signing_config",
+    feature = "op_list_code_signing_configs",
+    feature = "op_update_code_signing_config"
+))]
 pub use crate::types::_code_signing_policies::CodeSigningPoliciesBuilder;
 
-#[cfg(any(feature = "op_get_code_signing_config", feature = "op_list_code_signing_configs", feature = "op_update_code_signing_config"))]
+#[cfg(any(
+    feature = "op_get_code_signing_config",
+    feature = "op_list_code_signing_configs",
+    feature = "op_update_code_signing_config"
+))]
 pub use crate::types::_code_signing_config::CodeSigningConfigBuilder;
 
 #[cfg(feature = "op_get_durable_execution")]
 pub use crate::types::_trace_header::TraceHeaderBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_durable_execution", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_durable_execution",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_durable_config::DurableConfigBuilder;
 
 #[cfg(feature = "op_checkpoint_durable_execution")]
 pub use crate::types::_checkpoint_updated_execution_state::CheckpointUpdatedExecutionStateBuilder;
 
-#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
+#[cfg(any(
+    feature = "op_delete_event_source_mapping",
+    feature = "op_get_event_source_mapping",
+    feature = "op_list_event_source_mappings",
+    feature = "op_update_event_source_mapping"
+))]
 pub use crate::types::_filter_criteria::FilterCriteriaBuilder;
 
-#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
+#[cfg(any(
+    feature = "op_delete_event_source_mapping",
+    feature = "op_get_event_source_mapping",
+    feature = "op_list_event_source_mappings",
+    feature = "op_update_event_source_mapping"
+))]
 pub use crate::types::_event_source_mapping_metrics_config::EventSourceMappingMetricsConfigBuilder;
 
-#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
+#[cfg(any(
+    feature = "op_delete_event_source_mapping",
+    feature = "op_get_event_source_mapping",
+    feature = "op_list_event_source_mappings",
+    feature = "op_update_event_source_mapping"
+))]
 pub use crate::types::_event_source_mapping_logging_config::EventSourceMappingLoggingConfigBuilder;
 
-#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
+#[cfg(any(
+    feature = "op_delete_event_source_mapping",
+    feature = "op_get_event_source_mapping",
+    feature = "op_list_event_source_mappings",
+    feature = "op_update_event_source_mapping"
+))]
 pub use crate::types::_scaling_config::ScalingConfigBuilder;
 
-#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
+#[cfg(any(
+    feature = "op_delete_event_source_mapping",
+    feature = "op_get_event_source_mapping",
+    feature = "op_list_event_source_mappings",
+    feature = "op_update_event_source_mapping"
+))]
 pub use crate::types::_self_managed_event_source::SelfManagedEventSourceBuilder;
 
-#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
+#[cfg(any(
+    feature = "op_delete_event_source_mapping",
+    feature = "op_get_event_source_mapping",
+    feature = "op_list_event_source_mappings",
+    feature = "op_update_event_source_mapping"
+))]
 pub use crate::types::_amazon_managed_kafka_event_source_config::AmazonManagedKafkaEventSourceConfigBuilder;
 
-#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
+#[cfg(any(
+    feature = "op_delete_event_source_mapping",
+    feature = "op_get_event_source_mapping",
+    feature = "op_list_event_source_mappings",
+    feature = "op_update_event_source_mapping"
+))]
 pub use crate::types::_self_managed_kafka_event_source_config::SelfManagedKafkaEventSourceConfigBuilder;
 
-#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
+#[cfg(any(
+    feature = "op_delete_event_source_mapping",
+    feature = "op_get_event_source_mapping",
+    feature = "op_list_event_source_mappings",
+    feature = "op_update_event_source_mapping"
+))]
 pub use crate::types::_document_db_event_source_config::DocumentDbEventSourceConfigBuilder;
 
-#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
+#[cfg(any(
+    feature = "op_delete_event_source_mapping",
+    feature = "op_get_event_source_mapping",
+    feature = "op_list_event_source_mappings",
+    feature = "op_update_event_source_mapping"
+))]
 pub use crate::types::_provisioned_poller_config::ProvisionedPollerConfigBuilder;
 
-#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
+#[cfg(any(
+    feature = "op_delete_event_source_mapping",
+    feature = "op_get_event_source_mapping",
+    feature = "op_list_event_source_mappings",
+    feature = "op_update_event_source_mapping"
+))]
 pub use crate::types::_filter_criteria_error::FilterCriteriaErrorBuilder;
 
 #[cfg(feature = "op_create_function")]
 pub use crate::types::_function_code::FunctionCodeBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_vpc_config::VpcConfigBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_dead_letter_config::DeadLetterConfigBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_environment::EnvironmentBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_tracing_config::TracingConfigBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_image_config::ImageConfigBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_ephemeral_storage::EphemeralStorageBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_snap_start::SnapStartBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_logging_config::LoggingConfigBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_tenancy_config::TenancyConfigBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_capacity_provider_config::CapacityProviderConfigBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_vpc_config_response::VpcConfigResponseBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_environment_response::EnvironmentResponseBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_tracing_config_response::TracingConfigResponseBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_image_config_response::ImageConfigResponseBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_snap_start_response::SnapStartResponseBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_runtime_version_config::RuntimeVersionConfigBuilder;
 
-#[cfg(any(feature = "op_create_function_url_config", feature = "op_get_function_url_config", feature = "op_list_function_url_configs", feature = "op_update_function_url_config"))]
+#[cfg(any(
+    feature = "op_create_function_url_config",
+    feature = "op_get_function_url_config",
+    feature = "op_list_function_url_configs",
+    feature = "op_update_function_url_config"
+))]
 pub use crate::types::_cors::CorsBuilder;
 
-#[cfg(any(feature = "op_get_function", feature = "op_list_functions", feature = "op_list_versions_by_function"))]
+#[cfg(any(
+    feature = "op_get_function",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function"
+))]
 pub use crate::types::_function_configuration::FunctionConfigurationBuilder;
 
 #[cfg(feature = "op_get_function")]
@@ -146,28 +392,64 @@ pub use crate::types::_tags_error::TagsErrorBuilder;
 #[cfg(feature = "op_get_function")]
 pub use crate::types::_concurrency::ConcurrencyBuilder;
 
-#[cfg(any(feature = "op_get_function_scaling_config", feature = "op_put_function_scaling_config"))]
+#[cfg(any(
+    feature = "op_get_function_scaling_config",
+    feature = "op_put_function_scaling_config"
+))]
 pub use crate::types::_function_scaling_config::FunctionScalingConfigBuilder;
 
-#[cfg(any(feature = "op_create_alias", feature = "op_get_alias", feature = "op_list_aliases", feature = "op_update_alias"))]
+#[cfg(any(
+    feature = "op_create_alias",
+    feature = "op_get_alias",
+    feature = "op_list_aliases",
+    feature = "op_update_alias"
+))]
 pub use crate::types::_alias_routing_configuration::AliasRoutingConfigurationBuilder;
 
-#[cfg(any(feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_publish_layer_version"))]
+#[cfg(any(
+    feature = "op_get_layer_version",
+    feature = "op_get_layer_version_by_arn",
+    feature = "op_publish_layer_version"
+))]
 pub use crate::types::_layer_version_content_output::LayerVersionContentOutputBuilder;
 
 #[cfg(feature = "op_publish_layer_version")]
 pub use crate::types::_layer_version_content_input::LayerVersionContentInputBuilder;
 
-#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_get_function_event_invoke_config", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_put_function_event_invoke_config", feature = "op_update_event_source_mapping", feature = "op_update_function_event_invoke_config"))]
+#[cfg(any(
+    feature = "op_delete_event_source_mapping",
+    feature = "op_get_event_source_mapping",
+    feature = "op_get_function_event_invoke_config",
+    feature = "op_list_event_source_mappings",
+    feature = "op_list_function_event_invoke_configs",
+    feature = "op_put_function_event_invoke_config",
+    feature = "op_update_event_source_mapping",
+    feature = "op_update_function_event_invoke_config"
+))]
 pub use crate::types::_on_success::OnSuccessBuilder;
 
-#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_get_function_event_invoke_config", feature = "op_list_event_source_mappings", feature = "op_list_function_event_invoke_configs", feature = "op_put_function_event_invoke_config", feature = "op_update_event_source_mapping", feature = "op_update_function_event_invoke_config"))]
+#[cfg(any(
+    feature = "op_delete_event_source_mapping",
+    feature = "op_get_event_source_mapping",
+    feature = "op_get_function_event_invoke_config",
+    feature = "op_list_event_source_mappings",
+    feature = "op_list_function_event_invoke_configs",
+    feature = "op_put_function_event_invoke_config",
+    feature = "op_update_event_source_mapping",
+    feature = "op_update_function_event_invoke_config"
+))]
 pub use crate::types::_on_failure::OnFailureBuilder;
 
 #[cfg(feature = "op_list_function_event_invoke_configs")]
 pub use crate::types::_function_event_invoke_config::FunctionEventInvokeConfigBuilder;
 
-#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
+#[cfg(any(
+    feature = "op_create_capacity_provider",
+    feature = "op_delete_capacity_provider",
+    feature = "op_get_capacity_provider",
+    feature = "op_list_capacity_providers",
+    feature = "op_update_capacity_provider"
+))]
 pub use crate::types::_capacity_provider_logging_config::CapacityProviderLoggingConfigBuilder;
 
 #[cfg(feature = "op_list_function_versions_by_capacity_provider")]
@@ -179,40 +461,106 @@ pub use crate::types::_operation_update::OperationUpdateBuilder;
 #[cfg(feature = "op_get_durable_execution_history")]
 pub use crate::types::_event::EventBuilder;
 
-#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution_state"))]
+#[cfg(any(
+    feature = "op_checkpoint_durable_execution",
+    feature = "op_get_durable_execution_state"
+))]
 pub use crate::types::_operation::OperationBuilder;
 
 #[cfg(feature = "op_list_event_source_mappings")]
 pub use crate::types::_event_source_mapping_configuration::EventSourceMappingConfigurationBuilder;
 
-#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
+#[cfg(any(
+    feature = "op_delete_event_source_mapping",
+    feature = "op_get_event_source_mapping",
+    feature = "op_list_event_source_mappings",
+    feature = "op_update_event_source_mapping"
+))]
 pub use crate::types::_source_access_configuration::SourceAccessConfigurationBuilder;
 
-#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
+#[cfg(any(
+    feature = "op_delete_event_source_mapping",
+    feature = "op_get_event_source_mapping",
+    feature = "op_list_event_source_mappings",
+    feature = "op_update_event_source_mapping"
+))]
 pub use crate::types::_kafka_schema_registry_config::KafkaSchemaRegistryConfigBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_file_system_config::FileSystemConfigBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_lambda_managed_instances_capacity_provider_config::LambdaManagedInstancesCapacityProviderConfigBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_environment_error::EnvironmentErrorBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_layer::LayerBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_image_config_error::ImageConfigErrorBuilder;
 
-#[cfg(any(feature = "op_create_function", feature = "op_get_function", feature = "op_get_function_configuration", feature = "op_list_functions", feature = "op_list_versions_by_function", feature = "op_update_function_code", feature = "op_update_function_configuration"))]
+#[cfg(any(
+    feature = "op_create_function",
+    feature = "op_get_function",
+    feature = "op_get_function_configuration",
+    feature = "op_list_functions",
+    feature = "op_list_versions_by_function",
+    feature = "op_update_function_code",
+    feature = "op_update_function_configuration"
+))]
 pub use crate::types::_runtime_version_error::RuntimeVersionErrorBuilder;
 
 #[cfg(feature = "op_list_provisioned_concurrency_configs")]
 pub use crate::types::_provisioned_concurrency_config_list_item::ProvisionedConcurrencyConfigListItemBuilder;
 
-#[cfg(any(feature = "op_get_function", feature = "op_get_layer_version", feature = "op_get_layer_version_by_arn", feature = "op_publish_layer_version"))]
+#[cfg(any(
+    feature = "op_get_function",
+    feature = "op_get_layer_version",
+    feature = "op_get_layer_version_by_arn",
+    feature = "op_publish_layer_version"
+))]
 pub use crate::types::_resolved_s3_object::ResolvedS3ObjectBuilder;
 
 #[cfg(feature = "op_get_function")]
@@ -239,7 +587,13 @@ pub use crate::types::_layers_list_item::LayersListItemBuilder;
 #[cfg(any(feature = "op_list_layer_versions", feature = "op_list_layers"))]
 pub use crate::types::_layer_versions_list_item::LayerVersionsListItemBuilder;
 
-#[cfg(any(feature = "op_create_capacity_provider", feature = "op_delete_capacity_provider", feature = "op_get_capacity_provider", feature = "op_list_capacity_providers", feature = "op_update_capacity_provider"))]
+#[cfg(any(
+    feature = "op_create_capacity_provider",
+    feature = "op_delete_capacity_provider",
+    feature = "op_get_capacity_provider",
+    feature = "op_list_capacity_providers",
+    feature = "op_update_capacity_provider"
+))]
 pub use crate::types::_target_tracking_scaling_policy::TargetTrackingScalingPolicyBuilder;
 
 #[cfg(feature = "op_checkpoint_durable_execution")]
@@ -329,25 +683,48 @@ pub use crate::types::_callback_timed_out_details::CallbackTimedOutDetailsBuilde
 #[cfg(feature = "op_get_durable_execution_history")]
 pub use crate::types::_invocation_completed_details::InvocationCompletedDetailsBuilder;
 
-#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution_state"))]
+#[cfg(any(
+    feature = "op_checkpoint_durable_execution",
+    feature = "op_get_durable_execution_state"
+))]
 pub use crate::types::_execution_details::ExecutionDetailsBuilder;
 
-#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution_state"))]
+#[cfg(any(
+    feature = "op_checkpoint_durable_execution",
+    feature = "op_get_durable_execution_state"
+))]
 pub use crate::types::_context_details::ContextDetailsBuilder;
 
-#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution_state"))]
+#[cfg(any(
+    feature = "op_checkpoint_durable_execution",
+    feature = "op_get_durable_execution_state"
+))]
 pub use crate::types::_step_details::StepDetailsBuilder;
 
-#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution_state"))]
+#[cfg(any(
+    feature = "op_checkpoint_durable_execution",
+    feature = "op_get_durable_execution_state"
+))]
 pub use crate::types::_wait_details::WaitDetailsBuilder;
 
-#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution_state"))]
+#[cfg(any(
+    feature = "op_checkpoint_durable_execution",
+    feature = "op_get_durable_execution_state"
+))]
 pub use crate::types::_callback_details::CallbackDetailsBuilder;
 
-#[cfg(any(feature = "op_checkpoint_durable_execution", feature = "op_get_durable_execution_state"))]
+#[cfg(any(
+    feature = "op_checkpoint_durable_execution",
+    feature = "op_get_durable_execution_state"
+))]
 pub use crate::types::_chained_invoke_details::ChainedInvokeDetailsBuilder;
 
-#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
+#[cfg(any(
+    feature = "op_delete_event_source_mapping",
+    feature = "op_get_event_source_mapping",
+    feature = "op_list_event_source_mappings",
+    feature = "op_update_event_source_mapping"
+))]
 pub use crate::types::_filter::FilterBuilder;
 
 #[cfg(feature = "op_get_durable_execution_history")]
@@ -362,8 +739,18 @@ pub use crate::types::_event_error::EventErrorBuilder;
 #[cfg(feature = "op_get_durable_execution_history")]
 pub use crate::types::_retry_details::RetryDetailsBuilder;
 
-#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
+#[cfg(any(
+    feature = "op_delete_event_source_mapping",
+    feature = "op_get_event_source_mapping",
+    feature = "op_list_event_source_mappings",
+    feature = "op_update_event_source_mapping"
+))]
 pub use crate::types::_kafka_schema_registry_access_config::KafkaSchemaRegistryAccessConfigBuilder;
 
-#[cfg(any(feature = "op_delete_event_source_mapping", feature = "op_get_event_source_mapping", feature = "op_list_event_source_mappings", feature = "op_update_event_source_mapping"))]
+#[cfg(any(
+    feature = "op_delete_event_source_mapping",
+    feature = "op_get_event_source_mapping",
+    feature = "op_list_event_source_mappings",
+    feature = "op_update_event_source_mapping"
+))]
 pub use crate::types::_kafka_schema_validation_config::KafkaSchemaValidationConfigBuilder;

@@ -12,7 +12,9 @@ impl StepStartedDetails {
 }
 
 /// A builder for [`StepStartedDetails`](crate::types::StepStartedDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct StepStartedDetailsBuilder {}
 impl StepStartedDetailsBuilder {

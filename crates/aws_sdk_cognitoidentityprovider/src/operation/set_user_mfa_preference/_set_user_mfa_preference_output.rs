@@ -12,13 +12,17 @@ impl ::aws_types::request_id::RequestId for SetUserMfaPreferenceOutput {
 }
 impl SetUserMfaPreferenceOutput {
     /// Creates a new builder-style object to manufacture [`SetUserMfaPreferenceOutput`](crate::operation::set_user_mfa_preference::SetUserMfaPreferenceOutput).
-    pub fn builder() -> crate::operation::set_user_mfa_preference::builders::SetUserMfaPreferenceOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::set_user_mfa_preference::builders::SetUserMfaPreferenceOutputBuilder
+    {
         crate::operation::set_user_mfa_preference::builders::SetUserMfaPreferenceOutputBuilder::default()
     }
 }
 
 /// A builder for [`SetUserMfaPreferenceOutput`](crate::operation::set_user_mfa_preference::SetUserMfaPreferenceOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SetUserMfaPreferenceOutputBuilder {
     _request_id: Option<String>,

@@ -21,7 +21,9 @@ impl AccelerateConfiguration {
 }
 
 /// A builder for [`AccelerateConfiguration`](crate::types::AccelerateConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AccelerateConfigurationBuilder {
     pub(crate) status: ::std::option::Option<crate::types::BucketAccelerateStatus>,
@@ -33,7 +35,10 @@ impl AccelerateConfigurationBuilder {
         self
     }
     /// <p>Specifies the transfer acceleration status of the bucket.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::BucketAccelerateStatus>) -> Self {
+    pub fn set_status(
+        mut self,
+        input: ::std::option::Option<crate::types::BucketAccelerateStatus>,
+    ) -> Self {
         self.status = input;
         self
     }
@@ -43,6 +48,8 @@ impl AccelerateConfigurationBuilder {
     }
     /// Consumes the builder and constructs a [`AccelerateConfiguration`](crate::types::AccelerateConfiguration).
     pub fn build(self) -> crate::types::AccelerateConfiguration {
-        crate::types::AccelerateConfiguration { status: self.status }
+        crate::types::AccelerateConfiguration {
+            status: self.status,
+        }
     }
 }

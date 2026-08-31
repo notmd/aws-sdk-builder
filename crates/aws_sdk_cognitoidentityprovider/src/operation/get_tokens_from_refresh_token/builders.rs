@@ -3,7 +3,9 @@ pub use crate::operation::get_tokens_from_refresh_token::_get_tokens_from_refres
 
 pub use crate::operation::get_tokens_from_refresh_token::_get_tokens_from_refresh_token_output::GetTokensFromRefreshTokenOutputBuilder;
 
-impl crate::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenInputBuilder {
+impl
+    crate::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -57,7 +59,7 @@ impl GetTokensFromRefreshTokenFluentBuilder {
         }
     }
     /// Access the GetTokensFromRefreshToken as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +88,11 @@ impl GetTokensFromRefreshTokenFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshToken::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshToken::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,22 +105,34 @@ impl GetTokensFromRefreshTokenFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>A valid refresh token that can authorize the request for new tokens. When refresh token rotation is active in the requested app client, this token is invalidated after the request is complete and after an optional grace period.</p>
-    pub fn refresh_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn refresh_token(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.refresh_token(input.into());
         self
     }
     /// <p>A valid refresh token that can authorize the request for new tokens. When refresh token rotation is active in the requested app client, this token is invalidated after the request is complete and after an optional grace period.</p>
-    pub fn set_refresh_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_refresh_token(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_refresh_token(input);
         self
     }
@@ -137,12 +155,18 @@ impl GetTokensFromRefreshTokenFluentBuilder {
         self.inner.get_client_id()
     }
     /// <p>The client secret of the requested app client, if the client has a secret.</p>
-    pub fn client_secret(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn client_secret(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.client_secret(input.into());
         self
     }
     /// <p>The client secret of the requested app client, if the client has a secret.</p>
-    pub fn set_client_secret(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_client_secret(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_client_secret(input);
         self
     }
@@ -208,7 +232,9 @@ impl GetTokensFromRefreshTokenFluentBuilder {
     /// </note>
     pub fn set_client_metadata(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
     ) -> Self {
         self.inner = self.inner.set_client_metadata(input);
         self
@@ -226,7 +252,11 @@ impl GetTokensFromRefreshTokenFluentBuilder {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub fn get_client_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_client_metadata(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.inner.get_client_metadata()
     }
 }

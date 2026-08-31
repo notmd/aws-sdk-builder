@@ -25,7 +25,7 @@ impl ContributorInsightsEnabledFluentBuilder {
         }
     }
     /// Access the DescribeContributorInsights as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsInputBuilder{
         &self.inner
     }
     /// Wait for `contributor_insights_enabled`
@@ -36,10 +36,9 @@ impl ContributorInsightsEnabledFluentBuilder {
         crate::waiters::contributor_insights_enabled::ContributorInsightsEnabledFinalPoll,
         crate::waiters::contributor_insights_enabled::WaitUntilContributorInsightsEnabledError,
     > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
+        let input = self.inner.build().map_err(
+            ::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure,
+        )?;
         let runtime_plugins = crate::operation::describe_contributor_insights::DescribeContributorInsights::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
@@ -49,21 +48,31 @@ impl ContributorInsightsEnabledFluentBuilder {
         let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
         let runtime_components_builder = runtime_plugins
             .apply_client_configuration(&mut cfg)
-            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
+            .map_err(
+                ::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure,
+            )?;
         let time_components = runtime_components_builder.into_time_components();
-        let sleep_impl = time_components.sleep_impl().expect("a sleep impl is required by waiters");
-        let time_source = time_components.time_source().expect("a time source is required by waiters");
+        let sleep_impl = time_components
+            .sleep_impl()
+            .expect("a sleep impl is required by waiters");
+        let time_source = time_components
+            .time_source()
+            .expect("a time source is required by waiters");
 
         let acceptor = move |result: ::std::result::Result<
             &crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput,
             &crate::operation::describe_contributor_insights::DescribeContributorInsightsError,
         >| {
             // Matches: {"output":{"path":"ContributorInsightsStatus","expected":"ENABLED","comparator":"stringEquals"}}
-            if crate::waiters::matchers::match_describe_contributor_insights_57787899eaa02d958(result) {
+            if crate::waiters::matchers::match_describe_contributor_insights_57787899eaa02d958(
+                result,
+            ) {
                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Success;
             }
             // Matches: {"output":{"path":"ContributorInsightsStatus","expected":"FAILED","comparator":"stringEquals"}}
-            if crate::waiters::matchers::match_describe_contributor_insights_5ba948784ca4cb322(result) {
+            if crate::waiters::matchers::match_describe_contributor_insights_5ba948784ca4cb322(
+                result,
+            ) {
                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Failure;
             }
             ::aws_smithy_runtime::client::waiters::AcceptorState::NoAcceptorsMatched
@@ -71,7 +80,9 @@ impl ContributorInsightsEnabledFluentBuilder {
         let operation = move || {
             let input = input.clone();
             let runtime_plugins = runtime_plugins.clone();
-            async move { crate::operation::describe_contributor_insights::DescribeContributorInsights::orchestrate(&runtime_plugins, input).await }
+            async move {
+                crate::operation::describe_contributor_insights::DescribeContributorInsights::orchestrate(&runtime_plugins, input).await
+            }
         };
         let orchestrator = ::aws_smithy_runtime::client::waiters::WaiterOrchestrator::builder()
             .min_delay(::std::time::Duration::from_secs(20))
@@ -82,7 +93,10 @@ impl ContributorInsightsEnabledFluentBuilder {
             .acceptor(acceptor)
             .operation(operation)
             .build();
-        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(orchestrator.orchestrate()).await
+        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(
+            orchestrator.orchestrate(),
+        )
+        .await
     }
     /// <p>The name of the table to describe. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub fn table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -124,7 +138,8 @@ pub type ContributorInsightsEnabledFinalPoll = ::aws_smithy_runtime_api::client:
 >;
 
 /// Error type for the `contributor_insights_enabled` waiter.
-pub type WaitUntilContributorInsightsEnabledError = ::aws_smithy_runtime_api::client::waiters::error::WaiterError<
-    crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput,
-    crate::operation::describe_contributor_insights::DescribeContributorInsightsError,
->;
+pub type WaitUntilContributorInsightsEnabledError =
+    ::aws_smithy_runtime_api::client::waiters::error::WaiterError<
+        crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput,
+        crate::operation::describe_contributor_insights::DescribeContributorInsightsError,
+    >;

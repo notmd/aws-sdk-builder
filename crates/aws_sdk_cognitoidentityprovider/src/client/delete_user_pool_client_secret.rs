@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteUserPoolClientSecretError>`](crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError)
     pub fn delete_user_pool_client_secret(
         &self,
-    ) -> crate::operation::delete_user_pool_client_secret::builders::DeleteUserPoolClientSecretFluentBuilder {
+    ) -> crate::operation::delete_user_pool_client_secret::builders::DeleteUserPoolClientSecretFluentBuilder{
         crate::operation::delete_user_pool_client_secret::builders::DeleteUserPoolClientSecretFluentBuilder::new(self.handle.clone())
     }
 }

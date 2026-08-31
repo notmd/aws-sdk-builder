@@ -27,7 +27,9 @@ impl CreateRoleOutput {
 }
 
 /// A builder for [`CreateRoleOutput`](crate::operation::create_role::CreateRoleOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateRoleOutputBuilder {
     pub(crate) role: ::std::option::Option<crate::types::Role>,

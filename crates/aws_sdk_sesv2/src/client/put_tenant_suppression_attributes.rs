@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutTenantSuppressionAttributesError>`](crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesError)
     pub fn put_tenant_suppression_attributes(
         &self,
-    ) -> crate::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesFluentBuilder {
+    ) -> crate::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesFluentBuilder{
         crate::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesFluentBuilder::new(self.handle.clone())
     }
 }

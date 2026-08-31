@@ -57,7 +57,7 @@ impl GetConformancePackComplianceSummaryFluentBuilder {
         }
     }
     /// Access the GetConformancePackComplianceSummary as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +76,7 @@ impl GetConformancePackComplianceSummaryFluentBuilder {
             crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -97,15 +97,21 @@ impl GetConformancePackComplianceSummaryFluentBuilder {
         crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryOutput,
         crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -114,7 +120,7 @@ impl GetConformancePackComplianceSummaryFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::get_conformance_pack_compliance_summary::paginator::GetConformancePackComplianceSummaryPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::get_conformance_pack_compliance_summary::paginator::GetConformancePackComplianceSummaryPaginator {
+    ) -> crate::operation::get_conformance_pack_compliance_summary::paginator::GetConformancePackComplianceSummaryPaginator{
         crate::operation::get_conformance_pack_compliance_summary::paginator::GetConformancePackComplianceSummaryPaginator::new(
             self.handle,
             self.inner,
@@ -126,17 +132,25 @@ impl GetConformancePackComplianceSummaryFluentBuilder {
     /// To override the contents of this collection use [`set_conformance_pack_names`](Self::set_conformance_pack_names).
     ///
     /// <p>Names of conformance packs.</p>
-    pub fn conformance_pack_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn conformance_pack_names(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.conformance_pack_names(input.into());
         self
     }
     /// <p>Names of conformance packs.</p>
-    pub fn set_conformance_pack_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_conformance_pack_names(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.inner = self.inner.set_conformance_pack_names(input);
         self
     }
     /// <p>Names of conformance packs.</p>
-    pub fn get_conformance_pack_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_conformance_pack_names(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_conformance_pack_names()
     }
     /// <p>The maximum number of conformance packs returned on each page.</p>

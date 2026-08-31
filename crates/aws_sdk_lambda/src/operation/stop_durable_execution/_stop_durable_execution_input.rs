@@ -20,13 +20,16 @@ impl StopDurableExecutionInput {
 }
 impl StopDurableExecutionInput {
     /// Creates a new builder-style object to manufacture [`StopDurableExecutionInput`](crate::operation::stop_durable_execution::StopDurableExecutionInput).
-    pub fn builder() -> crate::operation::stop_durable_execution::builders::StopDurableExecutionInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::stop_durable_execution::builders::StopDurableExecutionInputBuilder {
         crate::operation::stop_durable_execution::builders::StopDurableExecutionInputBuilder::default()
     }
 }
 
 /// A builder for [`StopDurableExecutionInput`](crate::operation::stop_durable_execution::StopDurableExecutionInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct StopDurableExecutionInputBuilder {
     pub(crate) durable_execution_arn: ::std::option::Option<::std::string::String>,
@@ -35,12 +38,18 @@ pub struct StopDurableExecutionInputBuilder {
 impl StopDurableExecutionInputBuilder {
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
     /// This field is required.
-    pub fn durable_execution_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn durable_execution_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_durable_execution_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.durable_execution_arn = input;
         self
     }
@@ -65,11 +74,15 @@ impl StopDurableExecutionInputBuilder {
     /// Consumes the builder and constructs a [`StopDurableExecutionInput`](crate::operation::stop_durable_execution::StopDurableExecutionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::stop_durable_execution::StopDurableExecutionInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::stop_durable_execution::StopDurableExecutionInput {
-            durable_execution_arn: self.durable_execution_arn,
-            error: self.error,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::stop_durable_execution::StopDurableExecutionInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::stop_durable_execution::StopDurableExecutionInput {
+                durable_execution_arn: self.durable_execution_arn,
+                error: self.error,
+            },
+        )
     }
 }

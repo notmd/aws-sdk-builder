@@ -55,25 +55,34 @@ impl WebAuthnCredentialDescription {
 }
 
 /// A builder for [`WebAuthnCredentialDescription`](crate::types::WebAuthnCredentialDescription).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct WebAuthnCredentialDescriptionBuilder {
     pub(crate) credential_id: ::std::option::Option<::std::string::String>,
     pub(crate) friendly_credential_name: ::std::option::Option<::std::string::String>,
     pub(crate) relying_party_id: ::std::option::Option<::std::string::String>,
     pub(crate) authenticator_attachment: ::std::option::Option<::std::string::String>,
-    pub(crate) authenticator_transports: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) authenticator_transports:
+        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) created_at: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl WebAuthnCredentialDescriptionBuilder {
     /// <p>The unique identifier of the passkey credential.</p>
     /// This field is required.
-    pub fn credential_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn credential_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.credential_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier of the passkey credential.</p>
-    pub fn set_credential_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_credential_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.credential_id = input;
         self
     }
@@ -83,12 +92,18 @@ impl WebAuthnCredentialDescriptionBuilder {
     }
     /// <p>An automatically-generated friendly name for the passkey credential.</p>
     /// This field is required.
-    pub fn friendly_credential_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn friendly_credential_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.friendly_credential_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>An automatically-generated friendly name for the passkey credential.</p>
-    pub fn set_friendly_credential_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_friendly_credential_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.friendly_credential_name = input;
         self
     }
@@ -98,12 +113,18 @@ impl WebAuthnCredentialDescriptionBuilder {
     }
     /// <p>The relying-party ID of the provider for the passkey credential.</p>
     /// This field is required.
-    pub fn relying_party_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn relying_party_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.relying_party_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The relying-party ID of the provider for the passkey credential.</p>
-    pub fn set_relying_party_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_relying_party_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.relying_party_id = input;
         self
     }
@@ -112,12 +133,18 @@ impl WebAuthnCredentialDescriptionBuilder {
         &self.relying_party_id
     }
     /// <p>The general category of the passkey authenticator. Can be a platform, or on-device authenticator like a built-in fingerprint scanner, or a cross-platform device that's not attached to the device like a Bluetooth security key.</p>
-    pub fn authenticator_attachment(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn authenticator_attachment(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.authenticator_attachment = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The general category of the passkey authenticator. Can be a platform, or on-device authenticator like a built-in fingerprint scanner, or a cross-platform device that's not attached to the device like a Bluetooth security key.</p>
-    pub fn set_authenticator_attachment(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_authenticator_attachment(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.authenticator_attachment = input;
         self
     }
@@ -130,19 +157,27 @@ impl WebAuthnCredentialDescriptionBuilder {
     /// To override the contents of this collection use [`set_authenticator_transports`](Self::set_authenticator_transports).
     ///
     /// <p>Information about the transport methods of the passkey credential, for example USB or Bluetooth Low Energy.</p>
-    pub fn authenticator_transports(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn authenticator_transports(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.authenticator_transports.unwrap_or_default();
         v.push(input.into());
         self.authenticator_transports = ::std::option::Option::Some(v);
         self
     }
     /// <p>Information about the transport methods of the passkey credential, for example USB or Bluetooth Low Energy.</p>
-    pub fn set_authenticator_transports(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_authenticator_transports(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.authenticator_transports = input;
         self
     }
     /// <p>Information about the transport methods of the passkey credential, for example USB or Bluetooth Low Energy.</p>
-    pub fn get_authenticator_transports(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_authenticator_transports(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.authenticator_transports
     }
     /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
@@ -152,7 +187,10 @@ impl WebAuthnCredentialDescriptionBuilder {
         self
     }
     /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-    pub fn set_created_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_created_at(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.created_at = input;
         self
     }
@@ -167,7 +205,12 @@ impl WebAuthnCredentialDescriptionBuilder {
     /// - [`relying_party_id`](crate::types::builders::WebAuthnCredentialDescriptionBuilder::relying_party_id)
     /// - [`authenticator_transports`](crate::types::builders::WebAuthnCredentialDescriptionBuilder::authenticator_transports)
     /// - [`created_at`](crate::types::builders::WebAuthnCredentialDescriptionBuilder::created_at)
-    pub fn build(self) -> ::std::result::Result<crate::types::WebAuthnCredentialDescription, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::WebAuthnCredentialDescription,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::WebAuthnCredentialDescription {
             credential_id: self.credential_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

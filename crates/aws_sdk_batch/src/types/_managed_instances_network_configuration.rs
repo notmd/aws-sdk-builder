@@ -31,7 +31,9 @@ impl ManagedInstancesNetworkConfiguration {
 }
 
 /// A builder for [`ManagedInstancesNetworkConfiguration`](crate::types::ManagedInstancesNetworkConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ManagedInstancesNetworkConfigurationBuilder {
     pub(crate) subnets: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -50,7 +52,10 @@ impl ManagedInstancesNetworkConfigurationBuilder {
         self
     }
     /// <p>The VPC subnets where managed instances are launched. If your subnets don't provide public IP addresses, they must have a NAT gateway for outbound internet access.</p>
-    pub fn set_subnets(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_subnets(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.subnets = input;
         self
     }
@@ -63,19 +68,27 @@ impl ManagedInstancesNetworkConfigurationBuilder {
     /// To override the contents of this collection use [`set_security_groups`](Self::set_security_groups).
     ///
     /// <p>The VPC security groups to associate with the managed instances.</p>
-    pub fn security_groups(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn security_groups(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.security_groups.unwrap_or_default();
         v.push(input.into());
         self.security_groups = ::std::option::Option::Some(v);
         self
     }
     /// <p>The VPC security groups to associate with the managed instances.</p>
-    pub fn set_security_groups(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_security_groups(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.security_groups = input;
         self
     }
     /// <p>The VPC security groups to associate with the managed instances.</p>
-    pub fn get_security_groups(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_security_groups(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.security_groups
     }
     /// Consumes the builder and constructs a [`ManagedInstancesNetworkConfiguration`](crate::types::ManagedInstancesNetworkConfiguration).

@@ -13,7 +13,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListPoliciesGrantingServiceAccessError>`](crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError)
     pub fn list_policies_granting_service_access(
         &self,
-    ) -> crate::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessFluentBuilder {
+    ) -> crate::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessFluentBuilder{
         crate::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessFluentBuilder::new(self.handle.clone())
     }
 }

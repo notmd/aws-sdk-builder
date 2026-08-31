@@ -21,7 +21,9 @@ impl GuardrailChecksPromptAttackCategoryConfig {
 }
 
 /// A builder for [`GuardrailChecksPromptAttackCategoryConfig`](crate::types::GuardrailChecksPromptAttackCategoryConfig).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GuardrailChecksPromptAttackCategoryConfigBuilder {
     pub(crate) category: ::std::option::Option<crate::types::GuardrailChecksPromptAttackCategory>,
@@ -34,12 +36,17 @@ impl GuardrailChecksPromptAttackCategoryConfigBuilder {
         self
     }
     /// <p>The prompt attack category to evaluate.</p>
-    pub fn set_category(mut self, input: ::std::option::Option<crate::types::GuardrailChecksPromptAttackCategory>) -> Self {
+    pub fn set_category(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailChecksPromptAttackCategory>,
+    ) -> Self {
         self.category = input;
         self
     }
     /// <p>The prompt attack category to evaluate.</p>
-    pub fn get_category(&self) -> &::std::option::Option<crate::types::GuardrailChecksPromptAttackCategory> {
+    pub fn get_category(
+        &self,
+    ) -> &::std::option::Option<crate::types::GuardrailChecksPromptAttackCategory> {
         &self.category
     }
     /// Consumes the builder and constructs a [`GuardrailChecksPromptAttackCategoryConfig`](crate::types::GuardrailChecksPromptAttackCategoryConfig).
@@ -47,7 +54,10 @@ impl GuardrailChecksPromptAttackCategoryConfigBuilder {
     /// - [`category`](crate::types::builders::GuardrailChecksPromptAttackCategoryConfigBuilder::category)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::types::GuardrailChecksPromptAttackCategoryConfig, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::types::GuardrailChecksPromptAttackCategoryConfig,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::GuardrailChecksPromptAttackCategoryConfig {
             category: self.category.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -9,7 +9,10 @@ pub fn ser_bucket_lifecycle_configuration(
         for list_item_1 in &input.rules {
             {
                 let inner_writer = scope.start_el("Rule");
-                crate::protocol_serde::shape_lifecycle_rule::ser_lifecycle_rule(list_item_1, inner_writer)?
+                crate::protocol_serde::shape_lifecycle_rule::ser_lifecycle_rule(
+                    list_item_1,
+                    inner_writer,
+                )?
             }
         }
     }

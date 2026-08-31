@@ -27,7 +27,9 @@ impl SsmControls {
 }
 
 /// A builder for [`SsmControls`](crate::types::SsmControls).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SsmControlsBuilder {
     pub(crate) concurrent_execution_rate_percentage: ::std::option::Option<i32>,
@@ -40,7 +42,10 @@ impl SsmControlsBuilder {
         self
     }
     /// <p>The maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. You can specify a percentage, such as 10%. The default value is 10.</p>
-    pub fn set_concurrent_execution_rate_percentage(mut self, input: ::std::option::Option<i32>) -> Self {
+    pub fn set_concurrent_execution_rate_percentage(
+        mut self,
+        input: ::std::option::Option<i32>,
+    ) -> Self {
         self.concurrent_execution_rate_percentage = input;
         self
     }

@@ -57,7 +57,10 @@ impl DeletePackageVersionsFluentBuilder {
         }
     }
     /// Access the DeletePackageVersions as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_package_versions::builders::DeletePackageVersionsInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::delete_package_versions::builders::DeletePackageVersionsInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +89,11 @@ impl DeletePackageVersionsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_package_versions::DeletePackageVersions::orchestrate(&runtime_plugins, input).await
+        crate::operation::delete_package_versions::DeletePackageVersions::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,12 +106,18 @@ impl DeletePackageVersionsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -263,7 +276,10 @@ impl DeletePackageVersionsFluentBuilder {
         self
     }
     /// <p>An array of strings that specify the versions of the package to delete.</p>
-    pub fn set_versions(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_versions(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.inner = self.inner.set_versions(input);
         self
     }
@@ -277,12 +293,17 @@ impl DeletePackageVersionsFluentBuilder {
         self
     }
     /// <p>The expected status of the package version to delete.</p>
-    pub fn set_expected_status(mut self, input: ::std::option::Option<crate::types::PackageVersionStatus>) -> Self {
+    pub fn set_expected_status(
+        mut self,
+        input: ::std::option::Option<crate::types::PackageVersionStatus>,
+    ) -> Self {
         self.inner = self.inner.set_expected_status(input);
         self
     }
     /// <p>The expected status of the package version to delete.</p>
-    pub fn get_expected_status(&self) -> &::std::option::Option<crate::types::PackageVersionStatus> {
+    pub fn get_expected_status(
+        &self,
+    ) -> &::std::option::Option<crate::types::PackageVersionStatus> {
         self.inner.get_expected_status()
     }
 }

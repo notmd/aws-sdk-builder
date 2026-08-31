@@ -63,7 +63,7 @@ impl GetUserAttributeVerificationCodeFluentBuilder {
         }
     }
     /// Access the GetUserAttributeVerificationCode as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,7 +82,7 @@ impl GetUserAttributeVerificationCodeFluentBuilder {
             crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -102,15 +102,21 @@ impl GetUserAttributeVerificationCodeFluentBuilder {
         crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeOutput,
         crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -129,12 +135,18 @@ impl GetUserAttributeVerificationCodeFluentBuilder {
         self.inner.get_access_token()
     }
     /// <p>The name of the attribute that the user wants to verify, for example <code>email</code>.</p>
-    pub fn attribute_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn attribute_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.attribute_name(input.into());
         self
     }
     /// <p>The name of the attribute that the user wants to verify, for example <code>email</code>.</p>
-    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_attribute_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_attribute_name(input);
         self
     }
@@ -183,7 +195,9 @@ impl GetUserAttributeVerificationCodeFluentBuilder {
     /// </note>
     pub fn set_client_metadata(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
     ) -> Self {
         self.inner = self.inner.set_client_metadata(input);
         self
@@ -201,7 +215,11 @@ impl GetUserAttributeVerificationCodeFluentBuilder {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub fn get_client_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_client_metadata(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.inner.get_client_metadata()
     }
 }

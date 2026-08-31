@@ -22,13 +22,16 @@ impl UpdateServiceJobInput {
 }
 impl UpdateServiceJobInput {
     /// Creates a new builder-style object to manufacture [`UpdateServiceJobInput`](crate::operation::update_service_job::UpdateServiceJobInput).
-    pub fn builder() -> crate::operation::update_service_job::builders::UpdateServiceJobInputBuilder {
+    pub fn builder() -> crate::operation::update_service_job::builders::UpdateServiceJobInputBuilder
+    {
         crate::operation::update_service_job::builders::UpdateServiceJobInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateServiceJobInput`](crate::operation::update_service_job::UpdateServiceJobInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateServiceJobInputBuilder {
     pub(crate) job_id: ::std::option::Option<::std::string::String>,
@@ -71,10 +74,15 @@ impl UpdateServiceJobInputBuilder {
     /// Consumes the builder and constructs a [`UpdateServiceJobInput`](crate::operation::update_service_job::UpdateServiceJobInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::update_service_job::UpdateServiceJobInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::update_service_job::UpdateServiceJobInput {
-            job_id: self.job_id,
-            scheduling_priority: self.scheduling_priority,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::update_service_job::UpdateServiceJobInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::update_service_job::UpdateServiceJobInput {
+                job_id: self.job_id,
+                scheduling_priority: self.scheduling_priority,
+            },
+        )
     }
 }

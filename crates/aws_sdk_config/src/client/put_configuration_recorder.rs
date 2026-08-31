@@ -7,7 +7,10 @@ impl super::Client {
     ///   - [`tags(Tag)`](crate::operation::put_configuration_recorder::builders::PutConfigurationRecorderFluentBuilder::tags) / [`set_tags(Option<Vec::<Tag>>)`](crate::operation::put_configuration_recorder::builders::PutConfigurationRecorderFluentBuilder::set_tags):<br>required: **false**<br><p>The tags for the customer managed configuration recorder. Each tag consists of a key and an optional value, both of which you define.</p><br>
     /// - On success, responds with [`PutConfigurationRecorderOutput`](crate::operation::put_configuration_recorder::PutConfigurationRecorderOutput)
     /// - On failure, responds with [`SdkError<PutConfigurationRecorderError>`](crate::operation::put_configuration_recorder::PutConfigurationRecorderError)
-    pub fn put_configuration_recorder(&self) -> crate::operation::put_configuration_recorder::builders::PutConfigurationRecorderFluentBuilder {
+    pub fn put_configuration_recorder(
+        &self,
+    ) -> crate::operation::put_configuration_recorder::builders::PutConfigurationRecorderFluentBuilder
+    {
         crate::operation::put_configuration_recorder::builders::PutConfigurationRecorderFluentBuilder::new(self.handle.clone())
     }
 }

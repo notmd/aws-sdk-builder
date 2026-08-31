@@ -57,7 +57,10 @@ impl ListSchedulingPoliciesFluentBuilder {
         }
     }
     /// Access the ListSchedulingPolicies as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_scheduling_policies::builders::ListSchedulingPoliciesInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_scheduling_policies::builders::ListSchedulingPoliciesInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +89,11 @@ impl ListSchedulingPoliciesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_scheduling_policies::ListSchedulingPolicies::orchestrate(&runtime_plugins, input).await
+        crate::operation::list_scheduling_policies::ListSchedulingPolicies::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,20 +106,32 @@ impl ListSchedulingPoliciesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_scheduling_policies::paginator::ListSchedulingPoliciesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_scheduling_policies::paginator::ListSchedulingPoliciesPaginator {
-        crate::operation::list_scheduling_policies::paginator::ListSchedulingPoliciesPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_scheduling_policies::paginator::ListSchedulingPoliciesPaginator
+    {
+        crate::operation::list_scheduling_policies::paginator::ListSchedulingPoliciesPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The maximum number of results that's returned by <code>ListSchedulingPolicies</code> in paginated output. When this parameter is used, <code>ListSchedulingPolicies</code> only returns <code>maxResults</code> results in a single page and a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another <code>ListSchedulingPolicies</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, <code>ListSchedulingPolicies</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
     pub fn max_results(mut self, input: i32) -> Self {

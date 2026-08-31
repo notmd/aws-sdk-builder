@@ -21,7 +21,9 @@ impl CancelExportJobInput {
 }
 
 /// A builder for [`CancelExportJobInput`](crate::operation::cancel_export_job::CancelExportJobInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CancelExportJobInputBuilder {
     pub(crate) job_id: ::std::option::Option<::std::string::String>,
@@ -45,7 +47,12 @@ impl CancelExportJobInputBuilder {
     /// Consumes the builder and constructs a [`CancelExportJobInput`](crate::operation::cancel_export_job::CancelExportJobInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::cancel_export_job::CancelExportJobInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::cancel_export_job::CancelExportJobInput { job_id: self.job_id })
+    ) -> ::std::result::Result<
+        crate::operation::cancel_export_job::CancelExportJobInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(crate::operation::cancel_export_job::CancelExportJobInput {
+            job_id: self.job_id,
+        })
     }
 }

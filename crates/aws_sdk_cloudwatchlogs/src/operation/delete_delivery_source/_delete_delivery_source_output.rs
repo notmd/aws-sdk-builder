@@ -12,13 +12,16 @@ impl ::aws_types::request_id::RequestId for DeleteDeliverySourceOutput {
 }
 impl DeleteDeliverySourceOutput {
     /// Creates a new builder-style object to manufacture [`DeleteDeliverySourceOutput`](crate::operation::delete_delivery_source::DeleteDeliverySourceOutput).
-    pub fn builder() -> crate::operation::delete_delivery_source::builders::DeleteDeliverySourceOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::delete_delivery_source::builders::DeleteDeliverySourceOutputBuilder {
         crate::operation::delete_delivery_source::builders::DeleteDeliverySourceOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteDeliverySourceOutput`](crate::operation::delete_delivery_source::DeleteDeliverySourceOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteDeliverySourceOutputBuilder {
     _request_id: Option<String>,

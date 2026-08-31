@@ -12,13 +12,16 @@ impl ::aws_types::request_id::RequestId for UpdateKeyDescriptionOutput {
 }
 impl UpdateKeyDescriptionOutput {
     /// Creates a new builder-style object to manufacture [`UpdateKeyDescriptionOutput`](crate::operation::update_key_description::UpdateKeyDescriptionOutput).
-    pub fn builder() -> crate::operation::update_key_description::builders::UpdateKeyDescriptionOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_key_description::builders::UpdateKeyDescriptionOutputBuilder {
         crate::operation::update_key_description::builders::UpdateKeyDescriptionOutputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateKeyDescriptionOutput`](crate::operation::update_key_description::UpdateKeyDescriptionOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateKeyDescriptionOutputBuilder {
     _request_id: Option<String>,

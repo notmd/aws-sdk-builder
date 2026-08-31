@@ -23,14 +23,16 @@ pub fn ser_batch_get_metric_data_query(
         object_2.finish();
     }
     {
-        object
-            .key("StartDate")
-            .date_time(&input.start_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
+        object.key("StartDate").date_time(
+            &input.start_date,
+            ::aws_smithy_types::date_time::Format::EpochSeconds,
+        )?;
     }
     {
-        object
-            .key("EndDate")
-            .date_time(&input.end_date, ::aws_smithy_types::date_time::Format::EpochSeconds)?;
+        object.key("EndDate").date_time(
+            &input.end_date,
+            ::aws_smithy_types::date_time::Format::EpochSeconds,
+        )?;
     }
     Ok(())
 }

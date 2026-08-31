@@ -26,7 +26,9 @@ impl CreateBackupOutput {
 }
 
 /// A builder for [`CreateBackupOutput`](crate::operation::create_backup::CreateBackupOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateBackupOutputBuilder {
     pub(crate) backup_details: ::std::option::Option<crate::types::BackupDetails>,
@@ -39,7 +41,10 @@ impl CreateBackupOutputBuilder {
         self
     }
     /// <p>Contains the details of the backup created for the table.</p>
-    pub fn set_backup_details(mut self, input: ::std::option::Option<crate::types::BackupDetails>) -> Self {
+    pub fn set_backup_details(
+        mut self,
+        input: ::std::option::Option<crate::types::BackupDetails>,
+    ) -> Self {
         self.backup_details = input;
         self
     }

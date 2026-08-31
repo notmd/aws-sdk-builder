@@ -34,7 +34,9 @@ impl GuardrailCustomWord {
 }
 
 /// A builder for [`GuardrailCustomWord`](crate::types::GuardrailCustomWord).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GuardrailCustomWordBuilder {
     pub(crate) r#match: ::std::option::Option<::std::string::String>,
@@ -64,7 +66,10 @@ impl GuardrailCustomWordBuilder {
         self
     }
     /// <p>The action for the custom word.</p>
-    pub fn set_action(mut self, input: ::std::option::Option<crate::types::GuardrailWordPolicyAction>) -> Self {
+    pub fn set_action(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailWordPolicyAction>,
+    ) -> Self {
         self.action = input;
         self
     }
@@ -90,7 +95,12 @@ impl GuardrailCustomWordBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`r#match`](crate::types::builders::GuardrailCustomWordBuilder::match)
     /// - [`action`](crate::types::builders::GuardrailCustomWordBuilder::action)
-    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailCustomWord, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::GuardrailCustomWord,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::GuardrailCustomWord {
             r#match: self.r#match.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

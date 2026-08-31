@@ -27,9 +27,13 @@ impl GetResourceConfigHistory {
                     .expect("correct error type")
             })
         };
-        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-            .await
-            .map_err(map_err)?;
+        let context = Self::orchestrate_with_stop_point(
+            runtime_plugins,
+            input,
+            ::aws_smithy_runtime::client::orchestrator::StopPoint::None,
+        )
+        .await
+        .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
@@ -81,11 +85,13 @@ impl GetResourceConfigHistory {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
-                config_override,
-                client_config.config.clone(),
-                &client_config.runtime_components,
-            ));
+            runtime_plugins = runtime_plugins.with_operation_plugin(
+                crate::config::ConfigOverrideRuntimePlugin::new(
+                    config_override,
+                    client_config.config.clone(),
+                    &client_config.runtime_components,
+                ),
+            );
         }
         runtime_plugins
     }
@@ -94,24 +100,32 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetReso
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("GetResourceConfigHistory");
 
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-            GetResourceConfigHistoryRequestSerializer,
-        ));
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
-            GetResourceConfigHistoryResponseDeserializer,
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+                GetResourceConfigHistoryRequestSerializer,
+            ),
+        );
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
+                GetResourceConfigHistoryResponseDeserializer,
+            ),
+        );
 
-        cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
-                .operation_name("GetResourceConfigHistory")
-                .build()
-                .expect("required fields set"),
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
+                crate::config::auth::Params::builder()
+                    .operation_name("GetResourceConfigHistory")
+                    .build()
+                    .expect("required fields set"),
+            ),
+        );
 
-        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-            "GetResourceConfigHistory",
-            "Config Service",
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+                "GetResourceConfigHistory",
+                "Config Service",
+            ),
+        );
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -129,7 +143,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetReso
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+    ) -> ::std::borrow::Cow<
+        '_,
+        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
+    > {
         #[allow(unused_mut)]
         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetResourceConfigHistory")
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -159,7 +176,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetReso
 struct GetResourceConfigHistoryTelemetryInputCaptureInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetResourceConfigHistoryTelemetryInputCaptureInterceptor {
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept
+    for GetResourceConfigHistoryTelemetryInputCaptureInterceptor
+{
     fn name(&self) -> &'static str {
         "GetResourceConfigHistoryTelemetryInputCaptureInterceptor"
     }
@@ -182,7 +201,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetResourceCo
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) = context.input().downcast_ref::<GetResourceConfigHistoryInput>() else {
+        let ::std::option::Option::Some(input) = context
+            .input()
+            .downcast_ref::<GetResourceConfigHistoryInput>()
+        else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -205,7 +227,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetResourceCo
 }
 #[derive(Debug)]
 struct GetResourceConfigHistoryResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetResourceConfigHistoryResponseDeserializer {
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
+    for GetResourceConfigHistoryResponseDeserializer
+{
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -227,13 +251,23 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetResour
 }
 #[derive(Debug)]
 struct GetResourceConfigHistoryRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetResourceConfigHistoryRequestSerializer {
-    #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
+    for GetResourceConfigHistoryRequestSerializer
+{
+    #[allow(
+        unused_mut,
+        clippy::let_and_return,
+        clippy::needless_borrow,
+        clippy::useless_conversion
+    )]
     fn serialize_input(
         &self,
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+    ) -> ::std::result::Result<
+        ::aws_smithy_runtime_api::client::orchestrator::HttpRequest,
+        ::aws_smithy_runtime_api::box_error::BoxError,
+    > {
         let input = input
             .downcast::<crate::operation::get_resource_config_history::GetResourceConfigHistoryInput>()
             .expect("correct type");
@@ -246,7 +280,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetResourceC
             fn uri_base(
                 _input: &crate::operation::get_resource_config_history::GetResourceConfigHistoryInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
+            {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -255,13 +290,20 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetResourceC
             fn update_http_builder(
                 input: &crate::operation::get_resource_config_history::GetResourceConfigHistoryInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<
+                ::http_1x::request::Builder,
+                ::aws_smithy_types::error::operation::BuildError,
+            > {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
+            builder = _header_serialization_settings.set_default_header(
+                builder,
+                ::http_1x::header::CONTENT_TYPE,
+                "application/x-amz-json-1.1",
+            );
             builder = _header_serialization_settings.set_default_header(
                 builder,
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
@@ -274,16 +316,28 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetResourceC
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+            request_builder = _header_serialization_settings.set_default_header(
+                request_builder,
+                ::http_1x::header::CONTENT_LENGTH,
+                &content_length,
+            );
         }
-        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
+        ::std::result::Result::Ok(
+            request_builder
+                .body(body)
+                .expect("valid request")
+                .try_into()
+                .unwrap(),
+        )
     }
 }
 #[derive(Debug)]
 struct GetResourceConfigHistoryEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetResourceConfigHistoryEndpointParamsInterceptor {
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept
+    for GetResourceConfigHistoryEndpointParamsInterceptor
+{
     fn name(&self) -> &'static str {
         "GetResourceConfigHistoryEndpointParamsInterceptor"
     }
@@ -304,16 +358,32 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetResourceCo
             .ok_or("failed to downcast to GetResourceConfigHistoryInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-            .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
+            .set_region(
+                cfg.load::<::aws_types::region::Region>()
+                    .map(|r| r.as_ref().to_owned()),
+            )
+            .set_use_dual_stack(
+                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
+                    .map(|ty| ty.0),
+            )
+            .set_use_fips(
+                cfg.load::<::aws_types::endpoint_config::UseFips>()
+                    .map(|ty| ty.0),
+            )
+            .set_endpoint(
+                cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
+                    .map(|ty| ty.0.clone()),
+            )
             .build()
             .map_err(|err| {
-                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
+                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(
+                    "endpoint params could not be built",
+                    err,
+                )
             })?;
-        cfg.interceptor_state()
-            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
+        cfg.interceptor_state().store_put(
+            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
+        );
         ::std::result::Result::Ok(())
     }
 }
@@ -332,7 +402,9 @@ pub enum GetResourceConfigHistoryError {
     /// <p>The specified time range is not valid. The earlier time is not chronologically before the later time.</p>
     InvalidTimeRangeException(crate::types::error::InvalidTimeRangeException),
     /// <p>There are no customer managed configuration recorders available to record your resources. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html">PutConfigurationRecorder</a> operation to create the customer managed configuration recorder.</p>
-    NoAvailableConfigurationRecorderException(crate::types::error::NoAvailableConfigurationRecorderException),
+    NoAvailableConfigurationRecorderException(
+        crate::types::error::NoAvailableConfigurationRecorderException,
+    ),
     /// <p>You have specified a resource that is either unknown or has not been discovered.</p>
     ResourceNotDiscoveredException(crate::types::error::ResourceNotDiscoveredException),
     /// <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p>
@@ -370,18 +442,24 @@ pub enum GetResourceConfigHistoryError {
     /// </ul>
     ValidationException(crate::types::error::ValidationException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(
+        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-GetResourceConfigHistoryError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-GetResourceConfigHistoryError) for what information is available for the error."
+    )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl GetResourceConfigHistoryError {
     /// Creates the `GetResourceConfigHistoryError::Unhandled` variant from any error type.
     pub fn unhandled(
-        err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
+        err: impl ::std::convert::Into<
+            ::std::boxed::Box<
+                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
+            >,
+        >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.into(),
@@ -402,12 +480,24 @@ impl GetResourceConfigHistoryError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::InvalidLimitException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::InvalidNextTokenException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::InvalidTimeRangeException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::NoAvailableConfigurationRecorderException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::ResourceNotDiscoveredException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::ValidationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidLimitException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::InvalidNextTokenException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::InvalidTimeRangeException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::NoAvailableConfigurationRecorderException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::ResourceNotDiscoveredException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::ValidationException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -442,7 +532,9 @@ impl ::std::error::Error for GetResourceConfigHistoryError {
             Self::InvalidLimitException(_inner) => ::std::option::Option::Some(_inner),
             Self::InvalidNextTokenException(_inner) => ::std::option::Option::Some(_inner),
             Self::InvalidTimeRangeException(_inner) => ::std::option::Option::Some(_inner),
-            Self::NoAvailableConfigurationRecorderException(_inner) => ::std::option::Option::Some(_inner),
+            Self::NoAvailableConfigurationRecorderException(_inner) => {
+                ::std::option::Option::Some(_inner)
+            }
             Self::ResourceNotDiscoveredException(_inner) => ::std::option::Option::Some(_inner),
             Self::ValidationException(_inner) => ::std::option::Option::Some(_inner),
             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
@@ -459,7 +551,9 @@ impl ::std::fmt::Display for GetResourceConfigHistoryError {
             Self::ResourceNotDiscoveredException(_inner) => _inner.fmt(f),
             Self::ValidationException(_inner) => _inner.fmt(f),
             Self::Unhandled(_inner) => {
-                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                if let ::std::option::Option::Some(code) =
+                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+                {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -479,19 +573,35 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for GetResourceConfigHistoryErr
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetResourceConfigHistoryError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::InvalidLimitException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidNextTokenException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidTimeRangeException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::NoAvailableConfigurationRecorderException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::ResourceNotDiscoveredException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::ValidationException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::InvalidLimitException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::InvalidNextTokenException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::InvalidTimeRangeException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::NoAvailableConfigurationRecorderException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::ResourceNotDiscoveredException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::ValidationException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetResourceConfigHistoryError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
+    for GetResourceConfigHistoryError
+{
     fn create_unhandled_error(
-        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+        source: ::std::boxed::Box<
+            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
+        >,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -500,7 +610,9 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetResou
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::get_resource_config_history::GetResourceConfigHistoryError {
+impl ::aws_types::request_id::RequestId
+    for crate::operation::get_resource_config_history::GetResourceConfigHistoryError
+{
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

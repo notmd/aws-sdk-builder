@@ -40,7 +40,9 @@ impl ListKeysOutput {
 }
 
 /// A builder for [`ListKeysOutput`](crate::operation::list_keys::ListKeysOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListKeysOutputBuilder {
     pub(crate) keys: ::std::option::Option<::std::vec::Vec<crate::types::KeyListEntry>>,
@@ -61,7 +63,10 @@ impl ListKeysOutputBuilder {
         self
     }
     /// <p>A list of KMS keys.</p>
-    pub fn set_keys(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeyListEntry>>) -> Self {
+    pub fn set_keys(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::KeyListEntry>>,
+    ) -> Self {
         self.keys = input;
         self
     }

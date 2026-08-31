@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutDeliveryDestinationPolicyError>`](crate::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyError)
     pub fn put_delivery_destination_policy(
         &self,
-    ) -> crate::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyFluentBuilder {
+    ) -> crate::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyFluentBuilder{
         crate::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyFluentBuilder::new(self.handle.clone())
     }
 }

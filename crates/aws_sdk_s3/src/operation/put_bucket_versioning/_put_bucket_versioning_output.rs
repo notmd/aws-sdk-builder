@@ -18,13 +18,17 @@ impl ::aws_types::request_id::RequestId for PutBucketVersioningOutput {
 }
 impl PutBucketVersioningOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketVersioningOutput`](crate::operation::put_bucket_versioning::PutBucketVersioningOutput).
-    pub fn builder() -> crate::operation::put_bucket_versioning::builders::PutBucketVersioningOutputBuilder {
-        crate::operation::put_bucket_versioning::builders::PutBucketVersioningOutputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::put_bucket_versioning::builders::PutBucketVersioningOutputBuilder {
+        crate::operation::put_bucket_versioning::builders::PutBucketVersioningOutputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`PutBucketVersioningOutput`](crate::operation::put_bucket_versioning::PutBucketVersioningOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutBucketVersioningOutputBuilder {
     _extended_request_id: Option<String>,
@@ -36,7 +40,10 @@ impl PutBucketVersioningOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(
+        &mut self,
+        extended_request_id: Option<String>,
+    ) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

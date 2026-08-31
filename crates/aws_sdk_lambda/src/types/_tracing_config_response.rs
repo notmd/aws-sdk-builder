@@ -21,7 +21,9 @@ impl TracingConfigResponse {
 }
 
 /// A builder for [`TracingConfigResponse`](crate::types::TracingConfigResponse).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct TracingConfigResponseBuilder {
     pub(crate) mode: ::std::option::Option<crate::types::TracingMode>,

@@ -12,13 +12,17 @@ impl ::aws_types::request_id::RequestId for DeleteAccountPolicyOutput {
 }
 impl DeleteAccountPolicyOutput {
     /// Creates a new builder-style object to manufacture [`DeleteAccountPolicyOutput`](crate::operation::delete_account_policy::DeleteAccountPolicyOutput).
-    pub fn builder() -> crate::operation::delete_account_policy::builders::DeleteAccountPolicyOutputBuilder {
-        crate::operation::delete_account_policy::builders::DeleteAccountPolicyOutputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::delete_account_policy::builders::DeleteAccountPolicyOutputBuilder {
+        crate::operation::delete_account_policy::builders::DeleteAccountPolicyOutputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`DeleteAccountPolicyOutput`](crate::operation::delete_account_policy::DeleteAccountPolicyOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteAccountPolicyOutputBuilder {
     _request_id: Option<String>,

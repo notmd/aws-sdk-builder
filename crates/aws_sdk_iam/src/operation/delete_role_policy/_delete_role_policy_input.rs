@@ -24,13 +24,16 @@ impl DeleteRolePolicyInput {
 }
 impl DeleteRolePolicyInput {
     /// Creates a new builder-style object to manufacture [`DeleteRolePolicyInput`](crate::operation::delete_role_policy::DeleteRolePolicyInput).
-    pub fn builder() -> crate::operation::delete_role_policy::builders::DeleteRolePolicyInputBuilder {
+    pub fn builder() -> crate::operation::delete_role_policy::builders::DeleteRolePolicyInputBuilder
+    {
         crate::operation::delete_role_policy::builders::DeleteRolePolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteRolePolicyInput`](crate::operation::delete_role_policy::DeleteRolePolicyInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteRolePolicyInputBuilder {
     pub(crate) role_name: ::std::option::Option<::std::string::String>,
@@ -76,10 +79,15 @@ impl DeleteRolePolicyInputBuilder {
     /// Consumes the builder and constructs a [`DeleteRolePolicyInput`](crate::operation::delete_role_policy::DeleteRolePolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_role_policy::DeleteRolePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_role_policy::DeleteRolePolicyInput {
-            role_name: self.role_name,
-            policy_name: self.policy_name,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::delete_role_policy::DeleteRolePolicyInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::delete_role_policy::DeleteRolePolicyInput {
+                role_name: self.role_name,
+                policy_name: self.policy_name,
+            },
+        )
     }
 }

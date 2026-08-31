@@ -21,13 +21,17 @@ impl ::aws_types::request_id::RequestId for CreateUserPoolClientOutput {
 }
 impl CreateUserPoolClientOutput {
     /// Creates a new builder-style object to manufacture [`CreateUserPoolClientOutput`](crate::operation::create_user_pool_client::CreateUserPoolClientOutput).
-    pub fn builder() -> crate::operation::create_user_pool_client::builders::CreateUserPoolClientOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::create_user_pool_client::builders::CreateUserPoolClientOutputBuilder
+    {
         crate::operation::create_user_pool_client::builders::CreateUserPoolClientOutputBuilder::default()
     }
 }
 
 /// A builder for [`CreateUserPoolClientOutput`](crate::operation::create_user_pool_client::CreateUserPoolClientOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateUserPoolClientOutputBuilder {
     pub(crate) user_pool_client: ::std::option::Option<crate::types::UserPoolClientType>,
@@ -40,7 +44,10 @@ impl CreateUserPoolClientOutputBuilder {
         self
     }
     /// <p>The details of the new app client.</p>
-    pub fn set_user_pool_client(mut self, input: ::std::option::Option<crate::types::UserPoolClientType>) -> Self {
+    pub fn set_user_pool_client(
+        mut self,
+        input: ::std::option::Option<crate::types::UserPoolClientType>,
+    ) -> Self {
         self.user_pool_client = input;
         self
     }

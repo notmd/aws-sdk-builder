@@ -132,7 +132,9 @@ pub fn de_delete_function_event_invoke_config_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigOutputBuilder::default();
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }

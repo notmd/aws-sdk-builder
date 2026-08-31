@@ -20,13 +20,15 @@ impl GetDomainPermissionsPolicyInput {
 }
 impl GetDomainPermissionsPolicyInput {
     /// Creates a new builder-style object to manufacture [`GetDomainPermissionsPolicyInput`](crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput).
-    pub fn builder() -> crate::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyInputBuilder {
+    pub fn builder() -> crate::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyInputBuilder{
         crate::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`GetDomainPermissionsPolicyInput`](crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetDomainPermissionsPolicyInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -69,9 +71,11 @@ impl GetDomainPermissionsPolicyInputBuilder {
         crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput {
-            domain: self.domain,
-            domain_owner: self.domain_owner,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput {
+                domain: self.domain,
+                domain_owner: self.domain_owner,
+            },
+        )
     }
 }

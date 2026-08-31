@@ -57,7 +57,9 @@ impl GetMFADeviceFluentBuilder {
         }
     }
     /// Access the GetMFADevice as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_mfa_device::builders::GetMfaDeviceInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_mfa_device::builders::GetMfaDeviceInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,11 +83,12 @@ impl GetMFADeviceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_mfa_device::GetMFADevice::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::get_mfa_device::GetMFADevice::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::get_mfa_device::GetMFADevice::orchestrate(&runtime_plugins, input).await
     }
 
@@ -99,22 +102,34 @@ impl GetMFADeviceFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>Serial number that uniquely identifies the MFA device. For this API, we only accept FIDO security key <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">ARNs</a>.</p>
-    pub fn serial_number(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn serial_number(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.serial_number(input.into());
         self
     }
     /// <p>Serial number that uniquely identifies the MFA device. For this API, we only accept FIDO security key <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">ARNs</a>.</p>
-    pub fn set_serial_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_serial_number(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_serial_number(input);
         self
     }

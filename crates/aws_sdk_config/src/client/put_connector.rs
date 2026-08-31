@@ -8,7 +8,11 @@ impl super::Client {
     /// - On success, responds with [`PutConnectorOutput`](crate::operation::put_connector::PutConnectorOutput) with field(s):
     ///   - [`arn(String)`](crate::operation::put_connector::PutConnectorOutput::arn): <p>The Amazon Resource Name (ARN) of the connector.</p>
     /// - On failure, responds with [`SdkError<PutConnectorError>`](crate::operation::put_connector::PutConnectorError)
-    pub fn put_connector(&self) -> crate::operation::put_connector::builders::PutConnectorFluentBuilder {
-        crate::operation::put_connector::builders::PutConnectorFluentBuilder::new(self.handle.clone())
+    pub fn put_connector(
+        &self,
+    ) -> crate::operation::put_connector::builders::PutConnectorFluentBuilder {
+        crate::operation::put_connector::builders::PutConnectorFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

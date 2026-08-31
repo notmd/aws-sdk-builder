@@ -21,7 +21,9 @@ impl ServiceTier {
 }
 
 /// A builder for [`ServiceTier`](crate::types::ServiceTier).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ServiceTierBuilder {
     pub(crate) r#type: ::std::option::Option<crate::types::ServiceTierType>,
@@ -45,7 +47,12 @@ impl ServiceTierBuilder {
     /// Consumes the builder and constructs a [`ServiceTier`](crate::types::ServiceTier).
     /// This method will fail if any of the following fields are not set:
     /// - [`r#type`](crate::types::builders::ServiceTierBuilder::type)
-    pub fn build(self) -> ::std::result::Result<crate::types::ServiceTier, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::ServiceTier,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::ServiceTier {
             r#type: self.r#type.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

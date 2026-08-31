@@ -46,7 +46,9 @@ impl StoredQuery {
 }
 
 /// A builder for [`StoredQuery`](crate::types::StoredQuery).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct StoredQueryBuilder {
     pub(crate) query_id: ::std::option::Option<::std::string::String>,
@@ -130,7 +132,12 @@ impl StoredQueryBuilder {
     /// Consumes the builder and constructs a [`StoredQuery`](crate::types::StoredQuery).
     /// This method will fail if any of the following fields are not set:
     /// - [`query_name`](crate::types::builders::StoredQueryBuilder::query_name)
-    pub fn build(self) -> ::std::result::Result<crate::types::StoredQuery, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::StoredQuery,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::StoredQuery {
             query_id: self.query_id,
             query_arn: self.query_arn,

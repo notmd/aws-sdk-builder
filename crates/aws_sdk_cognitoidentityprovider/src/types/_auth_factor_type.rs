@@ -42,7 +42,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(
-    ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
+    ::std::clone::Clone,
+    ::std::cmp::Eq,
+    ::std::cmp::Ord,
+    ::std::cmp::PartialEq,
+    ::std::cmp::PartialOrd,
+    ::std::fmt::Debug,
+    ::std::hash::Hash,
 )]
 pub enum AuthFactorType {
     #[allow(missing_docs)] // documentation missing in model
@@ -56,7 +62,9 @@ pub enum AuthFactorType {
     #[allow(missing_docs)] // documentation missing in model
     WebAuthn,
     /// `Unknown` contains new variants that have been added since this code was generated.
-    #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
+    #[deprecated(
+        note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants."
+    )]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for AuthFactorType {
@@ -67,7 +75,9 @@ impl ::std::convert::From<&str> for AuthFactorType {
             "SMS_OTP" => AuthFactorType::SmsOtp,
             "SOFTWARE_TOKEN" => AuthFactorType::SoftwareToken,
             "WEB_AUTHN" => AuthFactorType::WebAuthn,
-            other => AuthFactorType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
+            other => AuthFactorType::Unknown(
+                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
+            ),
         }
     }
 }
@@ -92,7 +102,13 @@ impl AuthFactorType {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["EMAIL_OTP", "PASSWORD", "SMS_OTP", "SOFTWARE_TOKEN", "WEB_AUTHN"]
+        &[
+            "EMAIL_OTP",
+            "PASSWORD",
+            "SMS_OTP",
+            "SOFTWARE_TOKEN",
+            "WEB_AUTHN",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for AuthFactorType {
@@ -104,10 +120,14 @@ impl AuthFactorType {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(
+        value: &str,
+    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
+            Self::Unknown(_) => {
+                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
+            }
             known => Ok(known),
         }
     }

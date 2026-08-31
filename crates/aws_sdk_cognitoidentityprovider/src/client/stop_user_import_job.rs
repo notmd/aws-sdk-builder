@@ -8,7 +8,11 @@ impl super::Client {
     /// - On success, responds with [`StopUserImportJobOutput`](crate::operation::stop_user_import_job::StopUserImportJobOutput) with field(s):
     ///   - [`user_import_job(Option<UserImportJobType>)`](crate::operation::stop_user_import_job::StopUserImportJobOutput::user_import_job): <p>The details of the user import job. Includes logging destination, status, and the Amazon S3 pre-signed URL for CSV upload.</p>
     /// - On failure, responds with [`SdkError<StopUserImportJobError>`](crate::operation::stop_user_import_job::StopUserImportJobError)
-    pub fn stop_user_import_job(&self) -> crate::operation::stop_user_import_job::builders::StopUserImportJobFluentBuilder {
-        crate::operation::stop_user_import_job::builders::StopUserImportJobFluentBuilder::new(self.handle.clone())
+    pub fn stop_user_import_job(
+        &self,
+    ) -> crate::operation::stop_user_import_job::builders::StopUserImportJobFluentBuilder {
+        crate::operation::stop_user_import_job::builders::StopUserImportJobFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

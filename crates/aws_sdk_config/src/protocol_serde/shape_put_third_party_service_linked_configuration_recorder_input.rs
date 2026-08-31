@@ -12,7 +12,10 @@ pub fn ser_put_third_party_service_linked_configuration_recorder_input_input(
     if let Some(var_3) = &input.scope_configuration {
         #[allow(unused_mut)]
         let mut object_4 = object.key("ScopeConfiguration").start_object();
-        crate::protocol_serde::shape_scope_configuration::ser_scope_configuration(&mut object_4, var_3)?;
+        crate::protocol_serde::shape_scope_configuration::ser_scope_configuration(
+            &mut object_4,
+            var_3,
+        )?;
         object_4.finish();
     }
     if let Some(var_5) = &input.tags {

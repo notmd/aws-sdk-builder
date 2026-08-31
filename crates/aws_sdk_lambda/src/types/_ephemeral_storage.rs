@@ -21,7 +21,9 @@ impl EphemeralStorage {
 }
 
 /// A builder for [`EphemeralStorage`](crate::types::EphemeralStorage).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct EphemeralStorageBuilder {
     pub(crate) size: ::std::option::Option<i32>,
@@ -45,7 +47,12 @@ impl EphemeralStorageBuilder {
     /// Consumes the builder and constructs a [`EphemeralStorage`](crate::types::EphemeralStorage).
     /// This method will fail if any of the following fields are not set:
     /// - [`size`](crate::types::builders::EphemeralStorageBuilder::size)
-    pub fn build(self) -> ::std::result::Result<crate::types::EphemeralStorage, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::EphemeralStorage,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::EphemeralStorage {
             size: self.size.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

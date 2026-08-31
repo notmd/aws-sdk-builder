@@ -4,7 +4,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct PutRemediationConfigurationsOutput {
     /// <p>Returns a list of failed remediation batch objects.</p>
-    pub failed_batches: ::std::option::Option<::std::vec::Vec<crate::types::FailedRemediationBatch>>,
+    pub failed_batches:
+        ::std::option::Option<::std::vec::Vec<crate::types::FailedRemediationBatch>>,
     _request_id: Option<String>,
 }
 impl PutRemediationConfigurationsOutput {
@@ -22,16 +23,19 @@ impl ::aws_types::request_id::RequestId for PutRemediationConfigurationsOutput {
 }
 impl PutRemediationConfigurationsOutput {
     /// Creates a new builder-style object to manufacture [`PutRemediationConfigurationsOutput`](crate::operation::put_remediation_configurations::PutRemediationConfigurationsOutput).
-    pub fn builder() -> crate::operation::put_remediation_configurations::builders::PutRemediationConfigurationsOutputBuilder {
+    pub fn builder() -> crate::operation::put_remediation_configurations::builders::PutRemediationConfigurationsOutputBuilder{
         crate::operation::put_remediation_configurations::builders::PutRemediationConfigurationsOutputBuilder::default()
     }
 }
 
 /// A builder for [`PutRemediationConfigurationsOutput`](crate::operation::put_remediation_configurations::PutRemediationConfigurationsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutRemediationConfigurationsOutputBuilder {
-    pub(crate) failed_batches: ::std::option::Option<::std::vec::Vec<crate::types::FailedRemediationBatch>>,
+    pub(crate) failed_batches:
+        ::std::option::Option<::std::vec::Vec<crate::types::FailedRemediationBatch>>,
     _request_id: Option<String>,
 }
 impl PutRemediationConfigurationsOutputBuilder {
@@ -47,12 +51,17 @@ impl PutRemediationConfigurationsOutputBuilder {
         self
     }
     /// <p>Returns a list of failed remediation batch objects.</p>
-    pub fn set_failed_batches(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FailedRemediationBatch>>) -> Self {
+    pub fn set_failed_batches(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::FailedRemediationBatch>>,
+    ) -> Self {
         self.failed_batches = input;
         self
     }
     /// <p>Returns a list of failed remediation batch objects.</p>
-    pub fn get_failed_batches(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FailedRemediationBatch>> {
+    pub fn get_failed_batches(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::FailedRemediationBatch>> {
         &self.failed_batches
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -65,7 +74,9 @@ impl PutRemediationConfigurationsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutRemediationConfigurationsOutput`](crate::operation::put_remediation_configurations::PutRemediationConfigurationsOutput).
-    pub fn build(self) -> crate::operation::put_remediation_configurations::PutRemediationConfigurationsOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::put_remediation_configurations::PutRemediationConfigurationsOutput {
         crate::operation::put_remediation_configurations::PutRemediationConfigurationsOutput {
             failed_batches: self.failed_batches,
             _request_id: self._request_id,

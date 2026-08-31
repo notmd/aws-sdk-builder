@@ -40,13 +40,15 @@ impl ::aws_types::request_id::RequestId for DescribeImportTaskBatchesOutput {
 }
 impl DescribeImportTaskBatchesOutput {
     /// Creates a new builder-style object to manufacture [`DescribeImportTaskBatchesOutput`](crate::operation::describe_import_task_batches::DescribeImportTaskBatchesOutput).
-    pub fn builder() -> crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesOutputBuilder {
+    pub fn builder() -> crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesOutputBuilder{
         crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeImportTaskBatchesOutput`](crate::operation::describe_import_task_batches::DescribeImportTaskBatchesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeImportTaskBatchesOutputBuilder {
     pub(crate) import_source_arn: ::std::option::Option<::std::string::String>,
@@ -57,12 +59,18 @@ pub struct DescribeImportTaskBatchesOutputBuilder {
 }
 impl DescribeImportTaskBatchesOutputBuilder {
     /// <p>The ARN of the source being imported from.</p>
-    pub fn import_source_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn import_source_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.import_source_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the source being imported from.</p>
-    pub fn set_import_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_import_source_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.import_source_arn = input;
         self
     }
@@ -96,12 +104,17 @@ impl DescribeImportTaskBatchesOutputBuilder {
         self
     }
     /// <p>The list of import batches that match the request filters.</p>
-    pub fn set_import_batches(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ImportBatch>>) -> Self {
+    pub fn set_import_batches(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ImportBatch>>,
+    ) -> Self {
         self.import_batches = input;
         self
     }
     /// <p>The list of import batches that match the request filters.</p>
-    pub fn get_import_batches(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ImportBatch>> {
+    pub fn get_import_batches(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ImportBatch>> {
         &self.import_batches
     }
     /// <p>The token to use when requesting the next set of results. Not present if there are no additional results to retrieve.</p>
@@ -128,7 +141,9 @@ impl DescribeImportTaskBatchesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeImportTaskBatchesOutput`](crate::operation::describe_import_task_batches::DescribeImportTaskBatchesOutput).
-    pub fn build(self) -> crate::operation::describe_import_task_batches::DescribeImportTaskBatchesOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::describe_import_task_batches::DescribeImportTaskBatchesOutput {
         crate::operation::describe_import_task_batches::DescribeImportTaskBatchesOutput {
             import_source_arn: self.import_source_arn,
             import_id: self.import_id,

@@ -22,7 +22,8 @@ pub struct LaunchTemplateSpecification {
     /// <p>You can specify up to ten (10) launch template overrides that are associated to unique instance types or families for each compute environment.</p><note>
     /// <p>To unset all override templates for a compute environment, you can pass an empty array to the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html">UpdateComputeEnvironment.overrides</a> parameter, or not include the <code>overrides</code> parameter when submitting the <code>UpdateComputeEnvironment</code> API operation.</p>
     /// </note>
-    pub overrides: ::std::option::Option<::std::vec::Vec<crate::types::LaunchTemplateSpecificationOverride>>,
+    pub overrides:
+        ::std::option::Option<::std::vec::Vec<crate::types::LaunchTemplateSpecificationOverride>>,
     /// <p>The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is <code>EKS_BOOTSTRAP_SH</code>. If <i>imageType</i> is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose <code>EKS_NODEADM</code>.</p>
     pub userdata_type: ::std::option::Option<crate::types::UserdataType>,
 }
@@ -66,23 +67,32 @@ impl LaunchTemplateSpecification {
 }
 
 /// A builder for [`LaunchTemplateSpecification`](crate::types::LaunchTemplateSpecification).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct LaunchTemplateSpecificationBuilder {
     pub(crate) launch_template_id: ::std::option::Option<::std::string::String>,
     pub(crate) launch_template_name: ::std::option::Option<::std::string::String>,
     pub(crate) version: ::std::option::Option<::std::string::String>,
-    pub(crate) overrides: ::std::option::Option<::std::vec::Vec<crate::types::LaunchTemplateSpecificationOverride>>,
+    pub(crate) overrides:
+        ::std::option::Option<::std::vec::Vec<crate::types::LaunchTemplateSpecificationOverride>>,
     pub(crate) userdata_type: ::std::option::Option<crate::types::UserdataType>,
 }
 impl LaunchTemplateSpecificationBuilder {
     /// <p>The ID of the launch template.</p>
-    pub fn launch_template_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn launch_template_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.launch_template_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ID of the launch template.</p>
-    pub fn set_launch_template_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_launch_template_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.launch_template_id = input;
         self
     }
@@ -91,12 +101,18 @@ impl LaunchTemplateSpecificationBuilder {
         &self.launch_template_id
     }
     /// <p>The name of the launch template.</p>
-    pub fn launch_template_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn launch_template_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.launch_template_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the launch template.</p>
-    pub fn set_launch_template_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_launch_template_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.launch_template_name = input;
         self
     }
@@ -151,7 +167,12 @@ impl LaunchTemplateSpecificationBuilder {
     /// <p>You can specify up to ten (10) launch template overrides that are associated to unique instance types or families for each compute environment.</p><note>
     /// <p>To unset all override templates for a compute environment, you can pass an empty array to the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html">UpdateComputeEnvironment.overrides</a> parameter, or not include the <code>overrides</code> parameter when submitting the <code>UpdateComputeEnvironment</code> API operation.</p>
     /// </note>
-    pub fn set_overrides(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LaunchTemplateSpecificationOverride>>) -> Self {
+    pub fn set_overrides(
+        mut self,
+        input: ::std::option::Option<
+            ::std::vec::Vec<crate::types::LaunchTemplateSpecificationOverride>,
+        >,
+    ) -> Self {
         self.overrides = input;
         self
     }
@@ -159,7 +180,10 @@ impl LaunchTemplateSpecificationBuilder {
     /// <p>You can specify up to ten (10) launch template overrides that are associated to unique instance types or families for each compute environment.</p><note>
     /// <p>To unset all override templates for a compute environment, you can pass an empty array to the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html">UpdateComputeEnvironment.overrides</a> parameter, or not include the <code>overrides</code> parameter when submitting the <code>UpdateComputeEnvironment</code> API operation.</p>
     /// </note>
-    pub fn get_overrides(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LaunchTemplateSpecificationOverride>> {
+    pub fn get_overrides(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::LaunchTemplateSpecificationOverride>>
+    {
         &self.overrides
     }
     /// <p>The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is <code>EKS_BOOTSTRAP_SH</code>. If <i>imageType</i> is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose <code>EKS_NODEADM</code>.</p>
@@ -168,7 +192,10 @@ impl LaunchTemplateSpecificationBuilder {
         self
     }
     /// <p>The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is <code>EKS_BOOTSTRAP_SH</code>. If <i>imageType</i> is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose <code>EKS_NODEADM</code>.</p>
-    pub fn set_userdata_type(mut self, input: ::std::option::Option<crate::types::UserdataType>) -> Self {
+    pub fn set_userdata_type(
+        mut self,
+        input: ::std::option::Option<crate::types::UserdataType>,
+    ) -> Self {
         self.userdata_type = input;
         self
     }

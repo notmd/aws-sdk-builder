@@ -134,8 +134,10 @@ impl PutObjectAnnotationInput {
 }
 impl PutObjectAnnotationInput {
     /// Creates a new builder-style object to manufacture [`PutObjectAnnotationInput`](crate::operation::put_object_annotation::PutObjectAnnotationInput).
-    pub fn builder() -> crate::operation::put_object_annotation::builders::PutObjectAnnotationInputBuilder {
-        crate::operation::put_object_annotation::builders::PutObjectAnnotationInputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::put_object_annotation::builders::PutObjectAnnotationInputBuilder {
+        crate::operation::put_object_annotation::builders::PutObjectAnnotationInputBuilder::default(
+        )
     }
 }
 
@@ -147,7 +149,8 @@ pub struct PutObjectAnnotationInputBuilder {
     pub(crate) key: ::std::option::Option<::std::string::String>,
     pub(crate) version_id: ::std::option::Option<::std::string::String>,
     pub(crate) annotation_name: ::std::option::Option<::std::string::String>,
-    pub(crate) annotation_payload: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
+    pub(crate) annotation_payload:
+        ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
     pub(crate) object_if_match: ::std::option::Option<::std::string::String>,
     pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
     pub(crate) checksum_crc32: ::std::option::Option<::std::string::String>,
@@ -212,13 +215,19 @@ impl PutObjectAnnotationInputBuilder {
     /// <p>The name of the annotation.</p>
     /// <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
     /// This field is required.
-    pub fn annotation_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn annotation_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.annotation_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the annotation.</p>
     /// <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
-    pub fn set_annotation_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_annotation_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.annotation_name = input;
         self
     }
@@ -229,26 +238,40 @@ impl PutObjectAnnotationInputBuilder {
     }
     /// <p>The annotation payload. Must be between 1 byte and 1 MiB in size, and must be valid UTF-8 encoded text. If the payload contains invalid UTF-8 bytes, the request fails with HTTP 415 (Unsupported Media Type). To store binary data, encode the payload using Base64 before uploading.</p>
     /// This field is required.
-    pub fn annotation_payload(mut self, input: ::aws_smithy_types::byte_stream::ByteStream) -> Self {
+    pub fn annotation_payload(
+        mut self,
+        input: ::aws_smithy_types::byte_stream::ByteStream,
+    ) -> Self {
         self.annotation_payload = ::std::option::Option::Some(input);
         self
     }
     /// <p>The annotation payload. Must be between 1 byte and 1 MiB in size, and must be valid UTF-8 encoded text. If the payload contains invalid UTF-8 bytes, the request fails with HTTP 415 (Unsupported Media Type). To store binary data, encode the payload using Base64 before uploading.</p>
-    pub fn set_annotation_payload(mut self, input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
+    pub fn set_annotation_payload(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
+    ) -> Self {
         self.annotation_payload = input;
         self
     }
     /// <p>The annotation payload. Must be between 1 byte and 1 MiB in size, and must be valid UTF-8 encoded text. If the payload contains invalid UTF-8 bytes, the request fails with HTTP 415 (Unsupported Media Type). To store binary data, encode the payload using Base64 before uploading.</p>
-    pub fn get_annotation_payload(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
+    pub fn get_annotation_payload(
+        &self,
+    ) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
         &self.annotation_payload
     }
     /// <p>If specified, the operation only succeeds if the object's ETag matches the provided value.</p>
-    pub fn object_if_match(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn object_if_match(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.object_if_match = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>If specified, the operation only succeeds if the object's ETag matches the provided value.</p>
-    pub fn set_object_if_match(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_object_if_match(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.object_if_match = input;
         self
     }
@@ -262,21 +285,32 @@ impl PutObjectAnnotationInputBuilder {
         self
     }
     /// <p>The checksum algorithm to use. Supported values: <code>CRC32</code>, <code>CRC32C</code>, <code>CRC64NVME</code>, <code>SHA1</code>, <code>SHA256</code>, <code>SHA512</code>, <code>MD5</code>, <code>XXHASH64</code>, <code>XXHASH3</code>, <code>XXHASH128</code>.</p>
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
+    pub fn set_checksum_algorithm(
+        mut self,
+        input: ::std::option::Option<crate::types::ChecksumAlgorithm>,
+    ) -> Self {
         self.checksum_algorithm = input;
         self
     }
     /// <p>The checksum algorithm to use. Supported values: <code>CRC32</code>, <code>CRC32C</code>, <code>CRC64NVME</code>, <code>SHA1</code>, <code>SHA256</code>, <code>SHA512</code>, <code>MD5</code>, <code>XXHASH64</code>, <code>XXHASH3</code>, <code>XXHASH128</code>.</p>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(
+        &self,
+    ) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         &self.checksum_algorithm
     }
     /// <p>Base64-encoded CRC32 checksum of the annotation payload.</p>
-    pub fn checksum_crc32(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_crc32(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_crc32 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Base64-encoded CRC32 checksum of the annotation payload.</p>
-    pub fn set_checksum_crc32(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_crc32(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_crc32 = input;
         self
     }
@@ -285,12 +319,18 @@ impl PutObjectAnnotationInputBuilder {
         &self.checksum_crc32
     }
     /// <p>Base64-encoded CRC32C checksum of the annotation payload.</p>
-    pub fn checksum_crc32_c(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_crc32_c(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_crc32_c = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Base64-encoded CRC32C checksum of the annotation payload.</p>
-    pub fn set_checksum_crc32_c(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_crc32_c(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_crc32_c = input;
         self
     }
@@ -299,12 +339,18 @@ impl PutObjectAnnotationInputBuilder {
         &self.checksum_crc32_c
     }
     /// <p>Base64-encoded CRC64NVME checksum of the annotation payload.</p>
-    pub fn checksum_crc64_nvme(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_crc64_nvme(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_crc64_nvme = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Base64-encoded CRC64NVME checksum of the annotation payload.</p>
-    pub fn set_checksum_crc64_nvme(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_crc64_nvme(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_crc64_nvme = input;
         self
     }
@@ -313,12 +359,18 @@ impl PutObjectAnnotationInputBuilder {
         &self.checksum_crc64_nvme
     }
     /// <p>Base64-encoded SHA1 checksum of the annotation payload.</p>
-    pub fn checksum_sha1(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_sha1(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_sha1 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Base64-encoded SHA1 checksum of the annotation payload.</p>
-    pub fn set_checksum_sha1(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_sha1(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_sha1 = input;
         self
     }
@@ -327,12 +379,18 @@ impl PutObjectAnnotationInputBuilder {
         &self.checksum_sha1
     }
     /// <p>Base64-encoded SHA256 checksum of the annotation payload.</p>
-    pub fn checksum_sha256(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_sha256(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_sha256 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Base64-encoded SHA256 checksum of the annotation payload.</p>
-    pub fn set_checksum_sha256(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_sha256(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_sha256 = input;
         self
     }
@@ -341,12 +399,18 @@ impl PutObjectAnnotationInputBuilder {
         &self.checksum_sha256
     }
     /// <p>Base64-encoded SHA512 checksum of the annotation payload.</p>
-    pub fn checksum_sha512(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_sha512(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_sha512 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Base64-encoded SHA512 checksum of the annotation payload.</p>
-    pub fn set_checksum_sha512(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_sha512(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_sha512 = input;
         self
     }
@@ -369,12 +433,18 @@ impl PutObjectAnnotationInputBuilder {
         &self.checksum_md5
     }
     /// <p>Base64-encoded XXHASH64 checksum of the annotation payload.</p>
-    pub fn checksum_xxhash64(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_xxhash64(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_xxhash64 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Base64-encoded XXHASH64 checksum of the annotation payload.</p>
-    pub fn set_checksum_xxhash64(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_xxhash64(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_xxhash64 = input;
         self
     }
@@ -383,12 +453,18 @@ impl PutObjectAnnotationInputBuilder {
         &self.checksum_xxhash64
     }
     /// <p>Base64-encoded XXHASH3 checksum of the annotation payload.</p>
-    pub fn checksum_xxhash3(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_xxhash3(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_xxhash3 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Base64-encoded XXHASH3 checksum of the annotation payload.</p>
-    pub fn set_checksum_xxhash3(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_xxhash3(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_xxhash3 = input;
         self
     }
@@ -397,12 +473,18 @@ impl PutObjectAnnotationInputBuilder {
         &self.checksum_xxhash3
     }
     /// <p>Base64-encoded XXHASH128 checksum of the annotation payload.</p>
-    pub fn checksum_xxhash128(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_xxhash128(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_xxhash128 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Base64-encoded XXHASH128 checksum of the annotation payload.</p>
-    pub fn set_checksum_xxhash128(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_xxhash128(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_xxhash128 = input;
         self
     }
@@ -434,7 +516,10 @@ impl PutObjectAnnotationInputBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+    pub fn set_request_payer(
+        mut self,
+        input: ::std::option::Option<crate::types::RequestPayer>,
+    ) -> Self {
         self.request_payer = input;
         self
     }
@@ -445,12 +530,18 @@ impl PutObjectAnnotationInputBuilder {
         &self.request_payer
     }
     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
-    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -461,29 +552,33 @@ impl PutObjectAnnotationInputBuilder {
     /// Consumes the builder and constructs a [`PutObjectAnnotationInput`](crate::operation::put_object_annotation::PutObjectAnnotationInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::put_object_annotation::PutObjectAnnotationInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::put_object_annotation::PutObjectAnnotationInput {
-            bucket: self.bucket,
-            key: self.key,
-            version_id: self.version_id,
-            annotation_name: self.annotation_name,
-            annotation_payload: self.annotation_payload.unwrap_or_default(),
-            object_if_match: self.object_if_match,
-            checksum_algorithm: self.checksum_algorithm,
-            checksum_crc32: self.checksum_crc32,
-            checksum_crc32_c: self.checksum_crc32_c,
-            checksum_crc64_nvme: self.checksum_crc64_nvme,
-            checksum_sha1: self.checksum_sha1,
-            checksum_sha256: self.checksum_sha256,
-            checksum_sha512: self.checksum_sha512,
-            checksum_md5: self.checksum_md5,
-            checksum_xxhash64: self.checksum_xxhash64,
-            checksum_xxhash3: self.checksum_xxhash3,
-            checksum_xxhash128: self.checksum_xxhash128,
-            content_md5: self.content_md5,
-            request_payer: self.request_payer,
-            expected_bucket_owner: self.expected_bucket_owner,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::put_object_annotation::PutObjectAnnotationInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::put_object_annotation::PutObjectAnnotationInput {
+                bucket: self.bucket,
+                key: self.key,
+                version_id: self.version_id,
+                annotation_name: self.annotation_name,
+                annotation_payload: self.annotation_payload.unwrap_or_default(),
+                object_if_match: self.object_if_match,
+                checksum_algorithm: self.checksum_algorithm,
+                checksum_crc32: self.checksum_crc32,
+                checksum_crc32_c: self.checksum_crc32_c,
+                checksum_crc64_nvme: self.checksum_crc64_nvme,
+                checksum_sha1: self.checksum_sha1,
+                checksum_sha256: self.checksum_sha256,
+                checksum_sha512: self.checksum_sha512,
+                checksum_md5: self.checksum_md5,
+                checksum_xxhash64: self.checksum_xxhash64,
+                checksum_xxhash3: self.checksum_xxhash3,
+                checksum_xxhash128: self.checksum_xxhash128,
+                content_md5: self.content_md5,
+                request_payer: self.request_payer,
+                expected_bucket_owner: self.expected_bucket_owner,
+            },
+        )
     }
 }

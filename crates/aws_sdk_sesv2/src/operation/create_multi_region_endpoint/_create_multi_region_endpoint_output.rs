@@ -47,13 +47,15 @@ impl ::aws_types::request_id::RequestId for CreateMultiRegionEndpointOutput {
 }
 impl CreateMultiRegionEndpointOutput {
     /// Creates a new builder-style object to manufacture [`CreateMultiRegionEndpointOutput`](crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointOutput).
-    pub fn builder() -> crate::operation::create_multi_region_endpoint::builders::CreateMultiRegionEndpointOutputBuilder {
+    pub fn builder() -> crate::operation::create_multi_region_endpoint::builders::CreateMultiRegionEndpointOutputBuilder{
         crate::operation::create_multi_region_endpoint::builders::CreateMultiRegionEndpointOutputBuilder::default()
     }
 }
 
 /// A builder for [`CreateMultiRegionEndpointOutput`](crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateMultiRegionEndpointOutputBuilder {
     pub(crate) status: ::std::option::Option<crate::types::Status>,
@@ -129,7 +131,9 @@ impl CreateMultiRegionEndpointOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateMultiRegionEndpointOutput`](crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointOutput).
-    pub fn build(self) -> crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointOutput {
         crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointOutput {
             status: self.status,
             endpoint_id: self.endpoint_id,

@@ -98,7 +98,9 @@ impl PutBucketPolicyFluentBuilder {
         }
     }
     /// Access the PutBucketPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_bucket_policy::builders::PutBucketPolicyInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_bucket_policy::builders::PutBucketPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -122,12 +124,14 @@ impl PutBucketPolicyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::put_bucket_policy::PutBucketPolicy::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::put_bucket_policy::PutBucketPolicy::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::put_bucket_policy::PutBucketPolicy::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::put_bucket_policy::PutBucketPolicy::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -140,12 +144,18 @@ impl PutBucketPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -249,7 +259,10 @@ impl PutBucketPolicyFluentBuilder {
     /// <p>If the individual checksum value you provide through <code>x-amz-checksum-<i>algorithm</i> </code> doesn't match the checksum algorithm you set through <code>x-amz-sdk-checksum-algorithm</code>, Amazon S3 fails the request with a <code>BadDigest</code> error.</p><note>
     /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
     /// </note>
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
+    pub fn set_checksum_algorithm(
+        mut self,
+        input: ::std::option::Option<crate::types::ChecksumAlgorithm>,
+    ) -> Self {
         self.inner = self.inner.set_checksum_algorithm(input);
         self
     }
@@ -281,7 +294,9 @@ impl PutBucketPolicyFluentBuilder {
     /// <p>If the individual checksum value you provide through <code>x-amz-checksum-<i>algorithm</i> </code> doesn't match the checksum algorithm you set through <code>x-amz-sdk-checksum-algorithm</code>, Amazon S3 fails the request with a <code>BadDigest</code> error.</p><note>
     /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
     /// </note>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(
+        &self,
+    ) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         self.inner.get_checksum_algorithm()
     }
     /// <p>Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.</p><note>
@@ -294,7 +309,10 @@ impl PutBucketPolicyFluentBuilder {
     /// <p>Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_confirm_remove_self_bucket_access(mut self, input: ::std::option::Option<bool>) -> Self {
+    pub fn set_confirm_remove_self_bucket_access(
+        mut self,
+        input: ::std::option::Option<bool>,
+    ) -> Self {
         self.inner = self.inner.set_confirm_remove_self_bucket_access(input);
         self
     }
@@ -324,14 +342,20 @@ impl PutBucketPolicyFluentBuilder {
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
-    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

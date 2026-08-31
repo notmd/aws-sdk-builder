@@ -12,7 +12,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeAggregationAuthorizationsError>`](crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsError)
     pub fn describe_aggregation_authorizations(
         &self,
-    ) -> crate::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsFluentBuilder {
+    ) -> crate::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsFluentBuilder{
         crate::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsFluentBuilder::new(self.handle.clone())
     }
 }

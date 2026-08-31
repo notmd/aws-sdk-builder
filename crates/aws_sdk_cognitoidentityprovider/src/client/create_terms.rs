@@ -12,7 +12,9 @@ impl super::Client {
     /// - On success, responds with [`CreateTermsOutput`](crate::operation::create_terms::CreateTermsOutput) with field(s):
     ///   - [`terms(Option<TermsType>)`](crate::operation::create_terms::CreateTermsOutput::terms): <p>A summary of your terms documents. Includes a unique identifier for later changes to the terms documents.</p>
     /// - On failure, responds with [`SdkError<CreateTermsError>`](crate::operation::create_terms::CreateTermsError)
-    pub fn create_terms(&self) -> crate::operation::create_terms::builders::CreateTermsFluentBuilder {
+    pub fn create_terms(
+        &self,
+    ) -> crate::operation::create_terms::builders::CreateTermsFluentBuilder {
         crate::operation::create_terms::builders::CreateTermsFluentBuilder::new(self.handle.clone())
     }
 }

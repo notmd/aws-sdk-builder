@@ -7,7 +7,11 @@ impl super::Client {
     ///   - [`filter_name(impl Into<String>)`](crate::operation::delete_metric_filter::builders::DeleteMetricFilterFluentBuilder::filter_name) / [`set_filter_name(Option<String>)`](crate::operation::delete_metric_filter::builders::DeleteMetricFilterFluentBuilder::set_filter_name):<br>required: **true**<br><p>The name of the metric filter.</p><br>
     /// - On success, responds with [`DeleteMetricFilterOutput`](crate::operation::delete_metric_filter::DeleteMetricFilterOutput)
     /// - On failure, responds with [`SdkError<DeleteMetricFilterError>`](crate::operation::delete_metric_filter::DeleteMetricFilterError)
-    pub fn delete_metric_filter(&self) -> crate::operation::delete_metric_filter::builders::DeleteMetricFilterFluentBuilder {
-        crate::operation::delete_metric_filter::builders::DeleteMetricFilterFluentBuilder::new(self.handle.clone())
+    pub fn delete_metric_filter(
+        &self,
+    ) -> crate::operation::delete_metric_filter::builders::DeleteMetricFilterFluentBuilder {
+        crate::operation::delete_metric_filter::builders::DeleteMetricFilterFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

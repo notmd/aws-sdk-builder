@@ -15,7 +15,7 @@ impl super::Client {
     pub fn get_organization_conformance_pack_detailed_status(
         &self,
     ) -> crate::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusFluentBuilder
-    {
+{
         crate::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusFluentBuilder::new(
             self.handle.clone(),
         )

@@ -32,13 +32,16 @@ impl RotateKeyOnDemandInput {
 }
 impl RotateKeyOnDemandInput {
     /// Creates a new builder-style object to manufacture [`RotateKeyOnDemandInput`](crate::operation::rotate_key_on_demand::RotateKeyOnDemandInput).
-    pub fn builder() -> crate::operation::rotate_key_on_demand::builders::RotateKeyOnDemandInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::rotate_key_on_demand::builders::RotateKeyOnDemandInputBuilder {
         crate::operation::rotate_key_on_demand::builders::RotateKeyOnDemandInputBuilder::default()
     }
 }
 
 /// A builder for [`RotateKeyOnDemandInput`](crate::operation::rotate_key_on_demand::RotateKeyOnDemandInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RotateKeyOnDemandInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -89,7 +92,14 @@ impl RotateKeyOnDemandInputBuilder {
     /// Consumes the builder and constructs a [`RotateKeyOnDemandInput`](crate::operation::rotate_key_on_demand::RotateKeyOnDemandInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::rotate_key_on_demand::RotateKeyOnDemandInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::rotate_key_on_demand::RotateKeyOnDemandInput { key_id: self.key_id })
+    ) -> ::std::result::Result<
+        crate::operation::rotate_key_on_demand::RotateKeyOnDemandInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::rotate_key_on_demand::RotateKeyOnDemandInput {
+                key_id: self.key_id,
+            },
+        )
     }
 }

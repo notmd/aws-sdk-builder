@@ -38,7 +38,9 @@ impl UpdateUserInput {
 }
 
 /// A builder for [`UpdateUserInput`](crate::operation::update_user::UpdateUserInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateUserInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -83,13 +85,19 @@ impl UpdateUserInputBuilder {
     }
     /// <p>New name for the user. Include this parameter only if you're changing the user's name.</p>
     /// <p>IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".</p>
-    pub fn new_user_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn new_user_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.new_user_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>New name for the user. Include this parameter only if you're changing the user's name.</p>
     /// <p>IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".</p>
-    pub fn set_new_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_new_user_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.new_user_name = input;
         self
     }
@@ -99,7 +107,12 @@ impl UpdateUserInputBuilder {
         &self.new_user_name
     }
     /// Consumes the builder and constructs a [`UpdateUserInput`](crate::operation::update_user::UpdateUserInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::update_user::UpdateUserInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::update_user::UpdateUserInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::update_user::UpdateUserInput {
             user_name: self.user_name,
             new_path: self.new_path,

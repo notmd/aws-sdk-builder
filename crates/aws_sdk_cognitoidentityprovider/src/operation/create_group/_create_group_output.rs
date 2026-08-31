@@ -26,7 +26,9 @@ impl CreateGroupOutput {
 }
 
 /// A builder for [`CreateGroupOutput`](crate::operation::create_group::CreateGroupOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateGroupOutputBuilder {
     pub(crate) group: ::std::option::Option<crate::types::GroupType>,

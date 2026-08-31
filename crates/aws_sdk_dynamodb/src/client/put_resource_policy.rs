@@ -10,7 +10,11 @@ impl super::Client {
     /// - On success, responds with [`PutResourcePolicyOutput`](crate::operation::put_resource_policy::PutResourcePolicyOutput) with field(s):
     ///   - [`revision_id(Option<String>)`](crate::operation::put_resource_policy::PutResourcePolicyOutput::revision_id): <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
     /// - On failure, responds with [`SdkError<PutResourcePolicyError>`](crate::operation::put_resource_policy::PutResourcePolicyError)
-    pub fn put_resource_policy(&self) -> crate::operation::put_resource_policy::builders::PutResourcePolicyFluentBuilder {
-        crate::operation::put_resource_policy::builders::PutResourcePolicyFluentBuilder::new(self.handle.clone())
+    pub fn put_resource_policy(
+        &self,
+    ) -> crate::operation::put_resource_policy::builders::PutResourcePolicyFluentBuilder {
+        crate::operation::put_resource_policy::builders::PutResourcePolicyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -11,7 +11,9 @@ pub fn ser_put_delivery_destination_input_input(
     }
     if let Some(var_3) = &input.delivery_destination_configuration {
         #[allow(unused_mut)]
-        let mut object_4 = object.key("deliveryDestinationConfiguration").start_object();
+        let mut object_4 = object
+            .key("deliveryDestinationConfiguration")
+            .start_object();
         crate::protocol_serde::shape_delivery_destination_configuration::ser_delivery_destination_configuration(&mut object_4, var_3)?;
         object_4.finish();
     }

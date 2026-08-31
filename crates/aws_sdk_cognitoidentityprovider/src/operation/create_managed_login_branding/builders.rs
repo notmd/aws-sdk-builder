@@ -68,7 +68,7 @@ impl CreateManagedLoginBrandingFluentBuilder {
         }
     }
     /// Access the CreateManagedLoginBranding as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_managed_login_branding::builders::CreateManagedLoginBrandingInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::create_managed_login_branding::builders::CreateManagedLoginBrandingInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -97,7 +97,11 @@ impl CreateManagedLoginBrandingFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::create_managed_login_branding::CreateManagedLoginBranding::orchestrate(&runtime_plugins, input).await
+        crate::operation::create_managed_login_branding::CreateManagedLoginBranding::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -110,12 +114,18 @@ impl CreateManagedLoginBrandingFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -192,7 +202,10 @@ impl CreateManagedLoginBrandingFluentBuilder {
     /// <li>
     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
     /// </ul>
-    pub fn set_settings(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
+    pub fn set_settings(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::Document>,
+    ) -> Self {
         self.inner = self.inner.set_settings(input);
         self
     }
@@ -222,7 +235,10 @@ impl CreateManagedLoginBrandingFluentBuilder {
         self
     }
     /// <p>An array of image files that you want to apply to functions like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
-    pub fn set_assets(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AssetType>>) -> Self {
+    pub fn set_assets(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AssetType>>,
+    ) -> Self {
         self.inner = self.inner.set_assets(input);
         self
     }

@@ -29,7 +29,9 @@ impl BucketInfo {
 }
 
 /// A builder for [`BucketInfo`](crate::types::BucketInfo).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct BucketInfoBuilder {
     pub(crate) data_redundancy: ::std::option::Option<crate::types::DataRedundancy>,
@@ -42,7 +44,10 @@ impl BucketInfoBuilder {
         self
     }
     /// <p>The number of Zone (Availability Zone or Local Zone) that's used for redundancy for the bucket.</p>
-    pub fn set_data_redundancy(mut self, input: ::std::option::Option<crate::types::DataRedundancy>) -> Self {
+    pub fn set_data_redundancy(
+        mut self,
+        input: ::std::option::Option<crate::types::DataRedundancy>,
+    ) -> Self {
         self.data_redundancy = input;
         self
     }

@@ -20,13 +20,17 @@ impl ::aws_types::request_id::RequestId for GetCapacityProviderOutput {
 }
 impl GetCapacityProviderOutput {
     /// Creates a new builder-style object to manufacture [`GetCapacityProviderOutput`](crate::operation::get_capacity_provider::GetCapacityProviderOutput).
-    pub fn builder() -> crate::operation::get_capacity_provider::builders::GetCapacityProviderOutputBuilder {
-        crate::operation::get_capacity_provider::builders::GetCapacityProviderOutputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::get_capacity_provider::builders::GetCapacityProviderOutputBuilder {
+        crate::operation::get_capacity_provider::builders::GetCapacityProviderOutputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`GetCapacityProviderOutput`](crate::operation::get_capacity_provider::GetCapacityProviderOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetCapacityProviderOutputBuilder {
     pub(crate) capacity_provider: ::std::option::Option<crate::types::CapacityProvider>,
@@ -40,7 +44,10 @@ impl GetCapacityProviderOutputBuilder {
         self
     }
     /// <p>Information about the capacity provider, including its configuration and current state.</p>
-    pub fn set_capacity_provider(mut self, input: ::std::option::Option<crate::types::CapacityProvider>) -> Self {
+    pub fn set_capacity_provider(
+        mut self,
+        input: ::std::option::Option<crate::types::CapacityProvider>,
+    ) -> Self {
         self.capacity_provider = input;
         self
     }

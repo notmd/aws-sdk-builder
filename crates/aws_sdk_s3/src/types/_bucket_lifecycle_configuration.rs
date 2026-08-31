@@ -22,7 +22,9 @@ impl BucketLifecycleConfiguration {
 }
 
 /// A builder for [`BucketLifecycleConfiguration`](crate::types::BucketLifecycleConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct BucketLifecycleConfigurationBuilder {
     pub(crate) rules: ::std::option::Option<::std::vec::Vec<crate::types::LifecycleRule>>,
@@ -40,18 +42,28 @@ impl BucketLifecycleConfigurationBuilder {
         self
     }
     /// <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
-    pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LifecycleRule>>) -> Self {
+    pub fn set_rules(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::LifecycleRule>>,
+    ) -> Self {
         self.rules = input;
         self
     }
     /// <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
-    pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LifecycleRule>> {
+    pub fn get_rules(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::LifecycleRule>> {
         &self.rules
     }
     /// Consumes the builder and constructs a [`BucketLifecycleConfiguration`](crate::types::BucketLifecycleConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`rules`](crate::types::builders::BucketLifecycleConfigurationBuilder::rules)
-    pub fn build(self) -> ::std::result::Result<crate::types::BucketLifecycleConfiguration, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::BucketLifecycleConfiguration,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::BucketLifecycleConfiguration {
             rules: self.rules.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

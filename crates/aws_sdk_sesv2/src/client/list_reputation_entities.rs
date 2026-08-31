@@ -11,7 +11,10 @@ impl super::Client {
     ///   - [`reputation_entities(Option<Vec::<ReputationEntity>>)`](crate::operation::list_reputation_entities::ListReputationEntitiesOutput::reputation_entities): <p>An array that contains information about the reputation entities in your account.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::list_reputation_entities::ListReputationEntitiesOutput::next_token): <p>A token that indicates that there are additional reputation entities to list. To view additional reputation entities, issue another request to <code>ListReputationEntities</code>, and pass this token in the <code>NextToken</code> parameter.</p>
     /// - On failure, responds with [`SdkError<ListReputationEntitiesError>`](crate::operation::list_reputation_entities::ListReputationEntitiesError)
-    pub fn list_reputation_entities(&self) -> crate::operation::list_reputation_entities::builders::ListReputationEntitiesFluentBuilder {
+    pub fn list_reputation_entities(
+        &self,
+    ) -> crate::operation::list_reputation_entities::builders::ListReputationEntitiesFluentBuilder
+    {
         crate::operation::list_reputation_entities::builders::ListReputationEntitiesFluentBuilder::new(self.handle.clone())
     }
 }

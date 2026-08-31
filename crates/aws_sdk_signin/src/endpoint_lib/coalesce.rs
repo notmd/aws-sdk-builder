@@ -160,7 +160,10 @@ mod test {
 
     #[test]
     fn longer_cases() {
-        assert_eq!(coalesce!(None, None, None, None, None, None, None, None, None, None, "a"), "a");
+        assert_eq!(
+            coalesce!(None, None, None, None, None, None, None, None, None, None, "a"),
+            "a"
+        );
 
         // In the generated code all of the inputs are typed variables, so the turbofish isn't needed in practice
         assert_eq!(
@@ -197,14 +200,54 @@ mod test {
             "a"
         );
 
-        assert_eq!(coalesce!(None, None, None, Some("a"), None, None, None, None, None, None, "b"), "a");
         assert_eq!(
-            coalesce!(Some("a"), None, None, Some("b"), None, None, None, None, None, None,),
+            coalesce!(
+                None,
+                None,
+                None,
+                Some("a"),
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                "b"
+            ),
+            "a"
+        );
+        assert_eq!(
+            coalesce!(
+                Some("a"),
+                None,
+                None,
+                Some("b"),
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ),
             Some("a")
         );
 
         assert_eq!(coalesce!("a", "b", "c", "d", "e", "f", "g",), "a");
 
-        assert_eq!(coalesce!(None, None, None, None, None, None, None, None, None, None::<&str>,), None);
+        assert_eq!(
+            coalesce!(
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None::<&str>,
+            ),
+            None
+        );
     }
 }

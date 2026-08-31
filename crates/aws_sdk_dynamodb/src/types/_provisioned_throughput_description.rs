@@ -49,7 +49,9 @@ impl ProvisionedThroughputDescription {
 }
 
 /// A builder for [`ProvisionedThroughputDescription`](crate::types::ProvisionedThroughputDescription).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ProvisionedThroughputDescriptionBuilder {
     pub(crate) last_increase_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -65,12 +67,17 @@ impl ProvisionedThroughputDescriptionBuilder {
         self
     }
     /// <p>The date and time of the last provisioned throughput increase for this table.</p>
-    pub fn set_last_increase_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_last_increase_date_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.last_increase_date_time = input;
         self
     }
     /// <p>The date and time of the last provisioned throughput increase for this table.</p>
-    pub fn get_last_increase_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_last_increase_date_time(
+        &self,
+    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_increase_date_time
     }
     /// <p>The date and time of the last provisioned throughput decrease for this table.</p>
@@ -79,12 +86,17 @@ impl ProvisionedThroughputDescriptionBuilder {
         self
     }
     /// <p>The date and time of the last provisioned throughput decrease for this table.</p>
-    pub fn set_last_decrease_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_last_decrease_date_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.last_decrease_date_time = input;
         self
     }
     /// <p>The date and time of the last provisioned throughput decrease for this table.</p>
-    pub fn get_last_decrease_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_last_decrease_date_time(
+        &self,
+    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_decrease_date_time
     }
     /// <p>The number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>

@@ -4,7 +4,9 @@ pub fn ser_user_pool_add_ons_type(
     input: &crate::types::UserPoolAddOnsType,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     {
-        object.key("AdvancedSecurityMode").string(input.advanced_security_mode.as_str());
+        object
+            .key("AdvancedSecurityMode")
+            .string(input.advanced_security_mode.as_str());
     }
     if let Some(var_1) = &input.advanced_security_additional_flows {
         #[allow(unused_mut)]
@@ -19,14 +21,24 @@ pub(crate) fn de_user_pool_add_ons_type<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::UserPoolAddOnsType>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<
+    Option<crate::types::UserPoolAddOnsType>,
+    ::aws_smithy_json::deserialize::error::DeserializeError,
+>
 where
-    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+    I: Iterator<
+        Item = Result<
+            ::aws_smithy_json::deserialize::Token<'a>,
+            ::aws_smithy_json::deserialize::error::DeserializeError,
+        >,
+    >,
 {
     if depth >= 128u32 {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "maximum nesting depth exceeded",
+            ),
+        );
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -36,38 +48,57 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "AdvancedSecurityMode" => {
-                            builder = builder.set_advanced_security_mode(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::AdvancedSecurityModeType::from(u.as_ref())))
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "AdvancedSecurityMode" => {
+                                builder = builder.set_advanced_security_mode(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                        tokens.next(),
+                                    )?
+                                    .map(|s| {
+                                        s.to_unescaped().map(|u| {
+                                            crate::types::AdvancedSecurityModeType::from(u.as_ref())
+                                        })
+                                    })
                                     .transpose()?,
-                            );
-                        }
-                        "AdvancedSecurityAdditionalFlows" => {
-                            builder = builder.set_advanced_security_additional_flows(
+                                );
+                            }
+                            "AdvancedSecurityAdditionalFlows" => {
+                                builder = builder.set_advanced_security_additional_flows(
                                 crate::protocol_serde::shape_advanced_security_additional_flows_type::de_advanced_security_additional_flows_type(
                                     tokens,
                                     _value,
                                     depth + 1,
                                 )?,
                             );
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
-                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )))
+                        return Err(
+                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                format!("expected object key or end object, found: {other:?}"),
+                            ),
+                        )
                     }
                 }
             }
-            Ok(Some(crate::serde_util::user_pool_add_ons_type_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(
+                crate::serde_util::user_pool_add_ons_type_correct_errors(builder)
+                    .build()
+                    .map_err(|err| {
+                        ::aws_smithy_json::deserialize::error::DeserializeError::custom_source(
+                            "Response was invalid",
+                            err,
+                        )
+                    })?,
+            ))
         }
-        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "expected start object or null",
-        )),
+        _ => Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ),
+        ),
     }
 }

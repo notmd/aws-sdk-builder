@@ -25,7 +25,9 @@ impl CompletedMultipartUpload {
 }
 
 /// A builder for [`CompletedMultipartUpload`](crate::types::CompletedMultipartUpload).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CompletedMultipartUploadBuilder {
     pub(crate) parts: ::std::option::Option<::std::vec::Vec<crate::types::CompletedPart>>,
@@ -45,13 +47,18 @@ impl CompletedMultipartUploadBuilder {
     }
     /// <p>Array of CompletedPart data types.</p>
     /// <p>If you do not supply a valid <code>Part</code> with your request, the service sends back an HTTP 400 response.</p>
-    pub fn set_parts(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CompletedPart>>) -> Self {
+    pub fn set_parts(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::CompletedPart>>,
+    ) -> Self {
         self.parts = input;
         self
     }
     /// <p>Array of CompletedPart data types.</p>
     /// <p>If you do not supply a valid <code>Part</code> with your request, the service sends back an HTTP 400 response.</p>
-    pub fn get_parts(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CompletedPart>> {
+    pub fn get_parts(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::CompletedPart>> {
         &self.parts
     }
     /// Consumes the builder and constructs a [`CompletedMultipartUpload`](crate::types::CompletedMultipartUpload).

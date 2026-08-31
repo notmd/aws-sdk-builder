@@ -8,7 +8,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<SetSecurityTokenServicePreferencesError>`](crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError)
     pub fn set_security_token_service_preferences(
         &self,
-    ) -> crate::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesFluentBuilder {
+    ) -> crate::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesFluentBuilder{
         crate::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesFluentBuilder::new(self.handle.clone())
     }
 }

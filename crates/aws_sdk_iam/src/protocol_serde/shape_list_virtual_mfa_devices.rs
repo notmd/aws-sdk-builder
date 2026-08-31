@@ -9,8 +9,12 @@ pub fn de_list_virtual_mfa_devices_http_error(
     crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     Err(crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError::generic(generic))
@@ -28,12 +32,22 @@ pub fn de_list_virtual_mfa_devices_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesOutputBuilder::default();
-        output = crate::protocol_serde::shape_list_virtual_mfa_devices::de_list_virtual_mfa_devices(_response_body, output)
-            .map_err(crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output =
+            crate::protocol_serde::shape_list_virtual_mfa_devices::de_list_virtual_mfa_devices(
+                _response_body,
+                output,
+            )
+            .map_err(
+                crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError::unhandled,
+            )?;
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         crate::serde_util::list_virtual_mfa_devices_output_output_correct_errors(output)
             .build()
-            .map_err(crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError::unhandled)?
+            .map_err(
+                crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError::unhandled,
+            )?
     })
 }
 

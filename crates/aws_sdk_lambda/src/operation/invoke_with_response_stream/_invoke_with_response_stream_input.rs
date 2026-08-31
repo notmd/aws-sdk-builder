@@ -78,7 +78,9 @@ impl InvokeWithResponseStreamInput {
     /// <li>
     /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
     /// </ul>
-    pub fn invocation_type(&self) -> ::std::option::Option<&crate::types::ResponseStreamingInvocationType> {
+    pub fn invocation_type(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ResponseStreamingInvocationType> {
         self.invocation_type.as_ref()
     }
 }
@@ -97,7 +99,9 @@ impl ::std::fmt::Debug for InvokeWithResponseStreamInput {
 }
 impl InvokeWithResponseStreamInput {
     /// Creates a new builder-style object to manufacture [`InvokeWithResponseStreamInput`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamInput).
-    pub fn builder() -> crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamInputBuilder
+    {
         crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamInputBuilder::default()
     }
 }
@@ -112,7 +116,8 @@ pub struct InvokeWithResponseStreamInputBuilder {
     pub(crate) qualifier: ::std::option::Option<::std::string::String>,
     pub(crate) payload: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) tenant_id: ::std::option::Option<::std::string::String>,
-    pub(crate) invocation_type: ::std::option::Option<crate::types::ResponseStreamingInvocationType>,
+    pub(crate) invocation_type:
+        ::std::option::Option<crate::types::ResponseStreamingInvocationType>,
 }
 impl InvokeWithResponseStreamInputBuilder {
     /// <p>The name or ARN of the Lambda function.</p>
@@ -127,7 +132,10 @@ impl InvokeWithResponseStreamInputBuilder {
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
@@ -142,7 +150,10 @@ impl InvokeWithResponseStreamInputBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.function_name = input;
         self
     }
@@ -175,12 +186,18 @@ impl InvokeWithResponseStreamInputBuilder {
         &self.log_type
     }
     /// <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.</p>
-    pub fn client_context(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn client_context(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.client_context = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.</p>
-    pub fn set_client_context(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_client_context(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.client_context = input;
         self
     }
@@ -251,7 +268,10 @@ impl InvokeWithResponseStreamInputBuilder {
     /// <li>
     /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
     /// </ul>
-    pub fn set_invocation_type(mut self, input: ::std::option::Option<crate::types::ResponseStreamingInvocationType>) -> Self {
+    pub fn set_invocation_type(
+        mut self,
+        input: ::std::option::Option<crate::types::ResponseStreamingInvocationType>,
+    ) -> Self {
         self.invocation_type = input;
         self
     }
@@ -262,7 +282,9 @@ impl InvokeWithResponseStreamInputBuilder {
     /// <li>
     /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
     /// </ul>
-    pub fn get_invocation_type(&self) -> &::std::option::Option<crate::types::ResponseStreamingInvocationType> {
+    pub fn get_invocation_type(
+        &self,
+    ) -> &::std::option::Option<crate::types::ResponseStreamingInvocationType> {
         &self.invocation_type
     }
     /// Consumes the builder and constructs a [`InvokeWithResponseStreamInput`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamInput).
@@ -272,15 +294,17 @@ impl InvokeWithResponseStreamInputBuilder {
         crate::operation::invoke_with_response_stream::InvokeWithResponseStreamInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::invoke_with_response_stream::InvokeWithResponseStreamInput {
-            function_name: self.function_name,
-            log_type: self.log_type,
-            client_context: self.client_context,
-            qualifier: self.qualifier,
-            payload: self.payload,
-            tenant_id: self.tenant_id,
-            invocation_type: self.invocation_type,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::invoke_with_response_stream::InvokeWithResponseStreamInput {
+                function_name: self.function_name,
+                log_type: self.log_type,
+                client_context: self.client_context,
+                qualifier: self.qualifier,
+                payload: self.payload,
+                tenant_id: self.tenant_id,
+                invocation_type: self.invocation_type,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for InvokeWithResponseStreamInputBuilder {

@@ -57,7 +57,7 @@ impl ListFunctionsByCodeSigningConfigFluentBuilder {
         }
     }
     /// Access the ListFunctionsByCodeSigningConfig as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_functions_by_code_signing_config::builders::ListFunctionsByCodeSigningConfigInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_functions_by_code_signing_config::builders::ListFunctionsByCodeSigningConfigInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +76,7 @@ impl ListFunctionsByCodeSigningConfigFluentBuilder {
             crate::operation::list_functions_by_code_signing_config::ListFunctionsByCodeSigningConfigError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -96,31 +96,43 @@ impl ListFunctionsByCodeSigningConfigFluentBuilder {
         crate::operation::list_functions_by_code_signing_config::ListFunctionsByCodeSigningConfigOutput,
         crate::operation::list_functions_by_code_signing_config::ListFunctionsByCodeSigningConfigError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_functions_by_code_signing_config::paginator::ListFunctionsByCodeSigningConfigPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_functions_by_code_signing_config::paginator::ListFunctionsByCodeSigningConfigPaginator {
+    pub fn into_paginator(self) -> crate::operation::list_functions_by_code_signing_config::paginator::ListFunctionsByCodeSigningConfigPaginator{
         crate::operation::list_functions_by_code_signing_config::paginator::ListFunctionsByCodeSigningConfigPaginator::new(self.handle, self.inner)
     }
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-    pub fn code_signing_config_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn code_signing_config_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.code_signing_config_arn(input.into());
         self
     }
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-    pub fn set_code_signing_config_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_code_signing_config_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_code_signing_config_arn(input);
         self
     }

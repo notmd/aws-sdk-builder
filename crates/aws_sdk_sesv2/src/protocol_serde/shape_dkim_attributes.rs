@@ -3,14 +3,24 @@ pub(crate) fn de_dkim_attributes<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::DkimAttributes>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<
+    Option<crate::types::DkimAttributes>,
+    ::aws_smithy_json::deserialize::error::DeserializeError,
+>
 where
-    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+    I: Iterator<
+        Item = Result<
+            ::aws_smithy_json::deserialize::Token<'a>,
+            ::aws_smithy_json::deserialize::error::DeserializeError,
+        >,
+    >,
 {
     if depth >= 128u32 {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "maximum nesting depth exceeded",
+            ),
+        );
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -20,67 +30,110 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "SigningEnabled" => {
-                            builder = builder.set_signing_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                        }
-                        "Status" => {
-                            builder = builder.set_status(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::DkimStatus::from(u.as_ref())))
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "SigningEnabled" => {
+                                builder = builder.set_signing_enabled(
+                                    ::aws_smithy_json::deserialize::token::expect_bool_or_null(
+                                        tokens.next(),
+                                    )?,
+                                );
+                            }
+                            "Status" => {
+                                builder = builder.set_status(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                        tokens.next(),
+                                    )?
+                                    .map(|s| {
+                                        s.to_unescaped()
+                                            .map(|u| crate::types::DkimStatus::from(u.as_ref()))
+                                    })
                                     .transpose()?,
-                            );
-                        }
-                        "Tokens" => {
-                            builder = builder.set_tokens(crate::protocol_serde::shape_dns_token_list::de_dns_token_list(tokens, _value, depth + 1)?);
-                        }
-                        "SigningHostedZone" => {
-                            builder = builder.set_signing_hosted_zone(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                );
+                            }
+                            "Tokens" => {
+                                builder = builder.set_tokens(
+                                    crate::protocol_serde::shape_dns_token_list::de_dns_token_list(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
+                            }
+                            "SigningHostedZone" => {
+                                builder = builder.set_signing_hosted_zone(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                        tokens.next(),
+                                    )?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                            );
-                        }
-                        "SigningAttributesOrigin" => {
-                            builder = builder.set_signing_attributes_origin(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::DkimSigningAttributesOrigin::from(u.as_ref())))
+                                );
+                            }
+                            "SigningAttributesOrigin" => {
+                                builder = builder.set_signing_attributes_origin(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                        tokens.next(),
+                                    )?
+                                    .map(|s| {
+                                        s.to_unescaped().map(|u| {
+                                            crate::types::DkimSigningAttributesOrigin::from(
+                                                u.as_ref(),
+                                            )
+                                        })
+                                    })
                                     .transpose()?,
-                            );
-                        }
-                        "NextSigningKeyLength" => {
-                            builder = builder.set_next_signing_key_length(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::DkimSigningKeyLength::from(u.as_ref())))
+                                );
+                            }
+                            "NextSigningKeyLength" => {
+                                builder = builder.set_next_signing_key_length(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                        tokens.next(),
+                                    )?
+                                    .map(|s| {
+                                        s.to_unescaped().map(|u| {
+                                            crate::types::DkimSigningKeyLength::from(u.as_ref())
+                                        })
+                                    })
                                     .transpose()?,
-                            );
-                        }
-                        "CurrentSigningKeyLength" => {
-                            builder = builder.set_current_signing_key_length(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| crate::types::DkimSigningKeyLength::from(u.as_ref())))
+                                );
+                            }
+                            "CurrentSigningKeyLength" => {
+                                builder = builder.set_current_signing_key_length(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                        tokens.next(),
+                                    )?
+                                    .map(|s| {
+                                        s.to_unescaped().map(|u| {
+                                            crate::types::DkimSigningKeyLength::from(u.as_ref())
+                                        })
+                                    })
                                     .transpose()?,
-                            );
-                        }
-                        "LastKeyGenerationTimestamp" => {
-                            builder = builder.set_last_key_generation_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                                );
+                            }
+                            "LastKeyGenerationTimestamp" => {
+                                builder = builder.set_last_key_generation_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
                                 tokens.next(),
                                 ::aws_smithy_types::date_time::Format::EpochSeconds,
                             )?);
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
-                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )))
+                        return Err(
+                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                format!("expected object key or end object, found: {other:?}"),
+                            ),
+                        )
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "expected start object or null",
-        )),
+        _ => Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ),
+        ),
     }
 }

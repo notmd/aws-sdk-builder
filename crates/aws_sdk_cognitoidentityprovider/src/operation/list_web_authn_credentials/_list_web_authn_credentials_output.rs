@@ -27,16 +27,21 @@ impl ::aws_types::request_id::RequestId for ListWebAuthnCredentialsOutput {
 }
 impl ListWebAuthnCredentialsOutput {
     /// Creates a new builder-style object to manufacture [`ListWebAuthnCredentialsOutput`](crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsOutput).
-    pub fn builder() -> crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsOutputBuilder
+    {
         crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListWebAuthnCredentialsOutput`](crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListWebAuthnCredentialsOutputBuilder {
-    pub(crate) credentials: ::std::option::Option<::std::vec::Vec<crate::types::WebAuthnCredentialDescription>>,
+    pub(crate) credentials:
+        ::std::option::Option<::std::vec::Vec<crate::types::WebAuthnCredentialDescription>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -53,12 +58,17 @@ impl ListWebAuthnCredentialsOutputBuilder {
         self
     }
     /// <p>A list of registered passkeys for a user.</p>
-    pub fn set_credentials(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::WebAuthnCredentialDescription>>) -> Self {
+    pub fn set_credentials(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::WebAuthnCredentialDescription>>,
+    ) -> Self {
         self.credentials = input;
         self
     }
     /// <p>A list of registered passkeys for a user.</p>
-    pub fn get_credentials(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::WebAuthnCredentialDescription>> {
+    pub fn get_credentials(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::WebAuthnCredentialDescription>> {
         &self.credentials
     }
     /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>

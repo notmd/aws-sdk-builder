@@ -26,7 +26,9 @@ impl DescribeTermsInput {
 }
 
 /// A builder for [`DescribeTermsInput`](crate::operation::describe_terms::DescribeTermsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeTermsInputBuilder {
     pub(crate) terms_id: ::std::option::Option<::std::string::String>,
@@ -66,7 +68,10 @@ impl DescribeTermsInputBuilder {
     /// Consumes the builder and constructs a [`DescribeTermsInput`](crate::operation::describe_terms::DescribeTermsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::describe_terms::DescribeTermsInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::describe_terms::DescribeTermsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::describe_terms::DescribeTermsInput {
             terms_id: self.terms_id,
             user_pool_id: self.user_pool_id,

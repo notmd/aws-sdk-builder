@@ -35,7 +35,9 @@ impl ListExportJobsOutput {
 }
 
 /// A builder for [`ListExportJobsOutput`](crate::operation::list_export_jobs::ListExportJobsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListExportJobsOutputBuilder {
     pub(crate) export_jobs: ::std::option::Option<::std::vec::Vec<crate::types::ExportJobSummary>>,
@@ -55,12 +57,17 @@ impl ListExportJobsOutputBuilder {
         self
     }
     /// <p>A list of the export job summaries.</p>
-    pub fn set_export_jobs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ExportJobSummary>>) -> Self {
+    pub fn set_export_jobs(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ExportJobSummary>>,
+    ) -> Self {
         self.export_jobs = input;
         self
     }
     /// <p>A list of the export job summaries.</p>
-    pub fn get_export_jobs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ExportJobSummary>> {
+    pub fn get_export_jobs(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ExportJobSummary>> {
         &self.export_jobs
     }
     /// <p>A string token indicating that there might be additional export jobs available to be listed. Use this token to a subsequent call to <code>ListExportJobs</code> with the same parameters to retrieve the next page of export jobs.</p>

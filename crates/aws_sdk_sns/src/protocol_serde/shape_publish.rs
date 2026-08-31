@@ -4,10 +4,17 @@ pub fn de_publish_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::publish::PublishOutput, crate::operation::publish::PublishError> {
+) -> std::result::Result<
+    crate::operation::publish::PublishOutput,
+    crate::operation::publish::PublishError,
+> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::publish::PublishError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(crate::operation::publish::PublishError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
@@ -17,26 +24,31 @@ pub fn de_publish_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AuthorizationError" => crate::operation::publish::PublishError::AuthorizationErrorException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "AuthorizationError" => {
+            crate::operation::publish::PublishError::AuthorizationErrorException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::AuthorizationErrorExceptionBuilder::default();
-                output = crate::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output =
+                        crate::types::error::builders::AuthorizationErrorExceptionBuilder::default(
+                        );
+                    output = crate::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::publish::PublishError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "EndpointDisabled" => crate::operation::publish::PublishError::EndpointDisabledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::EndpointDisabledExceptionBuilder::default();
+                let mut output =
+                    crate::types::error::builders::EndpointDisabledExceptionBuilder::default();
                 output = crate::protocol_serde::shape_endpoint_disabled_exception::de_endpoint_disabled_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
@@ -51,7 +63,8 @@ pub fn de_publish_http_error(
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
+                let mut output =
+                    crate::types::error::builders::InternalErrorExceptionBuilder::default();
                 output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
@@ -66,7 +79,8 @@ pub fn de_publish_http_error(
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+                let mut output =
+                    crate::types::error::builders::InvalidParameterExceptionBuilder::default();
                 output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
@@ -77,29 +91,32 @@ pub fn de_publish_http_error(
             }
             tmp
         }),
-        "ParameterValueInvalid" => crate::operation::publish::PublishError::InvalidParameterValueException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "ParameterValueInvalid" => {
+            crate::operation::publish::PublishError::InvalidParameterValueException({
                 #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_xml_err(
+                    output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_xml_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::publish::PublishError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "InvalidSecurity" => crate::operation::publish::PublishError::InvalidSecurityException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidSecurityExceptionBuilder::default();
+                let mut output =
+                    crate::types::error::builders::InvalidSecurityExceptionBuilder::default();
                 output = crate::protocol_serde::shape_invalid_security_exception::de_invalid_security_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
@@ -114,7 +131,8 @@ pub fn de_publish_http_error(
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsAccessDeniedExceptionBuilder::default();
+                let mut output =
+                    crate::types::error::builders::KmsAccessDeniedExceptionBuilder::default();
                 output = crate::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
@@ -129,7 +147,8 @@ pub fn de_publish_http_error(
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsDisabledExceptionBuilder::default();
+                let mut output =
+                    crate::types::error::builders::KmsDisabledExceptionBuilder::default();
                 output = crate::protocol_serde::shape_kms_disabled_exception::de_kms_disabled_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
@@ -144,7 +163,8 @@ pub fn de_publish_http_error(
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                let mut output =
+                    crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
                 output = crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
@@ -159,7 +179,8 @@ pub fn de_publish_http_error(
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsNotFoundExceptionBuilder::default();
+                let mut output =
+                    crate::types::error::builders::KmsNotFoundExceptionBuilder::default();
                 output = crate::protocol_serde::shape_kms_not_found_exception::de_kms_not_found_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
@@ -189,7 +210,8 @@ pub fn de_publish_http_error(
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsThrottlingExceptionBuilder::default();
+                let mut output =
+                    crate::types::error::builders::KmsThrottlingExceptionBuilder::default();
                 output = crate::protocol_serde::shape_kms_throttling_exception::de_kms_throttling_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
@@ -215,29 +237,32 @@ pub fn de_publish_http_error(
             }
             tmp
         }),
-        "PlatformApplicationDisabled" => crate::operation::publish::PublishError::PlatformApplicationDisabledException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "PlatformApplicationDisabled" => {
+            crate::operation::publish::PublishError::PlatformApplicationDisabledException({
                 #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::PlatformApplicationDisabledExceptionBuilder::default();
-                output = crate::protocol_serde::shape_platform_application_disabled_exception::de_platform_application_disabled_exception_xml_err(
+                    output = crate::protocol_serde::shape_platform_application_disabled_exception::de_platform_application_disabled_exception_xml_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::publish::PublishError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "ValidationException" => crate::operation::publish::PublishError::ValidationException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
+                let mut output =
+                    crate::types::error::builders::ValidationExceptionBuilder::default();
                 output = crate::protocol_serde::shape_validation_exception::de_validation_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::publish::PublishError::unhandled)?;
                 let output = output.meta(generic);
@@ -256,13 +281,18 @@ pub fn de_publish_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::publish::PublishOutput, crate::operation::publish::PublishError> {
+) -> std::result::Result<
+    crate::operation::publish::PublishOutput,
+    crate::operation::publish::PublishError,
+> {
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::publish::builders::PublishOutputBuilder::default();
-        output =
-            crate::protocol_serde::shape_publish::de_publish(_response_body, output).map_err(crate::operation::publish::PublishError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output = crate::protocol_serde::shape_publish::de_publish(_response_body, output)
+            .map_err(crate::operation::publish::PublishError::unhandled)?;
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
@@ -271,7 +301,10 @@ pub fn de_publish_http_response(
 pub fn de_publish(
     inp: &[u8],
     mut builder: crate::operation::publish::builders::PublishOutputBuilder,
-) -> std::result::Result<crate::operation::publish::builders::PublishOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> std::result::Result<
+    crate::operation::publish::builders::PublishOutputBuilder,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]
@@ -324,7 +357,9 @@ pub fn de_publish(
         }
         }
     } else {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected PublishResult tag"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "expected PublishResult tag",
+        ));
     };
     Ok(builder)
 }

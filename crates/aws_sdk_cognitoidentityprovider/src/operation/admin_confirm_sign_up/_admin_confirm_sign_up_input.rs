@@ -21,7 +21,9 @@ pub struct AdminConfirmSignUpInput {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub client_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub client_metadata: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
 }
 impl AdminConfirmSignUpInput {
     /// <p>The ID of the user pool where you want to confirm a user's sign-up request.</p>
@@ -45,7 +47,11 @@ impl AdminConfirmSignUpInput {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub fn client_metadata(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn client_metadata(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.client_metadata.as_ref()
     }
 }
@@ -60,7 +66,8 @@ impl ::std::fmt::Debug for AdminConfirmSignUpInput {
 }
 impl AdminConfirmSignUpInput {
     /// Creates a new builder-style object to manufacture [`AdminConfirmSignUpInput`](crate::operation::admin_confirm_sign_up::AdminConfirmSignUpInput).
-    pub fn builder() -> crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpInputBuilder {
         crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpInputBuilder::default()
     }
 }
@@ -71,7 +78,9 @@ impl AdminConfirmSignUpInput {
 pub struct AdminConfirmSignUpInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
     pub(crate) username: ::std::option::Option<::std::string::String>,
-    pub(crate) client_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) client_metadata: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
 }
 impl AdminConfirmSignUpInputBuilder {
     /// <p>The ID of the user pool where you want to confirm a user's sign-up request.</p>
@@ -146,7 +155,9 @@ impl AdminConfirmSignUpInputBuilder {
     /// </note>
     pub fn set_client_metadata(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
     ) -> Self {
         self.client_metadata = input;
         self
@@ -164,19 +175,27 @@ impl AdminConfirmSignUpInputBuilder {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub fn get_client_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_client_metadata(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.client_metadata
     }
     /// Consumes the builder and constructs a [`AdminConfirmSignUpInput`](crate::operation::admin_confirm_sign_up::AdminConfirmSignUpInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::admin_confirm_sign_up::AdminConfirmSignUpInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::admin_confirm_sign_up::AdminConfirmSignUpInput {
-            user_pool_id: self.user_pool_id,
-            username: self.username,
-            client_metadata: self.client_metadata,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::admin_confirm_sign_up::AdminConfirmSignUpInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::admin_confirm_sign_up::AdminConfirmSignUpInput {
+                user_pool_id: self.user_pool_id,
+                username: self.username,
+                client_metadata: self.client_metadata,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for AdminConfirmSignUpInputBuilder {

@@ -39,7 +39,9 @@ impl GuardrailChecksContentBlock {
 impl ::std::fmt::Debug for GuardrailChecksContentBlock {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
-            GuardrailChecksContentBlock::Text(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
+            GuardrailChecksContentBlock::Text(_) => {
+                f.debug_tuple("*** Sensitive Data Redacted ***").finish()
+            }
             GuardrailChecksContentBlock::Unknown => f.debug_tuple("Unknown").finish(),
         }
     }

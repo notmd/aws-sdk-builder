@@ -9,7 +9,11 @@ impl super::Client {
     /// - On success, responds with [`DeletePackageGroupOutput`](crate::operation::delete_package_group::DeletePackageGroupOutput) with field(s):
     ///   - [`package_group(Option<PackageGroupDescription>)`](crate::operation::delete_package_group::DeletePackageGroupOutput::package_group): <p>Information about the deleted package group after processing the request.</p>
     /// - On failure, responds with [`SdkError<DeletePackageGroupError>`](crate::operation::delete_package_group::DeletePackageGroupError)
-    pub fn delete_package_group(&self) -> crate::operation::delete_package_group::builders::DeletePackageGroupFluentBuilder {
-        crate::operation::delete_package_group::builders::DeletePackageGroupFluentBuilder::new(self.handle.clone())
+    pub fn delete_package_group(
+        &self,
+    ) -> crate::operation::delete_package_group::builders::DeletePackageGroupFluentBuilder {
+        crate::operation::delete_package_group::builders::DeletePackageGroupFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

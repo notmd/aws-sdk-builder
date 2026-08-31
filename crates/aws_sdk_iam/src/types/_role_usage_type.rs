@@ -30,7 +30,9 @@ impl RoleUsageType {
 }
 
 /// A builder for [`RoleUsageType`](crate::types::RoleUsageType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RoleUsageTypeBuilder {
     pub(crate) region: ::std::option::Option<::std::string::String>,
@@ -63,7 +65,10 @@ impl RoleUsageTypeBuilder {
         self
     }
     /// <p>The name of the resource that is using the service-linked role.</p>
-    pub fn set_resources(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_resources(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.resources = input;
         self
     }

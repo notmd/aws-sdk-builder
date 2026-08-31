@@ -15,7 +15,9 @@ impl GetAssociatedPackageGroupOutput {
         self.package_group.as_ref()
     }
     /// <p>Describes the strength of the association between the package and package group. A strong match is also known as an exact match, and a weak match is known as a relative match.</p>
-    pub fn association_type(&self) -> ::std::option::Option<&crate::types::PackageGroupAssociationType> {
+    pub fn association_type(
+        &self,
+    ) -> ::std::option::Option<&crate::types::PackageGroupAssociationType> {
         self.association_type.as_ref()
     }
 }
@@ -26,13 +28,15 @@ impl ::aws_types::request_id::RequestId for GetAssociatedPackageGroupOutput {
 }
 impl GetAssociatedPackageGroupOutput {
     /// Creates a new builder-style object to manufacture [`GetAssociatedPackageGroupOutput`](crate::operation::get_associated_package_group::GetAssociatedPackageGroupOutput).
-    pub fn builder() -> crate::operation::get_associated_package_group::builders::GetAssociatedPackageGroupOutputBuilder {
+    pub fn builder() -> crate::operation::get_associated_package_group::builders::GetAssociatedPackageGroupOutputBuilder{
         crate::operation::get_associated_package_group::builders::GetAssociatedPackageGroupOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetAssociatedPackageGroupOutput`](crate::operation::get_associated_package_group::GetAssociatedPackageGroupOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetAssociatedPackageGroupOutputBuilder {
     pub(crate) package_group: ::std::option::Option<crate::types::PackageGroupDescription>,
@@ -46,12 +50,17 @@ impl GetAssociatedPackageGroupOutputBuilder {
         self
     }
     /// <p>The package group that is associated with the requested package.</p>
-    pub fn set_package_group(mut self, input: ::std::option::Option<crate::types::PackageGroupDescription>) -> Self {
+    pub fn set_package_group(
+        mut self,
+        input: ::std::option::Option<crate::types::PackageGroupDescription>,
+    ) -> Self {
         self.package_group = input;
         self
     }
     /// <p>The package group that is associated with the requested package.</p>
-    pub fn get_package_group(&self) -> &::std::option::Option<crate::types::PackageGroupDescription> {
+    pub fn get_package_group(
+        &self,
+    ) -> &::std::option::Option<crate::types::PackageGroupDescription> {
         &self.package_group
     }
     /// <p>Describes the strength of the association between the package and package group. A strong match is also known as an exact match, and a weak match is known as a relative match.</p>
@@ -60,12 +69,17 @@ impl GetAssociatedPackageGroupOutputBuilder {
         self
     }
     /// <p>Describes the strength of the association between the package and package group. A strong match is also known as an exact match, and a weak match is known as a relative match.</p>
-    pub fn set_association_type(mut self, input: ::std::option::Option<crate::types::PackageGroupAssociationType>) -> Self {
+    pub fn set_association_type(
+        mut self,
+        input: ::std::option::Option<crate::types::PackageGroupAssociationType>,
+    ) -> Self {
         self.association_type = input;
         self
     }
     /// <p>Describes the strength of the association between the package and package group. A strong match is also known as an exact match, and a weak match is known as a relative match.</p>
-    pub fn get_association_type(&self) -> &::std::option::Option<crate::types::PackageGroupAssociationType> {
+    pub fn get_association_type(
+        &self,
+    ) -> &::std::option::Option<crate::types::PackageGroupAssociationType> {
         &self.association_type
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -78,7 +92,9 @@ impl GetAssociatedPackageGroupOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetAssociatedPackageGroupOutput`](crate::operation::get_associated_package_group::GetAssociatedPackageGroupOutput).
-    pub fn build(self) -> crate::operation::get_associated_package_group::GetAssociatedPackageGroupOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::get_associated_package_group::GetAssociatedPackageGroupOutput {
         crate::operation::get_associated_package_group::GetAssociatedPackageGroupOutput {
             package_group: self.package_group,
             association_type: self.association_type,

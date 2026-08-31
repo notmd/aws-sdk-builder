@@ -15,11 +15,14 @@ pub struct UpdateJobQueueInput {
     /// <p>Details the set of compute environments mapped to a job queue and their order relative to each other. This is one of the parameters used by the job scheduler to determine which compute environment runs a given job. Compute environments must be in the <code>VALID</code> state before you can associate them with a job queue. All of the compute environments must be either EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>). EC2 and Fargate compute environments can't be mixed.</p><note>
     /// <p>All compute environments that are associated with a job queue must share the same architecture. Batch doesn't support mixing compute environment architecture types in a single job queue.</p>
     /// </note>
-    pub compute_environment_order: ::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentOrder>>,
+    pub compute_environment_order:
+        ::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentOrder>>,
     /// <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
-    pub service_environment_order: ::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentOrder>>,
+    pub service_environment_order:
+        ::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentOrder>>,
     /// <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed. (<b>Note</b>: The minimum value for maxTimeSeconds is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</p>
-    pub job_state_time_limit_actions: ::std::option::Option<::std::vec::Vec<crate::types::JobStateTimeLimitAction>>,
+    pub job_state_time_limit_actions:
+        ::std::option::Option<::std::vec::Vec<crate::types::JobStateTimeLimitAction>>,
 }
 impl UpdateJobQueueInput {
     /// <p>The name or the Amazon Resource Name (ARN) of the job queue.</p>
@@ -44,19 +47,25 @@ impl UpdateJobQueueInput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.compute_environment_order.is_none()`.
     pub fn compute_environment_order(&self) -> &[crate::types::ComputeEnvironmentOrder] {
-        self.compute_environment_order.as_deref().unwrap_or_default()
+        self.compute_environment_order
+            .as_deref()
+            .unwrap_or_default()
     }
     /// <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.service_environment_order.is_none()`.
     pub fn service_environment_order(&self) -> &[crate::types::ServiceEnvironmentOrder] {
-        self.service_environment_order.as_deref().unwrap_or_default()
+        self.service_environment_order
+            .as_deref()
+            .unwrap_or_default()
     }
     /// <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed. (<b>Note</b>: The minimum value for maxTimeSeconds is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.job_state_time_limit_actions.is_none()`.
     pub fn job_state_time_limit_actions(&self) -> &[crate::types::JobStateTimeLimitAction] {
-        self.job_state_time_limit_actions.as_deref().unwrap_or_default()
+        self.job_state_time_limit_actions
+            .as_deref()
+            .unwrap_or_default()
     }
 }
 impl UpdateJobQueueInput {
@@ -67,16 +76,21 @@ impl UpdateJobQueueInput {
 }
 
 /// A builder for [`UpdateJobQueueInput`](crate::operation::update_job_queue::UpdateJobQueueInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateJobQueueInputBuilder {
     pub(crate) job_queue: ::std::option::Option<::std::string::String>,
     pub(crate) state: ::std::option::Option<crate::types::JqState>,
     pub(crate) scheduling_policy_arn: ::std::option::Option<::std::string::String>,
     pub(crate) priority: ::std::option::Option<i32>,
-    pub(crate) compute_environment_order: ::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentOrder>>,
-    pub(crate) service_environment_order: ::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentOrder>>,
-    pub(crate) job_state_time_limit_actions: ::std::option::Option<::std::vec::Vec<crate::types::JobStateTimeLimitAction>>,
+    pub(crate) compute_environment_order:
+        ::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentOrder>>,
+    pub(crate) service_environment_order:
+        ::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentOrder>>,
+    pub(crate) job_state_time_limit_actions:
+        ::std::option::Option<::std::vec::Vec<crate::types::JobStateTimeLimitAction>>,
 }
 impl UpdateJobQueueInputBuilder {
     /// <p>The name or the Amazon Resource Name (ARN) of the job queue.</p>
@@ -109,12 +123,18 @@ impl UpdateJobQueueInputBuilder {
         &self.state
     }
     /// <p>Amazon Resource Name (ARN) of the fair-share scheduling policy. Once a job queue is created, the fair-share scheduling policy can be replaced but not removed. The format is <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i> </code>. For example, <code>aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy</code>.</p>
-    pub fn scheduling_policy_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn scheduling_policy_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.scheduling_policy_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Amazon Resource Name (ARN) of the fair-share scheduling policy. Once a job queue is created, the fair-share scheduling policy can be replaced but not removed. The format is <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i> </code>. For example, <code>aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy</code>.</p>
-    pub fn set_scheduling_policy_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_scheduling_policy_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.scheduling_policy_arn = input;
         self
     }
@@ -143,7 +163,10 @@ impl UpdateJobQueueInputBuilder {
     /// <p>Details the set of compute environments mapped to a job queue and their order relative to each other. This is one of the parameters used by the job scheduler to determine which compute environment runs a given job. Compute environments must be in the <code>VALID</code> state before you can associate them with a job queue. All of the compute environments must be either EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>). EC2 and Fargate compute environments can't be mixed.</p><note>
     /// <p>All compute environments that are associated with a job queue must share the same architecture. Batch doesn't support mixing compute environment architecture types in a single job queue.</p>
     /// </note>
-    pub fn compute_environment_order(mut self, input: crate::types::ComputeEnvironmentOrder) -> Self {
+    pub fn compute_environment_order(
+        mut self,
+        input: crate::types::ComputeEnvironmentOrder,
+    ) -> Self {
         let mut v = self.compute_environment_order.unwrap_or_default();
         v.push(input);
         self.compute_environment_order = ::std::option::Option::Some(v);
@@ -152,14 +175,19 @@ impl UpdateJobQueueInputBuilder {
     /// <p>Details the set of compute environments mapped to a job queue and their order relative to each other. This is one of the parameters used by the job scheduler to determine which compute environment runs a given job. Compute environments must be in the <code>VALID</code> state before you can associate them with a job queue. All of the compute environments must be either EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>). EC2 and Fargate compute environments can't be mixed.</p><note>
     /// <p>All compute environments that are associated with a job queue must share the same architecture. Batch doesn't support mixing compute environment architecture types in a single job queue.</p>
     /// </note>
-    pub fn set_compute_environment_order(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentOrder>>) -> Self {
+    pub fn set_compute_environment_order(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentOrder>>,
+    ) -> Self {
         self.compute_environment_order = input;
         self
     }
     /// <p>Details the set of compute environments mapped to a job queue and their order relative to each other. This is one of the parameters used by the job scheduler to determine which compute environment runs a given job. Compute environments must be in the <code>VALID</code> state before you can associate them with a job queue. All of the compute environments must be either EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>). EC2 and Fargate compute environments can't be mixed.</p><note>
     /// <p>All compute environments that are associated with a job queue must share the same architecture. Batch doesn't support mixing compute environment architecture types in a single job queue.</p>
     /// </note>
-    pub fn get_compute_environment_order(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentOrder>> {
+    pub fn get_compute_environment_order(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentOrder>> {
         &self.compute_environment_order
     }
     /// Appends an item to `service_environment_order`.
@@ -167,19 +195,27 @@ impl UpdateJobQueueInputBuilder {
     /// To override the contents of this collection use [`set_service_environment_order`](Self::set_service_environment_order).
     ///
     /// <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
-    pub fn service_environment_order(mut self, input: crate::types::ServiceEnvironmentOrder) -> Self {
+    pub fn service_environment_order(
+        mut self,
+        input: crate::types::ServiceEnvironmentOrder,
+    ) -> Self {
         let mut v = self.service_environment_order.unwrap_or_default();
         v.push(input);
         self.service_environment_order = ::std::option::Option::Some(v);
         self
     }
     /// <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
-    pub fn set_service_environment_order(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentOrder>>) -> Self {
+    pub fn set_service_environment_order(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentOrder>>,
+    ) -> Self {
         self.service_environment_order = input;
         self
     }
     /// <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
-    pub fn get_service_environment_order(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentOrder>> {
+    pub fn get_service_environment_order(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentOrder>> {
         &self.service_environment_order
     }
     /// Appends an item to `job_state_time_limit_actions`.
@@ -187,25 +223,36 @@ impl UpdateJobQueueInputBuilder {
     /// To override the contents of this collection use [`set_job_state_time_limit_actions`](Self::set_job_state_time_limit_actions).
     ///
     /// <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed. (<b>Note</b>: The minimum value for maxTimeSeconds is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</p>
-    pub fn job_state_time_limit_actions(mut self, input: crate::types::JobStateTimeLimitAction) -> Self {
+    pub fn job_state_time_limit_actions(
+        mut self,
+        input: crate::types::JobStateTimeLimitAction,
+    ) -> Self {
         let mut v = self.job_state_time_limit_actions.unwrap_or_default();
         v.push(input);
         self.job_state_time_limit_actions = ::std::option::Option::Some(v);
         self
     }
     /// <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed. (<b>Note</b>: The minimum value for maxTimeSeconds is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</p>
-    pub fn set_job_state_time_limit_actions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::JobStateTimeLimitAction>>) -> Self {
+    pub fn set_job_state_time_limit_actions(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::JobStateTimeLimitAction>>,
+    ) -> Self {
         self.job_state_time_limit_actions = input;
         self
     }
     /// <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed. (<b>Note</b>: The minimum value for maxTimeSeconds is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</p>
-    pub fn get_job_state_time_limit_actions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::JobStateTimeLimitAction>> {
+    pub fn get_job_state_time_limit_actions(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::JobStateTimeLimitAction>> {
         &self.job_state_time_limit_actions
     }
     /// Consumes the builder and constructs a [`UpdateJobQueueInput`](crate::operation::update_job_queue::UpdateJobQueueInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::update_job_queue::UpdateJobQueueInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::update_job_queue::UpdateJobQueueInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::update_job_queue::UpdateJobQueueInput {
             job_queue: self.job_queue,
             state: self.state,

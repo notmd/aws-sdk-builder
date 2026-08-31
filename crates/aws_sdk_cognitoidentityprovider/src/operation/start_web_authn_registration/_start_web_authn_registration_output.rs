@@ -20,13 +20,15 @@ impl ::aws_types::request_id::RequestId for StartWebAuthnRegistrationOutput {
 }
 impl StartWebAuthnRegistrationOutput {
     /// Creates a new builder-style object to manufacture [`StartWebAuthnRegistrationOutput`](crate::operation::start_web_authn_registration::StartWebAuthnRegistrationOutput).
-    pub fn builder() -> crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationOutputBuilder {
+    pub fn builder() -> crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationOutputBuilder{
         crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationOutputBuilder::default()
     }
 }
 
 /// A builder for [`StartWebAuthnRegistrationOutput`](crate::operation::start_web_authn_registration::StartWebAuthnRegistrationOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct StartWebAuthnRegistrationOutputBuilder {
     pub(crate) credential_creation_options: ::std::option::Option<::aws_smithy_types::Document>,
@@ -40,12 +42,17 @@ impl StartWebAuthnRegistrationOutputBuilder {
         self
     }
     /// <p>The information that a user can provide in their request to register with their passkey provider.</p>
-    pub fn set_credential_creation_options(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
+    pub fn set_credential_creation_options(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::Document>,
+    ) -> Self {
         self.credential_creation_options = input;
         self
     }
     /// <p>The information that a user can provide in their request to register with their passkey provider.</p>
-    pub fn get_credential_creation_options(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
+    pub fn get_credential_creation_options(
+        &self,
+    ) -> &::std::option::Option<::aws_smithy_types::Document> {
         &self.credential_creation_options
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

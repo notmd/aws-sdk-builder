@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteAggregationAuthorizationError>`](crate::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationError)
     pub fn delete_aggregation_authorization(
         &self,
-    ) -> crate::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationFluentBuilder {
+    ) -> crate::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationFluentBuilder{
         crate::operation::delete_aggregation_authorization::builders::DeleteAggregationAuthorizationFluentBuilder::new(self.handle.clone())
     }
 }

@@ -3,7 +3,9 @@ pub use crate::operation::create_o_auth2_token_with_iam::_create_o_auth2_token_w
 
 pub use crate::operation::create_o_auth2_token_with_iam::_create_o_auth2_token_with_iam_output::CreateOAuth2TokenWithIamOutputBuilder;
 
-impl crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamInputBuilder {
+impl
+    crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -57,7 +59,7 @@ impl CreateOAuth2TokenWithIAMFluentBuilder {
         }
     }
     /// Access the CreateOAuth2TokenWithIAM as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +88,11 @@ impl CreateOAuth2TokenWithIAMFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAM::orchestrate(&runtime_plugins, input).await
+        crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAM::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,12 +105,18 @@ impl CreateOAuth2TokenWithIAMFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }

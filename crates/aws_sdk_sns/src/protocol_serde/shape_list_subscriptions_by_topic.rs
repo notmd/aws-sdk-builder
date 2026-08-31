@@ -9,17 +9,23 @@ pub fn de_list_subscriptions_by_topic_http_error(
     crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(
+        crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::unhandled,
+    )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::unhandled(
+        None => return Err(
+            crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::unhandled(
                 generic,
-            ))
-        }
+            ),
+        ),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -102,7 +108,9 @@ pub fn de_list_subscriptions_by_topic_http_response(
         let mut output = crate::operation::list_subscriptions_by_topic::builders::ListSubscriptionsByTopicOutputBuilder::default();
         output = crate::protocol_serde::shape_list_subscriptions_by_topic::de_list_subscriptions_by_topic(_response_body, output)
             .map_err(crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }

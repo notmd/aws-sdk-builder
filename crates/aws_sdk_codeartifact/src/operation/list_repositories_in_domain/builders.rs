@@ -57,7 +57,7 @@ impl ListRepositoriesInDomainFluentBuilder {
         }
     }
     /// Access the ListRepositoriesInDomain as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_repositories_in_domain::builders::ListRepositoriesInDomainInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_repositories_in_domain::builders::ListRepositoriesInDomainInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +86,11 @@ impl ListRepositoriesInDomainFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_repositories_in_domain::ListRepositoriesInDomain::orchestrate(&runtime_plugins, input).await
+        crate::operation::list_repositories_in_domain::ListRepositoriesInDomain::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,19 +103,28 @@ impl ListRepositoriesInDomainFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_repositories_in_domain::paginator::ListRepositoriesInDomainPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_repositories_in_domain::paginator::ListRepositoriesInDomainPaginator {
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_repositories_in_domain::paginator::ListRepositoriesInDomainPaginator
+    {
         crate::operation::list_repositories_in_domain::paginator::ListRepositoriesInDomainPaginator::new(self.handle, self.inner)
     }
     /// <p>The name of the domain that contains the returned list of repositories.</p>
@@ -143,12 +156,18 @@ impl ListRepositoriesInDomainFluentBuilder {
         self.inner.get_domain_owner()
     }
     /// <p>Filter the list of repositories to only include those that are managed by the Amazon Web Services account ID.</p>
-    pub fn administrator_account(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn administrator_account(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.administrator_account(input.into());
         self
     }
     /// <p>Filter the list of repositories to only include those that are managed by the Amazon Web Services account ID.</p>
-    pub fn set_administrator_account(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_administrator_account(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_administrator_account(input);
         self
     }
@@ -157,12 +176,18 @@ impl ListRepositoriesInDomainFluentBuilder {
         self.inner.get_administrator_account()
     }
     /// <p>A prefix used to filter returned repositories. Only repositories with names that start with <code>repositoryPrefix</code> are returned.</p>
-    pub fn repository_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn repository_prefix(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.repository_prefix(input.into());
         self
     }
     /// <p>A prefix used to filter returned repositories. Only repositories with names that start with <code>repositoryPrefix</code> are returned.</p>
-    pub fn set_repository_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_repository_prefix(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_repository_prefix(input);
         self
     }

@@ -33,7 +33,10 @@ pub fn ser_container_overrides(
             {
                 #[allow(unused_mut)]
                 let mut object_10 = array_8.value().start_object();
-                crate::protocol_serde::shape_key_value_pair::ser_key_value_pair(&mut object_10, item_9)?;
+                crate::protocol_serde::shape_key_value_pair::ser_key_value_pair(
+                    &mut object_10,
+                    item_9,
+                )?;
                 object_10.finish();
             }
         }
@@ -45,7 +48,10 @@ pub fn ser_container_overrides(
             {
                 #[allow(unused_mut)]
                 let mut object_14 = array_12.value().start_object();
-                crate::protocol_serde::shape_resource_requirement::ser_resource_requirement(&mut object_14, item_13)?;
+                crate::protocol_serde::shape_resource_requirement::ser_resource_requirement(
+                    &mut object_14,
+                    item_13,
+                )?;
                 object_14.finish();
             }
         }

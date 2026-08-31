@@ -27,7 +27,9 @@ impl DeviceSecretVerifierConfigType {
 }
 
 /// A builder for [`DeviceSecretVerifierConfigType`](crate::types::DeviceSecretVerifierConfigType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeviceSecretVerifierConfigTypeBuilder {
     pub(crate) password_verifier: ::std::option::Option<::std::string::String>,
@@ -35,12 +37,18 @@ pub struct DeviceSecretVerifierConfigTypeBuilder {
 }
 impl DeviceSecretVerifierConfigTypeBuilder {
     /// <p>A password verifier for a user's device. Used in SRP authentication.</p>
-    pub fn password_verifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn password_verifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.password_verifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A password verifier for a user's device. Used in SRP authentication.</p>
-    pub fn set_password_verifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_password_verifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.password_verifier = input;
         self
     }

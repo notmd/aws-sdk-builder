@@ -6,7 +6,10 @@
 pub struct PackageGroupOriginConfiguration {
     /// <p>The origin configuration settings that determine how package versions can enter repositories.</p>
     pub restrictions: ::std::option::Option<
-        ::std::collections::HashMap<crate::types::PackageGroupOriginRestrictionType, crate::types::PackageGroupOriginRestriction>,
+        ::std::collections::HashMap<
+            crate::types::PackageGroupOriginRestrictionType,
+            crate::types::PackageGroupOriginRestriction,
+        >,
     >,
 }
 impl PackageGroupOriginConfiguration {
@@ -14,7 +17,10 @@ impl PackageGroupOriginConfiguration {
     pub fn restrictions(
         &self,
     ) -> ::std::option::Option<
-        &::std::collections::HashMap<crate::types::PackageGroupOriginRestrictionType, crate::types::PackageGroupOriginRestriction>,
+        &::std::collections::HashMap<
+            crate::types::PackageGroupOriginRestrictionType,
+            crate::types::PackageGroupOriginRestriction,
+        >,
     > {
         self.restrictions.as_ref()
     }
@@ -27,11 +33,16 @@ impl PackageGroupOriginConfiguration {
 }
 
 /// A builder for [`PackageGroupOriginConfiguration`](crate::types::PackageGroupOriginConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PackageGroupOriginConfigurationBuilder {
     pub(crate) restrictions: ::std::option::Option<
-        ::std::collections::HashMap<crate::types::PackageGroupOriginRestrictionType, crate::types::PackageGroupOriginRestriction>,
+        ::std::collections::HashMap<
+            crate::types::PackageGroupOriginRestrictionType,
+            crate::types::PackageGroupOriginRestriction,
+        >,
     >,
 }
 impl PackageGroupOriginConfigurationBuilder {
@@ -40,7 +51,11 @@ impl PackageGroupOriginConfigurationBuilder {
     /// To override the contents of this collection use [`set_restrictions`](Self::set_restrictions).
     ///
     /// <p>The origin configuration settings that determine how package versions can enter repositories.</p>
-    pub fn restrictions(mut self, k: crate::types::PackageGroupOriginRestrictionType, v: crate::types::PackageGroupOriginRestriction) -> Self {
+    pub fn restrictions(
+        mut self,
+        k: crate::types::PackageGroupOriginRestrictionType,
+        v: crate::types::PackageGroupOriginRestriction,
+    ) -> Self {
         let mut hash_map = self.restrictions.unwrap_or_default();
         hash_map.insert(k, v);
         self.restrictions = ::std::option::Option::Some(hash_map);
@@ -50,7 +65,10 @@ impl PackageGroupOriginConfigurationBuilder {
     pub fn set_restrictions(
         mut self,
         input: ::std::option::Option<
-            ::std::collections::HashMap<crate::types::PackageGroupOriginRestrictionType, crate::types::PackageGroupOriginRestriction>,
+            ::std::collections::HashMap<
+                crate::types::PackageGroupOriginRestrictionType,
+                crate::types::PackageGroupOriginRestriction,
+            >,
         >,
     ) -> Self {
         self.restrictions = input;
@@ -60,7 +78,10 @@ impl PackageGroupOriginConfigurationBuilder {
     pub fn get_restrictions(
         &self,
     ) -> &::std::option::Option<
-        ::std::collections::HashMap<crate::types::PackageGroupOriginRestrictionType, crate::types::PackageGroupOriginRestriction>,
+        ::std::collections::HashMap<
+            crate::types::PackageGroupOriginRestrictionType,
+            crate::types::PackageGroupOriginRestriction,
+        >,
     > {
         &self.restrictions
     }

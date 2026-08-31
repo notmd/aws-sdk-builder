@@ -60,7 +60,9 @@ impl ConfirmDeviceFluentBuilder {
         }
     }
     /// Access the ConfirmDevice as a reference.
-    pub fn as_input(&self) -> &crate::operation::confirm_device::builders::ConfirmDeviceInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::confirm_device::builders::ConfirmDeviceInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,11 +86,12 @@ impl ConfirmDeviceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::confirm_device::ConfirmDevice::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::confirm_device::ConfirmDevice::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::confirm_device::ConfirmDevice::orchestrate(&runtime_plugins, input).await
     }
 
@@ -102,12 +105,18 @@ impl ConfirmDeviceFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -140,17 +149,25 @@ impl ConfirmDeviceFluentBuilder {
         self.inner.get_device_key()
     }
     /// <p>The configuration of the device secret verifier.</p>
-    pub fn device_secret_verifier_config(mut self, input: crate::types::DeviceSecretVerifierConfigType) -> Self {
+    pub fn device_secret_verifier_config(
+        mut self,
+        input: crate::types::DeviceSecretVerifierConfigType,
+    ) -> Self {
         self.inner = self.inner.device_secret_verifier_config(input);
         self
     }
     /// <p>The configuration of the device secret verifier.</p>
-    pub fn set_device_secret_verifier_config(mut self, input: ::std::option::Option<crate::types::DeviceSecretVerifierConfigType>) -> Self {
+    pub fn set_device_secret_verifier_config(
+        mut self,
+        input: ::std::option::Option<crate::types::DeviceSecretVerifierConfigType>,
+    ) -> Self {
         self.inner = self.inner.set_device_secret_verifier_config(input);
         self
     }
     /// <p>The configuration of the device secret verifier.</p>
-    pub fn get_device_secret_verifier_config(&self) -> &::std::option::Option<crate::types::DeviceSecretVerifierConfigType> {
+    pub fn get_device_secret_verifier_config(
+        &self,
+    ) -> &::std::option::Option<crate::types::DeviceSecretVerifierConfigType> {
         self.inner.get_device_secret_verifier_config()
     }
     /// <p>A friendly name for the device, for example <code>MyMobilePhone</code>.</p>

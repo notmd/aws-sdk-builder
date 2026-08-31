@@ -83,11 +83,12 @@ impl CreateTenantFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_tenant::CreateTenant::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::create_tenant::CreateTenant::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::create_tenant::CreateTenant::orchestrate(&runtime_plugins, input).await
     }
 
@@ -101,12 +102,18 @@ impl CreateTenantFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -135,7 +142,10 @@ impl CreateTenantFluentBuilder {
         self
     }
     /// <p>An array of objects that define the tags (keys and values) to associate with the tenant</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
@@ -144,17 +154,25 @@ impl CreateTenantFluentBuilder {
         self.inner.get_tags()
     }
     /// <p>An object that contains information about the suppression list preferences for the tenant. Use this to configure tenant-level suppression at creation time.</p>
-    pub fn suppression_attributes(mut self, input: crate::types::TenantSuppressionAttributes) -> Self {
+    pub fn suppression_attributes(
+        mut self,
+        input: crate::types::TenantSuppressionAttributes,
+    ) -> Self {
         self.inner = self.inner.suppression_attributes(input);
         self
     }
     /// <p>An object that contains information about the suppression list preferences for the tenant. Use this to configure tenant-level suppression at creation time.</p>
-    pub fn set_suppression_attributes(mut self, input: ::std::option::Option<crate::types::TenantSuppressionAttributes>) -> Self {
+    pub fn set_suppression_attributes(
+        mut self,
+        input: ::std::option::Option<crate::types::TenantSuppressionAttributes>,
+    ) -> Self {
         self.inner = self.inner.set_suppression_attributes(input);
         self
     }
     /// <p>An object that contains information about the suppression list preferences for the tenant. Use this to configure tenant-level suppression at creation time.</p>
-    pub fn get_suppression_attributes(&self) -> &::std::option::Option<crate::types::TenantSuppressionAttributes> {
+    pub fn get_suppression_attributes(
+        &self,
+    ) -> &::std::option::Option<crate::types::TenantSuppressionAttributes> {
         self.inner.get_suppression_attributes()
     }
 }

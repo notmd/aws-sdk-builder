@@ -4,7 +4,9 @@ pub fn ser_put_organization_config_rule_input_input(
     input: &crate::operation::put_organization_config_rule::PutOrganizationConfigRuleInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     if let Some(var_1) = &input.organization_config_rule_name {
-        object.key("OrganizationConfigRuleName").string(var_1.as_str());
+        object
+            .key("OrganizationConfigRuleName")
+            .string(var_1.as_str());
     }
     if let Some(var_2) = &input.organization_managed_rule_metadata {
         #[allow(unused_mut)]
@@ -29,7 +31,9 @@ pub fn ser_put_organization_config_rule_input_input(
     }
     if let Some(var_9) = &input.organization_custom_policy_rule_metadata {
         #[allow(unused_mut)]
-        let mut object_10 = object.key("OrganizationCustomPolicyRuleMetadata").start_object();
+        let mut object_10 = object
+            .key("OrganizationCustomPolicyRuleMetadata")
+            .start_object();
         crate::protocol_serde::shape_organization_custom_policy_rule_metadata::ser_organization_custom_policy_rule_metadata(&mut object_10, var_9)?;
         object_10.finish();
     }

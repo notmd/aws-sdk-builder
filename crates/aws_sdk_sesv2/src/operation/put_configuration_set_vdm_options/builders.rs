@@ -44,7 +44,7 @@ impl
             crate::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsOutput,
             crate::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -58,7 +58,7 @@ impl PutConfigurationSetVdmOptionsFluentBuilder {
         }
     }
     /// Access the PutConfigurationSetVdmOptions as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -100,22 +100,34 @@ impl PutConfigurationSetVdmOptionsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the configuration set.</p>
-    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn configuration_set_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>The name of the configuration set.</p>
-    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_configuration_set_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }
@@ -129,7 +141,10 @@ impl PutConfigurationSetVdmOptionsFluentBuilder {
         self
     }
     /// <p>The VDM options to apply to the configuration set.</p>
-    pub fn set_vdm_options(mut self, input: ::std::option::Option<crate::types::VdmOptions>) -> Self {
+    pub fn set_vdm_options(
+        mut self,
+        input: ::std::option::Option<crate::types::VdmOptions>,
+    ) -> Self {
         self.inner = self.inner.set_vdm_options(input);
         self
     }

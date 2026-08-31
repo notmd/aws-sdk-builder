@@ -28,7 +28,7 @@ impl ::std::fmt::Debug for SendDurableExecutionCallbackSuccessInput {
 }
 impl SendDurableExecutionCallbackSuccessInput {
     /// Creates a new builder-style object to manufacture [`SendDurableExecutionCallbackSuccessInput`](crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessInput).
-    pub fn builder() -> crate::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessInputBuilder {
+    pub fn builder() -> crate::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessInputBuilder{
         crate::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessInputBuilder::default()
     }
 }
@@ -76,7 +76,7 @@ impl SendDurableExecutionCallbackSuccessInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessInput,
         ::aws_smithy_types::error::operation::BuildError,
-    > {
+    >{
         ::std::result::Result::Ok(
             crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessInput {
                 callback_id: self.callback_id,

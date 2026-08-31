@@ -67,7 +67,10 @@ impl UpdateProvisionedLimitFluentBuilder {
         }
     }
     /// Access the UpdateProvisionedLimit as a reference.
-    pub fn as_input(&self) -> &crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -96,7 +99,11 @@ impl UpdateProvisionedLimitFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::update_provisioned_limit::UpdateProvisionedLimit::orchestrate(&runtime_plugins, input).await
+        crate::operation::update_provisioned_limit::UpdateProvisionedLimit::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -109,12 +116,18 @@ impl UpdateProvisionedLimitFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -124,12 +137,17 @@ impl UpdateProvisionedLimitFluentBuilder {
         self
     }
     /// <p>The limit to update. Specify the limit class and the attributes that identify the limit.</p>
-    pub fn set_limit_definition(mut self, input: ::std::option::Option<crate::types::LimitDefinitionType>) -> Self {
+    pub fn set_limit_definition(
+        mut self,
+        input: ::std::option::Option<crate::types::LimitDefinitionType>,
+    ) -> Self {
         self.inner = self.inner.set_limit_definition(input);
         self
     }
     /// <p>The limit to update. Specify the limit class and the attributes that identify the limit.</p>
-    pub fn get_limit_definition(&self) -> &::std::option::Option<crate::types::LimitDefinitionType> {
+    pub fn get_limit_definition(
+        &self,
+    ) -> &::std::option::Option<crate::types::LimitDefinitionType> {
         self.inner.get_limit_definition()
     }
     /// <p>The provisioned rate to set, in requests per second (RPS).</p>

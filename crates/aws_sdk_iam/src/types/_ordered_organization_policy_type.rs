@@ -6,14 +6,17 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct OrderedOrganizationPolicyType {
     /// <p>A list of SCP documents that apply at this level of the Organizations hierarchy. Each document is specified as a string containing the complete, valid JSON text of an SCP.</p>
-    pub service_control_policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub service_control_policy_input_list:
+        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl OrderedOrganizationPolicyType {
     /// <p>A list of SCP documents that apply at this level of the Organizations hierarchy. Each document is specified as a string containing the complete, valid JSON text of an SCP.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.service_control_policy_input_list.is_none()`.
     pub fn service_control_policy_input_list(&self) -> &[::std::string::String] {
-        self.service_control_policy_input_list.as_deref().unwrap_or_default()
+        self.service_control_policy_input_list
+            .as_deref()
+            .unwrap_or_default()
     }
 }
 impl OrderedOrganizationPolicyType {
@@ -24,10 +27,13 @@ impl OrderedOrganizationPolicyType {
 }
 
 /// A builder for [`OrderedOrganizationPolicyType`](crate::types::OrderedOrganizationPolicyType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct OrderedOrganizationPolicyTypeBuilder {
-    pub(crate) service_control_policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) service_control_policy_input_list:
+        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl OrderedOrganizationPolicyTypeBuilder {
     /// Appends an item to `service_control_policy_input_list`.
@@ -35,19 +41,27 @@ impl OrderedOrganizationPolicyTypeBuilder {
     /// To override the contents of this collection use [`set_service_control_policy_input_list`](Self::set_service_control_policy_input_list).
     ///
     /// <p>A list of SCP documents that apply at this level of the Organizations hierarchy. Each document is specified as a string containing the complete, valid JSON text of an SCP.</p>
-    pub fn service_control_policy_input_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn service_control_policy_input_list(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.service_control_policy_input_list.unwrap_or_default();
         v.push(input.into());
         self.service_control_policy_input_list = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of SCP documents that apply at this level of the Organizations hierarchy. Each document is specified as a string containing the complete, valid JSON text of an SCP.</p>
-    pub fn set_service_control_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_service_control_policy_input_list(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.service_control_policy_input_list = input;
         self
     }
     /// <p>A list of SCP documents that apply at this level of the Organizations hierarchy. Each document is specified as a string containing the complete, valid JSON text of an SCP.</p>
-    pub fn get_service_control_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_service_control_policy_input_list(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.service_control_policy_input_list
     }
     /// Consumes the builder and constructs a [`OrderedOrganizationPolicyType`](crate::types::OrderedOrganizationPolicyType).

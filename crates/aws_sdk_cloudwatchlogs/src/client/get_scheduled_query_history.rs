@@ -16,7 +16,7 @@ impl super::Client {
     ///   - [`trigger_history(Option<Vec::<TriggerHistoryRecord>>)`](crate::operation::get_scheduled_query_history::GetScheduledQueryHistoryOutput::trigger_history): <p>An array of execution history records for the scheduled query.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::get_scheduled_query_history::GetScheduledQueryHistoryOutput::next_token): <p>The token for the next set of items to return. The token expires after 24 hours.</p>
     /// - On failure, responds with [`SdkError<GetScheduledQueryHistoryError>`](crate::operation::get_scheduled_query_history::GetScheduledQueryHistoryError)
-    pub fn get_scheduled_query_history(&self) -> crate::operation::get_scheduled_query_history::builders::GetScheduledQueryHistoryFluentBuilder {
+    pub fn get_scheduled_query_history(&self) -> crate::operation::get_scheduled_query_history::builders::GetScheduledQueryHistoryFluentBuilder{
         crate::operation::get_scheduled_query_history::builders::GetScheduledQueryHistoryFluentBuilder::new(self.handle.clone())
     }
 }

@@ -191,12 +191,18 @@ impl ListPartsInputBuilder {
         &self.max_parts
     }
     /// <p>Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.</p>
-    pub fn part_number_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn part_number_marker(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.part_number_marker = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.</p>
-    pub fn set_part_number_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_part_number_marker(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.part_number_marker = input;
         self
     }
@@ -229,7 +235,10 @@ impl ListPartsInputBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+    pub fn set_request_payer(
+        mut self,
+        input: ::std::option::Option<crate::types::RequestPayer>,
+    ) -> Self {
         self.request_payer = input;
         self
     }
@@ -240,12 +249,18 @@ impl ListPartsInputBuilder {
         &self.request_payer
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -256,14 +271,20 @@ impl ListPartsInputBuilder {
     /// <p>The server-side encryption (SSE) algorithm used to encrypt the object. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn sse_customer_algorithm(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn sse_customer_algorithm(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.sse_customer_algorithm = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The server-side encryption (SSE) algorithm used to encrypt the object. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_sse_customer_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_sse_customer_algorithm(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.sse_customer_algorithm = input;
         self
     }
@@ -276,14 +297,20 @@ impl ListPartsInputBuilder {
     /// <p>The server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn sse_customer_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn sse_customer_key(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.sse_customer_key = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_sse_customer_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_sse_customer_key(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.sse_customer_key = input;
         self
     }
@@ -296,14 +323,20 @@ impl ListPartsInputBuilder {
     /// <p>The MD5 server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn sse_customer_key_md5(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn sse_customer_key_md5(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.sse_customer_key_md5 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The MD5 server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_sse_customer_key_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_sse_customer_key_md5(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.sse_customer_key_md5 = input;
         self
     }
@@ -314,7 +347,12 @@ impl ListPartsInputBuilder {
         &self.sse_customer_key_md5
     }
     /// Consumes the builder and constructs a [`ListPartsInput`](crate::operation::list_parts::ListPartsInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::list_parts::ListPartsInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::list_parts::ListPartsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::list_parts::ListPartsInput {
             bucket: self.bucket,
             key: self.key,

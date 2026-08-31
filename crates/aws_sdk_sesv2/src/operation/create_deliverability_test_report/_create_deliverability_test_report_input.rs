@@ -35,13 +35,15 @@ impl CreateDeliverabilityTestReportInput {
 }
 impl CreateDeliverabilityTestReportInput {
     /// Creates a new builder-style object to manufacture [`CreateDeliverabilityTestReportInput`](crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportInput).
-    pub fn builder() -> crate::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportInputBuilder {
+    pub fn builder() -> crate::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportInputBuilder{
         crate::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportInputBuilder::default()
     }
 }
 
 /// A builder for [`CreateDeliverabilityTestReportInput`](crate::operation::create_deliverability_test_report::CreateDeliverabilityTestReportInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateDeliverabilityTestReportInputBuilder {
     pub(crate) report_name: ::std::option::Option<::std::string::String>,
@@ -66,12 +68,18 @@ impl CreateDeliverabilityTestReportInputBuilder {
     }
     /// <p>The email address that the predictive inbox placement test email was sent from.</p>
     /// This field is required.
-    pub fn from_email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn from_email_address(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.from_email_address = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The email address that the predictive inbox placement test email was sent from.</p>
-    pub fn set_from_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_from_email_address(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.from_email_address = input;
         self
     }
@@ -106,7 +114,10 @@ impl CreateDeliverabilityTestReportInputBuilder {
         self
     }
     /// <p>An array of objects that define the tags (keys and values) that you want to associate with the predictive inbox placement test.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.tags = input;
         self
     }

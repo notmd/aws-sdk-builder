@@ -17,7 +17,7 @@ impl super::Client {
     pub fn get_aggregate_conformance_pack_compliance_summary(
         &self,
     ) -> crate::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryFluentBuilder
-    {
+{
         crate::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryFluentBuilder::new(
             self.handle.clone(),
         )

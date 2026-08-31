@@ -9,13 +9,23 @@ pub fn de_upload_ssh_public_key_http_error(
     crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled(generic)),
+        None => {
+            return Err(
+                crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled(
+                    generic,
+                ),
+            )
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -115,9 +125,14 @@ pub fn de_upload_ssh_public_key_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::upload_ssh_public_key::builders::UploadSshPublicKeyOutputBuilder::default();
-        output = crate::protocol_serde::shape_upload_ssh_public_key::de_upload_ssh_public_key(_response_body, output)
-            .map_err(crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output = crate::protocol_serde::shape_upload_ssh_public_key::de_upload_ssh_public_key(
+            _response_body,
+            output,
+        )
+        .map_err(crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError::unhandled)?;
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
@@ -126,8 +141,10 @@ pub fn de_upload_ssh_public_key_http_response(
 pub fn de_upload_ssh_public_key(
     inp: &[u8],
     mut builder: crate::operation::upload_ssh_public_key::builders::UploadSshPublicKeyOutputBuilder,
-) -> std::result::Result<crate::operation::upload_ssh_public_key::builders::UploadSshPublicKeyOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
-{
+) -> std::result::Result<
+    crate::operation::upload_ssh_public_key::builders::UploadSshPublicKeyOutputBuilder,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]
@@ -164,7 +181,9 @@ pub fn de_upload_ssh_public_key(
         }
         }
     } else {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected UploadSSHPublicKeyResult tag"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "expected UploadSSHPublicKeyResult tag",
+        ));
     };
     Ok(builder)
 }

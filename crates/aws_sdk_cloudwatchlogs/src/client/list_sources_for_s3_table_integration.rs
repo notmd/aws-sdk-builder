@@ -13,7 +13,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListSourcesForS3TableIntegrationError>`](crate::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationError)
     pub fn list_sources_for_s3_table_integration(
         &self,
-    ) -> crate::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationFluentBuilder {
+    ) -> crate::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationFluentBuilder{
         crate::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationFluentBuilder::new(self.handle.clone())
     }
 }

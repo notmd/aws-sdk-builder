@@ -57,7 +57,9 @@ impl ListIntegrationsFluentBuilder {
         }
     }
     /// Access the ListIntegrations as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_integrations::builders::ListIntegrationsInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_integrations::builders::ListIntegrationsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,12 +83,14 @@ impl ListIntegrationsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_integrations::ListIntegrations::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_integrations::ListIntegrations::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::list_integrations::ListIntegrations::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_integrations::ListIntegrations::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,22 +103,34 @@ impl ListIntegrationsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>To limit the results to integrations that start with a certain name prefix, specify that name prefix here.</p>
-    pub fn integration_name_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn integration_name_prefix(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.integration_name_prefix(input.into());
         self
     }
     /// <p>To limit the results to integrations that start with a certain name prefix, specify that name prefix here.</p>
-    pub fn set_integration_name_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_integration_name_prefix(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_integration_name_prefix(input);
         self
     }
@@ -128,7 +144,10 @@ impl ListIntegrationsFluentBuilder {
         self
     }
     /// <p>To limit the results to integrations of a certain type, specify that type here.</p>
-    pub fn set_integration_type(mut self, input: ::std::option::Option<crate::types::IntegrationType>) -> Self {
+    pub fn set_integration_type(
+        mut self,
+        input: ::std::option::Option<crate::types::IntegrationType>,
+    ) -> Self {
         self.inner = self.inner.set_integration_type(input);
         self
     }
@@ -142,12 +161,17 @@ impl ListIntegrationsFluentBuilder {
         self
     }
     /// <p>To limit the results to integrations with a certain status, specify that status here.</p>
-    pub fn set_integration_status(mut self, input: ::std::option::Option<crate::types::IntegrationStatus>) -> Self {
+    pub fn set_integration_status(
+        mut self,
+        input: ::std::option::Option<crate::types::IntegrationStatus>,
+    ) -> Self {
         self.inner = self.inner.set_integration_status(input);
         self
     }
     /// <p>To limit the results to integrations with a certain status, specify that status here.</p>
-    pub fn get_integration_status(&self) -> &::std::option::Option<crate::types::IntegrationStatus> {
+    pub fn get_integration_status(
+        &self,
+    ) -> &::std::option::Option<crate::types::IntegrationStatus> {
         self.inner.get_integration_status()
     }
 }

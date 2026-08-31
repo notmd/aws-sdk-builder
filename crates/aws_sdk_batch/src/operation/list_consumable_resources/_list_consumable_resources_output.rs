@@ -4,7 +4,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListConsumableResourcesOutput {
     /// <p>A list of consumable resources that match the request.</p>
-    pub consumable_resources: ::std::option::Option<::std::vec::Vec<crate::types::ConsumableResourceSummary>>,
+    pub consumable_resources:
+        ::std::option::Option<::std::vec::Vec<crate::types::ConsumableResourceSummary>>,
     /// <p>The <code>nextToken</code> value to include in a future <code>ListConsumableResources</code> request. When the results of a <code>ListConsumableResources</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -28,16 +29,21 @@ impl ::aws_types::request_id::RequestId for ListConsumableResourcesOutput {
 }
 impl ListConsumableResourcesOutput {
     /// Creates a new builder-style object to manufacture [`ListConsumableResourcesOutput`](crate::operation::list_consumable_resources::ListConsumableResourcesOutput).
-    pub fn builder() -> crate::operation::list_consumable_resources::builders::ListConsumableResourcesOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_consumable_resources::builders::ListConsumableResourcesOutputBuilder
+    {
         crate::operation::list_consumable_resources::builders::ListConsumableResourcesOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListConsumableResourcesOutput`](crate::operation::list_consumable_resources::ListConsumableResourcesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListConsumableResourcesOutputBuilder {
-    pub(crate) consumable_resources: ::std::option::Option<::std::vec::Vec<crate::types::ConsumableResourceSummary>>,
+    pub(crate) consumable_resources:
+        ::std::option::Option<::std::vec::Vec<crate::types::ConsumableResourceSummary>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -54,12 +60,17 @@ impl ListConsumableResourcesOutputBuilder {
         self
     }
     /// <p>A list of consumable resources that match the request.</p>
-    pub fn set_consumable_resources(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConsumableResourceSummary>>) -> Self {
+    pub fn set_consumable_resources(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ConsumableResourceSummary>>,
+    ) -> Self {
         self.consumable_resources = input;
         self
     }
     /// <p>A list of consumable resources that match the request.</p>
-    pub fn get_consumable_resources(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConsumableResourceSummary>> {
+    pub fn get_consumable_resources(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ConsumableResourceSummary>> {
         &self.consumable_resources
     }
     /// <p>The <code>nextToken</code> value to include in a future <code>ListConsumableResources</code> request. When the results of a <code>ListConsumableResources</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -86,7 +97,9 @@ impl ListConsumableResourcesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListConsumableResourcesOutput`](crate::operation::list_consumable_resources::ListConsumableResourcesOutput).
-    pub fn build(self) -> crate::operation::list_consumable_resources::ListConsumableResourcesOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::list_consumable_resources::ListConsumableResourcesOutput {
         crate::operation::list_consumable_resources::ListConsumableResourcesOutput {
             consumable_resources: self.consumable_resources,
             next_token: self.next_token,

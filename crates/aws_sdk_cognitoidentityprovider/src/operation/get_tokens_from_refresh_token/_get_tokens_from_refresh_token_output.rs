@@ -9,7 +9,9 @@ pub struct GetTokensFromRefreshTokenOutput {
 }
 impl GetTokensFromRefreshTokenOutput {
     /// <p>The object that your application receives after authentication. Contains tokens and information for device authentication.</p>
-    pub fn authentication_result(&self) -> ::std::option::Option<&crate::types::AuthenticationResultType> {
+    pub fn authentication_result(
+        &self,
+    ) -> ::std::option::Option<&crate::types::AuthenticationResultType> {
         self.authentication_result.as_ref()
     }
 }
@@ -20,13 +22,15 @@ impl ::aws_types::request_id::RequestId for GetTokensFromRefreshTokenOutput {
 }
 impl GetTokensFromRefreshTokenOutput {
     /// Creates a new builder-style object to manufacture [`GetTokensFromRefreshTokenOutput`](crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenOutput).
-    pub fn builder() -> crate::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenOutputBuilder {
+    pub fn builder() -> crate::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenOutputBuilder{
         crate::operation::get_tokens_from_refresh_token::builders::GetTokensFromRefreshTokenOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetTokensFromRefreshTokenOutput`](crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetTokensFromRefreshTokenOutputBuilder {
     pub(crate) authentication_result: ::std::option::Option<crate::types::AuthenticationResultType>,
@@ -39,12 +43,17 @@ impl GetTokensFromRefreshTokenOutputBuilder {
         self
     }
     /// <p>The object that your application receives after authentication. Contains tokens and information for device authentication.</p>
-    pub fn set_authentication_result(mut self, input: ::std::option::Option<crate::types::AuthenticationResultType>) -> Self {
+    pub fn set_authentication_result(
+        mut self,
+        input: ::std::option::Option<crate::types::AuthenticationResultType>,
+    ) -> Self {
         self.authentication_result = input;
         self
     }
     /// <p>The object that your application receives after authentication. Contains tokens and information for device authentication.</p>
-    pub fn get_authentication_result(&self) -> &::std::option::Option<crate::types::AuthenticationResultType> {
+    pub fn get_authentication_result(
+        &self,
+    ) -> &::std::option::Option<crate::types::AuthenticationResultType> {
         &self.authentication_result
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -57,7 +66,9 @@ impl GetTokensFromRefreshTokenOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetTokensFromRefreshTokenOutput`](crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenOutput).
-    pub fn build(self) -> crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenOutput {
         crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenOutput {
             authentication_result: self.authentication_result,
             _request_id: self._request_id,

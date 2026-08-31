@@ -29,7 +29,9 @@ impl AggregatorFilterResourceType {
 }
 
 /// A builder for [`AggregatorFilterResourceType`](crate::types::AggregatorFilterResourceType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AggregatorFilterResourceTypeBuilder {
     pub(crate) r#type: ::std::option::Option<crate::types::AggregatorFilterType>,
@@ -42,7 +44,10 @@ impl AggregatorFilterResourceTypeBuilder {
         self
     }
     /// <p>The type of resource type filter to apply. <code>INCLUDE</code> specifies that the list of resource types in the <code>Value</code> field will be aggregated and no other resource types will be filtered.</p>
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::AggregatorFilterType>) -> Self {
+    pub fn set_type(
+        mut self,
+        input: ::std::option::Option<crate::types::AggregatorFilterType>,
+    ) -> Self {
         self.r#type = input;
         self
     }
@@ -62,7 +67,10 @@ impl AggregatorFilterResourceTypeBuilder {
         self
     }
     /// <p>Comma-separate list of resource types to filter your aggregated configuration recorders.</p>
-    pub fn set_value(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_value(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.value = input;
         self
     }

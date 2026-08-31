@@ -43,7 +43,7 @@ impl
             crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigOutput,
             crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -57,7 +57,7 @@ impl PutProvisionedConcurrencyConfigFluentBuilder {
         }
     }
     /// Access the PutProvisionedConcurrencyConfig as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_provisioned_concurrency_config::builders::PutProvisionedConcurrencyConfigInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_provisioned_concurrency_config::builders::PutProvisionedConcurrencyConfigInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +76,7 @@ impl PutProvisionedConcurrencyConfigFluentBuilder {
             crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -99,12 +99,18 @@ impl PutProvisionedConcurrencyConfigFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -119,7 +125,10 @@ impl PutProvisionedConcurrencyConfigFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -134,7 +143,10 @@ impl PutProvisionedConcurrencyConfigFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }
@@ -172,7 +184,10 @@ impl PutProvisionedConcurrencyConfigFluentBuilder {
         self
     }
     /// <p>The amount of provisioned concurrency to allocate for the version or alias.</p>
-    pub fn set_provisioned_concurrent_executions(mut self, input: ::std::option::Option<i32>) -> Self {
+    pub fn set_provisioned_concurrent_executions(
+        mut self,
+        input: ::std::option::Option<i32>,
+    ) -> Self {
         self.inner = self.inner.set_provisioned_concurrent_executions(input);
         self
     }

@@ -9,7 +9,10 @@ pub fn ser_apply_guardrail_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_4 = array_2.value().start_object();
-                crate::protocol_serde::shape_guardrail_content_block::ser_guardrail_content_block(&mut object_4, item_3)?;
+                crate::protocol_serde::shape_guardrail_content_block::ser_guardrail_content_block(
+                    &mut object_4,
+                    item_3,
+                )?;
                 object_4.finish();
             }
         }

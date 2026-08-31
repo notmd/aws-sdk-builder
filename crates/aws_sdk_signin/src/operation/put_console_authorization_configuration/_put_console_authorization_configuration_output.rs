@@ -35,13 +35,15 @@ impl ::aws_types::request_id::RequestId for PutConsoleAuthorizationConfiguration
 }
 impl PutConsoleAuthorizationConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`PutConsoleAuthorizationConfigurationOutput`](crate::operation::put_console_authorization_configuration::PutConsoleAuthorizationConfigurationOutput).
-    pub fn builder() -> crate::operation::put_console_authorization_configuration::builders::PutConsoleAuthorizationConfigurationOutputBuilder {
+    pub fn builder() -> crate::operation::put_console_authorization_configuration::builders::PutConsoleAuthorizationConfigurationOutputBuilder{
         crate::operation::put_console_authorization_configuration::builders::PutConsoleAuthorizationConfigurationOutputBuilder::default()
     }
 }
 
 /// A builder for [`PutConsoleAuthorizationConfigurationOutput`](crate::operation::put_console_authorization_configuration::PutConsoleAuthorizationConfigurationOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutConsoleAuthorizationConfigurationOutputBuilder {
     pub(crate) target_id: ::std::option::Option<::std::string::String>,
@@ -114,7 +116,7 @@ impl PutConsoleAuthorizationConfigurationOutputBuilder {
     ) -> ::std::result::Result<
         crate::operation::put_console_authorization_configuration::PutConsoleAuthorizationConfigurationOutput,
         ::aws_smithy_types::error::operation::BuildError,
-    > {
+    >{
         ::std::result::Result::Ok(
             crate::operation::put_console_authorization_configuration::PutConsoleAuthorizationConfigurationOutput {
                 target_id: self.target_id.ok_or_else(|| {

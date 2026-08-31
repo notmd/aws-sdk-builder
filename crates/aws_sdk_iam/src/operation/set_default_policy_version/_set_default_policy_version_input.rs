@@ -24,13 +24,17 @@ impl SetDefaultPolicyVersionInput {
 }
 impl SetDefaultPolicyVersionInput {
     /// Creates a new builder-style object to manufacture [`SetDefaultPolicyVersionInput`](crate::operation::set_default_policy_version::SetDefaultPolicyVersionInput).
-    pub fn builder() -> crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionInputBuilder
+    {
         crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionInputBuilder::default()
     }
 }
 
 /// A builder for [`SetDefaultPolicyVersionInput`](crate::operation::set_default_policy_version::SetDefaultPolicyVersionInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SetDefaultPolicyVersionInputBuilder {
     pub(crate) policy_arn: ::std::option::Option<::std::string::String>,
@@ -80,9 +84,11 @@ impl SetDefaultPolicyVersionInputBuilder {
         crate::operation::set_default_policy_version::SetDefaultPolicyVersionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::set_default_policy_version::SetDefaultPolicyVersionInput {
-            policy_arn: self.policy_arn,
-            version_id: self.version_id,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::set_default_policy_version::SetDefaultPolicyVersionInput {
+                policy_arn: self.policy_arn,
+                version_id: self.version_id,
+            },
+        )
     }
 }

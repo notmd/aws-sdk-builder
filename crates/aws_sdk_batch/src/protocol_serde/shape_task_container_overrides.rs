@@ -18,7 +18,10 @@ pub fn ser_task_container_overrides(
             {
                 #[allow(unused_mut)]
                 let mut object_7 = array_5.value().start_object();
-                crate::protocol_serde::shape_key_value_pair::ser_key_value_pair(&mut object_7, item_6)?;
+                crate::protocol_serde::shape_key_value_pair::ser_key_value_pair(
+                    &mut object_7,
+                    item_6,
+                )?;
                 object_7.finish();
             }
         }
@@ -33,7 +36,10 @@ pub fn ser_task_container_overrides(
             {
                 #[allow(unused_mut)]
                 let mut object_12 = array_10.value().start_object();
-                crate::protocol_serde::shape_resource_requirement::ser_resource_requirement(&mut object_12, item_11)?;
+                crate::protocol_serde::shape_resource_requirement::ser_resource_requirement(
+                    &mut object_12,
+                    item_11,
+                )?;
                 object_12.finish();
             }
         }

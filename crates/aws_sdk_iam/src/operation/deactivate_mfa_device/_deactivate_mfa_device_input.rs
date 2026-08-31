@@ -26,13 +26,17 @@ impl DeactivateMfaDeviceInput {
 }
 impl DeactivateMfaDeviceInput {
     /// Creates a new builder-style object to manufacture [`DeactivateMfaDeviceInput`](crate::operation::deactivate_mfa_device::DeactivateMfaDeviceInput).
-    pub fn builder() -> crate::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceInputBuilder {
-        crate::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceInputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceInputBuilder {
+        crate::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceInputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`DeactivateMfaDeviceInput`](crate::operation::deactivate_mfa_device::DeactivateMfaDeviceInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeactivateMfaDeviceInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -62,13 +66,19 @@ impl DeactivateMfaDeviceInputBuilder {
     /// <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-</p>
     /// This field is required.
-    pub fn serial_number(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn serial_number(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.serial_number = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-</p>
-    pub fn set_serial_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_serial_number(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.serial_number = input;
         self
     }
@@ -80,11 +90,15 @@ impl DeactivateMfaDeviceInputBuilder {
     /// Consumes the builder and constructs a [`DeactivateMfaDeviceInput`](crate::operation::deactivate_mfa_device::DeactivateMfaDeviceInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::deactivate_mfa_device::DeactivateMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::deactivate_mfa_device::DeactivateMfaDeviceInput {
-            user_name: self.user_name,
-            serial_number: self.serial_number,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::deactivate_mfa_device::DeactivateMfaDeviceInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::deactivate_mfa_device::DeactivateMfaDeviceInput {
+                user_name: self.user_name,
+                serial_number: self.serial_number,
+            },
+        )
     }
 }

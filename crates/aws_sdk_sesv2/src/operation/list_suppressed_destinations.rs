@@ -27,9 +27,13 @@ impl ListSuppressedDestinations {
                     .expect("correct error type")
             })
         };
-        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-            .await
-            .map_err(map_err)?;
+        let context = Self::orchestrate_with_stop_point(
+            runtime_plugins,
+            input,
+            ::aws_smithy_runtime::client::orchestrator::StopPoint::None,
+        )
+        .await
+        .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
@@ -51,17 +55,23 @@ impl ListSuppressedDestinations {
     > {
         let input = ::aws_smithy_runtime_api::client::interceptors::context::Input::erase(input);
         use ::tracing::Instrument;
-        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point("SESv2", "ListSuppressedDestinations", input, runtime_plugins, stop_point)
-            // Create a parent span for the entire operation. Includes a random, internal-only,
-            // seven-digit ID for the operation orchestration so that it can be correlated in the logs.
-            .instrument(::tracing::debug_span!(
-                "SESv2.ListSuppressedDestinations",
-                "rpc.service" = "SESv2",
-                "rpc.method" = "ListSuppressedDestinations",
-                "sdk_invocation_id" = ::fastrand::u32(1_000_000..10_000_000),
-                "rpc.system" = "aws-api",
-            ))
-            .await
+        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point(
+            "SESv2",
+            "ListSuppressedDestinations",
+            input,
+            runtime_plugins,
+            stop_point,
+        )
+        // Create a parent span for the entire operation. Includes a random, internal-only,
+        // seven-digit ID for the operation orchestration so that it can be correlated in the logs.
+        .instrument(::tracing::debug_span!(
+            "SESv2.ListSuppressedDestinations",
+            "rpc.service" = "SESv2",
+            "rpc.method" = "ListSuppressedDestinations",
+            "sdk_invocation_id" = ::fastrand::u32(1_000_000..10_000_000),
+            "rpc.system" = "aws-api",
+        ))
+        .await
     }
 
     pub(crate) fn operation_runtime_plugins(
@@ -75,37 +85,49 @@ impl ListSuppressedDestinations {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
-                config_override,
-                client_config.config.clone(),
-                &client_config.runtime_components,
-            ));
+            runtime_plugins = runtime_plugins.with_operation_plugin(
+                crate::config::ConfigOverrideRuntimePlugin::new(
+                    config_override,
+                    client_config.config.clone(),
+                    &client_config.runtime_components,
+                ),
+            );
         }
         runtime_plugins
     }
 }
-impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListSuppressedDestinations {
+impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
+    for ListSuppressedDestinations
+{
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("ListSuppressedDestinations");
 
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-            ListSuppressedDestinationsRequestSerializer,
-        ));
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
-            ListSuppressedDestinationsResponseDeserializer,
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+                ListSuppressedDestinationsRequestSerializer,
+            ),
+        );
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
+                ListSuppressedDestinationsResponseDeserializer,
+            ),
+        );
 
-        cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
-                .operation_name("ListSuppressedDestinations")
-                .build()
-                .expect("required fields set"),
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
+                crate::config::auth::Params::builder()
+                    .operation_name("ListSuppressedDestinations")
+                    .build()
+                    .expect("required fields set"),
+            ),
+        );
 
-        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-            "ListSuppressedDestinations",
-            "SESv2",
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+                "ListSuppressedDestinations",
+                "SESv2",
+            ),
+        );
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -123,7 +145,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListSup
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+    ) -> ::std::borrow::Cow<
+        '_,
+        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
+    > {
         #[allow(unused_mut)]
         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListSuppressedDestinations")
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -153,7 +178,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListSup
 struct ListSuppressedDestinationsTelemetryInputCaptureInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListSuppressedDestinationsTelemetryInputCaptureInterceptor {
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept
+    for ListSuppressedDestinationsTelemetryInputCaptureInterceptor
+{
     fn name(&self) -> &'static str {
         "ListSuppressedDestinationsTelemetryInputCaptureInterceptor"
     }
@@ -176,7 +203,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListSuppresse
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) = context.input().downcast_ref::<ListSuppressedDestinationsInput>() else {
+        let ::std::option::Option::Some(input) = context
+            .input()
+            .downcast_ref::<ListSuppressedDestinationsInput>()
+        else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -199,7 +229,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListSuppresse
 }
 #[derive(Debug)]
 struct ListSuppressedDestinationsResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ListSuppressedDestinationsResponseDeserializer {
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
+    for ListSuppressedDestinationsResponseDeserializer
+{
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -221,13 +253,23 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ListSuppr
 }
 #[derive(Debug)]
 struct ListSuppressedDestinationsRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListSuppressedDestinationsRequestSerializer {
-    #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
+    for ListSuppressedDestinationsRequestSerializer
+{
+    #[allow(
+        unused_mut,
+        clippy::let_and_return,
+        clippy::needless_borrow,
+        clippy::useless_conversion
+    )]
     fn serialize_input(
         &self,
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+    ) -> ::std::result::Result<
+        ::aws_smithy_runtime_api::client::orchestrator::HttpRequest,
+        ::aws_smithy_runtime_api::box_error::BoxError,
+    > {
         let input = input
             .downcast::<crate::operation::list_suppressed_destinations::ListSuppressedDestinationsInput>()
             .expect("correct type");
@@ -240,15 +282,18 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListSuppress
             fn uri_base(
                 _input: &crate::operation::list_suppressed_destinations::ListSuppressedDestinationsInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
+            {
                 use ::std::fmt::Write as _;
-                ::std::write!(output, "/v2/email/suppression/addresses").expect("formatting should succeed");
+                ::std::write!(output, "/v2/email/suppression/addresses")
+                    .expect("formatting should succeed");
                 ::std::result::Result::Ok(())
             }
             fn uri_query(
                 _input: &crate::operation::list_suppressed_destinations::ListSuppressedDestinationsInput,
                 mut output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.tenant_name {
                     {
@@ -258,7 +303,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListSuppress
                 if let ::std::option::Option::Some(inner_2) = &_input.reasons {
                     {
                         for inner_3 in inner_2 {
-                            query.push_kv("Reason", &::aws_smithy_http::query::fmt_string(inner_3.as_str()));
+                            query.push_kv(
+                                "Reason",
+                                &::aws_smithy_http::query::fmt_string(inner_3.as_str()),
+                            );
                         }
                     }
                 }
@@ -266,7 +314,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListSuppress
                     {
                         query.push_kv(
                             "StartDate",
-                            &::aws_smithy_http::query::fmt_timestamp(inner_4, ::aws_smithy_types::date_time::Format::DateTime)?,
+                            &::aws_smithy_http::query::fmt_timestamp(
+                                inner_4,
+                                ::aws_smithy_types::date_time::Format::DateTime,
+                            )?,
                         );
                     }
                 }
@@ -274,7 +325,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListSuppress
                     {
                         query.push_kv(
                             "EndDate",
-                            &::aws_smithy_http::query::fmt_timestamp(inner_5, ::aws_smithy_types::date_time::Format::DateTime)?,
+                            &::aws_smithy_http::query::fmt_timestamp(
+                                inner_5,
+                                ::aws_smithy_types::date_time::Format::DateTime,
+                            )?,
                         );
                     }
                 }
@@ -285,7 +339,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListSuppress
                 }
                 if let ::std::option::Option::Some(inner_7) = &_input.page_size {
                     {
-                        query.push_kv("PageSize", ::aws_smithy_types::primitive::Encoder::from(*inner_7).encode());
+                        query.push_kv(
+                            "PageSize",
+                            ::aws_smithy_types::primitive::Encoder::from(*inner_7).encode(),
+                        );
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -294,7 +351,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListSuppress
             fn update_http_builder(
                 input: &crate::operation::list_suppressed_destinations::ListSuppressedDestinationsInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<
+                ::http_1x::request::Builder,
+                ::aws_smithy_types::error::operation::BuildError,
+            > {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
@@ -305,14 +365,22 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListSuppress
         };
         let body = ::aws_smithy_types::body::SdkBody::from("");
 
-        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
+        ::std::result::Result::Ok(
+            request_builder
+                .body(body)
+                .expect("valid request")
+                .try_into()
+                .unwrap(),
+        )
     }
 }
 #[derive(Debug)]
 struct ListSuppressedDestinationsEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListSuppressedDestinationsEndpointParamsInterceptor {
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept
+    for ListSuppressedDestinationsEndpointParamsInterceptor
+{
     fn name(&self) -> &'static str {
         "ListSuppressedDestinationsEndpointParamsInterceptor"
     }
@@ -333,16 +401,32 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListSuppresse
             .ok_or("failed to downcast to ListSuppressedDestinationsInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-            .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
+            .set_region(
+                cfg.load::<::aws_types::region::Region>()
+                    .map(|r| r.as_ref().to_owned()),
+            )
+            .set_use_dual_stack(
+                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
+                    .map(|ty| ty.0),
+            )
+            .set_use_fips(
+                cfg.load::<::aws_types::endpoint_config::UseFips>()
+                    .map(|ty| ty.0),
+            )
+            .set_endpoint(
+                cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
+                    .map(|ty| ty.0.clone()),
+            )
             .build()
             .map_err(|err| {
-                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
+                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(
+                    "endpoint params could not be built",
+                    err,
+                )
             })?;
-        cfg.interceptor_state()
-            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
+        cfg.interceptor_state().store_put(
+            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
+        );
         ::std::result::Result::Ok(())
     }
 }
@@ -363,18 +447,24 @@ pub enum ListSuppressedDestinationsError {
     /// <p>Too many requests have been made to the operation.</p>
     TooManyRequestsException(crate::types::error::TooManyRequestsException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(
+        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ListSuppressedDestinationsError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ListSuppressedDestinationsError) for what information is available for the error."
+    )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl ListSuppressedDestinationsError {
     /// Creates the `ListSuppressedDestinationsError::Unhandled` variant from any error type.
     pub fn unhandled(
-        err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
+        err: impl ::std::convert::Into<
+            ::std::boxed::Box<
+                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
+            >,
+        >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.into(),
@@ -395,10 +485,18 @@ impl ListSuppressedDestinationsError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::BadRequestException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::InvalidNextTokenException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::NotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::TooManyRequestsException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::BadRequestException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::InvalidNextTokenException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::NotFoundException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::TooManyRequestsException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -438,7 +536,9 @@ impl ::std::fmt::Display for ListSuppressedDestinationsError {
             Self::NotFoundException(_inner) => _inner.fmt(f),
             Self::TooManyRequestsException(_inner) => _inner.fmt(f),
             Self::Unhandled(_inner) => {
-                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                if let ::std::option::Option::Some(code) =
+                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+                {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -458,17 +558,29 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for ListSuppressedDestinationsE
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ListSuppressedDestinationsError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::BadRequestException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::InvalidNextTokenException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::NotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyRequestsException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::BadRequestException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::InvalidNextTokenException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::NotFoundException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::TooManyRequestsException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListSuppressedDestinationsError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
+    for ListSuppressedDestinationsError
+{
     fn create_unhandled_error(
-        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+        source: ::std::boxed::Box<
+            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
+        >,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -477,7 +589,9 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListSupp
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::list_suppressed_destinations::ListSuppressedDestinationsError {
+impl ::aws_types::request_id::RequestId
+    for crate::operation::list_suppressed_destinations::ListSuppressedDestinationsError
+{
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

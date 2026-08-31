@@ -26,26 +26,33 @@ impl ::std::fmt::Display for WebAuthnRelyingPartyMismatchException {
     }
 }
 impl ::std::error::Error for WebAuthnRelyingPartyMismatchException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::WebAuthnRelyingPartyMismatchException {
+impl ::aws_types::request_id::RequestId
+    for crate::types::error::WebAuthnRelyingPartyMismatchException
+{
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for WebAuthnRelyingPartyMismatchException {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
+    for WebAuthnRelyingPartyMismatchException
+{
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         &self.meta
     }
 }
 impl WebAuthnRelyingPartyMismatchException {
     /// Creates a new builder-style object to manufacture [`WebAuthnRelyingPartyMismatchException`](crate::types::error::WebAuthnRelyingPartyMismatchException).
-    pub fn builder() -> crate::types::error::builders::WebAuthnRelyingPartyMismatchExceptionBuilder {
+    pub fn builder() -> crate::types::error::builders::WebAuthnRelyingPartyMismatchExceptionBuilder
+    {
         crate::types::error::builders::WebAuthnRelyingPartyMismatchExceptionBuilder::default()
     }
 }
 
 /// A builder for [`WebAuthnRelyingPartyMismatchException`](crate::types::error::WebAuthnRelyingPartyMismatchException).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct WebAuthnRelyingPartyMismatchExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
@@ -73,7 +80,10 @@ impl WebAuthnRelyingPartyMismatchExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
+    pub fn set_meta(
+        &mut self,
+        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
+    ) -> &mut Self {
         self.meta = meta;
         self
     }

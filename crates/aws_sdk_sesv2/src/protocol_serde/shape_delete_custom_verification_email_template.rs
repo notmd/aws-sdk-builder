@@ -7,7 +7,7 @@ pub fn de_delete_custom_verification_email_template_http_error(
 ) -> std::result::Result<
     crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateOutput,
     crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError,
-> {
+>{
     #[allow(unused_mut)]
     let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError::unhandled)?;
@@ -90,12 +90,14 @@ pub fn de_delete_custom_verification_email_template_http_response(
 ) -> std::result::Result<
     crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateOutput,
     crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError,
-> {
+>{
     Ok({
         #[allow(unused_mut)]
         let mut output =
             crate::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateOutputBuilder::default();
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }

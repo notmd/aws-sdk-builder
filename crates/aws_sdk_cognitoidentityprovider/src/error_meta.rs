@@ -4,314 +4,2628 @@
 #[derive(::std::fmt::Debug)]
 pub enum Error {
     #[cfg(feature = "op_add_user_pool_client_secret")]
-/// <p>This exception is thrown when you don't have sufficient permissions to perform the requested operation.</p>
+    /// <p>This exception is thrown when you don't have sufficient permissions to perform the requested operation.</p>
     AccessDeniedException(crate::types::error::AccessDeniedException),
-    #[cfg(any(feature = "op_admin_disable_provider_for_user", feature = "op_admin_link_provider_for_user", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_sign_up", feature = "op_respond_to_auth_challenge", feature = "op_update_user_attributes", feature = "op_verify_user_attribute"))]
-/// <p>This exception is thrown when a user tries to confirm the account with an email address or phone number that has already been supplied as an alias for a different user profile. This exception indicates that an account with this email address or phone already exists in a user pool that you've configured to use email address or phone number as a sign-in alias.</p>
+    #[cfg(any(
+        feature = "op_admin_disable_provider_for_user",
+        feature = "op_admin_link_provider_for_user",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_update_user_attributes",
+        feature = "op_confirm_sign_up",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_update_user_attributes",
+        feature = "op_verify_user_attribute"
+    ))]
+    /// <p>This exception is thrown when a user tries to confirm the account with an email address or phone number that has already been supplied as an alias for a different user profile. This exception indicates that an account with this email address or phone already exists in a user pool that you've configured to use email address or phone number as a sign-in alias.</p>
     AliasExistsException(crate::types::error::AliasExistsException),
-    #[cfg(any(feature = "op_admin_create_user", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_resend_confirmation_code", feature = "op_set_risk_configuration", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-/// <p>This exception is thrown when a verification code fails to deliver successfully.</p>
+    #[cfg(any(
+        feature = "op_admin_create_user",
+        feature = "op_forgot_password",
+        feature = "op_get_user_attribute_verification_code",
+        feature = "op_resend_confirmation_code",
+        feature = "op_set_risk_configuration",
+        feature = "op_sign_up",
+        feature = "op_update_user_attributes"
+    ))]
+    /// <p>This exception is thrown when a verification code fails to deliver successfully.</p>
     CodeDeliveryFailureException(crate::types::error::CodeDeliveryFailureException),
-    #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_respond_to_auth_challenge", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-/// <p>This exception is thrown if the provided code doesn't match what the server was expecting.</p>
+    #[cfg(any(
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_confirm_forgot_password",
+        feature = "op_confirm_sign_up",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_update_user_attributes",
+        feature = "op_verify_software_token",
+        feature = "op_verify_user_attribute"
+    ))]
+    /// <p>This exception is thrown if the provided code doesn't match what the server was expecting.</p>
     CodeMismatchException(crate::types::error::CodeMismatchException),
-    #[cfg(any(feature = "op_associate_software_token", feature = "op_create_managed_login_branding", feature = "op_create_terms", feature = "op_create_user_pool_domain", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_terms", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_set_user_pool_mfa_config", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_terms", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain"))]
-/// <p>This exception is thrown if two or more modifications are happening concurrently.</p>
+    #[cfg(any(
+        feature = "op_associate_software_token",
+        feature = "op_create_managed_login_branding",
+        feature = "op_create_terms",
+        feature = "op_create_user_pool_domain",
+        feature = "op_delete_identity_provider",
+        feature = "op_delete_managed_login_branding",
+        feature = "op_delete_terms",
+        feature = "op_delete_user_pool_client",
+        feature = "op_delete_user_pool_domain",
+        feature = "op_set_user_pool_mfa_config",
+        feature = "op_update_identity_provider",
+        feature = "op_update_managed_login_branding",
+        feature = "op_update_terms",
+        feature = "op_update_user_pool",
+        feature = "op_update_user_pool_client",
+        feature = "op_update_user_pool_domain"
+    ))]
+    /// <p>This exception is thrown if two or more modifications are happening concurrently.</p>
     ConcurrentModificationException(crate::types::error::ConcurrentModificationException),
     #[cfg(feature = "op_confirm_device")]
-/// <p>This exception is thrown when a user attempts to confirm a device with a device key that already exists.</p>
+    /// <p>This exception is thrown when a user attempts to confirm a device with a device key that already exists.</p>
     DeviceKeyExistsException(crate::types::error::DeviceKeyExistsException),
     #[cfg(feature = "op_create_identity_provider")]
-/// <p>This exception is thrown when the provider is already supported by the user pool.</p>
+    /// <p>This exception is thrown when the provider is already supported by the user pool.</p>
     DuplicateProviderException(crate::types::error::DuplicateProviderException),
     #[cfg(feature = "op_verify_software_token")]
-/// <p>This exception is thrown when there is a code mismatch and the service fails to configure the software token TOTP multi-factor authentication (MFA).</p>
+    /// <p>This exception is thrown when there is a code mismatch and the service fails to configure the software token TOTP multi-factor authentication (MFA).</p>
     EnableSoftwareTokenMfaException(crate::types::error::EnableSoftwareTokenMfaException),
-    #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_respond_to_auth_challenge", feature = "op_update_user_attributes", feature = "op_verify_user_attribute"))]
-/// <p>This exception is thrown if a code has expired.</p>
+    #[cfg(any(
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_confirm_forgot_password",
+        feature = "op_confirm_sign_up",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_update_user_attributes",
+        feature = "op_verify_user_attribute"
+    ))]
+    /// <p>This exception is thrown if a code has expired.</p>
     ExpiredCodeException(crate::types::error::ExpiredCodeException),
-    #[cfg(any(feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_set_log_delivery_configuration", feature = "op_set_user_pool_mfa_config", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain"))]
-/// <p>This exception is thrown when a feature you attempted to configure isn't available in your current feature plan.</p>
+    #[cfg(any(
+        feature = "op_create_user_pool",
+        feature = "op_create_user_pool_client",
+        feature = "op_create_user_pool_domain",
+        feature = "op_create_user_pool_replica",
+        feature = "op_set_log_delivery_configuration",
+        feature = "op_set_user_pool_mfa_config",
+        feature = "op_update_user_pool",
+        feature = "op_update_user_pool_client",
+        feature = "op_update_user_pool_domain"
+    ))]
+    /// <p>This exception is thrown when a feature you attempted to configure isn't available in your current feature plan.</p>
     FeatureUnavailableInTierException(crate::types::error::FeatureUnavailableInTierException),
-    #[cfg(any(feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_web_authn_credential", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_device", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_web_authn_registration", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-/// <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+    #[cfg(any(
+        feature = "op_associate_software_token",
+        feature = "op_change_password",
+        feature = "op_complete_web_authn_registration",
+        feature = "op_confirm_device",
+        feature = "op_confirm_forgot_password",
+        feature = "op_confirm_sign_up",
+        feature = "op_delete_user",
+        feature = "op_delete_user_attributes",
+        feature = "op_delete_web_authn_credential",
+        feature = "op_forget_device",
+        feature = "op_forgot_password",
+        feature = "op_get_device",
+        feature = "op_get_tokens_from_refresh_token",
+        feature = "op_get_user",
+        feature = "op_get_user_attribute_verification_code",
+        feature = "op_get_user_auth_factors",
+        feature = "op_global_sign_out",
+        feature = "op_initiate_auth",
+        feature = "op_list_devices",
+        feature = "op_list_web_authn_credentials",
+        feature = "op_resend_confirmation_code",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_revoke_token",
+        feature = "op_set_user_mfa_preference",
+        feature = "op_set_user_settings",
+        feature = "op_sign_up",
+        feature = "op_start_web_authn_registration",
+        feature = "op_update_device_status",
+        feature = "op_update_user_attributes",
+        feature = "op_verify_software_token",
+        feature = "op_verify_user_attribute"
+    ))]
+    /// <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
     ForbiddenException(crate::types::error::ForbiddenException),
     #[cfg(feature = "op_create_group")]
-/// <p>This exception is thrown when Amazon Cognito encounters a group that already exists in the user pool.</p>
+    /// <p>This exception is thrown when Amazon Cognito encounters a group that already exists in the user pool.</p>
     GroupExistsException(crate::types::error::GroupExistsException),
-    #[cfg(any(feature = "op_add_custom_attributes", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-/// <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+    #[cfg(any(
+        feature = "op_add_custom_attributes",
+        feature = "op_admin_add_user_to_group",
+        feature = "op_admin_confirm_sign_up",
+        feature = "op_admin_create_user",
+        feature = "op_admin_delete_user",
+        feature = "op_admin_delete_user_attributes",
+        feature = "op_admin_disable_provider_for_user",
+        feature = "op_admin_disable_user",
+        feature = "op_admin_enable_user",
+        feature = "op_admin_forget_device",
+        feature = "op_admin_get_device",
+        feature = "op_admin_get_user",
+        feature = "op_admin_get_user_auth_factors",
+        feature = "op_admin_initiate_auth",
+        feature = "op_admin_link_provider_for_user",
+        feature = "op_admin_list_devices",
+        feature = "op_admin_list_groups_for_user",
+        feature = "op_admin_list_user_auth_events",
+        feature = "op_admin_remove_user_from_group",
+        feature = "op_admin_reset_user_password",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_set_user_mfa_preference",
+        feature = "op_admin_set_user_password",
+        feature = "op_admin_set_user_settings",
+        feature = "op_admin_update_auth_event_feedback",
+        feature = "op_admin_update_device_status",
+        feature = "op_admin_update_user_attributes",
+        feature = "op_admin_user_global_sign_out",
+        feature = "op_associate_software_token",
+        feature = "op_change_password",
+        feature = "op_complete_web_authn_registration",
+        feature = "op_confirm_device",
+        feature = "op_confirm_forgot_password",
+        feature = "op_confirm_sign_up",
+        feature = "op_create_group",
+        feature = "op_create_identity_provider",
+        feature = "op_create_managed_login_branding",
+        feature = "op_create_resource_server",
+        feature = "op_create_terms",
+        feature = "op_create_user_import_job",
+        feature = "op_create_user_pool",
+        feature = "op_create_user_pool_client",
+        feature = "op_create_user_pool_domain",
+        feature = "op_create_user_pool_replica",
+        feature = "op_delete_group",
+        feature = "op_delete_identity_provider",
+        feature = "op_delete_managed_login_branding",
+        feature = "op_delete_resource_server",
+        feature = "op_delete_terms",
+        feature = "op_delete_user",
+        feature = "op_delete_user_attributes",
+        feature = "op_delete_user_pool",
+        feature = "op_delete_user_pool_client",
+        feature = "op_delete_user_pool_domain",
+        feature = "op_delete_user_pool_replica",
+        feature = "op_delete_web_authn_credential",
+        feature = "op_describe_identity_provider",
+        feature = "op_describe_managed_login_branding",
+        feature = "op_describe_managed_login_branding_by_client",
+        feature = "op_describe_resource_server",
+        feature = "op_describe_risk_configuration",
+        feature = "op_describe_terms",
+        feature = "op_describe_user_import_job",
+        feature = "op_describe_user_pool",
+        feature = "op_describe_user_pool_client",
+        feature = "op_describe_user_pool_domain",
+        feature = "op_forget_device",
+        feature = "op_forgot_password",
+        feature = "op_get_csv_header",
+        feature = "op_get_device",
+        feature = "op_get_group",
+        feature = "op_get_identity_provider_by_identifier",
+        feature = "op_get_log_delivery_configuration",
+        feature = "op_get_provisioned_limit",
+        feature = "op_get_signing_certificate",
+        feature = "op_get_tokens_from_refresh_token",
+        feature = "op_get_ui_customization",
+        feature = "op_get_user",
+        feature = "op_get_user_attribute_verification_code",
+        feature = "op_get_user_auth_factors",
+        feature = "op_get_user_pool_mfa_config",
+        feature = "op_global_sign_out",
+        feature = "op_initiate_auth",
+        feature = "op_list_devices",
+        feature = "op_list_groups",
+        feature = "op_list_identity_providers",
+        feature = "op_list_resource_servers",
+        feature = "op_list_tags_for_resource",
+        feature = "op_list_terms",
+        feature = "op_list_user_import_jobs",
+        feature = "op_list_user_pool_clients",
+        feature = "op_list_user_pool_replicas",
+        feature = "op_list_user_pools",
+        feature = "op_list_users",
+        feature = "op_list_users_in_group",
+        feature = "op_list_web_authn_credentials",
+        feature = "op_resend_confirmation_code",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_revoke_token",
+        feature = "op_set_log_delivery_configuration",
+        feature = "op_set_risk_configuration",
+        feature = "op_set_ui_customization",
+        feature = "op_set_user_mfa_preference",
+        feature = "op_set_user_pool_mfa_config",
+        feature = "op_set_user_settings",
+        feature = "op_sign_up",
+        feature = "op_start_user_import_job",
+        feature = "op_start_web_authn_registration",
+        feature = "op_stop_user_import_job",
+        feature = "op_tag_resource",
+        feature = "op_untag_resource",
+        feature = "op_update_auth_event_feedback",
+        feature = "op_update_device_status",
+        feature = "op_update_group",
+        feature = "op_update_identity_provider",
+        feature = "op_update_managed_login_branding",
+        feature = "op_update_provisioned_limit",
+        feature = "op_update_resource_server",
+        feature = "op_update_terms",
+        feature = "op_update_user_attributes",
+        feature = "op_update_user_pool",
+        feature = "op_update_user_pool_client",
+        feature = "op_update_user_pool_domain",
+        feature = "op_update_user_pool_replica",
+        feature = "op_verify_software_token",
+        feature = "op_verify_user_attribute"
+    ))]
+    /// <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
     InternalErrorException(crate::types::error::InternalErrorException),
-    #[cfg(any(feature = "op_add_user_pool_client_secret", feature = "op_delete_user_pool_client_secret", feature = "op_list_user_pool_client_secrets"))]
-/// <p>This exception is thrown when Amazon Cognito encounters an internal server error.</p>
+    #[cfg(any(
+        feature = "op_add_user_pool_client_secret",
+        feature = "op_delete_user_pool_client_secret",
+        feature = "op_list_user_pool_client_secrets"
+    ))]
+    /// <p>This exception is thrown when Amazon Cognito encounters an internal server error.</p>
     InternalServerException(crate::types::error::InternalServerException),
-    #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_create_user_pool", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_risk_configuration", feature = "op_sign_up", feature = "op_update_user_attributes", feature = "op_update_user_pool"))]
-/// <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
-    InvalidEmailRoleAccessPolicyException(crate::types::error::InvalidEmailRoleAccessPolicyException),
-    #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-/// <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+    #[cfg(any(
+        feature = "op_admin_initiate_auth",
+        feature = "op_admin_reset_user_password",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_update_user_attributes",
+        feature = "op_create_user_pool",
+        feature = "op_forgot_password",
+        feature = "op_get_user_attribute_verification_code",
+        feature = "op_initiate_auth",
+        feature = "op_resend_confirmation_code",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_set_risk_configuration",
+        feature = "op_sign_up",
+        feature = "op_update_user_attributes",
+        feature = "op_update_user_pool"
+    ))]
+    /// <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
+    InvalidEmailRoleAccessPolicyException(
+        crate::types::error::InvalidEmailRoleAccessPolicyException,
+    ),
+    #[cfg(any(
+        feature = "op_admin_confirm_sign_up",
+        feature = "op_admin_create_user",
+        feature = "op_admin_initiate_auth",
+        feature = "op_admin_reset_user_password",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_update_user_attributes",
+        feature = "op_confirm_device",
+        feature = "op_confirm_forgot_password",
+        feature = "op_confirm_sign_up",
+        feature = "op_forgot_password",
+        feature = "op_get_tokens_from_refresh_token",
+        feature = "op_get_user_attribute_verification_code",
+        feature = "op_initiate_auth",
+        feature = "op_resend_confirmation_code",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_sign_up",
+        feature = "op_update_user_attributes"
+    ))]
+    /// <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
     InvalidLambdaResponseException(crate::types::error::InvalidLambdaResponseException),
-    #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
-/// <p>This exception is thrown when the specified OAuth flow is not valid.</p>
+    #[cfg(any(
+        feature = "op_create_user_pool_client",
+        feature = "op_update_user_pool_client"
+    ))]
+    /// <p>This exception is thrown when the specified OAuth flow is not valid.</p>
     InvalidOAuthFlowException(crate::types::error::InvalidOAuthFlowException),
-    #[cfg(any(feature = "op_add_custom_attributes", feature = "op_add_user_pool_client_secret", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_client_secret", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_client_secrets", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-/// <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
+    #[cfg(any(
+        feature = "op_add_custom_attributes",
+        feature = "op_add_user_pool_client_secret",
+        feature = "op_admin_add_user_to_group",
+        feature = "op_admin_confirm_sign_up",
+        feature = "op_admin_create_user",
+        feature = "op_admin_delete_user",
+        feature = "op_admin_delete_user_attributes",
+        feature = "op_admin_disable_provider_for_user",
+        feature = "op_admin_disable_user",
+        feature = "op_admin_enable_user",
+        feature = "op_admin_forget_device",
+        feature = "op_admin_get_device",
+        feature = "op_admin_get_user",
+        feature = "op_admin_get_user_auth_factors",
+        feature = "op_admin_initiate_auth",
+        feature = "op_admin_link_provider_for_user",
+        feature = "op_admin_list_devices",
+        feature = "op_admin_list_groups_for_user",
+        feature = "op_admin_list_user_auth_events",
+        feature = "op_admin_remove_user_from_group",
+        feature = "op_admin_reset_user_password",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_set_user_mfa_preference",
+        feature = "op_admin_set_user_password",
+        feature = "op_admin_set_user_settings",
+        feature = "op_admin_update_auth_event_feedback",
+        feature = "op_admin_update_device_status",
+        feature = "op_admin_update_user_attributes",
+        feature = "op_admin_user_global_sign_out",
+        feature = "op_associate_software_token",
+        feature = "op_change_password",
+        feature = "op_complete_web_authn_registration",
+        feature = "op_confirm_device",
+        feature = "op_confirm_forgot_password",
+        feature = "op_confirm_sign_up",
+        feature = "op_create_group",
+        feature = "op_create_identity_provider",
+        feature = "op_create_managed_login_branding",
+        feature = "op_create_resource_server",
+        feature = "op_create_terms",
+        feature = "op_create_user_import_job",
+        feature = "op_create_user_pool",
+        feature = "op_create_user_pool_client",
+        feature = "op_create_user_pool_domain",
+        feature = "op_create_user_pool_replica",
+        feature = "op_delete_group",
+        feature = "op_delete_identity_provider",
+        feature = "op_delete_managed_login_branding",
+        feature = "op_delete_resource_server",
+        feature = "op_delete_terms",
+        feature = "op_delete_user",
+        feature = "op_delete_user_attributes",
+        feature = "op_delete_user_pool",
+        feature = "op_delete_user_pool_client",
+        feature = "op_delete_user_pool_client_secret",
+        feature = "op_delete_user_pool_domain",
+        feature = "op_delete_user_pool_replica",
+        feature = "op_delete_web_authn_credential",
+        feature = "op_describe_identity_provider",
+        feature = "op_describe_managed_login_branding",
+        feature = "op_describe_managed_login_branding_by_client",
+        feature = "op_describe_resource_server",
+        feature = "op_describe_risk_configuration",
+        feature = "op_describe_terms",
+        feature = "op_describe_user_import_job",
+        feature = "op_describe_user_pool",
+        feature = "op_describe_user_pool_client",
+        feature = "op_describe_user_pool_domain",
+        feature = "op_forget_device",
+        feature = "op_forgot_password",
+        feature = "op_get_csv_header",
+        feature = "op_get_device",
+        feature = "op_get_group",
+        feature = "op_get_identity_provider_by_identifier",
+        feature = "op_get_log_delivery_configuration",
+        feature = "op_get_provisioned_limit",
+        feature = "op_get_signing_certificate",
+        feature = "op_get_tokens_from_refresh_token",
+        feature = "op_get_ui_customization",
+        feature = "op_get_user",
+        feature = "op_get_user_attribute_verification_code",
+        feature = "op_get_user_auth_factors",
+        feature = "op_get_user_pool_mfa_config",
+        feature = "op_global_sign_out",
+        feature = "op_initiate_auth",
+        feature = "op_list_devices",
+        feature = "op_list_groups",
+        feature = "op_list_identity_providers",
+        feature = "op_list_resource_servers",
+        feature = "op_list_tags_for_resource",
+        feature = "op_list_terms",
+        feature = "op_list_user_import_jobs",
+        feature = "op_list_user_pool_client_secrets",
+        feature = "op_list_user_pool_clients",
+        feature = "op_list_user_pool_replicas",
+        feature = "op_list_user_pools",
+        feature = "op_list_users",
+        feature = "op_list_users_in_group",
+        feature = "op_list_web_authn_credentials",
+        feature = "op_resend_confirmation_code",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_revoke_token",
+        feature = "op_set_log_delivery_configuration",
+        feature = "op_set_risk_configuration",
+        feature = "op_set_ui_customization",
+        feature = "op_set_user_mfa_preference",
+        feature = "op_set_user_pool_mfa_config",
+        feature = "op_set_user_settings",
+        feature = "op_sign_up",
+        feature = "op_start_user_import_job",
+        feature = "op_start_web_authn_registration",
+        feature = "op_stop_user_import_job",
+        feature = "op_tag_resource",
+        feature = "op_untag_resource",
+        feature = "op_update_auth_event_feedback",
+        feature = "op_update_device_status",
+        feature = "op_update_group",
+        feature = "op_update_identity_provider",
+        feature = "op_update_managed_login_branding",
+        feature = "op_update_provisioned_limit",
+        feature = "op_update_resource_server",
+        feature = "op_update_terms",
+        feature = "op_update_user_attributes",
+        feature = "op_update_user_pool",
+        feature = "op_update_user_pool_client",
+        feature = "op_update_user_pool_domain",
+        feature = "op_update_user_pool_replica",
+        feature = "op_verify_software_token",
+        feature = "op_verify_user_attribute"
+    ))]
+    /// <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
     InvalidParameterException(crate::types::error::InvalidParameterException),
-    #[cfg(any(feature = "op_admin_create_user", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_password", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_respond_to_auth_challenge", feature = "op_sign_up"))]
-/// <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
+    #[cfg(any(
+        feature = "op_admin_create_user",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_set_user_password",
+        feature = "op_change_password",
+        feature = "op_confirm_device",
+        feature = "op_confirm_forgot_password",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_sign_up"
+    ))]
+    /// <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
     InvalidPasswordException(crate::types::error::InvalidPasswordException),
-    #[cfg(any(feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_create_user_pool", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_user_pool_mfa_config", feature = "op_sign_up", feature = "op_update_user_attributes", feature = "op_update_user_pool"))]
-/// <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
+    #[cfg(any(
+        feature = "op_admin_create_user",
+        feature = "op_admin_initiate_auth",
+        feature = "op_admin_reset_user_password",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_update_user_attributes",
+        feature = "op_create_user_pool",
+        feature = "op_forgot_password",
+        feature = "op_get_user_attribute_verification_code",
+        feature = "op_initiate_auth",
+        feature = "op_resend_confirmation_code",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_set_user_pool_mfa_config",
+        feature = "op_sign_up",
+        feature = "op_update_user_attributes",
+        feature = "op_update_user_pool"
+    ))]
+    /// <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
     InvalidSmsRoleAccessPolicyException(crate::types::error::InvalidSmsRoleAccessPolicyException),
-    #[cfg(any(feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_create_user_pool", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_user_pool_mfa_config", feature = "op_sign_up", feature = "op_update_user_attributes", feature = "op_update_user_pool"))]
-/// <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
-    InvalidSmsRoleTrustRelationshipException(crate::types::error::InvalidSmsRoleTrustRelationshipException),
-    #[cfg(any(feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_initiate_auth", feature = "op_admin_list_devices", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_device_status", feature = "op_confirm_device", feature = "op_forget_device", feature = "op_get_device", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_respond_to_auth_challenge", feature = "op_update_device_status", feature = "op_verify_software_token"))]
-/// <p>This exception is thrown when the user pool configuration is not valid.</p>
-    InvalidUserPoolConfigurationException(crate::types::error::InvalidUserPoolConfigurationException),
-    #[cfg(any(feature = "op_add_user_pool_client_secret", feature = "op_admin_confirm_sign_up", feature = "op_admin_link_provider_for_user", feature = "op_admin_reset_user_password", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_user_pool_client_secret", feature = "op_delete_web_authn_credential", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_list_user_pool_client_secrets", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_sign_up", feature = "op_start_web_authn_registration", feature = "op_verify_user_attribute"))]
-/// <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
+    #[cfg(any(
+        feature = "op_admin_create_user",
+        feature = "op_admin_initiate_auth",
+        feature = "op_admin_reset_user_password",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_update_user_attributes",
+        feature = "op_create_user_pool",
+        feature = "op_forgot_password",
+        feature = "op_get_user_attribute_verification_code",
+        feature = "op_initiate_auth",
+        feature = "op_resend_confirmation_code",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_set_user_pool_mfa_config",
+        feature = "op_sign_up",
+        feature = "op_update_user_attributes",
+        feature = "op_update_user_pool"
+    ))]
+    /// <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
+    InvalidSmsRoleTrustRelationshipException(
+        crate::types::error::InvalidSmsRoleTrustRelationshipException,
+    ),
+    #[cfg(any(
+        feature = "op_admin_forget_device",
+        feature = "op_admin_get_device",
+        feature = "op_admin_initiate_auth",
+        feature = "op_admin_list_devices",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_update_device_status",
+        feature = "op_confirm_device",
+        feature = "op_forget_device",
+        feature = "op_get_device",
+        feature = "op_initiate_auth",
+        feature = "op_list_devices",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_update_device_status",
+        feature = "op_verify_software_token"
+    ))]
+    /// <p>This exception is thrown when the user pool configuration is not valid.</p>
+    InvalidUserPoolConfigurationException(
+        crate::types::error::InvalidUserPoolConfigurationException,
+    ),
+    #[cfg(any(
+        feature = "op_add_user_pool_client_secret",
+        feature = "op_admin_confirm_sign_up",
+        feature = "op_admin_link_provider_for_user",
+        feature = "op_admin_reset_user_password",
+        feature = "op_change_password",
+        feature = "op_complete_web_authn_registration",
+        feature = "op_confirm_forgot_password",
+        feature = "op_confirm_sign_up",
+        feature = "op_create_group",
+        feature = "op_create_identity_provider",
+        feature = "op_create_managed_login_branding",
+        feature = "op_create_resource_server",
+        feature = "op_create_terms",
+        feature = "op_create_user_import_job",
+        feature = "op_create_user_pool",
+        feature = "op_create_user_pool_client",
+        feature = "op_create_user_pool_domain",
+        feature = "op_create_user_pool_replica",
+        feature = "op_delete_user_pool_client_secret",
+        feature = "op_delete_web_authn_credential",
+        feature = "op_forgot_password",
+        feature = "op_get_user_attribute_verification_code",
+        feature = "op_list_user_pool_client_secrets",
+        feature = "op_list_web_authn_credentials",
+        feature = "op_resend_confirmation_code",
+        feature = "op_sign_up",
+        feature = "op_start_web_authn_registration",
+        feature = "op_verify_user_attribute"
+    ))]
+    /// <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
     LimitExceededException(crate::types::error::LimitExceededException),
-    #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_respond_to_auth_challenge"))]
-/// <p>This exception is thrown when Amazon Cognito can't find a multi-factor authentication (MFA) method.</p>
+    #[cfg(any(
+        feature = "op_admin_initiate_auth",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_respond_to_auth_challenge"
+    ))]
+    /// <p>This exception is thrown when Amazon Cognito can't find a multi-factor authentication (MFA) method.</p>
     MfaMethodNotFoundException(crate::types::error::MfaMethodNotFoundException),
     #[cfg(feature = "op_create_managed_login_branding")]
-/// <p>This exception is thrown when you attempt to apply a managed login branding style to an app client that already has an assigned style.</p>
+    /// <p>This exception is thrown when you attempt to apply a managed login branding style to an app client that already has an assigned style.</p>
     ManagedLoginBrandingExistsException(crate::types::error::ManagedLoginBrandingExistsException),
-    #[cfg(any(feature = "op_add_custom_attributes", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-/// <p>This exception is thrown when a user isn't authorized.</p>
+    #[cfg(any(
+        feature = "op_add_custom_attributes",
+        feature = "op_admin_add_user_to_group",
+        feature = "op_admin_confirm_sign_up",
+        feature = "op_admin_create_user",
+        feature = "op_admin_delete_user",
+        feature = "op_admin_delete_user_attributes",
+        feature = "op_admin_disable_provider_for_user",
+        feature = "op_admin_disable_user",
+        feature = "op_admin_enable_user",
+        feature = "op_admin_forget_device",
+        feature = "op_admin_get_device",
+        feature = "op_admin_get_user",
+        feature = "op_admin_get_user_auth_factors",
+        feature = "op_admin_initiate_auth",
+        feature = "op_admin_link_provider_for_user",
+        feature = "op_admin_list_devices",
+        feature = "op_admin_list_groups_for_user",
+        feature = "op_admin_list_user_auth_events",
+        feature = "op_admin_remove_user_from_group",
+        feature = "op_admin_reset_user_password",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_set_user_mfa_preference",
+        feature = "op_admin_set_user_password",
+        feature = "op_admin_set_user_settings",
+        feature = "op_admin_update_auth_event_feedback",
+        feature = "op_admin_update_device_status",
+        feature = "op_admin_update_user_attributes",
+        feature = "op_admin_user_global_sign_out",
+        feature = "op_associate_software_token",
+        feature = "op_change_password",
+        feature = "op_complete_web_authn_registration",
+        feature = "op_confirm_device",
+        feature = "op_confirm_forgot_password",
+        feature = "op_confirm_sign_up",
+        feature = "op_create_group",
+        feature = "op_create_identity_provider",
+        feature = "op_create_managed_login_branding",
+        feature = "op_create_resource_server",
+        feature = "op_create_terms",
+        feature = "op_create_user_import_job",
+        feature = "op_create_user_pool",
+        feature = "op_create_user_pool_client",
+        feature = "op_create_user_pool_domain",
+        feature = "op_create_user_pool_replica",
+        feature = "op_delete_group",
+        feature = "op_delete_identity_provider",
+        feature = "op_delete_managed_login_branding",
+        feature = "op_delete_resource_server",
+        feature = "op_delete_terms",
+        feature = "op_delete_user",
+        feature = "op_delete_user_attributes",
+        feature = "op_delete_user_pool",
+        feature = "op_delete_user_pool_client",
+        feature = "op_delete_user_pool_domain",
+        feature = "op_delete_user_pool_replica",
+        feature = "op_delete_web_authn_credential",
+        feature = "op_describe_identity_provider",
+        feature = "op_describe_managed_login_branding",
+        feature = "op_describe_managed_login_branding_by_client",
+        feature = "op_describe_resource_server",
+        feature = "op_describe_risk_configuration",
+        feature = "op_describe_terms",
+        feature = "op_describe_user_import_job",
+        feature = "op_describe_user_pool",
+        feature = "op_describe_user_pool_client",
+        feature = "op_describe_user_pool_domain",
+        feature = "op_forget_device",
+        feature = "op_forgot_password",
+        feature = "op_get_csv_header",
+        feature = "op_get_device",
+        feature = "op_get_group",
+        feature = "op_get_identity_provider_by_identifier",
+        feature = "op_get_log_delivery_configuration",
+        feature = "op_get_provisioned_limit",
+        feature = "op_get_tokens_from_refresh_token",
+        feature = "op_get_ui_customization",
+        feature = "op_get_user",
+        feature = "op_get_user_attribute_verification_code",
+        feature = "op_get_user_auth_factors",
+        feature = "op_get_user_pool_mfa_config",
+        feature = "op_global_sign_out",
+        feature = "op_initiate_auth",
+        feature = "op_list_devices",
+        feature = "op_list_groups",
+        feature = "op_list_identity_providers",
+        feature = "op_list_resource_servers",
+        feature = "op_list_tags_for_resource",
+        feature = "op_list_terms",
+        feature = "op_list_user_import_jobs",
+        feature = "op_list_user_pool_clients",
+        feature = "op_list_user_pool_replicas",
+        feature = "op_list_user_pools",
+        feature = "op_list_users",
+        feature = "op_list_users_in_group",
+        feature = "op_list_web_authn_credentials",
+        feature = "op_resend_confirmation_code",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_set_log_delivery_configuration",
+        feature = "op_set_risk_configuration",
+        feature = "op_set_ui_customization",
+        feature = "op_set_user_mfa_preference",
+        feature = "op_set_user_pool_mfa_config",
+        feature = "op_set_user_settings",
+        feature = "op_sign_up",
+        feature = "op_start_user_import_job",
+        feature = "op_start_web_authn_registration",
+        feature = "op_stop_user_import_job",
+        feature = "op_tag_resource",
+        feature = "op_untag_resource",
+        feature = "op_update_auth_event_feedback",
+        feature = "op_update_device_status",
+        feature = "op_update_group",
+        feature = "op_update_identity_provider",
+        feature = "op_update_managed_login_branding",
+        feature = "op_update_provisioned_limit",
+        feature = "op_update_resource_server",
+        feature = "op_update_terms",
+        feature = "op_update_user_attributes",
+        feature = "op_update_user_pool",
+        feature = "op_update_user_pool_client",
+        feature = "op_update_user_pool_domain",
+        feature = "op_update_user_pool_replica",
+        feature = "op_verify_software_token",
+        feature = "op_verify_user_attribute"
+    ))]
+    /// <p>This exception is thrown when a user isn't authorized.</p>
     NotAuthorizedException(crate::types::error::NotAuthorizedException),
-    #[cfg(any(feature = "op_add_custom_attributes", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_managed_login_branding", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-/// <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+    #[cfg(any(
+        feature = "op_add_custom_attributes",
+        feature = "op_admin_add_user_to_group",
+        feature = "op_admin_confirm_sign_up",
+        feature = "op_admin_create_user",
+        feature = "op_admin_delete_user",
+        feature = "op_admin_delete_user_attributes",
+        feature = "op_admin_disable_provider_for_user",
+        feature = "op_admin_disable_user",
+        feature = "op_admin_enable_user",
+        feature = "op_admin_forget_device",
+        feature = "op_admin_get_device",
+        feature = "op_admin_get_user",
+        feature = "op_admin_get_user_auth_factors",
+        feature = "op_admin_initiate_auth",
+        feature = "op_admin_link_provider_for_user",
+        feature = "op_admin_list_devices",
+        feature = "op_admin_list_groups_for_user",
+        feature = "op_admin_list_user_auth_events",
+        feature = "op_admin_remove_user_from_group",
+        feature = "op_admin_reset_user_password",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_set_user_mfa_preference",
+        feature = "op_admin_set_user_password",
+        feature = "op_admin_set_user_settings",
+        feature = "op_admin_update_auth_event_feedback",
+        feature = "op_admin_update_device_status",
+        feature = "op_admin_update_user_attributes",
+        feature = "op_admin_user_global_sign_out",
+        feature = "op_associate_software_token",
+        feature = "op_change_password",
+        feature = "op_complete_web_authn_registration",
+        feature = "op_confirm_device",
+        feature = "op_confirm_forgot_password",
+        feature = "op_confirm_sign_up",
+        feature = "op_create_group",
+        feature = "op_create_managed_login_branding",
+        feature = "op_create_resource_server",
+        feature = "op_create_terms",
+        feature = "op_create_user_import_job",
+        feature = "op_create_user_pool_client",
+        feature = "op_create_user_pool_domain",
+        feature = "op_create_user_pool_replica",
+        feature = "op_delete_group",
+        feature = "op_delete_managed_login_branding",
+        feature = "op_delete_resource_server",
+        feature = "op_delete_terms",
+        feature = "op_delete_user",
+        feature = "op_delete_user_attributes",
+        feature = "op_delete_user_pool",
+        feature = "op_delete_user_pool_client",
+        feature = "op_delete_user_pool_domain",
+        feature = "op_delete_user_pool_replica",
+        feature = "op_delete_web_authn_credential",
+        feature = "op_describe_managed_login_branding",
+        feature = "op_describe_managed_login_branding_by_client",
+        feature = "op_describe_resource_server",
+        feature = "op_describe_risk_configuration",
+        feature = "op_describe_terms",
+        feature = "op_describe_user_import_job",
+        feature = "op_describe_user_pool",
+        feature = "op_describe_user_pool_client",
+        feature = "op_describe_user_pool_domain",
+        feature = "op_forget_device",
+        feature = "op_forgot_password",
+        feature = "op_get_csv_header",
+        feature = "op_get_device",
+        feature = "op_get_group",
+        feature = "op_get_signing_certificate",
+        feature = "op_get_tokens_from_refresh_token",
+        feature = "op_get_ui_customization",
+        feature = "op_get_user",
+        feature = "op_get_user_attribute_verification_code",
+        feature = "op_get_user_auth_factors",
+        feature = "op_global_sign_out",
+        feature = "op_initiate_auth",
+        feature = "op_list_devices",
+        feature = "op_list_groups",
+        feature = "op_list_resource_servers",
+        feature = "op_list_tags_for_resource",
+        feature = "op_list_terms",
+        feature = "op_list_user_import_jobs",
+        feature = "op_list_user_pool_clients",
+        feature = "op_list_user_pool_replicas",
+        feature = "op_list_users",
+        feature = "op_list_users_in_group",
+        feature = "op_list_web_authn_credentials",
+        feature = "op_resend_confirmation_code",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_revoke_token",
+        feature = "op_set_risk_configuration",
+        feature = "op_set_ui_customization",
+        feature = "op_set_user_mfa_preference",
+        feature = "op_set_user_pool_mfa_config",
+        feature = "op_set_user_settings",
+        feature = "op_sign_up",
+        feature = "op_start_user_import_job",
+        feature = "op_start_web_authn_registration",
+        feature = "op_stop_user_import_job",
+        feature = "op_tag_resource",
+        feature = "op_untag_resource",
+        feature = "op_update_auth_event_feedback",
+        feature = "op_update_device_status",
+        feature = "op_update_group",
+        feature = "op_update_managed_login_branding",
+        feature = "op_update_resource_server",
+        feature = "op_update_terms",
+        feature = "op_update_user_attributes",
+        feature = "op_update_user_pool",
+        feature = "op_update_user_pool_client",
+        feature = "op_update_user_pool_domain",
+        feature = "op_update_user_pool_replica",
+        feature = "op_verify_software_token",
+        feature = "op_verify_user_attribute"
+    ))]
+    /// <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
     OperationNotEnabledException(crate::types::error::OperationNotEnabledException),
-    #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_password", feature = "op_change_password", feature = "op_confirm_forgot_password", feature = "op_respond_to_auth_challenge"))]
-/// <p>The message returned when a user's new password matches a previous password and doesn't comply with the password-history policy.</p>
-    PasswordHistoryPolicyViolationException(crate::types::error::PasswordHistoryPolicyViolationException),
-    #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_web_authn_credential", feature = "op_forget_device", feature = "op_get_device", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_web_authn_credentials", feature = "op_respond_to_auth_challenge", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_start_web_authn_registration", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-/// <p>This exception is thrown when a password reset is required.</p>
+    #[cfg(any(
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_set_user_password",
+        feature = "op_change_password",
+        feature = "op_confirm_forgot_password",
+        feature = "op_respond_to_auth_challenge"
+    ))]
+    /// <p>The message returned when a user's new password matches a previous password and doesn't comply with the password-history policy.</p>
+    PasswordHistoryPolicyViolationException(
+        crate::types::error::PasswordHistoryPolicyViolationException,
+    ),
+    #[cfg(any(
+        feature = "op_admin_initiate_auth",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_set_user_mfa_preference",
+        feature = "op_change_password",
+        feature = "op_complete_web_authn_registration",
+        feature = "op_confirm_device",
+        feature = "op_delete_user",
+        feature = "op_delete_user_attributes",
+        feature = "op_delete_web_authn_credential",
+        feature = "op_forget_device",
+        feature = "op_get_device",
+        feature = "op_get_user",
+        feature = "op_get_user_attribute_verification_code",
+        feature = "op_get_user_auth_factors",
+        feature = "op_global_sign_out",
+        feature = "op_initiate_auth",
+        feature = "op_list_devices",
+        feature = "op_list_web_authn_credentials",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_set_user_mfa_preference",
+        feature = "op_set_user_settings",
+        feature = "op_start_web_authn_registration",
+        feature = "op_update_device_status",
+        feature = "op_update_user_attributes",
+        feature = "op_verify_software_token",
+        feature = "op_verify_user_attribute"
+    ))]
+    /// <p>This exception is thrown when a password reset is required.</p>
     PasswordResetRequiredException(crate::types::error::PasswordResetRequiredException),
-    #[cfg(any(feature = "op_admin_create_user", feature = "op_create_user_import_job", feature = "op_start_user_import_job", feature = "op_stop_user_import_job"))]
-/// <p>This exception is thrown when a precondition is not met.</p>
+    #[cfg(any(
+        feature = "op_admin_create_user",
+        feature = "op_create_user_import_job",
+        feature = "op_start_user_import_job",
+        feature = "op_stop_user_import_job"
+    ))]
+    /// <p>This exception is thrown when a precondition is not met.</p>
     PreconditionNotMetException(crate::types::error::PreconditionNotMetException),
     #[cfg(feature = "op_get_tokens_from_refresh_token")]
-/// <p>This exception is throw when your application requests token refresh with a refresh token that has been invalidated by refresh-token rotation.</p>
+    /// <p>This exception is throw when your application requests token refresh with a refresh token that has been invalidated by refresh-token rotation.</p>
     RefreshTokenReuseException(crate::types::error::RefreshTokenReuseException),
-    #[cfg(any(feature = "op_add_custom_attributes", feature = "op_add_user_pool_client_secret", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_client_secret", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_client_secrets", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-/// <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
+    #[cfg(any(
+        feature = "op_add_custom_attributes",
+        feature = "op_add_user_pool_client_secret",
+        feature = "op_admin_add_user_to_group",
+        feature = "op_admin_confirm_sign_up",
+        feature = "op_admin_create_user",
+        feature = "op_admin_delete_user",
+        feature = "op_admin_delete_user_attributes",
+        feature = "op_admin_disable_provider_for_user",
+        feature = "op_admin_disable_user",
+        feature = "op_admin_enable_user",
+        feature = "op_admin_forget_device",
+        feature = "op_admin_get_device",
+        feature = "op_admin_get_user",
+        feature = "op_admin_get_user_auth_factors",
+        feature = "op_admin_initiate_auth",
+        feature = "op_admin_link_provider_for_user",
+        feature = "op_admin_list_devices",
+        feature = "op_admin_list_groups_for_user",
+        feature = "op_admin_list_user_auth_events",
+        feature = "op_admin_remove_user_from_group",
+        feature = "op_admin_reset_user_password",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_set_user_mfa_preference",
+        feature = "op_admin_set_user_password",
+        feature = "op_admin_set_user_settings",
+        feature = "op_admin_update_auth_event_feedback",
+        feature = "op_admin_update_device_status",
+        feature = "op_admin_update_user_attributes",
+        feature = "op_admin_user_global_sign_out",
+        feature = "op_associate_software_token",
+        feature = "op_change_password",
+        feature = "op_confirm_device",
+        feature = "op_confirm_forgot_password",
+        feature = "op_confirm_sign_up",
+        feature = "op_create_group",
+        feature = "op_create_identity_provider",
+        feature = "op_create_managed_login_branding",
+        feature = "op_create_resource_server",
+        feature = "op_create_terms",
+        feature = "op_create_user_import_job",
+        feature = "op_create_user_pool_client",
+        feature = "op_create_user_pool_domain",
+        feature = "op_create_user_pool_replica",
+        feature = "op_delete_group",
+        feature = "op_delete_identity_provider",
+        feature = "op_delete_managed_login_branding",
+        feature = "op_delete_resource_server",
+        feature = "op_delete_terms",
+        feature = "op_delete_user",
+        feature = "op_delete_user_attributes",
+        feature = "op_delete_user_pool",
+        feature = "op_delete_user_pool_client",
+        feature = "op_delete_user_pool_client_secret",
+        feature = "op_delete_user_pool_domain",
+        feature = "op_delete_user_pool_replica",
+        feature = "op_delete_web_authn_credential",
+        feature = "op_describe_identity_provider",
+        feature = "op_describe_managed_login_branding",
+        feature = "op_describe_managed_login_branding_by_client",
+        feature = "op_describe_resource_server",
+        feature = "op_describe_risk_configuration",
+        feature = "op_describe_terms",
+        feature = "op_describe_user_import_job",
+        feature = "op_describe_user_pool",
+        feature = "op_describe_user_pool_client",
+        feature = "op_describe_user_pool_domain",
+        feature = "op_forget_device",
+        feature = "op_forgot_password",
+        feature = "op_get_csv_header",
+        feature = "op_get_device",
+        feature = "op_get_group",
+        feature = "op_get_identity_provider_by_identifier",
+        feature = "op_get_log_delivery_configuration",
+        feature = "op_get_provisioned_limit",
+        feature = "op_get_signing_certificate",
+        feature = "op_get_tokens_from_refresh_token",
+        feature = "op_get_ui_customization",
+        feature = "op_get_user",
+        feature = "op_get_user_attribute_verification_code",
+        feature = "op_get_user_auth_factors",
+        feature = "op_get_user_pool_mfa_config",
+        feature = "op_global_sign_out",
+        feature = "op_initiate_auth",
+        feature = "op_list_devices",
+        feature = "op_list_groups",
+        feature = "op_list_identity_providers",
+        feature = "op_list_resource_servers",
+        feature = "op_list_tags_for_resource",
+        feature = "op_list_terms",
+        feature = "op_list_user_import_jobs",
+        feature = "op_list_user_pool_client_secrets",
+        feature = "op_list_user_pool_clients",
+        feature = "op_list_user_pool_replicas",
+        feature = "op_list_users",
+        feature = "op_list_users_in_group",
+        feature = "op_resend_confirmation_code",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_set_log_delivery_configuration",
+        feature = "op_set_risk_configuration",
+        feature = "op_set_ui_customization",
+        feature = "op_set_user_mfa_preference",
+        feature = "op_set_user_pool_mfa_config",
+        feature = "op_set_user_settings",
+        feature = "op_sign_up",
+        feature = "op_start_user_import_job",
+        feature = "op_stop_user_import_job",
+        feature = "op_tag_resource",
+        feature = "op_untag_resource",
+        feature = "op_update_auth_event_feedback",
+        feature = "op_update_device_status",
+        feature = "op_update_group",
+        feature = "op_update_identity_provider",
+        feature = "op_update_managed_login_branding",
+        feature = "op_update_provisioned_limit",
+        feature = "op_update_resource_server",
+        feature = "op_update_terms",
+        feature = "op_update_user_attributes",
+        feature = "op_update_user_pool",
+        feature = "op_update_user_pool_client",
+        feature = "op_update_user_pool_domain",
+        feature = "op_update_user_pool_replica",
+        feature = "op_verify_software_token",
+        feature = "op_verify_user_attribute"
+    ))]
+    /// <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
     ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
-    #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
-/// <p>This exception is thrown when the specified scope doesn't exist.</p>
+    #[cfg(any(
+        feature = "op_create_user_pool_client",
+        feature = "op_update_user_pool_client"
+    ))]
+    /// <p>This exception is thrown when the specified scope doesn't exist.</p>
     ScopeDoesNotExistException(crate::types::error::ScopeDoesNotExistException),
     #[cfg(feature = "op_update_provisioned_limit")]
-/// <p>The request exceeded your account's service quota. To increase your limit, use or submit a Service Quotas increase request.</p>
+    /// <p>The request exceeded your account's service quota. To increase your limit, use or submit a Service Quotas increase request.</p>
     ServiceQuotaExceededException(crate::types::error::ServiceQuotaExceededException),
-    #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_associate_software_token", feature = "op_respond_to_auth_challenge", feature = "op_verify_software_token"))]
-/// <p>This exception is thrown when the software token time-based one-time password (TOTP) multi-factor authentication (MFA) isn't activated for the user pool.</p>
+    #[cfg(any(
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_associate_software_token",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_verify_software_token"
+    ))]
+    /// <p>This exception is thrown when the software token time-based one-time password (TOTP) multi-factor authentication (MFA) isn't activated for the user pool.</p>
     SoftwareTokenMfaNotFoundException(crate::types::error::SoftwareTokenMfaNotFoundException),
     #[cfg(any(feature = "op_create_terms", feature = "op_update_terms"))]
-/// <p>Terms document names must be unique to the app client. This exception is thrown when you attempt to create terms documents with a duplicate <code>TermsName</code>.</p>
+    /// <p>Terms document names must be unique to the app client. This exception is thrown when you attempt to create terms documents with a duplicate <code>TermsName</code>.</p>
     TermsExistsException(crate::types::error::TermsExistsException),
     #[cfg(any(feature = "op_create_user_pool", feature = "op_update_user_pool"))]
-/// <p>This exception is thrown when you've attempted to change your feature plan but the operation isn't permitted.</p>
+    /// <p>This exception is thrown when you've attempted to change your feature plan but the operation isn't permitted.</p>
     TierChangeNotAllowedException(crate::types::error::TierChangeNotAllowedException),
-    #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up"))]
-/// <p>This exception is thrown when the user has made too many failed attempts for a given action, such as sign-in.</p>
+    #[cfg(any(
+        feature = "op_admin_confirm_sign_up",
+        feature = "op_confirm_forgot_password",
+        feature = "op_confirm_sign_up"
+    ))]
+    /// <p>This exception is thrown when the user has made too many failed attempts for a given action, such as sign-in.</p>
     TooManyFailedAttemptsException(crate::types::error::TooManyFailedAttemptsException),
-    #[cfg(any(feature = "op_add_custom_attributes", feature = "op_add_user_pool_client_secret", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_password", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_client_secret", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_client_secrets", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_pool_mfa_config", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-/// <p>This exception is thrown when the user has made too many requests for a given operation.</p>
+    #[cfg(any(
+        feature = "op_add_custom_attributes",
+        feature = "op_add_user_pool_client_secret",
+        feature = "op_admin_add_user_to_group",
+        feature = "op_admin_confirm_sign_up",
+        feature = "op_admin_create_user",
+        feature = "op_admin_delete_user",
+        feature = "op_admin_delete_user_attributes",
+        feature = "op_admin_disable_provider_for_user",
+        feature = "op_admin_disable_user",
+        feature = "op_admin_enable_user",
+        feature = "op_admin_forget_device",
+        feature = "op_admin_get_device",
+        feature = "op_admin_get_user",
+        feature = "op_admin_get_user_auth_factors",
+        feature = "op_admin_initiate_auth",
+        feature = "op_admin_link_provider_for_user",
+        feature = "op_admin_list_devices",
+        feature = "op_admin_list_groups_for_user",
+        feature = "op_admin_list_user_auth_events",
+        feature = "op_admin_remove_user_from_group",
+        feature = "op_admin_reset_user_password",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_set_user_password",
+        feature = "op_admin_update_auth_event_feedback",
+        feature = "op_admin_update_device_status",
+        feature = "op_admin_update_user_attributes",
+        feature = "op_admin_user_global_sign_out",
+        feature = "op_change_password",
+        feature = "op_complete_web_authn_registration",
+        feature = "op_confirm_device",
+        feature = "op_confirm_forgot_password",
+        feature = "op_confirm_sign_up",
+        feature = "op_create_group",
+        feature = "op_create_identity_provider",
+        feature = "op_create_managed_login_branding",
+        feature = "op_create_resource_server",
+        feature = "op_create_terms",
+        feature = "op_create_user_import_job",
+        feature = "op_create_user_pool",
+        feature = "op_create_user_pool_client",
+        feature = "op_create_user_pool_replica",
+        feature = "op_delete_group",
+        feature = "op_delete_identity_provider",
+        feature = "op_delete_managed_login_branding",
+        feature = "op_delete_resource_server",
+        feature = "op_delete_terms",
+        feature = "op_delete_user",
+        feature = "op_delete_user_attributes",
+        feature = "op_delete_user_pool",
+        feature = "op_delete_user_pool_client",
+        feature = "op_delete_user_pool_client_secret",
+        feature = "op_delete_user_pool_replica",
+        feature = "op_delete_web_authn_credential",
+        feature = "op_describe_identity_provider",
+        feature = "op_describe_managed_login_branding",
+        feature = "op_describe_managed_login_branding_by_client",
+        feature = "op_describe_resource_server",
+        feature = "op_describe_risk_configuration",
+        feature = "op_describe_terms",
+        feature = "op_describe_user_import_job",
+        feature = "op_describe_user_pool",
+        feature = "op_describe_user_pool_client",
+        feature = "op_forget_device",
+        feature = "op_forgot_password",
+        feature = "op_get_csv_header",
+        feature = "op_get_device",
+        feature = "op_get_group",
+        feature = "op_get_identity_provider_by_identifier",
+        feature = "op_get_log_delivery_configuration",
+        feature = "op_get_provisioned_limit",
+        feature = "op_get_tokens_from_refresh_token",
+        feature = "op_get_ui_customization",
+        feature = "op_get_user",
+        feature = "op_get_user_attribute_verification_code",
+        feature = "op_get_user_auth_factors",
+        feature = "op_get_user_pool_mfa_config",
+        feature = "op_global_sign_out",
+        feature = "op_initiate_auth",
+        feature = "op_list_devices",
+        feature = "op_list_groups",
+        feature = "op_list_identity_providers",
+        feature = "op_list_resource_servers",
+        feature = "op_list_tags_for_resource",
+        feature = "op_list_terms",
+        feature = "op_list_user_import_jobs",
+        feature = "op_list_user_pool_client_secrets",
+        feature = "op_list_user_pool_clients",
+        feature = "op_list_user_pool_replicas",
+        feature = "op_list_user_pools",
+        feature = "op_list_users",
+        feature = "op_list_users_in_group",
+        feature = "op_list_web_authn_credentials",
+        feature = "op_resend_confirmation_code",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_revoke_token",
+        feature = "op_set_log_delivery_configuration",
+        feature = "op_set_risk_configuration",
+        feature = "op_set_ui_customization",
+        feature = "op_set_user_pool_mfa_config",
+        feature = "op_sign_up",
+        feature = "op_start_user_import_job",
+        feature = "op_start_web_authn_registration",
+        feature = "op_stop_user_import_job",
+        feature = "op_tag_resource",
+        feature = "op_untag_resource",
+        feature = "op_update_auth_event_feedback",
+        feature = "op_update_device_status",
+        feature = "op_update_group",
+        feature = "op_update_identity_provider",
+        feature = "op_update_managed_login_branding",
+        feature = "op_update_provisioned_limit",
+        feature = "op_update_resource_server",
+        feature = "op_update_terms",
+        feature = "op_update_user_attributes",
+        feature = "op_update_user_pool",
+        feature = "op_update_user_pool_client",
+        feature = "op_update_user_pool_domain",
+        feature = "op_update_user_pool_replica",
+        feature = "op_verify_software_token",
+        feature = "op_verify_user_attribute"
+    ))]
+    /// <p>This exception is thrown when the user has made too many requests for a given operation.</p>
     TooManyRequestsException(crate::types::error::TooManyRequestsException),
     #[cfg(feature = "op_revoke_token")]
-/// <p>Exception that is thrown when the request isn't authorized. This can happen due to an invalid access token in the request.</p>
+    /// <p>Exception that is thrown when the request isn't authorized. This can happen due to an invalid access token in the request.</p>
     UnauthorizedException(crate::types::error::UnauthorizedException),
-    #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-/// <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
+    #[cfg(any(
+        feature = "op_admin_confirm_sign_up",
+        feature = "op_admin_create_user",
+        feature = "op_admin_initiate_auth",
+        feature = "op_admin_reset_user_password",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_update_user_attributes",
+        feature = "op_confirm_forgot_password",
+        feature = "op_confirm_sign_up",
+        feature = "op_forgot_password",
+        feature = "op_get_tokens_from_refresh_token",
+        feature = "op_get_user_attribute_verification_code",
+        feature = "op_initiate_auth",
+        feature = "op_resend_confirmation_code",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_sign_up",
+        feature = "op_update_user_attributes"
+    ))]
+    /// <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
     UnexpectedLambdaException(crate::types::error::UnexpectedLambdaException),
-    #[cfg(any(feature = "op_delete_identity_provider", feature = "op_update_identity_provider"))]
-/// <p>This exception is thrown when the specified identifier isn't supported.</p>
+    #[cfg(any(
+        feature = "op_delete_identity_provider",
+        feature = "op_update_identity_provider"
+    ))]
+    /// <p>This exception is thrown when the specified identifier isn't supported.</p>
     UnsupportedIdentityProviderException(crate::types::error::UnsupportedIdentityProviderException),
-    #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_initiate_auth", feature = "op_revoke_token"))]
-/// <p>Exception that is thrown when you attempt to perform an operation that isn't enabled for the user pool client.</p>
+    #[cfg(any(
+        feature = "op_admin_initiate_auth",
+        feature = "op_initiate_auth",
+        feature = "op_revoke_token"
+    ))]
+    /// <p>Exception that is thrown when you attempt to perform an operation that isn't enabled for the user pool client.</p>
     UnsupportedOperationException(crate::types::error::UnsupportedOperationException),
     #[cfg(feature = "op_revoke_token")]
-/// <p>Exception that is thrown when an unsupported token is passed to an operation.</p>
+    /// <p>Exception that is thrown when an unsupported token is passed to an operation.</p>
     UnsupportedTokenTypeException(crate::types::error::UnsupportedTokenTypeException),
     #[cfg(feature = "op_admin_create_user")]
-/// <p>The request failed because the user is in an unsupported state.</p>
+    /// <p>The request failed because the user is in an unsupported state.</p>
     UnsupportedUserStateException(crate::types::error::UnsupportedUserStateException),
-    #[cfg(any(feature = "op_add_custom_attributes", feature = "op_delete_user_pool", feature = "op_update_user_pool"))]
-/// <p>This exception is thrown when you're trying to modify a user pool while a user import job is in progress for that pool.</p>
+    #[cfg(any(
+        feature = "op_add_custom_attributes",
+        feature = "op_delete_user_pool",
+        feature = "op_update_user_pool"
+    ))]
+    /// <p>This exception is thrown when you're trying to modify a user pool while a user import job is in progress for that pool.</p>
     UserImportInProgressException(crate::types::error::UserImportInProgressException),
-    #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-/// <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
+    #[cfg(any(
+        feature = "op_admin_confirm_sign_up",
+        feature = "op_admin_create_user",
+        feature = "op_admin_initiate_auth",
+        feature = "op_admin_reset_user_password",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_update_user_attributes",
+        feature = "op_confirm_forgot_password",
+        feature = "op_confirm_sign_up",
+        feature = "op_forgot_password",
+        feature = "op_get_tokens_from_refresh_token",
+        feature = "op_get_user_attribute_verification_code",
+        feature = "op_initiate_auth",
+        feature = "op_resend_confirmation_code",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_sign_up",
+        feature = "op_update_user_attributes"
+    ))]
+    /// <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
     UserLambdaValidationException(crate::types::error::UserLambdaValidationException),
-    #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_forget_device", feature = "op_get_device", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_respond_to_auth_challenge", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-/// <p>This exception is thrown when a user isn't confirmed successfully.</p>
+    #[cfg(any(
+        feature = "op_admin_initiate_auth",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_set_user_mfa_preference",
+        feature = "op_change_password",
+        feature = "op_confirm_device",
+        feature = "op_confirm_forgot_password",
+        feature = "op_delete_user",
+        feature = "op_delete_user_attributes",
+        feature = "op_forget_device",
+        feature = "op_get_device",
+        feature = "op_get_user",
+        feature = "op_get_user_attribute_verification_code",
+        feature = "op_get_user_auth_factors",
+        feature = "op_global_sign_out",
+        feature = "op_initiate_auth",
+        feature = "op_list_devices",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_set_user_mfa_preference",
+        feature = "op_set_user_settings",
+        feature = "op_update_device_status",
+        feature = "op_update_user_attributes",
+        feature = "op_verify_software_token",
+        feature = "op_verify_user_attribute"
+    ))]
+    /// <p>This exception is thrown when a user isn't confirmed successfully.</p>
     UserNotConfirmedException(crate::types::error::UserNotConfirmedException),
-    #[cfg(any(feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_device", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-/// <p>This exception is thrown when a user isn't found.</p>
+    #[cfg(any(
+        feature = "op_admin_add_user_to_group",
+        feature = "op_admin_confirm_sign_up",
+        feature = "op_admin_create_user",
+        feature = "op_admin_delete_user",
+        feature = "op_admin_delete_user_attributes",
+        feature = "op_admin_disable_provider_for_user",
+        feature = "op_admin_disable_user",
+        feature = "op_admin_enable_user",
+        feature = "op_admin_forget_device",
+        feature = "op_admin_get_user",
+        feature = "op_admin_get_user_auth_factors",
+        feature = "op_admin_initiate_auth",
+        feature = "op_admin_link_provider_for_user",
+        feature = "op_admin_list_groups_for_user",
+        feature = "op_admin_list_user_auth_events",
+        feature = "op_admin_remove_user_from_group",
+        feature = "op_admin_reset_user_password",
+        feature = "op_admin_respond_to_auth_challenge",
+        feature = "op_admin_set_user_mfa_preference",
+        feature = "op_admin_set_user_password",
+        feature = "op_admin_set_user_settings",
+        feature = "op_admin_update_auth_event_feedback",
+        feature = "op_admin_update_device_status",
+        feature = "op_admin_update_user_attributes",
+        feature = "op_admin_user_global_sign_out",
+        feature = "op_change_password",
+        feature = "op_confirm_device",
+        feature = "op_confirm_forgot_password",
+        feature = "op_confirm_sign_up",
+        feature = "op_delete_user",
+        feature = "op_delete_user_attributes",
+        feature = "op_forget_device",
+        feature = "op_forgot_password",
+        feature = "op_get_device",
+        feature = "op_get_tokens_from_refresh_token",
+        feature = "op_get_user",
+        feature = "op_get_user_attribute_verification_code",
+        feature = "op_get_user_auth_factors",
+        feature = "op_initiate_auth",
+        feature = "op_list_devices",
+        feature = "op_resend_confirmation_code",
+        feature = "op_respond_to_auth_challenge",
+        feature = "op_set_user_mfa_preference",
+        feature = "op_set_user_settings",
+        feature = "op_update_auth_event_feedback",
+        feature = "op_update_device_status",
+        feature = "op_update_user_attributes",
+        feature = "op_verify_software_token",
+        feature = "op_verify_user_attribute"
+    ))]
+    /// <p>This exception is thrown when a user isn't found.</p>
     UserNotFoundException(crate::types::error::UserNotFoundException),
-    #[cfg(any(feature = "op_admin_list_user_auth_events", feature = "op_admin_update_auth_event_feedback", feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration", feature = "op_update_auth_event_feedback"))]
-/// <p>This exception is thrown when user pool add-ons aren't enabled.</p>
+    #[cfg(any(
+        feature = "op_admin_list_user_auth_events",
+        feature = "op_admin_update_auth_event_feedback",
+        feature = "op_describe_risk_configuration",
+        feature = "op_set_risk_configuration",
+        feature = "op_update_auth_event_feedback"
+    ))]
+    /// <p>This exception is thrown when user pool add-ons aren't enabled.</p>
     UserPoolAddOnNotEnabledException(crate::types::error::UserPoolAddOnNotEnabledException),
-    #[cfg(any(feature = "op_create_user_pool", feature = "op_create_user_pool_replica", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
-/// <p>This exception is thrown when a user pool tag can't be set or updated.</p>
+    #[cfg(any(
+        feature = "op_create_user_pool",
+        feature = "op_create_user_pool_replica",
+        feature = "op_describe_user_pool",
+        feature = "op_update_user_pool"
+    ))]
+    /// <p>This exception is thrown when a user pool tag can't be set or updated.</p>
     UserPoolTaggingException(crate::types::error::UserPoolTaggingException),
-    #[cfg(any(feature = "op_admin_create_user", feature = "op_confirm_device", feature = "op_sign_up"))]
-/// <p>This exception is thrown when Amazon Cognito encounters a user name that already exists in the user pool.</p>
+    #[cfg(any(
+        feature = "op_admin_create_user",
+        feature = "op_confirm_device",
+        feature = "op_sign_up"
+    ))]
+    /// <p>This exception is thrown when Amazon Cognito encounters a user name that already exists in the user pool.</p>
     UsernameExistsException(crate::types::error::UsernameExistsException),
     #[cfg(feature = "op_complete_web_authn_registration")]
-/// <p>This exception is thrown when the challenge from <code>StartWebAuthn</code> registration has expired.</p>
+    /// <p>This exception is thrown when the challenge from <code>StartWebAuthn</code> registration has expired.</p>
     WebAuthnChallengeNotFoundException(crate::types::error::WebAuthnChallengeNotFoundException),
     #[cfg(feature = "op_complete_web_authn_registration")]
-/// <p>This exception is thrown when the access token is for a different client than the one in the original <code>StartWebAuthnRegistration</code> request.</p>
+    /// <p>This exception is thrown when the access token is for a different client than the one in the original <code>StartWebAuthnRegistration</code> request.</p>
     WebAuthnClientMismatchException(crate::types::error::WebAuthnClientMismatchException),
     #[cfg(feature = "op_start_web_authn_registration")]
-/// <p>This exception is thrown when a user pool doesn't have a configured relying party id or a user pool domain.</p>
-    WebAuthnConfigurationMissingException(crate::types::error::WebAuthnConfigurationMissingException),
+    /// <p>This exception is thrown when a user pool doesn't have a configured relying party id or a user pool domain.</p>
+    WebAuthnConfigurationMissingException(
+        crate::types::error::WebAuthnConfigurationMissingException,
+    ),
     #[cfg(feature = "op_complete_web_authn_registration")]
-/// <p>This exception is thrown when a user presents passkey credentials from an unsupported device or provider.</p>
-    WebAuthnCredentialNotSupportedException(crate::types::error::WebAuthnCredentialNotSupportedException),
-    #[cfg(any(feature = "op_complete_web_authn_registration", feature = "op_start_web_authn_registration"))]
-/// <p>This exception is thrown when the passkey feature isn't enabled for the user pool.</p>
+    /// <p>This exception is thrown when a user presents passkey credentials from an unsupported device or provider.</p>
+    WebAuthnCredentialNotSupportedException(
+        crate::types::error::WebAuthnCredentialNotSupportedException,
+    ),
+    #[cfg(any(
+        feature = "op_complete_web_authn_registration",
+        feature = "op_start_web_authn_registration"
+    ))]
+    /// <p>This exception is thrown when the passkey feature isn't enabled for the user pool.</p>
     WebAuthnNotEnabledException(crate::types::error::WebAuthnNotEnabledException),
     #[cfg(feature = "op_complete_web_authn_registration")]
-/// <p>This exception is thrown when the passkey credential's registration origin does not align with the user pool relying party id.</p>
+    /// <p>This exception is thrown when the passkey credential's registration origin does not align with the user pool relying party id.</p>
     WebAuthnOriginNotAllowedException(crate::types::error::WebAuthnOriginNotAllowedException),
     #[cfg(feature = "op_complete_web_authn_registration")]
-/// <p>This exception is thrown when the given passkey credential is associated with a different relying party ID than the user pool relying party ID.</p>
-    WebAuthnRelyingPartyMismatchException(crate::types::error::WebAuthnRelyingPartyMismatchException),
+    /// <p>This exception is thrown when the given passkey credential is associated with a different relying party ID than the user pool relying party ID.</p>
+    WebAuthnRelyingPartyMismatchException(
+        crate::types::error::WebAuthnRelyingPartyMismatchException,
+    ),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(
+        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error."
+    )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             #[cfg(feature = "op_add_user_pool_client_secret")]
-Error::AccessDeniedException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_disable_provider_for_user", feature = "op_admin_link_provider_for_user", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_sign_up", feature = "op_respond_to_auth_challenge", feature = "op_update_user_attributes", feature = "op_verify_user_attribute"))]
-Error::AliasExistsException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_resend_confirmation_code", feature = "op_set_risk_configuration", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-Error::CodeDeliveryFailureException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_respond_to_auth_challenge", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::CodeMismatchException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_associate_software_token", feature = "op_create_managed_login_branding", feature = "op_create_terms", feature = "op_create_user_pool_domain", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_terms", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_set_user_pool_mfa_config", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_terms", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain"))]
-Error::ConcurrentModificationException(inner) => inner.fmt(f),
+            Error::AccessDeniedException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_confirm_sign_up",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::AliasExistsException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_resend_confirmation_code",
+                feature = "op_set_risk_configuration",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes"
+            ))]
+            Error::CodeDeliveryFailureException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::CodeMismatchException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_associate_software_token",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_terms",
+                feature = "op_create_user_pool_domain",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_terms",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_terms",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain"
+            ))]
+            Error::ConcurrentModificationException(inner) => inner.fmt(f),
             #[cfg(feature = "op_confirm_device")]
-Error::DeviceKeyExistsException(inner) => inner.fmt(f),
+            Error::DeviceKeyExistsException(inner) => inner.fmt(f),
             #[cfg(feature = "op_create_identity_provider")]
-Error::DuplicateProviderException(inner) => inner.fmt(f),
+            Error::DuplicateProviderException(inner) => inner.fmt(f),
             #[cfg(feature = "op_verify_software_token")]
-Error::EnableSoftwareTokenMfaException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_respond_to_auth_challenge", feature = "op_update_user_attributes", feature = "op_verify_user_attribute"))]
-Error::ExpiredCodeException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_set_log_delivery_configuration", feature = "op_set_user_pool_mfa_config", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain"))]
-Error::FeatureUnavailableInTierException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_web_authn_credential", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_device", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_web_authn_registration", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::ForbiddenException(inner) => inner.fmt(f),
+            Error::EnableSoftwareTokenMfaException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::ExpiredCodeException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain"
+            ))]
+            Error::FeatureUnavailableInTierException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_device",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_web_authn_registration",
+                feature = "op_update_device_status",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::ForbiddenException(inner) => inner.fmt(f),
             #[cfg(feature = "op_create_group")]
-Error::GroupExistsException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::InternalErrorException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_add_user_pool_client_secret", feature = "op_delete_user_pool_client_secret", feature = "op_list_user_pool_client_secrets"))]
-Error::InternalServerException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_create_user_pool", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_risk_configuration", feature = "op_sign_up", feature = "op_update_user_attributes", feature = "op_update_user_pool"))]
-Error::InvalidEmailRoleAccessPolicyException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-Error::InvalidLambdaResponseException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
-Error::InvalidOAuthFlowException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_add_user_pool_client_secret", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_client_secret", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_client_secrets", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::InvalidParameterException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_password", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_respond_to_auth_challenge", feature = "op_sign_up"))]
-Error::InvalidPasswordException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_create_user_pool", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_user_pool_mfa_config", feature = "op_sign_up", feature = "op_update_user_attributes", feature = "op_update_user_pool"))]
-Error::InvalidSmsRoleAccessPolicyException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_create_user_pool", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_user_pool_mfa_config", feature = "op_sign_up", feature = "op_update_user_attributes", feature = "op_update_user_pool"))]
-Error::InvalidSmsRoleTrustRelationshipException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_initiate_auth", feature = "op_admin_list_devices", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_device_status", feature = "op_confirm_device", feature = "op_forget_device", feature = "op_get_device", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_respond_to_auth_challenge", feature = "op_update_device_status", feature = "op_verify_software_token"))]
-Error::InvalidUserPoolConfigurationException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_add_user_pool_client_secret", feature = "op_admin_confirm_sign_up", feature = "op_admin_link_provider_for_user", feature = "op_admin_reset_user_password", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_user_pool_client_secret", feature = "op_delete_web_authn_credential", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_list_user_pool_client_secrets", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_sign_up", feature = "op_start_web_authn_registration", feature = "op_verify_user_attribute"))]
-Error::LimitExceededException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_respond_to_auth_challenge"))]
-Error::MfaMethodNotFoundException(inner) => inner.fmt(f),
+            Error::GroupExistsException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_signing_certificate",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_user_pools",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::InternalErrorException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_list_user_pool_client_secrets"
+            ))]
+            Error::InternalServerException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_create_user_pool",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_risk_configuration",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool"
+            ))]
+            Error::InvalidEmailRoleAccessPolicyException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_forgot_password",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes"
+            ))]
+            Error::InvalidLambdaResponseException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_user_pool_client",
+                feature = "op_update_user_pool_client"
+            ))]
+            Error::InvalidOAuthFlowException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_signing_certificate",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_client_secrets",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_user_pools",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::InvalidParameterException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_password",
+                feature = "op_change_password",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_sign_up"
+            ))]
+            Error::InvalidPasswordException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_create_user_pool",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool"
+            ))]
+            Error::InvalidSmsRoleAccessPolicyException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_create_user_pool",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool"
+            ))]
+            Error::InvalidSmsRoleTrustRelationshipException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_device_status",
+                feature = "op_confirm_device",
+                feature = "op_forget_device",
+                feature = "op_get_device",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_update_device_status",
+                feature = "op_verify_software_token"
+            ))]
+            Error::InvalidUserPoolConfigurationException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_reset_user_password",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_list_user_pool_client_secrets",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_sign_up",
+                feature = "op_start_web_authn_registration",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::LimitExceededException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_respond_to_auth_challenge"
+            ))]
+            Error::MfaMethodNotFoundException(inner) => inner.fmt(f),
             #[cfg(feature = "op_create_managed_login_branding")]
-Error::ManagedLoginBrandingExistsException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::NotAuthorizedException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_managed_login_branding", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::OperationNotEnabledException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_password", feature = "op_change_password", feature = "op_confirm_forgot_password", feature = "op_respond_to_auth_challenge"))]
-Error::PasswordHistoryPolicyViolationException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_web_authn_credential", feature = "op_forget_device", feature = "op_get_device", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_web_authn_credentials", feature = "op_respond_to_auth_challenge", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_start_web_authn_registration", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::PasswordResetRequiredException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_create_user_import_job", feature = "op_start_user_import_job", feature = "op_stop_user_import_job"))]
-Error::PreconditionNotMetException(inner) => inner.fmt(f),
+            Error::ManagedLoginBrandingExistsException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_user_pools",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::NotAuthorizedException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_signing_certificate",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::OperationNotEnabledException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_password",
+                feature = "op_change_password",
+                feature = "op_confirm_forgot_password",
+                feature = "op_respond_to_auth_challenge"
+            ))]
+            Error::PasswordHistoryPolicyViolationException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_forget_device",
+                feature = "op_get_device",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_settings",
+                feature = "op_start_web_authn_registration",
+                feature = "op_update_device_status",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::PasswordResetRequiredException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_create_user_import_job",
+                feature = "op_start_user_import_job",
+                feature = "op_stop_user_import_job"
+            ))]
+            Error::PreconditionNotMetException(inner) => inner.fmt(f),
             #[cfg(feature = "op_get_tokens_from_refresh_token")]
-Error::RefreshTokenReuseException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_add_user_pool_client_secret", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_client_secret", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_client_secrets", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::ResourceNotFoundException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
-Error::ScopeDoesNotExistException(inner) => inner.fmt(f),
+            Error::RefreshTokenReuseException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_signing_certificate",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_client_secrets",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::ResourceNotFoundException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_user_pool_client",
+                feature = "op_update_user_pool_client"
+            ))]
+            Error::ScopeDoesNotExistException(inner) => inner.fmt(f),
             #[cfg(feature = "op_update_provisioned_limit")]
-Error::ServiceQuotaExceededException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_associate_software_token", feature = "op_respond_to_auth_challenge", feature = "op_verify_software_token"))]
-Error::SoftwareTokenMfaNotFoundException(inner) => inner.fmt(f),
+            Error::ServiceQuotaExceededException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_associate_software_token",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_verify_software_token"
+            ))]
+            Error::SoftwareTokenMfaNotFoundException(inner) => inner.fmt(f),
             #[cfg(any(feature = "op_create_terms", feature = "op_update_terms"))]
-Error::TermsExistsException(inner) => inner.fmt(f),
+            Error::TermsExistsException(inner) => inner.fmt(f),
             #[cfg(any(feature = "op_create_user_pool", feature = "op_update_user_pool"))]
-Error::TierChangeNotAllowedException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up"))]
-Error::TooManyFailedAttemptsException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_add_user_pool_client_secret", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_password", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_client_secret", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_client_secrets", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_pool_mfa_config", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::TooManyRequestsException(inner) => inner.fmt(f),
+            Error::TierChangeNotAllowedException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up"
+            ))]
+            Error::TooManyFailedAttemptsException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_client_secrets",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_user_pools",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::TooManyRequestsException(inner) => inner.fmt(f),
             #[cfg(feature = "op_revoke_token")]
-Error::UnauthorizedException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-Error::UnexpectedLambdaException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_delete_identity_provider", feature = "op_update_identity_provider"))]
-Error::UnsupportedIdentityProviderException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_initiate_auth", feature = "op_revoke_token"))]
-Error::UnsupportedOperationException(inner) => inner.fmt(f),
+            Error::UnauthorizedException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_forgot_password",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes"
+            ))]
+            Error::UnexpectedLambdaException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_delete_identity_provider",
+                feature = "op_update_identity_provider"
+            ))]
+            Error::UnsupportedIdentityProviderException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_initiate_auth",
+                feature = "op_revoke_token"
+            ))]
+            Error::UnsupportedOperationException(inner) => inner.fmt(f),
             #[cfg(feature = "op_revoke_token")]
-Error::UnsupportedTokenTypeException(inner) => inner.fmt(f),
+            Error::UnsupportedTokenTypeException(inner) => inner.fmt(f),
             #[cfg(feature = "op_admin_create_user")]
-Error::UnsupportedUserStateException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_delete_user_pool", feature = "op_update_user_pool"))]
-Error::UserImportInProgressException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-Error::UserLambdaValidationException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_forget_device", feature = "op_get_device", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_respond_to_auth_challenge", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::UserNotConfirmedException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_device", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::UserNotFoundException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_list_user_auth_events", feature = "op_admin_update_auth_event_feedback", feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration", feature = "op_update_auth_event_feedback"))]
-Error::UserPoolAddOnNotEnabledException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_create_user_pool", feature = "op_create_user_pool_replica", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
-Error::UserPoolTaggingException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_confirm_device", feature = "op_sign_up"))]
-Error::UsernameExistsException(inner) => inner.fmt(f),
+            Error::UnsupportedUserStateException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_update_user_pool"
+            ))]
+            Error::UserImportInProgressException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_forgot_password",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes"
+            ))]
+            Error::UserLambdaValidationException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_change_password",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_forget_device",
+                feature = "op_get_device",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_settings",
+                feature = "op_update_device_status",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::UserNotConfirmedException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_change_password",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_device",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_settings",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::UserNotFoundException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_describe_risk_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_update_auth_event_feedback"
+            ))]
+            Error::UserPoolAddOnNotEnabledException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_replica",
+                feature = "op_describe_user_pool",
+                feature = "op_update_user_pool"
+            ))]
+            Error::UserPoolTaggingException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_confirm_device",
+                feature = "op_sign_up"
+            ))]
+            Error::UsernameExistsException(inner) => inner.fmt(f),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Error::WebAuthnChallengeNotFoundException(inner) => inner.fmt(f),
+            Error::WebAuthnChallengeNotFoundException(inner) => inner.fmt(f),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Error::WebAuthnClientMismatchException(inner) => inner.fmt(f),
+            Error::WebAuthnClientMismatchException(inner) => inner.fmt(f),
             #[cfg(feature = "op_start_web_authn_registration")]
-Error::WebAuthnConfigurationMissingException(inner) => inner.fmt(f),
+            Error::WebAuthnConfigurationMissingException(inner) => inner.fmt(f),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Error::WebAuthnCredentialNotSupportedException(inner) => inner.fmt(f),
-            #[cfg(any(feature = "op_complete_web_authn_registration", feature = "op_start_web_authn_registration"))]
-Error::WebAuthnNotEnabledException(inner) => inner.fmt(f),
+            Error::WebAuthnCredentialNotSupportedException(inner) => inner.fmt(f),
+            #[cfg(any(
+                feature = "op_complete_web_authn_registration",
+                feature = "op_start_web_authn_registration"
+            ))]
+            Error::WebAuthnNotEnabledException(inner) => inner.fmt(f),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Error::WebAuthnOriginNotAllowedException(inner) => inner.fmt(f),
+            Error::WebAuthnOriginNotAllowedException(inner) => inner.fmt(f),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Error::WebAuthnRelyingPartyMismatchException(inner) => inner.fmt(f),
+            Error::WebAuthnRelyingPartyMismatchException(inner) => inner.fmt(f),
             Error::Unhandled(_) => {
-                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                if let ::std::option::Option::Some(code) =
+                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+                {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -332,135 +2646,1296 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
     fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {
         match self {
             #[cfg(feature = "op_add_user_pool_client_secret")]
-Self::AccessDeniedException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_disable_provider_for_user", feature = "op_admin_link_provider_for_user", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_sign_up", feature = "op_respond_to_auth_challenge", feature = "op_update_user_attributes", feature = "op_verify_user_attribute"))]
-Self::AliasExistsException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_resend_confirmation_code", feature = "op_set_risk_configuration", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-Self::CodeDeliveryFailureException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_respond_to_auth_challenge", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::CodeMismatchException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_associate_software_token", feature = "op_create_managed_login_branding", feature = "op_create_terms", feature = "op_create_user_pool_domain", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_terms", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_set_user_pool_mfa_config", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_terms", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain"))]
-Self::ConcurrentModificationException(inner) => inner.meta(),
+            Self::AccessDeniedException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_confirm_sign_up",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::AliasExistsException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_resend_confirmation_code",
+                feature = "op_set_risk_configuration",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes"
+            ))]
+            Self::CodeDeliveryFailureException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::CodeMismatchException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_associate_software_token",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_terms",
+                feature = "op_create_user_pool_domain",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_terms",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_terms",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain"
+            ))]
+            Self::ConcurrentModificationException(inner) => inner.meta(),
             #[cfg(feature = "op_confirm_device")]
-Self::DeviceKeyExistsException(inner) => inner.meta(),
+            Self::DeviceKeyExistsException(inner) => inner.meta(),
             #[cfg(feature = "op_create_identity_provider")]
-Self::DuplicateProviderException(inner) => inner.meta(),
+            Self::DuplicateProviderException(inner) => inner.meta(),
             #[cfg(feature = "op_verify_software_token")]
-Self::EnableSoftwareTokenMfaException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_respond_to_auth_challenge", feature = "op_update_user_attributes", feature = "op_verify_user_attribute"))]
-Self::ExpiredCodeException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_set_log_delivery_configuration", feature = "op_set_user_pool_mfa_config", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain"))]
-Self::FeatureUnavailableInTierException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_web_authn_credential", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_device", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_web_authn_registration", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::ForbiddenException(inner) => inner.meta(),
+            Self::EnableSoftwareTokenMfaException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::ExpiredCodeException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain"
+            ))]
+            Self::FeatureUnavailableInTierException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_device",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_web_authn_registration",
+                feature = "op_update_device_status",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::ForbiddenException(inner) => inner.meta(),
             #[cfg(feature = "op_create_group")]
-Self::GroupExistsException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::InternalErrorException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_add_user_pool_client_secret", feature = "op_delete_user_pool_client_secret", feature = "op_list_user_pool_client_secrets"))]
-Self::InternalServerException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_create_user_pool", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_risk_configuration", feature = "op_sign_up", feature = "op_update_user_attributes", feature = "op_update_user_pool"))]
-Self::InvalidEmailRoleAccessPolicyException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-Self::InvalidLambdaResponseException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
-Self::InvalidOAuthFlowException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_add_user_pool_client_secret", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_client_secret", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_client_secrets", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::InvalidParameterException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_password", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_respond_to_auth_challenge", feature = "op_sign_up"))]
-Self::InvalidPasswordException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_create_user_pool", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_user_pool_mfa_config", feature = "op_sign_up", feature = "op_update_user_attributes", feature = "op_update_user_pool"))]
-Self::InvalidSmsRoleAccessPolicyException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_create_user_pool", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_user_pool_mfa_config", feature = "op_sign_up", feature = "op_update_user_attributes", feature = "op_update_user_pool"))]
-Self::InvalidSmsRoleTrustRelationshipException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_initiate_auth", feature = "op_admin_list_devices", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_device_status", feature = "op_confirm_device", feature = "op_forget_device", feature = "op_get_device", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_respond_to_auth_challenge", feature = "op_update_device_status", feature = "op_verify_software_token"))]
-Self::InvalidUserPoolConfigurationException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_add_user_pool_client_secret", feature = "op_admin_confirm_sign_up", feature = "op_admin_link_provider_for_user", feature = "op_admin_reset_user_password", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_user_pool_client_secret", feature = "op_delete_web_authn_credential", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_list_user_pool_client_secrets", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_sign_up", feature = "op_start_web_authn_registration", feature = "op_verify_user_attribute"))]
-Self::LimitExceededException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_respond_to_auth_challenge"))]
-Self::MfaMethodNotFoundException(inner) => inner.meta(),
+            Self::GroupExistsException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_signing_certificate",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_user_pools",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::InternalErrorException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_list_user_pool_client_secrets"
+            ))]
+            Self::InternalServerException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_create_user_pool",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_risk_configuration",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool"
+            ))]
+            Self::InvalidEmailRoleAccessPolicyException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_forgot_password",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes"
+            ))]
+            Self::InvalidLambdaResponseException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_user_pool_client",
+                feature = "op_update_user_pool_client"
+            ))]
+            Self::InvalidOAuthFlowException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_signing_certificate",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_client_secrets",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_user_pools",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::InvalidParameterException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_password",
+                feature = "op_change_password",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_sign_up"
+            ))]
+            Self::InvalidPasswordException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_create_user_pool",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool"
+            ))]
+            Self::InvalidSmsRoleAccessPolicyException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_create_user_pool",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool"
+            ))]
+            Self::InvalidSmsRoleTrustRelationshipException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_device_status",
+                feature = "op_confirm_device",
+                feature = "op_forget_device",
+                feature = "op_get_device",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_update_device_status",
+                feature = "op_verify_software_token"
+            ))]
+            Self::InvalidUserPoolConfigurationException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_reset_user_password",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_list_user_pool_client_secrets",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_sign_up",
+                feature = "op_start_web_authn_registration",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::LimitExceededException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_respond_to_auth_challenge"
+            ))]
+            Self::MfaMethodNotFoundException(inner) => inner.meta(),
             #[cfg(feature = "op_create_managed_login_branding")]
-Self::ManagedLoginBrandingExistsException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::NotAuthorizedException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_managed_login_branding", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::OperationNotEnabledException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_password", feature = "op_change_password", feature = "op_confirm_forgot_password", feature = "op_respond_to_auth_challenge"))]
-Self::PasswordHistoryPolicyViolationException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_web_authn_credential", feature = "op_forget_device", feature = "op_get_device", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_web_authn_credentials", feature = "op_respond_to_auth_challenge", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_start_web_authn_registration", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::PasswordResetRequiredException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_create_user_import_job", feature = "op_start_user_import_job", feature = "op_stop_user_import_job"))]
-Self::PreconditionNotMetException(inner) => inner.meta(),
+            Self::ManagedLoginBrandingExistsException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_user_pools",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::NotAuthorizedException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_signing_certificate",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::OperationNotEnabledException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_password",
+                feature = "op_change_password",
+                feature = "op_confirm_forgot_password",
+                feature = "op_respond_to_auth_challenge"
+            ))]
+            Self::PasswordHistoryPolicyViolationException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_forget_device",
+                feature = "op_get_device",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_settings",
+                feature = "op_start_web_authn_registration",
+                feature = "op_update_device_status",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::PasswordResetRequiredException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_create_user_import_job",
+                feature = "op_start_user_import_job",
+                feature = "op_stop_user_import_job"
+            ))]
+            Self::PreconditionNotMetException(inner) => inner.meta(),
             #[cfg(feature = "op_get_tokens_from_refresh_token")]
-Self::RefreshTokenReuseException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_add_user_pool_client_secret", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_client_secret", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_client_secrets", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::ResourceNotFoundException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
-Self::ScopeDoesNotExistException(inner) => inner.meta(),
+            Self::RefreshTokenReuseException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_signing_certificate",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_client_secrets",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::ResourceNotFoundException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_user_pool_client",
+                feature = "op_update_user_pool_client"
+            ))]
+            Self::ScopeDoesNotExistException(inner) => inner.meta(),
             #[cfg(feature = "op_update_provisioned_limit")]
-Self::ServiceQuotaExceededException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_associate_software_token", feature = "op_respond_to_auth_challenge", feature = "op_verify_software_token"))]
-Self::SoftwareTokenMfaNotFoundException(inner) => inner.meta(),
+            Self::ServiceQuotaExceededException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_associate_software_token",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_verify_software_token"
+            ))]
+            Self::SoftwareTokenMfaNotFoundException(inner) => inner.meta(),
             #[cfg(any(feature = "op_create_terms", feature = "op_update_terms"))]
-Self::TermsExistsException(inner) => inner.meta(),
+            Self::TermsExistsException(inner) => inner.meta(),
             #[cfg(any(feature = "op_create_user_pool", feature = "op_update_user_pool"))]
-Self::TierChangeNotAllowedException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up"))]
-Self::TooManyFailedAttemptsException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_add_user_pool_client_secret", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_password", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_client_secret", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_client_secrets", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_pool_mfa_config", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::TooManyRequestsException(inner) => inner.meta(),
+            Self::TierChangeNotAllowedException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up"
+            ))]
+            Self::TooManyFailedAttemptsException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_client_secrets",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_user_pools",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::TooManyRequestsException(inner) => inner.meta(),
             #[cfg(feature = "op_revoke_token")]
-Self::UnauthorizedException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-Self::UnexpectedLambdaException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_delete_identity_provider", feature = "op_update_identity_provider"))]
-Self::UnsupportedIdentityProviderException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_initiate_auth", feature = "op_revoke_token"))]
-Self::UnsupportedOperationException(inner) => inner.meta(),
+            Self::UnauthorizedException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_forgot_password",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes"
+            ))]
+            Self::UnexpectedLambdaException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_delete_identity_provider",
+                feature = "op_update_identity_provider"
+            ))]
+            Self::UnsupportedIdentityProviderException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_initiate_auth",
+                feature = "op_revoke_token"
+            ))]
+            Self::UnsupportedOperationException(inner) => inner.meta(),
             #[cfg(feature = "op_revoke_token")]
-Self::UnsupportedTokenTypeException(inner) => inner.meta(),
+            Self::UnsupportedTokenTypeException(inner) => inner.meta(),
             #[cfg(feature = "op_admin_create_user")]
-Self::UnsupportedUserStateException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_delete_user_pool", feature = "op_update_user_pool"))]
-Self::UserImportInProgressException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-Self::UserLambdaValidationException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_forget_device", feature = "op_get_device", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_respond_to_auth_challenge", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::UserNotConfirmedException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_device", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::UserNotFoundException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_list_user_auth_events", feature = "op_admin_update_auth_event_feedback", feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration", feature = "op_update_auth_event_feedback"))]
-Self::UserPoolAddOnNotEnabledException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_create_user_pool", feature = "op_create_user_pool_replica", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
-Self::UserPoolTaggingException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_confirm_device", feature = "op_sign_up"))]
-Self::UsernameExistsException(inner) => inner.meta(),
+            Self::UnsupportedUserStateException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_update_user_pool"
+            ))]
+            Self::UserImportInProgressException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_forgot_password",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes"
+            ))]
+            Self::UserLambdaValidationException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_change_password",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_forget_device",
+                feature = "op_get_device",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_settings",
+                feature = "op_update_device_status",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::UserNotConfirmedException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_change_password",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_device",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_settings",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::UserNotFoundException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_describe_risk_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_update_auth_event_feedback"
+            ))]
+            Self::UserPoolAddOnNotEnabledException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_replica",
+                feature = "op_describe_user_pool",
+                feature = "op_update_user_pool"
+            ))]
+            Self::UserPoolTaggingException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_confirm_device",
+                feature = "op_sign_up"
+            ))]
+            Self::UsernameExistsException(inner) => inner.meta(),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Self::WebAuthnChallengeNotFoundException(inner) => inner.meta(),
+            Self::WebAuthnChallengeNotFoundException(inner) => inner.meta(),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Self::WebAuthnClientMismatchException(inner) => inner.meta(),
+            Self::WebAuthnClientMismatchException(inner) => inner.meta(),
             #[cfg(feature = "op_start_web_authn_registration")]
-Self::WebAuthnConfigurationMissingException(inner) => inner.meta(),
+            Self::WebAuthnConfigurationMissingException(inner) => inner.meta(),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Self::WebAuthnCredentialNotSupportedException(inner) => inner.meta(),
-            #[cfg(any(feature = "op_complete_web_authn_registration", feature = "op_start_web_authn_registration"))]
-Self::WebAuthnNotEnabledException(inner) => inner.meta(),
+            Self::WebAuthnCredentialNotSupportedException(inner) => inner.meta(),
+            #[cfg(any(
+                feature = "op_complete_web_authn_registration",
+                feature = "op_start_web_authn_registration"
+            ))]
+            Self::WebAuthnNotEnabledException(inner) => inner.meta(),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Self::WebAuthnOriginNotAllowedException(inner) => inner.meta(),
+            Self::WebAuthnOriginNotAllowedException(inner) => inner.meta(),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Self::WebAuthnRelyingPartyMismatchException(inner) => inner.meta(),
+            Self::WebAuthnRelyingPartyMismatchException(inner) => inner.meta(),
             Self::Unhandled(inner) => &inner.meta,
         }
     }
 }
 #[cfg(feature = "op_add_custom_attributes")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_custom_attributes::AddCustomAttributesError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::add_custom_attributes::AddCustomAttributesError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_custom_attributes::AddCustomAttributesError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::add_custom_attributes::AddCustomAttributesError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -494,16 +3969,26 @@ impl From<crate::operation::add_custom_attributes::AddCustomAttributesError> for
     }
 }
 #[cfg(feature = "op_add_user_pool_client_secret")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -513,7 +3998,9 @@ where
 }
 #[cfg(feature = "op_add_user_pool_client_secret")]
 impl From<crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError> for Error {
-    fn from(err: crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError) -> Self {
+    fn from(
+        err: crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError,
+    ) -> Self {
         match err {
             crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -538,13 +4025,26 @@ impl From<crate::operation::add_user_pool_client_secret::AddUserPoolClientSecret
     }
 }
 #[cfg(feature = "op_admin_add_user_to_group")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_add_user_to_group::AdminAddUserToGroupError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_add_user_to_group::AdminAddUserToGroupError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_add_user_to_group::AdminAddUserToGroupError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_add_user_to_group::AdminAddUserToGroupError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -580,13 +4080,26 @@ impl From<crate::operation::admin_add_user_to_group::AdminAddUserToGroupError> f
     }
 }
 #[cfg(feature = "op_admin_confirm_sign_up")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -631,13 +4144,26 @@ impl From<crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError> for 
     }
 }
 #[cfg(feature = "op_admin_create_user")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_create_user::AdminCreateUserError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_create_user::AdminCreateUserError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_create_user::AdminCreateUserError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_create_user::AdminCreateUserError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -687,13 +4213,26 @@ impl From<crate::operation::admin_create_user::AdminCreateUserError> for Error {
     }
 }
 #[cfg(feature = "op_admin_delete_user")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_delete_user::AdminDeleteUserError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_delete_user::AdminDeleteUserError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_delete_user::AdminDeleteUserError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_delete_user::AdminDeleteUserError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -719,16 +4258,26 @@ impl From<crate::operation::admin_delete_user::AdminDeleteUserError> for Error {
     }
 }
 #[cfg(feature = "op_admin_delete_user_attributes")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributesError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributesError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributesError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributesError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -737,8 +4286,12 @@ where
     }
 }
 #[cfg(feature = "op_admin_delete_user_attributes")]
-impl From<crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributesError> for Error {
-    fn from(err: crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributesError) -> Self {
+impl From<crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributesError>
+    for Error
+{
+    fn from(
+        err: crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributesError,
+    ) -> Self {
         match err {
             crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributesError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -767,8 +4320,12 @@ impl From<crate::operation::admin_delete_user_attributes::AdminDeleteUserAttribu
 }
 #[cfg(feature = "op_admin_disable_provider_for_user")]
 impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserError, R>>
-    for Error
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -779,7 +4336,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -788,8 +4347,12 @@ where
     }
 }
 #[cfg(feature = "op_admin_disable_provider_for_user")]
-impl From<crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserError> for Error {
-    fn from(err: crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserError) -> Self {
+impl From<crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserError>
+    for Error
+{
+    fn from(
+        err: crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserError,
+    ) -> Self {
         match err {
             crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserError::AliasExistsException(inner) => {
                 Error::AliasExistsException(inner)
@@ -820,13 +4383,26 @@ impl From<crate::operation::admin_disable_provider_for_user::AdminDisableProvide
     }
 }
 #[cfg(feature = "op_admin_disable_user")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_disable_user::AdminDisableUserError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_disable_user::AdminDisableUserError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_disable_user::AdminDisableUserError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_disable_user::AdminDisableUserError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -852,13 +4428,26 @@ impl From<crate::operation::admin_disable_user::AdminDisableUserError> for Error
     }
 }
 #[cfg(feature = "op_admin_enable_user")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_enable_user::AdminEnableUserError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_enable_user::AdminEnableUserError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_enable_user::AdminEnableUserError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_enable_user::AdminEnableUserError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -884,13 +4473,26 @@ impl From<crate::operation::admin_enable_user::AdminEnableUserError> for Error {
     }
 }
 #[cfg(feature = "op_admin_forget_device")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_forget_device::AdminForgetDeviceError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_forget_device::AdminForgetDeviceError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_forget_device::AdminForgetDeviceError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_forget_device::AdminForgetDeviceError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -923,13 +4525,26 @@ impl From<crate::operation::admin_forget_device::AdminForgetDeviceError> for Err
     }
 }
 #[cfg(feature = "op_admin_get_device")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_get_device::AdminGetDeviceError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_get_device::AdminGetDeviceError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_get_device::AdminGetDeviceError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_get_device::AdminGetDeviceError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -957,13 +4572,26 @@ impl From<crate::operation::admin_get_device::AdminGetDeviceError> for Error {
     }
 }
 #[cfg(feature = "op_admin_get_user")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_get_user::AdminGetUserError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_get_user::AdminGetUserError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_get_user::AdminGetUserError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_get_user::AdminGetUserError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -975,28 +4603,54 @@ where
 impl From<crate::operation::admin_get_user::AdminGetUserError> for Error {
     fn from(err: crate::operation::admin_get_user::AdminGetUserError) -> Self {
         match err {
-            crate::operation::admin_get_user::AdminGetUserError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::admin_get_user::AdminGetUserError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::admin_get_user::AdminGetUserError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::admin_get_user::AdminGetUserError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::admin_get_user::AdminGetUserError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::admin_get_user::AdminGetUserError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::admin_get_user::AdminGetUserError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
-            crate::operation::admin_get_user::AdminGetUserError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::admin_get_user::AdminGetUserError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::admin_get_user::AdminGetUserError::InvalidParameterException(
+                inner,
+            ) => Error::InvalidParameterException(inner),
+            crate::operation::admin_get_user::AdminGetUserError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::admin_get_user::AdminGetUserError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::admin_get_user::AdminGetUserError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::admin_get_user::AdminGetUserError::TooManyRequestsException(
+                inner,
+            ) => Error::TooManyRequestsException(inner),
+            crate::operation::admin_get_user::AdminGetUserError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
+            crate::operation::admin_get_user::AdminGetUserError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_admin_get_user_auth_factors")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1006,7 +4660,9 @@ where
 }
 #[cfg(feature = "op_admin_get_user_auth_factors")]
 impl From<crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError> for Error {
-    fn from(err: crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError) -> Self {
+    fn from(
+        err: crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError,
+    ) -> Self {
         match err {
             crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -1034,13 +4690,26 @@ impl From<crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactors
     }
 }
 #[cfg(feature = "op_admin_initiate_auth")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_initiate_auth::AdminInitiateAuthError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_initiate_auth::AdminInitiateAuthError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1103,16 +4772,26 @@ impl From<crate::operation::admin_initiate_auth::AdminInitiateAuthError> for Err
     }
 }
 #[cfg(feature = "op_admin_link_provider_for_user")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1122,7 +4801,9 @@ where
 }
 #[cfg(feature = "op_admin_link_provider_for_user")]
 impl From<crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserError> for Error {
-    fn from(err: crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserError) -> Self {
+    fn from(
+        err: crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserError,
+    ) -> Self {
         match err {
             crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserError::AliasExistsException(inner) => {
                 Error::AliasExistsException(inner)
@@ -1156,13 +4837,26 @@ impl From<crate::operation::admin_link_provider_for_user::AdminLinkProviderForUs
     }
 }
 #[cfg(feature = "op_admin_list_devices")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_list_devices::AdminListDevicesError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_list_devices::AdminListDevicesError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_list_devices::AdminListDevicesError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_list_devices::AdminListDevicesError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1190,16 +4884,26 @@ impl From<crate::operation::admin_list_devices::AdminListDevicesError> for Error
     }
 }
 #[cfg(feature = "op_admin_list_groups_for_user")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1209,7 +4913,9 @@ where
 }
 #[cfg(feature = "op_admin_list_groups_for_user")]
 impl From<crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError> for Error {
-    fn from(err: crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError) -> Self {
+    fn from(
+        err: crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError,
+    ) -> Self {
         match err {
             crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -1237,16 +4943,26 @@ impl From<crate::operation::admin_list_groups_for_user::AdminListGroupsForUserEr
     }
 }
 #[cfg(feature = "op_admin_list_user_auth_events")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1256,7 +4972,9 @@ where
 }
 #[cfg(feature = "op_admin_list_user_auth_events")]
 impl From<crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsError> for Error {
-    fn from(err: crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsError) -> Self {
+    fn from(
+        err: crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsError,
+    ) -> Self {
         match err {
             crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -1287,16 +5005,26 @@ impl From<crate::operation::admin_list_user_auth_events::AdminListUserAuthEvents
     }
 }
 #[cfg(feature = "op_admin_remove_user_from_group")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1306,7 +5034,9 @@ where
 }
 #[cfg(feature = "op_admin_remove_user_from_group")]
 impl From<crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupError> for Error {
-    fn from(err: crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupError) -> Self {
+    fn from(
+        err: crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupError,
+    ) -> Self {
         match err {
             crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -1334,16 +5064,26 @@ impl From<crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGro
     }
 }
 #[cfg(feature = "op_admin_reset_user_password")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_reset_user_password::AdminResetUserPasswordError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_reset_user_password::AdminResetUserPasswordError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_reset_user_password::AdminResetUserPasswordError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_reset_user_password::AdminResetUserPasswordError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1403,8 +5143,12 @@ impl From<crate::operation::admin_reset_user_password::AdminResetUserPasswordErr
 }
 #[cfg(feature = "op_admin_respond_to_auth_challenge")]
 impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError, R>>
-    for Error
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -1415,7 +5159,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1424,8 +5170,12 @@ where
     }
 }
 #[cfg(feature = "op_admin_respond_to_auth_challenge")]
-impl From<crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError> for Error {
-    fn from(err: crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError) -> Self {
+impl From<crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError>
+    for Error
+{
+    fn from(
+        err: crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError,
+    ) -> Self {
         match err {
             crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::AliasExistsException(inner) => {
                 Error::AliasExistsException(inner)
@@ -1501,16 +5251,26 @@ impl From<crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthC
     }
 }
 #[cfg(feature = "op_admin_set_user_mfa_preference")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1519,8 +5279,12 @@ where
     }
 }
 #[cfg(feature = "op_admin_set_user_mfa_preference")]
-impl From<crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError> for Error {
-    fn from(err: crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError) -> Self {
+impl From<crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError>
+    for Error
+{
+    fn from(
+        err: crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError,
+    ) -> Self {
         match err {
             crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -1551,15 +5315,26 @@ impl From<crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPrefer
     }
 }
 #[cfg(feature = "op_admin_set_user_password")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_set_user_password::AdminSetUserPasswordError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_set_user_password::AdminSetUserPasswordError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_set_user_password::AdminSetUserPasswordError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_set_user_password::AdminSetUserPasswordError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1601,15 +5376,26 @@ impl From<crate::operation::admin_set_user_password::AdminSetUserPasswordError> 
     }
 }
 #[cfg(feature = "op_admin_set_user_settings")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_set_user_settings::AdminSetUserSettingsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_set_user_settings::AdminSetUserSettingsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_set_user_settings::AdminSetUserSettingsError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_set_user_settings::AdminSetUserSettingsError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1643,8 +5429,12 @@ impl From<crate::operation::admin_set_user_settings::AdminSetUserSettingsError> 
 }
 #[cfg(feature = "op_admin_update_auth_event_feedback")]
 impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError, R>>
-    for Error
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -1655,7 +5445,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1664,8 +5456,12 @@ where
     }
 }
 #[cfg(feature = "op_admin_update_auth_event_feedback")]
-impl From<crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError> for Error {
-    fn from(err: crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError) -> Self {
+impl From<crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError>
+    for Error
+{
+    fn from(
+        err: crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError,
+    ) -> Self {
         match err {
             crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -1696,16 +5492,26 @@ impl From<crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEve
     }
 }
 #[cfg(feature = "op_admin_update_device_status")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1715,7 +5521,9 @@ where
 }
 #[cfg(feature = "op_admin_update_device_status")]
 impl From<crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError> for Error {
-    fn from(err: crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError) -> Self {
+    fn from(
+        err: crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError,
+    ) -> Self {
         match err {
             crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -1746,16 +5554,26 @@ impl From<crate::operation::admin_update_device_status::AdminUpdateDeviceStatusE
     }
 }
 #[cfg(feature = "op_admin_update_user_attributes")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1764,8 +5582,12 @@ where
     }
 }
 #[cfg(feature = "op_admin_update_user_attributes")]
-impl From<crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError> for Error {
-    fn from(err: crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError) -> Self {
+impl From<crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError>
+    for Error
+{
+    fn from(
+        err: crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError,
+    ) -> Self {
         match err {
             crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::AliasExistsException(inner) => {
                 Error::AliasExistsException(inner)
@@ -1814,16 +5636,26 @@ impl From<crate::operation::admin_update_user_attributes::AdminUpdateUserAttribu
     }
 }
 #[cfg(feature = "op_admin_user_global_sign_out")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1833,7 +5665,9 @@ where
 }
 #[cfg(feature = "op_admin_user_global_sign_out")]
 impl From<crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError> for Error {
-    fn from(err: crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError) -> Self {
+    fn from(
+        err: crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError,
+    ) -> Self {
         match err {
             crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -1861,15 +5695,26 @@ impl From<crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutEr
     }
 }
 #[cfg(feature = "op_associate_software_token")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::associate_software_token::AssociateSoftwareTokenError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::associate_software_token::AssociateSoftwareTokenError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::associate_software_token::AssociateSoftwareTokenError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::associate_software_token::AssociateSoftwareTokenError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1908,13 +5753,26 @@ impl From<crate::operation::associate_software_token::AssociateSoftwareTokenErro
     }
 }
 #[cfg(feature = "op_change_password")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::change_password::ChangePasswordError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::change_password::ChangePasswordError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::change_password::ChangePasswordError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::change_password::ChangePasswordError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1949,8 +5807,12 @@ impl From<crate::operation::change_password::ChangePasswordError> for Error {
 }
 #[cfg(feature = "op_complete_web_authn_registration")]
 impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError, R>>
-    for Error
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -1961,7 +5823,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1970,8 +5834,12 @@ where
     }
 }
 #[cfg(feature = "op_complete_web_authn_registration")]
-impl From<crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError> for Error {
-    fn from(err: crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError) -> Self {
+impl From<crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError>
+    for Error
+{
+    fn from(
+        err: crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError,
+    ) -> Self {
         match err {
             crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::ForbiddenException(inner) => {
                 Error::ForbiddenException(inner)
@@ -2020,13 +5888,26 @@ impl From<crate::operation::complete_web_authn_registration::CompleteWebAuthnReg
     }
 }
 #[cfg(feature = "op_confirm_device")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::confirm_device::ConfirmDeviceError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::confirm_device::ConfirmDeviceError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::confirm_device::ConfirmDeviceError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::confirm_device::ConfirmDeviceError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2064,15 +5945,26 @@ impl From<crate::operation::confirm_device::ConfirmDeviceError> for Error {
     }
 }
 #[cfg(feature = "op_confirm_forgot_password")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::confirm_forgot_password::ConfirmForgotPasswordError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::confirm_forgot_password::ConfirmForgotPasswordError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::confirm_forgot_password::ConfirmForgotPasswordError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::confirm_forgot_password::ConfirmForgotPasswordError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2139,13 +6031,26 @@ impl From<crate::operation::confirm_forgot_password::ConfirmForgotPasswordError>
     }
 }
 #[cfg(feature = "op_confirm_sign_up")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::confirm_sign_up::ConfirmSignUpError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::confirm_sign_up::ConfirmSignUpError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::confirm_sign_up::ConfirmSignUpError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::confirm_sign_up::ConfirmSignUpError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2184,13 +6089,26 @@ impl From<crate::operation::confirm_sign_up::ConfirmSignUpError> for Error {
     }
 }
 #[cfg(feature = "op_create_group")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_group::CreateGroupError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_group::CreateGroupError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_group::CreateGroupError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_group::CreateGroupError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2202,28 +6120,57 @@ where
 impl From<crate::operation::create_group::CreateGroupError> for Error {
     fn from(err: crate::operation::create_group::CreateGroupError) -> Self {
         match err {
-            crate::operation::create_group::CreateGroupError::GroupExistsException(inner) => Error::GroupExistsException(inner),
-            crate::operation::create_group::CreateGroupError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::create_group::CreateGroupError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::create_group::CreateGroupError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::create_group::CreateGroupError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::create_group::CreateGroupError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::create_group::CreateGroupError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::create_group::CreateGroupError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::create_group::CreateGroupError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::create_group::CreateGroupError::GroupExistsException(inner) => {
+                Error::GroupExistsException(inner)
+            }
+            crate::operation::create_group::CreateGroupError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::create_group::CreateGroupError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::create_group::CreateGroupError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::create_group::CreateGroupError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::create_group::CreateGroupError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::create_group::CreateGroupError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::create_group::CreateGroupError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::create_group::CreateGroupError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_create_identity_provider")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_identity_provider::CreateIdentityProviderError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_identity_provider::CreateIdentityProviderError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_identity_provider::CreateIdentityProviderError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_identity_provider::CreateIdentityProviderError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2261,16 +6208,26 @@ impl From<crate::operation::create_identity_provider::CreateIdentityProviderErro
     }
 }
 #[cfg(feature = "op_create_managed_login_branding")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_managed_login_branding::CreateManagedLoginBrandingError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_managed_login_branding::CreateManagedLoginBrandingError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_managed_login_branding::CreateManagedLoginBrandingError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_managed_login_branding::CreateManagedLoginBrandingError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2279,8 +6236,12 @@ where
     }
 }
 #[cfg(feature = "op_create_managed_login_branding")]
-impl From<crate::operation::create_managed_login_branding::CreateManagedLoginBrandingError> for Error {
-    fn from(err: crate::operation::create_managed_login_branding::CreateManagedLoginBrandingError) -> Self {
+impl From<crate::operation::create_managed_login_branding::CreateManagedLoginBrandingError>
+    for Error
+{
+    fn from(
+        err: crate::operation::create_managed_login_branding::CreateManagedLoginBrandingError,
+    ) -> Self {
         match err {
             crate::operation::create_managed_login_branding::CreateManagedLoginBrandingError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -2314,13 +6275,26 @@ impl From<crate::operation::create_managed_login_branding::CreateManagedLoginBra
     }
 }
 #[cfg(feature = "op_create_resource_server")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_resource_server::CreateResourceServerError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_resource_server::CreateResourceServerError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_resource_server::CreateResourceServerError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_resource_server::CreateResourceServerError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2358,13 +6332,26 @@ impl From<crate::operation::create_resource_server::CreateResourceServerError> f
     }
 }
 #[cfg(feature = "op_create_terms")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_terms::CreateTermsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_terms::CreateTermsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_terms::CreateTermsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_terms::CreateTermsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2376,27 +6363,60 @@ where
 impl From<crate::operation::create_terms::CreateTermsError> for Error {
     fn from(err: crate::operation::create_terms::CreateTermsError) -> Self {
         match err {
-            crate::operation::create_terms::CreateTermsError::ConcurrentModificationException(inner) => Error::ConcurrentModificationException(inner),
-            crate::operation::create_terms::CreateTermsError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::create_terms::CreateTermsError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::create_terms::CreateTermsError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::create_terms::CreateTermsError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::create_terms::CreateTermsError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::create_terms::CreateTermsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::create_terms::CreateTermsError::TermsExistsException(inner) => Error::TermsExistsException(inner),
-            crate::operation::create_terms::CreateTermsError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::create_terms::CreateTermsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::create_terms::CreateTermsError::ConcurrentModificationException(
+                inner,
+            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::create_terms::CreateTermsError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::create_terms::CreateTermsError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::create_terms::CreateTermsError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::create_terms::CreateTermsError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::create_terms::CreateTermsError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::create_terms::CreateTermsError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::create_terms::CreateTermsError::TermsExistsException(inner) => {
+                Error::TermsExistsException(inner)
+            }
+            crate::operation::create_terms::CreateTermsError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::create_terms::CreateTermsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_create_user_import_job")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_user_import_job::CreateUserImportJobError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_user_import_job::CreateUserImportJobError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_user_import_job::CreateUserImportJobError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_user_import_job::CreateUserImportJobError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2431,13 +6451,26 @@ impl From<crate::operation::create_user_import_job::CreateUserImportJobError> fo
     }
 }
 #[cfg(feature = "op_create_user_pool")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_user_pool::CreateUserPoolError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_user_pool::CreateUserPoolError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_user_pool::CreateUserPoolError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_user_pool::CreateUserPoolError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2475,15 +6508,26 @@ impl From<crate::operation::create_user_pool::CreateUserPoolError> for Error {
     }
 }
 #[cfg(feature = "op_create_user_pool_client")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_user_pool_client::CreateUserPoolClientError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_user_pool_client::CreateUserPoolClientError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_user_pool_client::CreateUserPoolClientError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_user_pool_client::CreateUserPoolClientError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2530,15 +6574,26 @@ impl From<crate::operation::create_user_pool_client::CreateUserPoolClientError> 
     }
 }
 #[cfg(feature = "op_create_user_pool_domain")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_user_pool_domain::CreateUserPoolDomainError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_user_pool_domain::CreateUserPoolDomainError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_user_pool_domain::CreateUserPoolDomainError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_user_pool_domain::CreateUserPoolDomainError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2579,15 +6634,26 @@ impl From<crate::operation::create_user_pool_domain::CreateUserPoolDomainError> 
     }
 }
 #[cfg(feature = "op_create_user_pool_replica")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_user_pool_replica::CreateUserPoolReplicaError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_user_pool_replica::CreateUserPoolReplicaError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_user_pool_replica::CreateUserPoolReplicaError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::create_user_pool_replica::CreateUserPoolReplicaError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2631,13 +6697,26 @@ impl From<crate::operation::create_user_pool_replica::CreateUserPoolReplicaError
     }
 }
 #[cfg(feature = "op_delete_group")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_group::DeleteGroupError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_group::DeleteGroupError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_group::DeleteGroupError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_group::DeleteGroupError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2649,26 +6728,51 @@ where
 impl From<crate::operation::delete_group::DeleteGroupError> for Error {
     fn from(err: crate::operation::delete_group::DeleteGroupError) -> Self {
         match err {
-            crate::operation::delete_group::DeleteGroupError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::delete_group::DeleteGroupError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::delete_group::DeleteGroupError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::delete_group::DeleteGroupError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::delete_group::DeleteGroupError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::delete_group::DeleteGroupError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::delete_group::DeleteGroupError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::delete_group::DeleteGroupError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::delete_group::DeleteGroupError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::delete_group::DeleteGroupError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::delete_group::DeleteGroupError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::delete_group::DeleteGroupError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::delete_group::DeleteGroupError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::delete_group::DeleteGroupError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_delete_identity_provider")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_identity_provider::DeleteIdentityProviderError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_identity_provider::DeleteIdentityProviderError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_identity_provider::DeleteIdentityProviderError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_identity_provider::DeleteIdentityProviderError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2706,16 +6810,26 @@ impl From<crate::operation::delete_identity_provider::DeleteIdentityProviderErro
     }
 }
 #[cfg(feature = "op_delete_managed_login_branding")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2724,8 +6838,12 @@ where
     }
 }
 #[cfg(feature = "op_delete_managed_login_branding")]
-impl From<crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError> for Error {
-    fn from(err: crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError) -> Self {
+impl From<crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError>
+    for Error
+{
+    fn from(
+        err: crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError,
+    ) -> Self {
         match err {
             crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -2753,13 +6871,26 @@ impl From<crate::operation::delete_managed_login_branding::DeleteManagedLoginBra
     }
 }
 #[cfg(feature = "op_delete_resource_server")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_resource_server::DeleteResourceServerError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_resource_server::DeleteResourceServerError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_resource_server::DeleteResourceServerError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_resource_server::DeleteResourceServerError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2794,13 +6925,26 @@ impl From<crate::operation::delete_resource_server::DeleteResourceServerError> f
     }
 }
 #[cfg(feature = "op_delete_terms")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_terms::DeleteTermsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_terms::DeleteTermsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_terms::DeleteTermsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_terms::DeleteTermsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2812,25 +6956,54 @@ where
 impl From<crate::operation::delete_terms::DeleteTermsError> for Error {
     fn from(err: crate::operation::delete_terms::DeleteTermsError) -> Self {
         match err {
-            crate::operation::delete_terms::DeleteTermsError::ConcurrentModificationException(inner) => Error::ConcurrentModificationException(inner),
-            crate::operation::delete_terms::DeleteTermsError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::delete_terms::DeleteTermsError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::delete_terms::DeleteTermsError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::delete_terms::DeleteTermsError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::delete_terms::DeleteTermsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::delete_terms::DeleteTermsError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::delete_terms::DeleteTermsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::delete_terms::DeleteTermsError::ConcurrentModificationException(
+                inner,
+            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::delete_terms::DeleteTermsError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::delete_terms::DeleteTermsError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::delete_terms::DeleteTermsError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::delete_terms::DeleteTermsError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::delete_terms::DeleteTermsError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::delete_terms::DeleteTermsError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::delete_terms::DeleteTermsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_delete_user")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user::DeleteUserError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_user::DeleteUserError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user::DeleteUserError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_user::DeleteUserError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2842,28 +7015,63 @@ where
 impl From<crate::operation::delete_user::DeleteUserError> for Error {
     fn from(err: crate::operation::delete_user::DeleteUserError) -> Self {
         match err {
-            crate::operation::delete_user::DeleteUserError::ForbiddenException(inner) => Error::ForbiddenException(inner),
-            crate::operation::delete_user::DeleteUserError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::delete_user::DeleteUserError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::delete_user::DeleteUserError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::delete_user::DeleteUserError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::delete_user::DeleteUserError::PasswordResetRequiredException(inner) => Error::PasswordResetRequiredException(inner),
-            crate::operation::delete_user::DeleteUserError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::delete_user::DeleteUserError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::delete_user::DeleteUserError::UserNotConfirmedException(inner) => Error::UserNotConfirmedException(inner),
-            crate::operation::delete_user::DeleteUserError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
-            crate::operation::delete_user::DeleteUserError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::delete_user::DeleteUserError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
+            }
+            crate::operation::delete_user::DeleteUserError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::delete_user::DeleteUserError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::delete_user::DeleteUserError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::delete_user::DeleteUserError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
+            crate::operation::delete_user::DeleteUserError::PasswordResetRequiredException(
+                inner,
+            ) => Error::PasswordResetRequiredException(inner),
+            crate::operation::delete_user::DeleteUserError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::delete_user::DeleteUserError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::delete_user::DeleteUserError::UserNotConfirmedException(inner) => {
+                Error::UserNotConfirmedException(inner)
+            }
+            crate::operation::delete_user::DeleteUserError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
+            crate::operation::delete_user::DeleteUserError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_delete_user_attributes")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user_attributes::DeleteUserAttributesError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_user_attributes::DeleteUserAttributesError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user_attributes::DeleteUserAttributesError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_user_attributes::DeleteUserAttributesError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2906,13 +7114,26 @@ impl From<crate::operation::delete_user_attributes::DeleteUserAttributesError> f
     }
 }
 #[cfg(feature = "op_delete_user_pool")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user_pool::DeleteUserPoolError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_user_pool::DeleteUserPoolError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user_pool::DeleteUserPoolError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_user_pool::DeleteUserPoolError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2940,15 +7161,26 @@ impl From<crate::operation::delete_user_pool::DeleteUserPoolError> for Error {
     }
 }
 #[cfg(feature = "op_delete_user_pool_client")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user_pool_client::DeleteUserPoolClientError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_user_pool_client::DeleteUserPoolClientError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user_pool_client::DeleteUserPoolClientError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_user_pool_client::DeleteUserPoolClientError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2986,16 +7218,26 @@ impl From<crate::operation::delete_user_pool_client::DeleteUserPoolClientError> 
     }
 }
 #[cfg(feature = "op_delete_user_pool_client_secret")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3004,8 +7246,12 @@ where
     }
 }
 #[cfg(feature = "op_delete_user_pool_client_secret")]
-impl From<crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError> for Error {
-    fn from(err: crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError) -> Self {
+impl From<crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError>
+    for Error
+{
+    fn from(
+        err: crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError,
+    ) -> Self {
         match err {
             crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::InternalServerException(inner) => {
                 Error::InternalServerException(inner)
@@ -3027,15 +7273,26 @@ impl From<crate::operation::delete_user_pool_client_secret::DeleteUserPoolClient
     }
 }
 #[cfg(feature = "op_delete_user_pool_domain")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user_pool_domain::DeleteUserPoolDomainError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_user_pool_domain::DeleteUserPoolDomainError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user_pool_domain::DeleteUserPoolDomainError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_user_pool_domain::DeleteUserPoolDomainError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3070,15 +7327,26 @@ impl From<crate::operation::delete_user_pool_domain::DeleteUserPoolDomainError> 
     }
 }
 #[cfg(feature = "op_delete_user_pool_replica")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3113,16 +7381,26 @@ impl From<crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError
     }
 }
 #[cfg(feature = "op_delete_web_authn_credential")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3132,7 +7410,9 @@ where
 }
 #[cfg(feature = "op_delete_web_authn_credential")]
 impl From<crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError> for Error {
-    fn from(err: crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError) -> Self {
+    fn from(
+        err: crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError,
+    ) -> Self {
         match err {
             crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError::ForbiddenException(inner) => {
                 Error::ForbiddenException(inner)
@@ -3166,16 +7446,26 @@ impl From<crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentia
     }
 }
 #[cfg(feature = "op_describe_identity_provider")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_identity_provider::DescribeIdentityProviderError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_identity_provider::DescribeIdentityProviderError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_identity_provider::DescribeIdentityProviderError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_identity_provider::DescribeIdentityProviderError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3185,7 +7475,9 @@ where
 }
 #[cfg(feature = "op_describe_identity_provider")]
 impl From<crate::operation::describe_identity_provider::DescribeIdentityProviderError> for Error {
-    fn from(err: crate::operation::describe_identity_provider::DescribeIdentityProviderError) -> Self {
+    fn from(
+        err: crate::operation::describe_identity_provider::DescribeIdentityProviderError,
+    ) -> Self {
         match err {
             crate::operation::describe_identity_provider::DescribeIdentityProviderError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -3208,8 +7500,12 @@ impl From<crate::operation::describe_identity_provider::DescribeIdentityProvider
 }
 #[cfg(feature = "op_describe_managed_login_branding")]
 impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_managed_login_branding::DescribeManagedLoginBrandingError, R>>
-    for Error
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_managed_login_branding::DescribeManagedLoginBrandingError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -3220,7 +7516,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3229,8 +7527,12 @@ where
     }
 }
 #[cfg(feature = "op_describe_managed_login_branding")]
-impl From<crate::operation::describe_managed_login_branding::DescribeManagedLoginBrandingError> for Error {
-    fn from(err: crate::operation::describe_managed_login_branding::DescribeManagedLoginBrandingError) -> Self {
+impl From<crate::operation::describe_managed_login_branding::DescribeManagedLoginBrandingError>
+    for Error
+{
+    fn from(
+        err: crate::operation::describe_managed_login_branding::DescribeManagedLoginBrandingError,
+    ) -> Self {
         match err {
             crate::operation::describe_managed_login_branding::DescribeManagedLoginBrandingError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -3309,15 +7611,26 @@ impl From<crate::operation::describe_managed_login_branding_by_client::DescribeM
     }
 }
 #[cfg(feature = "op_describe_resource_server")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_resource_server::DescribeResourceServerError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_resource_server::DescribeResourceServerError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_resource_server::DescribeResourceServerError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_resource_server::DescribeResourceServerError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3352,16 +7665,26 @@ impl From<crate::operation::describe_resource_server::DescribeResourceServerErro
     }
 }
 #[cfg(feature = "op_describe_risk_configuration")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_risk_configuration::DescribeRiskConfigurationError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_risk_configuration::DescribeRiskConfigurationError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_risk_configuration::DescribeRiskConfigurationError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_risk_configuration::DescribeRiskConfigurationError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3371,7 +7694,9 @@ where
 }
 #[cfg(feature = "op_describe_risk_configuration")]
 impl From<crate::operation::describe_risk_configuration::DescribeRiskConfigurationError> for Error {
-    fn from(err: crate::operation::describe_risk_configuration::DescribeRiskConfigurationError) -> Self {
+    fn from(
+        err: crate::operation::describe_risk_configuration::DescribeRiskConfigurationError,
+    ) -> Self {
         match err {
             crate::operation::describe_risk_configuration::DescribeRiskConfigurationError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -3399,13 +7724,26 @@ impl From<crate::operation::describe_risk_configuration::DescribeRiskConfigurati
     }
 }
 #[cfg(feature = "op_describe_terms")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_terms::DescribeTermsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_terms::DescribeTermsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_terms::DescribeTermsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_terms::DescribeTermsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3417,26 +7755,51 @@ where
 impl From<crate::operation::describe_terms::DescribeTermsError> for Error {
     fn from(err: crate::operation::describe_terms::DescribeTermsError) -> Self {
         match err {
-            crate::operation::describe_terms::DescribeTermsError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::describe_terms::DescribeTermsError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::describe_terms::DescribeTermsError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::describe_terms::DescribeTermsError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::describe_terms::DescribeTermsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::describe_terms::DescribeTermsError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::describe_terms::DescribeTermsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::describe_terms::DescribeTermsError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::describe_terms::DescribeTermsError::InvalidParameterException(
+                inner,
+            ) => Error::InvalidParameterException(inner),
+            crate::operation::describe_terms::DescribeTermsError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::describe_terms::DescribeTermsError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::describe_terms::DescribeTermsError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::describe_terms::DescribeTermsError::TooManyRequestsException(
+                inner,
+            ) => Error::TooManyRequestsException(inner),
+            crate::operation::describe_terms::DescribeTermsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_describe_user_import_job")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_user_import_job::DescribeUserImportJobError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_user_import_job::DescribeUserImportJobError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_user_import_job::DescribeUserImportJobError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_user_import_job::DescribeUserImportJobError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3471,13 +7834,26 @@ impl From<crate::operation::describe_user_import_job::DescribeUserImportJobError
     }
 }
 #[cfg(feature = "op_describe_user_pool")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_user_pool::DescribeUserPoolError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_user_pool::DescribeUserPoolError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_user_pool::DescribeUserPoolError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_user_pool::DescribeUserPoolError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3503,16 +7879,26 @@ impl From<crate::operation::describe_user_pool::DescribeUserPoolError> for Error
     }
 }
 #[cfg(feature = "op_describe_user_pool_client")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_user_pool_client::DescribeUserPoolClientError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_user_pool_client::DescribeUserPoolClientError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_user_pool_client::DescribeUserPoolClientError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_user_pool_client::DescribeUserPoolClientError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3547,16 +7933,26 @@ impl From<crate::operation::describe_user_pool_client::DescribeUserPoolClientErr
     }
 }
 #[cfg(feature = "op_describe_user_pool_domain")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_user_pool_domain::DescribeUserPoolDomainError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_user_pool_domain::DescribeUserPoolDomainError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_user_pool_domain::DescribeUserPoolDomainError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::describe_user_pool_domain::DescribeUserPoolDomainError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3588,13 +7984,26 @@ impl From<crate::operation::describe_user_pool_domain::DescribeUserPoolDomainErr
     }
 }
 #[cfg(feature = "op_forget_device")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::forget_device::ForgetDeviceError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::forget_device::ForgetDeviceError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::forget_device::ForgetDeviceError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::forget_device::ForgetDeviceError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3624,13 +8033,26 @@ impl From<crate::operation::forget_device::ForgetDeviceError> for Error {
     }
 }
 #[cfg(feature = "op_forgot_password")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::forgot_password::ForgotPasswordError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::forgot_password::ForgotPasswordError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::forgot_password::ForgotPasswordError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::forgot_password::ForgotPasswordError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3673,13 +8095,26 @@ impl From<crate::operation::forgot_password::ForgotPasswordError> for Error {
     }
 }
 #[cfg(feature = "op_get_csv_header")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_csv_header::GetCSVHeaderError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_csv_header::GetCSVHeaderError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_csv_header::GetCSVHeaderError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_csv_header::GetCSVHeaderError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3691,24 +8126,51 @@ where
 impl From<crate::operation::get_csv_header::GetCSVHeaderError> for Error {
     fn from(err: crate::operation::get_csv_header::GetCSVHeaderError) -> Self {
         match err {
-            crate::operation::get_csv_header::GetCSVHeaderError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::get_csv_header::GetCSVHeaderError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::get_csv_header::GetCSVHeaderError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::get_csv_header::GetCSVHeaderError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::get_csv_header::GetCSVHeaderError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::get_csv_header::GetCSVHeaderError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::get_csv_header::GetCSVHeaderError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_csv_header::GetCSVHeaderError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::get_csv_header::GetCSVHeaderError::InvalidParameterException(
+                inner,
+            ) => Error::InvalidParameterException(inner),
+            crate::operation::get_csv_header::GetCSVHeaderError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::get_csv_header::GetCSVHeaderError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::get_csv_header::GetCSVHeaderError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::get_csv_header::GetCSVHeaderError::TooManyRequestsException(
+                inner,
+            ) => Error::TooManyRequestsException(inner),
+            crate::operation::get_csv_header::GetCSVHeaderError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_get_device")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_device::GetDeviceError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_device::GetDeviceError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_device::GetDeviceError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_device::GetDeviceError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3720,31 +8182,66 @@ where
 impl From<crate::operation::get_device::GetDeviceError> for Error {
     fn from(err: crate::operation::get_device::GetDeviceError) -> Self {
         match err {
-            crate::operation::get_device::GetDeviceError::ForbiddenException(inner) => Error::ForbiddenException(inner),
-            crate::operation::get_device::GetDeviceError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::get_device::GetDeviceError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::get_device::GetDeviceError::InvalidUserPoolConfigurationException(inner) => {
-                Error::InvalidUserPoolConfigurationException(inner)
+            crate::operation::get_device::GetDeviceError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
             }
-            crate::operation::get_device::GetDeviceError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::get_device::GetDeviceError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::get_device::GetDeviceError::PasswordResetRequiredException(inner) => Error::PasswordResetRequiredException(inner),
-            crate::operation::get_device::GetDeviceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::get_device::GetDeviceError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::get_device::GetDeviceError::UserNotConfirmedException(inner) => Error::UserNotConfirmedException(inner),
-            crate::operation::get_device::GetDeviceError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
-            crate::operation::get_device::GetDeviceError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_device::GetDeviceError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::get_device::GetDeviceError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::get_device::GetDeviceError::InvalidUserPoolConfigurationException(
+                inner,
+            ) => Error::InvalidUserPoolConfigurationException(inner),
+            crate::operation::get_device::GetDeviceError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::get_device::GetDeviceError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
+            crate::operation::get_device::GetDeviceError::PasswordResetRequiredException(inner) => {
+                Error::PasswordResetRequiredException(inner)
+            }
+            crate::operation::get_device::GetDeviceError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::get_device::GetDeviceError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::get_device::GetDeviceError::UserNotConfirmedException(inner) => {
+                Error::UserNotConfirmedException(inner)
+            }
+            crate::operation::get_device::GetDeviceError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
+            crate::operation::get_device::GetDeviceError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_get_group")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_group::GetGroupError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_group::GetGroupError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_group::GetGroupError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_group::GetGroupError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3756,12 +8253,24 @@ where
 impl From<crate::operation::get_group::GetGroupError> for Error {
     fn from(err: crate::operation::get_group::GetGroupError) -> Self {
         match err {
-            crate::operation::get_group::GetGroupError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::get_group::GetGroupError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::get_group::GetGroupError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::get_group::GetGroupError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::get_group::GetGroupError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::get_group::GetGroupError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::get_group::GetGroupError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::get_group::GetGroupError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::get_group::GetGroupError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::get_group::GetGroupError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
+            crate::operation::get_group::GetGroupError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::get_group::GetGroupError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
             crate::operation::get_group::GetGroupError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -3793,8 +8302,14 @@ where
     }
 }
 #[cfg(feature = "op_get_identity_provider_by_identifier")]
-impl From<crate::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError> for Error {
-    fn from(err: crate::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError) -> Self {
+impl
+    From<
+        crate::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError,
+    > for Error
+{
+    fn from(
+        err: crate::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError,
+    ) -> Self {
         match err {
             crate::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -3817,8 +8332,12 @@ impl From<crate::operation::get_identity_provider_by_identifier::GetIdentityProv
 }
 #[cfg(feature = "op_get_log_delivery_configuration")]
 impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationError, R>>
-    for Error
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -3829,7 +8348,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3838,8 +8359,12 @@ where
     }
 }
 #[cfg(feature = "op_get_log_delivery_configuration")]
-impl From<crate::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationError> for Error {
-    fn from(err: crate::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationError) -> Self {
+impl From<crate::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationError>
+    for Error
+{
+    fn from(
+        err: crate::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationError,
+    ) -> Self {
         match err {
             crate::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -3861,13 +8386,26 @@ impl From<crate::operation::get_log_delivery_configuration::GetLogDeliveryConfig
     }
 }
 #[cfg(feature = "op_get_provisioned_limit")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_provisioned_limit::GetProvisionedLimitError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_provisioned_limit::GetProvisionedLimitError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_provisioned_limit::GetProvisionedLimitError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_provisioned_limit::GetProvisionedLimitError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3895,15 +8433,26 @@ impl From<crate::operation::get_provisioned_limit::GetProvisionedLimitError> for
     }
 }
 #[cfg(feature = "op_get_signing_certificate")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_signing_certificate::GetSigningCertificateError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_signing_certificate::GetSigningCertificateError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_signing_certificate::GetSigningCertificateError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_signing_certificate::GetSigningCertificateError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3932,16 +8481,26 @@ impl From<crate::operation::get_signing_certificate::GetSigningCertificateError>
     }
 }
 #[cfg(feature = "op_get_tokens_from_refresh_token")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3950,8 +8509,12 @@ where
     }
 }
 #[cfg(feature = "op_get_tokens_from_refresh_token")]
-impl From<crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError> for Error {
-    fn from(err: crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError) -> Self {
+impl From<crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError>
+    for Error
+{
+    fn from(
+        err: crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError,
+    ) -> Self {
         match err {
             crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::ForbiddenException(inner) => {
                 Error::ForbiddenException(inner)
@@ -3994,13 +8557,26 @@ impl From<crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshT
     }
 }
 #[cfg(feature = "op_get_ui_customization")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_ui_customization::GetUICustomizationError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_ui_customization::GetUICustomizationError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_ui_customization::GetUICustomizationError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_ui_customization::GetUICustomizationError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4031,13 +8607,26 @@ impl From<crate::operation::get_ui_customization::GetUICustomizationError> for E
     }
 }
 #[cfg(feature = "op_get_user")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_user::GetUserError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_user::GetUserError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_user::GetUserError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_user::GetUserError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4049,16 +8638,36 @@ where
 impl From<crate::operation::get_user::GetUserError> for Error {
     fn from(err: crate::operation::get_user::GetUserError) -> Self {
         match err {
-            crate::operation::get_user::GetUserError::ForbiddenException(inner) => Error::ForbiddenException(inner),
-            crate::operation::get_user::GetUserError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::get_user::GetUserError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::get_user::GetUserError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::get_user::GetUserError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::get_user::GetUserError::PasswordResetRequiredException(inner) => Error::PasswordResetRequiredException(inner),
-            crate::operation::get_user::GetUserError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::get_user::GetUserError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::get_user::GetUserError::UserNotConfirmedException(inner) => Error::UserNotConfirmedException(inner),
-            crate::operation::get_user::GetUserError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
+            crate::operation::get_user::GetUserError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
+            }
+            crate::operation::get_user::GetUserError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::get_user::GetUserError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::get_user::GetUserError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::get_user::GetUserError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
+            crate::operation::get_user::GetUserError::PasswordResetRequiredException(inner) => {
+                Error::PasswordResetRequiredException(inner)
+            }
+            crate::operation::get_user::GetUserError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::get_user::GetUserError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::get_user::GetUserError::UserNotConfirmedException(inner) => {
+                Error::UserNotConfirmedException(inner)
+            }
+            crate::operation::get_user::GetUserError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
             crate::operation::get_user::GetUserError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -4116,13 +8725,26 @@ impl From<crate::operation::get_user_attribute_verification_code::GetUserAttribu
     }
 }
 #[cfg(feature = "op_get_user_auth_factors")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_user_auth_factors::GetUserAuthFactorsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_user_auth_factors::GetUserAuthFactorsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_user_auth_factors::GetUserAuthFactorsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_user_auth_factors::GetUserAuthFactorsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4161,15 +8783,26 @@ impl From<crate::operation::get_user_auth_factors::GetUserAuthFactorsError> for 
     }
 }
 #[cfg(feature = "op_get_user_pool_mfa_config")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4201,13 +8834,26 @@ impl From<crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError>
     }
 }
 #[cfg(feature = "op_global_sign_out")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::global_sign_out::GlobalSignOutError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::global_sign_out::GlobalSignOutError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::global_sign_out::GlobalSignOutError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::global_sign_out::GlobalSignOutError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4235,13 +8881,26 @@ impl From<crate::operation::global_sign_out::GlobalSignOutError> for Error {
     }
 }
 #[cfg(feature = "op_initiate_auth")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::initiate_auth::InitiateAuthError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::initiate_auth::InitiateAuthError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::initiate_auth::InitiateAuthError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::initiate_auth::InitiateAuthError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4284,13 +8943,26 @@ impl From<crate::operation::initiate_auth::InitiateAuthError> for Error {
     }
 }
 #[cfg(feature = "op_list_devices")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_devices::ListDevicesError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_devices::ListDevicesError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_devices::ListDevicesError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_devices::ListDevicesError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4320,13 +8992,26 @@ impl From<crate::operation::list_devices::ListDevicesError> for Error {
     }
 }
 #[cfg(feature = "op_list_groups")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_groups::ListGroupsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_groups::ListGroupsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_groups::ListGroupsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_groups::ListGroupsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4338,26 +9023,51 @@ where
 impl From<crate::operation::list_groups::ListGroupsError> for Error {
     fn from(err: crate::operation::list_groups::ListGroupsError) -> Self {
         match err {
-            crate::operation::list_groups::ListGroupsError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::list_groups::ListGroupsError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::list_groups::ListGroupsError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::list_groups::ListGroupsError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::list_groups::ListGroupsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::list_groups::ListGroupsError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::list_groups::ListGroupsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_groups::ListGroupsError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::list_groups::ListGroupsError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::list_groups::ListGroupsError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::list_groups::ListGroupsError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
+            crate::operation::list_groups::ListGroupsError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::list_groups::ListGroupsError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::list_groups::ListGroupsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_list_identity_providers")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_identity_providers::ListIdentityProvidersError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_identity_providers::ListIdentityProvidersError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_identity_providers::ListIdentityProvidersError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_identity_providers::ListIdentityProvidersError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4389,13 +9099,26 @@ impl From<crate::operation::list_identity_providers::ListIdentityProvidersError>
     }
 }
 #[cfg(feature = "op_list_resource_servers")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_resource_servers::ListResourceServersError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_resource_servers::ListResourceServersError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_resource_servers::ListResourceServersError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_resource_servers::ListResourceServersError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4426,13 +9149,26 @@ impl From<crate::operation::list_resource_servers::ListResourceServersError> for
     }
 }
 #[cfg(feature = "op_list_tags_for_resource")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_tags_for_resource::ListTagsForResourceError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_tags_for_resource::ListTagsForResourceError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_tags_for_resource::ListTagsForResourceError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4463,13 +9199,26 @@ impl From<crate::operation::list_tags_for_resource::ListTagsForResourceError> fo
     }
 }
 #[cfg(feature = "op_list_terms")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_terms::ListTermsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_terms::ListTermsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_terms::ListTermsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_terms::ListTermsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4481,24 +9230,51 @@ where
 impl From<crate::operation::list_terms::ListTermsError> for Error {
     fn from(err: crate::operation::list_terms::ListTermsError) -> Self {
         match err {
-            crate::operation::list_terms::ListTermsError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::list_terms::ListTermsError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::list_terms::ListTermsError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::list_terms::ListTermsError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::list_terms::ListTermsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::list_terms::ListTermsError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::list_terms::ListTermsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_terms::ListTermsError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::list_terms::ListTermsError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::list_terms::ListTermsError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::list_terms::ListTermsError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
+            crate::operation::list_terms::ListTermsError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::list_terms::ListTermsError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::list_terms::ListTermsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_list_user_import_jobs")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_user_import_jobs::ListUserImportJobsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_user_import_jobs::ListUserImportJobsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_user_import_jobs::ListUserImportJobsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_user_import_jobs::ListUserImportJobsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4529,13 +9305,26 @@ impl From<crate::operation::list_user_import_jobs::ListUserImportJobsError> for 
     }
 }
 #[cfg(feature = "op_list_user_pool_clients")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_user_pool_clients::ListUserPoolClientsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_user_pool_clients::ListUserPoolClientsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_user_pool_clients::ListUserPoolClientsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_user_pool_clients::ListUserPoolClientsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4566,16 +9355,26 @@ impl From<crate::operation::list_user_pool_clients::ListUserPoolClientsError> fo
     }
 }
 #[cfg(feature = "op_list_user_pool_client_secrets")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4584,8 +9383,12 @@ where
     }
 }
 #[cfg(feature = "op_list_user_pool_client_secrets")]
-impl From<crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsError> for Error {
-    fn from(err: crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsError) -> Self {
+impl From<crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsError>
+    for Error
+{
+    fn from(
+        err: crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsError,
+    ) -> Self {
         match err {
             crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsError::InternalServerException(inner) => {
                 Error::InternalServerException(inner)
@@ -4607,15 +9410,26 @@ impl From<crate::operation::list_user_pool_client_secrets::ListUserPoolClientSec
     }
 }
 #[cfg(feature = "op_list_user_pool_replicas")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_user_pool_replicas::ListUserPoolReplicasError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_user_pool_replicas::ListUserPoolReplicasError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_user_pool_replicas::ListUserPoolReplicasError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_user_pool_replicas::ListUserPoolReplicasError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4650,13 +9464,26 @@ impl From<crate::operation::list_user_pool_replicas::ListUserPoolReplicasError> 
     }
 }
 #[cfg(feature = "op_list_user_pools")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_user_pools::ListUserPoolsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_user_pools::ListUserPoolsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_user_pools::ListUserPoolsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_user_pools::ListUserPoolsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4668,22 +9495,45 @@ where
 impl From<crate::operation::list_user_pools::ListUserPoolsError> for Error {
     fn from(err: crate::operation::list_user_pools::ListUserPoolsError) -> Self {
         match err {
-            crate::operation::list_user_pools::ListUserPoolsError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::list_user_pools::ListUserPoolsError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::list_user_pools::ListUserPoolsError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::list_user_pools::ListUserPoolsError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::list_user_pools::ListUserPoolsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_user_pools::ListUserPoolsError::InternalErrorException(
+                inner,
+            ) => Error::InternalErrorException(inner),
+            crate::operation::list_user_pools::ListUserPoolsError::InvalidParameterException(
+                inner,
+            ) => Error::InvalidParameterException(inner),
+            crate::operation::list_user_pools::ListUserPoolsError::NotAuthorizedException(
+                inner,
+            ) => Error::NotAuthorizedException(inner),
+            crate::operation::list_user_pools::ListUserPoolsError::TooManyRequestsException(
+                inner,
+            ) => Error::TooManyRequestsException(inner),
+            crate::operation::list_user_pools::ListUserPoolsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_list_users")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_users::ListUsersError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_users::ListUsersError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_users::ListUsersError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_users::ListUsersError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4695,24 +9545,51 @@ where
 impl From<crate::operation::list_users::ListUsersError> for Error {
     fn from(err: crate::operation::list_users::ListUsersError) -> Self {
         match err {
-            crate::operation::list_users::ListUsersError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::list_users::ListUsersError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::list_users::ListUsersError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::list_users::ListUsersError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::list_users::ListUsersError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::list_users::ListUsersError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::list_users::ListUsersError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_users::ListUsersError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::list_users::ListUsersError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::list_users::ListUsersError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::list_users::ListUsersError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
+            crate::operation::list_users::ListUsersError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::list_users::ListUsersError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::list_users::ListUsersError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_list_users_in_group")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_users_in_group::ListUsersInGroupError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_users_in_group::ListUsersInGroupError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_users_in_group::ListUsersInGroupError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_users_in_group::ListUsersInGroupError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4737,16 +9614,26 @@ impl From<crate::operation::list_users_in_group::ListUsersInGroupError> for Erro
     }
 }
 #[cfg(feature = "op_list_web_authn_credentials")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4756,7 +9643,9 @@ where
 }
 #[cfg(feature = "op_list_web_authn_credentials")]
 impl From<crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsError> for Error {
-    fn from(err: crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsError) -> Self {
+    fn from(
+        err: crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsError,
+    ) -> Self {
         match err {
             crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::ForbiddenException(inner) => Error::ForbiddenException(inner),
             crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::InternalErrorException(inner) => {
@@ -4785,15 +9674,26 @@ impl From<crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsE
     }
 }
 #[cfg(feature = "op_resend_confirmation_code")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::resend_confirmation_code::ResendConfirmationCodeError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::resend_confirmation_code::ResendConfirmationCodeError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::resend_confirmation_code::ResendConfirmationCodeError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::resend_confirmation_code::ResendConfirmationCodeError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4856,16 +9756,26 @@ impl From<crate::operation::resend_confirmation_code::ResendConfirmationCodeErro
     }
 }
 #[cfg(feature = "op_respond_to_auth_challenge")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::respond_to_auth_challenge::RespondToAuthChallengeError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::respond_to_auth_challenge::RespondToAuthChallengeError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::respond_to_auth_challenge::RespondToAuthChallengeError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::respond_to_auth_challenge::RespondToAuthChallengeError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4952,13 +9862,26 @@ impl From<crate::operation::respond_to_auth_challenge::RespondToAuthChallengeErr
     }
 }
 #[cfg(feature = "op_revoke_token")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::revoke_token::RevokeTokenError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::revoke_token::RevokeTokenError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::revoke_token::RevokeTokenError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::revoke_token::RevokeTokenError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4970,22 +9893,44 @@ where
 impl From<crate::operation::revoke_token::RevokeTokenError> for Error {
     fn from(err: crate::operation::revoke_token::RevokeTokenError) -> Self {
         match err {
-            crate::operation::revoke_token::RevokeTokenError::ForbiddenException(inner) => Error::ForbiddenException(inner),
-            crate::operation::revoke_token::RevokeTokenError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::revoke_token::RevokeTokenError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::revoke_token::RevokeTokenError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::revoke_token::RevokeTokenError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::revoke_token::RevokeTokenError::UnauthorizedException(inner) => Error::UnauthorizedException(inner),
-            crate::operation::revoke_token::RevokeTokenError::UnsupportedOperationException(inner) => Error::UnsupportedOperationException(inner),
-            crate::operation::revoke_token::RevokeTokenError::UnsupportedTokenTypeException(inner) => Error::UnsupportedTokenTypeException(inner),
-            crate::operation::revoke_token::RevokeTokenError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::revoke_token::RevokeTokenError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
+            }
+            crate::operation::revoke_token::RevokeTokenError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::revoke_token::RevokeTokenError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::revoke_token::RevokeTokenError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::revoke_token::RevokeTokenError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::revoke_token::RevokeTokenError::UnauthorizedException(inner) => {
+                Error::UnauthorizedException(inner)
+            }
+            crate::operation::revoke_token::RevokeTokenError::UnsupportedOperationException(
+                inner,
+            ) => Error::UnsupportedOperationException(inner),
+            crate::operation::revoke_token::RevokeTokenError::UnsupportedTokenTypeException(
+                inner,
+            ) => Error::UnsupportedTokenTypeException(inner),
+            crate::operation::revoke_token::RevokeTokenError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_set_log_delivery_configuration")]
 impl<R>
-    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationError, R>>
-    for Error
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -4996,7 +9941,9 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5005,8 +9952,12 @@ where
     }
 }
 #[cfg(feature = "op_set_log_delivery_configuration")]
-impl From<crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationError> for Error {
-    fn from(err: crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationError) -> Self {
+impl From<crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationError>
+    for Error
+{
+    fn from(
+        err: crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationError,
+    ) -> Self {
         match err {
             crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationError::FeatureUnavailableInTierException(inner) => {
                 Error::FeatureUnavailableInTierException(inner)
@@ -5031,13 +9982,26 @@ impl From<crate::operation::set_log_delivery_configuration::SetLogDeliveryConfig
     }
 }
 #[cfg(feature = "op_set_risk_configuration")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_risk_configuration::SetRiskConfigurationError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::set_risk_configuration::SetRiskConfigurationError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_risk_configuration::SetRiskConfigurationError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::set_risk_configuration::SetRiskConfigurationError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5081,13 +10045,26 @@ impl From<crate::operation::set_risk_configuration::SetRiskConfigurationError> f
     }
 }
 #[cfg(feature = "op_set_ui_customization")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_ui_customization::SetUICustomizationError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::set_ui_customization::SetUICustomizationError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_ui_customization::SetUICustomizationError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::set_ui_customization::SetUICustomizationError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5118,15 +10095,26 @@ impl From<crate::operation::set_ui_customization::SetUICustomizationError> for E
     }
 }
 #[cfg(feature = "op_set_user_mfa_preference")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5166,15 +10154,26 @@ impl From<crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError> 
     }
 }
 #[cfg(feature = "op_set_user_pool_mfa_config")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_user_pool_mfa_config::SetUserPoolMfaConfigError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::set_user_pool_mfa_config::SetUserPoolMfaConfigError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_user_pool_mfa_config::SetUserPoolMfaConfigError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::set_user_pool_mfa_config::SetUserPoolMfaConfigError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5221,13 +10220,26 @@ impl From<crate::operation::set_user_pool_mfa_config::SetUserPoolMfaConfigError>
     }
 }
 #[cfg(feature = "op_set_user_settings")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_user_settings::SetUserSettingsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::set_user_settings::SetUserSettingsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::set_user_settings::SetUserSettingsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::set_user_settings::SetUserSettingsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5257,13 +10269,26 @@ impl From<crate::operation::set_user_settings::SetUserSettingsError> for Error {
     }
 }
 #[cfg(feature = "op_sign_up")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::sign_up::SignUpError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::sign_up::SignUpError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::sign_up::SignUpError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::sign_up::SignUpError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5275,39 +10300,82 @@ where
 impl From<crate::operation::sign_up::SignUpError> for Error {
     fn from(err: crate::operation::sign_up::SignUpError) -> Self {
         match err {
-            crate::operation::sign_up::SignUpError::CodeDeliveryFailureException(inner) => Error::CodeDeliveryFailureException(inner),
-            crate::operation::sign_up::SignUpError::ForbiddenException(inner) => Error::ForbiddenException(inner),
-            crate::operation::sign_up::SignUpError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::sign_up::SignUpError::InvalidEmailRoleAccessPolicyException(inner) => {
-                Error::InvalidEmailRoleAccessPolicyException(inner)
+            crate::operation::sign_up::SignUpError::CodeDeliveryFailureException(inner) => {
+                Error::CodeDeliveryFailureException(inner)
             }
-            crate::operation::sign_up::SignUpError::InvalidLambdaResponseException(inner) => Error::InvalidLambdaResponseException(inner),
-            crate::operation::sign_up::SignUpError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::sign_up::SignUpError::InvalidPasswordException(inner) => Error::InvalidPasswordException(inner),
-            crate::operation::sign_up::SignUpError::InvalidSmsRoleAccessPolicyException(inner) => Error::InvalidSmsRoleAccessPolicyException(inner),
-            crate::operation::sign_up::SignUpError::InvalidSmsRoleTrustRelationshipException(inner) => {
-                Error::InvalidSmsRoleTrustRelationshipException(inner)
+            crate::operation::sign_up::SignUpError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
             }
-            crate::operation::sign_up::SignUpError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::sign_up::SignUpError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::sign_up::SignUpError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::sign_up::SignUpError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::sign_up::SignUpError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::sign_up::SignUpError::UnexpectedLambdaException(inner) => Error::UnexpectedLambdaException(inner),
-            crate::operation::sign_up::SignUpError::UserLambdaValidationException(inner) => Error::UserLambdaValidationException(inner),
-            crate::operation::sign_up::SignUpError::UsernameExistsException(inner) => Error::UsernameExistsException(inner),
+            crate::operation::sign_up::SignUpError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::sign_up::SignUpError::InvalidEmailRoleAccessPolicyException(
+                inner,
+            ) => Error::InvalidEmailRoleAccessPolicyException(inner),
+            crate::operation::sign_up::SignUpError::InvalidLambdaResponseException(inner) => {
+                Error::InvalidLambdaResponseException(inner)
+            }
+            crate::operation::sign_up::SignUpError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::sign_up::SignUpError::InvalidPasswordException(inner) => {
+                Error::InvalidPasswordException(inner)
+            }
+            crate::operation::sign_up::SignUpError::InvalidSmsRoleAccessPolicyException(inner) => {
+                Error::InvalidSmsRoleAccessPolicyException(inner)
+            }
+            crate::operation::sign_up::SignUpError::InvalidSmsRoleTrustRelationshipException(
+                inner,
+            ) => Error::InvalidSmsRoleTrustRelationshipException(inner),
+            crate::operation::sign_up::SignUpError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::sign_up::SignUpError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::sign_up::SignUpError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
+            crate::operation::sign_up::SignUpError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::sign_up::SignUpError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::sign_up::SignUpError::UnexpectedLambdaException(inner) => {
+                Error::UnexpectedLambdaException(inner)
+            }
+            crate::operation::sign_up::SignUpError::UserLambdaValidationException(inner) => {
+                Error::UserLambdaValidationException(inner)
+            }
+            crate::operation::sign_up::SignUpError::UsernameExistsException(inner) => {
+                Error::UsernameExistsException(inner)
+            }
             crate::operation::sign_up::SignUpError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_start_user_import_job")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_user_import_job::StartUserImportJobError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_user_import_job::StartUserImportJobError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_user_import_job::StartUserImportJobError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_user_import_job::StartUserImportJobError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5341,16 +10409,26 @@ impl From<crate::operation::start_user_import_job::StartUserImportJobError> for 
     }
 }
 #[cfg(feature = "op_start_web_authn_registration")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_web_authn_registration::StartWebAuthnRegistrationError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_web_authn_registration::StartWebAuthnRegistrationError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::start_web_authn_registration::StartWebAuthnRegistrationError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::start_web_authn_registration::StartWebAuthnRegistrationError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5359,8 +10437,12 @@ where
     }
 }
 #[cfg(feature = "op_start_web_authn_registration")]
-impl From<crate::operation::start_web_authn_registration::StartWebAuthnRegistrationError> for Error {
-    fn from(err: crate::operation::start_web_authn_registration::StartWebAuthnRegistrationError) -> Self {
+impl From<crate::operation::start_web_authn_registration::StartWebAuthnRegistrationError>
+    for Error
+{
+    fn from(
+        err: crate::operation::start_web_authn_registration::StartWebAuthnRegistrationError,
+    ) -> Self {
         match err {
             crate::operation::start_web_authn_registration::StartWebAuthnRegistrationError::ForbiddenException(inner) => {
                 Error::ForbiddenException(inner)
@@ -5397,13 +10479,26 @@ impl From<crate::operation::start_web_authn_registration::StartWebAuthnRegistrat
     }
 }
 #[cfg(feature = "op_stop_user_import_job")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::stop_user_import_job::StopUserImportJobError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::stop_user_import_job::StopUserImportJobError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::stop_user_import_job::StopUserImportJobError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::stop_user_import_job::StopUserImportJobError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5435,13 +10530,26 @@ impl From<crate::operation::stop_user_import_job::StopUserImportJobError> for Er
     }
 }
 #[cfg(feature = "op_tag_resource")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::tag_resource::TagResourceError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::tag_resource::TagResourceError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5453,24 +10561,51 @@ where
 impl From<crate::operation::tag_resource::TagResourceError> for Error {
     fn from(err: crate::operation::tag_resource::TagResourceError) -> Self {
         match err {
-            crate::operation::tag_resource::TagResourceError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::tag_resource::TagResourceError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::tag_resource::TagResourceError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::tag_resource::TagResourceError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::tag_resource::TagResourceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::tag_resource::TagResourceError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::tag_resource::TagResourceError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::tag_resource::TagResourceError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::tag_resource::TagResourceError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::tag_resource::TagResourceError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::tag_resource::TagResourceError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::tag_resource::TagResourceError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_untag_resource")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::untag_resource::UntagResourceError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::untag_resource::UntagResourceError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5482,27 +10617,51 @@ where
 impl From<crate::operation::untag_resource::UntagResourceError> for Error {
     fn from(err: crate::operation::untag_resource::UntagResourceError) -> Self {
         match err {
-            crate::operation::untag_resource::UntagResourceError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::untag_resource::UntagResourceError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::untag_resource::UntagResourceError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::untag_resource::UntagResourceError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::untag_resource::UntagResourceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::untag_resource::UntagResourceError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::untag_resource::UntagResourceError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::untag_resource::UntagResourceError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::untag_resource::UntagResourceError::InvalidParameterException(
+                inner,
+            ) => Error::InvalidParameterException(inner),
+            crate::operation::untag_resource::UntagResourceError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::untag_resource::UntagResourceError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::untag_resource::UntagResourceError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::untag_resource::UntagResourceError::TooManyRequestsException(
+                inner,
+            ) => Error::TooManyRequestsException(inner),
+            crate::operation::untag_resource::UntagResourceError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_update_auth_event_feedback")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5512,7 +10671,9 @@ where
 }
 #[cfg(feature = "op_update_auth_event_feedback")]
 impl From<crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError> for Error {
-    fn from(err: crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError) -> Self {
+    fn from(
+        err: crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError,
+    ) -> Self {
         match err {
             crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -5543,13 +10704,26 @@ impl From<crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackE
     }
 }
 #[cfg(feature = "op_update_device_status")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_device_status::UpdateDeviceStatusError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_device_status::UpdateDeviceStatusError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_device_status::UpdateDeviceStatusError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_device_status::UpdateDeviceStatusError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5591,13 +10765,26 @@ impl From<crate::operation::update_device_status::UpdateDeviceStatusError> for E
     }
 }
 #[cfg(feature = "op_update_group")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_group::UpdateGroupError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_group::UpdateGroupError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_group::UpdateGroupError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_group::UpdateGroupError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5609,26 +10796,51 @@ where
 impl From<crate::operation::update_group::UpdateGroupError> for Error {
     fn from(err: crate::operation::update_group::UpdateGroupError) -> Self {
         match err {
-            crate::operation::update_group::UpdateGroupError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::update_group::UpdateGroupError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::update_group::UpdateGroupError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::update_group::UpdateGroupError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::update_group::UpdateGroupError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::update_group::UpdateGroupError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::update_group::UpdateGroupError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::update_group::UpdateGroupError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::update_group::UpdateGroupError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::update_group::UpdateGroupError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::update_group::UpdateGroupError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::update_group::UpdateGroupError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::update_group::UpdateGroupError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::update_group::UpdateGroupError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_update_identity_provider")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_identity_provider::UpdateIdentityProviderError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_identity_provider::UpdateIdentityProviderError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_identity_provider::UpdateIdentityProviderError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_identity_provider::UpdateIdentityProviderError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5666,16 +10878,26 @@ impl From<crate::operation::update_identity_provider::UpdateIdentityProviderErro
     }
 }
 #[cfg(feature = "op_update_managed_login_branding")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingError, R>>
-    for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5684,8 +10906,12 @@ where
     }
 }
 #[cfg(feature = "op_update_managed_login_branding")]
-impl From<crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingError> for Error {
-    fn from(err: crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingError) -> Self {
+impl From<crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingError>
+    for Error
+{
+    fn from(
+        err: crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingError,
+    ) -> Self {
         match err {
             crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -5713,15 +10939,26 @@ impl From<crate::operation::update_managed_login_branding::UpdateManagedLoginBra
     }
 }
 #[cfg(feature = "op_update_provisioned_limit")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_provisioned_limit::UpdateProvisionedLimitError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_provisioned_limit::UpdateProvisionedLimitError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5756,13 +10993,26 @@ impl From<crate::operation::update_provisioned_limit::UpdateProvisionedLimitErro
     }
 }
 #[cfg(feature = "op_update_resource_server")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_resource_server::UpdateResourceServerError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_resource_server::UpdateResourceServerError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_resource_server::UpdateResourceServerError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_resource_server::UpdateResourceServerError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5797,13 +11047,26 @@ impl From<crate::operation::update_resource_server::UpdateResourceServerError> f
     }
 }
 #[cfg(feature = "op_update_terms")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_terms::UpdateTermsError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_terms::UpdateTermsError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_terms::UpdateTermsError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_terms::UpdateTermsError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5815,26 +11078,57 @@ where
 impl From<crate::operation::update_terms::UpdateTermsError> for Error {
     fn from(err: crate::operation::update_terms::UpdateTermsError) -> Self {
         match err {
-            crate::operation::update_terms::UpdateTermsError::ConcurrentModificationException(inner) => Error::ConcurrentModificationException(inner),
-            crate::operation::update_terms::UpdateTermsError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::update_terms::UpdateTermsError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::update_terms::UpdateTermsError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::update_terms::UpdateTermsError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::update_terms::UpdateTermsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::update_terms::UpdateTermsError::TermsExistsException(inner) => Error::TermsExistsException(inner),
-            crate::operation::update_terms::UpdateTermsError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::update_terms::UpdateTermsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::update_terms::UpdateTermsError::ConcurrentModificationException(
+                inner,
+            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::update_terms::UpdateTermsError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::update_terms::UpdateTermsError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::update_terms::UpdateTermsError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::update_terms::UpdateTermsError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::update_terms::UpdateTermsError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::update_terms::UpdateTermsError::TermsExistsException(inner) => {
+                Error::TermsExistsException(inner)
+            }
+            crate::operation::update_terms::UpdateTermsError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::update_terms::UpdateTermsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_update_user_attributes")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_user_attributes::UpdateUserAttributesError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_user_attributes::UpdateUserAttributesError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_user_attributes::UpdateUserAttributesError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_user_attributes::UpdateUserAttributesError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5901,13 +11195,26 @@ impl From<crate::operation::update_user_attributes::UpdateUserAttributesError> f
     }
 }
 #[cfg(feature = "op_update_user_pool")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_user_pool::UpdateUserPoolError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_user_pool::UpdateUserPoolError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_user_pool::UpdateUserPoolError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_user_pool::UpdateUserPoolError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5954,15 +11261,26 @@ impl From<crate::operation::update_user_pool::UpdateUserPoolError> for Error {
     }
 }
 #[cfg(feature = "op_update_user_pool_client")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_user_pool_client::UpdateUserPoolClientError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_user_pool_client::UpdateUserPoolClientError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_user_pool_client::UpdateUserPoolClientError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_user_pool_client::UpdateUserPoolClientError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6009,15 +11327,26 @@ impl From<crate::operation::update_user_pool_client::UpdateUserPoolClientError> 
     }
 }
 #[cfg(feature = "op_update_user_pool_domain")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_user_pool_domain::UpdateUserPoolDomainError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_user_pool_domain::UpdateUserPoolDomainError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_user_pool_domain::UpdateUserPoolDomainError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_user_pool_domain::UpdateUserPoolDomainError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6058,15 +11387,26 @@ impl From<crate::operation::update_user_pool_domain::UpdateUserPoolDomainError> 
     }
 }
 #[cfg(feature = "op_update_user_pool_replica")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError, R>,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError,
+            R,
+        >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6101,13 +11441,26 @@ impl From<crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError
     }
 }
 #[cfg(feature = "op_verify_software_token")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::verify_software_token::VerifySoftwareTokenError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::verify_software_token::VerifySoftwareTokenError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::verify_software_token::VerifySoftwareTokenError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::verify_software_token::VerifySoftwareTokenError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6156,13 +11509,26 @@ impl From<crate::operation::verify_software_token::VerifySoftwareTokenError> for
     }
 }
 #[cfg(feature = "op_verify_user_attribute")]
-impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::verify_user_attribute::VerifyUserAttributeError, R>> for Error
+impl<R>
+    From<
+        ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::verify_user_attribute::VerifyUserAttributeError,
+            R,
+        >,
+    > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::verify_user_attribute::VerifyUserAttributeError, R>) -> Self {
+    fn from(
+        err: ::aws_smithy_runtime_api::client::result::SdkError<
+            crate::operation::verify_user_attribute::VerifyUserAttributeError,
+            R,
+        >,
+    ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
+                Self::from(context.into_err())
+            }
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6208,123 +11574,1271 @@ impl ::std::error::Error for Error {
     fn source(&self) -> std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             #[cfg(feature = "op_add_user_pool_client_secret")]
-Error::AccessDeniedException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_disable_provider_for_user", feature = "op_admin_link_provider_for_user", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_sign_up", feature = "op_respond_to_auth_challenge", feature = "op_update_user_attributes", feature = "op_verify_user_attribute"))]
-Error::AliasExistsException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_resend_confirmation_code", feature = "op_set_risk_configuration", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-Error::CodeDeliveryFailureException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_respond_to_auth_challenge", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::CodeMismatchException(inner) => inner.source(),
-            #[cfg(any(feature = "op_associate_software_token", feature = "op_create_managed_login_branding", feature = "op_create_terms", feature = "op_create_user_pool_domain", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_terms", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_set_user_pool_mfa_config", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_terms", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain"))]
-Error::ConcurrentModificationException(inner) => inner.source(),
+            Error::AccessDeniedException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_confirm_sign_up",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::AliasExistsException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_resend_confirmation_code",
+                feature = "op_set_risk_configuration",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes"
+            ))]
+            Error::CodeDeliveryFailureException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::CodeMismatchException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_associate_software_token",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_terms",
+                feature = "op_create_user_pool_domain",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_terms",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_terms",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain"
+            ))]
+            Error::ConcurrentModificationException(inner) => inner.source(),
             #[cfg(feature = "op_confirm_device")]
-Error::DeviceKeyExistsException(inner) => inner.source(),
+            Error::DeviceKeyExistsException(inner) => inner.source(),
             #[cfg(feature = "op_create_identity_provider")]
-Error::DuplicateProviderException(inner) => inner.source(),
+            Error::DuplicateProviderException(inner) => inner.source(),
             #[cfg(feature = "op_verify_software_token")]
-Error::EnableSoftwareTokenMfaException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_respond_to_auth_challenge", feature = "op_update_user_attributes", feature = "op_verify_user_attribute"))]
-Error::ExpiredCodeException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_set_log_delivery_configuration", feature = "op_set_user_pool_mfa_config", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain"))]
-Error::FeatureUnavailableInTierException(inner) => inner.source(),
-            #[cfg(any(feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_web_authn_credential", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_device", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_web_authn_registration", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::ForbiddenException(inner) => inner.source(),
+            Error::EnableSoftwareTokenMfaException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::ExpiredCodeException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain"
+            ))]
+            Error::FeatureUnavailableInTierException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_device",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_web_authn_registration",
+                feature = "op_update_device_status",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::ForbiddenException(inner) => inner.source(),
             #[cfg(feature = "op_create_group")]
-Error::GroupExistsException(inner) => inner.source(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::InternalErrorException(inner) => inner.source(),
-            #[cfg(any(feature = "op_add_user_pool_client_secret", feature = "op_delete_user_pool_client_secret", feature = "op_list_user_pool_client_secrets"))]
-Error::InternalServerException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_create_user_pool", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_risk_configuration", feature = "op_sign_up", feature = "op_update_user_attributes", feature = "op_update_user_pool"))]
-Error::InvalidEmailRoleAccessPolicyException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-Error::InvalidLambdaResponseException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
-Error::InvalidOAuthFlowException(inner) => inner.source(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_add_user_pool_client_secret", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_client_secret", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_client_secrets", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::InvalidParameterException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_password", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_respond_to_auth_challenge", feature = "op_sign_up"))]
-Error::InvalidPasswordException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_create_user_pool", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_user_pool_mfa_config", feature = "op_sign_up", feature = "op_update_user_attributes", feature = "op_update_user_pool"))]
-Error::InvalidSmsRoleAccessPolicyException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_create_user_pool", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_user_pool_mfa_config", feature = "op_sign_up", feature = "op_update_user_attributes", feature = "op_update_user_pool"))]
-Error::InvalidSmsRoleTrustRelationshipException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_initiate_auth", feature = "op_admin_list_devices", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_device_status", feature = "op_confirm_device", feature = "op_forget_device", feature = "op_get_device", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_respond_to_auth_challenge", feature = "op_update_device_status", feature = "op_verify_software_token"))]
-Error::InvalidUserPoolConfigurationException(inner) => inner.source(),
-            #[cfg(any(feature = "op_add_user_pool_client_secret", feature = "op_admin_confirm_sign_up", feature = "op_admin_link_provider_for_user", feature = "op_admin_reset_user_password", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_user_pool_client_secret", feature = "op_delete_web_authn_credential", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_list_user_pool_client_secrets", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_sign_up", feature = "op_start_web_authn_registration", feature = "op_verify_user_attribute"))]
-Error::LimitExceededException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_respond_to_auth_challenge"))]
-Error::MfaMethodNotFoundException(inner) => inner.source(),
+            Error::GroupExistsException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_signing_certificate",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_user_pools",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::InternalErrorException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_list_user_pool_client_secrets"
+            ))]
+            Error::InternalServerException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_create_user_pool",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_risk_configuration",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool"
+            ))]
+            Error::InvalidEmailRoleAccessPolicyException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_forgot_password",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes"
+            ))]
+            Error::InvalidLambdaResponseException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_user_pool_client",
+                feature = "op_update_user_pool_client"
+            ))]
+            Error::InvalidOAuthFlowException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_signing_certificate",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_client_secrets",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_user_pools",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::InvalidParameterException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_password",
+                feature = "op_change_password",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_sign_up"
+            ))]
+            Error::InvalidPasswordException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_create_user_pool",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool"
+            ))]
+            Error::InvalidSmsRoleAccessPolicyException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_create_user_pool",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool"
+            ))]
+            Error::InvalidSmsRoleTrustRelationshipException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_device_status",
+                feature = "op_confirm_device",
+                feature = "op_forget_device",
+                feature = "op_get_device",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_update_device_status",
+                feature = "op_verify_software_token"
+            ))]
+            Error::InvalidUserPoolConfigurationException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_reset_user_password",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_list_user_pool_client_secrets",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_sign_up",
+                feature = "op_start_web_authn_registration",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::LimitExceededException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_respond_to_auth_challenge"
+            ))]
+            Error::MfaMethodNotFoundException(inner) => inner.source(),
             #[cfg(feature = "op_create_managed_login_branding")]
-Error::ManagedLoginBrandingExistsException(inner) => inner.source(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::NotAuthorizedException(inner) => inner.source(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_managed_login_branding", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::OperationNotEnabledException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_password", feature = "op_change_password", feature = "op_confirm_forgot_password", feature = "op_respond_to_auth_challenge"))]
-Error::PasswordHistoryPolicyViolationException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_web_authn_credential", feature = "op_forget_device", feature = "op_get_device", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_web_authn_credentials", feature = "op_respond_to_auth_challenge", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_start_web_authn_registration", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::PasswordResetRequiredException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_create_user_import_job", feature = "op_start_user_import_job", feature = "op_stop_user_import_job"))]
-Error::PreconditionNotMetException(inner) => inner.source(),
+            Error::ManagedLoginBrandingExistsException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_user_pools",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::NotAuthorizedException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_signing_certificate",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::OperationNotEnabledException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_password",
+                feature = "op_change_password",
+                feature = "op_confirm_forgot_password",
+                feature = "op_respond_to_auth_challenge"
+            ))]
+            Error::PasswordHistoryPolicyViolationException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_forget_device",
+                feature = "op_get_device",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_settings",
+                feature = "op_start_web_authn_registration",
+                feature = "op_update_device_status",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::PasswordResetRequiredException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_create_user_import_job",
+                feature = "op_start_user_import_job",
+                feature = "op_stop_user_import_job"
+            ))]
+            Error::PreconditionNotMetException(inner) => inner.source(),
             #[cfg(feature = "op_get_tokens_from_refresh_token")]
-Error::RefreshTokenReuseException(inner) => inner.source(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_add_user_pool_client_secret", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_client_secret", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_client_secrets", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::ResourceNotFoundException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
-Error::ScopeDoesNotExistException(inner) => inner.source(),
+            Error::RefreshTokenReuseException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_signing_certificate",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_client_secrets",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::ResourceNotFoundException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_user_pool_client",
+                feature = "op_update_user_pool_client"
+            ))]
+            Error::ScopeDoesNotExistException(inner) => inner.source(),
             #[cfg(feature = "op_update_provisioned_limit")]
-Error::ServiceQuotaExceededException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_associate_software_token", feature = "op_respond_to_auth_challenge", feature = "op_verify_software_token"))]
-Error::SoftwareTokenMfaNotFoundException(inner) => inner.source(),
+            Error::ServiceQuotaExceededException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_associate_software_token",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_verify_software_token"
+            ))]
+            Error::SoftwareTokenMfaNotFoundException(inner) => inner.source(),
             #[cfg(any(feature = "op_create_terms", feature = "op_update_terms"))]
-Error::TermsExistsException(inner) => inner.source(),
+            Error::TermsExistsException(inner) => inner.source(),
             #[cfg(any(feature = "op_create_user_pool", feature = "op_update_user_pool"))]
-Error::TierChangeNotAllowedException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up"))]
-Error::TooManyFailedAttemptsException(inner) => inner.source(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_add_user_pool_client_secret", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_password", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_client_secret", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_client_secrets", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_pool_mfa_config", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::TooManyRequestsException(inner) => inner.source(),
+            Error::TierChangeNotAllowedException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up"
+            ))]
+            Error::TooManyFailedAttemptsException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_client_secrets",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_user_pools",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::TooManyRequestsException(inner) => inner.source(),
             #[cfg(feature = "op_revoke_token")]
-Error::UnauthorizedException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-Error::UnexpectedLambdaException(inner) => inner.source(),
-            #[cfg(any(feature = "op_delete_identity_provider", feature = "op_update_identity_provider"))]
-Error::UnsupportedIdentityProviderException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_initiate_auth", feature = "op_revoke_token"))]
-Error::UnsupportedOperationException(inner) => inner.source(),
+            Error::UnauthorizedException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_forgot_password",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes"
+            ))]
+            Error::UnexpectedLambdaException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_delete_identity_provider",
+                feature = "op_update_identity_provider"
+            ))]
+            Error::UnsupportedIdentityProviderException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_initiate_auth",
+                feature = "op_revoke_token"
+            ))]
+            Error::UnsupportedOperationException(inner) => inner.source(),
             #[cfg(feature = "op_revoke_token")]
-Error::UnsupportedTokenTypeException(inner) => inner.source(),
+            Error::UnsupportedTokenTypeException(inner) => inner.source(),
             #[cfg(feature = "op_admin_create_user")]
-Error::UnsupportedUserStateException(inner) => inner.source(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_delete_user_pool", feature = "op_update_user_pool"))]
-Error::UserImportInProgressException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-Error::UserLambdaValidationException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_forget_device", feature = "op_get_device", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_respond_to_auth_challenge", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::UserNotConfirmedException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_device", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Error::UserNotFoundException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_list_user_auth_events", feature = "op_admin_update_auth_event_feedback", feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration", feature = "op_update_auth_event_feedback"))]
-Error::UserPoolAddOnNotEnabledException(inner) => inner.source(),
-            #[cfg(any(feature = "op_create_user_pool", feature = "op_create_user_pool_replica", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
-Error::UserPoolTaggingException(inner) => inner.source(),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_confirm_device", feature = "op_sign_up"))]
-Error::UsernameExistsException(inner) => inner.source(),
+            Error::UnsupportedUserStateException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_update_user_pool"
+            ))]
+            Error::UserImportInProgressException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_forgot_password",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes"
+            ))]
+            Error::UserLambdaValidationException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_change_password",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_forget_device",
+                feature = "op_get_device",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_settings",
+                feature = "op_update_device_status",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::UserNotConfirmedException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_change_password",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_device",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_settings",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Error::UserNotFoundException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_describe_risk_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_update_auth_event_feedback"
+            ))]
+            Error::UserPoolAddOnNotEnabledException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_replica",
+                feature = "op_describe_user_pool",
+                feature = "op_update_user_pool"
+            ))]
+            Error::UserPoolTaggingException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_confirm_device",
+                feature = "op_sign_up"
+            ))]
+            Error::UsernameExistsException(inner) => inner.source(),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Error::WebAuthnChallengeNotFoundException(inner) => inner.source(),
+            Error::WebAuthnChallengeNotFoundException(inner) => inner.source(),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Error::WebAuthnClientMismatchException(inner) => inner.source(),
+            Error::WebAuthnClientMismatchException(inner) => inner.source(),
             #[cfg(feature = "op_start_web_authn_registration")]
-Error::WebAuthnConfigurationMissingException(inner) => inner.source(),
+            Error::WebAuthnConfigurationMissingException(inner) => inner.source(),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Error::WebAuthnCredentialNotSupportedException(inner) => inner.source(),
-            #[cfg(any(feature = "op_complete_web_authn_registration", feature = "op_start_web_authn_registration"))]
-Error::WebAuthnNotEnabledException(inner) => inner.source(),
+            Error::WebAuthnCredentialNotSupportedException(inner) => inner.source(),
+            #[cfg(any(
+                feature = "op_complete_web_authn_registration",
+                feature = "op_start_web_authn_registration"
+            ))]
+            Error::WebAuthnNotEnabledException(inner) => inner.source(),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Error::WebAuthnOriginNotAllowedException(inner) => inner.source(),
+            Error::WebAuthnOriginNotAllowedException(inner) => inner.source(),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Error::WebAuthnRelyingPartyMismatchException(inner) => inner.source(),
+            Error::WebAuthnRelyingPartyMismatchException(inner) => inner.source(),
             Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source),
         }
     }
@@ -6333,123 +12847,1271 @@ impl ::aws_types::request_id::RequestId for Error {
     fn request_id(&self) -> Option<&str> {
         match self {
             #[cfg(feature = "op_add_user_pool_client_secret")]
-Self::AccessDeniedException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_disable_provider_for_user", feature = "op_admin_link_provider_for_user", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_sign_up", feature = "op_respond_to_auth_challenge", feature = "op_update_user_attributes", feature = "op_verify_user_attribute"))]
-Self::AliasExistsException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_resend_confirmation_code", feature = "op_set_risk_configuration", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-Self::CodeDeliveryFailureException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_respond_to_auth_challenge", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::CodeMismatchException(e) => e.request_id(),
-            #[cfg(any(feature = "op_associate_software_token", feature = "op_create_managed_login_branding", feature = "op_create_terms", feature = "op_create_user_pool_domain", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_terms", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_set_user_pool_mfa_config", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_terms", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain"))]
-Self::ConcurrentModificationException(e) => e.request_id(),
+            Self::AccessDeniedException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_confirm_sign_up",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::AliasExistsException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_resend_confirmation_code",
+                feature = "op_set_risk_configuration",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes"
+            ))]
+            Self::CodeDeliveryFailureException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::CodeMismatchException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_associate_software_token",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_terms",
+                feature = "op_create_user_pool_domain",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_terms",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_terms",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain"
+            ))]
+            Self::ConcurrentModificationException(e) => e.request_id(),
             #[cfg(feature = "op_confirm_device")]
-Self::DeviceKeyExistsException(e) => e.request_id(),
+            Self::DeviceKeyExistsException(e) => e.request_id(),
             #[cfg(feature = "op_create_identity_provider")]
-Self::DuplicateProviderException(e) => e.request_id(),
+            Self::DuplicateProviderException(e) => e.request_id(),
             #[cfg(feature = "op_verify_software_token")]
-Self::EnableSoftwareTokenMfaException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_respond_to_auth_challenge", feature = "op_update_user_attributes", feature = "op_verify_user_attribute"))]
-Self::ExpiredCodeException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_set_log_delivery_configuration", feature = "op_set_user_pool_mfa_config", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain"))]
-Self::FeatureUnavailableInTierException(e) => e.request_id(),
-            #[cfg(any(feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_web_authn_credential", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_device", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_web_authn_registration", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::ForbiddenException(e) => e.request_id(),
+            Self::EnableSoftwareTokenMfaException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::ExpiredCodeException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain"
+            ))]
+            Self::FeatureUnavailableInTierException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_device",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_web_authn_registration",
+                feature = "op_update_device_status",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::ForbiddenException(e) => e.request_id(),
             #[cfg(feature = "op_create_group")]
-Self::GroupExistsException(e) => e.request_id(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::InternalErrorException(e) => e.request_id(),
-            #[cfg(any(feature = "op_add_user_pool_client_secret", feature = "op_delete_user_pool_client_secret", feature = "op_list_user_pool_client_secrets"))]
-Self::InternalServerException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_create_user_pool", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_risk_configuration", feature = "op_sign_up", feature = "op_update_user_attributes", feature = "op_update_user_pool"))]
-Self::InvalidEmailRoleAccessPolicyException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-Self::InvalidLambdaResponseException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
-Self::InvalidOAuthFlowException(e) => e.request_id(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_add_user_pool_client_secret", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_client_secret", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_client_secrets", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::InvalidParameterException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_password", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_respond_to_auth_challenge", feature = "op_sign_up"))]
-Self::InvalidPasswordException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_create_user_pool", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_user_pool_mfa_config", feature = "op_sign_up", feature = "op_update_user_attributes", feature = "op_update_user_pool"))]
-Self::InvalidSmsRoleAccessPolicyException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_create_user_pool", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_user_pool_mfa_config", feature = "op_sign_up", feature = "op_update_user_attributes", feature = "op_update_user_pool"))]
-Self::InvalidSmsRoleTrustRelationshipException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_initiate_auth", feature = "op_admin_list_devices", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_device_status", feature = "op_confirm_device", feature = "op_forget_device", feature = "op_get_device", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_respond_to_auth_challenge", feature = "op_update_device_status", feature = "op_verify_software_token"))]
-Self::InvalidUserPoolConfigurationException(e) => e.request_id(),
-            #[cfg(any(feature = "op_add_user_pool_client_secret", feature = "op_admin_confirm_sign_up", feature = "op_admin_link_provider_for_user", feature = "op_admin_reset_user_password", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_user_pool_client_secret", feature = "op_delete_web_authn_credential", feature = "op_forgot_password", feature = "op_get_user_attribute_verification_code", feature = "op_list_user_pool_client_secrets", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_sign_up", feature = "op_start_web_authn_registration", feature = "op_verify_user_attribute"))]
-Self::LimitExceededException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_respond_to_auth_challenge"))]
-Self::MfaMethodNotFoundException(e) => e.request_id(),
+            Self::GroupExistsException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_signing_certificate",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_user_pools",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::InternalErrorException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_list_user_pool_client_secrets"
+            ))]
+            Self::InternalServerException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_create_user_pool",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_risk_configuration",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool"
+            ))]
+            Self::InvalidEmailRoleAccessPolicyException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_forgot_password",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes"
+            ))]
+            Self::InvalidLambdaResponseException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_user_pool_client",
+                feature = "op_update_user_pool_client"
+            ))]
+            Self::InvalidOAuthFlowException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_signing_certificate",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_client_secrets",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_user_pools",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::InvalidParameterException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_password",
+                feature = "op_change_password",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_sign_up"
+            ))]
+            Self::InvalidPasswordException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_create_user_pool",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool"
+            ))]
+            Self::InvalidSmsRoleAccessPolicyException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_create_user_pool",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool"
+            ))]
+            Self::InvalidSmsRoleTrustRelationshipException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_device_status",
+                feature = "op_confirm_device",
+                feature = "op_forget_device",
+                feature = "op_get_device",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_update_device_status",
+                feature = "op_verify_software_token"
+            ))]
+            Self::InvalidUserPoolConfigurationException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_reset_user_password",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_forgot_password",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_list_user_pool_client_secrets",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_sign_up",
+                feature = "op_start_web_authn_registration",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::LimitExceededException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_respond_to_auth_challenge"
+            ))]
+            Self::MfaMethodNotFoundException(e) => e.request_id(),
             #[cfg(feature = "op_create_managed_login_branding")]
-Self::ManagedLoginBrandingExistsException(e) => e.request_id(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::NotAuthorizedException(e) => e.request_id(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_managed_login_branding", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::OperationNotEnabledException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_password", feature = "op_change_password", feature = "op_confirm_forgot_password", feature = "op_respond_to_auth_challenge"))]
-Self::PasswordHistoryPolicyViolationException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_web_authn_credential", feature = "op_forget_device", feature = "op_get_device", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_web_authn_credentials", feature = "op_respond_to_auth_challenge", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_start_web_authn_registration", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::PasswordResetRequiredException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_create_user_import_job", feature = "op_start_user_import_job", feature = "op_stop_user_import_job"))]
-Self::PreconditionNotMetException(e) => e.request_id(),
+            Self::ManagedLoginBrandingExistsException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_user_pools",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::NotAuthorizedException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_signing_certificate",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::OperationNotEnabledException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_password",
+                feature = "op_change_password",
+                feature = "op_confirm_forgot_password",
+                feature = "op_respond_to_auth_challenge"
+            ))]
+            Self::PasswordHistoryPolicyViolationException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_forget_device",
+                feature = "op_get_device",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_settings",
+                feature = "op_start_web_authn_registration",
+                feature = "op_update_device_status",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::PasswordResetRequiredException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_create_user_import_job",
+                feature = "op_start_user_import_job",
+                feature = "op_stop_user_import_job"
+            ))]
+            Self::PreconditionNotMetException(e) => e.request_id(),
             #[cfg(feature = "op_get_tokens_from_refresh_token")]
-Self::RefreshTokenReuseException(e) => e.request_id(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_add_user_pool_client_secret", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_associate_software_token", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool_client", feature = "op_create_user_pool_domain", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_client_secret", feature = "op_delete_user_pool_domain", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_describe_user_pool_domain", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_signing_certificate", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_client_secrets", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_mfa_preference", feature = "op_set_user_pool_mfa_config", feature = "op_set_user_settings", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::ResourceNotFoundException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
-Self::ScopeDoesNotExistException(e) => e.request_id(),
+            Self::RefreshTokenReuseException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_associate_software_token",
+                feature = "op_change_password",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_domain",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_delete_user_pool_domain",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_describe_user_pool_domain",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_signing_certificate",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_client_secrets",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_set_user_settings",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::ResourceNotFoundException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_user_pool_client",
+                feature = "op_update_user_pool_client"
+            ))]
+            Self::ScopeDoesNotExistException(e) => e.request_id(),
             #[cfg(feature = "op_update_provisioned_limit")]
-Self::ServiceQuotaExceededException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_respond_to_auth_challenge", feature = "op_associate_software_token", feature = "op_respond_to_auth_challenge", feature = "op_verify_software_token"))]
-Self::SoftwareTokenMfaNotFoundException(e) => e.request_id(),
+            Self::ServiceQuotaExceededException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_associate_software_token",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_verify_software_token"
+            ))]
+            Self::SoftwareTokenMfaNotFoundException(e) => e.request_id(),
             #[cfg(any(feature = "op_create_terms", feature = "op_update_terms"))]
-Self::TermsExistsException(e) => e.request_id(),
+            Self::TermsExistsException(e) => e.request_id(),
             #[cfg(any(feature = "op_create_user_pool", feature = "op_update_user_pool"))]
-Self::TierChangeNotAllowedException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up"))]
-Self::TooManyFailedAttemptsException(e) => e.request_id(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_add_user_pool_client_secret", feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_devices", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_password", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_change_password", feature = "op_complete_web_authn_registration", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_create_group", feature = "op_create_identity_provider", feature = "op_create_managed_login_branding", feature = "op_create_resource_server", feature = "op_create_terms", feature = "op_create_user_import_job", feature = "op_create_user_pool", feature = "op_create_user_pool_client", feature = "op_create_user_pool_replica", feature = "op_delete_group", feature = "op_delete_identity_provider", feature = "op_delete_managed_login_branding", feature = "op_delete_resource_server", feature = "op_delete_terms", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_delete_user_pool", feature = "op_delete_user_pool_client", feature = "op_delete_user_pool_client_secret", feature = "op_delete_user_pool_replica", feature = "op_delete_web_authn_credential", feature = "op_describe_identity_provider", feature = "op_describe_managed_login_branding", feature = "op_describe_managed_login_branding_by_client", feature = "op_describe_resource_server", feature = "op_describe_risk_configuration", feature = "op_describe_terms", feature = "op_describe_user_import_job", feature = "op_describe_user_pool", feature = "op_describe_user_pool_client", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_csv_header", feature = "op_get_device", feature = "op_get_group", feature = "op_get_identity_provider_by_identifier", feature = "op_get_log_delivery_configuration", feature = "op_get_provisioned_limit", feature = "op_get_tokens_from_refresh_token", feature = "op_get_ui_customization", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_get_user_pool_mfa_config", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_list_groups", feature = "op_list_identity_providers", feature = "op_list_resource_servers", feature = "op_list_tags_for_resource", feature = "op_list_terms", feature = "op_list_user_import_jobs", feature = "op_list_user_pool_client_secrets", feature = "op_list_user_pool_clients", feature = "op_list_user_pool_replicas", feature = "op_list_user_pools", feature = "op_list_users", feature = "op_list_users_in_group", feature = "op_list_web_authn_credentials", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_revoke_token", feature = "op_set_log_delivery_configuration", feature = "op_set_risk_configuration", feature = "op_set_ui_customization", feature = "op_set_user_pool_mfa_config", feature = "op_sign_up", feature = "op_start_user_import_job", feature = "op_start_web_authn_registration", feature = "op_stop_user_import_job", feature = "op_tag_resource", feature = "op_untag_resource", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_group", feature = "op_update_identity_provider", feature = "op_update_managed_login_branding", feature = "op_update_provisioned_limit", feature = "op_update_resource_server", feature = "op_update_terms", feature = "op_update_user_attributes", feature = "op_update_user_pool", feature = "op_update_user_pool_client", feature = "op_update_user_pool_domain", feature = "op_update_user_pool_replica", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::TooManyRequestsException(e) => e.request_id(),
+            Self::TierChangeNotAllowedException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up"
+            ))]
+            Self::TooManyFailedAttemptsException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_add_user_pool_client_secret",
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_devices",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_change_password",
+                feature = "op_complete_web_authn_registration",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_create_group",
+                feature = "op_create_identity_provider",
+                feature = "op_create_managed_login_branding",
+                feature = "op_create_resource_server",
+                feature = "op_create_terms",
+                feature = "op_create_user_import_job",
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_client",
+                feature = "op_create_user_pool_replica",
+                feature = "op_delete_group",
+                feature = "op_delete_identity_provider",
+                feature = "op_delete_managed_login_branding",
+                feature = "op_delete_resource_server",
+                feature = "op_delete_terms",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_delete_user_pool_client",
+                feature = "op_delete_user_pool_client_secret",
+                feature = "op_delete_user_pool_replica",
+                feature = "op_delete_web_authn_credential",
+                feature = "op_describe_identity_provider",
+                feature = "op_describe_managed_login_branding",
+                feature = "op_describe_managed_login_branding_by_client",
+                feature = "op_describe_resource_server",
+                feature = "op_describe_risk_configuration",
+                feature = "op_describe_terms",
+                feature = "op_describe_user_import_job",
+                feature = "op_describe_user_pool",
+                feature = "op_describe_user_pool_client",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_csv_header",
+                feature = "op_get_device",
+                feature = "op_get_group",
+                feature = "op_get_identity_provider_by_identifier",
+                feature = "op_get_log_delivery_configuration",
+                feature = "op_get_provisioned_limit",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_ui_customization",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_get_user_pool_mfa_config",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_list_groups",
+                feature = "op_list_identity_providers",
+                feature = "op_list_resource_servers",
+                feature = "op_list_tags_for_resource",
+                feature = "op_list_terms",
+                feature = "op_list_user_import_jobs",
+                feature = "op_list_user_pool_client_secrets",
+                feature = "op_list_user_pool_clients",
+                feature = "op_list_user_pool_replicas",
+                feature = "op_list_user_pools",
+                feature = "op_list_users",
+                feature = "op_list_users_in_group",
+                feature = "op_list_web_authn_credentials",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_revoke_token",
+                feature = "op_set_log_delivery_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_set_ui_customization",
+                feature = "op_set_user_pool_mfa_config",
+                feature = "op_sign_up",
+                feature = "op_start_user_import_job",
+                feature = "op_start_web_authn_registration",
+                feature = "op_stop_user_import_job",
+                feature = "op_tag_resource",
+                feature = "op_untag_resource",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_group",
+                feature = "op_update_identity_provider",
+                feature = "op_update_managed_login_branding",
+                feature = "op_update_provisioned_limit",
+                feature = "op_update_resource_server",
+                feature = "op_update_terms",
+                feature = "op_update_user_attributes",
+                feature = "op_update_user_pool",
+                feature = "op_update_user_pool_client",
+                feature = "op_update_user_pool_domain",
+                feature = "op_update_user_pool_replica",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::TooManyRequestsException(e) => e.request_id(),
             #[cfg(feature = "op_revoke_token")]
-Self::UnauthorizedException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-Self::UnexpectedLambdaException(e) => e.request_id(),
-            #[cfg(any(feature = "op_delete_identity_provider", feature = "op_update_identity_provider"))]
-Self::UnsupportedIdentityProviderException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_initiate_auth", feature = "op_revoke_token"))]
-Self::UnsupportedOperationException(e) => e.request_id(),
+            Self::UnauthorizedException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_forgot_password",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes"
+            ))]
+            Self::UnexpectedLambdaException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_delete_identity_provider",
+                feature = "op_update_identity_provider"
+            ))]
+            Self::UnsupportedIdentityProviderException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_initiate_auth",
+                feature = "op_revoke_token"
+            ))]
+            Self::UnsupportedOperationException(e) => e.request_id(),
             #[cfg(feature = "op_revoke_token")]
-Self::UnsupportedTokenTypeException(e) => e.request_id(),
+            Self::UnsupportedTokenTypeException(e) => e.request_id(),
             #[cfg(feature = "op_admin_create_user")]
-Self::UnsupportedUserStateException(e) => e.request_id(),
-            #[cfg(any(feature = "op_add_custom_attributes", feature = "op_delete_user_pool", feature = "op_update_user_pool"))]
-Self::UserImportInProgressException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_initiate_auth", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_update_user_attributes", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_forgot_password", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user_attribute_verification_code", feature = "op_initiate_auth", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_sign_up", feature = "op_update_user_attributes"))]
-Self::UserLambdaValidationException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_forget_device", feature = "op_get_device", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_global_sign_out", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_respond_to_auth_challenge", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::UserNotConfirmedException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_add_user_to_group", feature = "op_admin_confirm_sign_up", feature = "op_admin_create_user", feature = "op_admin_delete_user", feature = "op_admin_delete_user_attributes", feature = "op_admin_disable_provider_for_user", feature = "op_admin_disable_user", feature = "op_admin_enable_user", feature = "op_admin_forget_device", feature = "op_admin_get_user", feature = "op_admin_get_user_auth_factors", feature = "op_admin_initiate_auth", feature = "op_admin_link_provider_for_user", feature = "op_admin_list_groups_for_user", feature = "op_admin_list_user_auth_events", feature = "op_admin_remove_user_from_group", feature = "op_admin_reset_user_password", feature = "op_admin_respond_to_auth_challenge", feature = "op_admin_set_user_mfa_preference", feature = "op_admin_set_user_password", feature = "op_admin_set_user_settings", feature = "op_admin_update_auth_event_feedback", feature = "op_admin_update_device_status", feature = "op_admin_update_user_attributes", feature = "op_admin_user_global_sign_out", feature = "op_change_password", feature = "op_confirm_device", feature = "op_confirm_forgot_password", feature = "op_confirm_sign_up", feature = "op_delete_user", feature = "op_delete_user_attributes", feature = "op_forget_device", feature = "op_forgot_password", feature = "op_get_device", feature = "op_get_tokens_from_refresh_token", feature = "op_get_user", feature = "op_get_user_attribute_verification_code", feature = "op_get_user_auth_factors", feature = "op_initiate_auth", feature = "op_list_devices", feature = "op_resend_confirmation_code", feature = "op_respond_to_auth_challenge", feature = "op_set_user_mfa_preference", feature = "op_set_user_settings", feature = "op_update_auth_event_feedback", feature = "op_update_device_status", feature = "op_update_user_attributes", feature = "op_verify_software_token", feature = "op_verify_user_attribute"))]
-Self::UserNotFoundException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_list_user_auth_events", feature = "op_admin_update_auth_event_feedback", feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration", feature = "op_update_auth_event_feedback"))]
-Self::UserPoolAddOnNotEnabledException(e) => e.request_id(),
-            #[cfg(any(feature = "op_create_user_pool", feature = "op_create_user_pool_replica", feature = "op_describe_user_pool", feature = "op_update_user_pool"))]
-Self::UserPoolTaggingException(e) => e.request_id(),
-            #[cfg(any(feature = "op_admin_create_user", feature = "op_confirm_device", feature = "op_sign_up"))]
-Self::UsernameExistsException(e) => e.request_id(),
+            Self::UnsupportedUserStateException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_add_custom_attributes",
+                feature = "op_delete_user_pool",
+                feature = "op_update_user_pool"
+            ))]
+            Self::UserImportInProgressException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_forgot_password",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_initiate_auth",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_sign_up",
+                feature = "op_update_user_attributes"
+            ))]
+            Self::UserLambdaValidationException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_change_password",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_forget_device",
+                feature = "op_get_device",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_global_sign_out",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_settings",
+                feature = "op_update_device_status",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::UserNotConfirmedException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_add_user_to_group",
+                feature = "op_admin_confirm_sign_up",
+                feature = "op_admin_create_user",
+                feature = "op_admin_delete_user",
+                feature = "op_admin_delete_user_attributes",
+                feature = "op_admin_disable_provider_for_user",
+                feature = "op_admin_disable_user",
+                feature = "op_admin_enable_user",
+                feature = "op_admin_forget_device",
+                feature = "op_admin_get_user",
+                feature = "op_admin_get_user_auth_factors",
+                feature = "op_admin_initiate_auth",
+                feature = "op_admin_link_provider_for_user",
+                feature = "op_admin_list_groups_for_user",
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_remove_user_from_group",
+                feature = "op_admin_reset_user_password",
+                feature = "op_admin_respond_to_auth_challenge",
+                feature = "op_admin_set_user_mfa_preference",
+                feature = "op_admin_set_user_password",
+                feature = "op_admin_set_user_settings",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_admin_update_device_status",
+                feature = "op_admin_update_user_attributes",
+                feature = "op_admin_user_global_sign_out",
+                feature = "op_change_password",
+                feature = "op_confirm_device",
+                feature = "op_confirm_forgot_password",
+                feature = "op_confirm_sign_up",
+                feature = "op_delete_user",
+                feature = "op_delete_user_attributes",
+                feature = "op_forget_device",
+                feature = "op_forgot_password",
+                feature = "op_get_device",
+                feature = "op_get_tokens_from_refresh_token",
+                feature = "op_get_user",
+                feature = "op_get_user_attribute_verification_code",
+                feature = "op_get_user_auth_factors",
+                feature = "op_initiate_auth",
+                feature = "op_list_devices",
+                feature = "op_resend_confirmation_code",
+                feature = "op_respond_to_auth_challenge",
+                feature = "op_set_user_mfa_preference",
+                feature = "op_set_user_settings",
+                feature = "op_update_auth_event_feedback",
+                feature = "op_update_device_status",
+                feature = "op_update_user_attributes",
+                feature = "op_verify_software_token",
+                feature = "op_verify_user_attribute"
+            ))]
+            Self::UserNotFoundException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_list_user_auth_events",
+                feature = "op_admin_update_auth_event_feedback",
+                feature = "op_describe_risk_configuration",
+                feature = "op_set_risk_configuration",
+                feature = "op_update_auth_event_feedback"
+            ))]
+            Self::UserPoolAddOnNotEnabledException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_create_user_pool",
+                feature = "op_create_user_pool_replica",
+                feature = "op_describe_user_pool",
+                feature = "op_update_user_pool"
+            ))]
+            Self::UserPoolTaggingException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_admin_create_user",
+                feature = "op_confirm_device",
+                feature = "op_sign_up"
+            ))]
+            Self::UsernameExistsException(e) => e.request_id(),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Self::WebAuthnChallengeNotFoundException(e) => e.request_id(),
+            Self::WebAuthnChallengeNotFoundException(e) => e.request_id(),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Self::WebAuthnClientMismatchException(e) => e.request_id(),
+            Self::WebAuthnClientMismatchException(e) => e.request_id(),
             #[cfg(feature = "op_start_web_authn_registration")]
-Self::WebAuthnConfigurationMissingException(e) => e.request_id(),
+            Self::WebAuthnConfigurationMissingException(e) => e.request_id(),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Self::WebAuthnCredentialNotSupportedException(e) => e.request_id(),
-            #[cfg(any(feature = "op_complete_web_authn_registration", feature = "op_start_web_authn_registration"))]
-Self::WebAuthnNotEnabledException(e) => e.request_id(),
+            Self::WebAuthnCredentialNotSupportedException(e) => e.request_id(),
+            #[cfg(any(
+                feature = "op_complete_web_authn_registration",
+                feature = "op_start_web_authn_registration"
+            ))]
+            Self::WebAuthnNotEnabledException(e) => e.request_id(),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Self::WebAuthnOriginNotAllowedException(e) => e.request_id(),
+            Self::WebAuthnOriginNotAllowedException(e) => e.request_id(),
             #[cfg(feature = "op_complete_web_authn_registration")]
-Self::WebAuthnRelyingPartyMismatchException(e) => e.request_id(),
+            Self::WebAuthnRelyingPartyMismatchException(e) => e.request_id(),
             Self::Unhandled(e) => e.meta.request_id(),
         }
     }

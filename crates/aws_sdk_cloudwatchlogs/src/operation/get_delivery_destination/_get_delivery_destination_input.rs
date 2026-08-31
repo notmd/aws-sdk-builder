@@ -14,13 +14,17 @@ impl GetDeliveryDestinationInput {
 }
 impl GetDeliveryDestinationInput {
     /// Creates a new builder-style object to manufacture [`GetDeliveryDestinationInput`](crate::operation::get_delivery_destination::GetDeliveryDestinationInput).
-    pub fn builder() -> crate::operation::get_delivery_destination::builders::GetDeliveryDestinationInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::get_delivery_destination::builders::GetDeliveryDestinationInputBuilder
+    {
         crate::operation::get_delivery_destination::builders::GetDeliveryDestinationInputBuilder::default()
     }
 }
 
 /// A builder for [`GetDeliveryDestinationInput`](crate::operation::get_delivery_destination::GetDeliveryDestinationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetDeliveryDestinationInputBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -48,6 +52,10 @@ impl GetDeliveryDestinationInputBuilder {
         crate::operation::get_delivery_destination::GetDeliveryDestinationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_delivery_destination::GetDeliveryDestinationInput { name: self.name })
+        ::std::result::Result::Ok(
+            crate::operation::get_delivery_destination::GetDeliveryDestinationInput {
+                name: self.name,
+            },
+        )
     }
 }

@@ -11,7 +11,8 @@ pub struct JobSummary {
     /// <p>The job name.</p>
     pub job_name: ::std::option::Option<::std::string::String>,
     /// <p>The configured capacity usage information for this job, including the unit of measure and quantity of resources.</p>
-    pub capacity_usage: ::std::option::Option<::std::vec::Vec<crate::types::JobCapacityUsageSummary>>,
+    pub capacity_usage:
+        ::std::option::Option<::std::vec::Vec<crate::types::JobCapacityUsageSummary>>,
     /// <p>The Unix timestamp (in milliseconds) for when the job was created. For non-array jobs and parent array jobs, this is when the job entered the <code>SUBMITTED</code> state (at the time <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html">SubmitJob</a> was called). For array child jobs, this is when the child job was spawned by its parent and entered the <code>PENDING</code> state.</p>
     pub created_at: ::std::option::Option<i64>,
     /// <p>The Unix timestamp (in milliseconds) for when the job was scheduled for execution. For more information on job statues, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service-job-status.html">Service job status</a> in the <i>Batch User Guide</i>.</p>
@@ -111,13 +112,16 @@ impl JobSummary {
 }
 
 /// A builder for [`JobSummary`](crate::types::JobSummary).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct JobSummaryBuilder {
     pub(crate) job_arn: ::std::option::Option<::std::string::String>,
     pub(crate) job_id: ::std::option::Option<::std::string::String>,
     pub(crate) job_name: ::std::option::Option<::std::string::String>,
-    pub(crate) capacity_usage: ::std::option::Option<::std::vec::Vec<crate::types::JobCapacityUsageSummary>>,
+    pub(crate) capacity_usage:
+        ::std::option::Option<::std::vec::Vec<crate::types::JobCapacityUsageSummary>>,
     pub(crate) created_at: ::std::option::Option<i64>,
     pub(crate) scheduled_at: ::std::option::Option<i64>,
     pub(crate) share_identifier: ::std::option::Option<::std::string::String>,
@@ -187,12 +191,17 @@ impl JobSummaryBuilder {
         self
     }
     /// <p>The configured capacity usage information for this job, including the unit of measure and quantity of resources.</p>
-    pub fn set_capacity_usage(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::JobCapacityUsageSummary>>) -> Self {
+    pub fn set_capacity_usage(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::JobCapacityUsageSummary>>,
+    ) -> Self {
         self.capacity_usage = input;
         self
     }
     /// <p>The configured capacity usage information for this job, including the unit of measure and quantity of resources.</p>
-    pub fn get_capacity_usage(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::JobCapacityUsageSummary>> {
+    pub fn get_capacity_usage(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::JobCapacityUsageSummary>> {
         &self.capacity_usage
     }
     /// <p>The Unix timestamp (in milliseconds) for when the job was created. For non-array jobs and parent array jobs, this is when the job entered the <code>SUBMITTED</code> state (at the time <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html">SubmitJob</a> was called). For array child jobs, this is when the child job was spawned by its parent and entered the <code>PENDING</code> state.</p>
@@ -224,12 +233,18 @@ impl JobSummaryBuilder {
         &self.scheduled_at
     }
     /// <p>The share identifier for the fairshare scheduling queue that this job is associated with.</p>
-    pub fn share_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn share_identifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.share_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The share identifier for the fairshare scheduling queue that this job is associated with.</p>
-    pub fn set_share_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_share_identifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.share_identifier = input;
         self
     }
@@ -252,12 +267,18 @@ impl JobSummaryBuilder {
         &self.status
     }
     /// <p>A short, human-readable string to provide more details for the current status of the job.</p>
-    pub fn status_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn status_reason(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.status_reason = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A short, human-readable string to provide more details for the current status of the job.</p>
-    pub fn set_status_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_status_reason(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.status_reason = input;
         self
     }
@@ -299,7 +320,10 @@ impl JobSummaryBuilder {
         self
     }
     /// <p>An object that represents the details of the container that's associated with the job.</p>
-    pub fn set_container(mut self, input: ::std::option::Option<crate::types::ContainerSummary>) -> Self {
+    pub fn set_container(
+        mut self,
+        input: ::std::option::Option<crate::types::ContainerSummary>,
+    ) -> Self {
         self.container = input;
         self
     }
@@ -313,12 +337,17 @@ impl JobSummaryBuilder {
         self
     }
     /// <p>The array properties of the job, if it's an array job.</p>
-    pub fn set_array_properties(mut self, input: ::std::option::Option<crate::types::ArrayPropertiesSummary>) -> Self {
+    pub fn set_array_properties(
+        mut self,
+        input: ::std::option::Option<crate::types::ArrayPropertiesSummary>,
+    ) -> Self {
         self.array_properties = input;
         self
     }
     /// <p>The array properties of the job, if it's an array job.</p>
-    pub fn get_array_properties(&self) -> &::std::option::Option<crate::types::ArrayPropertiesSummary> {
+    pub fn get_array_properties(
+        &self,
+    ) -> &::std::option::Option<crate::types::ArrayPropertiesSummary> {
         &self.array_properties
     }
     /// <p>The node properties for a single node in a job summary list.</p><note>
@@ -331,23 +360,34 @@ impl JobSummaryBuilder {
     /// <p>The node properties for a single node in a job summary list.</p><note>
     /// <p>This isn't applicable to jobs that are running on Fargate resources.</p>
     /// </note>
-    pub fn set_node_properties(mut self, input: ::std::option::Option<crate::types::NodePropertiesSummary>) -> Self {
+    pub fn set_node_properties(
+        mut self,
+        input: ::std::option::Option<crate::types::NodePropertiesSummary>,
+    ) -> Self {
         self.node_properties = input;
         self
     }
     /// <p>The node properties for a single node in a job summary list.</p><note>
     /// <p>This isn't applicable to jobs that are running on Fargate resources.</p>
     /// </note>
-    pub fn get_node_properties(&self) -> &::std::option::Option<crate::types::NodePropertiesSummary> {
+    pub fn get_node_properties(
+        &self,
+    ) -> &::std::option::Option<crate::types::NodePropertiesSummary> {
         &self.node_properties
     }
     /// <p>The Amazon Resource Name (ARN) of the job definition.</p>
-    pub fn job_definition(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn job_definition(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.job_definition = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the job definition.</p>
-    pub fn set_job_definition(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_job_definition(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.job_definition = input;
         self
     }

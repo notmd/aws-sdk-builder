@@ -45,16 +45,20 @@ impl GuardrailChecksSensitiveInformationResultEntry {
 }
 impl GuardrailChecksSensitiveInformationResultEntry {
     /// Creates a new builder-style object to manufacture [`GuardrailChecksSensitiveInformationResultEntry`](crate::types::GuardrailChecksSensitiveInformationResultEntry).
-    pub fn builder() -> crate::types::builders::GuardrailChecksSensitiveInformationResultEntryBuilder {
+    pub fn builder() -> crate::types::builders::GuardrailChecksSensitiveInformationResultEntryBuilder
+    {
         crate::types::builders::GuardrailChecksSensitiveInformationResultEntryBuilder::default()
     }
 }
 
 /// A builder for [`GuardrailChecksSensitiveInformationResultEntry`](crate::types::GuardrailChecksSensitiveInformationResultEntry).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GuardrailChecksSensitiveInformationResultEntryBuilder {
-    pub(crate) r#type: ::std::option::Option<crate::types::GuardrailChecksSensitiveInformationEntityType>,
+    pub(crate) r#type:
+        ::std::option::Option<crate::types::GuardrailChecksSensitiveInformationEntityType>,
     pub(crate) confidence_score: ::std::option::Option<f64>,
     pub(crate) begin_offset: ::std::option::Option<i32>,
     pub(crate) end_offset: ::std::option::Option<i32>,
@@ -64,17 +68,25 @@ pub struct GuardrailChecksSensitiveInformationResultEntryBuilder {
 impl GuardrailChecksSensitiveInformationResultEntryBuilder {
     /// <p>The PII entity type that was detected.</p>
     /// This field is required.
-    pub fn r#type(mut self, input: crate::types::GuardrailChecksSensitiveInformationEntityType) -> Self {
+    pub fn r#type(
+        mut self,
+        input: crate::types::GuardrailChecksSensitiveInformationEntityType,
+    ) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
     /// <p>The PII entity type that was detected.</p>
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::GuardrailChecksSensitiveInformationEntityType>) -> Self {
+    pub fn set_type(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailChecksSensitiveInformationEntityType>,
+    ) -> Self {
         self.r#type = input;
         self
     }
     /// <p>The PII entity type that was detected.</p>
-    pub fn get_type(&self) -> &::std::option::Option<crate::types::GuardrailChecksSensitiveInformationEntityType> {
+    pub fn get_type(
+        &self,
+    ) -> &::std::option::Option<crate::types::GuardrailChecksSensitiveInformationEntityType> {
         &self.r#type
     }
     /// <p>The confidence score for the detection, ranging from 0.0 to 1.0. Higher values indicate greater confidence.</p>
@@ -162,7 +174,10 @@ impl GuardrailChecksSensitiveInformationResultEntryBuilder {
     /// - [`content_index`](crate::types::builders::GuardrailChecksSensitiveInformationResultEntryBuilder::content_index)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::types::GuardrailChecksSensitiveInformationResultEntry, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::types::GuardrailChecksSensitiveInformationResultEntry,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::GuardrailChecksSensitiveInformationResultEntry {
             r#type: self.r#type.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

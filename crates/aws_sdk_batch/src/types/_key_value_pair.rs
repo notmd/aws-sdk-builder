@@ -27,7 +27,9 @@ impl KeyValuePair {
 }
 
 /// A builder for [`KeyValuePair`](crate::types::KeyValuePair).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct KeyValuePairBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,

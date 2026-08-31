@@ -40,7 +40,9 @@ impl AccessKeyMetadata {
 }
 
 /// A builder for [`AccessKeyMetadata`](crate::types::AccessKeyMetadata).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AccessKeyMetadataBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -64,12 +66,18 @@ impl AccessKeyMetadataBuilder {
         &self.user_name
     }
     /// <p>The ID for this access key.</p>
-    pub fn access_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn access_key_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.access_key_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ID for this access key.</p>
-    pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_access_key_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.access_key_id = input;
         self
     }
@@ -97,7 +105,10 @@ impl AccessKeyMetadataBuilder {
         self
     }
     /// <p>The date when the access key was created.</p>
-    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_create_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.create_date = input;
         self
     }

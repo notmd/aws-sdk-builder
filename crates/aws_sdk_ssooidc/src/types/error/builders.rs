@@ -8,28 +8,59 @@ pub use crate::types::error::_authorization_pending_exception::AuthorizationPend
 #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
 pub use crate::types::error::_expired_token_exception::ExpiredTokenExceptionBuilder;
 
-#[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
+#[cfg(any(
+    feature = "op_create_token",
+    feature = "op_create_token_with_iam",
+    feature = "op_register_client",
+    feature = "op_start_device_authorization"
+))]
 pub use crate::types::error::_internal_server_exception::InternalServerExceptionBuilder;
 
-#[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_start_device_authorization"))]
+#[cfg(any(
+    feature = "op_create_token",
+    feature = "op_create_token_with_iam",
+    feature = "op_start_device_authorization"
+))]
 pub use crate::types::error::_invalid_client_exception::InvalidClientExceptionBuilder;
 
 #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
 pub use crate::types::error::_invalid_grant_exception::InvalidGrantExceptionBuilder;
 
-#[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
+#[cfg(any(
+    feature = "op_create_token",
+    feature = "op_create_token_with_iam",
+    feature = "op_register_client",
+    feature = "op_start_device_authorization"
+))]
 pub use crate::types::error::_invalid_request_exception::InvalidRequestExceptionBuilder;
 
-#[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client"))]
+#[cfg(any(
+    feature = "op_create_token",
+    feature = "op_create_token_with_iam",
+    feature = "op_register_client"
+))]
 pub use crate::types::error::_invalid_scope_exception::InvalidScopeExceptionBuilder;
 
-#[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
+#[cfg(any(
+    feature = "op_create_token",
+    feature = "op_create_token_with_iam",
+    feature = "op_register_client",
+    feature = "op_start_device_authorization"
+))]
 pub use crate::types::error::_slow_down_exception::SlowDownExceptionBuilder;
 
-#[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_start_device_authorization"))]
+#[cfg(any(
+    feature = "op_create_token",
+    feature = "op_create_token_with_iam",
+    feature = "op_start_device_authorization"
+))]
 pub use crate::types::error::_unauthorized_client_exception::UnauthorizedClientExceptionBuilder;
 
-#[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client"))]
+#[cfg(any(
+    feature = "op_create_token",
+    feature = "op_create_token_with_iam",
+    feature = "op_register_client"
+))]
 pub use crate::types::error::_unsupported_grant_type_exception::UnsupportedGrantTypeExceptionBuilder;
 
 #[cfg(feature = "op_create_token_with_iam")]

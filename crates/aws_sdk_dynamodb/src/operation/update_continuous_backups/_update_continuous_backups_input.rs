@@ -6,7 +6,8 @@ pub struct UpdateContinuousBackupsInput {
     /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub table_name: ::std::option::Option<::std::string::String>,
     /// <p>Represents the settings used to enable point in time recovery.</p>
-    pub point_in_time_recovery_specification: ::std::option::Option<crate::types::PointInTimeRecoverySpecification>,
+    pub point_in_time_recovery_specification:
+        ::std::option::Option<crate::types::PointInTimeRecoverySpecification>,
 }
 impl UpdateContinuousBackupsInput {
     /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
@@ -14,23 +15,30 @@ impl UpdateContinuousBackupsInput {
         self.table_name.as_deref()
     }
     /// <p>Represents the settings used to enable point in time recovery.</p>
-    pub fn point_in_time_recovery_specification(&self) -> ::std::option::Option<&crate::types::PointInTimeRecoverySpecification> {
+    pub fn point_in_time_recovery_specification(
+        &self,
+    ) -> ::std::option::Option<&crate::types::PointInTimeRecoverySpecification> {
         self.point_in_time_recovery_specification.as_ref()
     }
 }
 impl UpdateContinuousBackupsInput {
     /// Creates a new builder-style object to manufacture [`UpdateContinuousBackupsInput`](crate::operation::update_continuous_backups::UpdateContinuousBackupsInput).
-    pub fn builder() -> crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsInputBuilder
+    {
         crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateContinuousBackupsInput`](crate::operation::update_continuous_backups::UpdateContinuousBackupsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateContinuousBackupsInputBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
-    pub(crate) point_in_time_recovery_specification: ::std::option::Option<crate::types::PointInTimeRecoverySpecification>,
+    pub(crate) point_in_time_recovery_specification:
+        ::std::option::Option<crate::types::PointInTimeRecoverySpecification>,
 }
 impl UpdateContinuousBackupsInputBuilder {
     /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
@@ -50,17 +58,25 @@ impl UpdateContinuousBackupsInputBuilder {
     }
     /// <p>Represents the settings used to enable point in time recovery.</p>
     /// This field is required.
-    pub fn point_in_time_recovery_specification(mut self, input: crate::types::PointInTimeRecoverySpecification) -> Self {
+    pub fn point_in_time_recovery_specification(
+        mut self,
+        input: crate::types::PointInTimeRecoverySpecification,
+    ) -> Self {
         self.point_in_time_recovery_specification = ::std::option::Option::Some(input);
         self
     }
     /// <p>Represents the settings used to enable point in time recovery.</p>
-    pub fn set_point_in_time_recovery_specification(mut self, input: ::std::option::Option<crate::types::PointInTimeRecoverySpecification>) -> Self {
+    pub fn set_point_in_time_recovery_specification(
+        mut self,
+        input: ::std::option::Option<crate::types::PointInTimeRecoverySpecification>,
+    ) -> Self {
         self.point_in_time_recovery_specification = input;
         self
     }
     /// <p>Represents the settings used to enable point in time recovery.</p>
-    pub fn get_point_in_time_recovery_specification(&self) -> &::std::option::Option<crate::types::PointInTimeRecoverySpecification> {
+    pub fn get_point_in_time_recovery_specification(
+        &self,
+    ) -> &::std::option::Option<crate::types::PointInTimeRecoverySpecification> {
         &self.point_in_time_recovery_specification
     }
     /// Consumes the builder and constructs a [`UpdateContinuousBackupsInput`](crate::operation::update_continuous_backups::UpdateContinuousBackupsInput).
@@ -70,9 +86,11 @@ impl UpdateContinuousBackupsInputBuilder {
         crate::operation::update_continuous_backups::UpdateContinuousBackupsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::update_continuous_backups::UpdateContinuousBackupsInput {
-            table_name: self.table_name,
-            point_in_time_recovery_specification: self.point_in_time_recovery_specification,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::update_continuous_backups::UpdateContinuousBackupsInput {
+                table_name: self.table_name,
+                point_in_time_recovery_specification: self.point_in_time_recovery_specification,
+            },
+        )
     }
 }

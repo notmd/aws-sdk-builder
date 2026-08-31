@@ -6,15 +6,20 @@
 pub struct UserAttributeUpdateSettingsType {
     /// <p>Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.</p>
     /// <p>When <code>AttributesRequireVerificationBeforeUpdate</code> is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where <code>AttributesRequireVerificationBeforeUpdate</code> is false, API operations that change attribute values can immediately update a user’s <code>email</code> or <code>phone_number</code> attribute.</p>
-    pub attributes_require_verification_before_update: ::std::option::Option<::std::vec::Vec<crate::types::VerifiedAttributeType>>,
+    pub attributes_require_verification_before_update:
+        ::std::option::Option<::std::vec::Vec<crate::types::VerifiedAttributeType>>,
 }
 impl UserAttributeUpdateSettingsType {
     /// <p>Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.</p>
     /// <p>When <code>AttributesRequireVerificationBeforeUpdate</code> is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where <code>AttributesRequireVerificationBeforeUpdate</code> is false, API operations that change attribute values can immediately update a user’s <code>email</code> or <code>phone_number</code> attribute.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attributes_require_verification_before_update.is_none()`.
-    pub fn attributes_require_verification_before_update(&self) -> &[crate::types::VerifiedAttributeType] {
-        self.attributes_require_verification_before_update.as_deref().unwrap_or_default()
+    pub fn attributes_require_verification_before_update(
+        &self,
+    ) -> &[crate::types::VerifiedAttributeType] {
+        self.attributes_require_verification_before_update
+            .as_deref()
+            .unwrap_or_default()
     }
 }
 impl UserAttributeUpdateSettingsType {
@@ -25,10 +30,13 @@ impl UserAttributeUpdateSettingsType {
 }
 
 /// A builder for [`UserAttributeUpdateSettingsType`](crate::types::UserAttributeUpdateSettingsType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UserAttributeUpdateSettingsTypeBuilder {
-    pub(crate) attributes_require_verification_before_update: ::std::option::Option<::std::vec::Vec<crate::types::VerifiedAttributeType>>,
+    pub(crate) attributes_require_verification_before_update:
+        ::std::option::Option<::std::vec::Vec<crate::types::VerifiedAttributeType>>,
 }
 impl UserAttributeUpdateSettingsTypeBuilder {
     /// Appends an item to `attributes_require_verification_before_update`.
@@ -37,8 +45,13 @@ impl UserAttributeUpdateSettingsTypeBuilder {
     ///
     /// <p>Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.</p>
     /// <p>When <code>AttributesRequireVerificationBeforeUpdate</code> is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where <code>AttributesRequireVerificationBeforeUpdate</code> is false, API operations that change attribute values can immediately update a user’s <code>email</code> or <code>phone_number</code> attribute.</p>
-    pub fn attributes_require_verification_before_update(mut self, input: crate::types::VerifiedAttributeType) -> Self {
-        let mut v = self.attributes_require_verification_before_update.unwrap_or_default();
+    pub fn attributes_require_verification_before_update(
+        mut self,
+        input: crate::types::VerifiedAttributeType,
+    ) -> Self {
+        let mut v = self
+            .attributes_require_verification_before_update
+            .unwrap_or_default();
         v.push(input);
         self.attributes_require_verification_before_update = ::std::option::Option::Some(v);
         self
@@ -54,13 +67,16 @@ impl UserAttributeUpdateSettingsTypeBuilder {
     }
     /// <p>Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.</p>
     /// <p>When <code>AttributesRequireVerificationBeforeUpdate</code> is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where <code>AttributesRequireVerificationBeforeUpdate</code> is false, API operations that change attribute values can immediately update a user’s <code>email</code> or <code>phone_number</code> attribute.</p>
-    pub fn get_attributes_require_verification_before_update(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VerifiedAttributeType>> {
+    pub fn get_attributes_require_verification_before_update(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::VerifiedAttributeType>> {
         &self.attributes_require_verification_before_update
     }
     /// Consumes the builder and constructs a [`UserAttributeUpdateSettingsType`](crate::types::UserAttributeUpdateSettingsType).
     pub fn build(self) -> crate::types::UserAttributeUpdateSettingsType {
         crate::types::UserAttributeUpdateSettingsType {
-            attributes_require_verification_before_update: self.attributes_require_verification_before_update,
+            attributes_require_verification_before_update: self
+                .attributes_require_verification_before_update,
         }
     }
 }

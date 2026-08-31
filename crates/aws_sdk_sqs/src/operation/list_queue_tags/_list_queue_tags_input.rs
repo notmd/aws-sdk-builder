@@ -20,7 +20,9 @@ impl ListQueueTagsInput {
 }
 
 /// A builder for [`ListQueueTagsInput`](crate::operation::list_queue_tags::ListQueueTagsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListQueueTagsInputBuilder {
     pub(crate) queue_url: ::std::option::Option<::std::string::String>,
@@ -44,7 +46,12 @@ impl ListQueueTagsInputBuilder {
     /// Consumes the builder and constructs a [`ListQueueTagsInput`](crate::operation::list_queue_tags::ListQueueTagsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_queue_tags::ListQueueTagsInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_queue_tags::ListQueueTagsInput { queue_url: self.queue_url })
+    ) -> ::std::result::Result<
+        crate::operation::list_queue_tags::ListQueueTagsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(crate::operation::list_queue_tags::ListQueueTagsInput {
+            queue_url: self.queue_url,
+        })
     }
 }

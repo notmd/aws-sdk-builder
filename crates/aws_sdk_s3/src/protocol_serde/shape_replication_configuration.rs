@@ -13,7 +13,10 @@ pub fn ser_replication_configuration(
         for list_item_1 in &input.rules {
             {
                 let inner_writer = scope.start_el("Rule");
-                crate::protocol_serde::shape_replication_rule::ser_replication_rule(list_item_1, inner_writer)?
+                crate::protocol_serde::shape_replication_rule::ser_replication_rule(
+                    list_item_1,
+                    inner_writer,
+                )?
             }
         }
     }
@@ -25,9 +28,14 @@ pub fn ser_replication_configuration(
 pub fn de_replication_configuration(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::ReplicationConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<
+    crate::types::ReplicationConfiguration,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::ReplicationConfiguration::builder();
@@ -66,7 +74,9 @@ pub fn de_replication_configuration(
             _ => {}
         }
     }
-    Ok(crate::serde_util::replication_configuration_correct_errors(builder)
-        .build()
-        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
+    Ok(
+        crate::serde_util::replication_configuration_correct_errors(builder)
+            .build()
+            .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?,
+    )
 }

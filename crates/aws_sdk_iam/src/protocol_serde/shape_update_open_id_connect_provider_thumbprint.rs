@@ -7,7 +7,7 @@ pub fn de_update_open_id_connect_provider_thumbprint_http_error(
 ) -> std::result::Result<
     crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
     crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
-> {
+>{
     #[allow(unused_mut)]
     let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::unhandled)?;
@@ -115,12 +115,14 @@ pub fn de_update_open_id_connect_provider_thumbprint_http_response(
 ) -> std::result::Result<
     crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
     crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
-> {
+>{
     Ok({
         #[allow(unused_mut)]
         let mut output =
             crate::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintOutputBuilder::default();
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }

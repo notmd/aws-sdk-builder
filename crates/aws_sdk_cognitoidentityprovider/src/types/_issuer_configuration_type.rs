@@ -53,7 +53,9 @@ impl IssuerConfigurationType {
 }
 
 /// A builder for [`IssuerConfigurationType`](crate::types::IssuerConfigurationType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct IssuerConfigurationTypeBuilder {
     pub(crate) r#type: ::std::option::Option<crate::types::IssuerType>,
@@ -123,6 +125,8 @@ impl IssuerConfigurationTypeBuilder {
     }
     /// Consumes the builder and constructs a [`IssuerConfigurationType`](crate::types::IssuerConfigurationType).
     pub fn build(self) -> crate::types::IssuerConfigurationType {
-        crate::types::IssuerConfigurationType { r#type: self.r#type }
+        crate::types::IssuerConfigurationType {
+            r#type: self.r#type,
+        }
     }
 }

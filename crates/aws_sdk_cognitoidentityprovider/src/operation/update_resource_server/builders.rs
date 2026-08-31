@@ -68,7 +68,9 @@ impl UpdateResourceServerFluentBuilder {
         }
     }
     /// Access the UpdateResourceServer as a reference.
-    pub fn as_input(&self) -> &crate::operation::update_resource_server::builders::UpdateResourceServerInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::update_resource_server::builders::UpdateResourceServerInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -97,7 +99,11 @@ impl UpdateResourceServerFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::update_resource_server::UpdateResourceServer::orchestrate(&runtime_plugins, input).await
+        crate::operation::update_resource_server::UpdateResourceServer::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -110,12 +116,18 @@ impl UpdateResourceServerFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -175,12 +187,17 @@ impl UpdateResourceServerFluentBuilder {
         self
     }
     /// <p>An array of updated custom scope names and descriptions that you want to associate with your resource server.</p>
-    pub fn set_scopes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>>) -> Self {
+    pub fn set_scopes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>>,
+    ) -> Self {
         self.inner = self.inner.set_scopes(input);
         self
     }
     /// <p>An array of updated custom scope names and descriptions that you want to associate with your resource server.</p>
-    pub fn get_scopes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>> {
+    pub fn get_scopes(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>> {
         self.inner.get_scopes()
     }
 }

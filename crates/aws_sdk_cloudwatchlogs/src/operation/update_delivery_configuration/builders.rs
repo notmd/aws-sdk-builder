@@ -57,7 +57,7 @@ impl UpdateDeliveryConfigurationFluentBuilder {
         }
     }
     /// Access the UpdateDeliveryConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::update_delivery_configuration::builders::UpdateDeliveryConfigurationInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::update_delivery_configuration::builders::UpdateDeliveryConfigurationInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +86,11 @@ impl UpdateDeliveryConfigurationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::update_delivery_configuration::UpdateDeliveryConfiguration::orchestrate(&runtime_plugins, input).await
+        crate::operation::update_delivery_configuration::UpdateDeliveryConfiguration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,12 +103,18 @@ impl UpdateDeliveryConfigurationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -128,26 +138,40 @@ impl UpdateDeliveryConfigurationFluentBuilder {
     /// To override the contents of this collection use [`set_record_fields`](Self::set_record_fields).
     ///
     /// <p>The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.</p>
-    pub fn record_fields(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn record_fields(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.record_fields(input.into());
         self
     }
     /// <p>The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.</p>
-    pub fn set_record_fields(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_record_fields(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.inner = self.inner.set_record_fields(input);
         self
     }
     /// <p>The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.</p>
-    pub fn get_record_fields(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_record_fields(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_record_fields()
     }
     /// <p>The field delimiter to use between record fields when the final output format of a delivery is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
-    pub fn field_delimiter(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn field_delimiter(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.field_delimiter(input.into());
         self
     }
     /// <p>The field delimiter to use between record fields when the final output format of a delivery is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
-    pub fn set_field_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_field_delimiter(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_field_delimiter(input);
         self
     }
@@ -156,17 +180,25 @@ impl UpdateDeliveryConfigurationFluentBuilder {
         self.inner.get_field_delimiter()
     }
     /// <p>This structure contains parameters that are valid only when the delivery's delivery destination is an S3 bucket.</p>
-    pub fn s3_delivery_configuration(mut self, input: crate::types::S3DeliveryConfiguration) -> Self {
+    pub fn s3_delivery_configuration(
+        mut self,
+        input: crate::types::S3DeliveryConfiguration,
+    ) -> Self {
         self.inner = self.inner.s3_delivery_configuration(input);
         self
     }
     /// <p>This structure contains parameters that are valid only when the delivery's delivery destination is an S3 bucket.</p>
-    pub fn set_s3_delivery_configuration(mut self, input: ::std::option::Option<crate::types::S3DeliveryConfiguration>) -> Self {
+    pub fn set_s3_delivery_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::S3DeliveryConfiguration>,
+    ) -> Self {
         self.inner = self.inner.set_s3_delivery_configuration(input);
         self
     }
     /// <p>This structure contains parameters that are valid only when the delivery's delivery destination is an S3 bucket.</p>
-    pub fn get_s3_delivery_configuration(&self) -> &::std::option::Option<crate::types::S3DeliveryConfiguration> {
+    pub fn get_s3_delivery_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::S3DeliveryConfiguration> {
         self.inner.get_s3_delivery_configuration()
     }
 }

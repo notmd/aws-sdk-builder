@@ -61,7 +61,7 @@ impl PutFunctionEventInvokeConfigFluentBuilder {
         }
     }
     /// Access the PutFunctionEventInvokeConfig as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_function_event_invoke_config::builders::PutFunctionEventInvokeConfigInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_function_event_invoke_config::builders::PutFunctionEventInvokeConfigInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -103,12 +103,18 @@ impl PutFunctionEventInvokeConfigFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -123,7 +129,10 @@ impl PutFunctionEventInvokeConfigFluentBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -138,7 +147,10 @@ impl PutFunctionEventInvokeConfigFluentBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }
@@ -234,7 +246,10 @@ impl PutFunctionEventInvokeConfigFluentBuilder {
     /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
-    pub fn set_destination_config(mut self, input: ::std::option::Option<crate::types::DestinationConfig>) -> Self {
+    pub fn set_destination_config(
+        mut self,
+        input: ::std::option::Option<crate::types::DestinationConfig>,
+    ) -> Self {
         self.inner = self.inner.set_destination_config(input);
         self
     }
@@ -254,7 +269,9 @@ impl PutFunctionEventInvokeConfigFluentBuilder {
     /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
-    pub fn get_destination_config(&self) -> &::std::option::Option<crate::types::DestinationConfig> {
+    pub fn get_destination_config(
+        &self,
+    ) -> &::std::option::Option<crate::types::DestinationConfig> {
         self.inner.get_destination_config()
     }
 }

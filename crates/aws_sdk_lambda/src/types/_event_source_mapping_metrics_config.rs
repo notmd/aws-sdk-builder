@@ -41,10 +41,13 @@ impl EventSourceMappingMetricsConfig {
 }
 
 /// A builder for [`EventSourceMappingMetricsConfig`](crate::types::EventSourceMappingMetricsConfig).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct EventSourceMappingMetricsConfigBuilder {
-    pub(crate) metrics: ::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingMetric>>,
+    pub(crate) metrics:
+        ::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingMetric>>,
 }
 impl EventSourceMappingMetricsConfigBuilder {
     /// Appends an item to `metrics`.
@@ -77,7 +80,10 @@ impl EventSourceMappingMetricsConfigBuilder {
     /// <p><code>KafkaMetrics</code> (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the Kafka consumers from your event source mapping.</p></li>
     /// </ul>
     /// <p>For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics"> Event source mapping metrics</a>.</p>
-    pub fn set_metrics(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingMetric>>) -> Self {
+    pub fn set_metrics(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingMetric>>,
+    ) -> Self {
         self.metrics = input;
         self
     }
@@ -91,11 +97,15 @@ impl EventSourceMappingMetricsConfigBuilder {
     /// <p><code>KafkaMetrics</code> (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the Kafka consumers from your event source mapping.</p></li>
     /// </ul>
     /// <p>For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics"> Event source mapping metrics</a>.</p>
-    pub fn get_metrics(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingMetric>> {
+    pub fn get_metrics(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingMetric>> {
         &self.metrics
     }
     /// Consumes the builder and constructs a [`EventSourceMappingMetricsConfig`](crate::types::EventSourceMappingMetricsConfig).
     pub fn build(self) -> crate::types::EventSourceMappingMetricsConfig {
-        crate::types::EventSourceMappingMetricsConfig { metrics: self.metrics }
+        crate::types::EventSourceMappingMetricsConfig {
+            metrics: self.metrics,
+        }
     }
 }

@@ -57,7 +57,7 @@ impl ListResourcePermissionStatementsFluentBuilder {
         }
     }
     /// Access the ListResourcePermissionStatements as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_resource_permission_statements::builders::ListResourcePermissionStatementsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_resource_permission_statements::builders::ListResourcePermissionStatementsInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +76,7 @@ impl ListResourcePermissionStatementsFluentBuilder {
             crate::operation::list_resource_permission_statements::ListResourcePermissionStatementsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -96,22 +96,28 @@ impl ListResourcePermissionStatementsFluentBuilder {
         crate::operation::list_resource_permission_statements::ListResourcePermissionStatementsOutput,
         crate::operation::list_resource_permission_statements::ListResourcePermissionStatementsError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_resource_permission_statements::paginator::ListResourcePermissionStatementsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_resource_permission_statements::paginator::ListResourcePermissionStatementsPaginator {
+    pub fn into_paginator(self) -> crate::operation::list_resource_permission_statements::paginator::ListResourcePermissionStatementsPaginator{
         crate::operation::list_resource_permission_statements::paginator::ListResourcePermissionStatementsPaginator::new(self.handle, self.inner)
     }
     /// Maximum number of results to return

@@ -28,7 +28,9 @@ impl ChainedInvokeOptions {
 }
 
 /// A builder for [`ChainedInvokeOptions`](crate::types::ChainedInvokeOptions).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ChainedInvokeOptionsBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -37,12 +39,18 @@ pub struct ChainedInvokeOptionsBuilder {
 impl ChainedInvokeOptionsBuilder {
     /// <p>The name or ARN of the Lambda function to invoke.</p>
     /// This field is required.
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name or ARN of the Lambda function to invoke.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.function_name = input;
         self
     }
@@ -67,7 +75,12 @@ impl ChainedInvokeOptionsBuilder {
     /// Consumes the builder and constructs a [`ChainedInvokeOptions`](crate::types::ChainedInvokeOptions).
     /// This method will fail if any of the following fields are not set:
     /// - [`function_name`](crate::types::builders::ChainedInvokeOptionsBuilder::function_name)
-    pub fn build(self) -> ::std::result::Result<crate::types::ChainedInvokeOptions, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::ChainedInvokeOptions,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::ChainedInvokeOptions {
             function_name: self.function_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

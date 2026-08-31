@@ -9,14 +9,23 @@ pub fn de_publish_package_version_http_error(
     crate::operation::publish_package_version::PublishPackageVersionError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(crate::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    let error_code = match generic.code() {
-        Some(code) => code,
-        None => return Err(crate::operation::publish_package_version::PublishPackageVersionError::unhandled(generic)),
-    };
+    let error_code =
+        match generic.code() {
+            Some(code) => code,
+            None => return Err(
+                crate::operation::publish_package_version::PublishPackageVersionError::unhandled(
+                    generic,
+                ),
+            ),
+        };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
@@ -144,9 +153,16 @@ pub fn de_publish_package_version_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::publish_package_version::builders::PublishPackageVersionOutputBuilder::default();
-        output = crate::protocol_serde::shape_publish_package_version::de_publish_package_version(_response_body, output)
-            .map_err(crate::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output = crate::protocol_serde::shape_publish_package_version::de_publish_package_version(
+            _response_body,
+            output,
+        )
+        .map_err(
+            crate::operation::publish_package_version::PublishPackageVersionError::unhandled,
+        )?;
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
@@ -154,14 +170,20 @@ pub fn de_publish_package_version_http_response(
 pub fn ser_publish_package_version_headers(
     input: &crate::operation::publish_package_version::PublishPackageVersionInput,
     mut builder: ::http_1x::request::Builder,
-) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+) -> std::result::Result<
+    ::http_1x::request::Builder,
+    ::aws_smithy_types::error::operation::BuildError,
+> {
     if let ::std::option::Option::Some(inner_1) = &input.asset_sha256 {
         let formatted_2 = inner_1.as_str();
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "asset_sha256",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-content-sha256", header_value);
@@ -176,7 +198,10 @@ pub(crate) fn de_publish_package_version(
     crate::operation::publish_package_version::builders::PublishPackageVersionOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
+        crate::protocol_serde::or_empty_doc(_value),
+    )
+    .peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -184,65 +209,95 @@ pub(crate) fn de_publish_package_version(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "asset" => {
-                    builder = builder.set_asset(crate::protocol_serde::shape_asset_summary::de_asset_summary(tokens, _value, depth + 1)?);
-                }
-                "format" => {
-                    builder = builder.set_format(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::PackageFormat::from(u.as_ref())))
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "asset" => {
+                        builder = builder.set_asset(
+                            crate::protocol_serde::shape_asset_summary::de_asset_summary(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?,
+                        );
+                    }
+                    "format" => {
+                        builder = builder.set_format(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
+                            .map(|s| {
+                                s.to_unescaped()
+                                    .map(|u| crate::types::PackageFormat::from(u.as_ref()))
+                            })
                             .transpose()?,
-                    );
-                }
-                "namespace" => {
-                    builder = builder.set_namespace(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        );
+                    }
+                    "namespace" => {
+                        builder = builder.set_namespace(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                    );
-                }
-                "package" => {
-                    builder = builder.set_package(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        );
+                    }
+                    "package" => {
+                        builder = builder.set_package(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                    );
-                }
-                "status" => {
-                    builder = builder.set_status(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::PackageVersionStatus::from(u.as_ref())))
+                        );
+                    }
+                    "status" => {
+                        builder = builder.set_status(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
+                            .map(|s| {
+                                s.to_unescaped()
+                                    .map(|u| crate::types::PackageVersionStatus::from(u.as_ref()))
+                            })
                             .transpose()?,
-                    );
-                }
-                "version" => {
-                    builder = builder.set_version(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        );
+                    }
+                    "version" => {
+                        builder = builder.set_version(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                    );
-                }
-                "versionRevision" => {
-                    builder = builder.set_version_revision(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        );
+                    }
+                    "versionRevision" => {
+                        builder = builder.set_version_revision(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                    );
+                        );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
+                return Err(
+                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                        "expected object key or end object, found: {other:?}"
+                    )),
+                )
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "found more JSON tokens after completing parsing",
+            ),
+        );
     }
     Ok(builder)
 }

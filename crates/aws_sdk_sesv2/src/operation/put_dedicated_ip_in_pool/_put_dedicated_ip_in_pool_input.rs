@@ -21,13 +21,17 @@ impl PutDedicatedIpInPoolInput {
 }
 impl PutDedicatedIpInPoolInput {
     /// Creates a new builder-style object to manufacture [`PutDedicatedIpInPoolInput`](crate::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolInput).
-    pub fn builder() -> crate::operation::put_dedicated_ip_in_pool::builders::PutDedicatedIpInPoolInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::put_dedicated_ip_in_pool::builders::PutDedicatedIpInPoolInputBuilder
+    {
         crate::operation::put_dedicated_ip_in_pool::builders::PutDedicatedIpInPoolInputBuilder::default()
     }
 }
 
 /// A builder for [`PutDedicatedIpInPoolInput`](crate::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutDedicatedIpInPoolInputBuilder {
     pub(crate) ip: ::std::option::Option<::std::string::String>,
@@ -51,12 +55,18 @@ impl PutDedicatedIpInPoolInputBuilder {
     }
     /// <p>The name of the IP pool that you want to add the dedicated IP address to. You have to specify an IP pool that already exists.</p>
     /// This field is required.
-    pub fn destination_pool_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn destination_pool_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.destination_pool_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the IP pool that you want to add the dedicated IP address to. You have to specify an IP pool that already exists.</p>
-    pub fn set_destination_pool_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_destination_pool_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.destination_pool_name = input;
         self
     }
@@ -67,11 +77,15 @@ impl PutDedicatedIpInPoolInputBuilder {
     /// Consumes the builder and constructs a [`PutDedicatedIpInPoolInput`](crate::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolInput {
-            ip: self.ip,
-            destination_pool_name: self.destination_pool_name,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolInput {
+                ip: self.ip,
+                destination_pool_name: self.destination_pool_name,
+            },
+        )
     }
 }

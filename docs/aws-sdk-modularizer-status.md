@@ -1,5 +1,15 @@
 # AWS SDK modularizer checkpoint log
 
+## 2026-08-31 — `d4c57da21` — staged upstream models and root package
+
+- Objective: remove committed model copies, resolve models from the temporary pinned AWS SDK archive, and make `aws-sdk-modularizer` the repository-root workspace package under `src/`.
+- Generic rule: treat each manifest `model_path` as an archive-relative input; load it from the prepared upstream root before staging and pass the resulting model operations into the AST transform.
+- Changed files: root `Cargo.toml` and `src/**`, `services-manifest.json`, README/Prompt documentation, generated `DIFF.MD`/`DIFF.diff` artifacts, and removal of `models/**` and `crates/aws-sdk-modularizer/**`.
+- Commands: `AWS_SDK_MODULARIZER_ARCHIVE=/tmp/aws-sdk-rust.tar.gz cargo run --release -p aws-sdk-modularizer -- --manifest services-manifest.json` passed; `AWS_SDK_MODULARIZER_ARCHIVE=/tmp/aws-sdk-rust.tar.gz RUSTFLAGS='-Awarnings' just conformance` passed for all 18 services; `cargo check --workspace`, `cargo test --workspace`, `cargo fmt --all -- --check`, and `git diff --check` passed.
+- Operation coverage: 1,149 -> 1,149 operations, coverage delta `+0`, with zero missing and zero ambiguous mappings.
+- Remaining blocker: none.
+- Next action: retain the root-package layout and archive-relative model rule for subsequent modularizer changes.
+
 ## 2026-08-29 — `2c7d6ff36` — modular `aws-config` provider
 
 - Objective: port the Smithy-RS `aws-config` provider and connect it to the local modular STS, SSO, SSO OIDC, and Sign-In crates with the smallest required operation-feature set.

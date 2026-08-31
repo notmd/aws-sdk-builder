@@ -43,7 +43,7 @@ impl
             crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationOutput,
             crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -57,7 +57,7 @@ impl DeleteRemediationConfigurationFluentBuilder {
         }
     }
     /// Access the DeleteRemediationConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_remediation_configuration::builders::DeleteRemediationConfigurationInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_remediation_configuration::builders::DeleteRemediationConfigurationInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -99,22 +99,34 @@ impl DeleteRemediationConfigurationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the Config rule for which you want to delete remediation configuration.</p>
-    pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn config_rule_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.config_rule_name(input.into());
         self
     }
     /// <p>The name of the Config rule for which you want to delete remediation configuration.</p>
-    pub fn set_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_config_rule_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_config_rule_name(input);
         self
     }
@@ -123,12 +135,18 @@ impl DeleteRemediationConfigurationFluentBuilder {
         self.inner.get_config_rule_name()
     }
     /// <p>The type of a resource.</p>
-    pub fn resource_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn resource_type(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.resource_type(input.into());
         self
     }
     /// <p>The type of a resource.</p>
-    pub fn set_resource_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_resource_type(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_resource_type(input);
         self
     }

@@ -6,7 +6,10 @@ pub fn ser_set_user_mfa_preference_input_input(
     if let Some(var_1) = &input.sms_mfa_settings {
         #[allow(unused_mut)]
         let mut object_2 = object.key("SMSMfaSettings").start_object();
-        crate::protocol_serde::shape_sms_mfa_settings_type::ser_sms_mfa_settings_type(&mut object_2, var_1)?;
+        crate::protocol_serde::shape_sms_mfa_settings_type::ser_sms_mfa_settings_type(
+            &mut object_2,
+            var_1,
+        )?;
         object_2.finish();
     }
     if let Some(var_3) = &input.software_token_mfa_settings {
@@ -18,13 +21,19 @@ pub fn ser_set_user_mfa_preference_input_input(
     if let Some(var_5) = &input.email_mfa_settings {
         #[allow(unused_mut)]
         let mut object_6 = object.key("EmailMfaSettings").start_object();
-        crate::protocol_serde::shape_email_mfa_settings_type::ser_email_mfa_settings_type(&mut object_6, var_5)?;
+        crate::protocol_serde::shape_email_mfa_settings_type::ser_email_mfa_settings_type(
+            &mut object_6,
+            var_5,
+        )?;
         object_6.finish();
     }
     if let Some(var_7) = &input.web_authn_mfa_settings {
         #[allow(unused_mut)]
         let mut object_8 = object.key("WebAuthnMfaSettings").start_object();
-        crate::protocol_serde::shape_web_authn_mfa_settings_type::ser_web_authn_mfa_settings_type(&mut object_8, var_7)?;
+        crate::protocol_serde::shape_web_authn_mfa_settings_type::ser_web_authn_mfa_settings_type(
+            &mut object_8,
+            var_7,
+        )?;
         object_8.finish();
     }
     if let Some(var_9) = &input.access_token {

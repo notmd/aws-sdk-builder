@@ -13,13 +13,15 @@ impl ::aws_types::request_id::RequestId for DeleteUserPoolClientSecretOutput {
 }
 impl DeleteUserPoolClientSecretOutput {
     /// Creates a new builder-style object to manufacture [`DeleteUserPoolClientSecretOutput`](crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretOutput).
-    pub fn builder() -> crate::operation::delete_user_pool_client_secret::builders::DeleteUserPoolClientSecretOutputBuilder {
+    pub fn builder() -> crate::operation::delete_user_pool_client_secret::builders::DeleteUserPoolClientSecretOutputBuilder{
         crate::operation::delete_user_pool_client_secret::builders::DeleteUserPoolClientSecretOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteUserPoolClientSecretOutput`](crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteUserPoolClientSecretOutputBuilder {
     _request_id: Option<String>,
@@ -35,7 +37,9 @@ impl DeleteUserPoolClientSecretOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteUserPoolClientSecretOutput`](crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretOutput).
-    pub fn build(self) -> crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretOutput {
         crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretOutput {
             _request_id: self._request_id,
         }

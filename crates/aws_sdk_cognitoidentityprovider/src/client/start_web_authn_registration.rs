@@ -7,7 +7,7 @@ impl super::Client {
     /// - On success, responds with [`StartWebAuthnRegistrationOutput`](crate::operation::start_web_authn_registration::StartWebAuthnRegistrationOutput) with field(s):
     ///   - [`credential_creation_options(Document)`](crate::operation::start_web_authn_registration::StartWebAuthnRegistrationOutput::credential_creation_options): <p>The information that a user can provide in their request to register with their passkey provider.</p>
     /// - On failure, responds with [`SdkError<StartWebAuthnRegistrationError>`](crate::operation::start_web_authn_registration::StartWebAuthnRegistrationError)
-    pub fn start_web_authn_registration(&self) -> crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationFluentBuilder {
+    pub fn start_web_authn_registration(&self) -> crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationFluentBuilder{
         crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationFluentBuilder::new(self.handle.clone())
     }
 }

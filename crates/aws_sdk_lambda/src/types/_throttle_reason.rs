@@ -43,7 +43,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(
-    ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
+    ::std::clone::Clone,
+    ::std::cmp::Eq,
+    ::std::cmp::Ord,
+    ::std::cmp::PartialEq,
+    ::std::cmp::PartialOrd,
+    ::std::fmt::Debug,
+    ::std::hash::Hash,
 )]
 pub enum ThrottleReason {
     #[allow(missing_docs)] // documentation missing in model
@@ -59,19 +65,33 @@ pub enum ThrottleReason {
     #[allow(missing_docs)] // documentation missing in model
     ReservedFunctionInvocationRateLimitExceeded,
     /// `Unknown` contains new variants that have been added since this code was generated.
-    #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
+    #[deprecated(
+        note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants."
+    )]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for ThrottleReason {
     fn from(s: &str) -> Self {
         match s {
             "CallerRateLimitExceeded" => ThrottleReason::CallerRateLimitExceeded,
-            "ConcurrentInvocationLimitExceeded" => ThrottleReason::ConcurrentInvocationLimitExceeded,
-            "ConcurrentSnapshotCreateLimitExceeded" => ThrottleReason::ConcurrentSnapshotCreateLimitExceeded,
-            "FunctionInvocationRateLimitExceeded" => ThrottleReason::FunctionInvocationRateLimitExceeded,
-            "ReservedFunctionConcurrentInvocationLimitExceeded" => ThrottleReason::ReservedFunctionConcurrentInvocationLimitExceeded,
-            "ReservedFunctionInvocationRateLimitExceeded" => ThrottleReason::ReservedFunctionInvocationRateLimitExceeded,
-            other => ThrottleReason::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
+            "ConcurrentInvocationLimitExceeded" => {
+                ThrottleReason::ConcurrentInvocationLimitExceeded
+            }
+            "ConcurrentSnapshotCreateLimitExceeded" => {
+                ThrottleReason::ConcurrentSnapshotCreateLimitExceeded
+            }
+            "FunctionInvocationRateLimitExceeded" => {
+                ThrottleReason::FunctionInvocationRateLimitExceeded
+            }
+            "ReservedFunctionConcurrentInvocationLimitExceeded" => {
+                ThrottleReason::ReservedFunctionConcurrentInvocationLimitExceeded
+            }
+            "ReservedFunctionInvocationRateLimitExceeded" => {
+                ThrottleReason::ReservedFunctionInvocationRateLimitExceeded
+            }
+            other => ThrottleReason::Unknown(
+                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
+            ),
         }
     }
 }
@@ -87,11 +107,21 @@ impl ThrottleReason {
     pub fn as_str(&self) -> &str {
         match self {
             ThrottleReason::CallerRateLimitExceeded => "CallerRateLimitExceeded",
-            ThrottleReason::ConcurrentInvocationLimitExceeded => "ConcurrentInvocationLimitExceeded",
-            ThrottleReason::ConcurrentSnapshotCreateLimitExceeded => "ConcurrentSnapshotCreateLimitExceeded",
-            ThrottleReason::FunctionInvocationRateLimitExceeded => "FunctionInvocationRateLimitExceeded",
-            ThrottleReason::ReservedFunctionConcurrentInvocationLimitExceeded => "ReservedFunctionConcurrentInvocationLimitExceeded",
-            ThrottleReason::ReservedFunctionInvocationRateLimitExceeded => "ReservedFunctionInvocationRateLimitExceeded",
+            ThrottleReason::ConcurrentInvocationLimitExceeded => {
+                "ConcurrentInvocationLimitExceeded"
+            }
+            ThrottleReason::ConcurrentSnapshotCreateLimitExceeded => {
+                "ConcurrentSnapshotCreateLimitExceeded"
+            }
+            ThrottleReason::FunctionInvocationRateLimitExceeded => {
+                "FunctionInvocationRateLimitExceeded"
+            }
+            ThrottleReason::ReservedFunctionConcurrentInvocationLimitExceeded => {
+                "ReservedFunctionConcurrentInvocationLimitExceeded"
+            }
+            ThrottleReason::ReservedFunctionInvocationRateLimitExceeded => {
+                "ReservedFunctionInvocationRateLimitExceeded"
+            }
             ThrottleReason::Unknown(value) => value.as_str(),
         }
     }
@@ -116,10 +146,14 @@ impl ThrottleReason {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(
+        value: &str,
+    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
+            Self::Unknown(_) => {
+                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
+            }
             known => Ok(known),
         }
     }
@@ -128,11 +162,21 @@ impl ::std::fmt::Display for ThrottleReason {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
             ThrottleReason::CallerRateLimitExceeded => write!(f, "CallerRateLimitExceeded"),
-            ThrottleReason::ConcurrentInvocationLimitExceeded => write!(f, "ConcurrentInvocationLimitExceeded"),
-            ThrottleReason::ConcurrentSnapshotCreateLimitExceeded => write!(f, "ConcurrentSnapshotCreateLimitExceeded"),
-            ThrottleReason::FunctionInvocationRateLimitExceeded => write!(f, "FunctionInvocationRateLimitExceeded"),
-            ThrottleReason::ReservedFunctionConcurrentInvocationLimitExceeded => write!(f, "ReservedFunctionConcurrentInvocationLimitExceeded"),
-            ThrottleReason::ReservedFunctionInvocationRateLimitExceeded => write!(f, "ReservedFunctionInvocationRateLimitExceeded"),
+            ThrottleReason::ConcurrentInvocationLimitExceeded => {
+                write!(f, "ConcurrentInvocationLimitExceeded")
+            }
+            ThrottleReason::ConcurrentSnapshotCreateLimitExceeded => {
+                write!(f, "ConcurrentSnapshotCreateLimitExceeded")
+            }
+            ThrottleReason::FunctionInvocationRateLimitExceeded => {
+                write!(f, "FunctionInvocationRateLimitExceeded")
+            }
+            ThrottleReason::ReservedFunctionConcurrentInvocationLimitExceeded => {
+                write!(f, "ReservedFunctionConcurrentInvocationLimitExceeded")
+            }
+            ThrottleReason::ReservedFunctionInvocationRateLimitExceeded => {
+                write!(f, "ReservedFunctionInvocationRateLimitExceeded")
+            }
             ThrottleReason::Unknown(value) => write!(f, "{value}"),
         }
     }

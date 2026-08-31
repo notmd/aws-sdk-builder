@@ -55,12 +55,18 @@ pub struct AccessTokenBuilder {
 impl AccessTokenBuilder {
     /// AWS access key ID for temporary credentials
     /// This field is required.
-    pub fn access_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn access_key_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.access_key_id = ::std::option::Option::Some(input.into());
         self
     }
     /// AWS access key ID for temporary credentials
-    pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_access_key_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.access_key_id = input;
         self
     }
@@ -70,12 +76,18 @@ impl AccessTokenBuilder {
     }
     /// AWS secret access key for temporary credentials
     /// This field is required.
-    pub fn secret_access_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn secret_access_key(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.secret_access_key = ::std::option::Option::Some(input.into());
         self
     }
     /// AWS secret access key for temporary credentials
-    pub fn set_secret_access_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_secret_access_key(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.secret_access_key = input;
         self
     }
@@ -85,12 +97,18 @@ impl AccessTokenBuilder {
     }
     /// AWS session token for temporary credentials
     /// This field is required.
-    pub fn session_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn session_token(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.session_token = ::std::option::Option::Some(input.into());
         self
     }
     /// AWS session token for temporary credentials
-    pub fn set_session_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_session_token(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.session_token = input;
         self
     }
@@ -103,7 +121,12 @@ impl AccessTokenBuilder {
     /// - [`access_key_id`](crate::types::builders::AccessTokenBuilder::access_key_id)
     /// - [`secret_access_key`](crate::types::builders::AccessTokenBuilder::secret_access_key)
     /// - [`session_token`](crate::types::builders::AccessTokenBuilder::session_token)
-    pub fn build(self) -> ::std::result::Result<crate::types::AccessToken, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::AccessToken,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::AccessToken {
             access_key_id: self.access_key_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

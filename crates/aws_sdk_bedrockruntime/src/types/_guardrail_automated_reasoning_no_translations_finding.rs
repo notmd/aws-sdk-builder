@@ -6,13 +6,16 @@
 pub struct GuardrailAutomatedReasoningNoTranslationsFinding {}
 impl GuardrailAutomatedReasoningNoTranslationsFinding {
     /// Creates a new builder-style object to manufacture [`GuardrailAutomatedReasoningNoTranslationsFinding`](crate::types::GuardrailAutomatedReasoningNoTranslationsFinding).
-    pub fn builder() -> crate::types::builders::GuardrailAutomatedReasoningNoTranslationsFindingBuilder {
+    pub fn builder(
+    ) -> crate::types::builders::GuardrailAutomatedReasoningNoTranslationsFindingBuilder {
         crate::types::builders::GuardrailAutomatedReasoningNoTranslationsFindingBuilder::default()
     }
 }
 
 /// A builder for [`GuardrailAutomatedReasoningNoTranslationsFinding`](crate::types::GuardrailAutomatedReasoningNoTranslationsFinding).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GuardrailAutomatedReasoningNoTranslationsFindingBuilder {}
 impl GuardrailAutomatedReasoningNoTranslationsFindingBuilder {

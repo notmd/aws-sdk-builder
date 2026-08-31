@@ -43,7 +43,9 @@ impl GetDelegationRequestOutput {
     /// <li>
     /// <p><code>FAILED</code> : The permission check process has failed.</p></li>
     /// </ul>
-    pub fn permission_check_status(&self) -> ::std::option::Option<&crate::types::PermissionCheckStatusType> {
+    pub fn permission_check_status(
+        &self,
+    ) -> ::std::option::Option<&crate::types::PermissionCheckStatusType> {
         self.permission_check_status.as_ref()
     }
     /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p>
@@ -55,7 +57,9 @@ impl GetDelegationRequestOutput {
     /// <li>
     /// <p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li>
     /// </ul>
-    pub fn permission_check_result(&self) -> ::std::option::Option<&crate::types::PermissionCheckResultType> {
+    pub fn permission_check_result(
+        &self,
+    ) -> ::std::option::Option<&crate::types::PermissionCheckResultType> {
         self.permission_check_result.as_ref()
     }
 }
@@ -66,18 +70,23 @@ impl ::aws_types::request_id::RequestId for GetDelegationRequestOutput {
 }
 impl GetDelegationRequestOutput {
     /// Creates a new builder-style object to manufacture [`GetDelegationRequestOutput`](crate::operation::get_delegation_request::GetDelegationRequestOutput).
-    pub fn builder() -> crate::operation::get_delegation_request::builders::GetDelegationRequestOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::get_delegation_request::builders::GetDelegationRequestOutputBuilder {
         crate::operation::get_delegation_request::builders::GetDelegationRequestOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetDelegationRequestOutput`](crate::operation::get_delegation_request::GetDelegationRequestOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetDelegationRequestOutputBuilder {
     pub(crate) delegation_request: ::std::option::Option<crate::types::DelegationRequest>,
-    pub(crate) permission_check_status: ::std::option::Option<crate::types::PermissionCheckStatusType>,
-    pub(crate) permission_check_result: ::std::option::Option<crate::types::PermissionCheckResultType>,
+    pub(crate) permission_check_status:
+        ::std::option::Option<crate::types::PermissionCheckStatusType>,
+    pub(crate) permission_check_result:
+        ::std::option::Option<crate::types::PermissionCheckResultType>,
     _request_id: Option<String>,
 }
 impl GetDelegationRequestOutputBuilder {
@@ -87,12 +96,17 @@ impl GetDelegationRequestOutputBuilder {
         self
     }
     /// <p>The delegation request object containing all details about the request.</p>
-    pub fn set_delegation_request(mut self, input: ::std::option::Option<crate::types::DelegationRequest>) -> Self {
+    pub fn set_delegation_request(
+        mut self,
+        input: ::std::option::Option<crate::types::DelegationRequest>,
+    ) -> Self {
         self.delegation_request = input;
         self
     }
     /// <p>The delegation request object containing all details about the request.</p>
-    pub fn get_delegation_request(&self) -> &::std::option::Option<crate::types::DelegationRequest> {
+    pub fn get_delegation_request(
+        &self,
+    ) -> &::std::option::Option<crate::types::DelegationRequest> {
         &self.delegation_request
     }
     /// <p>The status of the permission check for the delegation request.</p>
@@ -105,7 +119,10 @@ impl GetDelegationRequestOutputBuilder {
     /// <li>
     /// <p><code>FAILED</code> : The permission check process has failed.</p></li>
     /// </ul>
-    pub fn permission_check_status(mut self, input: crate::types::PermissionCheckStatusType) -> Self {
+    pub fn permission_check_status(
+        mut self,
+        input: crate::types::PermissionCheckStatusType,
+    ) -> Self {
         self.permission_check_status = ::std::option::Option::Some(input);
         self
     }
@@ -119,7 +136,10 @@ impl GetDelegationRequestOutputBuilder {
     /// <li>
     /// <p><code>FAILED</code> : The permission check process has failed.</p></li>
     /// </ul>
-    pub fn set_permission_check_status(mut self, input: ::std::option::Option<crate::types::PermissionCheckStatusType>) -> Self {
+    pub fn set_permission_check_status(
+        mut self,
+        input: ::std::option::Option<crate::types::PermissionCheckStatusType>,
+    ) -> Self {
         self.permission_check_status = input;
         self
     }
@@ -133,7 +153,9 @@ impl GetDelegationRequestOutputBuilder {
     /// <li>
     /// <p><code>FAILED</code> : The permission check process has failed.</p></li>
     /// </ul>
-    pub fn get_permission_check_status(&self) -> &::std::option::Option<crate::types::PermissionCheckStatusType> {
+    pub fn get_permission_check_status(
+        &self,
+    ) -> &::std::option::Option<crate::types::PermissionCheckStatusType> {
         &self.permission_check_status
     }
     /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p>
@@ -145,7 +167,10 @@ impl GetDelegationRequestOutputBuilder {
     /// <li>
     /// <p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li>
     /// </ul>
-    pub fn permission_check_result(mut self, input: crate::types::PermissionCheckResultType) -> Self {
+    pub fn permission_check_result(
+        mut self,
+        input: crate::types::PermissionCheckResultType,
+    ) -> Self {
         self.permission_check_result = ::std::option::Option::Some(input);
         self
     }
@@ -158,7 +183,10 @@ impl GetDelegationRequestOutputBuilder {
     /// <li>
     /// <p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li>
     /// </ul>
-    pub fn set_permission_check_result(mut self, input: ::std::option::Option<crate::types::PermissionCheckResultType>) -> Self {
+    pub fn set_permission_check_result(
+        mut self,
+        input: ::std::option::Option<crate::types::PermissionCheckResultType>,
+    ) -> Self {
         self.permission_check_result = input;
         self
     }
@@ -171,7 +199,9 @@ impl GetDelegationRequestOutputBuilder {
     /// <li>
     /// <p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li>
     /// </ul>
-    pub fn get_permission_check_result(&self) -> &::std::option::Option<crate::types::PermissionCheckResultType> {
+    pub fn get_permission_check_result(
+        &self,
+    ) -> &::std::option::Option<crate::types::PermissionCheckResultType> {
         &self.permission_check_result
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

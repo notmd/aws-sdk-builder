@@ -42,7 +42,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(
-    ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
+    ::std::clone::Clone,
+    ::std::cmp::Eq,
+    ::std::cmp::Ord,
+    ::std::cmp::PartialEq,
+    ::std::cmp::PartialOrd,
+    ::std::fmt::Debug,
+    ::std::hash::Hash,
 )]
 pub enum CrUpdateAllocationStrategy {
     #[allow(missing_docs)] // documentation missing in model
@@ -56,7 +62,9 @@ pub enum CrUpdateAllocationStrategy {
     #[allow(missing_docs)] // documentation missing in model
     SpotPriceCapacityOptimized,
     /// `Unknown` contains new variants that have been added since this code was generated.
-    #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
+    #[deprecated(
+        note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants."
+    )]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for CrUpdateAllocationStrategy {
@@ -65,9 +73,15 @@ impl ::std::convert::From<&str> for CrUpdateAllocationStrategy {
             "BEST_FIT_PROGRESSIVE" => CrUpdateAllocationStrategy::BestFitProgressive,
             "BEST_FIT_PROGRESSIVE_ORDERED" => CrUpdateAllocationStrategy::BestFitProgressiveOrdered,
             "SPOT_CAPACITY_OPTIMIZED" => CrUpdateAllocationStrategy::SpotCapacityOptimized,
-            "SPOT_CAPACITY_OPTIMIZED_PRIORITIZED" => CrUpdateAllocationStrategy::SpotCapacityOptimizedPrioritized,
-            "SPOT_PRICE_CAPACITY_OPTIMIZED" => CrUpdateAllocationStrategy::SpotPriceCapacityOptimized,
-            other => CrUpdateAllocationStrategy::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
+            "SPOT_CAPACITY_OPTIMIZED_PRIORITIZED" => {
+                CrUpdateAllocationStrategy::SpotCapacityOptimizedPrioritized
+            }
+            "SPOT_PRICE_CAPACITY_OPTIMIZED" => {
+                CrUpdateAllocationStrategy::SpotPriceCapacityOptimized
+            }
+            other => CrUpdateAllocationStrategy::Unknown(
+                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
+            ),
         }
     }
 }
@@ -85,8 +99,12 @@ impl CrUpdateAllocationStrategy {
             CrUpdateAllocationStrategy::BestFitProgressive => "BEST_FIT_PROGRESSIVE",
             CrUpdateAllocationStrategy::BestFitProgressiveOrdered => "BEST_FIT_PROGRESSIVE_ORDERED",
             CrUpdateAllocationStrategy::SpotCapacityOptimized => "SPOT_CAPACITY_OPTIMIZED",
-            CrUpdateAllocationStrategy::SpotCapacityOptimizedPrioritized => "SPOT_CAPACITY_OPTIMIZED_PRIORITIZED",
-            CrUpdateAllocationStrategy::SpotPriceCapacityOptimized => "SPOT_PRICE_CAPACITY_OPTIMIZED",
+            CrUpdateAllocationStrategy::SpotCapacityOptimizedPrioritized => {
+                "SPOT_CAPACITY_OPTIMIZED_PRIORITIZED"
+            }
+            CrUpdateAllocationStrategy::SpotPriceCapacityOptimized => {
+                "SPOT_PRICE_CAPACITY_OPTIMIZED"
+            }
             CrUpdateAllocationStrategy::Unknown(value) => value.as_str(),
         }
     }
@@ -110,10 +128,14 @@ impl CrUpdateAllocationStrategy {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(
+        value: &str,
+    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
+            Self::Unknown(_) => {
+                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
+            }
             known => Ok(known),
         }
     }
@@ -122,10 +144,18 @@ impl ::std::fmt::Display for CrUpdateAllocationStrategy {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
             CrUpdateAllocationStrategy::BestFitProgressive => write!(f, "BEST_FIT_PROGRESSIVE"),
-            CrUpdateAllocationStrategy::BestFitProgressiveOrdered => write!(f, "BEST_FIT_PROGRESSIVE_ORDERED"),
-            CrUpdateAllocationStrategy::SpotCapacityOptimized => write!(f, "SPOT_CAPACITY_OPTIMIZED"),
-            CrUpdateAllocationStrategy::SpotCapacityOptimizedPrioritized => write!(f, "SPOT_CAPACITY_OPTIMIZED_PRIORITIZED"),
-            CrUpdateAllocationStrategy::SpotPriceCapacityOptimized => write!(f, "SPOT_PRICE_CAPACITY_OPTIMIZED"),
+            CrUpdateAllocationStrategy::BestFitProgressiveOrdered => {
+                write!(f, "BEST_FIT_PROGRESSIVE_ORDERED")
+            }
+            CrUpdateAllocationStrategy::SpotCapacityOptimized => {
+                write!(f, "SPOT_CAPACITY_OPTIMIZED")
+            }
+            CrUpdateAllocationStrategy::SpotCapacityOptimizedPrioritized => {
+                write!(f, "SPOT_CAPACITY_OPTIMIZED_PRIORITIZED")
+            }
+            CrUpdateAllocationStrategy::SpotPriceCapacityOptimized => {
+                write!(f, "SPOT_PRICE_CAPACITY_OPTIMIZED")
+            }
             CrUpdateAllocationStrategy::Unknown(value) => write!(f, "{value}"),
         }
     }

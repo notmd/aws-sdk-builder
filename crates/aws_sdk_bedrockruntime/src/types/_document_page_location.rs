@@ -33,7 +33,9 @@ impl DocumentPageLocation {
 }
 
 /// A builder for [`DocumentPageLocation`](crate::types::DocumentPageLocation).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DocumentPageLocationBuilder {
     pub(crate) document_index: ::std::option::Option<i32>,

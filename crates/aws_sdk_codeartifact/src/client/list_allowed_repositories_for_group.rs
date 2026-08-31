@@ -16,7 +16,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListAllowedRepositoriesForGroupError>`](crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError)
     pub fn list_allowed_repositories_for_group(
         &self,
-    ) -> crate::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupFluentBuilder {
+    ) -> crate::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupFluentBuilder{
         crate::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupFluentBuilder::new(self.handle.clone())
     }
 }

@@ -12,7 +12,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListEndpointsByPlatformApplicationError>`](crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError)
     pub fn list_endpoints_by_platform_application(
         &self,
-    ) -> crate::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationFluentBuilder {
+    ) -> crate::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationFluentBuilder{
         crate::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationFluentBuilder::new(self.handle.clone())
     }
 }

@@ -36,7 +36,9 @@ impl GetGroupInput {
 }
 
 /// A builder for [`GetGroupInput`](crate::operation::get_group::GetGroupInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetGroupInputBuilder {
     pub(crate) group_name: ::std::option::Option<::std::string::String>,
@@ -94,7 +96,12 @@ impl GetGroupInputBuilder {
         &self.max_items
     }
     /// Consumes the builder and constructs a [`GetGroupInput`](crate::operation::get_group::GetGroupInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::get_group::GetGroupInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::get_group::GetGroupInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::get_group::GetGroupInput {
             group_name: self.group_name,
             marker: self.marker,

@@ -21,7 +21,9 @@ impl ServiceJobTimeout {
 }
 
 /// A builder for [`ServiceJobTimeout`](crate::types::ServiceJobTimeout).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ServiceJobTimeoutBuilder {
     pub(crate) attempt_duration_seconds: ::std::option::Option<i32>,

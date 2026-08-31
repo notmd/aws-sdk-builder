@@ -26,7 +26,9 @@ impl DeleteDomainInput {
 }
 
 /// A builder for [`DeleteDomainInput`](crate::operation::delete_domain::DeleteDomainInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteDomainInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -65,7 +67,10 @@ impl DeleteDomainInputBuilder {
     /// Consumes the builder and constructs a [`DeleteDomainInput`](crate::operation::delete_domain::DeleteDomainInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_domain::DeleteDomainInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::delete_domain::DeleteDomainInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::delete_domain::DeleteDomainInput {
             domain: self.domain,
             domain_owner: self.domain_owner,

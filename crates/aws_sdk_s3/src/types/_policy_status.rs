@@ -21,7 +21,9 @@ impl PolicyStatus {
 }
 
 /// A builder for [`PolicyStatus`](crate::types::PolicyStatus).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PolicyStatusBuilder {
     pub(crate) is_public: ::std::option::Option<bool>,
@@ -43,6 +45,8 @@ impl PolicyStatusBuilder {
     }
     /// Consumes the builder and constructs a [`PolicyStatus`](crate::types::PolicyStatus).
     pub fn build(self) -> crate::types::PolicyStatus {
-        crate::types::PolicyStatus { is_public: self.is_public }
+        crate::types::PolicyStatus {
+            is_public: self.is_public,
+        }
     }
 }

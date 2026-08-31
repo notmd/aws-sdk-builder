@@ -570,7 +570,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(
-    ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
+    ::std::clone::Clone,
+    ::std::cmp::Eq,
+    ::std::cmp::Ord,
+    ::std::cmp::PartialEq,
+    ::std::cmp::PartialOrd,
+    ::std::fmt::Debug,
+    ::std::hash::Hash,
 )]
 pub enum ResourceType {
     #[allow(missing_docs)] // documentation missing in model
@@ -1640,7 +1646,9 @@ pub enum ResourceType {
     #[allow(missing_docs)] // documentation missing in model
     EncryptionConfig,
     /// `Unknown` contains new variants that have been added since this code was generated.
-    #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
+    #[deprecated(
+        note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants."
+    )]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for ResourceType {
@@ -1648,7 +1656,9 @@ impl ::std::convert::From<&str> for ResourceType {
         match s {
             "AWS::ACM::Certificate" => ResourceType::Certificate,
             "AWS::ACMPCA::CertificateAuthority" => ResourceType::AcmpcaCertificateAuthority,
-            "AWS::ACMPCA::CertificateAuthorityActivation" => ResourceType::AcmpcaCertificateAuthorityActivation,
+            "AWS::ACMPCA::CertificateAuthorityActivation" => {
+                ResourceType::AcmpcaCertificateAuthorityActivation
+            }
             "AWS::APS::RuleGroupsNamespace" => ResourceType::ApsRuleGroupsNamespace,
             "AWS::AccessAnalyzer::Analyzer" => ResourceType::AccessAnalyzerAnalyzer,
             "AWS::AmazonMQ::Broker" => ResourceType::AmazonMqBroker,
@@ -1667,10 +1677,14 @@ impl ::std::convert::From<&str> for ResourceType {
             "AWS::AppConfig::Environment" => ResourceType::AppConfigEnvironment,
             "AWS::AppConfig::Extension" => ResourceType::AppConfigExtension,
             "AWS::AppConfig::ExtensionAssociation" => ResourceType::AppConfigExtensionAssociation,
-            "AWS::AppConfig::HostedConfigurationVersion" => ResourceType::AppConfigHostedConfigurationVersion,
+            "AWS::AppConfig::HostedConfigurationVersion" => {
+                ResourceType::AppConfigHostedConfigurationVersion
+            }
             "AWS::AppFlow::Flow" => ResourceType::AppFlowFlow,
             "AWS::AppIntegrations::Application" => ResourceType::AppIntegrationsApplication,
-            "AWS::AppIntegrations::EventIntegration" => ResourceType::AppIntegrationsEventIntegration,
+            "AWS::AppIntegrations::EventIntegration" => {
+                ResourceType::AppIntegrationsEventIntegration
+            }
             "AWS::AppMesh::GatewayRoute" => ResourceType::AppMeshGatewayRoute,
             "AWS::AppMesh::Mesh" => ResourceType::AppMeshMesh,
             "AWS::AppMesh::Route" => ResourceType::AppMeshRoute,
@@ -1708,7 +1722,9 @@ impl ::std::convert::From<&str> for ResourceType {
             "AWS::Batch::ComputeEnvironment" => ResourceType::BatchComputeEnvironment,
             "AWS::Batch::JobQueue" => ResourceType::BatchJobQueue,
             "AWS::Batch::SchedulingPolicy" => ResourceType::BatchSchedulingPolicy,
-            "AWS::Bedrock::ApplicationInferenceProfile" => ResourceType::BedrockApplicationInferenceProfile,
+            "AWS::Bedrock::ApplicationInferenceProfile" => {
+                ResourceType::BedrockApplicationInferenceProfile
+            }
             "AWS::Bedrock::Guardrail" => ResourceType::BedrockGuardrail,
             "AWS::Bedrock::KnowledgeBase" => ResourceType::BedrockKnowledgeBase,
             "AWS::Bedrock::Prompt" => ResourceType::BedrockPrompt,
@@ -1739,7 +1755,9 @@ impl ::std::convert::From<&str> for ResourceType {
             "AWS::CodeDeploy::DeploymentConfig" => ResourceType::CodeDeployDeploymentConfig,
             "AWS::CodeDeploy::DeploymentGroup" => ResourceType::CodeDeployDeploymentGroup,
             "AWS::CodeGuruProfiler::ProfilingGroup" => ResourceType::CodeGuruProfilerProfilingGroup,
-            "AWS::CodeGuruReviewer::RepositoryAssociation" => ResourceType::CodeGuruReviewerRepositoryAssociation,
+            "AWS::CodeGuruReviewer::RepositoryAssociation" => {
+                ResourceType::CodeGuruReviewerRepositoryAssociation
+            }
             "AWS::CodePipeline::Pipeline" => ResourceType::Pipeline,
             "AWS::Cognito::IdentityPool" => ResourceType::CognitoIdentityPool,
             "AWS::Cognito::UserPool" => ResourceType::CognitoUserPool,
@@ -1784,7 +1802,9 @@ impl ::std::convert::From<&str> for ResourceType {
             "AWS::EC2::CapacityReservation" => ResourceType::Ec2CapacityReservation,
             "AWS::EC2::CarrierGateway" => ResourceType::Ec2CarrierGateway,
             "AWS::EC2::ClientVpnEndpoint" => ResourceType::Ec2ClientVpnEndpoint,
-            "AWS::EC2::ClientVpnTargetNetworkAssociation" => ResourceType::Ec2ClientVpnTargetNetworkAssociation,
+            "AWS::EC2::ClientVpnTargetNetworkAssociation" => {
+                ResourceType::Ec2ClientVpnTargetNetworkAssociation
+            }
             "AWS::EC2::CustomerGateway" => ResourceType::CustomerGateway,
             "AWS::EC2::DHCPOptions" => ResourceType::Ec2DhcpOptions,
             "AWS::EC2::EC2Fleet" => ResourceType::Ec2Ec2Fleet,
@@ -1797,7 +1817,9 @@ impl ::std::convert::From<&str> for ResourceType {
             "AWS::EC2::IPAMPool" => ResourceType::Ec2IpamPool,
             "AWS::EC2::IPAMPoolCidr" => ResourceType::Ec2IpamPoolCidr,
             "AWS::EC2::IPAMResourceDiscovery" => ResourceType::Ec2IpamResourceDiscovery,
-            "AWS::EC2::IPAMResourceDiscoveryAssociation" => ResourceType::Ec2IpamResourceDiscoveryAssociation,
+            "AWS::EC2::IPAMResourceDiscoveryAssociation" => {
+                ResourceType::Ec2IpamResourceDiscoveryAssociation
+            }
             "AWS::EC2::IPAMScope" => ResourceType::Ec2IpamScope,
             "AWS::EC2::Instance" => ResourceType::Instance,
             "AWS::EC2::InstanceConnectEndpoint" => ResourceType::Ec2InstanceConnectEndpoint,
@@ -1806,7 +1828,9 @@ impl ::std::convert::From<&str> for ResourceType {
             "AWS::EC2::NatGateway" => ResourceType::NatGateway,
             "AWS::EC2::NetworkAcl" => ResourceType::NetworkAcl,
             "AWS::EC2::NetworkInsightsAccessScope" => ResourceType::Ec2NetworkInsightsAccessScope,
-            "AWS::EC2::NetworkInsightsAccessScopeAnalysis" => ResourceType::NetworkInsightsAccessScopeAnalysis,
+            "AWS::EC2::NetworkInsightsAccessScopeAnalysis" => {
+                ResourceType::NetworkInsightsAccessScopeAnalysis
+            }
             "AWS::EC2::NetworkInsightsAnalysis" => ResourceType::Ec2NetworkInsightsAnalysis,
             "AWS::EC2::NetworkInsightsPath" => ResourceType::Ec2NetworkInsightsPath,
             "AWS::EC2::NetworkInterface" => ResourceType::NetworkInterface,
@@ -1827,13 +1851,19 @@ impl ::std::convert::From<&str> for ResourceType {
             "AWS::EC2::TransitGateway" => ResourceType::TransitGateway,
             "AWS::EC2::TransitGatewayAttachment" => ResourceType::TransitGatewayAttachment,
             "AWS::EC2::TransitGatewayConnect" => ResourceType::Ec2TransitGatewayConnect,
-            "AWS::EC2::TransitGatewayMulticastDomain" => ResourceType::Ec2TransitGatewayMulticastDomain,
+            "AWS::EC2::TransitGatewayMulticastDomain" => {
+                ResourceType::Ec2TransitGatewayMulticastDomain
+            }
             "AWS::EC2::TransitGatewayRouteTable" => ResourceType::TransitGatewayRouteTable,
             "AWS::EC2::VPC" => ResourceType::Vpc,
-            "AWS::EC2::VPCBlockPublicAccessExclusion" => ResourceType::Ec2VpcBlockPublicAccessExclusion,
+            "AWS::EC2::VPCBlockPublicAccessExclusion" => {
+                ResourceType::Ec2VpcBlockPublicAccessExclusion
+            }
             "AWS::EC2::VPCBlockPublicAccessOptions" => ResourceType::Ec2VpcBlockPublicAccessOptions,
             "AWS::EC2::VPCEndpoint" => ResourceType::VpcEndpoint,
-            "AWS::EC2::VPCEndpointConnectionNotification" => ResourceType::Ec2VpcEndpointConnectionNotification,
+            "AWS::EC2::VPCEndpointConnectionNotification" => {
+                ResourceType::Ec2VpcEndpointConnectionNotification
+            }
             "AWS::EC2::VPCEndpointService" => ResourceType::VpcEndpointService,
             "AWS::EC2::VPCGatewayAttachment" => ResourceType::Ec2VpcGatewayAttachment,
             "AWS::EC2::VPCPeeringConnection" => ResourceType::VpcPeeringConnection,
@@ -1869,10 +1899,16 @@ impl ::std::convert::From<&str> for ResourceType {
             "AWS::ElasticLoadBalancing::LoadBalancer" => ResourceType::LoadBalancer,
             "AWS::ElasticLoadBalancingV2::Listener" => ResourceType::ListenerV2,
             "AWS::ElasticLoadBalancingV2::LoadBalancer" => ResourceType::LoadBalancerV2,
-            "AWS::ElasticLoadBalancingV2::TargetGroup" => ResourceType::ElasticLoadBalancingV2TargetGroup,
+            "AWS::ElasticLoadBalancingV2::TargetGroup" => {
+                ResourceType::ElasticLoadBalancingV2TargetGroup
+            }
             "AWS::Elasticsearch::Domain" => ResourceType::Domain,
-            "AWS::EntityResolution::IdMappingWorkflow" => ResourceType::EntityResolutionIdMappingWorkflow,
-            "AWS::EntityResolution::MatchingWorkflow" => ResourceType::EntityResolutionMatchingWorkflow,
+            "AWS::EntityResolution::IdMappingWorkflow" => {
+                ResourceType::EntityResolutionIdMappingWorkflow
+            }
+            "AWS::EntityResolution::MatchingWorkflow" => {
+                ResourceType::EntityResolutionMatchingWorkflow
+            }
             "AWS::EntityResolution::SchemaMapping" => ResourceType::EntityResolutionSchemaMapping,
             "AWS::EventSchemas::Discoverer" => ResourceType::EventSchemasDiscoverer,
             "AWS::EventSchemas::Registry" => ResourceType::EventSchemasRegistry,
@@ -1905,7 +1941,9 @@ impl ::std::convert::From<&str> for ResourceType {
             "AWS::Grafana::Workspace" => ResourceType::GrafanaWorkspace,
             "AWS::GreengrassV2::ComponentVersion" => ResourceType::GreengrassV2ComponentVersion,
             "AWS::GroundStation::Config" => ResourceType::GroundStationConfig,
-            "AWS::GroundStation::DataflowEndpointGroup" => ResourceType::GroundStationDataflowEndpointGroup,
+            "AWS::GroundStation::DataflowEndpointGroup" => {
+                ResourceType::GroundStationDataflowEndpointGroup
+            }
             "AWS::GroundStation::MissionProfile" => ResourceType::GroundStationMissionProfile,
             "AWS::GuardDuty::Detector" => ResourceType::GuardDutyDetector,
             "AWS::GuardDuty::Filter" => ResourceType::GuardDutyFilter,
@@ -1925,10 +1963,14 @@ impl ::std::convert::From<&str> for ResourceType {
             "AWS::IVS::PlaybackKeyPair" => ResourceType::IvsPlaybackKeyPair,
             "AWS::IVS::RecordingConfiguration" => ResourceType::IvsRecordingConfiguration,
             "AWS::ImageBuilder::ContainerRecipe" => ResourceType::ImageBuilderContainerRecipe,
-            "AWS::ImageBuilder::DistributionConfiguration" => ResourceType::ImageBuilderDistributionConfiguration,
+            "AWS::ImageBuilder::DistributionConfiguration" => {
+                ResourceType::ImageBuilderDistributionConfiguration
+            }
             "AWS::ImageBuilder::ImagePipeline" => ResourceType::ImageBuilderImagePipeline,
             "AWS::ImageBuilder::ImageRecipe" => ResourceType::ImageBuilderImageRecipe,
-            "AWS::ImageBuilder::InfrastructureConfiguration" => ResourceType::ImageBuilderInfrastructureConfiguration,
+            "AWS::ImageBuilder::InfrastructureConfiguration" => {
+                ResourceType::ImageBuilderInfrastructureConfiguration
+            }
             "AWS::ImageBuilder::LifecyclePolicy" => ResourceType::ImageBuilderLifecyclePolicy,
             "AWS::InspectorV2::Activation" => ResourceType::InspectorV2Activation,
             "AWS::InspectorV2::Filter" => ResourceType::InspectorV2Filter,
@@ -1951,7 +1993,9 @@ impl ::std::convert::From<&str> for ResourceType {
             "AWS::IoTAnalytics::Dataset" => ResourceType::IoTAnalyticsDataset,
             "AWS::IoTAnalytics::Datastore" => ResourceType::IoTAnalyticsDatastore,
             "AWS::IoTAnalytics::Pipeline" => ResourceType::IoTAnalyticsPipeline,
-            "AWS::IoTCoreDeviceAdvisor::SuiteDefinition" => ResourceType::IoTCoreDeviceAdvisorSuiteDefinition,
+            "AWS::IoTCoreDeviceAdvisor::SuiteDefinition" => {
+                ResourceType::IoTCoreDeviceAdvisorSuiteDefinition
+            }
             "AWS::IoTEvents::AlarmModel" => ResourceType::IoTEventsAlarmModel,
             "AWS::IoTEvents::DetectorModel" => ResourceType::IoTEventsDetectorModel,
             "AWS::IoTEvents::Input" => ResourceType::IoTEventsInput,
@@ -2003,32 +2047,50 @@ impl ::std::convert::From<&str> for ResourceType {
             "AWS::MediaConnect::FlowSource" => ResourceType::MediaConnectFlowSource,
             "AWS::MediaConnect::FlowVpcInterface" => ResourceType::MediaConnectFlowVpcInterface,
             "AWS::MediaConnect::Gateway" => ResourceType::MediaConnectGateway,
-            "AWS::MediaPackage::PackagingConfiguration" => ResourceType::MediaPackagePackagingConfiguration,
+            "AWS::MediaPackage::PackagingConfiguration" => {
+                ResourceType::MediaPackagePackagingConfiguration
+            }
             "AWS::MediaPackage::PackagingGroup" => ResourceType::MediaPackagePackagingGroup,
             "AWS::MediaPackageV2::Channel" => ResourceType::MediaPackageV2Channel,
             "AWS::MediaPackageV2::OriginEndpoint" => ResourceType::MediaPackageV2OriginEndpoint,
             "AWS::MediaTailor::LiveSource" => ResourceType::MediaTailorLiveSource,
-            "AWS::MediaTailor::PlaybackConfiguration" => ResourceType::MediaTailorPlaybackConfiguration,
+            "AWS::MediaTailor::PlaybackConfiguration" => {
+                ResourceType::MediaTailorPlaybackConfiguration
+            }
             "AWS::MemoryDB::SubnetGroup" => ResourceType::MemoryDbSubnetGroup,
             "AWS::NetworkFirewall::Firewall" => ResourceType::NetworkFirewallFirewall,
             "AWS::NetworkFirewall::FirewallPolicy" => ResourceType::NetworkFirewallFirewallPolicy,
             "AWS::NetworkFirewall::RuleGroup" => ResourceType::NetworkFirewallRuleGroup,
             "AWS::NetworkManager::ConnectPeer" => ResourceType::NetworkManagerConnectPeer,
-            "AWS::NetworkManager::CustomerGatewayAssociation" => ResourceType::NetworkManagerCustomerGatewayAssociation,
+            "AWS::NetworkManager::CustomerGatewayAssociation" => {
+                ResourceType::NetworkManagerCustomerGatewayAssociation
+            }
             "AWS::NetworkManager::Device" => ResourceType::NetworkManagerDevice,
             "AWS::NetworkManager::GlobalNetwork" => ResourceType::NetworkManagerGlobalNetwork,
             "AWS::NetworkManager::Link" => ResourceType::NetworkManagerLink,
             "AWS::NetworkManager::LinkAssociation" => ResourceType::NetworkManagerLinkAssociation,
             "AWS::NetworkManager::Site" => ResourceType::NetworkManagerSite,
-            "AWS::NetworkManager::TransitGatewayPeering" => ResourceType::NetworkManagerTransitGatewayPeering,
-            "AWS::NetworkManager::TransitGatewayRegistration" => ResourceType::NetworkManagerTransitGatewayRegistration,
+            "AWS::NetworkManager::TransitGatewayPeering" => {
+                ResourceType::NetworkManagerTransitGatewayPeering
+            }
+            "AWS::NetworkManager::TransitGatewayRegistration" => {
+                ResourceType::NetworkManagerTransitGatewayRegistration
+            }
             "AWS::OpenSearch::Domain" => ResourceType::OpenSearchDomain,
             "AWS::OpenSearchServerless::Collection" => ResourceType::OpenSearchServerlessCollection,
-            "AWS::OpenSearchServerless::SecurityConfig" => ResourceType::OpenSearchServerlessSecurityConfig,
-            "AWS::OpenSearchServerless::VpcEndpoint" => ResourceType::OpenSearchServerlessVpcEndpoint,
-            "AWS::Organizations::OrganizationalUnit" => ResourceType::OrganizationsOrganizationalUnit,
+            "AWS::OpenSearchServerless::SecurityConfig" => {
+                ResourceType::OpenSearchServerlessSecurityConfig
+            }
+            "AWS::OpenSearchServerless::VpcEndpoint" => {
+                ResourceType::OpenSearchServerlessVpcEndpoint
+            }
+            "AWS::Organizations::OrganizationalUnit" => {
+                ResourceType::OrganizationsOrganizationalUnit
+            }
             "AWS::PCAConnectorAD::Connector" => ResourceType::PcaConnectorAdConnector,
-            "AWS::PCAConnectorAD::DirectoryRegistration" => ResourceType::PcaConnectorAdDirectoryRegistration,
+            "AWS::PCAConnectorAD::DirectoryRegistration" => {
+                ResourceType::PcaConnectorAdDirectoryRegistration
+            }
             "AWS::Panorama::Package" => ResourceType::PanoramaPackage,
             "AWS::Personalize::Dataset" => ResourceType::PersonalizeDataset,
             "AWS::Personalize::DatasetGroup" => ResourceType::PersonalizeDatasetGroup,
@@ -2071,30 +2133,60 @@ impl ::std::convert::From<&str> for ResourceType {
             "AWS::ResilienceHub::ResiliencyPolicy" => ResourceType::ResilienceHubResiliencyPolicy,
             "AWS::ResourceExplorer2::Index" => ResourceType::ResourceExplorer2Index,
             "AWS::RoboMaker::RobotApplication" => ResourceType::RoboMakerRobotApplication,
-            "AWS::RoboMaker::RobotApplicationVersion" => ResourceType::RoboMakerRobotApplicationVersion,
+            "AWS::RoboMaker::RobotApplicationVersion" => {
+                ResourceType::RoboMakerRobotApplicationVersion
+            }
             "AWS::RoboMaker::SimulationApplication" => ResourceType::RoboMakerSimulationApplication,
             "AWS::RolesAnywhere::Profile" => ResourceType::RolesAnywhereProfile,
             "AWS::RolesAnywhere::TrustAnchor" => ResourceType::RolesAnywhereTrustAnchor,
             "AWS::Route53::DNSSEC" => ResourceType::Route53Dnssec,
             "AWS::Route53::HostedZone" => ResourceType::Route53HostedZone,
             "AWS::Route53Profiles::Profile" => ResourceType::Route53ProfilesProfile,
-            "AWS::Route53Profiles::ProfileAssociation" => ResourceType::Route53ProfilesProfileAssociation,
+            "AWS::Route53Profiles::ProfileAssociation" => {
+                ResourceType::Route53ProfilesProfileAssociation
+            }
             "AWS::Route53RecoveryControl::Cluster" => ResourceType::Route53RecoveryControlCluster,
-            "AWS::Route53RecoveryControl::ControlPanel" => ResourceType::Route53RecoveryControlControlPanel,
-            "AWS::Route53RecoveryControl::RoutingControl" => ResourceType::Route53RecoveryControlRoutingControl,
-            "AWS::Route53RecoveryControl::SafetyRule" => ResourceType::Route53RecoveryControlSafetyRule,
+            "AWS::Route53RecoveryControl::ControlPanel" => {
+                ResourceType::Route53RecoveryControlControlPanel
+            }
+            "AWS::Route53RecoveryControl::RoutingControl" => {
+                ResourceType::Route53RecoveryControlRoutingControl
+            }
+            "AWS::Route53RecoveryControl::SafetyRule" => {
+                ResourceType::Route53RecoveryControlSafetyRule
+            }
             "AWS::Route53RecoveryReadiness::Cell" => ResourceType::Route53RecoveryReadinessCell,
-            "AWS::Route53RecoveryReadiness::ReadinessCheck" => ResourceType::Route53RecoveryReadinessReadinessCheck,
-            "AWS::Route53RecoveryReadiness::RecoveryGroup" => ResourceType::Route53RecoveryReadinessRecoveryGroup,
-            "AWS::Route53RecoveryReadiness::ResourceSet" => ResourceType::Route53RecoveryReadinessResourceSet,
-            "AWS::Route53Resolver::FirewallDomainList" => ResourceType::Route53ResolverFirewallDomainList,
-            "AWS::Route53Resolver::FirewallRuleGroup" => ResourceType::Route53ResolverFirewallRuleGroup,
-            "AWS::Route53Resolver::FirewallRuleGroupAssociation" => ResourceType::Route53ResolverFirewallRuleGroupAssociation,
-            "AWS::Route53Resolver::ResolverEndpoint" => ResourceType::Route53ResolverResolverEndpoint,
-            "AWS::Route53Resolver::ResolverQueryLoggingConfig" => ResourceType::Route53ResolverResolverQueryLoggingConfig,
-            "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation" => ResourceType::Route53ResolverResolverQueryLoggingConfigAssociation,
+            "AWS::Route53RecoveryReadiness::ReadinessCheck" => {
+                ResourceType::Route53RecoveryReadinessReadinessCheck
+            }
+            "AWS::Route53RecoveryReadiness::RecoveryGroup" => {
+                ResourceType::Route53RecoveryReadinessRecoveryGroup
+            }
+            "AWS::Route53RecoveryReadiness::ResourceSet" => {
+                ResourceType::Route53RecoveryReadinessResourceSet
+            }
+            "AWS::Route53Resolver::FirewallDomainList" => {
+                ResourceType::Route53ResolverFirewallDomainList
+            }
+            "AWS::Route53Resolver::FirewallRuleGroup" => {
+                ResourceType::Route53ResolverFirewallRuleGroup
+            }
+            "AWS::Route53Resolver::FirewallRuleGroupAssociation" => {
+                ResourceType::Route53ResolverFirewallRuleGroupAssociation
+            }
+            "AWS::Route53Resolver::ResolverEndpoint" => {
+                ResourceType::Route53ResolverResolverEndpoint
+            }
+            "AWS::Route53Resolver::ResolverQueryLoggingConfig" => {
+                ResourceType::Route53ResolverResolverQueryLoggingConfig
+            }
+            "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation" => {
+                ResourceType::Route53ResolverResolverQueryLoggingConfigAssociation
+            }
             "AWS::Route53Resolver::ResolverRule" => ResourceType::Route53ResolverResolverRule,
-            "AWS::Route53Resolver::ResolverRuleAssociation" => ResourceType::Route53ResolverResolverRuleAssociation,
+            "AWS::Route53Resolver::ResolverRuleAssociation" => {
+                ResourceType::Route53ResolverResolverRuleAssociation
+            }
             "AWS::S3::AccessGrant" => ResourceType::S3AccessGrant,
             "AWS::S3::AccessGrantsInstance" => ResourceType::S3AccessGrantsInstance,
             "AWS::S3::AccessGrantsLocation" => ResourceType::S3AccessGrantsLocation,
@@ -2127,17 +2219,27 @@ impl ::std::convert::From<&str> for ResourceType {
             "AWS::SSMIncidents::ResponsePlan" => ResourceType::SsmIncidentsResponsePlan,
             "AWS::SageMaker::AppImageConfig" => ResourceType::SageMakerAppImageConfig,
             "AWS::SageMaker::CodeRepository" => ResourceType::SageMakerCodeRepository,
-            "AWS::SageMaker::DataQualityJobDefinition" => ResourceType::SageMakerDataQualityJobDefinition,
+            "AWS::SageMaker::DataQualityJobDefinition" => {
+                ResourceType::SageMakerDataQualityJobDefinition
+            }
             "AWS::SageMaker::Domain" => ResourceType::SageMakerDomain,
             "AWS::SageMaker::FeatureGroup" => ResourceType::SageMakerFeatureGroup,
             "AWS::SageMaker::Image" => ResourceType::SageMakerImage,
             "AWS::SageMaker::InferenceExperiment" => ResourceType::SageMakerInferenceExperiment,
             "AWS::SageMaker::MlflowTrackingServer" => ResourceType::SageMakerMlflowTrackingServer,
             "AWS::SageMaker::Model" => ResourceType::SageMakerModel,
-            "AWS::SageMaker::ModelBiasJobDefinition" => ResourceType::SageMakerModelBiasJobDefinition,
-            "AWS::SageMaker::ModelExplainabilityJobDefinition" => ResourceType::SageMakerModelExplainabilityJobDefinition,
-            "AWS::SageMaker::ModelQualityJobDefinition" => ResourceType::SageMakerModelQualityJobDefinition,
-            "AWS::SageMaker::NotebookInstanceLifecycleConfig" => ResourceType::SageMakerNotebookInstanceLifecycleConfig,
+            "AWS::SageMaker::ModelBiasJobDefinition" => {
+                ResourceType::SageMakerModelBiasJobDefinition
+            }
+            "AWS::SageMaker::ModelExplainabilityJobDefinition" => {
+                ResourceType::SageMakerModelExplainabilityJobDefinition
+            }
+            "AWS::SageMaker::ModelQualityJobDefinition" => {
+                ResourceType::SageMakerModelQualityJobDefinition
+            }
+            "AWS::SageMaker::NotebookInstanceLifecycleConfig" => {
+                ResourceType::SageMakerNotebookInstanceLifecycleConfig
+            }
             "AWS::SageMaker::StudioLifecycleConfig" => ResourceType::SageMakerStudioLifecycleConfig,
             "AWS::SageMaker::UserProfile" => ResourceType::SageMakerUserProfile,
             "AWS::SageMaker::Workteam" => ResourceType::SageMakerWorkteam,
@@ -2146,11 +2248,15 @@ impl ::std::convert::From<&str> for ResourceType {
             "AWS::SecretsManager::Secret" => ResourceType::Secret,
             "AWS::SecurityHub::Standard" => ResourceType::SecurityHubStandard,
             "AWS::ServiceCatalog::CloudFormationProduct" => ResourceType::CloudFormationProduct,
-            "AWS::ServiceCatalog::CloudFormationProvisionedProduct" => ResourceType::CloudFormationProvisionedProduct,
+            "AWS::ServiceCatalog::CloudFormationProvisionedProduct" => {
+                ResourceType::CloudFormationProvisionedProduct
+            }
             "AWS::ServiceCatalog::Portfolio" => ResourceType::Portfolio,
             "AWS::ServiceDiscovery::HttpNamespace" => ResourceType::ServiceDiscoveryHttpNamespace,
             "AWS::ServiceDiscovery::Instance" => ResourceType::ServiceDiscoveryInstance,
-            "AWS::ServiceDiscovery::PublicDnsNamespace" => ResourceType::ServiceDiscoveryPublicDnsNamespace,
+            "AWS::ServiceDiscovery::PublicDnsNamespace" => {
+                ResourceType::ServiceDiscoveryPublicDnsNamespace
+            }
             "AWS::ServiceDiscovery::Service" => ResourceType::ServiceDiscoveryService,
             "AWS::Shield::Protection" => ResourceType::Protection,
             "AWS::ShieldRegional::Protection" => ResourceType::RegionalProtection,
@@ -2179,7 +2285,9 @@ impl ::std::convert::From<&str> for ResourceType {
             "AWS::WorkSpaces::ConnectionAlias" => ResourceType::WorkSpacesConnectionAlias,
             "AWS::WorkSpaces::Workspace" => ResourceType::WorkSpacesWorkspace,
             "AWS::XRay::EncryptionConfig" => ResourceType::EncryptionConfig,
-            other => ResourceType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
+            other => ResourceType::Unknown(
+                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
+            ),
         }
     }
 }
@@ -2196,7 +2304,9 @@ impl ResourceType {
         match self {
             ResourceType::Certificate => "AWS::ACM::Certificate",
             ResourceType::AcmpcaCertificateAuthority => "AWS::ACMPCA::CertificateAuthority",
-            ResourceType::AcmpcaCertificateAuthorityActivation => "AWS::ACMPCA::CertificateAuthorityActivation",
+            ResourceType::AcmpcaCertificateAuthorityActivation => {
+                "AWS::ACMPCA::CertificateAuthorityActivation"
+            }
             ResourceType::ApsRuleGroupsNamespace => "AWS::APS::RuleGroupsNamespace",
             ResourceType::AccessAnalyzerAnalyzer => "AWS::AccessAnalyzer::Analyzer",
             ResourceType::AmazonMqBroker => "AWS::AmazonMQ::Broker",
@@ -2215,10 +2325,14 @@ impl ResourceType {
             ResourceType::AppConfigEnvironment => "AWS::AppConfig::Environment",
             ResourceType::AppConfigExtension => "AWS::AppConfig::Extension",
             ResourceType::AppConfigExtensionAssociation => "AWS::AppConfig::ExtensionAssociation",
-            ResourceType::AppConfigHostedConfigurationVersion => "AWS::AppConfig::HostedConfigurationVersion",
+            ResourceType::AppConfigHostedConfigurationVersion => {
+                "AWS::AppConfig::HostedConfigurationVersion"
+            }
             ResourceType::AppFlowFlow => "AWS::AppFlow::Flow",
             ResourceType::AppIntegrationsApplication => "AWS::AppIntegrations::Application",
-            ResourceType::AppIntegrationsEventIntegration => "AWS::AppIntegrations::EventIntegration",
+            ResourceType::AppIntegrationsEventIntegration => {
+                "AWS::AppIntegrations::EventIntegration"
+            }
             ResourceType::AppMeshGatewayRoute => "AWS::AppMesh::GatewayRoute",
             ResourceType::AppMeshMesh => "AWS::AppMesh::Mesh",
             ResourceType::AppMeshRoute => "AWS::AppMesh::Route",
@@ -2256,7 +2370,9 @@ impl ResourceType {
             ResourceType::BatchComputeEnvironment => "AWS::Batch::ComputeEnvironment",
             ResourceType::BatchJobQueue => "AWS::Batch::JobQueue",
             ResourceType::BatchSchedulingPolicy => "AWS::Batch::SchedulingPolicy",
-            ResourceType::BedrockApplicationInferenceProfile => "AWS::Bedrock::ApplicationInferenceProfile",
+            ResourceType::BedrockApplicationInferenceProfile => {
+                "AWS::Bedrock::ApplicationInferenceProfile"
+            }
             ResourceType::BedrockGuardrail => "AWS::Bedrock::Guardrail",
             ResourceType::BedrockKnowledgeBase => "AWS::Bedrock::KnowledgeBase",
             ResourceType::BedrockPrompt => "AWS::Bedrock::Prompt",
@@ -2287,7 +2403,9 @@ impl ResourceType {
             ResourceType::CodeDeployDeploymentConfig => "AWS::CodeDeploy::DeploymentConfig",
             ResourceType::CodeDeployDeploymentGroup => "AWS::CodeDeploy::DeploymentGroup",
             ResourceType::CodeGuruProfilerProfilingGroup => "AWS::CodeGuruProfiler::ProfilingGroup",
-            ResourceType::CodeGuruReviewerRepositoryAssociation => "AWS::CodeGuruReviewer::RepositoryAssociation",
+            ResourceType::CodeGuruReviewerRepositoryAssociation => {
+                "AWS::CodeGuruReviewer::RepositoryAssociation"
+            }
             ResourceType::Pipeline => "AWS::CodePipeline::Pipeline",
             ResourceType::CognitoIdentityPool => "AWS::Cognito::IdentityPool",
             ResourceType::CognitoUserPool => "AWS::Cognito::UserPool",
@@ -2332,7 +2450,9 @@ impl ResourceType {
             ResourceType::Ec2CapacityReservation => "AWS::EC2::CapacityReservation",
             ResourceType::Ec2CarrierGateway => "AWS::EC2::CarrierGateway",
             ResourceType::Ec2ClientVpnEndpoint => "AWS::EC2::ClientVpnEndpoint",
-            ResourceType::Ec2ClientVpnTargetNetworkAssociation => "AWS::EC2::ClientVpnTargetNetworkAssociation",
+            ResourceType::Ec2ClientVpnTargetNetworkAssociation => {
+                "AWS::EC2::ClientVpnTargetNetworkAssociation"
+            }
             ResourceType::CustomerGateway => "AWS::EC2::CustomerGateway",
             ResourceType::Ec2DhcpOptions => "AWS::EC2::DHCPOptions",
             ResourceType::Ec2Ec2Fleet => "AWS::EC2::EC2Fleet",
@@ -2345,7 +2465,9 @@ impl ResourceType {
             ResourceType::Ec2IpamPool => "AWS::EC2::IPAMPool",
             ResourceType::Ec2IpamPoolCidr => "AWS::EC2::IPAMPoolCidr",
             ResourceType::Ec2IpamResourceDiscovery => "AWS::EC2::IPAMResourceDiscovery",
-            ResourceType::Ec2IpamResourceDiscoveryAssociation => "AWS::EC2::IPAMResourceDiscoveryAssociation",
+            ResourceType::Ec2IpamResourceDiscoveryAssociation => {
+                "AWS::EC2::IPAMResourceDiscoveryAssociation"
+            }
             ResourceType::Ec2IpamScope => "AWS::EC2::IPAMScope",
             ResourceType::Instance => "AWS::EC2::Instance",
             ResourceType::Ec2InstanceConnectEndpoint => "AWS::EC2::InstanceConnectEndpoint",
@@ -2354,7 +2476,9 @@ impl ResourceType {
             ResourceType::NatGateway => "AWS::EC2::NatGateway",
             ResourceType::NetworkAcl => "AWS::EC2::NetworkAcl",
             ResourceType::Ec2NetworkInsightsAccessScope => "AWS::EC2::NetworkInsightsAccessScope",
-            ResourceType::NetworkInsightsAccessScopeAnalysis => "AWS::EC2::NetworkInsightsAccessScopeAnalysis",
+            ResourceType::NetworkInsightsAccessScopeAnalysis => {
+                "AWS::EC2::NetworkInsightsAccessScopeAnalysis"
+            }
             ResourceType::Ec2NetworkInsightsAnalysis => "AWS::EC2::NetworkInsightsAnalysis",
             ResourceType::Ec2NetworkInsightsPath => "AWS::EC2::NetworkInsightsPath",
             ResourceType::NetworkInterface => "AWS::EC2::NetworkInterface",
@@ -2375,13 +2499,19 @@ impl ResourceType {
             ResourceType::TransitGateway => "AWS::EC2::TransitGateway",
             ResourceType::TransitGatewayAttachment => "AWS::EC2::TransitGatewayAttachment",
             ResourceType::Ec2TransitGatewayConnect => "AWS::EC2::TransitGatewayConnect",
-            ResourceType::Ec2TransitGatewayMulticastDomain => "AWS::EC2::TransitGatewayMulticastDomain",
+            ResourceType::Ec2TransitGatewayMulticastDomain => {
+                "AWS::EC2::TransitGatewayMulticastDomain"
+            }
             ResourceType::TransitGatewayRouteTable => "AWS::EC2::TransitGatewayRouteTable",
             ResourceType::Vpc => "AWS::EC2::VPC",
-            ResourceType::Ec2VpcBlockPublicAccessExclusion => "AWS::EC2::VPCBlockPublicAccessExclusion",
+            ResourceType::Ec2VpcBlockPublicAccessExclusion => {
+                "AWS::EC2::VPCBlockPublicAccessExclusion"
+            }
             ResourceType::Ec2VpcBlockPublicAccessOptions => "AWS::EC2::VPCBlockPublicAccessOptions",
             ResourceType::VpcEndpoint => "AWS::EC2::VPCEndpoint",
-            ResourceType::Ec2VpcEndpointConnectionNotification => "AWS::EC2::VPCEndpointConnectionNotification",
+            ResourceType::Ec2VpcEndpointConnectionNotification => {
+                "AWS::EC2::VPCEndpointConnectionNotification"
+            }
             ResourceType::VpcEndpointService => "AWS::EC2::VPCEndpointService",
             ResourceType::Ec2VpcGatewayAttachment => "AWS::EC2::VPCGatewayAttachment",
             ResourceType::VpcPeeringConnection => "AWS::EC2::VPCPeeringConnection",
@@ -2417,10 +2547,16 @@ impl ResourceType {
             ResourceType::LoadBalancer => "AWS::ElasticLoadBalancing::LoadBalancer",
             ResourceType::ListenerV2 => "AWS::ElasticLoadBalancingV2::Listener",
             ResourceType::LoadBalancerV2 => "AWS::ElasticLoadBalancingV2::LoadBalancer",
-            ResourceType::ElasticLoadBalancingV2TargetGroup => "AWS::ElasticLoadBalancingV2::TargetGroup",
+            ResourceType::ElasticLoadBalancingV2TargetGroup => {
+                "AWS::ElasticLoadBalancingV2::TargetGroup"
+            }
             ResourceType::Domain => "AWS::Elasticsearch::Domain",
-            ResourceType::EntityResolutionIdMappingWorkflow => "AWS::EntityResolution::IdMappingWorkflow",
-            ResourceType::EntityResolutionMatchingWorkflow => "AWS::EntityResolution::MatchingWorkflow",
+            ResourceType::EntityResolutionIdMappingWorkflow => {
+                "AWS::EntityResolution::IdMappingWorkflow"
+            }
+            ResourceType::EntityResolutionMatchingWorkflow => {
+                "AWS::EntityResolution::MatchingWorkflow"
+            }
             ResourceType::EntityResolutionSchemaMapping => "AWS::EntityResolution::SchemaMapping",
             ResourceType::EventSchemasDiscoverer => "AWS::EventSchemas::Discoverer",
             ResourceType::EventSchemasRegistry => "AWS::EventSchemas::Registry",
@@ -2453,7 +2589,9 @@ impl ResourceType {
             ResourceType::GrafanaWorkspace => "AWS::Grafana::Workspace",
             ResourceType::GreengrassV2ComponentVersion => "AWS::GreengrassV2::ComponentVersion",
             ResourceType::GroundStationConfig => "AWS::GroundStation::Config",
-            ResourceType::GroundStationDataflowEndpointGroup => "AWS::GroundStation::DataflowEndpointGroup",
+            ResourceType::GroundStationDataflowEndpointGroup => {
+                "AWS::GroundStation::DataflowEndpointGroup"
+            }
             ResourceType::GroundStationMissionProfile => "AWS::GroundStation::MissionProfile",
             ResourceType::GuardDutyDetector => "AWS::GuardDuty::Detector",
             ResourceType::GuardDutyFilter => "AWS::GuardDuty::Filter",
@@ -2473,10 +2611,14 @@ impl ResourceType {
             ResourceType::IvsPlaybackKeyPair => "AWS::IVS::PlaybackKeyPair",
             ResourceType::IvsRecordingConfiguration => "AWS::IVS::RecordingConfiguration",
             ResourceType::ImageBuilderContainerRecipe => "AWS::ImageBuilder::ContainerRecipe",
-            ResourceType::ImageBuilderDistributionConfiguration => "AWS::ImageBuilder::DistributionConfiguration",
+            ResourceType::ImageBuilderDistributionConfiguration => {
+                "AWS::ImageBuilder::DistributionConfiguration"
+            }
             ResourceType::ImageBuilderImagePipeline => "AWS::ImageBuilder::ImagePipeline",
             ResourceType::ImageBuilderImageRecipe => "AWS::ImageBuilder::ImageRecipe",
-            ResourceType::ImageBuilderInfrastructureConfiguration => "AWS::ImageBuilder::InfrastructureConfiguration",
+            ResourceType::ImageBuilderInfrastructureConfiguration => {
+                "AWS::ImageBuilder::InfrastructureConfiguration"
+            }
             ResourceType::ImageBuilderLifecyclePolicy => "AWS::ImageBuilder::LifecyclePolicy",
             ResourceType::InspectorV2Activation => "AWS::InspectorV2::Activation",
             ResourceType::InspectorV2Filter => "AWS::InspectorV2::Filter",
@@ -2499,7 +2641,9 @@ impl ResourceType {
             ResourceType::IoTAnalyticsDataset => "AWS::IoTAnalytics::Dataset",
             ResourceType::IoTAnalyticsDatastore => "AWS::IoTAnalytics::Datastore",
             ResourceType::IoTAnalyticsPipeline => "AWS::IoTAnalytics::Pipeline",
-            ResourceType::IoTCoreDeviceAdvisorSuiteDefinition => "AWS::IoTCoreDeviceAdvisor::SuiteDefinition",
+            ResourceType::IoTCoreDeviceAdvisorSuiteDefinition => {
+                "AWS::IoTCoreDeviceAdvisor::SuiteDefinition"
+            }
             ResourceType::IoTEventsAlarmModel => "AWS::IoTEvents::AlarmModel",
             ResourceType::IoTEventsDetectorModel => "AWS::IoTEvents::DetectorModel",
             ResourceType::IoTEventsInput => "AWS::IoTEvents::Input",
@@ -2551,32 +2695,50 @@ impl ResourceType {
             ResourceType::MediaConnectFlowSource => "AWS::MediaConnect::FlowSource",
             ResourceType::MediaConnectFlowVpcInterface => "AWS::MediaConnect::FlowVpcInterface",
             ResourceType::MediaConnectGateway => "AWS::MediaConnect::Gateway",
-            ResourceType::MediaPackagePackagingConfiguration => "AWS::MediaPackage::PackagingConfiguration",
+            ResourceType::MediaPackagePackagingConfiguration => {
+                "AWS::MediaPackage::PackagingConfiguration"
+            }
             ResourceType::MediaPackagePackagingGroup => "AWS::MediaPackage::PackagingGroup",
             ResourceType::MediaPackageV2Channel => "AWS::MediaPackageV2::Channel",
             ResourceType::MediaPackageV2OriginEndpoint => "AWS::MediaPackageV2::OriginEndpoint",
             ResourceType::MediaTailorLiveSource => "AWS::MediaTailor::LiveSource",
-            ResourceType::MediaTailorPlaybackConfiguration => "AWS::MediaTailor::PlaybackConfiguration",
+            ResourceType::MediaTailorPlaybackConfiguration => {
+                "AWS::MediaTailor::PlaybackConfiguration"
+            }
             ResourceType::MemoryDbSubnetGroup => "AWS::MemoryDB::SubnetGroup",
             ResourceType::NetworkFirewallFirewall => "AWS::NetworkFirewall::Firewall",
             ResourceType::NetworkFirewallFirewallPolicy => "AWS::NetworkFirewall::FirewallPolicy",
             ResourceType::NetworkFirewallRuleGroup => "AWS::NetworkFirewall::RuleGroup",
             ResourceType::NetworkManagerConnectPeer => "AWS::NetworkManager::ConnectPeer",
-            ResourceType::NetworkManagerCustomerGatewayAssociation => "AWS::NetworkManager::CustomerGatewayAssociation",
+            ResourceType::NetworkManagerCustomerGatewayAssociation => {
+                "AWS::NetworkManager::CustomerGatewayAssociation"
+            }
             ResourceType::NetworkManagerDevice => "AWS::NetworkManager::Device",
             ResourceType::NetworkManagerGlobalNetwork => "AWS::NetworkManager::GlobalNetwork",
             ResourceType::NetworkManagerLink => "AWS::NetworkManager::Link",
             ResourceType::NetworkManagerLinkAssociation => "AWS::NetworkManager::LinkAssociation",
             ResourceType::NetworkManagerSite => "AWS::NetworkManager::Site",
-            ResourceType::NetworkManagerTransitGatewayPeering => "AWS::NetworkManager::TransitGatewayPeering",
-            ResourceType::NetworkManagerTransitGatewayRegistration => "AWS::NetworkManager::TransitGatewayRegistration",
+            ResourceType::NetworkManagerTransitGatewayPeering => {
+                "AWS::NetworkManager::TransitGatewayPeering"
+            }
+            ResourceType::NetworkManagerTransitGatewayRegistration => {
+                "AWS::NetworkManager::TransitGatewayRegistration"
+            }
             ResourceType::OpenSearchDomain => "AWS::OpenSearch::Domain",
             ResourceType::OpenSearchServerlessCollection => "AWS::OpenSearchServerless::Collection",
-            ResourceType::OpenSearchServerlessSecurityConfig => "AWS::OpenSearchServerless::SecurityConfig",
-            ResourceType::OpenSearchServerlessVpcEndpoint => "AWS::OpenSearchServerless::VpcEndpoint",
-            ResourceType::OrganizationsOrganizationalUnit => "AWS::Organizations::OrganizationalUnit",
+            ResourceType::OpenSearchServerlessSecurityConfig => {
+                "AWS::OpenSearchServerless::SecurityConfig"
+            }
+            ResourceType::OpenSearchServerlessVpcEndpoint => {
+                "AWS::OpenSearchServerless::VpcEndpoint"
+            }
+            ResourceType::OrganizationsOrganizationalUnit => {
+                "AWS::Organizations::OrganizationalUnit"
+            }
             ResourceType::PcaConnectorAdConnector => "AWS::PCAConnectorAD::Connector",
-            ResourceType::PcaConnectorAdDirectoryRegistration => "AWS::PCAConnectorAD::DirectoryRegistration",
+            ResourceType::PcaConnectorAdDirectoryRegistration => {
+                "AWS::PCAConnectorAD::DirectoryRegistration"
+            }
             ResourceType::PanoramaPackage => "AWS::Panorama::Package",
             ResourceType::PersonalizeDataset => "AWS::Personalize::Dataset",
             ResourceType::PersonalizeDatasetGroup => "AWS::Personalize::DatasetGroup",
@@ -2619,30 +2781,60 @@ impl ResourceType {
             ResourceType::ResilienceHubResiliencyPolicy => "AWS::ResilienceHub::ResiliencyPolicy",
             ResourceType::ResourceExplorer2Index => "AWS::ResourceExplorer2::Index",
             ResourceType::RoboMakerRobotApplication => "AWS::RoboMaker::RobotApplication",
-            ResourceType::RoboMakerRobotApplicationVersion => "AWS::RoboMaker::RobotApplicationVersion",
+            ResourceType::RoboMakerRobotApplicationVersion => {
+                "AWS::RoboMaker::RobotApplicationVersion"
+            }
             ResourceType::RoboMakerSimulationApplication => "AWS::RoboMaker::SimulationApplication",
             ResourceType::RolesAnywhereProfile => "AWS::RolesAnywhere::Profile",
             ResourceType::RolesAnywhereTrustAnchor => "AWS::RolesAnywhere::TrustAnchor",
             ResourceType::Route53Dnssec => "AWS::Route53::DNSSEC",
             ResourceType::Route53HostedZone => "AWS::Route53::HostedZone",
             ResourceType::Route53ProfilesProfile => "AWS::Route53Profiles::Profile",
-            ResourceType::Route53ProfilesProfileAssociation => "AWS::Route53Profiles::ProfileAssociation",
+            ResourceType::Route53ProfilesProfileAssociation => {
+                "AWS::Route53Profiles::ProfileAssociation"
+            }
             ResourceType::Route53RecoveryControlCluster => "AWS::Route53RecoveryControl::Cluster",
-            ResourceType::Route53RecoveryControlControlPanel => "AWS::Route53RecoveryControl::ControlPanel",
-            ResourceType::Route53RecoveryControlRoutingControl => "AWS::Route53RecoveryControl::RoutingControl",
-            ResourceType::Route53RecoveryControlSafetyRule => "AWS::Route53RecoveryControl::SafetyRule",
+            ResourceType::Route53RecoveryControlControlPanel => {
+                "AWS::Route53RecoveryControl::ControlPanel"
+            }
+            ResourceType::Route53RecoveryControlRoutingControl => {
+                "AWS::Route53RecoveryControl::RoutingControl"
+            }
+            ResourceType::Route53RecoveryControlSafetyRule => {
+                "AWS::Route53RecoveryControl::SafetyRule"
+            }
             ResourceType::Route53RecoveryReadinessCell => "AWS::Route53RecoveryReadiness::Cell",
-            ResourceType::Route53RecoveryReadinessReadinessCheck => "AWS::Route53RecoveryReadiness::ReadinessCheck",
-            ResourceType::Route53RecoveryReadinessRecoveryGroup => "AWS::Route53RecoveryReadiness::RecoveryGroup",
-            ResourceType::Route53RecoveryReadinessResourceSet => "AWS::Route53RecoveryReadiness::ResourceSet",
-            ResourceType::Route53ResolverFirewallDomainList => "AWS::Route53Resolver::FirewallDomainList",
-            ResourceType::Route53ResolverFirewallRuleGroup => "AWS::Route53Resolver::FirewallRuleGroup",
-            ResourceType::Route53ResolverFirewallRuleGroupAssociation => "AWS::Route53Resolver::FirewallRuleGroupAssociation",
-            ResourceType::Route53ResolverResolverEndpoint => "AWS::Route53Resolver::ResolverEndpoint",
-            ResourceType::Route53ResolverResolverQueryLoggingConfig => "AWS::Route53Resolver::ResolverQueryLoggingConfig",
-            ResourceType::Route53ResolverResolverQueryLoggingConfigAssociation => "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation",
+            ResourceType::Route53RecoveryReadinessReadinessCheck => {
+                "AWS::Route53RecoveryReadiness::ReadinessCheck"
+            }
+            ResourceType::Route53RecoveryReadinessRecoveryGroup => {
+                "AWS::Route53RecoveryReadiness::RecoveryGroup"
+            }
+            ResourceType::Route53RecoveryReadinessResourceSet => {
+                "AWS::Route53RecoveryReadiness::ResourceSet"
+            }
+            ResourceType::Route53ResolverFirewallDomainList => {
+                "AWS::Route53Resolver::FirewallDomainList"
+            }
+            ResourceType::Route53ResolverFirewallRuleGroup => {
+                "AWS::Route53Resolver::FirewallRuleGroup"
+            }
+            ResourceType::Route53ResolverFirewallRuleGroupAssociation => {
+                "AWS::Route53Resolver::FirewallRuleGroupAssociation"
+            }
+            ResourceType::Route53ResolverResolverEndpoint => {
+                "AWS::Route53Resolver::ResolverEndpoint"
+            }
+            ResourceType::Route53ResolverResolverQueryLoggingConfig => {
+                "AWS::Route53Resolver::ResolverQueryLoggingConfig"
+            }
+            ResourceType::Route53ResolverResolverQueryLoggingConfigAssociation => {
+                "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation"
+            }
             ResourceType::Route53ResolverResolverRule => "AWS::Route53Resolver::ResolverRule",
-            ResourceType::Route53ResolverResolverRuleAssociation => "AWS::Route53Resolver::ResolverRuleAssociation",
+            ResourceType::Route53ResolverResolverRuleAssociation => {
+                "AWS::Route53Resolver::ResolverRuleAssociation"
+            }
             ResourceType::S3AccessGrant => "AWS::S3::AccessGrant",
             ResourceType::S3AccessGrantsInstance => "AWS::S3::AccessGrantsInstance",
             ResourceType::S3AccessGrantsLocation => "AWS::S3::AccessGrantsLocation",
@@ -2675,17 +2867,27 @@ impl ResourceType {
             ResourceType::SsmIncidentsResponsePlan => "AWS::SSMIncidents::ResponsePlan",
             ResourceType::SageMakerAppImageConfig => "AWS::SageMaker::AppImageConfig",
             ResourceType::SageMakerCodeRepository => "AWS::SageMaker::CodeRepository",
-            ResourceType::SageMakerDataQualityJobDefinition => "AWS::SageMaker::DataQualityJobDefinition",
+            ResourceType::SageMakerDataQualityJobDefinition => {
+                "AWS::SageMaker::DataQualityJobDefinition"
+            }
             ResourceType::SageMakerDomain => "AWS::SageMaker::Domain",
             ResourceType::SageMakerFeatureGroup => "AWS::SageMaker::FeatureGroup",
             ResourceType::SageMakerImage => "AWS::SageMaker::Image",
             ResourceType::SageMakerInferenceExperiment => "AWS::SageMaker::InferenceExperiment",
             ResourceType::SageMakerMlflowTrackingServer => "AWS::SageMaker::MlflowTrackingServer",
             ResourceType::SageMakerModel => "AWS::SageMaker::Model",
-            ResourceType::SageMakerModelBiasJobDefinition => "AWS::SageMaker::ModelBiasJobDefinition",
-            ResourceType::SageMakerModelExplainabilityJobDefinition => "AWS::SageMaker::ModelExplainabilityJobDefinition",
-            ResourceType::SageMakerModelQualityJobDefinition => "AWS::SageMaker::ModelQualityJobDefinition",
-            ResourceType::SageMakerNotebookInstanceLifecycleConfig => "AWS::SageMaker::NotebookInstanceLifecycleConfig",
+            ResourceType::SageMakerModelBiasJobDefinition => {
+                "AWS::SageMaker::ModelBiasJobDefinition"
+            }
+            ResourceType::SageMakerModelExplainabilityJobDefinition => {
+                "AWS::SageMaker::ModelExplainabilityJobDefinition"
+            }
+            ResourceType::SageMakerModelQualityJobDefinition => {
+                "AWS::SageMaker::ModelQualityJobDefinition"
+            }
+            ResourceType::SageMakerNotebookInstanceLifecycleConfig => {
+                "AWS::SageMaker::NotebookInstanceLifecycleConfig"
+            }
             ResourceType::SageMakerStudioLifecycleConfig => "AWS::SageMaker::StudioLifecycleConfig",
             ResourceType::SageMakerUserProfile => "AWS::SageMaker::UserProfile",
             ResourceType::SageMakerWorkteam => "AWS::SageMaker::Workteam",
@@ -2694,11 +2896,15 @@ impl ResourceType {
             ResourceType::Secret => "AWS::SecretsManager::Secret",
             ResourceType::SecurityHubStandard => "AWS::SecurityHub::Standard",
             ResourceType::CloudFormationProduct => "AWS::ServiceCatalog::CloudFormationProduct",
-            ResourceType::CloudFormationProvisionedProduct => "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
+            ResourceType::CloudFormationProvisionedProduct => {
+                "AWS::ServiceCatalog::CloudFormationProvisionedProduct"
+            }
             ResourceType::Portfolio => "AWS::ServiceCatalog::Portfolio",
             ResourceType::ServiceDiscoveryHttpNamespace => "AWS::ServiceDiscovery::HttpNamespace",
             ResourceType::ServiceDiscoveryInstance => "AWS::ServiceDiscovery::Instance",
-            ResourceType::ServiceDiscoveryPublicDnsNamespace => "AWS::ServiceDiscovery::PublicDnsNamespace",
+            ResourceType::ServiceDiscoveryPublicDnsNamespace => {
+                "AWS::ServiceDiscovery::PublicDnsNamespace"
+            }
             ResourceType::ServiceDiscoveryService => "AWS::ServiceDiscovery::Service",
             ResourceType::Protection => "AWS::Shield::Protection",
             ResourceType::RegionalProtection => "AWS::ShieldRegional::Protection",
@@ -3278,10 +3484,14 @@ impl ResourceType {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(
+        value: &str,
+    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
+            Self::Unknown(_) => {
+                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
+            }
             known => Ok(known),
         }
     }
@@ -3290,8 +3500,12 @@ impl ::std::fmt::Display for ResourceType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
             ResourceType::Certificate => write!(f, "AWS::ACM::Certificate"),
-            ResourceType::AcmpcaCertificateAuthority => write!(f, "AWS::ACMPCA::CertificateAuthority"),
-            ResourceType::AcmpcaCertificateAuthorityActivation => write!(f, "AWS::ACMPCA::CertificateAuthorityActivation"),
+            ResourceType::AcmpcaCertificateAuthority => {
+                write!(f, "AWS::ACMPCA::CertificateAuthority")
+            }
+            ResourceType::AcmpcaCertificateAuthorityActivation => {
+                write!(f, "AWS::ACMPCA::CertificateAuthorityActivation")
+            }
             ResourceType::ApsRuleGroupsNamespace => write!(f, "AWS::APS::RuleGroupsNamespace"),
             ResourceType::AccessAnalyzerAnalyzer => write!(f, "AWS::AccessAnalyzer::Analyzer"),
             ResourceType::AmazonMqBroker => write!(f, "AWS::AmazonMQ::Broker"),
@@ -3305,15 +3519,27 @@ impl ::std::fmt::Display for ResourceType {
             ResourceType::ApiGatewayV2Integration => write!(f, "AWS::ApiGatewayV2::Integration"),
             ResourceType::StageV2 => write!(f, "AWS::ApiGatewayV2::Stage"),
             ResourceType::AppConfigApplication => write!(f, "AWS::AppConfig::Application"),
-            ResourceType::AppConfigConfigurationProfile => write!(f, "AWS::AppConfig::ConfigurationProfile"),
-            ResourceType::AppConfigDeploymentStrategy => write!(f, "AWS::AppConfig::DeploymentStrategy"),
+            ResourceType::AppConfigConfigurationProfile => {
+                write!(f, "AWS::AppConfig::ConfigurationProfile")
+            }
+            ResourceType::AppConfigDeploymentStrategy => {
+                write!(f, "AWS::AppConfig::DeploymentStrategy")
+            }
             ResourceType::AppConfigEnvironment => write!(f, "AWS::AppConfig::Environment"),
             ResourceType::AppConfigExtension => write!(f, "AWS::AppConfig::Extension"),
-            ResourceType::AppConfigExtensionAssociation => write!(f, "AWS::AppConfig::ExtensionAssociation"),
-            ResourceType::AppConfigHostedConfigurationVersion => write!(f, "AWS::AppConfig::HostedConfigurationVersion"),
+            ResourceType::AppConfigExtensionAssociation => {
+                write!(f, "AWS::AppConfig::ExtensionAssociation")
+            }
+            ResourceType::AppConfigHostedConfigurationVersion => {
+                write!(f, "AWS::AppConfig::HostedConfigurationVersion")
+            }
             ResourceType::AppFlowFlow => write!(f, "AWS::AppFlow::Flow"),
-            ResourceType::AppIntegrationsApplication => write!(f, "AWS::AppIntegrations::Application"),
-            ResourceType::AppIntegrationsEventIntegration => write!(f, "AWS::AppIntegrations::EventIntegration"),
+            ResourceType::AppIntegrationsApplication => {
+                write!(f, "AWS::AppIntegrations::Application")
+            }
+            ResourceType::AppIntegrationsEventIntegration => {
+                write!(f, "AWS::AppIntegrations::EventIntegration")
+            }
             ResourceType::AppMeshGatewayRoute => write!(f, "AWS::AppMesh::GatewayRoute"),
             ResourceType::AppMeshMesh => write!(f, "AWS::AppMesh::Mesh"),
             ResourceType::AppMeshRoute => write!(f, "AWS::AppMesh::Route"),
@@ -3351,15 +3577,21 @@ impl ::std::fmt::Display for ResourceType {
             ResourceType::BatchComputeEnvironment => write!(f, "AWS::Batch::ComputeEnvironment"),
             ResourceType::BatchJobQueue => write!(f, "AWS::Batch::JobQueue"),
             ResourceType::BatchSchedulingPolicy => write!(f, "AWS::Batch::SchedulingPolicy"),
-            ResourceType::BedrockApplicationInferenceProfile => write!(f, "AWS::Bedrock::ApplicationInferenceProfile"),
+            ResourceType::BedrockApplicationInferenceProfile => {
+                write!(f, "AWS::Bedrock::ApplicationInferenceProfile")
+            }
             ResourceType::BedrockGuardrail => write!(f, "AWS::Bedrock::Guardrail"),
             ResourceType::BedrockKnowledgeBase => write!(f, "AWS::Bedrock::KnowledgeBase"),
             ResourceType::BedrockPrompt => write!(f, "AWS::Bedrock::Prompt"),
-            ResourceType::BedrockAgentCoreBrowserCustom => write!(f, "AWS::BedrockAgentCore::BrowserCustom"),
+            ResourceType::BedrockAgentCoreBrowserCustom => {
+                write!(f, "AWS::BedrockAgentCore::BrowserCustom")
+            }
             ResourceType::BedrockAgentCoreRuntime => write!(f, "AWS::BedrockAgentCore::Runtime"),
             ResourceType::BudgetsBudgetsAction => write!(f, "AWS::Budgets::BudgetsAction"),
             ResourceType::CassandraKeyspace => write!(f, "AWS::Cassandra::Keyspace"),
-            ResourceType::CleanRoomsMlTrainingDataset => write!(f, "AWS::CleanRoomsML::TrainingDataset"),
+            ResourceType::CleanRoomsMlTrainingDataset => {
+                write!(f, "AWS::CleanRoomsML::TrainingDataset")
+            }
             ResourceType::Cloud9EnvironmentEc2 => write!(f, "AWS::Cloud9::EnvironmentEC2"),
             ResourceType::CloudFormationGuardHook => write!(f, "AWS::CloudFormation::GuardHook"),
             ResourceType::CloudFormationLambdaHook => write!(f, "AWS::CloudFormation::LambdaHook"),
@@ -3368,8 +3600,12 @@ impl ::std::fmt::Display for ResourceType {
             ResourceType::Distribution => write!(f, "AWS::CloudFront::Distribution"),
             ResourceType::CloudFrontKeyValueStore => write!(f, "AWS::CloudFront::KeyValueStore"),
             ResourceType::CloudFrontPublicKey => write!(f, "AWS::CloudFront::PublicKey"),
-            ResourceType::CloudFrontRealtimeLogConfig => write!(f, "AWS::CloudFront::RealtimeLogConfig"),
-            ResourceType::StreamingDistribution => write!(f, "AWS::CloudFront::StreamingDistribution"),
+            ResourceType::CloudFrontRealtimeLogConfig => {
+                write!(f, "AWS::CloudFront::RealtimeLogConfig")
+            }
+            ResourceType::StreamingDistribution => {
+                write!(f, "AWS::CloudFront::StreamingDistribution")
+            }
             ResourceType::CloudTrailEventDataStore => write!(f, "AWS::CloudTrail::EventDataStore"),
             ResourceType::Trail => write!(f, "AWS::CloudTrail::Trail"),
             ResourceType::Alarm => write!(f, "AWS::CloudWatch::Alarm"),
@@ -3379,19 +3615,31 @@ impl ::std::fmt::Display for ResourceType {
             ResourceType::Project => write!(f, "AWS::CodeBuild::Project"),
             ResourceType::CodeBuildReportGroup => write!(f, "AWS::CodeBuild::ReportGroup"),
             ResourceType::CodeDeployApplication => write!(f, "AWS::CodeDeploy::Application"),
-            ResourceType::CodeDeployDeploymentConfig => write!(f, "AWS::CodeDeploy::DeploymentConfig"),
-            ResourceType::CodeDeployDeploymentGroup => write!(f, "AWS::CodeDeploy::DeploymentGroup"),
-            ResourceType::CodeGuruProfilerProfilingGroup => write!(f, "AWS::CodeGuruProfiler::ProfilingGroup"),
-            ResourceType::CodeGuruReviewerRepositoryAssociation => write!(f, "AWS::CodeGuruReviewer::RepositoryAssociation"),
+            ResourceType::CodeDeployDeploymentConfig => {
+                write!(f, "AWS::CodeDeploy::DeploymentConfig")
+            }
+            ResourceType::CodeDeployDeploymentGroup => {
+                write!(f, "AWS::CodeDeploy::DeploymentGroup")
+            }
+            ResourceType::CodeGuruProfilerProfilingGroup => {
+                write!(f, "AWS::CodeGuruProfiler::ProfilingGroup")
+            }
+            ResourceType::CodeGuruReviewerRepositoryAssociation => {
+                write!(f, "AWS::CodeGuruReviewer::RepositoryAssociation")
+            }
             ResourceType::Pipeline => write!(f, "AWS::CodePipeline::Pipeline"),
             ResourceType::CognitoIdentityPool => write!(f, "AWS::Cognito::IdentityPool"),
             ResourceType::CognitoUserPool => write!(f, "AWS::Cognito::UserPool"),
             ResourceType::CognitoUserPoolClient => write!(f, "AWS::Cognito::UserPoolClient"),
             ResourceType::CognitoUserPoolGroup => write!(f, "AWS::Cognito::UserPoolGroup"),
             ResourceType::ComprehendFlywheel => write!(f, "AWS::Comprehend::Flywheel"),
-            ResourceType::ConfigAggregationAuthorization => write!(f, "AWS::Config::AggregationAuthorization"),
+            ResourceType::ConfigAggregationAuthorization => {
+                write!(f, "AWS::Config::AggregationAuthorization")
+            }
             ResourceType::ConfigConformancePack => write!(f, "AWS::Config::ConformancePack"),
-            ResourceType::ConformancePackCompliance => write!(f, "AWS::Config::ConformancePackCompliance"),
+            ResourceType::ConformancePackCompliance => {
+                write!(f, "AWS::Config::ConformancePackCompliance")
+            }
             ResourceType::ResourceCompliance => write!(f, "AWS::Config::ResourceCompliance"),
             ResourceType::ConfigStoredQuery => write!(f, "AWS::Config::StoredQuery"),
             ResourceType::ConnectInstance => write!(f, "AWS::Connect::Instance"),
@@ -3401,96 +3649,152 @@ impl ::std::fmt::Display for ResourceType {
             ResourceType::ConnectSecurityProfile => write!(f, "AWS::Connect::SecurityProfile"),
             ResourceType::ConnectUser => write!(f, "AWS::Connect::User"),
             ResourceType::CustomerProfilesDomain => write!(f, "AWS::CustomerProfiles::Domain"),
-            ResourceType::CustomerProfilesObjectType => write!(f, "AWS::CustomerProfiles::ObjectType"),
+            ResourceType::CustomerProfilesObjectType => {
+                write!(f, "AWS::CustomerProfiles::ObjectType")
+            }
             ResourceType::DmsCertificate => write!(f, "AWS::DMS::Certificate"),
             ResourceType::DmsEndpoint => write!(f, "AWS::DMS::Endpoint"),
             ResourceType::DmsEventSubscription => write!(f, "AWS::DMS::EventSubscription"),
-            ResourceType::DmsReplicationSubnetGroup => write!(f, "AWS::DMS::ReplicationSubnetGroup"),
+            ResourceType::DmsReplicationSubnetGroup => {
+                write!(f, "AWS::DMS::ReplicationSubnetGroup")
+            }
             ResourceType::DataSyncAgent => write!(f, "AWS::DataSync::Agent"),
             ResourceType::DataSyncLocationEfs => write!(f, "AWS::DataSync::LocationEFS"),
-            ResourceType::DataSyncLocationFSxLustre => write!(f, "AWS::DataSync::LocationFSxLustre"),
-            ResourceType::DataSyncLocationFSxWindows => write!(f, "AWS::DataSync::LocationFSxWindows"),
+            ResourceType::DataSyncLocationFSxLustre => {
+                write!(f, "AWS::DataSync::LocationFSxLustre")
+            }
+            ResourceType::DataSyncLocationFSxWindows => {
+                write!(f, "AWS::DataSync::LocationFSxWindows")
+            }
             ResourceType::DataSyncLocationHdfs => write!(f, "AWS::DataSync::LocationHDFS"),
             ResourceType::DataSyncLocationNfs => write!(f, "AWS::DataSync::LocationNFS"),
-            ResourceType::DataSyncLocationObjectStorage => write!(f, "AWS::DataSync::LocationObjectStorage"),
+            ResourceType::DataSyncLocationObjectStorage => {
+                write!(f, "AWS::DataSync::LocationObjectStorage")
+            }
             ResourceType::DataSyncLocationS3 => write!(f, "AWS::DataSync::LocationS3"),
             ResourceType::DataSyncLocationSmb => write!(f, "AWS::DataSync::LocationSMB"),
             ResourceType::DataSyncTask => write!(f, "AWS::DataSync::Task"),
             ResourceType::DeadlineFleet => write!(f, "AWS::Deadline::Fleet"),
             ResourceType::DeadlineMonitor => write!(f, "AWS::Deadline::Monitor"),
-            ResourceType::DeadlineQueueFleetAssociation => write!(f, "AWS::Deadline::QueueFleetAssociation"),
+            ResourceType::DeadlineQueueFleetAssociation => {
+                write!(f, "AWS::Deadline::QueueFleetAssociation")
+            }
             ResourceType::DetectiveGraph => write!(f, "AWS::Detective::Graph"),
-            ResourceType::DeviceFarmInstanceProfile => write!(f, "AWS::DeviceFarm::InstanceProfile"),
+            ResourceType::DeviceFarmInstanceProfile => {
+                write!(f, "AWS::DeviceFarm::InstanceProfile")
+            }
             ResourceType::DeviceFarmProject => write!(f, "AWS::DeviceFarm::Project"),
-            ResourceType::DeviceFarmTestGridProject => write!(f, "AWS::DeviceFarm::TestGridProject"),
+            ResourceType::DeviceFarmTestGridProject => {
+                write!(f, "AWS::DeviceFarm::TestGridProject")
+            }
             ResourceType::Table => write!(f, "AWS::DynamoDB::Table"),
             ResourceType::Ec2CapacityReservation => write!(f, "AWS::EC2::CapacityReservation"),
             ResourceType::Ec2CarrierGateway => write!(f, "AWS::EC2::CarrierGateway"),
             ResourceType::Ec2ClientVpnEndpoint => write!(f, "AWS::EC2::ClientVpnEndpoint"),
-            ResourceType::Ec2ClientVpnTargetNetworkAssociation => write!(f, "AWS::EC2::ClientVpnTargetNetworkAssociation"),
+            ResourceType::Ec2ClientVpnTargetNetworkAssociation => {
+                write!(f, "AWS::EC2::ClientVpnTargetNetworkAssociation")
+            }
             ResourceType::CustomerGateway => write!(f, "AWS::EC2::CustomerGateway"),
             ResourceType::Ec2DhcpOptions => write!(f, "AWS::EC2::DHCPOptions"),
             ResourceType::Ec2Ec2Fleet => write!(f, "AWS::EC2::EC2Fleet"),
             ResourceType::Eip => write!(f, "AWS::EC2::EIP"),
             ResourceType::Ec2EipAssociation => write!(f, "AWS::EC2::EIPAssociation"),
-            ResourceType::EgressOnlyInternetGateway => write!(f, "AWS::EC2::EgressOnlyInternetGateway"),
+            ResourceType::EgressOnlyInternetGateway => {
+                write!(f, "AWS::EC2::EgressOnlyInternetGateway")
+            }
             ResourceType::FlowLog => write!(f, "AWS::EC2::FlowLog"),
             ResourceType::Host => write!(f, "AWS::EC2::Host"),
             ResourceType::Ec2Ipam => write!(f, "AWS::EC2::IPAM"),
             ResourceType::Ec2IpamPool => write!(f, "AWS::EC2::IPAMPool"),
             ResourceType::Ec2IpamPoolCidr => write!(f, "AWS::EC2::IPAMPoolCidr"),
             ResourceType::Ec2IpamResourceDiscovery => write!(f, "AWS::EC2::IPAMResourceDiscovery"),
-            ResourceType::Ec2IpamResourceDiscoveryAssociation => write!(f, "AWS::EC2::IPAMResourceDiscoveryAssociation"),
+            ResourceType::Ec2IpamResourceDiscoveryAssociation => {
+                write!(f, "AWS::EC2::IPAMResourceDiscoveryAssociation")
+            }
             ResourceType::Ec2IpamScope => write!(f, "AWS::EC2::IPAMScope"),
             ResourceType::Instance => write!(f, "AWS::EC2::Instance"),
-            ResourceType::Ec2InstanceConnectEndpoint => write!(f, "AWS::EC2::InstanceConnectEndpoint"),
+            ResourceType::Ec2InstanceConnectEndpoint => {
+                write!(f, "AWS::EC2::InstanceConnectEndpoint")
+            }
             ResourceType::InternetGateway => write!(f, "AWS::EC2::InternetGateway"),
             ResourceType::LaunchTemplate => write!(f, "AWS::EC2::LaunchTemplate"),
             ResourceType::NatGateway => write!(f, "AWS::EC2::NatGateway"),
             ResourceType::NetworkAcl => write!(f, "AWS::EC2::NetworkAcl"),
-            ResourceType::Ec2NetworkInsightsAccessScope => write!(f, "AWS::EC2::NetworkInsightsAccessScope"),
-            ResourceType::NetworkInsightsAccessScopeAnalysis => write!(f, "AWS::EC2::NetworkInsightsAccessScopeAnalysis"),
-            ResourceType::Ec2NetworkInsightsAnalysis => write!(f, "AWS::EC2::NetworkInsightsAnalysis"),
+            ResourceType::Ec2NetworkInsightsAccessScope => {
+                write!(f, "AWS::EC2::NetworkInsightsAccessScope")
+            }
+            ResourceType::NetworkInsightsAccessScopeAnalysis => {
+                write!(f, "AWS::EC2::NetworkInsightsAccessScopeAnalysis")
+            }
+            ResourceType::Ec2NetworkInsightsAnalysis => {
+                write!(f, "AWS::EC2::NetworkInsightsAnalysis")
+            }
             ResourceType::Ec2NetworkInsightsPath => write!(f, "AWS::EC2::NetworkInsightsPath"),
             ResourceType::NetworkInterface => write!(f, "AWS::EC2::NetworkInterface"),
             ResourceType::Ec2PrefixList => write!(f, "AWS::EC2::PrefixList"),
             ResourceType::RegisteredHaInstance => write!(f, "AWS::EC2::RegisteredHAInstance"),
             ResourceType::RouteTable => write!(f, "AWS::EC2::RouteTable"),
             ResourceType::SecurityGroup => write!(f, "AWS::EC2::SecurityGroup"),
-            ResourceType::Ec2SecurityGroupVpcAssociation => write!(f, "AWS::EC2::SecurityGroupVpcAssociation"),
-            ResourceType::Ec2SnapshotBlockPublicAccess => write!(f, "AWS::EC2::SnapshotBlockPublicAccess"),
+            ResourceType::Ec2SecurityGroupVpcAssociation => {
+                write!(f, "AWS::EC2::SecurityGroupVpcAssociation")
+            }
+            ResourceType::Ec2SnapshotBlockPublicAccess => {
+                write!(f, "AWS::EC2::SnapshotBlockPublicAccess")
+            }
             ResourceType::Ec2SpotFleet => write!(f, "AWS::EC2::SpotFleet"),
             ResourceType::Subnet => write!(f, "AWS::EC2::Subnet"),
             ResourceType::Ec2SubnetCidrBlock => write!(f, "AWS::EC2::SubnetCidrBlock"),
-            ResourceType::Ec2SubnetNetworkAclAssociation => write!(f, "AWS::EC2::SubnetNetworkAclAssociation"),
-            ResourceType::Ec2SubnetRouteTableAssociation => write!(f, "AWS::EC2::SubnetRouteTableAssociation"),
+            ResourceType::Ec2SubnetNetworkAclAssociation => {
+                write!(f, "AWS::EC2::SubnetNetworkAclAssociation")
+            }
+            ResourceType::Ec2SubnetRouteTableAssociation => {
+                write!(f, "AWS::EC2::SubnetRouteTableAssociation")
+            }
             ResourceType::Ec2TrafficMirrorFilter => write!(f, "AWS::EC2::TrafficMirrorFilter"),
             ResourceType::Ec2TrafficMirrorSession => write!(f, "AWS::EC2::TrafficMirrorSession"),
             ResourceType::Ec2TrafficMirrorTarget => write!(f, "AWS::EC2::TrafficMirrorTarget"),
             ResourceType::TransitGateway => write!(f, "AWS::EC2::TransitGateway"),
-            ResourceType::TransitGatewayAttachment => write!(f, "AWS::EC2::TransitGatewayAttachment"),
+            ResourceType::TransitGatewayAttachment => {
+                write!(f, "AWS::EC2::TransitGatewayAttachment")
+            }
             ResourceType::Ec2TransitGatewayConnect => write!(f, "AWS::EC2::TransitGatewayConnect"),
-            ResourceType::Ec2TransitGatewayMulticastDomain => write!(f, "AWS::EC2::TransitGatewayMulticastDomain"),
-            ResourceType::TransitGatewayRouteTable => write!(f, "AWS::EC2::TransitGatewayRouteTable"),
+            ResourceType::Ec2TransitGatewayMulticastDomain => {
+                write!(f, "AWS::EC2::TransitGatewayMulticastDomain")
+            }
+            ResourceType::TransitGatewayRouteTable => {
+                write!(f, "AWS::EC2::TransitGatewayRouteTable")
+            }
             ResourceType::Vpc => write!(f, "AWS::EC2::VPC"),
-            ResourceType::Ec2VpcBlockPublicAccessExclusion => write!(f, "AWS::EC2::VPCBlockPublicAccessExclusion"),
-            ResourceType::Ec2VpcBlockPublicAccessOptions => write!(f, "AWS::EC2::VPCBlockPublicAccessOptions"),
+            ResourceType::Ec2VpcBlockPublicAccessExclusion => {
+                write!(f, "AWS::EC2::VPCBlockPublicAccessExclusion")
+            }
+            ResourceType::Ec2VpcBlockPublicAccessOptions => {
+                write!(f, "AWS::EC2::VPCBlockPublicAccessOptions")
+            }
             ResourceType::VpcEndpoint => write!(f, "AWS::EC2::VPCEndpoint"),
-            ResourceType::Ec2VpcEndpointConnectionNotification => write!(f, "AWS::EC2::VPCEndpointConnectionNotification"),
+            ResourceType::Ec2VpcEndpointConnectionNotification => {
+                write!(f, "AWS::EC2::VPCEndpointConnectionNotification")
+            }
             ResourceType::VpcEndpointService => write!(f, "AWS::EC2::VPCEndpointService"),
             ResourceType::Ec2VpcGatewayAttachment => write!(f, "AWS::EC2::VPCGatewayAttachment"),
             ResourceType::VpcPeeringConnection => write!(f, "AWS::EC2::VPCPeeringConnection"),
             ResourceType::VpnConnection => write!(f, "AWS::EC2::VPNConnection"),
             ResourceType::Ec2VpnConnectionRoute => write!(f, "AWS::EC2::VPNConnectionRoute"),
             ResourceType::VpnGateway => write!(f, "AWS::EC2::VPNGateway"),
-            ResourceType::Ec2VerifiedAccessInstance => write!(f, "AWS::EC2::VerifiedAccessInstance"),
+            ResourceType::Ec2VerifiedAccessInstance => {
+                write!(f, "AWS::EC2::VerifiedAccessInstance")
+            }
             ResourceType::Volume => write!(f, "AWS::EC2::Volume"),
             ResourceType::EcrPublicRepository => write!(f, "AWS::ECR::PublicRepository"),
             ResourceType::EcrPullThroughCacheRule => write!(f, "AWS::ECR::PullThroughCacheRule"),
             ResourceType::EcrRegistryPolicy => write!(f, "AWS::ECR::RegistryPolicy"),
-            ResourceType::EcrReplicationConfiguration => write!(f, "AWS::ECR::ReplicationConfiguration"),
+            ResourceType::EcrReplicationConfiguration => {
+                write!(f, "AWS::ECR::ReplicationConfiguration")
+            }
             ResourceType::EcrRepository => write!(f, "AWS::ECR::Repository"),
-            ResourceType::EcrRepositoryCreationTemplate => write!(f, "AWS::ECR::RepositoryCreationTemplate"),
+            ResourceType::EcrRepositoryCreationTemplate => {
+                write!(f, "AWS::ECR::RepositoryCreationTemplate")
+            }
             ResourceType::EcsCapacityProvider => write!(f, "AWS::ECS::CapacityProvider"),
             ResourceType::EcsCluster => write!(f, "AWS::ECS::Cluster"),
             ResourceType::EcsService => write!(f, "AWS::ECS::Service"),
@@ -3501,25 +3805,41 @@ impl ::std::fmt::Display for ResourceType {
             ResourceType::EksAddon => write!(f, "AWS::EKS::Addon"),
             ResourceType::EksCluster => write!(f, "AWS::EKS::Cluster"),
             ResourceType::EksFargateProfile => write!(f, "AWS::EKS::FargateProfile"),
-            ResourceType::EksIdentityProviderConfig => write!(f, "AWS::EKS::IdentityProviderConfig"),
+            ResourceType::EksIdentityProviderConfig => {
+                write!(f, "AWS::EKS::IdentityProviderConfig")
+            }
             ResourceType::EmrSecurityConfiguration => write!(f, "AWS::EMR::SecurityConfiguration"),
             ResourceType::EmrStudio => write!(f, "AWS::EMR::Studio"),
-            ResourceType::EmrContainersVirtualCluster => write!(f, "AWS::EMRContainers::VirtualCluster"),
+            ResourceType::EmrContainersVirtualCluster => {
+                write!(f, "AWS::EMRContainers::VirtualCluster")
+            }
             ResourceType::EmrServerlessApplication => write!(f, "AWS::EMRServerless::Application"),
             ResourceType::Application => write!(f, "AWS::ElasticBeanstalk::Application"),
-            ResourceType::ApplicationVersion => write!(f, "AWS::ElasticBeanstalk::ApplicationVersion"),
+            ResourceType::ApplicationVersion => {
+                write!(f, "AWS::ElasticBeanstalk::ApplicationVersion")
+            }
             ResourceType::Environment => write!(f, "AWS::ElasticBeanstalk::Environment"),
             ResourceType::LoadBalancer => write!(f, "AWS::ElasticLoadBalancing::LoadBalancer"),
             ResourceType::ListenerV2 => write!(f, "AWS::ElasticLoadBalancingV2::Listener"),
             ResourceType::LoadBalancerV2 => write!(f, "AWS::ElasticLoadBalancingV2::LoadBalancer"),
-            ResourceType::ElasticLoadBalancingV2TargetGroup => write!(f, "AWS::ElasticLoadBalancingV2::TargetGroup"),
+            ResourceType::ElasticLoadBalancingV2TargetGroup => {
+                write!(f, "AWS::ElasticLoadBalancingV2::TargetGroup")
+            }
             ResourceType::Domain => write!(f, "AWS::Elasticsearch::Domain"),
-            ResourceType::EntityResolutionIdMappingWorkflow => write!(f, "AWS::EntityResolution::IdMappingWorkflow"),
-            ResourceType::EntityResolutionMatchingWorkflow => write!(f, "AWS::EntityResolution::MatchingWorkflow"),
-            ResourceType::EntityResolutionSchemaMapping => write!(f, "AWS::EntityResolution::SchemaMapping"),
+            ResourceType::EntityResolutionIdMappingWorkflow => {
+                write!(f, "AWS::EntityResolution::IdMappingWorkflow")
+            }
+            ResourceType::EntityResolutionMatchingWorkflow => {
+                write!(f, "AWS::EntityResolution::MatchingWorkflow")
+            }
+            ResourceType::EntityResolutionSchemaMapping => {
+                write!(f, "AWS::EntityResolution::SchemaMapping")
+            }
             ResourceType::EventSchemasDiscoverer => write!(f, "AWS::EventSchemas::Discoverer"),
             ResourceType::EventSchemasRegistry => write!(f, "AWS::EventSchemas::Registry"),
-            ResourceType::EventSchemasRegistryPolicy => write!(f, "AWS::EventSchemas::RegistryPolicy"),
+            ResourceType::EventSchemasRegistryPolicy => {
+                write!(f, "AWS::EventSchemas::RegistryPolicy")
+            }
             ResourceType::EventSchemasSchema => write!(f, "AWS::EventSchemas::Schema"),
             ResourceType::EventsApiDestination => write!(f, "AWS::Events::ApiDestination"),
             ResourceType::EventsArchive => write!(f, "AWS::Events::Archive"),
@@ -3538,22 +3858,36 @@ impl ::std::fmt::Display for ResourceType {
             ResourceType::FraudDetectorOutcome => write!(f, "AWS::FraudDetector::Outcome"),
             ResourceType::FraudDetectorVariable => write!(f, "AWS::FraudDetector::Variable"),
             ResourceType::GameLiftBuild => write!(f, "AWS::GameLift::Build"),
-            ResourceType::GlobalAcceleratorAccelerator => write!(f, "AWS::GlobalAccelerator::Accelerator"),
-            ResourceType::GlobalAcceleratorEndpointGroup => write!(f, "AWS::GlobalAccelerator::EndpointGroup"),
-            ResourceType::GlobalAcceleratorListener => write!(f, "AWS::GlobalAccelerator::Listener"),
+            ResourceType::GlobalAcceleratorAccelerator => {
+                write!(f, "AWS::GlobalAccelerator::Accelerator")
+            }
+            ResourceType::GlobalAcceleratorEndpointGroup => {
+                write!(f, "AWS::GlobalAccelerator::EndpointGroup")
+            }
+            ResourceType::GlobalAcceleratorListener => {
+                write!(f, "AWS::GlobalAccelerator::Listener")
+            }
             ResourceType::GlueClassifier => write!(f, "AWS::Glue::Classifier"),
             ResourceType::GlueDatabase => write!(f, "AWS::Glue::Database"),
             ResourceType::GlueJob => write!(f, "AWS::Glue::Job"),
             ResourceType::GlueMlTransform => write!(f, "AWS::Glue::MLTransform"),
             ResourceType::GrafanaWorkspace => write!(f, "AWS::Grafana::Workspace"),
-            ResourceType::GreengrassV2ComponentVersion => write!(f, "AWS::GreengrassV2::ComponentVersion"),
+            ResourceType::GreengrassV2ComponentVersion => {
+                write!(f, "AWS::GreengrassV2::ComponentVersion")
+            }
             ResourceType::GroundStationConfig => write!(f, "AWS::GroundStation::Config"),
-            ResourceType::GroundStationDataflowEndpointGroup => write!(f, "AWS::GroundStation::DataflowEndpointGroup"),
-            ResourceType::GroundStationMissionProfile => write!(f, "AWS::GroundStation::MissionProfile"),
+            ResourceType::GroundStationDataflowEndpointGroup => {
+                write!(f, "AWS::GroundStation::DataflowEndpointGroup")
+            }
+            ResourceType::GroundStationMissionProfile => {
+                write!(f, "AWS::GroundStation::MissionProfile")
+            }
             ResourceType::GuardDutyDetector => write!(f, "AWS::GuardDuty::Detector"),
             ResourceType::GuardDutyFilter => write!(f, "AWS::GuardDuty::Filter"),
             ResourceType::GuardDutyIpSet => write!(f, "AWS::GuardDuty::IPSet"),
-            ResourceType::GuardDutyMalwareProtectionPlan => write!(f, "AWS::GuardDuty::MalwareProtectionPlan"),
+            ResourceType::GuardDutyMalwareProtectionPlan => {
+                write!(f, "AWS::GuardDuty::MalwareProtectionPlan")
+            }
             ResourceType::GuardDutyThreatIntelSet => write!(f, "AWS::GuardDuty::ThreatIntelSet"),
             ResourceType::HealthLakeFhirDatastore => write!(f, "AWS::HealthLake::FHIRDatastore"),
             ResourceType::Group => write!(f, "AWS::IAM::Group"),
@@ -3566,16 +3900,30 @@ impl ::std::fmt::Display for ResourceType {
             ResourceType::User => write!(f, "AWS::IAM::User"),
             ResourceType::IvsChannel => write!(f, "AWS::IVS::Channel"),
             ResourceType::IvsPlaybackKeyPair => write!(f, "AWS::IVS::PlaybackKeyPair"),
-            ResourceType::IvsRecordingConfiguration => write!(f, "AWS::IVS::RecordingConfiguration"),
-            ResourceType::ImageBuilderContainerRecipe => write!(f, "AWS::ImageBuilder::ContainerRecipe"),
-            ResourceType::ImageBuilderDistributionConfiguration => write!(f, "AWS::ImageBuilder::DistributionConfiguration"),
-            ResourceType::ImageBuilderImagePipeline => write!(f, "AWS::ImageBuilder::ImagePipeline"),
+            ResourceType::IvsRecordingConfiguration => {
+                write!(f, "AWS::IVS::RecordingConfiguration")
+            }
+            ResourceType::ImageBuilderContainerRecipe => {
+                write!(f, "AWS::ImageBuilder::ContainerRecipe")
+            }
+            ResourceType::ImageBuilderDistributionConfiguration => {
+                write!(f, "AWS::ImageBuilder::DistributionConfiguration")
+            }
+            ResourceType::ImageBuilderImagePipeline => {
+                write!(f, "AWS::ImageBuilder::ImagePipeline")
+            }
             ResourceType::ImageBuilderImageRecipe => write!(f, "AWS::ImageBuilder::ImageRecipe"),
-            ResourceType::ImageBuilderInfrastructureConfiguration => write!(f, "AWS::ImageBuilder::InfrastructureConfiguration"),
-            ResourceType::ImageBuilderLifecyclePolicy => write!(f, "AWS::ImageBuilder::LifecyclePolicy"),
+            ResourceType::ImageBuilderInfrastructureConfiguration => {
+                write!(f, "AWS::ImageBuilder::InfrastructureConfiguration")
+            }
+            ResourceType::ImageBuilderLifecyclePolicy => {
+                write!(f, "AWS::ImageBuilder::LifecyclePolicy")
+            }
             ResourceType::InspectorV2Activation => write!(f, "AWS::InspectorV2::Activation"),
             ResourceType::InspectorV2Filter => write!(f, "AWS::InspectorV2::Filter"),
-            ResourceType::IoTAccountAuditConfiguration => write!(f, "AWS::IoT::AccountAuditConfiguration"),
+            ResourceType::IoTAccountAuditConfiguration => {
+                write!(f, "AWS::IoT::AccountAuditConfiguration")
+            }
             ResourceType::IoTAuthorizer => write!(f, "AWS::IoT::Authorizer"),
             ResourceType::IoTcaCertificate => write!(f, "AWS::IoT::CACertificate"),
             ResourceType::IoTCustomMetric => write!(f, "AWS::IoT::CustomMetric"),
@@ -3594,7 +3942,9 @@ impl ::std::fmt::Display for ResourceType {
             ResourceType::IoTAnalyticsDataset => write!(f, "AWS::IoTAnalytics::Dataset"),
             ResourceType::IoTAnalyticsDatastore => write!(f, "AWS::IoTAnalytics::Datastore"),
             ResourceType::IoTAnalyticsPipeline => write!(f, "AWS::IoTAnalytics::Pipeline"),
-            ResourceType::IoTCoreDeviceAdvisorSuiteDefinition => write!(f, "AWS::IoTCoreDeviceAdvisor::SuiteDefinition"),
+            ResourceType::IoTCoreDeviceAdvisorSuiteDefinition => {
+                write!(f, "AWS::IoTCoreDeviceAdvisor::SuiteDefinition")
+            }
             ResourceType::IoTEventsAlarmModel => write!(f, "AWS::IoTEvents::AlarmModel"),
             ResourceType::IoTEventsDetectorModel => write!(f, "AWS::IoTEvents::DetectorModel"),
             ResourceType::IoTEventsInput => write!(f, "AWS::IoTEvents::Input"),
@@ -3604,14 +3954,20 @@ impl ::std::fmt::Display for ResourceType {
             ResourceType::IoTSiteWiseGateway => write!(f, "AWS::IoTSiteWise::Gateway"),
             ResourceType::IoTSiteWisePortal => write!(f, "AWS::IoTSiteWise::Portal"),
             ResourceType::IoTSiteWiseProject => write!(f, "AWS::IoTSiteWise::Project"),
-            ResourceType::IoTTwinMakerComponentType => write!(f, "AWS::IoTTwinMaker::ComponentType"),
+            ResourceType::IoTTwinMakerComponentType => {
+                write!(f, "AWS::IoTTwinMaker::ComponentType")
+            }
             ResourceType::IoTTwinMakerEntity => write!(f, "AWS::IoTTwinMaker::Entity"),
             ResourceType::IoTTwinMakerScene => write!(f, "AWS::IoTTwinMaker::Scene"),
             ResourceType::IoTTwinMakerSyncJob => write!(f, "AWS::IoTTwinMaker::SyncJob"),
             ResourceType::IoTTwinMakerWorkspace => write!(f, "AWS::IoTTwinMaker::Workspace"),
             ResourceType::IoTWirelessFuotaTask => write!(f, "AWS::IoTWireless::FuotaTask"),
-            ResourceType::IoTWirelessMulticastGroup => write!(f, "AWS::IoTWireless::MulticastGroup"),
-            ResourceType::IoTWirelessServiceProfile => write!(f, "AWS::IoTWireless::ServiceProfile"),
+            ResourceType::IoTWirelessMulticastGroup => {
+                write!(f, "AWS::IoTWireless::MulticastGroup")
+            }
+            ResourceType::IoTWirelessServiceProfile => {
+                write!(f, "AWS::IoTWireless::ServiceProfile")
+            }
             ResourceType::KmsAlias => write!(f, "AWS::KMS::Alias"),
             ResourceType::Key => write!(f, "AWS::KMS::Key"),
             ResourceType::KafkaConnectConnector => write!(f, "AWS::KafkaConnect::Connector"),
@@ -3619,9 +3975,15 @@ impl ::std::fmt::Display for ResourceType {
             ResourceType::KendraIndex => write!(f, "AWS::Kendra::Index"),
             ResourceType::KinesisStream => write!(f, "AWS::Kinesis::Stream"),
             ResourceType::KinesisStreamConsumer => write!(f, "AWS::Kinesis::StreamConsumer"),
-            ResourceType::KinesisAnalyticsV2Application => write!(f, "AWS::KinesisAnalyticsV2::Application"),
-            ResourceType::KinesisFirehoseDeliveryStream => write!(f, "AWS::KinesisFirehose::DeliveryStream"),
-            ResourceType::KinesisVideoSignalingChannel => write!(f, "AWS::KinesisVideo::SignalingChannel"),
+            ResourceType::KinesisAnalyticsV2Application => {
+                write!(f, "AWS::KinesisAnalyticsV2::Application")
+            }
+            ResourceType::KinesisFirehoseDeliveryStream => {
+                write!(f, "AWS::KinesisFirehose::DeliveryStream")
+            }
+            ResourceType::KinesisVideoSignalingChannel => {
+                write!(f, "AWS::KinesisVideo::SignalingChannel")
+            }
             ResourceType::KinesisVideoStream => write!(f, "AWS::KinesisVideo::Stream"),
             ResourceType::LambdaCodeSigningConfig => write!(f, "AWS::Lambda::CodeSigningConfig"),
             ResourceType::Function => write!(f, "AWS::Lambda::Function"),
@@ -3642,43 +4004,81 @@ impl ::std::fmt::Display for ResourceType {
             ResourceType::MskConfiguration => write!(f, "AWS::MSK::Configuration"),
             ResourceType::MskServerlessCluster => write!(f, "AWS::MSK::ServerlessCluster"),
             ResourceType::MskVpcConnection => write!(f, "AWS::MSK::VpcConnection"),
-            ResourceType::MediaConnectFlowEntitlement => write!(f, "AWS::MediaConnect::FlowEntitlement"),
+            ResourceType::MediaConnectFlowEntitlement => {
+                write!(f, "AWS::MediaConnect::FlowEntitlement")
+            }
             ResourceType::MediaConnectFlowSource => write!(f, "AWS::MediaConnect::FlowSource"),
-            ResourceType::MediaConnectFlowVpcInterface => write!(f, "AWS::MediaConnect::FlowVpcInterface"),
+            ResourceType::MediaConnectFlowVpcInterface => {
+                write!(f, "AWS::MediaConnect::FlowVpcInterface")
+            }
             ResourceType::MediaConnectGateway => write!(f, "AWS::MediaConnect::Gateway"),
-            ResourceType::MediaPackagePackagingConfiguration => write!(f, "AWS::MediaPackage::PackagingConfiguration"),
-            ResourceType::MediaPackagePackagingGroup => write!(f, "AWS::MediaPackage::PackagingGroup"),
+            ResourceType::MediaPackagePackagingConfiguration => {
+                write!(f, "AWS::MediaPackage::PackagingConfiguration")
+            }
+            ResourceType::MediaPackagePackagingGroup => {
+                write!(f, "AWS::MediaPackage::PackagingGroup")
+            }
             ResourceType::MediaPackageV2Channel => write!(f, "AWS::MediaPackageV2::Channel"),
-            ResourceType::MediaPackageV2OriginEndpoint => write!(f, "AWS::MediaPackageV2::OriginEndpoint"),
+            ResourceType::MediaPackageV2OriginEndpoint => {
+                write!(f, "AWS::MediaPackageV2::OriginEndpoint")
+            }
             ResourceType::MediaTailorLiveSource => write!(f, "AWS::MediaTailor::LiveSource"),
-            ResourceType::MediaTailorPlaybackConfiguration => write!(f, "AWS::MediaTailor::PlaybackConfiguration"),
+            ResourceType::MediaTailorPlaybackConfiguration => {
+                write!(f, "AWS::MediaTailor::PlaybackConfiguration")
+            }
             ResourceType::MemoryDbSubnetGroup => write!(f, "AWS::MemoryDB::SubnetGroup"),
             ResourceType::NetworkFirewallFirewall => write!(f, "AWS::NetworkFirewall::Firewall"),
-            ResourceType::NetworkFirewallFirewallPolicy => write!(f, "AWS::NetworkFirewall::FirewallPolicy"),
+            ResourceType::NetworkFirewallFirewallPolicy => {
+                write!(f, "AWS::NetworkFirewall::FirewallPolicy")
+            }
             ResourceType::NetworkFirewallRuleGroup => write!(f, "AWS::NetworkFirewall::RuleGroup"),
-            ResourceType::NetworkManagerConnectPeer => write!(f, "AWS::NetworkManager::ConnectPeer"),
-            ResourceType::NetworkManagerCustomerGatewayAssociation => write!(f, "AWS::NetworkManager::CustomerGatewayAssociation"),
+            ResourceType::NetworkManagerConnectPeer => {
+                write!(f, "AWS::NetworkManager::ConnectPeer")
+            }
+            ResourceType::NetworkManagerCustomerGatewayAssociation => {
+                write!(f, "AWS::NetworkManager::CustomerGatewayAssociation")
+            }
             ResourceType::NetworkManagerDevice => write!(f, "AWS::NetworkManager::Device"),
-            ResourceType::NetworkManagerGlobalNetwork => write!(f, "AWS::NetworkManager::GlobalNetwork"),
+            ResourceType::NetworkManagerGlobalNetwork => {
+                write!(f, "AWS::NetworkManager::GlobalNetwork")
+            }
             ResourceType::NetworkManagerLink => write!(f, "AWS::NetworkManager::Link"),
-            ResourceType::NetworkManagerLinkAssociation => write!(f, "AWS::NetworkManager::LinkAssociation"),
+            ResourceType::NetworkManagerLinkAssociation => {
+                write!(f, "AWS::NetworkManager::LinkAssociation")
+            }
             ResourceType::NetworkManagerSite => write!(f, "AWS::NetworkManager::Site"),
-            ResourceType::NetworkManagerTransitGatewayPeering => write!(f, "AWS::NetworkManager::TransitGatewayPeering"),
-            ResourceType::NetworkManagerTransitGatewayRegistration => write!(f, "AWS::NetworkManager::TransitGatewayRegistration"),
+            ResourceType::NetworkManagerTransitGatewayPeering => {
+                write!(f, "AWS::NetworkManager::TransitGatewayPeering")
+            }
+            ResourceType::NetworkManagerTransitGatewayRegistration => {
+                write!(f, "AWS::NetworkManager::TransitGatewayRegistration")
+            }
             ResourceType::OpenSearchDomain => write!(f, "AWS::OpenSearch::Domain"),
-            ResourceType::OpenSearchServerlessCollection => write!(f, "AWS::OpenSearchServerless::Collection"),
-            ResourceType::OpenSearchServerlessSecurityConfig => write!(f, "AWS::OpenSearchServerless::SecurityConfig"),
-            ResourceType::OpenSearchServerlessVpcEndpoint => write!(f, "AWS::OpenSearchServerless::VpcEndpoint"),
-            ResourceType::OrganizationsOrganizationalUnit => write!(f, "AWS::Organizations::OrganizationalUnit"),
+            ResourceType::OpenSearchServerlessCollection => {
+                write!(f, "AWS::OpenSearchServerless::Collection")
+            }
+            ResourceType::OpenSearchServerlessSecurityConfig => {
+                write!(f, "AWS::OpenSearchServerless::SecurityConfig")
+            }
+            ResourceType::OpenSearchServerlessVpcEndpoint => {
+                write!(f, "AWS::OpenSearchServerless::VpcEndpoint")
+            }
+            ResourceType::OrganizationsOrganizationalUnit => {
+                write!(f, "AWS::Organizations::OrganizationalUnit")
+            }
             ResourceType::PcaConnectorAdConnector => write!(f, "AWS::PCAConnectorAD::Connector"),
-            ResourceType::PcaConnectorAdDirectoryRegistration => write!(f, "AWS::PCAConnectorAD::DirectoryRegistration"),
+            ResourceType::PcaConnectorAdDirectoryRegistration => {
+                write!(f, "AWS::PCAConnectorAD::DirectoryRegistration")
+            }
             ResourceType::PanoramaPackage => write!(f, "AWS::Panorama::Package"),
             ResourceType::PersonalizeDataset => write!(f, "AWS::Personalize::Dataset"),
             ResourceType::PersonalizeDatasetGroup => write!(f, "AWS::Personalize::DatasetGroup"),
             ResourceType::PersonalizeSchema => write!(f, "AWS::Personalize::Schema"),
             ResourceType::PersonalizeSolution => write!(f, "AWS::Personalize::Solution"),
             ResourceType::PinpointApp => write!(f, "AWS::Pinpoint::App"),
-            ResourceType::PinpointApplicationSettings => write!(f, "AWS::Pinpoint::ApplicationSettings"),
+            ResourceType::PinpointApplicationSettings => {
+                write!(f, "AWS::Pinpoint::ApplicationSettings")
+            }
             ResourceType::PinpointCampaign => write!(f, "AWS::Pinpoint::Campaign"),
             ResourceType::PinpointEmailChannel => write!(f, "AWS::Pinpoint::EmailChannel"),
             ResourceType::PinpointEmailTemplate => write!(f, "AWS::Pinpoint::EmailTemplate"),
@@ -3701,50 +4101,101 @@ impl ::std::fmt::Display for ResourceType {
             ResourceType::RdsOptionGroup => write!(f, "AWS::RDS::OptionGroup"),
             ResourceType::RumAppMonitor => write!(f, "AWS::RUM::AppMonitor"),
             ResourceType::Cluster => write!(f, "AWS::Redshift::Cluster"),
-            ResourceType::ClusterParameterGroup => write!(f, "AWS::Redshift::ClusterParameterGroup"),
+            ResourceType::ClusterParameterGroup => {
+                write!(f, "AWS::Redshift::ClusterParameterGroup")
+            }
             ResourceType::ClusterSecurityGroup => write!(f, "AWS::Redshift::ClusterSecurityGroup"),
             ResourceType::ClusterSnapshot => write!(f, "AWS::Redshift::ClusterSnapshot"),
             ResourceType::ClusterSubnetGroup => write!(f, "AWS::Redshift::ClusterSubnetGroup"),
             ResourceType::RedshiftEndpointAccess => write!(f, "AWS::Redshift::EndpointAccess"),
-            ResourceType::RedshiftEndpointAuthorization => write!(f, "AWS::Redshift::EndpointAuthorization"),
-            ResourceType::RedshiftEventSubscription => write!(f, "AWS::Redshift::EventSubscription"),
+            ResourceType::RedshiftEndpointAuthorization => {
+                write!(f, "AWS::Redshift::EndpointAuthorization")
+            }
+            ResourceType::RedshiftEventSubscription => {
+                write!(f, "AWS::Redshift::EventSubscription")
+            }
             ResourceType::RedshiftIntegration => write!(f, "AWS::Redshift::Integration"),
             ResourceType::RedshiftScheduledAction => write!(f, "AWS::Redshift::ScheduledAction"),
             ResourceType::ResilienceHubApp => write!(f, "AWS::ResilienceHub::App"),
-            ResourceType::ResilienceHubResiliencyPolicy => write!(f, "AWS::ResilienceHub::ResiliencyPolicy"),
+            ResourceType::ResilienceHubResiliencyPolicy => {
+                write!(f, "AWS::ResilienceHub::ResiliencyPolicy")
+            }
             ResourceType::ResourceExplorer2Index => write!(f, "AWS::ResourceExplorer2::Index"),
-            ResourceType::RoboMakerRobotApplication => write!(f, "AWS::RoboMaker::RobotApplication"),
-            ResourceType::RoboMakerRobotApplicationVersion => write!(f, "AWS::RoboMaker::RobotApplicationVersion"),
-            ResourceType::RoboMakerSimulationApplication => write!(f, "AWS::RoboMaker::SimulationApplication"),
+            ResourceType::RoboMakerRobotApplication => {
+                write!(f, "AWS::RoboMaker::RobotApplication")
+            }
+            ResourceType::RoboMakerRobotApplicationVersion => {
+                write!(f, "AWS::RoboMaker::RobotApplicationVersion")
+            }
+            ResourceType::RoboMakerSimulationApplication => {
+                write!(f, "AWS::RoboMaker::SimulationApplication")
+            }
             ResourceType::RolesAnywhereProfile => write!(f, "AWS::RolesAnywhere::Profile"),
             ResourceType::RolesAnywhereTrustAnchor => write!(f, "AWS::RolesAnywhere::TrustAnchor"),
             ResourceType::Route53Dnssec => write!(f, "AWS::Route53::DNSSEC"),
             ResourceType::Route53HostedZone => write!(f, "AWS::Route53::HostedZone"),
             ResourceType::Route53ProfilesProfile => write!(f, "AWS::Route53Profiles::Profile"),
-            ResourceType::Route53ProfilesProfileAssociation => write!(f, "AWS::Route53Profiles::ProfileAssociation"),
-            ResourceType::Route53RecoveryControlCluster => write!(f, "AWS::Route53RecoveryControl::Cluster"),
-            ResourceType::Route53RecoveryControlControlPanel => write!(f, "AWS::Route53RecoveryControl::ControlPanel"),
-            ResourceType::Route53RecoveryControlRoutingControl => write!(f, "AWS::Route53RecoveryControl::RoutingControl"),
-            ResourceType::Route53RecoveryControlSafetyRule => write!(f, "AWS::Route53RecoveryControl::SafetyRule"),
-            ResourceType::Route53RecoveryReadinessCell => write!(f, "AWS::Route53RecoveryReadiness::Cell"),
-            ResourceType::Route53RecoveryReadinessReadinessCheck => write!(f, "AWS::Route53RecoveryReadiness::ReadinessCheck"),
-            ResourceType::Route53RecoveryReadinessRecoveryGroup => write!(f, "AWS::Route53RecoveryReadiness::RecoveryGroup"),
-            ResourceType::Route53RecoveryReadinessResourceSet => write!(f, "AWS::Route53RecoveryReadiness::ResourceSet"),
-            ResourceType::Route53ResolverFirewallDomainList => write!(f, "AWS::Route53Resolver::FirewallDomainList"),
-            ResourceType::Route53ResolverFirewallRuleGroup => write!(f, "AWS::Route53Resolver::FirewallRuleGroup"),
-            ResourceType::Route53ResolverFirewallRuleGroupAssociation => write!(f, "AWS::Route53Resolver::FirewallRuleGroupAssociation"),
-            ResourceType::Route53ResolverResolverEndpoint => write!(f, "AWS::Route53Resolver::ResolverEndpoint"),
-            ResourceType::Route53ResolverResolverQueryLoggingConfig => write!(f, "AWS::Route53Resolver::ResolverQueryLoggingConfig"),
-            ResourceType::Route53ResolverResolverQueryLoggingConfigAssociation => {
-                write!(f, "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation")
+            ResourceType::Route53ProfilesProfileAssociation => {
+                write!(f, "AWS::Route53Profiles::ProfileAssociation")
             }
-            ResourceType::Route53ResolverResolverRule => write!(f, "AWS::Route53Resolver::ResolverRule"),
-            ResourceType::Route53ResolverResolverRuleAssociation => write!(f, "AWS::Route53Resolver::ResolverRuleAssociation"),
+            ResourceType::Route53RecoveryControlCluster => {
+                write!(f, "AWS::Route53RecoveryControl::Cluster")
+            }
+            ResourceType::Route53RecoveryControlControlPanel => {
+                write!(f, "AWS::Route53RecoveryControl::ControlPanel")
+            }
+            ResourceType::Route53RecoveryControlRoutingControl => {
+                write!(f, "AWS::Route53RecoveryControl::RoutingControl")
+            }
+            ResourceType::Route53RecoveryControlSafetyRule => {
+                write!(f, "AWS::Route53RecoveryControl::SafetyRule")
+            }
+            ResourceType::Route53RecoveryReadinessCell => {
+                write!(f, "AWS::Route53RecoveryReadiness::Cell")
+            }
+            ResourceType::Route53RecoveryReadinessReadinessCheck => {
+                write!(f, "AWS::Route53RecoveryReadiness::ReadinessCheck")
+            }
+            ResourceType::Route53RecoveryReadinessRecoveryGroup => {
+                write!(f, "AWS::Route53RecoveryReadiness::RecoveryGroup")
+            }
+            ResourceType::Route53RecoveryReadinessResourceSet => {
+                write!(f, "AWS::Route53RecoveryReadiness::ResourceSet")
+            }
+            ResourceType::Route53ResolverFirewallDomainList => {
+                write!(f, "AWS::Route53Resolver::FirewallDomainList")
+            }
+            ResourceType::Route53ResolverFirewallRuleGroup => {
+                write!(f, "AWS::Route53Resolver::FirewallRuleGroup")
+            }
+            ResourceType::Route53ResolverFirewallRuleGroupAssociation => {
+                write!(f, "AWS::Route53Resolver::FirewallRuleGroupAssociation")
+            }
+            ResourceType::Route53ResolverResolverEndpoint => {
+                write!(f, "AWS::Route53Resolver::ResolverEndpoint")
+            }
+            ResourceType::Route53ResolverResolverQueryLoggingConfig => {
+                write!(f, "AWS::Route53Resolver::ResolverQueryLoggingConfig")
+            }
+            ResourceType::Route53ResolverResolverQueryLoggingConfigAssociation => {
+                write!(
+                    f,
+                    "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation"
+                )
+            }
+            ResourceType::Route53ResolverResolverRule => {
+                write!(f, "AWS::Route53Resolver::ResolverRule")
+            }
+            ResourceType::Route53ResolverResolverRuleAssociation => {
+                write!(f, "AWS::Route53Resolver::ResolverRuleAssociation")
+            }
             ResourceType::S3AccessGrant => write!(f, "AWS::S3::AccessGrant"),
             ResourceType::S3AccessGrantsInstance => write!(f, "AWS::S3::AccessGrantsInstance"),
             ResourceType::S3AccessGrantsLocation => write!(f, "AWS::S3::AccessGrantsLocation"),
             ResourceType::S3AccessPoint => write!(f, "AWS::S3::AccessPoint"),
-            ResourceType::AccountPublicAccessBlock => write!(f, "AWS::S3::AccountPublicAccessBlock"),
+            ResourceType::AccountPublicAccessBlock => {
+                write!(f, "AWS::S3::AccountPublicAccessBlock")
+            }
             ResourceType::Bucket => write!(f, "AWS::S3::Bucket"),
             ResourceType::S3MultiRegionAccessPoint => write!(f, "AWS::S3::MultiRegionAccessPoint"),
             ResourceType::S3StorageLens => write!(f, "AWS::S3::StorageLens"),
@@ -3752,11 +4203,15 @@ impl ::std::fmt::Display for ResourceType {
             ResourceType::S3ExpressBucketPolicy => write!(f, "AWS::S3Express::BucketPolicy"),
             ResourceType::S3ExpressDirectoryBucket => write!(f, "AWS::S3Express::DirectoryBucket"),
             ResourceType::S3TablesTableBucket => write!(f, "AWS::S3Tables::TableBucket"),
-            ResourceType::S3TablesTableBucketPolicy => write!(f, "AWS::S3Tables::TableBucketPolicy"),
+            ResourceType::S3TablesTableBucketPolicy => {
+                write!(f, "AWS::S3Tables::TableBucketPolicy")
+            }
             ResourceType::SesConfigurationSet => write!(f, "AWS::SES::ConfigurationSet"),
             ResourceType::SesContactList => write!(f, "AWS::SES::ContactList"),
             ResourceType::SesDedicatedIpPool => write!(f, "AWS::SES::DedicatedIpPool"),
-            ResourceType::SesMailManagerTrafficPolicy => write!(f, "AWS::SES::MailManagerTrafficPolicy"),
+            ResourceType::SesMailManagerTrafficPolicy => {
+                write!(f, "AWS::SES::MailManagerTrafficPolicy")
+            }
             ResourceType::SesReceiptFilter => write!(f, "AWS::SES::ReceiptFilter"),
             ResourceType::SesReceiptRuleSet => write!(f, "AWS::SES::ReceiptRuleSet"),
             ResourceType::SesTemplate => write!(f, "AWS::SES::Template"),
@@ -3765,43 +4220,75 @@ impl ::std::fmt::Display for ResourceType {
             ResourceType::AssociationCompliance => write!(f, "AWS::SSM::AssociationCompliance"),
             ResourceType::SsmDocument => write!(f, "AWS::SSM::Document"),
             ResourceType::FileData => write!(f, "AWS::SSM::FileData"),
-            ResourceType::ManagedInstanceInventory => write!(f, "AWS::SSM::ManagedInstanceInventory"),
+            ResourceType::ManagedInstanceInventory => {
+                write!(f, "AWS::SSM::ManagedInstanceInventory")
+            }
             ResourceType::PatchCompliance => write!(f, "AWS::SSM::PatchCompliance"),
             ResourceType::SsmResourceDataSync => write!(f, "AWS::SSM::ResourceDataSync"),
             ResourceType::SsmContactsContact => write!(f, "AWS::SSMContacts::Contact"),
             ResourceType::SsmIncidentsResponsePlan => write!(f, "AWS::SSMIncidents::ResponsePlan"),
             ResourceType::SageMakerAppImageConfig => write!(f, "AWS::SageMaker::AppImageConfig"),
             ResourceType::SageMakerCodeRepository => write!(f, "AWS::SageMaker::CodeRepository"),
-            ResourceType::SageMakerDataQualityJobDefinition => write!(f, "AWS::SageMaker::DataQualityJobDefinition"),
+            ResourceType::SageMakerDataQualityJobDefinition => {
+                write!(f, "AWS::SageMaker::DataQualityJobDefinition")
+            }
             ResourceType::SageMakerDomain => write!(f, "AWS::SageMaker::Domain"),
             ResourceType::SageMakerFeatureGroup => write!(f, "AWS::SageMaker::FeatureGroup"),
             ResourceType::SageMakerImage => write!(f, "AWS::SageMaker::Image"),
-            ResourceType::SageMakerInferenceExperiment => write!(f, "AWS::SageMaker::InferenceExperiment"),
-            ResourceType::SageMakerMlflowTrackingServer => write!(f, "AWS::SageMaker::MlflowTrackingServer"),
+            ResourceType::SageMakerInferenceExperiment => {
+                write!(f, "AWS::SageMaker::InferenceExperiment")
+            }
+            ResourceType::SageMakerMlflowTrackingServer => {
+                write!(f, "AWS::SageMaker::MlflowTrackingServer")
+            }
             ResourceType::SageMakerModel => write!(f, "AWS::SageMaker::Model"),
-            ResourceType::SageMakerModelBiasJobDefinition => write!(f, "AWS::SageMaker::ModelBiasJobDefinition"),
-            ResourceType::SageMakerModelExplainabilityJobDefinition => write!(f, "AWS::SageMaker::ModelExplainabilityJobDefinition"),
-            ResourceType::SageMakerModelQualityJobDefinition => write!(f, "AWS::SageMaker::ModelQualityJobDefinition"),
-            ResourceType::SageMakerNotebookInstanceLifecycleConfig => write!(f, "AWS::SageMaker::NotebookInstanceLifecycleConfig"),
-            ResourceType::SageMakerStudioLifecycleConfig => write!(f, "AWS::SageMaker::StudioLifecycleConfig"),
+            ResourceType::SageMakerModelBiasJobDefinition => {
+                write!(f, "AWS::SageMaker::ModelBiasJobDefinition")
+            }
+            ResourceType::SageMakerModelExplainabilityJobDefinition => {
+                write!(f, "AWS::SageMaker::ModelExplainabilityJobDefinition")
+            }
+            ResourceType::SageMakerModelQualityJobDefinition => {
+                write!(f, "AWS::SageMaker::ModelQualityJobDefinition")
+            }
+            ResourceType::SageMakerNotebookInstanceLifecycleConfig => {
+                write!(f, "AWS::SageMaker::NotebookInstanceLifecycleConfig")
+            }
+            ResourceType::SageMakerStudioLifecycleConfig => {
+                write!(f, "AWS::SageMaker::StudioLifecycleConfig")
+            }
             ResourceType::SageMakerUserProfile => write!(f, "AWS::SageMaker::UserProfile"),
             ResourceType::SageMakerWorkteam => write!(f, "AWS::SageMaker::Workteam"),
-            ResourceType::SecretsManagerResourcePolicy => write!(f, "AWS::SecretsManager::ResourcePolicy"),
-            ResourceType::SecretsManagerRotationSchedule => write!(f, "AWS::SecretsManager::RotationSchedule"),
+            ResourceType::SecretsManagerResourcePolicy => {
+                write!(f, "AWS::SecretsManager::ResourcePolicy")
+            }
+            ResourceType::SecretsManagerRotationSchedule => {
+                write!(f, "AWS::SecretsManager::RotationSchedule")
+            }
             ResourceType::Secret => write!(f, "AWS::SecretsManager::Secret"),
             ResourceType::SecurityHubStandard => write!(f, "AWS::SecurityHub::Standard"),
-            ResourceType::CloudFormationProduct => write!(f, "AWS::ServiceCatalog::CloudFormationProduct"),
-            ResourceType::CloudFormationProvisionedProduct => write!(f, "AWS::ServiceCatalog::CloudFormationProvisionedProduct"),
+            ResourceType::CloudFormationProduct => {
+                write!(f, "AWS::ServiceCatalog::CloudFormationProduct")
+            }
+            ResourceType::CloudFormationProvisionedProduct => {
+                write!(f, "AWS::ServiceCatalog::CloudFormationProvisionedProduct")
+            }
             ResourceType::Portfolio => write!(f, "AWS::ServiceCatalog::Portfolio"),
-            ResourceType::ServiceDiscoveryHttpNamespace => write!(f, "AWS::ServiceDiscovery::HttpNamespace"),
+            ResourceType::ServiceDiscoveryHttpNamespace => {
+                write!(f, "AWS::ServiceDiscovery::HttpNamespace")
+            }
             ResourceType::ServiceDiscoveryInstance => write!(f, "AWS::ServiceDiscovery::Instance"),
-            ResourceType::ServiceDiscoveryPublicDnsNamespace => write!(f, "AWS::ServiceDiscovery::PublicDnsNamespace"),
+            ResourceType::ServiceDiscoveryPublicDnsNamespace => {
+                write!(f, "AWS::ServiceDiscovery::PublicDnsNamespace")
+            }
             ResourceType::ServiceDiscoveryService => write!(f, "AWS::ServiceDiscovery::Service"),
             ResourceType::Protection => write!(f, "AWS::Shield::Protection"),
             ResourceType::RegionalProtection => write!(f, "AWS::ShieldRegional::Protection"),
             ResourceType::SignerSigningProfile => write!(f, "AWS::Signer::SigningProfile"),
             ResourceType::StepFunctionsActivity => write!(f, "AWS::StepFunctions::Activity"),
-            ResourceType::StepFunctionsStateMachine => write!(f, "AWS::StepFunctions::StateMachine"),
+            ResourceType::StepFunctionsStateMachine => {
+                write!(f, "AWS::StepFunctions::StateMachine")
+            }
             ResourceType::TransferAgreement => write!(f, "AWS::Transfer::Agreement"),
             ResourceType::TransferCertificate => write!(f, "AWS::Transfer::Certificate"),
             ResourceType::TransferConnector => write!(f, "AWS::Transfer::Connector"),
@@ -3821,7 +4308,9 @@ impl ::std::fmt::Display for ResourceType {
             ResourceType::RegexPatternSetV2 => write!(f, "AWS::WAFv2::RegexPatternSet"),
             ResourceType::RuleGroupV2 => write!(f, "AWS::WAFv2::RuleGroup"),
             ResourceType::WebAclv2 => write!(f, "AWS::WAFv2::WebACL"),
-            ResourceType::WorkSpacesConnectionAlias => write!(f, "AWS::WorkSpaces::ConnectionAlias"),
+            ResourceType::WorkSpacesConnectionAlias => {
+                write!(f, "AWS::WorkSpaces::ConnectionAlias")
+            }
             ResourceType::WorkSpacesWorkspace => write!(f, "AWS::WorkSpaces::Workspace"),
             ResourceType::EncryptionConfig => write!(f, "AWS::XRay::EncryptionConfig"),
             ResourceType::Unknown(value) => write!(f, "{value}"),

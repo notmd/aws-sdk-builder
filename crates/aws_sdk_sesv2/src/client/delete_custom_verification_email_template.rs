@@ -8,7 +8,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteCustomVerificationEmailTemplateError>`](crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError)
     pub fn delete_custom_verification_email_template(
         &self,
-    ) -> crate::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateFluentBuilder {
+    ) -> crate::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateFluentBuilder{
         crate::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateFluentBuilder::new(
             self.handle.clone(),
         )

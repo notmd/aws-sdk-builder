@@ -61,7 +61,7 @@ impl PutAggregationAuthorizationFluentBuilder {
         }
     }
     /// Access the PutAggregationAuthorization as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_aggregation_authorization::builders::PutAggregationAuthorizationInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_aggregation_authorization::builders::PutAggregationAuthorizationInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -90,7 +90,11 @@ impl PutAggregationAuthorizationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_aggregation_authorization::PutAggregationAuthorization::orchestrate(&runtime_plugins, input).await
+        crate::operation::put_aggregation_authorization::PutAggregationAuthorization::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -103,22 +107,34 @@ impl PutAggregationAuthorizationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The 12-digit account ID of the account authorized to aggregate data.</p>
-    pub fn authorized_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn authorized_account_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.authorized_account_id(input.into());
         self
     }
     /// <p>The 12-digit account ID of the account authorized to aggregate data.</p>
-    pub fn set_authorized_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_authorized_account_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_authorized_account_id(input);
         self
     }
@@ -127,12 +143,18 @@ impl PutAggregationAuthorizationFluentBuilder {
         self.inner.get_authorized_account_id()
     }
     /// <p>The region authorized to collect aggregated data.</p>
-    pub fn authorized_aws_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn authorized_aws_region(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.authorized_aws_region(input.into());
         self
     }
     /// <p>The region authorized to collect aggregated data.</p>
-    pub fn set_authorized_aws_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_authorized_aws_region(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_authorized_aws_region(input);
         self
     }
@@ -151,7 +173,10 @@ impl PutAggregationAuthorizationFluentBuilder {
         self
     }
     /// <p>An array of tag object.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

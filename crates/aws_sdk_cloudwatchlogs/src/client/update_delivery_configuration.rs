@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateDeliveryConfigurationError>`](crate::operation::update_delivery_configuration::UpdateDeliveryConfigurationError)
     pub fn update_delivery_configuration(
         &self,
-    ) -> crate::operation::update_delivery_configuration::builders::UpdateDeliveryConfigurationFluentBuilder {
+    ) -> crate::operation::update_delivery_configuration::builders::UpdateDeliveryConfigurationFluentBuilder{
         crate::operation::update_delivery_configuration::builders::UpdateDeliveryConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

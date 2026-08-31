@@ -9,47 +9,61 @@ pub fn de_describe_quota_share_http_error(
     crate::operation::describe_quota_share::DescribeQuotaShareError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::describe_quota_share::DescribeQuotaShareError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(crate::operation::describe_quota_share::DescribeQuotaShareError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::describe_quota_share::DescribeQuotaShareError::unhandled(generic)),
+        None => {
+            return Err(
+                crate::operation::describe_quota_share::DescribeQuotaShareError::unhandled(generic),
+            )
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "ClientException" => crate::operation::describe_quota_share::DescribeQuotaShareError::ClientException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "ClientException" => {
+            crate::operation::describe_quota_share::DescribeQuotaShareError::ClientException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ClientExceptionBuilder::default();
-                output = crate::protocol_serde::shape_client_exception::de_client_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output =
+                        crate::types::error::builders::ClientExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_client_exception::de_client_exception_json_err(_response_body, output)
                     .map_err(crate::operation::describe_quota_share::DescribeQuotaShareError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ServerException" => crate::operation::describe_quota_share::DescribeQuotaShareError::ServerException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ServerException" => {
+            crate::operation::describe_quota_share::DescribeQuotaShareError::ServerException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ServerExceptionBuilder::default();
-                output = crate::protocol_serde::shape_server_exception::de_server_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output =
+                        crate::types::error::builders::ServerExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_server_exception::de_server_exception_json_err(_response_body, output)
                     .map_err(crate::operation::describe_quota_share::DescribeQuotaShareError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::describe_quota_share::DescribeQuotaShareError::generic(generic),
     })
 }
@@ -66,19 +80,30 @@ pub fn de_describe_quota_share_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::describe_quota_share::builders::DescribeQuotaShareOutputBuilder::default();
-        output = crate::protocol_serde::shape_describe_quota_share::de_describe_quota_share(_response_body, output)
-            .map_err(crate::operation::describe_quota_share::DescribeQuotaShareError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output = crate::protocol_serde::shape_describe_quota_share::de_describe_quota_share(
+            _response_body,
+            output,
+        )
+        .map_err(crate::operation::describe_quota_share::DescribeQuotaShareError::unhandled)?;
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
 
 pub fn ser_describe_quota_share_input(
     input: &crate::operation::describe_quota_share::DescribeQuotaShareInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+) -> ::std::result::Result<
+    ::aws_smithy_types::body::SdkBody,
+    ::aws_smithy_types::error::operation::SerializationError,
+> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_describe_quota_share_input::ser_describe_quota_share_input_input(&mut object, input)?;
+    crate::protocol_serde::shape_describe_quota_share_input::ser_describe_quota_share_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -90,7 +115,10 @@ pub(crate) fn de_describe_quota_share(
     crate::operation::describe_quota_share::builders::DescribeQuotaShareOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
+        crate::protocol_serde::or_empty_doc(_value),
+    )
+    .peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -107,9 +135,11 @@ pub(crate) fn de_describe_quota_share(
                     }
                     "jobQueueArn" => {
                         builder = builder.set_job_queue_arn(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
                         );
                     }
                     "preemptionConfiguration" => {
@@ -123,16 +153,20 @@ pub(crate) fn de_describe_quota_share(
                     }
                     "quotaShareArn" => {
                         builder = builder.set_quota_share_arn(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
                         );
                     }
                     "quotaShareName" => {
                         builder = builder.set_quota_share_name(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
                         );
                     }
                     "resourceSharingConfiguration" => {
@@ -146,39 +180,55 @@ pub(crate) fn de_describe_quota_share(
                     }
                     "state" => {
                         builder = builder.set_state(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| crate::types::QuotaShareState::from(u.as_ref())))
-                                .transpose()?,
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
+                            .map(|s| {
+                                s.to_unescaped()
+                                    .map(|u| crate::types::QuotaShareState::from(u.as_ref()))
+                            })
+                            .transpose()?,
                         );
                     }
                     "status" => {
                         builder = builder.set_status(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| crate::types::QuotaShareStatus::from(u.as_ref())))
-                                .transpose()?,
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
+                            .map(|s| {
+                                s.to_unescaped()
+                                    .map(|u| crate::types::QuotaShareStatus::from(u.as_ref()))
+                            })
+                            .transpose()?,
                         );
                     }
                     "tags" => {
-                        builder = builder.set_tags(crate::protocol_serde::shape_tagris_tags_map::de_tagris_tags_map(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?);
+                        builder = builder.set_tags(
+                            crate::protocol_serde::shape_tagris_tags_map::de_tagris_tags_map(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?,
+                        );
                     }
                     _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
             }
             other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
+                return Err(
+                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                        "expected object key or end object, found: {other:?}"
+                    )),
+                )
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "found more JSON tokens after completing parsing",
+            ),
+        );
     }
     Ok(builder)
 }

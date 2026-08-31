@@ -69,7 +69,9 @@ impl ExportTask {
 }
 
 /// A builder for [`ExportTask`](crate::types::ExportTask).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ExportTaskBuilder {
     pub(crate) task_id: ::std::option::Option<::std::string::String>,
@@ -112,12 +114,18 @@ impl ExportTaskBuilder {
         &self.task_name
     }
     /// <p>The name of the log group from which logs data was exported.</p>
-    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_group_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.log_group_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the log group from which logs data was exported.</p>
-    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_log_group_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.log_group_name = input;
         self
     }
@@ -168,12 +176,18 @@ impl ExportTaskBuilder {
         &self.destination
     }
     /// <p>The prefix that was used as the start of Amazon S3 key for every object exported.</p>
-    pub fn destination_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn destination_prefix(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.destination_prefix = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The prefix that was used as the start of Amazon S3 key for every object exported.</p>
-    pub fn set_destination_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_destination_prefix(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.destination_prefix = input;
         self
     }
@@ -187,7 +201,10 @@ impl ExportTaskBuilder {
         self
     }
     /// <p>The status of the export task.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExportTaskStatus>) -> Self {
+    pub fn set_status(
+        mut self,
+        input: ::std::option::Option<crate::types::ExportTaskStatus>,
+    ) -> Self {
         self.status = input;
         self
     }
@@ -201,12 +218,17 @@ impl ExportTaskBuilder {
         self
     }
     /// <p>Execution information about the export task.</p>
-    pub fn set_execution_info(mut self, input: ::std::option::Option<crate::types::ExportTaskExecutionInfo>) -> Self {
+    pub fn set_execution_info(
+        mut self,
+        input: ::std::option::Option<crate::types::ExportTaskExecutionInfo>,
+    ) -> Self {
         self.execution_info = input;
         self
     }
     /// <p>Execution information about the export task.</p>
-    pub fn get_execution_info(&self) -> &::std::option::Option<crate::types::ExportTaskExecutionInfo> {
+    pub fn get_execution_info(
+        &self,
+    ) -> &::std::option::Option<crate::types::ExportTaskExecutionInfo> {
         &self.execution_info
     }
     /// Consumes the builder and constructs a [`ExportTask`](crate::types::ExportTask).

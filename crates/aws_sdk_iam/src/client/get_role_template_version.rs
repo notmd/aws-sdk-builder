@@ -8,7 +8,10 @@ impl super::Client {
     /// - On success, responds with [`GetRoleTemplateVersionOutput`](crate::operation::get_role_template_version::GetRoleTemplateVersionOutput) with field(s):
     ///   - [`role_template_version(Option<RoleTemplateVersion>)`](crate::operation::get_role_template_version::GetRoleTemplateVersionOutput::role_template_version): <p>A structure that contains details about the requested role template version.</p>
     /// - On failure, responds with [`SdkError<GetRoleTemplateVersionError>`](crate::operation::get_role_template_version::GetRoleTemplateVersionError)
-    pub fn get_role_template_version(&self) -> crate::operation::get_role_template_version::builders::GetRoleTemplateVersionFluentBuilder {
+    pub fn get_role_template_version(
+        &self,
+    ) -> crate::operation::get_role_template_version::builders::GetRoleTemplateVersionFluentBuilder
+    {
         crate::operation::get_role_template_version::builders::GetRoleTemplateVersionFluentBuilder::new(self.handle.clone())
     }
 }

@@ -102,7 +102,9 @@ pub fn de_disable_organizations_root_sessions_http_response(
         let mut output = crate::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsOutputBuilder::default();
         output = crate::protocol_serde::shape_disable_organizations_root_sessions::de_disable_organizations_root_sessions(_response_body, output)
             .map_err(crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
@@ -114,7 +116,7 @@ pub fn de_disable_organizations_root_sessions(
 ) -> std::result::Result<
     crate::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+>{
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

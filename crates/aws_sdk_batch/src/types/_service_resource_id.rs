@@ -27,7 +27,9 @@ impl ServiceResourceId {
 }
 
 /// A builder for [`ServiceResourceId`](crate::types::ServiceResourceId).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ServiceResourceIdBuilder {
     pub(crate) name: ::std::option::Option<crate::types::ServiceResourceIdName>,
@@ -41,7 +43,10 @@ impl ServiceResourceIdBuilder {
         self
     }
     /// <p>The name of the resource identifier.</p>
-    pub fn set_name(mut self, input: ::std::option::Option<crate::types::ServiceResourceIdName>) -> Self {
+    pub fn set_name(
+        mut self,
+        input: ::std::option::Option<crate::types::ServiceResourceIdName>,
+    ) -> Self {
         self.name = input;
         self
     }

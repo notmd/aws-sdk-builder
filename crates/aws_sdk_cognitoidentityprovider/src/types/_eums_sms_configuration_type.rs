@@ -80,7 +80,9 @@ impl EumsSmsConfigurationType {
 }
 
 /// A builder for [`EumsSmsConfigurationType`](crate::types::EumsSmsConfigurationType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct EumsSmsConfigurationTypeBuilder {
     pub(crate) caller_arn: ::std::option::Option<::std::string::String>,
@@ -132,7 +134,10 @@ impl EumsSmsConfigurationTypeBuilder {
     /// </ul>
     /// <p>You can provide an E.164 phone number or the ARN of the phone number, sender ID, or phone pool. Amazon Web Services End User Messaging SMS evaluates IAM authorization with the value that you provide. If the permissions policy of your <code>CallerArn</code> role scopes the <code>sms-voice:SendTextMessage</code> resource to a specific ARN, provide that same ARN. If the formats do not match, requests fail with an <code>InvalidSmsRoleAccessPolicyException</code>.</p>
     /// <p>Depending on the destination country, you must provide an origination identity. For country-specific requirements, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions for SMS messaging</a> in the Amazon Web Services End User Messaging SMS User Guide.</p>
-    pub fn origination_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn origination_identity(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.origination_identity = ::std::option::Option::Some(input.into());
         self
     }
@@ -147,7 +152,10 @@ impl EumsSmsConfigurationTypeBuilder {
     /// </ul>
     /// <p>You can provide an E.164 phone number or the ARN of the phone number, sender ID, or phone pool. Amazon Web Services End User Messaging SMS evaluates IAM authorization with the value that you provide. If the permissions policy of your <code>CallerArn</code> role scopes the <code>sms-voice:SendTextMessage</code> resource to a specific ARN, provide that same ARN. If the formats do not match, requests fail with an <code>InvalidSmsRoleAccessPolicyException</code>.</p>
     /// <p>Depending on the destination country, you must provide an origination identity. For country-specific requirements, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions for SMS messaging</a> in the Amazon Web Services End User Messaging SMS User Guide.</p>
-    pub fn set_origination_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_origination_identity(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.origination_identity = input;
         self
     }
@@ -166,12 +174,18 @@ impl EumsSmsConfigurationTypeBuilder {
         &self.origination_identity
     }
     /// <p>The name of the Amazon Web Services End User Messaging SMS configuration set that Amazon Cognito applies to messages, for logging and event destinations. If you omit this member, Amazon Cognito sends messages without applying a configuration set.</p>
-    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn configuration_set_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.configuration_set_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the Amazon Web Services End User Messaging SMS configuration set that Amazon Cognito applies to messages, for logging and event destinations. If you omit this member, Amazon Cognito sends messages without applying a configuration set.</p>
-    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_configuration_set_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.configuration_set_name = input;
         self
     }
@@ -194,12 +208,18 @@ impl EumsSmsConfigurationTypeBuilder {
         &self.in_entity_id
     }
     /// <p>The registered template ID for the message template required by India's DLT regulations for SMS messages.</p>
-    pub fn in_template_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn in_template_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.in_template_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The registered template ID for the message template required by India's DLT regulations for SMS messages.</p>
-    pub fn set_in_template_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_in_template_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.in_template_id = input;
         self
     }
@@ -227,7 +247,12 @@ impl EumsSmsConfigurationTypeBuilder {
     /// Consumes the builder and constructs a [`EumsSmsConfigurationType`](crate::types::EumsSmsConfigurationType).
     /// This method will fail if any of the following fields are not set:
     /// - [`caller_arn`](crate::types::builders::EumsSmsConfigurationTypeBuilder::caller_arn)
-    pub fn build(self) -> ::std::result::Result<crate::types::EumsSmsConfigurationType, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::EumsSmsConfigurationType,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::EumsSmsConfigurationType {
             caller_arn: self.caller_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

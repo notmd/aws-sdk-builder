@@ -52,13 +52,16 @@ impl ListKeyRotationsInput {
 }
 impl ListKeyRotationsInput {
     /// Creates a new builder-style object to manufacture [`ListKeyRotationsInput`](crate::operation::list_key_rotations::ListKeyRotationsInput).
-    pub fn builder() -> crate::operation::list_key_rotations::builders::ListKeyRotationsInputBuilder {
+    pub fn builder() -> crate::operation::list_key_rotations::builders::ListKeyRotationsInputBuilder
+    {
         crate::operation::list_key_rotations::builders::ListKeyRotationsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListKeyRotationsInput`](crate::operation::list_key_rotations::ListKeyRotationsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListKeyRotationsInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -115,12 +118,17 @@ impl ListKeyRotationsInputBuilder {
         self
     }
     /// <p>Use this optional parameter to control which key materials associated with this key are listed in the response. The default value of this parameter is <code>ROTATIONS_ONLY</code>. If you omit this parameter, KMS returns information on the key materials created by automatic or on-demand key rotation. When you specify a value of <code>ALL_KEY_MATERIAL</code>, KMS adds the first key material and any imported key material pending rotation to the response. This parameter can only be used with KMS keys that support automatic or on-demand key rotation.</p>
-    pub fn set_include_key_material(mut self, input: ::std::option::Option<crate::types::IncludeKeyMaterial>) -> Self {
+    pub fn set_include_key_material(
+        mut self,
+        input: ::std::option::Option<crate::types::IncludeKeyMaterial>,
+    ) -> Self {
         self.include_key_material = input;
         self
     }
     /// <p>Use this optional parameter to control which key materials associated with this key are listed in the response. The default value of this parameter is <code>ROTATIONS_ONLY</code>. If you omit this parameter, KMS returns information on the key materials created by automatic or on-demand key rotation. When you specify a value of <code>ALL_KEY_MATERIAL</code>, KMS adds the first key material and any imported key material pending rotation to the response. This parameter can only be used with KMS keys that support automatic or on-demand key rotation.</p>
-    pub fn get_include_key_material(&self) -> &::std::option::Option<crate::types::IncludeKeyMaterial> {
+    pub fn get_include_key_material(
+        &self,
+    ) -> &::std::option::Option<crate::types::IncludeKeyMaterial> {
         &self.include_key_material
     }
     /// <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
@@ -157,12 +165,17 @@ impl ListKeyRotationsInputBuilder {
     /// Consumes the builder and constructs a [`ListKeyRotationsInput`](crate::operation::list_key_rotations::ListKeyRotationsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_key_rotations::ListKeyRotationsInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_key_rotations::ListKeyRotationsInput {
-            key_id: self.key_id,
-            include_key_material: self.include_key_material,
-            limit: self.limit,
-            marker: self.marker,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::list_key_rotations::ListKeyRotationsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::list_key_rotations::ListKeyRotationsInput {
+                key_id: self.key_id,
+                include_key_material: self.include_key_material,
+                limit: self.limit,
+                marker: self.marker,
+            },
+        )
     }
 }

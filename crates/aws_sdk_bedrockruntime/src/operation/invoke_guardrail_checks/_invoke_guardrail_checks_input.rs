@@ -22,16 +22,21 @@ impl InvokeGuardrailChecksInput {
 }
 impl InvokeGuardrailChecksInput {
     /// Creates a new builder-style object to manufacture [`InvokeGuardrailChecksInput`](crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput).
-    pub fn builder() -> crate::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksInputBuilder
+    {
         crate::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksInputBuilder::default()
     }
 }
 
 /// A builder for [`InvokeGuardrailChecksInput`](crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct InvokeGuardrailChecksInputBuilder {
-    pub(crate) messages: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksMessage>>,
+    pub(crate) messages:
+        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksMessage>>,
     pub(crate) checks: ::std::option::Option<crate::types::GuardrailChecksConfig>,
 }
 impl InvokeGuardrailChecksInputBuilder {
@@ -47,12 +52,17 @@ impl InvokeGuardrailChecksInputBuilder {
         self
     }
     /// <p>The messages to evaluate against the specified guardrail checks. Each message includes a role and one or more content blocks.</p>
-    pub fn set_messages(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksMessage>>) -> Self {
+    pub fn set_messages(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksMessage>>,
+    ) -> Self {
         self.messages = input;
         self
     }
     /// <p>The messages to evaluate against the specified guardrail checks. Each message includes a role and one or more content blocks.</p>
-    pub fn get_messages(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksMessage>> {
+    pub fn get_messages(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksMessage>> {
         &self.messages
     }
     /// <p>The inline check configurations that specify which guardrail checks to run against the messages.</p>
@@ -62,7 +72,10 @@ impl InvokeGuardrailChecksInputBuilder {
         self
     }
     /// <p>The inline check configurations that specify which guardrail checks to run against the messages.</p>
-    pub fn set_checks(mut self, input: ::std::option::Option<crate::types::GuardrailChecksConfig>) -> Self {
+    pub fn set_checks(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailChecksConfig>,
+    ) -> Self {
         self.checks = input;
         self
     }
@@ -73,11 +86,15 @@ impl InvokeGuardrailChecksInputBuilder {
     /// Consumes the builder and constructs a [`InvokeGuardrailChecksInput`](crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput {
-            messages: self.messages,
-            checks: self.checks,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput {
+                messages: self.messages,
+                checks: self.checks,
+            },
+        )
     }
 }

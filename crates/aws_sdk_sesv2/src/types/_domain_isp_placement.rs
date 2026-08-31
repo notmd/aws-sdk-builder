@@ -45,7 +45,9 @@ impl DomainIspPlacement {
 }
 
 /// A builder for [`DomainIspPlacement`](crate::types::DomainIspPlacement).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DomainIspPlacementBuilder {
     pub(crate) isp_name: ::std::option::Option<::std::string::String>,

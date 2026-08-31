@@ -27,7 +27,9 @@ impl GroupingIdentifier {
 }
 
 /// A builder for [`GroupingIdentifier`](crate::types::GroupingIdentifier).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GroupingIdentifierBuilder {
     pub(crate) key: ::std::option::Option<::std::string::String>,

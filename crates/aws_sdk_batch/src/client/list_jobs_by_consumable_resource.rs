@@ -14,7 +14,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListJobsByConsumableResourceError>`](crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceError)
     pub fn list_jobs_by_consumable_resource(
         &self,
-    ) -> crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceFluentBuilder {
+    ) -> crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceFluentBuilder{
         crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceFluentBuilder::new(self.handle.clone())
     }
 }

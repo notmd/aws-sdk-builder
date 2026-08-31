@@ -32,7 +32,9 @@ impl ConverseTokensRequest {
         self.tool_config.as_ref()
     }
     /// <p>The additionalModelRequestFields of Converse input request to count tokens for. Use this field when you want to pass additional parameters that the model supports.</p>
-    pub fn additional_model_request_fields(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
+    pub fn additional_model_request_fields(
+        &self,
+    ) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.additional_model_request_fields.as_ref()
     }
 }
@@ -44,7 +46,9 @@ impl ConverseTokensRequest {
 }
 
 /// A builder for [`ConverseTokensRequest`](crate::types::ConverseTokensRequest).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ConverseTokensRequestBuilder {
     pub(crate) messages: ::std::option::Option<::std::vec::Vec<crate::types::Message>>,
@@ -65,7 +69,10 @@ impl ConverseTokensRequestBuilder {
         self
     }
     /// <p>An array of messages to count tokens for.</p>
-    pub fn set_messages(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Message>>) -> Self {
+    pub fn set_messages(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Message>>,
+    ) -> Self {
         self.messages = input;
         self
     }
@@ -85,12 +92,17 @@ impl ConverseTokensRequestBuilder {
         self
     }
     /// <p>The system content blocks to count tokens for. System content provides instructions or context to the model about how it should behave or respond. The token count will include any system content provided.</p>
-    pub fn set_system(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SystemContentBlock>>) -> Self {
+    pub fn set_system(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::SystemContentBlock>>,
+    ) -> Self {
         self.system = input;
         self
     }
     /// <p>The system content blocks to count tokens for. System content provides instructions or context to the model about how it should behave or respond. The token count will include any system content provided.</p>
-    pub fn get_system(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SystemContentBlock>> {
+    pub fn get_system(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SystemContentBlock>> {
         &self.system
     }
     /// <p>The toolConfig of Converse input request to count tokens for. Configuration information for the tools that the model can use when generating a response.</p>
@@ -99,7 +111,10 @@ impl ConverseTokensRequestBuilder {
         self
     }
     /// <p>The toolConfig of Converse input request to count tokens for. Configuration information for the tools that the model can use when generating a response.</p>
-    pub fn set_tool_config(mut self, input: ::std::option::Option<crate::types::ToolConfiguration>) -> Self {
+    pub fn set_tool_config(
+        mut self,
+        input: ::std::option::Option<crate::types::ToolConfiguration>,
+    ) -> Self {
         self.tool_config = input;
         self
     }
@@ -113,12 +128,17 @@ impl ConverseTokensRequestBuilder {
         self
     }
     /// <p>The additionalModelRequestFields of Converse input request to count tokens for. Use this field when you want to pass additional parameters that the model supports.</p>
-    pub fn set_additional_model_request_fields(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
+    pub fn set_additional_model_request_fields(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::Document>,
+    ) -> Self {
         self.additional_model_request_fields = input;
         self
     }
     /// <p>The additionalModelRequestFields of Converse input request to count tokens for. Use this field when you want to pass additional parameters that the model supports.</p>
-    pub fn get_additional_model_request_fields(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
+    pub fn get_additional_model_request_fields(
+        &self,
+    ) -> &::std::option::Option<::aws_smithy_types::Document> {
         &self.additional_model_request_fields
     }
     /// Consumes the builder and constructs a [`ConverseTokensRequest`](crate::types::ConverseTokensRequest).

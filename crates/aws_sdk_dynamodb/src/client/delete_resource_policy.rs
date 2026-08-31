@@ -8,7 +8,11 @@ impl super::Client {
     /// - On success, responds with [`DeleteResourcePolicyOutput`](crate::operation::delete_resource_policy::DeleteResourcePolicyOutput) with field(s):
     ///   - [`revision_id(Option<String>)`](crate::operation::delete_resource_policy::DeleteResourcePolicyOutput::revision_id): <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p> <p>This value will be empty if you make a request against a resource without a policy.</p>
     /// - On failure, responds with [`SdkError<DeleteResourcePolicyError>`](crate::operation::delete_resource_policy::DeleteResourcePolicyError)
-    pub fn delete_resource_policy(&self) -> crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder {
-        crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder::new(self.handle.clone())
+    pub fn delete_resource_policy(
+        &self,
+    ) -> crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder {
+        crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -74,7 +74,9 @@ impl FilterLogEventsFluentBuilder {
         }
     }
     /// Access the FilterLogEvents as a reference.
-    pub fn as_input(&self) -> &crate::operation::filter_log_events::builders::FilterLogEventsInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::filter_log_events::builders::FilterLogEventsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -98,12 +100,14 @@ impl FilterLogEventsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::filter_log_events::FilterLogEvents::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::filter_log_events::FilterLogEvents::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::filter_log_events::FilterLogEvents::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::filter_log_events::FilterLogEvents::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -116,32 +120,49 @@ impl FilterLogEventsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::filter_log_events::paginator::FilterLogEventsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::filter_log_events::paginator::FilterLogEventsPaginator {
-        crate::operation::filter_log_events::paginator::FilterLogEventsPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::filter_log_events::paginator::FilterLogEventsPaginator {
+        crate::operation::filter_log_events::paginator::FilterLogEventsPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The name of the log group to search.</p><note>
     /// <p>You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both.</p>
     /// </note>
-    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_group_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.log_group_name(input.into());
         self
     }
     /// <p>The name of the log group to search.</p><note>
     /// <p>You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both.</p>
     /// </note>
-    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_log_group_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_log_group_name(input);
         self
     }
@@ -154,14 +175,20 @@ impl FilterLogEventsFluentBuilder {
     /// <p>Specify either the name or ARN of the log group to view log events from. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p><note>
     /// <p>You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both.</p>
     /// </note>
-    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_group_identifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.log_group_identifier(input.into());
         self
     }
     /// <p>Specify either the name or ARN of the log group to view log events from. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p><note>
     /// <p>You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both.</p>
     /// </note>
-    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_log_group_identifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_log_group_identifier(input);
         self
     }
@@ -178,30 +205,44 @@ impl FilterLogEventsFluentBuilder {
     ///
     /// <p>Filters the results to only logs from the log streams in this list.</p>
     /// <p>If you specify a value for both <code>logStreamNames</code> and <code>logStreamNamePrefix</code>, the action returns an <code>InvalidParameterException</code> error.</p>
-    pub fn log_stream_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_stream_names(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.log_stream_names(input.into());
         self
     }
     /// <p>Filters the results to only logs from the log streams in this list.</p>
     /// <p>If you specify a value for both <code>logStreamNames</code> and <code>logStreamNamePrefix</code>, the action returns an <code>InvalidParameterException</code> error.</p>
-    pub fn set_log_stream_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_log_stream_names(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.inner = self.inner.set_log_stream_names(input);
         self
     }
     /// <p>Filters the results to only logs from the log streams in this list.</p>
     /// <p>If you specify a value for both <code>logStreamNames</code> and <code>logStreamNamePrefix</code>, the action returns an <code>InvalidParameterException</code> error.</p>
-    pub fn get_log_stream_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_stream_names(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_log_stream_names()
     }
     /// <p>Filters the results to include only events from log streams that have names starting with this prefix.</p>
     /// <p>If you specify a value for both <code>logStreamNamePrefix</code> and <code>logStreamNames</code>, the action returns an <code>InvalidParameterException</code> error.</p>
-    pub fn log_stream_name_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_stream_name_prefix(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.log_stream_name_prefix(input.into());
         self
     }
     /// <p>Filters the results to include only events from log streams that have names starting with this prefix.</p>
     /// <p>If you specify a value for both <code>logStreamNamePrefix</code> and <code>logStreamNames</code>, the action returns an <code>InvalidParameterException</code> error.</p>
-    pub fn set_log_stream_name_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_log_stream_name_prefix(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_log_stream_name_prefix(input);
         self
     }
@@ -246,13 +287,19 @@ impl FilterLogEventsFluentBuilder {
     }
     /// <p>The filter pattern to use. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
     /// <p>If not provided, all the events are matched.</p>
-    pub fn filter_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn filter_pattern(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.filter_pattern(input.into());
         self
     }
     /// <p>The filter pattern to use. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
     /// <p>If not provided, all the events are matched.</p>
-    pub fn set_filter_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_filter_pattern(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_filter_pattern(input);
         self
     }

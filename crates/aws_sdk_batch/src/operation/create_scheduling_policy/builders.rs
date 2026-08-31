@@ -57,7 +57,10 @@ impl CreateSchedulingPolicyFluentBuilder {
         }
     }
     /// Access the CreateSchedulingPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_scheduling_policy::builders::CreateSchedulingPolicyInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::create_scheduling_policy::builders::CreateSchedulingPolicyInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +89,11 @@ impl CreateSchedulingPolicyFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::create_scheduling_policy::CreateSchedulingPolicy::orchestrate(&runtime_plugins, input).await
+        crate::operation::create_scheduling_policy::CreateSchedulingPolicy::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,12 +106,18 @@ impl CreateSchedulingPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -128,7 +141,10 @@ impl CreateSchedulingPolicyFluentBuilder {
         self
     }
     /// <p>The quota share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set. Once set, this policy type cannot be removed or changed to a fairSharePolicy.</p>
-    pub fn set_quota_share_policy(mut self, input: ::std::option::Option<crate::types::QuotaSharePolicy>) -> Self {
+    pub fn set_quota_share_policy(
+        mut self,
+        input: ::std::option::Option<crate::types::QuotaSharePolicy>,
+    ) -> Self {
         self.inner = self.inner.set_quota_share_policy(input);
         self
     }
@@ -142,7 +158,10 @@ impl CreateSchedulingPolicyFluentBuilder {
         self
     }
     /// <p>The fair-share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set. Once set, this policy type cannot be removed or changed to a quotaSharePolicy.</p>
-    pub fn set_fairshare_policy(mut self, input: ::std::option::Option<crate::types::FairsharePolicy>) -> Self {
+    pub fn set_fairshare_policy(
+        mut self,
+        input: ::std::option::Option<crate::types::FairsharePolicy>,
+    ) -> Self {
         self.inner = self.inner.set_fairshare_policy(input);
         self
     }
@@ -157,19 +176,32 @@ impl CreateSchedulingPolicyFluentBuilder {
     ///
     /// <p>The tags that you apply to the scheduling policy to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General Reference</i>.</p>
     /// <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations.</p>
-    pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn tags(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.tags(k.into(), v.into());
         self
     }
     /// <p>The tags that you apply to the scheduling policy to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General Reference</i>.</p>
     /// <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
+    ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
     /// <p>The tags that you apply to the scheduling policy to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General Reference</i>.</p>
     /// <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.inner.get_tags()
     }
 }

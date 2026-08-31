@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetBucketOwnershipControlsError>`](crate::operation::get_bucket_ownership_controls::GetBucketOwnershipControlsError)
     pub fn get_bucket_ownership_controls(
         &self,
-    ) -> crate::operation::get_bucket_ownership_controls::builders::GetBucketOwnershipControlsFluentBuilder {
+    ) -> crate::operation::get_bucket_ownership_controls::builders::GetBucketOwnershipControlsFluentBuilder{
         crate::operation::get_bucket_ownership_controls::builders::GetBucketOwnershipControlsFluentBuilder::new(self.handle.clone())
     }
 }

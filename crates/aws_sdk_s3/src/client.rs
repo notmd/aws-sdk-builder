@@ -124,7 +124,9 @@ impl Client {
         &self.handle.conf
     }
 
-    fn validate_config(handle: &Handle) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
+    fn validate_config(
+        handle: &Handle,
+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
         let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
         handle
             .runtime_plugins
@@ -141,33 +143,41 @@ impl Client {
 ///
 pub trait Waiters {
     #[cfg(feature = "op_head_bucket")]
-/// Wait for `bucket_exists`
+    /// Wait for `bucket_exists`
     fn wait_until_bucket_exists(&self) -> crate::waiters::bucket_exists::BucketExistsFluentBuilder;
     #[cfg(feature = "op_head_bucket")]
-/// Wait for `bucket_not_exists`
-    fn wait_until_bucket_not_exists(&self) -> crate::waiters::bucket_not_exists::BucketNotExistsFluentBuilder;
+    /// Wait for `bucket_not_exists`
+    fn wait_until_bucket_not_exists(
+        &self,
+    ) -> crate::waiters::bucket_not_exists::BucketNotExistsFluentBuilder;
     #[cfg(feature = "op_head_object")]
-/// Wait for `object_exists`
+    /// Wait for `object_exists`
     fn wait_until_object_exists(&self) -> crate::waiters::object_exists::ObjectExistsFluentBuilder;
     #[cfg(feature = "op_head_object")]
-/// Wait for `object_not_exists`
-    fn wait_until_object_not_exists(&self) -> crate::waiters::object_not_exists::ObjectNotExistsFluentBuilder;
+    /// Wait for `object_not_exists`
+    fn wait_until_object_not_exists(
+        &self,
+    ) -> crate::waiters::object_not_exists::ObjectNotExistsFluentBuilder;
 }
 impl Waiters for Client {
     #[cfg(feature = "op_head_bucket")]
-fn wait_until_bucket_exists(&self) -> crate::waiters::bucket_exists::BucketExistsFluentBuilder {
+    fn wait_until_bucket_exists(&self) -> crate::waiters::bucket_exists::BucketExistsFluentBuilder {
         crate::waiters::bucket_exists::BucketExistsFluentBuilder::new(self.handle.clone())
     }
     #[cfg(feature = "op_head_bucket")]
-fn wait_until_bucket_not_exists(&self) -> crate::waiters::bucket_not_exists::BucketNotExistsFluentBuilder {
+    fn wait_until_bucket_not_exists(
+        &self,
+    ) -> crate::waiters::bucket_not_exists::BucketNotExistsFluentBuilder {
         crate::waiters::bucket_not_exists::BucketNotExistsFluentBuilder::new(self.handle.clone())
     }
     #[cfg(feature = "op_head_object")]
-fn wait_until_object_exists(&self) -> crate::waiters::object_exists::ObjectExistsFluentBuilder {
+    fn wait_until_object_exists(&self) -> crate::waiters::object_exists::ObjectExistsFluentBuilder {
         crate::waiters::object_exists::ObjectExistsFluentBuilder::new(self.handle.clone())
     }
     #[cfg(feature = "op_head_object")]
-fn wait_until_object_not_exists(&self) -> crate::waiters::object_not_exists::ObjectNotExistsFluentBuilder {
+    fn wait_until_object_not_exists(
+        &self,
+    ) -> crate::waiters::object_not_exists::ObjectNotExistsFluentBuilder {
         crate::waiters::object_not_exists::ObjectNotExistsFluentBuilder::new(self.handle.clone())
     }
 }

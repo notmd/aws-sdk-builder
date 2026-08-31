@@ -22,7 +22,9 @@ impl DeleteUserInput {
 }
 
 /// A builder for [`DeleteUserInput`](crate::operation::delete_user::DeleteUserInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteUserInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -47,7 +49,14 @@ impl DeleteUserInputBuilder {
         &self.user_name
     }
     /// Consumes the builder and constructs a [`DeleteUserInput`](crate::operation::delete_user::DeleteUserInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::delete_user::DeleteUserInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_user::DeleteUserInput { user_name: self.user_name })
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::delete_user::DeleteUserInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(crate::operation::delete_user::DeleteUserInput {
+            user_name: self.user_name,
+        })
     }
 }

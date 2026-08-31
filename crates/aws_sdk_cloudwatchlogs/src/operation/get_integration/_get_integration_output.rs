@@ -44,7 +44,9 @@ impl GetIntegrationOutput {
 }
 
 /// A builder for [`GetIntegrationOutput`](crate::operation::get_integration::GetIntegrationOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetIntegrationOutputBuilder {
     pub(crate) integration_name: ::std::option::Option<::std::string::String>,
@@ -55,12 +57,18 @@ pub struct GetIntegrationOutputBuilder {
 }
 impl GetIntegrationOutputBuilder {
     /// <p>The name of the integration.</p>
-    pub fn integration_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn integration_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.integration_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the integration.</p>
-    pub fn set_integration_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_integration_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.integration_name = input;
         self
     }
@@ -74,7 +82,10 @@ impl GetIntegrationOutputBuilder {
         self
     }
     /// <p>The type of integration. Integrations with OpenSearch Service have the type <code>OPENSEARCH</code>.</p>
-    pub fn set_integration_type(mut self, input: ::std::option::Option<crate::types::IntegrationType>) -> Self {
+    pub fn set_integration_type(
+        mut self,
+        input: ::std::option::Option<crate::types::IntegrationType>,
+    ) -> Self {
         self.integration_type = input;
         self
     }
@@ -88,12 +99,17 @@ impl GetIntegrationOutputBuilder {
         self
     }
     /// <p>The current status of this integration.</p>
-    pub fn set_integration_status(mut self, input: ::std::option::Option<crate::types::IntegrationStatus>) -> Self {
+    pub fn set_integration_status(
+        mut self,
+        input: ::std::option::Option<crate::types::IntegrationStatus>,
+    ) -> Self {
         self.integration_status = input;
         self
     }
     /// <p>The current status of this integration.</p>
-    pub fn get_integration_status(&self) -> &::std::option::Option<crate::types::IntegrationStatus> {
+    pub fn get_integration_status(
+        &self,
+    ) -> &::std::option::Option<crate::types::IntegrationStatus> {
         &self.integration_status
     }
     /// <p>A structure that contains information about the integration configuration. For an integration with OpenSearch Service, this includes information about OpenSearch Service resources such as the collection, the workspace, and policies.</p>
@@ -102,12 +118,17 @@ impl GetIntegrationOutputBuilder {
         self
     }
     /// <p>A structure that contains information about the integration configuration. For an integration with OpenSearch Service, this includes information about OpenSearch Service resources such as the collection, the workspace, and policies.</p>
-    pub fn set_integration_details(mut self, input: ::std::option::Option<crate::types::IntegrationDetails>) -> Self {
+    pub fn set_integration_details(
+        mut self,
+        input: ::std::option::Option<crate::types::IntegrationDetails>,
+    ) -> Self {
         self.integration_details = input;
         self
     }
     /// <p>A structure that contains information about the integration configuration. For an integration with OpenSearch Service, this includes information about OpenSearch Service resources such as the collection, the workspace, and policies.</p>
-    pub fn get_integration_details(&self) -> &::std::option::Option<crate::types::IntegrationDetails> {
+    pub fn get_integration_details(
+        &self,
+    ) -> &::std::option::Option<crate::types::IntegrationDetails> {
         &self.integration_details
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

@@ -34,26 +34,33 @@ impl ::std::fmt::Display for SnapStartRegenerationFailureException {
     }
 }
 impl ::std::error::Error for SnapStartRegenerationFailureException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::SnapStartRegenerationFailureException {
+impl ::aws_types::request_id::RequestId
+    for crate::types::error::SnapStartRegenerationFailureException
+{
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for SnapStartRegenerationFailureException {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
+    for SnapStartRegenerationFailureException
+{
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         &self.meta
     }
 }
 impl SnapStartRegenerationFailureException {
     /// Creates a new builder-style object to manufacture [`SnapStartRegenerationFailureException`](crate::types::error::SnapStartRegenerationFailureException).
-    pub fn builder() -> crate::types::error::builders::SnapStartRegenerationFailureExceptionBuilder {
+    pub fn builder() -> crate::types::error::builders::SnapStartRegenerationFailureExceptionBuilder
+    {
         crate::types::error::builders::SnapStartRegenerationFailureExceptionBuilder::default()
     }
 }
 
 /// A builder for [`SnapStartRegenerationFailureException`](crate::types::error::SnapStartRegenerationFailureException).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SnapStartRegenerationFailureExceptionBuilder {
     pub(crate) r#type: ::std::option::Option<::std::string::String>,
@@ -96,7 +103,10 @@ impl SnapStartRegenerationFailureExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
+    pub fn set_meta(
+        &mut self,
+        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
+    ) -> &mut Self {
         self.meta = meta;
         self
     }

@@ -22,13 +22,17 @@ impl GetRoleTemplateVersionInput {
 }
 impl GetRoleTemplateVersionInput {
     /// Creates a new builder-style object to manufacture [`GetRoleTemplateVersionInput`](crate::operation::get_role_template_version::GetRoleTemplateVersionInput).
-    pub fn builder() -> crate::operation::get_role_template_version::builders::GetRoleTemplateVersionInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::get_role_template_version::builders::GetRoleTemplateVersionInputBuilder
+    {
         crate::operation::get_role_template_version::builders::GetRoleTemplateVersionInputBuilder::default()
     }
 }
 
 /// A builder for [`GetRoleTemplateVersionInput`](crate::operation::get_role_template_version::GetRoleTemplateVersionInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetRoleTemplateVersionInputBuilder {
     pub(crate) template_arn: ::std::option::Option<::std::string::String>,
@@ -74,9 +78,11 @@ impl GetRoleTemplateVersionInputBuilder {
         crate::operation::get_role_template_version::GetRoleTemplateVersionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_role_template_version::GetRoleTemplateVersionInput {
-            template_arn: self.template_arn,
-            minor_version: self.minor_version,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::get_role_template_version::GetRoleTemplateVersionInput {
+                template_arn: self.template_arn,
+                minor_version: self.minor_version,
+            },
+        )
     }
 }

@@ -13,7 +13,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateCustomVerificationEmailTemplateError>`](crate::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError)
     pub fn update_custom_verification_email_template(
         &self,
-    ) -> crate::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateFluentBuilder {
+    ) -> crate::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateFluentBuilder{
         crate::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateFluentBuilder::new(
             self.handle.clone(),
         )

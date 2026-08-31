@@ -7,7 +7,9 @@ impl super::Client {
     ///   - [`tags(Tag)`](crate::operation::tag_resource::builders::TagResourceFluentBuilder::tags) / [`set_tags(Option<Vec::<Tag>>)`](crate::operation::tag_resource::builders::TagResourceFluentBuilder::set_tags):<br>required: **true**<br><p>The tags you want to modify or add to the resource.</p><br>
     /// - On success, responds with [`TagResourceOutput`](crate::operation::tag_resource::TagResourceOutput)
     /// - On failure, responds with [`SdkError<TagResourceError>`](crate::operation::tag_resource::TagResourceError)
-    pub fn tag_resource(&self) -> crate::operation::tag_resource::builders::TagResourceFluentBuilder {
+    pub fn tag_resource(
+        &self,
+    ) -> crate::operation::tag_resource::builders::TagResourceFluentBuilder {
         crate::operation::tag_resource::builders::TagResourceFluentBuilder::new(self.handle.clone())
     }
 }

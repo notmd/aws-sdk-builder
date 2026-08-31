@@ -5,7 +5,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListMultiRegionEndpointsOutput {
     /// <p>An array that contains key multi-region endpoint (global-endpoint) properties.</p>
-    pub multi_region_endpoints: ::std::option::Option<::std::vec::Vec<crate::types::MultiRegionEndpoint>>,
+    pub multi_region_endpoints:
+        ::std::option::Option<::std::vec::Vec<crate::types::MultiRegionEndpoint>>,
     /// <p>A token indicating that there are additional multi-region endpoints (global-endpoints) available to be listed. Pass this token to a subsequent <code>ListMultiRegionEndpoints</code> call to retrieve the next page.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -29,16 +30,19 @@ impl ::aws_types::request_id::RequestId for ListMultiRegionEndpointsOutput {
 }
 impl ListMultiRegionEndpointsOutput {
     /// Creates a new builder-style object to manufacture [`ListMultiRegionEndpointsOutput`](crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsOutput).
-    pub fn builder() -> crate::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsOutputBuilder {
+    pub fn builder() -> crate::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsOutputBuilder{
         crate::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListMultiRegionEndpointsOutput`](crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListMultiRegionEndpointsOutputBuilder {
-    pub(crate) multi_region_endpoints: ::std::option::Option<::std::vec::Vec<crate::types::MultiRegionEndpoint>>,
+    pub(crate) multi_region_endpoints:
+        ::std::option::Option<::std::vec::Vec<crate::types::MultiRegionEndpoint>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -55,12 +59,17 @@ impl ListMultiRegionEndpointsOutputBuilder {
         self
     }
     /// <p>An array that contains key multi-region endpoint (global-endpoint) properties.</p>
-    pub fn set_multi_region_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MultiRegionEndpoint>>) -> Self {
+    pub fn set_multi_region_endpoints(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::MultiRegionEndpoint>>,
+    ) -> Self {
         self.multi_region_endpoints = input;
         self
     }
     /// <p>An array that contains key multi-region endpoint (global-endpoint) properties.</p>
-    pub fn get_multi_region_endpoints(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MultiRegionEndpoint>> {
+    pub fn get_multi_region_endpoints(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MultiRegionEndpoint>> {
         &self.multi_region_endpoints
     }
     /// <p>A token indicating that there are additional multi-region endpoints (global-endpoints) available to be listed. Pass this token to a subsequent <code>ListMultiRegionEndpoints</code> call to retrieve the next page.</p>
@@ -87,7 +96,9 @@ impl ListMultiRegionEndpointsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListMultiRegionEndpointsOutput`](crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsOutput).
-    pub fn build(self) -> crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsOutput {
         crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsOutput {
             multi_region_endpoints: self.multi_region_endpoints,
             next_token: self.next_token,

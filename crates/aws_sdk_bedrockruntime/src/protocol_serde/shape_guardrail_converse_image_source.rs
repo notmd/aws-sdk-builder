@@ -5,12 +5,16 @@ pub fn ser_guardrail_converse_image_source(
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
         crate::types::GuardrailConverseImageSource::Bytes(inner) => {
-            object_2.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(inner));
+            object_2
+                .key("bytes")
+                .string_unchecked(&::aws_smithy_types::base64::encode(inner));
         }
         crate::types::GuardrailConverseImageSource::Unknown => {
-            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                "GuardrailConverseImageSource",
-            ))
+            return Err(
+                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
+                    "GuardrailConverseImageSource",
+                ),
+            )
         }
     }
     Ok(())
@@ -20,14 +24,24 @@ pub(crate) fn de_guardrail_converse_image_source<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::GuardrailConverseImageSource>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<
+    Option<crate::types::GuardrailConverseImageSource>,
+    ::aws_smithy_json::deserialize::error::DeserializeError,
+>
 where
-    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+    I: Iterator<
+        Item = Result<
+            ::aws_smithy_json::deserialize::Token<'a>,
+            ::aws_smithy_json::deserialize::error::DeserializeError,
+        >,
+    >,
 {
     if depth >= 128u32 {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "maximum nesting depth exceeded",
+            ),
+        );
     }
     let mut variant = None;
     match tokens.next().transpose()? {
@@ -36,8 +50,9 @@ where
             match tokens.next().transpose()? {
                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
-                        tokens.peek()
+                    if let ::std::option::Option::Some(::std::result::Result::Ok(
+                        ::aws_smithy_json::deserialize::Token::ValueNull { .. },
+                    )) = tokens.peek()
                     {
                         let _ = tokens.next().expect("peek returned a token")?;
                         continue;
@@ -48,14 +63,22 @@ where
                         continue;
                     }
                     if variant.is_some() {
-                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                            "encountered mixed variants in union",
-                        ));
+                        return Err(
+                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                "encountered mixed variants in union",
+                            ),
+                        );
                     }
                     variant = match key.as_ref() {
                         "bytes" => Some(crate::types::GuardrailConverseImageSource::Bytes(
-                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?,
+                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(
+                                tokens.next(),
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "value for 'bytes' cannot be null",
+                                )
+                            })?,
                         )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
@@ -64,22 +87,28 @@ where
                     };
                 }
                 other => {
-                    return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )))
+                    return Err(
+                        ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                            "expected object key or end object, found: {other:?}"
+                        )),
+                    )
                 }
             }
         },
         _ => {
-            return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ))
+            return Err(
+                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    "expected start object or null",
+                ),
+            )
         }
     }
     if variant.is_none() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "Union did not contain a valid variant.",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "Union did not contain a valid variant.",
+            ),
+        );
     }
     Ok(variant)
 }

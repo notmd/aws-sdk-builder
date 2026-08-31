@@ -7,7 +7,8 @@ pub struct EcsPropertiesOverride {
     /// <p>The overrides for the Amazon ECS task definition of a job.</p><note>
     /// <p>This object is currently limited to one element.</p>
     /// </note>
-    pub task_properties: ::std::option::Option<::std::vec::Vec<crate::types::TaskPropertiesOverride>>,
+    pub task_properties:
+        ::std::option::Option<::std::vec::Vec<crate::types::TaskPropertiesOverride>>,
 }
 impl EcsPropertiesOverride {
     /// <p>The overrides for the Amazon ECS task definition of a job.</p><note>
@@ -27,10 +28,13 @@ impl EcsPropertiesOverride {
 }
 
 /// A builder for [`EcsPropertiesOverride`](crate::types::EcsPropertiesOverride).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct EcsPropertiesOverrideBuilder {
-    pub(crate) task_properties: ::std::option::Option<::std::vec::Vec<crate::types::TaskPropertiesOverride>>,
+    pub(crate) task_properties:
+        ::std::option::Option<::std::vec::Vec<crate::types::TaskPropertiesOverride>>,
 }
 impl EcsPropertiesOverrideBuilder {
     /// Appends an item to `task_properties`.
@@ -49,14 +53,19 @@ impl EcsPropertiesOverrideBuilder {
     /// <p>The overrides for the Amazon ECS task definition of a job.</p><note>
     /// <p>This object is currently limited to one element.</p>
     /// </note>
-    pub fn set_task_properties(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TaskPropertiesOverride>>) -> Self {
+    pub fn set_task_properties(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::TaskPropertiesOverride>>,
+    ) -> Self {
         self.task_properties = input;
         self
     }
     /// <p>The overrides for the Amazon ECS task definition of a job.</p><note>
     /// <p>This object is currently limited to one element.</p>
     /// </note>
-    pub fn get_task_properties(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TaskPropertiesOverride>> {
+    pub fn get_task_properties(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::TaskPropertiesOverride>> {
         &self.task_properties
     }
     /// Consumes the builder and constructs a [`EcsPropertiesOverride`](crate::types::EcsPropertiesOverride).

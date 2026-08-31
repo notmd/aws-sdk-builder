@@ -7,7 +7,9 @@ pub fn ser_change_message_visibility_batch_request_entry(
         object.key("Id").string(input.id.as_str());
     }
     {
-        object.key("ReceiptHandle").string(input.receipt_handle.as_str());
+        object
+            .key("ReceiptHandle")
+            .string(input.receipt_handle.as_str());
     }
     if let Some(var_1) = &input.visibility_timeout {
         object.key("VisibilityTimeout").number(

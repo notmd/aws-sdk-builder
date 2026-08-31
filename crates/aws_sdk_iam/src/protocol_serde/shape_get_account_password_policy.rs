@@ -9,17 +9,23 @@ pub fn de_get_account_password_policy_http_error(
     crate::operation::get_account_password_policy::GetAccountPasswordPolicyError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_account_password_policy::GetAccountPasswordPolicyError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(
+        crate::operation::get_account_password_policy::GetAccountPasswordPolicyError::unhandled,
+    )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::get_account_password_policy::GetAccountPasswordPolicyError::unhandled(
+        None => return Err(
+            crate::operation::get_account_password_policy::GetAccountPasswordPolicyError::unhandled(
                 generic,
-            ))
-        }
+            ),
+        ),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -72,7 +78,9 @@ pub fn de_get_account_password_policy_http_response(
         let mut output = crate::operation::get_account_password_policy::builders::GetAccountPasswordPolicyOutputBuilder::default();
         output = crate::protocol_serde::shape_get_account_password_policy::de_get_account_password_policy(_response_body, output)
             .map_err(crate::operation::get_account_password_policy::GetAccountPasswordPolicyError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         crate::serde_util::get_account_password_policy_output_output_correct_errors(output).build()
     })
 }

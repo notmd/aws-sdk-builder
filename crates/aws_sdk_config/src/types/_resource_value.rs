@@ -21,7 +21,9 @@ impl ResourceValue {
 }
 
 /// A builder for [`ResourceValue`](crate::types::ResourceValue).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ResourceValueBuilder {
     pub(crate) value: ::std::option::Option<crate::types::ResourceValueType>,
@@ -34,7 +36,10 @@ impl ResourceValueBuilder {
         self
     }
     /// <p>The value is a resource ID.</p>
-    pub fn set_value(mut self, input: ::std::option::Option<crate::types::ResourceValueType>) -> Self {
+    pub fn set_value(
+        mut self,
+        input: ::std::option::Option<crate::types::ResourceValueType>,
+    ) -> Self {
         self.value = input;
         self
     }
@@ -45,7 +50,12 @@ impl ResourceValueBuilder {
     /// Consumes the builder and constructs a [`ResourceValue`](crate::types::ResourceValue).
     /// This method will fail if any of the following fields are not set:
     /// - [`value`](crate::types::builders::ResourceValueBuilder::value)
-    pub fn build(self) -> ::std::result::Result<crate::types::ResourceValue, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::ResourceValue,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::ResourceValue {
             value: self.value.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

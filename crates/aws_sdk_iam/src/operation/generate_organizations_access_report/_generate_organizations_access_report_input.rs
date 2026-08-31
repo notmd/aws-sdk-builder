@@ -22,13 +22,15 @@ impl GenerateOrganizationsAccessReportInput {
 }
 impl GenerateOrganizationsAccessReportInput {
     /// Creates a new builder-style object to manufacture [`GenerateOrganizationsAccessReportInput`](crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportInput).
-    pub fn builder() -> crate::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportInputBuilder {
+    pub fn builder() -> crate::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportInputBuilder{
         crate::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportInputBuilder::default()
     }
 }
 
 /// A builder for [`GenerateOrganizationsAccessReportInput`](crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GenerateOrganizationsAccessReportInputBuilder {
     pub(crate) entity_path: ::std::option::Option<::std::string::String>,
@@ -52,13 +54,19 @@ impl GenerateOrganizationsAccessReportInputBuilder {
     }
     /// <p>The identifier of the Organizations service control policy (SCP). This parameter is optional.</p>
     /// <p>This ID is used to generate information about when an account principal that is limited by the SCP attempted to access an Amazon Web Services service.</p>
-    pub fn organizations_policy_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn organizations_policy_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.organizations_policy_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The identifier of the Organizations service control policy (SCP). This parameter is optional.</p>
     /// <p>This ID is used to generate information about when an account principal that is limited by the SCP attempted to access an Amazon Web Services service.</p>
-    pub fn set_organizations_policy_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_organizations_policy_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.organizations_policy_id = input;
         self
     }
@@ -73,7 +81,7 @@ impl GenerateOrganizationsAccessReportInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportInput,
         ::aws_smithy_types::error::operation::BuildError,
-    > {
+    >{
         ::std::result::Result::Ok(
             crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportInput {
                 entity_path: self.entity_path,

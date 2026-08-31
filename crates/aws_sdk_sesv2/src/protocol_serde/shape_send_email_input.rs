@@ -6,7 +6,10 @@ pub fn ser_send_email_input_input(
     if let Some(var_1) = &input.configuration_overrides {
         #[allow(unused_mut)]
         let mut object_2 = object.key("ConfigurationOverrides").start_object();
-        crate::protocol_serde::shape_configuration_overrides::ser_configuration_overrides(&mut object_2, var_1)?;
+        crate::protocol_serde::shape_configuration_overrides::ser_configuration_overrides(
+            &mut object_2,
+            var_1,
+        )?;
         object_2.finish();
     }
     if let Some(var_3) = &input.configuration_set_name {
@@ -40,21 +43,30 @@ pub fn ser_send_email_input_input(
         object.key("EndpointId").string(var_12.as_str());
     }
     if let Some(var_13) = &input.feedback_forwarding_email_address {
-        object.key("FeedbackForwardingEmailAddress").string(var_13.as_str());
+        object
+            .key("FeedbackForwardingEmailAddress")
+            .string(var_13.as_str());
     }
     if let Some(var_14) = &input.feedback_forwarding_email_address_identity_arn {
-        object.key("FeedbackForwardingEmailAddressIdentityArn").string(var_14.as_str());
+        object
+            .key("FeedbackForwardingEmailAddressIdentityArn")
+            .string(var_14.as_str());
     }
     if let Some(var_15) = &input.from_email_address {
         object.key("FromEmailAddress").string(var_15.as_str());
     }
     if let Some(var_16) = &input.from_email_address_identity_arn {
-        object.key("FromEmailAddressIdentityArn").string(var_16.as_str());
+        object
+            .key("FromEmailAddressIdentityArn")
+            .string(var_16.as_str());
     }
     if let Some(var_17) = &input.list_management_options {
         #[allow(unused_mut)]
         let mut object_18 = object.key("ListManagementOptions").start_object();
-        crate::protocol_serde::shape_list_management_options::ser_list_management_options(&mut object_18, var_17)?;
+        crate::protocol_serde::shape_list_management_options::ser_list_management_options(
+            &mut object_18,
+            var_17,
+        )?;
         object_18.finish();
     }
     if let Some(var_19) = &input.reply_to_addresses {

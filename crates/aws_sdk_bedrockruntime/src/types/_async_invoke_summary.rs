@@ -59,7 +59,9 @@ impl AsyncInvokeSummary {
         self.end_time.as_ref()
     }
     /// <p>The invocation's output data settings.</p>
-    pub fn output_data_config(&self) -> ::std::option::Option<&crate::types::AsyncInvokeOutputDataConfig> {
+    pub fn output_data_config(
+        &self,
+    ) -> ::std::option::Option<&crate::types::AsyncInvokeOutputDataConfig> {
         self.output_data_config.as_ref()
     }
 }
@@ -102,12 +104,18 @@ pub struct AsyncInvokeSummaryBuilder {
 impl AsyncInvokeSummaryBuilder {
     /// <p>The invocation's ARN.</p>
     /// This field is required.
-    pub fn invocation_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn invocation_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.invocation_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The invocation's ARN.</p>
-    pub fn set_invocation_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_invocation_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.invocation_arn = input;
         self
     }
@@ -131,12 +139,18 @@ impl AsyncInvokeSummaryBuilder {
         &self.model_arn
     }
     /// <p>The invocation's idempotency token.</p>
-    pub fn client_request_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn client_request_token(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.client_request_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The invocation's idempotency token.</p>
-    pub fn set_client_request_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_client_request_token(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.client_request_token = input;
         self
     }
@@ -150,7 +164,10 @@ impl AsyncInvokeSummaryBuilder {
         self
     }
     /// <p>The invocation's status.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::AsyncInvokeStatus>) -> Self {
+    pub fn set_status(
+        mut self,
+        input: ::std::option::Option<crate::types::AsyncInvokeStatus>,
+    ) -> Self {
         self.status = input;
         self
     }
@@ -159,12 +176,18 @@ impl AsyncInvokeSummaryBuilder {
         &self.status
     }
     /// <p>An error message.</p>
-    pub fn failure_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn failure_message(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.failure_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>An error message.</p>
-    pub fn set_failure_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_failure_message(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.failure_message = input;
         self
     }
@@ -179,7 +202,10 @@ impl AsyncInvokeSummaryBuilder {
         self
     }
     /// <p>When the invocation was submitted.</p>
-    pub fn set_submit_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_submit_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.submit_time = input;
         self
     }
@@ -193,7 +219,10 @@ impl AsyncInvokeSummaryBuilder {
         self
     }
     /// <p>When the invocation was last modified.</p>
-    pub fn set_last_modified_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_last_modified_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.last_modified_time = input;
         self
     }
@@ -207,7 +236,10 @@ impl AsyncInvokeSummaryBuilder {
         self
     }
     /// <p>When the invocation ended.</p>
-    pub fn set_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_end_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.end_time = input;
         self
     }
@@ -222,12 +254,17 @@ impl AsyncInvokeSummaryBuilder {
         self
     }
     /// <p>The invocation's output data settings.</p>
-    pub fn set_output_data_config(mut self, input: ::std::option::Option<crate::types::AsyncInvokeOutputDataConfig>) -> Self {
+    pub fn set_output_data_config(
+        mut self,
+        input: ::std::option::Option<crate::types::AsyncInvokeOutputDataConfig>,
+    ) -> Self {
         self.output_data_config = input;
         self
     }
     /// <p>The invocation's output data settings.</p>
-    pub fn get_output_data_config(&self) -> &::std::option::Option<crate::types::AsyncInvokeOutputDataConfig> {
+    pub fn get_output_data_config(
+        &self,
+    ) -> &::std::option::Option<crate::types::AsyncInvokeOutputDataConfig> {
         &self.output_data_config
     }
     /// Consumes the builder and constructs a [`AsyncInvokeSummary`](crate::types::AsyncInvokeSummary).
@@ -235,7 +272,12 @@ impl AsyncInvokeSummaryBuilder {
     /// - [`invocation_arn`](crate::types::builders::AsyncInvokeSummaryBuilder::invocation_arn)
     /// - [`model_arn`](crate::types::builders::AsyncInvokeSummaryBuilder::model_arn)
     /// - [`submit_time`](crate::types::builders::AsyncInvokeSummaryBuilder::submit_time)
-    pub fn build(self) -> ::std::result::Result<crate::types::AsyncInvokeSummary, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::AsyncInvokeSummary,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::AsyncInvokeSummary {
             invocation_arn: self.invocation_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

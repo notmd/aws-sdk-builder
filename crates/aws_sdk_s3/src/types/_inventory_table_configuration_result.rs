@@ -69,10 +69,13 @@ impl InventoryTableConfigurationResult {
 }
 
 /// A builder for [`InventoryTableConfigurationResult`](crate::types::InventoryTableConfigurationResult).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct InventoryTableConfigurationResultBuilder {
-    pub(crate) configuration_state: ::std::option::Option<crate::types::InventoryConfigurationState>,
+    pub(crate) configuration_state:
+        ::std::option::Option<crate::types::InventoryConfigurationState>,
     pub(crate) table_status: ::std::option::Option<::std::string::String>,
     pub(crate) error: ::std::option::Option<crate::types::ErrorDetails>,
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
@@ -86,12 +89,17 @@ impl InventoryTableConfigurationResultBuilder {
         self
     }
     /// <p>The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.</p>
-    pub fn set_configuration_state(mut self, input: ::std::option::Option<crate::types::InventoryConfigurationState>) -> Self {
+    pub fn set_configuration_state(
+        mut self,
+        input: ::std::option::Option<crate::types::InventoryConfigurationState>,
+    ) -> Self {
         self.configuration_state = input;
         self
     }
     /// <p>The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.</p>
-    pub fn get_configuration_state(&self) -> &::std::option::Option<crate::types::InventoryConfigurationState> {
+    pub fn get_configuration_state(
+        &self,
+    ) -> &::std::option::Option<crate::types::InventoryConfigurationState> {
         &self.configuration_state
     }
     /// <p>The status of the inventory table. The status values are:</p>
@@ -189,7 +197,12 @@ impl InventoryTableConfigurationResultBuilder {
     /// Consumes the builder and constructs a [`InventoryTableConfigurationResult`](crate::types::InventoryTableConfigurationResult).
     /// This method will fail if any of the following fields are not set:
     /// - [`configuration_state`](crate::types::builders::InventoryTableConfigurationResultBuilder::configuration_state)
-    pub fn build(self) -> ::std::result::Result<crate::types::InventoryTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::InventoryTableConfigurationResult,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::InventoryTableConfigurationResult {
             configuration_state: self.configuration_state.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

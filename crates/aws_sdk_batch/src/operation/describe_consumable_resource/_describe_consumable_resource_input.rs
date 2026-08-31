@@ -14,13 +14,15 @@ impl DescribeConsumableResourceInput {
 }
 impl DescribeConsumableResourceInput {
     /// Creates a new builder-style object to manufacture [`DescribeConsumableResourceInput`](crate::operation::describe_consumable_resource::DescribeConsumableResourceInput).
-    pub fn builder() -> crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceInputBuilder {
+    pub fn builder() -> crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceInputBuilder{
         crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeConsumableResourceInput`](crate::operation::describe_consumable_resource::DescribeConsumableResourceInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeConsumableResourceInputBuilder {
     pub(crate) consumable_resource: ::std::option::Option<::std::string::String>,
@@ -28,12 +30,18 @@ pub struct DescribeConsumableResourceInputBuilder {
 impl DescribeConsumableResourceInputBuilder {
     /// <p>The name or ARN of the consumable resource whose description will be returned.</p>
     /// This field is required.
-    pub fn consumable_resource(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn consumable_resource(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.consumable_resource = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name or ARN of the consumable resource whose description will be returned.</p>
-    pub fn set_consumable_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_consumable_resource(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.consumable_resource = input;
         self
     }
@@ -48,8 +56,10 @@ impl DescribeConsumableResourceInputBuilder {
         crate::operation::describe_consumable_resource::DescribeConsumableResourceInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::describe_consumable_resource::DescribeConsumableResourceInput {
-            consumable_resource: self.consumable_resource,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::describe_consumable_resource::DescribeConsumableResourceInput {
+                consumable_resource: self.consumable_resource,
+            },
+        )
     }
 }

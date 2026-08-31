@@ -29,7 +29,9 @@ impl KafkaSchemaRegistryAccessConfig {
 }
 
 /// A builder for [`KafkaSchemaRegistryAccessConfig`](crate::types::KafkaSchemaRegistryAccessConfig).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct KafkaSchemaRegistryAccessConfigBuilder {
     pub(crate) r#type: ::std::option::Option<crate::types::KafkaSchemaRegistryAuthType>,
@@ -42,7 +44,10 @@ impl KafkaSchemaRegistryAccessConfigBuilder {
         self
     }
     /// <p>The type of authentication Lambda uses to access your schema registry.</p>
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::KafkaSchemaRegistryAuthType>) -> Self {
+    pub fn set_type(
+        mut self,
+        input: ::std::option::Option<crate::types::KafkaSchemaRegistryAuthType>,
+    ) -> Self {
         self.r#type = input;
         self
     }

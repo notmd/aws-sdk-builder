@@ -8,9 +8,11 @@ pub fn ser_prompt_variable_values(
             object_21.key("text").string(inner.as_str());
         }
         crate::types::PromptVariableValues::Unknown => {
-            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                "PromptVariableValues",
-            ))
+            return Err(
+                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
+                    "PromptVariableValues",
+                ),
+            )
         }
     }
     Ok(())

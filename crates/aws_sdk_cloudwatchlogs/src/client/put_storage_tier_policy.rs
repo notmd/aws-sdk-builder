@@ -8,7 +8,12 @@ impl super::Client {
     ///   - [`storage_tier(Option<StorageTier>)`](crate::operation::put_storage_tier_policy::PutStorageTierPolicyOutput::storage_tier): <p>The storage tier for the account.</p>
     ///   - [`last_updated_time(Option<i64>)`](crate::operation::put_storage_tier_policy::PutStorageTierPolicyOutput::last_updated_time): <p>The time when the storage tier policy was last updated, expressed as the number of milliseconds after <code>January 1, 1970 00:00:00 UTC</code>.</p>
     /// - On failure, responds with [`SdkError<PutStorageTierPolicyError>`](crate::operation::put_storage_tier_policy::PutStorageTierPolicyError)
-    pub fn put_storage_tier_policy(&self) -> crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyFluentBuilder {
-        crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyFluentBuilder::new(self.handle.clone())
+    pub fn put_storage_tier_policy(
+        &self,
+    ) -> crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyFluentBuilder
+    {
+        crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -27,7 +27,9 @@ impl FilterCriteriaError {
 }
 
 /// A builder for [`FilterCriteriaError`](crate::types::FilterCriteriaError).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct FilterCriteriaErrorBuilder {
     pub(crate) error_code: ::std::option::Option<::std::string::String>,

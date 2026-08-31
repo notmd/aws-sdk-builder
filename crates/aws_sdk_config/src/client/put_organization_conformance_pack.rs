@@ -16,7 +16,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutOrganizationConformancePackError>`](crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackError)
     pub fn put_organization_conformance_pack(
         &self,
-    ) -> crate::operation::put_organization_conformance_pack::builders::PutOrganizationConformancePackFluentBuilder {
+    ) -> crate::operation::put_organization_conformance_pack::builders::PutOrganizationConformancePackFluentBuilder{
         crate::operation::put_organization_conformance_pack::builders::PutOrganizationConformancePackFluentBuilder::new(self.handle.clone())
     }
 }

@@ -38,13 +38,16 @@ impl ::aws_types::request_id::RequestId for GetKeyLastUsageOutput {
 }
 impl GetKeyLastUsageOutput {
     /// Creates a new builder-style object to manufacture [`GetKeyLastUsageOutput`](crate::operation::get_key_last_usage::GetKeyLastUsageOutput).
-    pub fn builder() -> crate::operation::get_key_last_usage::builders::GetKeyLastUsageOutputBuilder {
+    pub fn builder() -> crate::operation::get_key_last_usage::builders::GetKeyLastUsageOutputBuilder
+    {
         crate::operation::get_key_last_usage::builders::GetKeyLastUsageOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetKeyLastUsageOutput`](crate::operation::get_key_last_usage::GetKeyLastUsageOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetKeyLastUsageOutputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -74,7 +77,10 @@ impl GetKeyLastUsageOutputBuilder {
         self
     }
     /// <p>Contains usage information about the last time the KMS key was used for a successful cryptographic operation. If the key has not been used since tracking began, this response element is empty.</p>
-    pub fn set_key_last_usage(mut self, input: ::std::option::Option<crate::types::KeyLastUsageData>) -> Self {
+    pub fn set_key_last_usage(
+        mut self,
+        input: ::std::option::Option<crate::types::KeyLastUsageData>,
+    ) -> Self {
         self.key_last_usage = input;
         self
     }
@@ -88,7 +94,10 @@ impl GetKeyLastUsageOutputBuilder {
         self
     }
     /// <p>The date from which KMS began recording cryptographic activity for this key, or the date the KMS key was created, whichever is later.</p>
-    pub fn set_tracking_start_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_tracking_start_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.tracking_start_date = input;
         self
     }
@@ -102,7 +111,10 @@ impl GetKeyLastUsageOutputBuilder {
         self
     }
     /// <p>The date and time when the KMS key was created.</p>
-    pub fn set_key_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_key_creation_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.key_creation_date = input;
         self
     }

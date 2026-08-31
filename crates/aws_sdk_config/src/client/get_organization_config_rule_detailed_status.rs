@@ -14,7 +14,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetOrganizationConfigRuleDetailedStatusError>`](crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusError)
     pub fn get_organization_config_rule_detailed_status(
         &self,
-    ) -> crate::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusFluentBuilder {
+    ) -> crate::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusFluentBuilder{
         crate::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusFluentBuilder::new(
             self.handle.clone(),
         )

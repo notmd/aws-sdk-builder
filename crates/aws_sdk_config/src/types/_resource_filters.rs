@@ -39,7 +39,9 @@ impl ResourceFilters {
 }
 
 /// A builder for [`ResourceFilters`](crate::types::ResourceFilters).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ResourceFiltersBuilder {
     pub(crate) account_id: ::std::option::Option<::std::string::String>,
@@ -77,12 +79,18 @@ impl ResourceFiltersBuilder {
         &self.resource_id
     }
     /// <p>The name of the resource.</p>
-    pub fn resource_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn resource_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.resource_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the resource.</p>
-    pub fn set_resource_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_resource_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.resource_name = input;
         self
     }

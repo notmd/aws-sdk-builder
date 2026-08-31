@@ -57,7 +57,10 @@ impl CreateDedicatedIpPoolFluentBuilder {
         }
     }
     /// Access the CreateDedicatedIpPool as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_dedicated_ip_pool::builders::CreateDedicatedIpPoolInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::create_dedicated_ip_pool::builders::CreateDedicatedIpPoolInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +89,11 @@ impl CreateDedicatedIpPoolFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPool::orchestrate(&runtime_plugins, input).await
+        crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPool::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,12 +106,18 @@ impl CreateDedicatedIpPoolFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -133,7 +146,10 @@ impl CreateDedicatedIpPoolFluentBuilder {
         self
     }
     /// <p>An object that defines the tags (keys and values) that you want to associate with the pool.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
@@ -147,7 +163,10 @@ impl CreateDedicatedIpPoolFluentBuilder {
         self
     }
     /// <p>The type of scaling mode.</p>
-    pub fn set_scaling_mode(mut self, input: ::std::option::Option<crate::types::ScalingMode>) -> Self {
+    pub fn set_scaling_mode(
+        mut self,
+        input: ::std::option::Option<crate::types::ScalingMode>,
+    ) -> Self {
         self.inner = self.inner.set_scaling_mode(input);
         self
     }

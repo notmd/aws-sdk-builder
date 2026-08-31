@@ -68,12 +68,15 @@ impl StartLiveTailInput {
 }
 
 /// A builder for [`StartLiveTailInput`](crate::operation::start_live_tail::StartLiveTailInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct StartLiveTailInputBuilder {
     pub(crate) log_group_identifiers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) log_stream_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) log_stream_name_prefixes: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) log_stream_name_prefixes:
+        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) log_event_filter_pattern: ::std::option::Option<::std::string::String>,
 }
 impl StartLiveTailInputBuilder {
@@ -86,7 +89,10 @@ impl StartLiveTailInputBuilder {
     /// <p>If you specify an ARN, the ARN can't end with an asterisk (*).</p><note>
     /// <p>You can include up to 10 log groups.</p>
     /// </note>
-    pub fn log_group_identifiers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_group_identifiers(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.log_group_identifiers.unwrap_or_default();
         v.push(input.into());
         self.log_group_identifiers = ::std::option::Option::Some(v);
@@ -97,7 +103,10 @@ impl StartLiveTailInputBuilder {
     /// <p>If you specify an ARN, the ARN can't end with an asterisk (*).</p><note>
     /// <p>You can include up to 10 log groups.</p>
     /// </note>
-    pub fn set_log_group_identifiers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_log_group_identifiers(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.log_group_identifiers = input;
         self
     }
@@ -106,7 +115,9 @@ impl StartLiveTailInputBuilder {
     /// <p>If you specify an ARN, the ARN can't end with an asterisk (*).</p><note>
     /// <p>You can include up to 10 log groups.</p>
     /// </note>
-    pub fn get_log_group_identifiers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_group_identifiers(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.log_group_identifiers
     }
     /// Appends an item to `log_stream_names`.
@@ -117,7 +128,10 @@ impl StartLiveTailInputBuilder {
     /// <p>If you specify this field, you can't also specify the <code>logStreamNamePrefixes</code> field.</p><note>
     /// <p>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</p>
     /// </note>
-    pub fn log_stream_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_stream_names(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.log_stream_names.unwrap_or_default();
         v.push(input.into());
         self.log_stream_names = ::std::option::Option::Some(v);
@@ -127,7 +141,10 @@ impl StartLiveTailInputBuilder {
     /// <p>If you specify this field, you can't also specify the <code>logStreamNamePrefixes</code> field.</p><note>
     /// <p>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</p>
     /// </note>
-    pub fn set_log_stream_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_log_stream_names(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.log_stream_names = input;
         self
     }
@@ -135,7 +152,9 @@ impl StartLiveTailInputBuilder {
     /// <p>If you specify this field, you can't also specify the <code>logStreamNamePrefixes</code> field.</p><note>
     /// <p>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</p>
     /// </note>
-    pub fn get_log_stream_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_stream_names(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.log_stream_names
     }
     /// Appends an item to `log_stream_name_prefixes`.
@@ -146,7 +165,10 @@ impl StartLiveTailInputBuilder {
     /// <p>If you specify this field, you can't also specify the <code>logStreamNames</code> field.</p><note>
     /// <p>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</p>
     /// </note>
-    pub fn log_stream_name_prefixes(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_stream_name_prefixes(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.log_stream_name_prefixes.unwrap_or_default();
         v.push(input.into());
         self.log_stream_name_prefixes = ::std::option::Option::Some(v);
@@ -156,7 +178,10 @@ impl StartLiveTailInputBuilder {
     /// <p>If you specify this field, you can't also specify the <code>logStreamNames</code> field.</p><note>
     /// <p>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</p>
     /// </note>
-    pub fn set_log_stream_name_prefixes(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_log_stream_name_prefixes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.log_stream_name_prefixes = input;
         self
     }
@@ -164,20 +189,28 @@ impl StartLiveTailInputBuilder {
     /// <p>If you specify this field, you can't also specify the <code>logStreamNames</code> field.</p><note>
     /// <p>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</p>
     /// </note>
-    pub fn get_log_stream_name_prefixes(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_stream_name_prefixes(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.log_stream_name_prefixes
     }
     /// <p>An optional pattern to use to filter the results to include only log events that match the pattern. For example, a filter pattern of <code>error 404</code> causes only log events that include both <code>error</code> and <code>404</code> to be included in the Live Tail stream.</p>
     /// <p>Regular expression filter patterns are supported.</p>
     /// <p>For more information about filter pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
-    pub fn log_event_filter_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_event_filter_pattern(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.log_event_filter_pattern = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>An optional pattern to use to filter the results to include only log events that match the pattern. For example, a filter pattern of <code>error 404</code> causes only log events that include both <code>error</code> and <code>404</code> to be included in the Live Tail stream.</p>
     /// <p>Regular expression filter patterns are supported.</p>
     /// <p>For more information about filter pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
-    pub fn set_log_event_filter_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_log_event_filter_pattern(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.log_event_filter_pattern = input;
         self
     }
@@ -190,7 +223,10 @@ impl StartLiveTailInputBuilder {
     /// Consumes the builder and constructs a [`StartLiveTailInput`](crate::operation::start_live_tail::StartLiveTailInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::start_live_tail::StartLiveTailInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::start_live_tail::StartLiveTailInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::start_live_tail::StartLiveTailInput {
             log_group_identifiers: self.log_group_identifiers,
             log_stream_names: self.log_stream_names,

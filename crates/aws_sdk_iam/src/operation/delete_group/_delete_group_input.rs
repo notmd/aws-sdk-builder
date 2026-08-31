@@ -22,7 +22,9 @@ impl DeleteGroupInput {
 }
 
 /// A builder for [`DeleteGroupInput`](crate::operation::delete_group::DeleteGroupInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteGroupInputBuilder {
     pub(crate) group_name: ::std::option::Option<::std::string::String>,
@@ -47,7 +49,14 @@ impl DeleteGroupInputBuilder {
         &self.group_name
     }
     /// Consumes the builder and constructs a [`DeleteGroupInput`](crate::operation::delete_group::DeleteGroupInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::delete_group::DeleteGroupInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_group::DeleteGroupInput { group_name: self.group_name })
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::delete_group::DeleteGroupInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(crate::operation::delete_group::DeleteGroupInput {
+            group_name: self.group_name,
+        })
     }
 }

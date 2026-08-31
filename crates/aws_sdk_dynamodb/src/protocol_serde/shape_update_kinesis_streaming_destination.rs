@@ -124,14 +124,19 @@ pub fn de_update_kinesis_streaming_destination_http_response(
         let mut output = crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationOutputBuilder::default();
         output = crate::protocol_serde::shape_update_kinesis_streaming_destination::de_update_kinesis_streaming_destination(_response_body, output)
             .map_err(crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
 
 pub fn ser_update_kinesis_streaming_destination_input(
     input: &crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+) -> ::std::result::Result<
+    ::aws_smithy_types::body::SdkBody,
+    ::aws_smithy_types::error::operation::SerializationError,
+> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_update_kinesis_streaming_destination_input::ser_update_kinesis_streaming_destination_input_input(
@@ -148,8 +153,11 @@ pub(crate) fn de_update_kinesis_streaming_destination(
 ) -> ::std::result::Result<
     crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+>{
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
+        crate::protocol_serde::or_empty_doc(_value),
+    )
+    .peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -157,50 +165,65 @@ pub(crate) fn de_update_kinesis_streaming_destination(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "TableName" => {
-                    builder = builder.set_table_name(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "TableName" => {
+                        builder = builder.set_table_name(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                    );
-                }
-                "StreamArn" => {
-                    builder = builder.set_stream_arn(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                        );
+                    }
+                    "StreamArn" => {
+                        builder = builder.set_stream_arn(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                    );
-                }
-                "DestinationStatus" => {
-                    builder = builder.set_destination_status(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::DestinationStatus::from(u.as_ref())))
+                        );
+                    }
+                    "DestinationStatus" => {
+                        builder = builder.set_destination_status(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
+                            .map(|s| {
+                                s.to_unescaped()
+                                    .map(|u| crate::types::DestinationStatus::from(u.as_ref()))
+                            })
                             .transpose()?,
-                    );
-                }
-                "UpdateKinesisStreamingConfiguration" => {
-                    builder = builder.set_update_kinesis_streaming_configuration(
+                        );
+                    }
+                    "UpdateKinesisStreamingConfiguration" => {
+                        builder = builder.set_update_kinesis_streaming_configuration(
                         crate::protocol_serde::shape_update_kinesis_streaming_configuration::de_update_kinesis_streaming_configuration(
                             tokens,
                             _value,
                             depth + 1,
                         )?,
                     );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
+                return Err(
+                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                        "expected object key or end object, found: {other:?}"
+                    )),
+                )
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "found more JSON tokens after completing parsing",
+            ),
+        );
     }
     Ok(builder)
 }

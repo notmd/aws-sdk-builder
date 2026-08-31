@@ -28,13 +28,16 @@ impl PutDestinationPolicyInput {
 }
 impl PutDestinationPolicyInput {
     /// Creates a new builder-style object to manufacture [`PutDestinationPolicyInput`](crate::operation::put_destination_policy::PutDestinationPolicyInput).
-    pub fn builder() -> crate::operation::put_destination_policy::builders::PutDestinationPolicyInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::put_destination_policy::builders::PutDestinationPolicyInputBuilder {
         crate::operation::put_destination_policy::builders::PutDestinationPolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`PutDestinationPolicyInput`](crate::operation::put_destination_policy::PutDestinationPolicyInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutDestinationPolicyInputBuilder {
     pub(crate) destination_name: ::std::option::Option<::std::string::String>,
@@ -44,12 +47,18 @@ pub struct PutDestinationPolicyInputBuilder {
 impl PutDestinationPolicyInputBuilder {
     /// <p>A name for an existing destination.</p>
     /// This field is required.
-    pub fn destination_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn destination_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.destination_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A name for an existing destination.</p>
-    pub fn set_destination_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_destination_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.destination_name = input;
         self
     }
@@ -59,12 +68,18 @@ impl PutDestinationPolicyInputBuilder {
     }
     /// <p>An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination. This can be up to 5120 bytes.</p>
     /// This field is required.
-    pub fn access_policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn access_policy(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.access_policy = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination. This can be up to 5120 bytes.</p>
-    pub fn set_access_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_access_policy(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.access_policy = input;
         self
     }
@@ -92,12 +107,16 @@ impl PutDestinationPolicyInputBuilder {
     /// Consumes the builder and constructs a [`PutDestinationPolicyInput`](crate::operation::put_destination_policy::PutDestinationPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::put_destination_policy::PutDestinationPolicyInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::put_destination_policy::PutDestinationPolicyInput {
-            destination_name: self.destination_name,
-            access_policy: self.access_policy,
-            force_update: self.force_update,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::put_destination_policy::PutDestinationPolicyInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::put_destination_policy::PutDestinationPolicyInput {
+                destination_name: self.destination_name,
+                access_policy: self.access_policy,
+                force_update: self.force_update,
+            },
+        )
     }
 }

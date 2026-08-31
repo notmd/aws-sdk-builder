@@ -6,7 +6,11 @@ impl super::Client {
     ///   - [`arn(impl Into<String>)`](crate::operation::delete_connector::builders::DeleteConnectorFluentBuilder::arn) / [`set_arn(Option<String>)`](crate::operation::delete_connector::builders::DeleteConnectorFluentBuilder::set_arn):<br>required: **true**<br><p>The Amazon Resource Name (ARN) of the connector that you want to delete.</p><br>
     /// - On success, responds with [`DeleteConnectorOutput`](crate::operation::delete_connector::DeleteConnectorOutput)
     /// - On failure, responds with [`SdkError<DeleteConnectorError>`](crate::operation::delete_connector::DeleteConnectorError)
-    pub fn delete_connector(&self) -> crate::operation::delete_connector::builders::DeleteConnectorFluentBuilder {
-        crate::operation::delete_connector::builders::DeleteConnectorFluentBuilder::new(self.handle.clone())
+    pub fn delete_connector(
+        &self,
+    ) -> crate::operation::delete_connector::builders::DeleteConnectorFluentBuilder {
+        crate::operation::delete_connector::builders::DeleteConnectorFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

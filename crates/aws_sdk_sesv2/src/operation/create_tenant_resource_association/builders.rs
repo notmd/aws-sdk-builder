@@ -45,7 +45,7 @@ impl
             crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationOutput,
             crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -59,7 +59,7 @@ impl CreateTenantResourceAssociationFluentBuilder {
         }
     }
     /// Access the CreateTenantResourceAssociation as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -78,7 +78,7 @@ impl CreateTenantResourceAssociationFluentBuilder {
             crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -101,12 +101,18 @@ impl CreateTenantResourceAssociationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }

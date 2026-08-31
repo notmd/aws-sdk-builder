@@ -10,7 +10,9 @@ pub struct GetBucketInventoryConfigurationOutput {
 }
 impl GetBucketInventoryConfigurationOutput {
     /// <p>Specifies the inventory configuration.</p>
-    pub fn inventory_configuration(&self) -> ::std::option::Option<&crate::types::InventoryConfiguration> {
+    pub fn inventory_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::InventoryConfiguration> {
         self.inventory_configuration.as_ref()
     }
 }
@@ -26,13 +28,15 @@ impl ::aws_types::request_id::RequestId for GetBucketInventoryConfigurationOutpu
 }
 impl GetBucketInventoryConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`GetBucketInventoryConfigurationOutput`](crate::operation::get_bucket_inventory_configuration::GetBucketInventoryConfigurationOutput).
-    pub fn builder() -> crate::operation::get_bucket_inventory_configuration::builders::GetBucketInventoryConfigurationOutputBuilder {
+    pub fn builder() -> crate::operation::get_bucket_inventory_configuration::builders::GetBucketInventoryConfigurationOutputBuilder{
         crate::operation::get_bucket_inventory_configuration::builders::GetBucketInventoryConfigurationOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetBucketInventoryConfigurationOutput`](crate::operation::get_bucket_inventory_configuration::GetBucketInventoryConfigurationOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetBucketInventoryConfigurationOutputBuilder {
     pub(crate) inventory_configuration: ::std::option::Option<crate::types::InventoryConfiguration>,
@@ -46,12 +50,17 @@ impl GetBucketInventoryConfigurationOutputBuilder {
         self
     }
     /// <p>Specifies the inventory configuration.</p>
-    pub fn set_inventory_configuration(mut self, input: ::std::option::Option<crate::types::InventoryConfiguration>) -> Self {
+    pub fn set_inventory_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::InventoryConfiguration>,
+    ) -> Self {
         self.inventory_configuration = input;
         self
     }
     /// <p>Specifies the inventory configuration.</p>
-    pub fn get_inventory_configuration(&self) -> &::std::option::Option<crate::types::InventoryConfiguration> {
+    pub fn get_inventory_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::InventoryConfiguration> {
         &self.inventory_configuration
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -59,7 +68,10 @@ impl GetBucketInventoryConfigurationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(
+        &mut self,
+        extended_request_id: Option<String>,
+    ) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -73,7 +85,10 @@ impl GetBucketInventoryConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetBucketInventoryConfigurationOutput`](crate::operation::get_bucket_inventory_configuration::GetBucketInventoryConfigurationOutput).
-    pub fn build(self) -> crate::operation::get_bucket_inventory_configuration::GetBucketInventoryConfigurationOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::get_bucket_inventory_configuration::GetBucketInventoryConfigurationOutput
+    {
         crate::operation::get_bucket_inventory_configuration::GetBucketInventoryConfigurationOutput {
             inventory_configuration: self.inventory_configuration,
             _extended_request_id: self._extended_request_id,

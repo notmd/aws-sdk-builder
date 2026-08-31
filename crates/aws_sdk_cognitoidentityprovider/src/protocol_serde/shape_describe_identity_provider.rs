@@ -9,17 +9,23 @@ pub fn de_describe_identity_provider_http_error(
     crate::operation::describe_identity_provider::DescribeIdentityProviderError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::describe_identity_provider::DescribeIdentityProviderError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(
+        crate::operation::describe_identity_provider::DescribeIdentityProviderError::unhandled,
+    )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::describe_identity_provider::DescribeIdentityProviderError::unhandled(
+        None => return Err(
+            crate::operation::describe_identity_provider::DescribeIdentityProviderError::unhandled(
                 generic,
-            ))
-        }
+            ),
+        ),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -117,14 +123,19 @@ pub fn de_describe_identity_provider_http_response(
         let mut output = crate::operation::describe_identity_provider::builders::DescribeIdentityProviderOutputBuilder::default();
         output = crate::protocol_serde::shape_describe_identity_provider::de_describe_identity_provider(_response_body, output)
             .map_err(crate::operation::describe_identity_provider::DescribeIdentityProviderError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         crate::serde_util::describe_identity_provider_output_output_correct_errors(output).build()
     })
 }
 
 pub fn ser_describe_identity_provider_input(
     input: &crate::operation::describe_identity_provider::DescribeIdentityProviderInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+) -> ::std::result::Result<
+    ::aws_smithy_types::body::SdkBody,
+    ::aws_smithy_types::error::operation::SerializationError,
+> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_describe_identity_provider_input::ser_describe_identity_provider_input_input(&mut object, input)?;
@@ -139,7 +150,10 @@ pub(crate) fn de_describe_identity_provider(
     crate::operation::describe_identity_provider::builders::DescribeIdentityProviderOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
+        crate::protocol_serde::or_empty_doc(_value),
+    )
+    .peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -147,27 +161,33 @@ pub(crate) fn de_describe_identity_provider(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "IdentityProvider" => {
-                    builder = builder.set_identity_provider(crate::protocol_serde::shape_identity_provider_type::de_identity_provider_type(
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "IdentityProvider" => {
+                        builder = builder.set_identity_provider(crate::protocol_serde::shape_identity_provider_type::de_identity_provider_type(
                         tokens,
                         _value,
                         depth + 1,
                     )?);
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
+                return Err(
+                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                        "expected object key or end object, found: {other:?}"
+                    )),
+                )
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "found more JSON tokens after completing parsing",
+            ),
+        );
     }
     Ok(builder)
 }

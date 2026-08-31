@@ -2,9 +2,14 @@
 pub fn de_account_properties_map_type(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<::std::collections::HashMap<::std::string::String, ::std::string::String>, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<
+    ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     let mut out = ::std::collections::HashMap::new();
     while let Some(mut tag) = decoder.next_tag() {
@@ -24,7 +29,9 @@ pub fn de_account_properties_map_type_entry(
     depth: u32,
 ) -> ::std::result::Result<(), ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     let mut k: Option<::std::string::String> = None;
     let mut v: Option<::std::string::String> = None;
@@ -53,8 +60,11 @@ pub fn de_account_properties_map_type_entry(
             _ => {}
         }
     }
-    let k = k.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing key map entry"))?;
-    let v = v.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing value map entry"))?;
+    let k =
+        k.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing key map entry"))?;
+    let v = v.ok_or_else(|| {
+        ::aws_smithy_xml::decode::XmlDecodeError::custom("missing value map entry")
+    })?;
     out.insert(k, v);
     Ok(())
 }

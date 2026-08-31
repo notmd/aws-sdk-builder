@@ -40,7 +40,9 @@ impl GetBucketAclOutput {
 }
 
 /// A builder for [`GetBucketAclOutput`](crate::operation::get_bucket_acl::GetBucketAclOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetBucketAclOutputBuilder {
     pub(crate) owner: ::std::option::Option<crate::types::Owner>,
@@ -75,7 +77,10 @@ impl GetBucketAclOutputBuilder {
         self
     }
     /// <p>A list of grants.</p>
-    pub fn set_grants(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Grant>>) -> Self {
+    pub fn set_grants(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Grant>>,
+    ) -> Self {
         self.grants = input;
         self
     }
@@ -88,7 +93,10 @@ impl GetBucketAclOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(
+        &mut self,
+        extended_request_id: Option<String>,
+    ) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

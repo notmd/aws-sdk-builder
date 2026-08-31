@@ -9,17 +9,23 @@ pub fn de_upload_signing_certificate_http_error(
     crate::operation::upload_signing_certificate::UploadSigningCertificateError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::upload_signing_certificate::UploadSigningCertificateError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(
+        crate::operation::upload_signing_certificate::UploadSigningCertificateError::unhandled,
+    )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::upload_signing_certificate::UploadSigningCertificateError::unhandled(
+        None => return Err(
+            crate::operation::upload_signing_certificate::UploadSigningCertificateError::unhandled(
                 generic,
-            ))
-        }
+            ),
+        ),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -168,7 +174,9 @@ pub fn de_upload_signing_certificate_http_response(
         let mut output = crate::operation::upload_signing_certificate::builders::UploadSigningCertificateOutputBuilder::default();
         output = crate::protocol_serde::shape_upload_signing_certificate::de_upload_signing_certificate(_response_body, output)
             .map_err(crate::operation::upload_signing_certificate::UploadSigningCertificateError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         crate::serde_util::upload_signing_certificate_output_output_correct_errors(output).build()
     })
 }

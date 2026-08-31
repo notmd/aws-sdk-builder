@@ -5,10 +5,19 @@ pub use crate::types::_change_message_visibility_batch_request_entry::ChangeMess
 #[cfg(feature = "op_change_message_visibility_batch")]
 pub use crate::types::_change_message_visibility_batch_result_entry::ChangeMessageVisibilityBatchResultEntry;
 
-#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+#[cfg(any(
+    feature = "op_change_message_visibility_batch",
+    feature = "op_delete_message_batch",
+    feature = "op_send_message_batch"
+))]
 pub use crate::types::_batch_result_error_entry::BatchResultErrorEntry;
 
-#[cfg(any(feature = "op_create_queue", feature = "op_get_queue_attributes", feature = "op_receive_message", feature = "op_set_queue_attributes"))]
+#[cfg(any(
+    feature = "op_create_queue",
+    feature = "op_get_queue_attributes",
+    feature = "op_receive_message",
+    feature = "op_set_queue_attributes"
+))]
 pub use crate::types::_queue_attribute_name::QueueAttributeName;
 
 #[cfg(feature = "op_delete_message_batch")]
@@ -26,7 +35,11 @@ pub use crate::types::_message_system_attribute_name::MessageSystemAttributeName
 #[cfg(feature = "op_receive_message")]
 pub use crate::types::_message::Message;
 
-#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+#[cfg(any(
+    feature = "op_receive_message",
+    feature = "op_send_message",
+    feature = "op_send_message_batch"
+))]
 pub use crate::types::_message_attribute_value::MessageAttributeValue;
 
 #[cfg(any(feature = "op_send_message", feature = "op_send_message_batch"))]
@@ -41,7 +54,11 @@ pub use crate::types::_send_message_batch_request_entry::SendMessageBatchRequest
 #[cfg(feature = "op_send_message_batch")]
 pub use crate::types::_send_message_batch_result_entry::SendMessageBatchResultEntry;
 
-#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+#[cfg(any(
+    feature = "op_change_message_visibility_batch",
+    feature = "op_delete_message_batch",
+    feature = "op_send_message_batch"
+))]
 mod _batch_result_error_entry;
 
 #[cfg(feature = "op_change_message_visibility_batch")]
@@ -62,7 +79,11 @@ mod _list_message_move_tasks_result_entry;
 #[cfg(feature = "op_receive_message")]
 mod _message;
 
-#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+#[cfg(any(
+    feature = "op_receive_message",
+    feature = "op_send_message",
+    feature = "op_send_message_batch"
+))]
 mod _message_attribute_value;
 
 #[cfg(feature = "op_receive_message")]
@@ -74,7 +95,12 @@ mod _message_system_attribute_name_for_sends;
 #[cfg(any(feature = "op_send_message", feature = "op_send_message_batch"))]
 mod _message_system_attribute_value;
 
-#[cfg(any(feature = "op_create_queue", feature = "op_get_queue_attributes", feature = "op_receive_message", feature = "op_set_queue_attributes"))]
+#[cfg(any(
+    feature = "op_create_queue",
+    feature = "op_get_queue_attributes",
+    feature = "op_receive_message",
+    feature = "op_set_queue_attributes"
+))]
 mod _queue_attribute_name;
 
 #[cfg(feature = "op_send_message_batch")]

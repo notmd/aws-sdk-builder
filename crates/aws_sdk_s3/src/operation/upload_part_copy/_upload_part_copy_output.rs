@@ -46,7 +46,9 @@ impl UploadPartCopyOutput {
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn server_side_encryption(&self) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
+    pub fn server_side_encryption(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ServerSideEncryption> {
         self.server_side_encryption.as_ref()
     }
     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
@@ -128,14 +130,20 @@ impl UploadPartCopyOutputBuilder {
     /// <p>The version of the source object that was copied, if you have enabled versioning on the source bucket.</p><note>
     /// <p>This functionality is not supported when the source object is in a directory bucket.</p>
     /// </note>
-    pub fn copy_source_version_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn copy_source_version_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.copy_source_version_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The version of the source object that was copied, if you have enabled versioning on the source bucket.</p><note>
     /// <p>This functionality is not supported when the source object is in a directory bucket.</p>
     /// </note>
-    pub fn set_copy_source_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_copy_source_version_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.copy_source_version_id = input;
         self
     }
@@ -151,7 +159,10 @@ impl UploadPartCopyOutputBuilder {
         self
     }
     /// <p>Container for all response elements.</p>
-    pub fn set_copy_part_result(mut self, input: ::std::option::Option<crate::types::CopyPartResult>) -> Self {
+    pub fn set_copy_part_result(
+        mut self,
+        input: ::std::option::Option<crate::types::CopyPartResult>,
+    ) -> Self {
         self.copy_part_result = input;
         self
     }
@@ -169,27 +180,38 @@ impl UploadPartCopyOutputBuilder {
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
+    pub fn set_server_side_encryption(
+        mut self,
+        input: ::std::option::Option<crate::types::ServerSideEncryption>,
+    ) -> Self {
         self.server_side_encryption = input;
         self
     }
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
+    pub fn get_server_side_encryption(
+        &self,
+    ) -> &::std::option::Option<crate::types::ServerSideEncryption> {
         &self.server_side_encryption
     }
     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn sse_customer_algorithm(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn sse_customer_algorithm(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.sse_customer_algorithm = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_sse_customer_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_sse_customer_algorithm(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.sse_customer_algorithm = input;
         self
     }
@@ -202,14 +224,20 @@ impl UploadPartCopyOutputBuilder {
     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide the round-trip message integrity verification of the customer-provided encryption key.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn sse_customer_key_md5(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn sse_customer_key_md5(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.sse_customer_key_md5 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide the round-trip message integrity verification of the customer-provided encryption key.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_sse_customer_key_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_sse_customer_key_md5(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.sse_customer_key_md5 = input;
         self
     }
@@ -220,12 +248,18 @@ impl UploadPartCopyOutputBuilder {
         &self.sse_customer_key_md5
     }
     /// <p>If present, indicates the ID of the KMS key that was used for object encryption.</p>
-    pub fn ssekms_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn ssekms_key_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.ssekms_key_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>If present, indicates the ID of the KMS key that was used for object encryption.</p>
-    pub fn set_ssekms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_ssekms_key_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.ssekms_key_id = input;
         self
     }
@@ -257,7 +291,10 @@ impl UploadPartCopyOutputBuilder {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+    pub fn set_request_charged(
+        mut self,
+        input: ::std::option::Option<crate::types::RequestCharged>,
+    ) -> Self {
         self.request_charged = input;
         self
     }
@@ -272,7 +309,10 @@ impl UploadPartCopyOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(
+        &mut self,
+        extended_request_id: Option<String>,
+    ) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

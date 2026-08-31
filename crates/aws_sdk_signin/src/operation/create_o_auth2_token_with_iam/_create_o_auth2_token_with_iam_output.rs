@@ -45,7 +45,7 @@ impl ::aws_types::request_id::RequestId for CreateOAuth2TokenWithIamOutput {
 }
 impl CreateOAuth2TokenWithIamOutput {
     /// Creates a new builder-style object to manufacture [`CreateOAuth2TokenWithIamOutput`](crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIamOutput).
-    pub fn builder() -> crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamOutputBuilder {
+    pub fn builder() -> crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamOutputBuilder{
         crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamOutputBuilder::default()
     }
 }

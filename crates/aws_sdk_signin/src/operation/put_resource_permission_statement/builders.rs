@@ -43,7 +43,7 @@ impl
             crate::operation::put_resource_permission_statement::PutResourcePermissionStatementOutput,
             crate::operation::put_resource_permission_statement::PutResourcePermissionStatementError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -57,7 +57,7 @@ impl PutResourcePermissionStatementFluentBuilder {
         }
     }
     /// Access the PutResourcePermissionStatement as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_resource_permission_statement::builders::PutResourcePermissionStatementInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_resource_permission_statement::builders::PutResourcePermissionStatementInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +76,7 @@ impl PutResourcePermissionStatementFluentBuilder {
             crate::operation::put_resource_permission_statement::PutResourcePermissionStatementError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -99,12 +99,18 @@ impl PutResourcePermissionStatementFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -123,12 +129,18 @@ impl PutResourcePermissionStatementFluentBuilder {
         self.inner.get_source_vpc()
     }
     /// SignIn VPC endpoint identifier
-    pub fn signin_source_vpce(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn signin_source_vpce(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.signin_source_vpce(input.into());
         self
     }
     /// SignIn VPC endpoint identifier
-    pub fn set_signin_source_vpce(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_signin_source_vpce(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_signin_source_vpce(input);
         self
     }
@@ -137,12 +149,18 @@ impl PutResourcePermissionStatementFluentBuilder {
         self.inner.get_signin_source_vpce()
     }
     /// Console VPC endpoint identifier
-    pub fn console_source_vpce(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn console_source_vpce(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.console_source_vpce(input.into());
         self
     }
     /// Console VPC endpoint identifier
-    pub fn set_console_source_vpce(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_console_source_vpce(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_console_source_vpce(input);
         self
     }
@@ -151,12 +169,18 @@ impl PutResourcePermissionStatementFluentBuilder {
         self.inner.get_console_source_vpce()
     }
     /// Source IP address within VPC
-    pub fn vpc_source_ip(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn vpc_source_ip(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.vpc_source_ip(input.into());
         self
     }
     /// Source IP address within VPC
-    pub fn set_vpc_source_ip(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_vpc_source_ip(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_vpc_source_ip(input);
         self
     }
@@ -179,12 +203,18 @@ impl PutResourcePermissionStatementFluentBuilder {
         self.inner.get_source_ip()
     }
     /// AWS region where the VPC and VPC endpoint reside Required when sourceVpc or signinSourceVpce/consoleSourceVpce is provided
-    pub fn requested_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn requested_region(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.requested_region(input.into());
         self
     }
     /// AWS region where the VPC and VPC endpoint reside Required when sourceVpc or signinSourceVpce/consoleSourceVpce is provided
-    pub fn set_requested_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_requested_region(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_requested_region(input);
         self
     }
@@ -193,12 +223,18 @@ impl PutResourcePermissionStatementFluentBuilder {
         self.inner.get_requested_region()
     }
     /// Principal to exclude from the permission statement
-    pub fn excluded_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn excluded_principal(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.excluded_principal(input.into());
         self
     }
     /// Principal to exclude from the permission statement
-    pub fn set_excluded_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_excluded_principal(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_excluded_principal(input);
         self
     }

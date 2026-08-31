@@ -81,11 +81,12 @@ impl CreateTokenFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_token::CreateToken::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::create_token::CreateToken::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::create_token::CreateToken::orchestrate(&runtime_plugins, input).await
     }
 
@@ -99,12 +100,18 @@ impl CreateTokenFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -123,12 +130,18 @@ impl CreateTokenFluentBuilder {
         self.inner.get_client_id()
     }
     /// <p>A secret string generated for the client. This value should come from the persisted result of the <code>RegisterClient</code> API.</p>
-    pub fn client_secret(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn client_secret(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.client_secret(input.into());
         self
     }
     /// <p>A secret string generated for the client. This value should come from the persisted result of the <code>RegisterClient</code> API.</p>
-    pub fn set_client_secret(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_client_secret(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_client_secret(input);
         self
     }
@@ -189,13 +202,19 @@ impl CreateTokenFluentBuilder {
     }
     /// <p>Used only when calling this API for the Refresh Token grant type. This token is used to refresh short-lived tokens, such as the access token, that might expire.</p>
     /// <p>For more information about the features and limitations of the current IAM Identity Center OIDC implementation, see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center OIDC API Reference</a>.</p>
-    pub fn refresh_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn refresh_token(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.refresh_token(input.into());
         self
     }
     /// <p>Used only when calling this API for the Refresh Token grant type. This token is used to refresh short-lived tokens, such as the access token, that might expire.</p>
     /// <p>For more information about the features and limitations of the current IAM Identity Center OIDC implementation, see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center OIDC API Reference</a>.</p>
-    pub fn set_refresh_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_refresh_token(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_refresh_token(input);
         self
     }
@@ -215,7 +234,10 @@ impl CreateTokenFluentBuilder {
         self
     }
     /// <p>The list of scopes for which authorization is requested. This parameter has no effect; the access token will always include all scopes configured during client registration.</p>
-    pub fn set_scope(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_scope(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.inner = self.inner.set_scope(input);
         self
     }
@@ -238,12 +260,18 @@ impl CreateTokenFluentBuilder {
         self.inner.get_redirect_uri()
     }
     /// <p>Used only when calling this API for the Authorization Code grant type. This value is generated by the client and presented to validate the original code challenge value the client passed at authorization time.</p>
-    pub fn code_verifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn code_verifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.code_verifier(input.into());
         self
     }
     /// <p>Used only when calling this API for the Authorization Code grant type. This value is generated by the client and presented to validate the original code challenge value the client passed at authorization time.</p>
-    pub fn set_code_verifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_code_verifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_code_verifier(input);
         self
     }

@@ -11,7 +11,11 @@ impl super::Client {
     ///   - [`quota_shares(Option<Vec::<QuotaShareDetail>>)`](crate::operation::list_quota_shares::ListQuotaSharesOutput::quota_shares): <p>A list of quota shares that match the request.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::list_quota_shares::ListQuotaSharesOutput::next_token): <p>The <code>nextToken</code> value to include in a future <code>ListQuotaShares</code> request. When the results of a <code>ListQuotaShares</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
     /// - On failure, responds with [`SdkError<ListQuotaSharesError>`](crate::operation::list_quota_shares::ListQuotaSharesError)
-    pub fn list_quota_shares(&self) -> crate::operation::list_quota_shares::builders::ListQuotaSharesFluentBuilder {
-        crate::operation::list_quota_shares::builders::ListQuotaSharesFluentBuilder::new(self.handle.clone())
+    pub fn list_quota_shares(
+        &self,
+    ) -> crate::operation::list_quota_shares::builders::ListQuotaSharesFluentBuilder {
+        crate::operation::list_quota_shares::builders::ListQuotaSharesFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

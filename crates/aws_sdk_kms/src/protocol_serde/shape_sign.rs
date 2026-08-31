@@ -6,8 +6,12 @@ pub fn de_sign_http_error(
     _response_body: &[u8],
 ) -> std::result::Result<crate::operation::sign::SignOutput, crate::operation::sign::SignError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::sign::SignError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(crate::operation::sign::SignError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
@@ -17,21 +21,24 @@ pub fn de_sign_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "DependencyTimeoutException" => crate::operation::sign::SignError::DependencyTimeoutException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "DependencyTimeoutException" => {
+            crate::operation::sign::SignError::DependencyTimeoutException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = crate::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output =
+                        crate::types::error::builders::DependencyTimeoutExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
                     .map_err(crate::operation::sign::SignError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "DisabledException" => crate::operation::sign::SignError::DisabledException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -47,57 +54,67 @@ pub fn de_sign_http_error(
             }
             tmp
         }),
-        "DryRunOperationException" => crate::operation::sign::SignError::DryRunOperationException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "DryRunOperationException" => {
+            crate::operation::sign::SignError::DryRunOperationException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DryRunOperationExceptionBuilder::default();
-                output = crate::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output =
+                        crate::types::error::builders::DryRunOperationExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
                     .map_err(crate::operation::sign::SignError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidGrantTokenException" => crate::operation::sign::SignError::InvalidGrantTokenException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidGrantTokenException" => {
+            crate::operation::sign::SignError::InvalidGrantTokenException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
-                output =
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output =
+                        crate::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
+                    output =
                     crate::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
                         .map_err(crate::operation::sign::SignError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidKeyUsageException" => crate::operation::sign::SignError::InvalidKeyUsageException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidKeyUsageException" => {
+            crate::operation::sign::SignError::InvalidKeyUsageException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidKeyUsageExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output =
+                        crate::types::error::builders::InvalidKeyUsageExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
                     .map_err(crate::operation::sign::SignError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "KeyUnavailableException" => crate::operation::sign::SignError::KeyUnavailableException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KeyUnavailableExceptionBuilder::default();
+                let mut output =
+                    crate::types::error::builders::KeyUnavailableExceptionBuilder::default();
                 output = crate::protocol_serde::shape_key_unavailable_exception::de_key_unavailable_exception_json_err(_response_body, output)
                     .map_err(crate::operation::sign::SignError::unhandled)?;
                 let output = output.meta(generic);
@@ -112,7 +129,8 @@ pub fn de_sign_http_error(
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInternalExceptionBuilder::default();
+                let mut output =
+                    crate::types::error::builders::KmsInternalExceptionBuilder::default();
                 output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
                     .map_err(crate::operation::sign::SignError::unhandled)?;
                 let output = output.meta(generic);
@@ -123,21 +141,24 @@ pub fn de_sign_http_error(
             }
             tmp
         }),
-        "KMSInvalidStateException" => crate::operation::sign::SignError::KmsInvalidStateException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "KMSInvalidStateException" => {
+            crate::operation::sign::SignError::KmsInvalidStateException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output =
+                        crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
                     .map_err(crate::operation::sign::SignError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "NotFoundException" => crate::operation::sign::SignError::NotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -166,15 +187,21 @@ pub fn de_sign_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::sign::builders::SignOutputBuilder::default();
-        output = crate::protocol_serde::shape_sign::de_sign(_response_body, output).map_err(crate::operation::sign::SignError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output = crate::protocol_serde::shape_sign::de_sign(_response_body, output)
+            .map_err(crate::operation::sign::SignError::unhandled)?;
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
 
 pub fn ser_sign_input(
     input: &crate::operation::sign::SignInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+) -> ::std::result::Result<
+    ::aws_smithy_types::body::SdkBody,
+    ::aws_smithy_types::error::operation::SerializationError,
+> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_sign_input::ser_sign_input_input(&mut object, input)?;
@@ -185,8 +212,14 @@ pub fn ser_sign_input(
 pub(crate) fn de_sign(
     _value: &[u8],
     mut builder: crate::operation::sign::builders::SignOutputBuilder,
-) -> ::std::result::Result<crate::operation::sign::builders::SignOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+) -> ::std::result::Result<
+    crate::operation::sign::builders::SignOutputBuilder,
+    ::aws_smithy_json::deserialize::error::DeserializeError,
+> {
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
+        crate::protocol_serde::or_empty_doc(_value),
+    )
+    .peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -194,37 +227,53 @@ pub(crate) fn de_sign(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key
+                .to_unescaped()?
+                .as_ref()
+            {
                 "KeyId" => {
                     builder = builder.set_key_id(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                            tokens.next(),
+                        )?
+                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                        .transpose()?,
                     );
                 }
                 "Signature" => {
-                    builder = builder.set_signature(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?);
+                    builder = builder.set_signature(
+                        ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?,
+                    );
                 }
                 "SigningAlgorithm" => {
                     builder = builder.set_signing_algorithm(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| crate::types::SigningAlgorithmSpec::from(u.as_ref())))
-                            .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                            tokens.next(),
+                        )?
+                        .map(|s| {
+                            s.to_unescaped()
+                                .map(|u| crate::types::SigningAlgorithmSpec::from(u.as_ref()))
+                        })
+                        .transpose()?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
             other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
+                return Err(
+                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                        "expected object key or end object, found: {other:?}"
+                    )),
+                )
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "found more JSON tokens after completing parsing",
+            ),
+        );
     }
     Ok(builder)
 }

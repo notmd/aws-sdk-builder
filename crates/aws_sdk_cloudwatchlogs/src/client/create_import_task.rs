@@ -11,7 +11,11 @@ impl super::Client {
     ///   - [`import_destination_arn(Option<String>)`](crate::operation::create_import_task::CreateImportTaskOutput::import_destination_arn): <p>The ARN of the CloudWatch Logs log group created as the destination for the imported events.</p>
     ///   - [`creation_time(Option<i64>)`](crate::operation::create_import_task::CreateImportTaskOutput::creation_time): <p>The timestamp when the import task was created, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
     /// - On failure, responds with [`SdkError<CreateImportTaskError>`](crate::operation::create_import_task::CreateImportTaskError)
-    pub fn create_import_task(&self) -> crate::operation::create_import_task::builders::CreateImportTaskFluentBuilder {
-        crate::operation::create_import_task::builders::CreateImportTaskFluentBuilder::new(self.handle.clone())
+    pub fn create_import_task(
+        &self,
+    ) -> crate::operation::create_import_task::builders::CreateImportTaskFluentBuilder {
+        crate::operation::create_import_task::builders::CreateImportTaskFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

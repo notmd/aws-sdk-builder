@@ -5,13 +5,15 @@
 pub struct EnableOutboundWebIdentityFederationInput {}
 impl EnableOutboundWebIdentityFederationInput {
     /// Creates a new builder-style object to manufacture [`EnableOutboundWebIdentityFederationInput`](crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationInput).
-    pub fn builder() -> crate::operation::enable_outbound_web_identity_federation::builders::EnableOutboundWebIdentityFederationInputBuilder {
+    pub fn builder() -> crate::operation::enable_outbound_web_identity_federation::builders::EnableOutboundWebIdentityFederationInputBuilder{
         crate::operation::enable_outbound_web_identity_federation::builders::EnableOutboundWebIdentityFederationInputBuilder::default()
     }
 }
 
 /// A builder for [`EnableOutboundWebIdentityFederationInput`](crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct EnableOutboundWebIdentityFederationInputBuilder {}
 impl EnableOutboundWebIdentityFederationInputBuilder {
@@ -21,7 +23,7 @@ impl EnableOutboundWebIdentityFederationInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationInput,
         ::aws_smithy_types::error::operation::BuildError,
-    > {
+    >{
         ::std::result::Result::Ok(crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationInput {})
     }
 }

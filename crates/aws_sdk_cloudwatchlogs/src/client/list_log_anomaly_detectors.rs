@@ -11,7 +11,10 @@ impl super::Client {
     ///   - [`anomaly_detectors(Option<Vec::<AnomalyDetector>>)`](crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsOutput::anomaly_detectors): <p>An array of structures, where each structure in the array contains information about one anomaly detector.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsOutput::next_token): <p>The token for the next set of items to return. The token expires after 24 hours.</p>
     /// - On failure, responds with [`SdkError<ListLogAnomalyDetectorsError>`](crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsError)
-    pub fn list_log_anomaly_detectors(&self) -> crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsFluentBuilder {
+    pub fn list_log_anomaly_detectors(
+        &self,
+    ) -> crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsFluentBuilder
+    {
         crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsFluentBuilder::new(self.handle.clone())
     }
 }

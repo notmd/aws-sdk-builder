@@ -26,7 +26,8 @@ impl crate::operation::describe_delivery_sources::builders::DescribeDeliverySour
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DescribeDeliverySourcesFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::describe_delivery_sources::builders::DescribeDeliverySourcesInputBuilder,
+    inner:
+        crate::operation::describe_delivery_sources::builders::DescribeDeliverySourcesInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -57,7 +58,10 @@ impl DescribeDeliverySourcesFluentBuilder {
         }
     }
     /// Access the DescribeDeliverySources as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_delivery_sources::builders::DescribeDeliverySourcesInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_delivery_sources::builders::DescribeDeliverySourcesInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +90,11 @@ impl DescribeDeliverySourcesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_delivery_sources::DescribeDeliverySources::orchestrate(&runtime_plugins, input).await
+        crate::operation::describe_delivery_sources::DescribeDeliverySources::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,19 +107,28 @@ impl DescribeDeliverySourcesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_delivery_sources::paginator::DescribeDeliverySourcesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::describe_delivery_sources::paginator::DescribeDeliverySourcesPaginator {
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::describe_delivery_sources::paginator::DescribeDeliverySourcesPaginator
+    {
         crate::operation::describe_delivery_sources::paginator::DescribeDeliverySourcesPaginator::new(self.handle, self.inner)
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>

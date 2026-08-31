@@ -66,7 +66,9 @@ impl SearchVectorsFluentBuilder {
         }
     }
     /// Access the SearchVectors as a reference.
-    pub fn as_input(&self) -> &crate::operation::search_vectors::builders::SearchVectorsInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::search_vectors::builders::SearchVectorsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -90,11 +92,12 @@ impl SearchVectorsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::search_vectors::SearchVectors::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::search_vectors::SearchVectors::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::search_vectors::SearchVectors::orchestrate(&runtime_plugins, input).await
     }
 
@@ -108,12 +111,18 @@ impl SearchVectorsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -169,7 +178,10 @@ impl SearchVectorsFluentBuilder {
     /// <li>
     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
     /// </ul>
-    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
+    pub fn set_return_consumed_capacity(
+        mut self,
+        input: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
+    ) -> Self {
         self.inner = self.inner.set_return_consumed_capacity(input);
         self
     }
@@ -183,7 +195,9 @@ impl SearchVectorsFluentBuilder {
     /// <li>
     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
     /// </ul>
-    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
+    pub fn get_return_consumed_capacity(
+        &self,
+    ) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
         self.inner.get_return_consumed_capacity()
     }
     ///
@@ -203,7 +217,9 @@ impl SearchVectorsFluentBuilder {
     /// <p>One or more substitution tokens for attribute names in an expression. Use the <code>#</code> character in an expression to dereference an attribute name.</p>
     pub fn set_expression_attribute_names(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
     ) -> Self {
         self.inner = self.inner.set_expression_attribute_names(input);
         self
@@ -211,7 +227,9 @@ impl SearchVectorsFluentBuilder {
     /// <p>One or more substitution tokens for attribute names in an expression. Use the <code>#</code> character in an expression to dereference an attribute name.</p>
     pub fn get_expression_attribute_names(
         &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.inner.get_expression_attribute_names()
     }
     ///
@@ -220,14 +238,20 @@ impl SearchVectorsFluentBuilder {
     /// To override the contents of this collection use [`set_expression_attribute_values`](Self::set_expression_attribute_values).
     ///
     /// <p>One or more values that can be substituted in an expression. Use the <code>:</code> character in an expression to dereference an attribute value.</p>
-    pub fn expression_attribute_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
+    pub fn expression_attribute_values(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: crate::types::AttributeValue,
+    ) -> Self {
         self.inner = self.inner.expression_attribute_values(k.into(), v);
         self
     }
     /// <p>One or more values that can be substituted in an expression. Use the <code>:</code> character in an expression to dereference an attribute value.</p>
     pub fn set_expression_attribute_values(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
+        >,
     ) -> Self {
         self.inner = self.inner.set_expression_attribute_values(input);
         self
@@ -235,18 +259,26 @@ impl SearchVectorsFluentBuilder {
     /// <p>One or more values that can be substituted in an expression. Use the <code>:</code> character in an expression to dereference an attribute value.</p>
     pub fn get_expression_attribute_values(
         &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
+    > {
         self.inner.get_expression_attribute_values()
     }
     /// <p>A string that identifies one or more attributes to retrieve from the index. Separate attribute names with commas. If not specified, the operation returns all attributes projected into the vector index.</p>
     /// <p>Only attributes projected into the vector index can be retrieved.</p>
-    pub fn projection_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn projection_expression(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.projection_expression(input.into());
         self
     }
     /// <p>A string that identifies one or more attributes to retrieve from the index. Separate attribute names with commas. If not specified, the operation returns all attributes projected into the vector index.</p>
     /// <p>Only attributes projected into the vector index can be retrieved.</p>
-    pub fn set_projection_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_projection_expression(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_projection_expression(input);
         self
     }
@@ -268,24 +300,35 @@ impl SearchVectorsFluentBuilder {
     }
     /// <p>The search vector to compare against the indexed vectors. Each element is a 32-bit IEEE-754 floating point number, provided in DynamoDB list format.</p>
     /// <p>The number of dimensions must match the number of dimensions configured for the vector index.</p>
-    pub fn set_search_vector(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>) -> Self {
+    pub fn set_search_vector(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>,
+    ) -> Self {
         self.inner = self.inner.set_search_vector(input);
         self
     }
     /// <p>The search vector to compare against the indexed vectors. Each element is a 32-bit IEEE-754 floating point number, provided in DynamoDB list format.</p>
     /// <p>The number of dimensions must match the number of dimensions configured for the vector index.</p>
-    pub fn get_search_vector(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>> {
+    pub fn get_search_vector(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>> {
         self.inner.get_search_vector()
     }
     /// <p>A condition expression used to filter the vector search results. The expression can reference attributes defined in the vector index search schema, including <code>HASH</code> and <code>INLINE_FILTER</code> key elements.</p>
     /// <p>Only the equality operator (<code>=</code>) is supported for <code>HASH</code> attributes. Comparison and range operators are supported for <code>INLINE_FILTER</code> attributes. Only top-level attributes from the search schema can be referenced.</p>
-    pub fn search_condition_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn search_condition_expression(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.search_condition_expression(input.into());
         self
     }
     /// <p>A condition expression used to filter the vector search results. The expression can reference attributes defined in the vector index search schema, including <code>HASH</code> and <code>INLINE_FILTER</code> key elements.</p>
     /// <p>Only the equality operator (<code>=</code>) is supported for <code>HASH</code> attributes. Comparison and range operators are supported for <code>INLINE_FILTER</code> attributes. Only top-level attributes from the search schema can be referenced.</p>
-    pub fn set_search_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_search_condition_expression(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_search_condition_expression(input);
         self
     }

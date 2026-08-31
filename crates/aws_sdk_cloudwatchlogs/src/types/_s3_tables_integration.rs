@@ -27,7 +27,9 @@ impl S3TablesIntegration {
 }
 
 /// A builder for [`S3TablesIntegration`](crate::types::S3TablesIntegration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct S3TablesIntegrationBuilder {
     pub(crate) datasource_name: ::std::option::Option<::std::string::String>,
@@ -35,12 +37,18 @@ pub struct S3TablesIntegrationBuilder {
 }
 impl S3TablesIntegrationBuilder {
     /// <p>The name of the S3 Tables datasource.</p>
-    pub fn datasource_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn datasource_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.datasource_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the S3 Tables datasource.</p>
-    pub fn set_datasource_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_datasource_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.datasource_name = input;
         self
     }
@@ -49,12 +57,18 @@ impl S3TablesIntegrationBuilder {
         &self.datasource_name
     }
     /// <p>The type of the S3 Tables datasource.</p>
-    pub fn datasource_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn datasource_type(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.datasource_type = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The type of the S3 Tables datasource.</p>
-    pub fn set_datasource_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_datasource_type(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.datasource_type = input;
         self
     }

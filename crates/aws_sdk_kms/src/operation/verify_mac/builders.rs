@@ -36,14 +36,20 @@ pub struct VerifyMacFluentBuilder {
     inner: crate::operation::verify_mac::builders::VerifyMacInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
-impl crate::client::customize::internal::CustomizableSend<crate::operation::verify_mac::VerifyMacOutput, crate::operation::verify_mac::VerifyMacError>
-    for VerifyMacFluentBuilder
+impl
+    crate::client::customize::internal::CustomizableSend<
+        crate::operation::verify_mac::VerifyMacOutput,
+        crate::operation::verify_mac::VerifyMacError,
+    > for VerifyMacFluentBuilder
 {
     fn send(
         self,
         config_override: crate::config::Builder,
     ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<crate::operation::verify_mac::VerifyMacOutput, crate::operation::verify_mac::VerifyMacError>,
+        crate::client::customize::internal::SendResult<
+            crate::operation::verify_mac::VerifyMacOutput,
+            crate::operation::verify_mac::VerifyMacError,
+        >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -100,12 +106,18 @@ impl VerifyMacFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -149,7 +161,10 @@ impl VerifyMacFluentBuilder {
         self
     }
     /// <p>The MAC algorithm that will be used in the verification. Enter the same MAC algorithm that was used to compute the HMAC. This algorithm must be supported by the HMAC KMS key identified by the <code>KeyId</code> parameter.</p>
-    pub fn set_mac_algorithm(mut self, input: ::std::option::Option<crate::types::MacAlgorithmSpec>) -> Self {
+    pub fn set_mac_algorithm(
+        mut self,
+        input: ::std::option::Option<crate::types::MacAlgorithmSpec>,
+    ) -> Self {
         self.inner = self.inner.set_mac_algorithm(input);
         self
     }
@@ -184,13 +199,18 @@ impl VerifyMacFluentBuilder {
     }
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_grant_tokens(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.inner = self.inner.set_grant_tokens(input);
         self
     }
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_grant_tokens(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_grant_tokens()
     }
     /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>

@@ -60,7 +60,9 @@ impl ListGlobalTablesFluentBuilder {
         }
     }
     /// Access the ListGlobalTables as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_global_tables::builders::ListGlobalTablesInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_global_tables::builders::ListGlobalTablesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,12 +86,14 @@ impl ListGlobalTablesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_global_tables::ListGlobalTables::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_global_tables::ListGlobalTables::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::list_global_tables::ListGlobalTables::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_global_tables::ListGlobalTables::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -102,27 +106,41 @@ impl ListGlobalTablesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The first global table name that this operation will evaluate.</p>
-    pub fn exclusive_start_global_table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn exclusive_start_global_table_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.exclusive_start_global_table_name(input.into());
         self
     }
     /// <p>The first global table name that this operation will evaluate.</p>
-    pub fn set_exclusive_start_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_exclusive_start_global_table_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_exclusive_start_global_table_name(input);
         self
     }
     /// <p>The first global table name that this operation will evaluate.</p>
-    pub fn get_exclusive_start_global_table_name(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_exclusive_start_global_table_name(
+        &self,
+    ) -> &::std::option::Option<::std::string::String> {
         self.inner.get_exclusive_start_global_table_name()
     }
     /// <p>The maximum number of table names to return, if the parameter is not specified DynamoDB defaults to 100.</p>

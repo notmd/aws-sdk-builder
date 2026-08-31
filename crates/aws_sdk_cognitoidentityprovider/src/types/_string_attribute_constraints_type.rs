@@ -27,7 +27,9 @@ impl StringAttributeConstraintsType {
 }
 
 /// A builder for [`StringAttributeConstraintsType`](crate::types::StringAttributeConstraintsType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct StringAttributeConstraintsTypeBuilder {
     pub(crate) min_length: ::std::option::Option<::std::string::String>,

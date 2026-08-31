@@ -5,13 +5,15 @@
 pub struct GetSmsSandboxAccountStatusInput {}
 impl GetSmsSandboxAccountStatusInput {
     /// Creates a new builder-style object to manufacture [`GetSmsSandboxAccountStatusInput`](crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusInput).
-    pub fn builder() -> crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusInputBuilder {
+    pub fn builder() -> crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusInputBuilder{
         crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusInputBuilder::default()
     }
 }
 
 /// A builder for [`GetSmsSandboxAccountStatusInput`](crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetSmsSandboxAccountStatusInputBuilder {}
 impl GetSmsSandboxAccountStatusInputBuilder {
@@ -22,6 +24,8 @@ impl GetSmsSandboxAccountStatusInputBuilder {
         crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusInput {})
+        ::std::result::Result::Ok(
+            crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusInput {},
+        )
     }
 }

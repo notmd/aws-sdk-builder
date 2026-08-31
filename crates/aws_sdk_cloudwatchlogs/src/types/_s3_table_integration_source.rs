@@ -51,7 +51,9 @@ impl S3TableIntegrationSource {
 }
 
 /// A builder for [`S3TableIntegrationSource`](crate::types::S3TableIntegrationSource).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct S3TableIntegrationSourceBuilder {
     pub(crate) identifier: ::std::option::Option<::std::string::String>,
@@ -82,7 +84,10 @@ impl S3TableIntegrationSourceBuilder {
         self
     }
     /// <p>The data source associated with the S3 Table Integration.</p>
-    pub fn set_data_source(mut self, input: ::std::option::Option<crate::types::DataSource>) -> Self {
+    pub fn set_data_source(
+        mut self,
+        input: ::std::option::Option<crate::types::DataSource>,
+    ) -> Self {
         self.data_source = input;
         self
     }
@@ -96,21 +101,32 @@ impl S3TableIntegrationSourceBuilder {
         self
     }
     /// <p>The current status of the data source association.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::S3TableIntegrationSourceStatus>) -> Self {
+    pub fn set_status(
+        mut self,
+        input: ::std::option::Option<crate::types::S3TableIntegrationSourceStatus>,
+    ) -> Self {
         self.status = input;
         self
     }
     /// <p>The current status of the data source association.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::S3TableIntegrationSourceStatus> {
+    pub fn get_status(
+        &self,
+    ) -> &::std::option::Option<crate::types::S3TableIntegrationSourceStatus> {
         &self.status
     }
     /// <p>Additional information about the status of the data source association.</p>
-    pub fn status_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn status_reason(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.status_reason = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Additional information about the status of the data source association.</p>
-    pub fn set_status_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_status_reason(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.status_reason = input;
         self
     }
@@ -133,12 +149,18 @@ impl S3TableIntegrationSourceBuilder {
         &self.created_time_stamp
     }
     /// <p>The identifier of the parent data source for this association.</p>
-    pub fn parent_source_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn parent_source_identifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.parent_source_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The identifier of the parent data source for this association.</p>
-    pub fn set_parent_source_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_parent_source_identifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.parent_source_identifier = input;
         self
     }

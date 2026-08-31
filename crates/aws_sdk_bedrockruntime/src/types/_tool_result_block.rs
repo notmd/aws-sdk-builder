@@ -45,11 +45,14 @@ impl ToolResultBlock {
 }
 
 /// A builder for [`ToolResultBlock`](crate::types::ToolResultBlock).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ToolResultBlockBuilder {
     pub(crate) tool_use_id: ::std::option::Option<::std::string::String>,
-    pub(crate) content: ::std::option::Option<::std::vec::Vec<crate::types::ToolResultContentBlock>>,
+    pub(crate) content:
+        ::std::option::Option<::std::vec::Vec<crate::types::ToolResultContentBlock>>,
     pub(crate) status: ::std::option::Option<crate::types::ToolResultStatus>,
     pub(crate) r#type: ::std::option::Option<::std::string::String>,
 }
@@ -81,12 +84,17 @@ impl ToolResultBlockBuilder {
         self
     }
     /// <p>The content for tool result content block.</p>
-    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ToolResultContentBlock>>) -> Self {
+    pub fn set_content(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ToolResultContentBlock>>,
+    ) -> Self {
         self.content = input;
         self
     }
     /// <p>The content for tool result content block.</p>
-    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ToolResultContentBlock>> {
+    pub fn get_content(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ToolResultContentBlock>> {
         &self.content
     }
     /// <p>The status for the tool result content block.</p><note>
@@ -99,7 +107,10 @@ impl ToolResultBlockBuilder {
     /// <p>The status for the tool result content block.</p><note>
     /// <p>This field is only supported by Amazon Nova and Anthropic Claude 3 and 4 models.</p>
     /// </note>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ToolResultStatus>) -> Self {
+    pub fn set_status(
+        mut self,
+        input: ::std::option::Option<crate::types::ToolResultStatus>,
+    ) -> Self {
         self.status = input;
         self
     }
@@ -127,7 +138,12 @@ impl ToolResultBlockBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`tool_use_id`](crate::types::builders::ToolResultBlockBuilder::tool_use_id)
     /// - [`content`](crate::types::builders::ToolResultBlockBuilder::content)
-    pub fn build(self) -> ::std::result::Result<crate::types::ToolResultBlock, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::ToolResultBlock,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::ToolResultBlock {
             tool_use_id: self.tool_use_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

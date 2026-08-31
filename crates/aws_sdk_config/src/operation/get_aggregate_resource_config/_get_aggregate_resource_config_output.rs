@@ -20,13 +20,15 @@ impl ::aws_types::request_id::RequestId for GetAggregateResourceConfigOutput {
 }
 impl GetAggregateResourceConfigOutput {
     /// Creates a new builder-style object to manufacture [`GetAggregateResourceConfigOutput`](crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigOutput).
-    pub fn builder() -> crate::operation::get_aggregate_resource_config::builders::GetAggregateResourceConfigOutputBuilder {
+    pub fn builder() -> crate::operation::get_aggregate_resource_config::builders::GetAggregateResourceConfigOutputBuilder{
         crate::operation::get_aggregate_resource_config::builders::GetAggregateResourceConfigOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetAggregateResourceConfigOutput`](crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetAggregateResourceConfigOutputBuilder {
     pub(crate) configuration_item: ::std::option::Option<crate::types::ConfigurationItem>,
@@ -39,12 +41,17 @@ impl GetAggregateResourceConfigOutputBuilder {
         self
     }
     /// <p>Returns a <code>ConfigurationItem</code> object.</p>
-    pub fn set_configuration_item(mut self, input: ::std::option::Option<crate::types::ConfigurationItem>) -> Self {
+    pub fn set_configuration_item(
+        mut self,
+        input: ::std::option::Option<crate::types::ConfigurationItem>,
+    ) -> Self {
         self.configuration_item = input;
         self
     }
     /// <p>Returns a <code>ConfigurationItem</code> object.</p>
-    pub fn get_configuration_item(&self) -> &::std::option::Option<crate::types::ConfigurationItem> {
+    pub fn get_configuration_item(
+        &self,
+    ) -> &::std::option::Option<crate::types::ConfigurationItem> {
         &self.configuration_item
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -57,7 +64,9 @@ impl GetAggregateResourceConfigOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetAggregateResourceConfigOutput`](crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigOutput).
-    pub fn build(self) -> crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigOutput {
         crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigOutput {
             configuration_item: self.configuration_item,
             _request_id: self._request_id,

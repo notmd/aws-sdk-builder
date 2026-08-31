@@ -11,7 +11,12 @@ impl super::Client {
     ///   - [`next_rotation_date(Option<DateTime>)`](crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput::next_rotation_date): <p>The next date that KMS will automatically rotate the key material.</p>
     ///   - [`on_demand_rotation_start_date(Option<DateTime>)`](crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput::on_demand_rotation_start_date): <p>Identifies the date and time that an in progress on-demand rotation was initiated.</p> <p>KMS uses a background process to perform rotations. As a result, there might be a slight delay between initiating on-demand key rotation and the rotation's completion. Once the on-demand rotation is complete, KMS removes this field from the response. You can use <code>ListKeyRotations</code> to view the details of the completed on-demand rotation.</p>
     /// - On failure, responds with [`SdkError<GetKeyRotationStatusError>`](crate::operation::get_key_rotation_status::GetKeyRotationStatusError)
-    pub fn get_key_rotation_status(&self) -> crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusFluentBuilder {
-        crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusFluentBuilder::new(self.handle.clone())
+    pub fn get_key_rotation_status(
+        &self,
+    ) -> crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusFluentBuilder
+    {
+        crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

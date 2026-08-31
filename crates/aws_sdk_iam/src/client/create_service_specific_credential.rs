@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CreateServiceSpecificCredentialError>`](crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialError)
     pub fn create_service_specific_credential(
         &self,
-    ) -> crate::operation::create_service_specific_credential::builders::CreateServiceSpecificCredentialFluentBuilder {
+    ) -> crate::operation::create_service_specific_credential::builders::CreateServiceSpecificCredentialFluentBuilder{
         crate::operation::create_service_specific_credential::builders::CreateServiceSpecificCredentialFluentBuilder::new(self.handle.clone())
     }
 }

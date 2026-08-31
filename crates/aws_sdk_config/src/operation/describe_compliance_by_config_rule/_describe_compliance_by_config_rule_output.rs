@@ -5,7 +5,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeComplianceByConfigRuleOutput {
     /// <p>Indicates whether each of the specified Config rules is compliant.</p>
-    pub compliance_by_config_rules: ::std::option::Option<::std::vec::Vec<crate::types::ComplianceByConfigRule>>,
+    pub compliance_by_config_rules:
+        ::std::option::Option<::std::vec::Vec<crate::types::ComplianceByConfigRule>>,
     /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -15,7 +16,9 @@ impl DescribeComplianceByConfigRuleOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.compliance_by_config_rules.is_none()`.
     pub fn compliance_by_config_rules(&self) -> &[crate::types::ComplianceByConfigRule] {
-        self.compliance_by_config_rules.as_deref().unwrap_or_default()
+        self.compliance_by_config_rules
+            .as_deref()
+            .unwrap_or_default()
     }
     /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -29,16 +32,19 @@ impl ::aws_types::request_id::RequestId for DescribeComplianceByConfigRuleOutput
 }
 impl DescribeComplianceByConfigRuleOutput {
     /// Creates a new builder-style object to manufacture [`DescribeComplianceByConfigRuleOutput`](crate::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleOutput).
-    pub fn builder() -> crate::operation::describe_compliance_by_config_rule::builders::DescribeComplianceByConfigRuleOutputBuilder {
+    pub fn builder() -> crate::operation::describe_compliance_by_config_rule::builders::DescribeComplianceByConfigRuleOutputBuilder{
         crate::operation::describe_compliance_by_config_rule::builders::DescribeComplianceByConfigRuleOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeComplianceByConfigRuleOutput`](crate::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeComplianceByConfigRuleOutputBuilder {
-    pub(crate) compliance_by_config_rules: ::std::option::Option<::std::vec::Vec<crate::types::ComplianceByConfigRule>>,
+    pub(crate) compliance_by_config_rules:
+        ::std::option::Option<::std::vec::Vec<crate::types::ComplianceByConfigRule>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -48,19 +54,27 @@ impl DescribeComplianceByConfigRuleOutputBuilder {
     /// To override the contents of this collection use [`set_compliance_by_config_rules`](Self::set_compliance_by_config_rules).
     ///
     /// <p>Indicates whether each of the specified Config rules is compliant.</p>
-    pub fn compliance_by_config_rules(mut self, input: crate::types::ComplianceByConfigRule) -> Self {
+    pub fn compliance_by_config_rules(
+        mut self,
+        input: crate::types::ComplianceByConfigRule,
+    ) -> Self {
         let mut v = self.compliance_by_config_rules.unwrap_or_default();
         v.push(input);
         self.compliance_by_config_rules = ::std::option::Option::Some(v);
         self
     }
     /// <p>Indicates whether each of the specified Config rules is compliant.</p>
-    pub fn set_compliance_by_config_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ComplianceByConfigRule>>) -> Self {
+    pub fn set_compliance_by_config_rules(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ComplianceByConfigRule>>,
+    ) -> Self {
         self.compliance_by_config_rules = input;
         self
     }
     /// <p>Indicates whether each of the specified Config rules is compliant.</p>
-    pub fn get_compliance_by_config_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ComplianceByConfigRule>> {
+    pub fn get_compliance_by_config_rules(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ComplianceByConfigRule>> {
         &self.compliance_by_config_rules
     }
     /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>
@@ -87,7 +101,10 @@ impl DescribeComplianceByConfigRuleOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeComplianceByConfigRuleOutput`](crate::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleOutput).
-    pub fn build(self) -> crate::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleOutput
+    {
         crate::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleOutput {
             compliance_by_config_rules: self.compliance_by_config_rules,
             next_token: self.next_token,

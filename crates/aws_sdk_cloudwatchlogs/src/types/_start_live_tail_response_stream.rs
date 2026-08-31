@@ -21,7 +21,9 @@ pub enum StartLiveTailResponseStream {
 impl StartLiveTailResponseStream {
     /// Tries to convert the enum instance into [`SessionStart`](crate::types::StartLiveTailResponseStream::SessionStart), extracting the inner [`LiveTailSessionStart`](crate::types::LiveTailSessionStart).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_session_start(&self) -> ::std::result::Result<&crate::types::LiveTailSessionStart, &Self> {
+    pub fn as_session_start(
+        &self,
+    ) -> ::std::result::Result<&crate::types::LiveTailSessionStart, &Self> {
         if let StartLiveTailResponseStream::SessionStart(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -34,7 +36,9 @@ impl StartLiveTailResponseStream {
     }
     /// Tries to convert the enum instance into [`SessionUpdate`](crate::types::StartLiveTailResponseStream::SessionUpdate), extracting the inner [`LiveTailSessionUpdate`](crate::types::LiveTailSessionUpdate).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_session_update(&self) -> ::std::result::Result<&crate::types::LiveTailSessionUpdate, &Self> {
+    pub fn as_session_update(
+        &self,
+    ) -> ::std::result::Result<&crate::types::LiveTailSessionUpdate, &Self> {
         if let StartLiveTailResponseStream::SessionUpdate(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

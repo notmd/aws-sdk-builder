@@ -13,7 +13,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListFunctionEventInvokeConfigsError>`](crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsError)
     pub fn list_function_event_invoke_configs(
         &self,
-    ) -> crate::operation::list_function_event_invoke_configs::builders::ListFunctionEventInvokeConfigsFluentBuilder {
+    ) -> crate::operation::list_function_event_invoke_configs::builders::ListFunctionEventInvokeConfigsFluentBuilder{
         crate::operation::list_function_event_invoke_configs::builders::ListFunctionEventInvokeConfigsFluentBuilder::new(self.handle.clone())
     }
 }

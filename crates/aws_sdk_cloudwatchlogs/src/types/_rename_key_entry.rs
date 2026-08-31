@@ -35,7 +35,9 @@ impl RenameKeyEntry {
 }
 
 /// A builder for [`RenameKeyEntry`](crate::types::RenameKeyEntry).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RenameKeyEntryBuilder {
     pub(crate) key: ::std::option::Option<::std::string::String>,
@@ -91,7 +93,12 @@ impl RenameKeyEntryBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`key`](crate::types::builders::RenameKeyEntryBuilder::key)
     /// - [`rename_to`](crate::types::builders::RenameKeyEntryBuilder::rename_to)
-    pub fn build(self) -> ::std::result::Result<crate::types::RenameKeyEntry, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::RenameKeyEntry,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::RenameKeyEntry {
             key: self.key.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

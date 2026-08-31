@@ -29,7 +29,9 @@ impl ResourceServerScopeType {
 }
 
 /// A builder for [`ResourceServerScopeType`](crate::types::ResourceServerScopeType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ResourceServerScopeTypeBuilder {
     pub(crate) scope_name: ::std::option::Option<::std::string::String>,
@@ -53,12 +55,18 @@ impl ResourceServerScopeTypeBuilder {
     }
     /// <p>A friendly description of a custom scope.</p>
     /// This field is required.
-    pub fn scope_description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn scope_description(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.scope_description = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A friendly description of a custom scope.</p>
-    pub fn set_scope_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_scope_description(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.scope_description = input;
         self
     }
@@ -70,7 +78,12 @@ impl ResourceServerScopeTypeBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`scope_name`](crate::types::builders::ResourceServerScopeTypeBuilder::scope_name)
     /// - [`scope_description`](crate::types::builders::ResourceServerScopeTypeBuilder::scope_description)
-    pub fn build(self) -> ::std::result::Result<crate::types::ResourceServerScopeType, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::ResourceServerScopeType,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::ResourceServerScopeType {
             scope_name: self.scope_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

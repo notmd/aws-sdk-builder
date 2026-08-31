@@ -2,7 +2,12 @@
 #[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam"))]
 pub use crate::types::_access_denied_exception_reason::AccessDeniedExceptionReason;
 
-#[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
+#[cfg(any(
+    feature = "op_create_token",
+    feature = "op_create_token_with_iam",
+    feature = "op_register_client",
+    feature = "op_start_device_authorization"
+))]
 pub use crate::types::_invalid_request_exception_reason::InvalidRequestExceptionReason;
 
 #[cfg(feature = "op_create_token_with_iam")]
@@ -14,7 +19,12 @@ mod _access_denied_exception_reason;
 #[cfg(feature = "op_create_token_with_iam")]
 mod _aws_additional_details;
 
-#[cfg(any(feature = "op_create_token", feature = "op_create_token_with_iam", feature = "op_register_client", feature = "op_start_device_authorization"))]
+#[cfg(any(
+    feature = "op_create_token",
+    feature = "op_create_token_with_iam",
+    feature = "op_register_client",
+    feature = "op_start_device_authorization"
+))]
 mod _invalid_request_exception_reason;
 
 /// Builders

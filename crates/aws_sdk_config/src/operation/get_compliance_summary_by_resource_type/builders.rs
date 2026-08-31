@@ -57,7 +57,7 @@ impl GetComplianceSummaryByResourceTypeFluentBuilder {
         }
     }
     /// Access the GetComplianceSummaryByResourceType as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +76,7 @@ impl GetComplianceSummaryByResourceTypeFluentBuilder {
             crate::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -97,15 +97,21 @@ impl GetComplianceSummaryByResourceTypeFluentBuilder {
         crate::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeOutput,
         crate::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -116,19 +122,27 @@ impl GetComplianceSummaryByResourceTypeFluentBuilder {
     ///
     /// <p>Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type.</p>
     /// <p>For this request, you can specify an Amazon Web Services resource type such as <code>AWS::EC2::Instance</code>. You can specify that the resource type is an Amazon Web Services account by specifying <code>AWS::::Account</code>.</p>
-    pub fn resource_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn resource_types(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.resource_types(input.into());
         self
     }
     /// <p>Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type.</p>
     /// <p>For this request, you can specify an Amazon Web Services resource type such as <code>AWS::EC2::Instance</code>. You can specify that the resource type is an Amazon Web Services account by specifying <code>AWS::::Account</code>.</p>
-    pub fn set_resource_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_resource_types(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.inner = self.inner.set_resource_types(input);
         self
     }
     /// <p>Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type.</p>
     /// <p>For this request, you can specify an Amazon Web Services resource type such as <code>AWS::EC2::Instance</code>. You can specify that the resource type is an Amazon Web Services account by specifying <code>AWS::::Account</code>.</p>
-    pub fn get_resource_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_resource_types(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_resource_types()
     }
 }

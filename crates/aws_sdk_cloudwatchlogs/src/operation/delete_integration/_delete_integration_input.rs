@@ -22,13 +22,16 @@ impl DeleteIntegrationInput {
 }
 impl DeleteIntegrationInput {
     /// Creates a new builder-style object to manufacture [`DeleteIntegrationInput`](crate::operation::delete_integration::DeleteIntegrationInput).
-    pub fn builder() -> crate::operation::delete_integration::builders::DeleteIntegrationInputBuilder {
+    pub fn builder() -> crate::operation::delete_integration::builders::DeleteIntegrationInputBuilder
+    {
         crate::operation::delete_integration::builders::DeleteIntegrationInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteIntegrationInput`](crate::operation::delete_integration::DeleteIntegrationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteIntegrationInputBuilder {
     pub(crate) integration_name: ::std::option::Option<::std::string::String>,
@@ -37,12 +40,18 @@ pub struct DeleteIntegrationInputBuilder {
 impl DeleteIntegrationInputBuilder {
     /// <p>The name of the integration to delete. To find the name of your integration, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListIntegrations.html">ListIntegrations</a>.</p>
     /// This field is required.
-    pub fn integration_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn integration_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.integration_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the integration to delete. To find the name of your integration, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListIntegrations.html">ListIntegrations</a>.</p>
-    pub fn set_integration_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_integration_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.integration_name = input;
         self
     }
@@ -70,10 +79,15 @@ impl DeleteIntegrationInputBuilder {
     /// Consumes the builder and constructs a [`DeleteIntegrationInput`](crate::operation::delete_integration::DeleteIntegrationInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_integration::DeleteIntegrationInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_integration::DeleteIntegrationInput {
-            integration_name: self.integration_name,
-            force: self.force,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::delete_integration::DeleteIntegrationInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::delete_integration::DeleteIntegrationInput {
+                integration_name: self.integration_name,
+                force: self.force,
+            },
+        )
     }
 }

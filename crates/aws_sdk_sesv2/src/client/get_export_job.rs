@@ -15,7 +15,11 @@ impl super::Client {
     ///   - [`failure_info(Option<FailureInfo>)`](crate::operation::get_export_job::GetExportJobOutput::failure_info): <p>The failure details about an export job.</p>
     ///   - [`statistics(Option<ExportStatistics>)`](crate::operation::get_export_job::GetExportJobOutput::statistics): <p>The statistics about the export job.</p>
     /// - On failure, responds with [`SdkError<GetExportJobError>`](crate::operation::get_export_job::GetExportJobError)
-    pub fn get_export_job(&self) -> crate::operation::get_export_job::builders::GetExportJobFluentBuilder {
-        crate::operation::get_export_job::builders::GetExportJobFluentBuilder::new(self.handle.clone())
+    pub fn get_export_job(
+        &self,
+    ) -> crate::operation::get_export_job::builders::GetExportJobFluentBuilder {
+        crate::operation::get_export_job::builders::GetExportJobFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -21,9 +21,11 @@ pub struct KafkaSchemaRegistryConfig {
     /// </ul>
     pub event_record_format: ::std::option::Option<crate::types::SchemaRegistryEventRecordFormat>,
     /// <p>An array of access configuration objects that tell Lambda how to authenticate with your schema registry.</p>
-    pub access_configs: ::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaRegistryAccessConfig>>,
+    pub access_configs:
+        ::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaRegistryAccessConfig>>,
     /// <p>An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.</p>
-    pub schema_validation_configs: ::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaValidationConfig>>,
+    pub schema_validation_configs:
+        ::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaValidationConfig>>,
 }
 impl KafkaSchemaRegistryConfig {
     /// <p>The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.</p>
@@ -43,7 +45,9 @@ impl KafkaSchemaRegistryConfig {
     /// <li>
     /// <p>Choose <code>SOURCE</code> to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.</p></li>
     /// </ul>
-    pub fn event_record_format(&self) -> ::std::option::Option<&crate::types::SchemaRegistryEventRecordFormat> {
+    pub fn event_record_format(
+        &self,
+    ) -> ::std::option::Option<&crate::types::SchemaRegistryEventRecordFormat> {
         self.event_record_format.as_ref()
     }
     /// <p>An array of access configuration objects that tell Lambda how to authenticate with your schema registry.</p>
@@ -56,7 +60,9 @@ impl KafkaSchemaRegistryConfig {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.schema_validation_configs.is_none()`.
     pub fn schema_validation_configs(&self) -> &[crate::types::KafkaSchemaValidationConfig] {
-        self.schema_validation_configs.as_deref().unwrap_or_default()
+        self.schema_validation_configs
+            .as_deref()
+            .unwrap_or_default()
     }
 }
 impl KafkaSchemaRegistryConfig {
@@ -67,13 +73,18 @@ impl KafkaSchemaRegistryConfig {
 }
 
 /// A builder for [`KafkaSchemaRegistryConfig`](crate::types::KafkaSchemaRegistryConfig).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct KafkaSchemaRegistryConfigBuilder {
     pub(crate) schema_registry_uri: ::std::option::Option<::std::string::String>,
-    pub(crate) event_record_format: ::std::option::Option<crate::types::SchemaRegistryEventRecordFormat>,
-    pub(crate) access_configs: ::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaRegistryAccessConfig>>,
-    pub(crate) schema_validation_configs: ::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaValidationConfig>>,
+    pub(crate) event_record_format:
+        ::std::option::Option<crate::types::SchemaRegistryEventRecordFormat>,
+    pub(crate) access_configs:
+        ::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaRegistryAccessConfig>>,
+    pub(crate) schema_validation_configs:
+        ::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaValidationConfig>>,
 }
 impl KafkaSchemaRegistryConfigBuilder {
     /// <p>The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.</p>
@@ -83,7 +94,10 @@ impl KafkaSchemaRegistryConfigBuilder {
     /// <li>
     /// <p>For Confluent schema registries, use the URL of the registry.</p></li>
     /// </ul>
-    pub fn schema_registry_uri(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn schema_registry_uri(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.schema_registry_uri = ::std::option::Option::Some(input.into());
         self
     }
@@ -94,7 +108,10 @@ impl KafkaSchemaRegistryConfigBuilder {
     /// <li>
     /// <p>For Confluent schema registries, use the URL of the registry.</p></li>
     /// </ul>
-    pub fn set_schema_registry_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_schema_registry_uri(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.schema_registry_uri = input;
         self
     }
@@ -115,7 +132,10 @@ impl KafkaSchemaRegistryConfigBuilder {
     /// <li>
     /// <p>Choose <code>SOURCE</code> to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.</p></li>
     /// </ul>
-    pub fn event_record_format(mut self, input: crate::types::SchemaRegistryEventRecordFormat) -> Self {
+    pub fn event_record_format(
+        mut self,
+        input: crate::types::SchemaRegistryEventRecordFormat,
+    ) -> Self {
         self.event_record_format = ::std::option::Option::Some(input);
         self
     }
@@ -126,7 +146,10 @@ impl KafkaSchemaRegistryConfigBuilder {
     /// <li>
     /// <p>Choose <code>SOURCE</code> to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.</p></li>
     /// </ul>
-    pub fn set_event_record_format(mut self, input: ::std::option::Option<crate::types::SchemaRegistryEventRecordFormat>) -> Self {
+    pub fn set_event_record_format(
+        mut self,
+        input: ::std::option::Option<crate::types::SchemaRegistryEventRecordFormat>,
+    ) -> Self {
         self.event_record_format = input;
         self
     }
@@ -137,7 +160,9 @@ impl KafkaSchemaRegistryConfigBuilder {
     /// <li>
     /// <p>Choose <code>SOURCE</code> to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.</p></li>
     /// </ul>
-    pub fn get_event_record_format(&self) -> &::std::option::Option<crate::types::SchemaRegistryEventRecordFormat> {
+    pub fn get_event_record_format(
+        &self,
+    ) -> &::std::option::Option<crate::types::SchemaRegistryEventRecordFormat> {
         &self.event_record_format
     }
     /// Appends an item to `access_configs`.
@@ -152,12 +177,20 @@ impl KafkaSchemaRegistryConfigBuilder {
         self
     }
     /// <p>An array of access configuration objects that tell Lambda how to authenticate with your schema registry.</p>
-    pub fn set_access_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaRegistryAccessConfig>>) -> Self {
+    pub fn set_access_configs(
+        mut self,
+        input: ::std::option::Option<
+            ::std::vec::Vec<crate::types::KafkaSchemaRegistryAccessConfig>,
+        >,
+    ) -> Self {
         self.access_configs = input;
         self
     }
     /// <p>An array of access configuration objects that tell Lambda how to authenticate with your schema registry.</p>
-    pub fn get_access_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaRegistryAccessConfig>> {
+    pub fn get_access_configs(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaRegistryAccessConfig>>
+    {
         &self.access_configs
     }
     /// Appends an item to `schema_validation_configs`.
@@ -165,19 +198,27 @@ impl KafkaSchemaRegistryConfigBuilder {
     /// To override the contents of this collection use [`set_schema_validation_configs`](Self::set_schema_validation_configs).
     ///
     /// <p>An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.</p>
-    pub fn schema_validation_configs(mut self, input: crate::types::KafkaSchemaValidationConfig) -> Self {
+    pub fn schema_validation_configs(
+        mut self,
+        input: crate::types::KafkaSchemaValidationConfig,
+    ) -> Self {
         let mut v = self.schema_validation_configs.unwrap_or_default();
         v.push(input);
         self.schema_validation_configs = ::std::option::Option::Some(v);
         self
     }
     /// <p>An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.</p>
-    pub fn set_schema_validation_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaValidationConfig>>) -> Self {
+    pub fn set_schema_validation_configs(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaValidationConfig>>,
+    ) -> Self {
         self.schema_validation_configs = input;
         self
     }
     /// <p>An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.</p>
-    pub fn get_schema_validation_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaValidationConfig>> {
+    pub fn get_schema_validation_configs(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaValidationConfig>> {
         &self.schema_validation_configs
     }
     /// Consumes the builder and constructs a [`KafkaSchemaRegistryConfig`](crate::types::KafkaSchemaRegistryConfig).

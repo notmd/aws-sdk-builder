@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetDeliveryDestinationPolicyError>`](crate::operation::get_delivery_destination_policy::GetDeliveryDestinationPolicyError)
     pub fn get_delivery_destination_policy(
         &self,
-    ) -> crate::operation::get_delivery_destination_policy::builders::GetDeliveryDestinationPolicyFluentBuilder {
+    ) -> crate::operation::get_delivery_destination_policy::builders::GetDeliveryDestinationPolicyFluentBuilder{
         crate::operation::get_delivery_destination_policy::builders::GetDeliveryDestinationPolicyFluentBuilder::new(self.handle.clone())
     }
 }

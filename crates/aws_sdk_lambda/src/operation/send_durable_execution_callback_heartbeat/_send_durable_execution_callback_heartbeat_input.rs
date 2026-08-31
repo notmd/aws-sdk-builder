@@ -14,13 +14,15 @@ impl SendDurableExecutionCallbackHeartbeatInput {
 }
 impl SendDurableExecutionCallbackHeartbeatInput {
     /// Creates a new builder-style object to manufacture [`SendDurableExecutionCallbackHeartbeatInput`](crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput).
-    pub fn builder() -> crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatInputBuilder {
+    pub fn builder() -> crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatInputBuilder{
         crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatInputBuilder::default()
     }
 }
 
 /// A builder for [`SendDurableExecutionCallbackHeartbeatInput`](crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SendDurableExecutionCallbackHeartbeatInputBuilder {
     pub(crate) callback_id: ::std::option::Option<::std::string::String>,
@@ -47,7 +49,7 @@ impl SendDurableExecutionCallbackHeartbeatInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput,
         ::aws_smithy_types::error::operation::BuildError,
-    > {
+    >{
         ::std::result::Result::Ok(
             crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput {
                 callback_id: self.callback_id,

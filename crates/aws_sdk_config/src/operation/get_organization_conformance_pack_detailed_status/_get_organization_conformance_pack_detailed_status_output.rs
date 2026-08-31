@@ -4,8 +4,9 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetOrganizationConformancePackDetailedStatusOutput {
     /// <p>A list of <code>OrganizationConformancePackDetailedStatus</code> objects.</p>
-    pub organization_conformance_pack_detailed_statuses:
-        ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConformancePackDetailedStatus>>,
+    pub organization_conformance_pack_detailed_statuses: ::std::option::Option<
+        ::std::vec::Vec<crate::types::OrganizationConformancePackDetailedStatus>,
+    >,
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -14,8 +15,12 @@ impl GetOrganizationConformancePackDetailedStatusOutput {
     /// <p>A list of <code>OrganizationConformancePackDetailedStatus</code> objects.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.organization_conformance_pack_detailed_statuses.is_none()`.
-    pub fn organization_conformance_pack_detailed_statuses(&self) -> &[crate::types::OrganizationConformancePackDetailedStatus] {
-        self.organization_conformance_pack_detailed_statuses.as_deref().unwrap_or_default()
+    pub fn organization_conformance_pack_detailed_statuses(
+        &self,
+    ) -> &[crate::types::OrganizationConformancePackDetailedStatus] {
+        self.organization_conformance_pack_detailed_statuses
+            .as_deref()
+            .unwrap_or_default()
     }
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -31,17 +36,20 @@ impl GetOrganizationConformancePackDetailedStatusOutput {
     /// Creates a new builder-style object to manufacture [`GetOrganizationConformancePackDetailedStatusOutput`](crate::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusOutput).
     pub fn builder(
     ) -> crate::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusOutputBuilder
-    {
+{
         crate::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetOrganizationConformancePackDetailedStatusOutput`](crate::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetOrganizationConformancePackDetailedStatusOutputBuilder {
-    pub(crate) organization_conformance_pack_detailed_statuses:
-        ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConformancePackDetailedStatus>>,
+    pub(crate) organization_conformance_pack_detailed_statuses: ::std::option::Option<
+        ::std::vec::Vec<crate::types::OrganizationConformancePackDetailedStatus>,
+    >,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -51,8 +59,13 @@ impl GetOrganizationConformancePackDetailedStatusOutputBuilder {
     /// To override the contents of this collection use [`set_organization_conformance_pack_detailed_statuses`](Self::set_organization_conformance_pack_detailed_statuses).
     ///
     /// <p>A list of <code>OrganizationConformancePackDetailedStatus</code> objects.</p>
-    pub fn organization_conformance_pack_detailed_statuses(mut self, input: crate::types::OrganizationConformancePackDetailedStatus) -> Self {
-        let mut v = self.organization_conformance_pack_detailed_statuses.unwrap_or_default();
+    pub fn organization_conformance_pack_detailed_statuses(
+        mut self,
+        input: crate::types::OrganizationConformancePackDetailedStatus,
+    ) -> Self {
+        let mut v = self
+            .organization_conformance_pack_detailed_statuses
+            .unwrap_or_default();
         v.push(input);
         self.organization_conformance_pack_detailed_statuses = ::std::option::Option::Some(v);
         self
@@ -60,7 +73,9 @@ impl GetOrganizationConformancePackDetailedStatusOutputBuilder {
     /// <p>A list of <code>OrganizationConformancePackDetailedStatus</code> objects.</p>
     pub fn set_organization_conformance_pack_detailed_statuses(
         mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConformancePackDetailedStatus>>,
+        input: ::std::option::Option<
+            ::std::vec::Vec<crate::types::OrganizationConformancePackDetailedStatus>,
+        >,
     ) -> Self {
         self.organization_conformance_pack_detailed_statuses = input;
         self
@@ -68,7 +83,9 @@ impl GetOrganizationConformancePackDetailedStatusOutputBuilder {
     /// <p>A list of <code>OrganizationConformancePackDetailedStatus</code> objects.</p>
     pub fn get_organization_conformance_pack_detailed_statuses(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::OrganizationConformancePackDetailedStatus>> {
+    ) -> &::std::option::Option<
+        ::std::vec::Vec<crate::types::OrganizationConformancePackDetailedStatus>,
+    > {
         &self.organization_conformance_pack_detailed_statuses
     }
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -95,7 +112,7 @@ impl GetOrganizationConformancePackDetailedStatusOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetOrganizationConformancePackDetailedStatusOutput`](crate::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusOutput).
-    pub fn build(self) -> crate::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusOutput {
+    pub fn build(self) -> crate::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusOutput{
         crate::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusOutput {
             organization_conformance_pack_detailed_statuses: self.organization_conformance_pack_detailed_statuses,
             next_token: self.next_token,

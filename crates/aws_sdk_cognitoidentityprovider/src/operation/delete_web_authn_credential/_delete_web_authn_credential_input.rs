@@ -28,7 +28,9 @@ impl ::std::fmt::Debug for DeleteWebAuthnCredentialInput {
 }
 impl DeleteWebAuthnCredentialInput {
     /// Creates a new builder-style object to manufacture [`DeleteWebAuthnCredentialInput`](crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialInput).
-    pub fn builder() -> crate::operation::delete_web_authn_credential::builders::DeleteWebAuthnCredentialInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::delete_web_authn_credential::builders::DeleteWebAuthnCredentialInputBuilder
+    {
         crate::operation::delete_web_authn_credential::builders::DeleteWebAuthnCredentialInputBuilder::default()
     }
 }
@@ -58,12 +60,18 @@ impl DeleteWebAuthnCredentialInputBuilder {
     }
     /// <p>The unique identifier of the passkey that you want to delete.</p>
     /// This field is required.
-    pub fn credential_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn credential_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.credential_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier of the passkey that you want to delete.</p>
-    pub fn set_credential_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_credential_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.credential_id = input;
         self
     }
@@ -78,10 +86,12 @@ impl DeleteWebAuthnCredentialInputBuilder {
         crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialInput {
-            access_token: self.access_token,
-            credential_id: self.credential_id,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialInput {
+                access_token: self.access_token,
+                credential_id: self.credential_id,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for DeleteWebAuthnCredentialInputBuilder {

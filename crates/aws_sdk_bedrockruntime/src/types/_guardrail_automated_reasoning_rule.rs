@@ -27,7 +27,9 @@ impl GuardrailAutomatedReasoningRule {
 }
 
 /// A builder for [`GuardrailAutomatedReasoningRule`](crate::types::GuardrailAutomatedReasoningRule).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GuardrailAutomatedReasoningRuleBuilder {
     pub(crate) identifier: ::std::option::Option<::std::string::String>,
@@ -49,12 +51,18 @@ impl GuardrailAutomatedReasoningRuleBuilder {
         &self.identifier
     }
     /// <p>The ARN of the automated reasoning policy version that contains this rule.</p>
-    pub fn policy_version_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn policy_version_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.policy_version_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the automated reasoning policy version that contains this rule.</p>
-    pub fn set_policy_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_policy_version_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.policy_version_arn = input;
         self
     }

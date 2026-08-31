@@ -9,7 +9,10 @@ pub fn ser_details(
             {
                 #[allow(unused_mut)]
                 let mut object_3 = array_1.value().start_object();
-                crate::protocol_serde::shape_route_details::ser_route_details(&mut object_3, item_2)?;
+                crate::protocol_serde::shape_route_details::ser_route_details(
+                    &mut object_3,
+                    item_2,
+                )?;
                 object_3.finish();
             }
         }

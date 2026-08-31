@@ -21,7 +21,9 @@ impl ToolAdditionBlock {
 }
 
 /// A builder for [`ToolAdditionBlock`](crate::types::ToolAdditionBlock).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ToolAdditionBlockBuilder {
     pub(crate) tool: ::std::option::Option<crate::types::ToolReference>,

@@ -47,7 +47,8 @@ impl crate::operation::describe_custom_key_stores::builders::DescribeCustomKeySt
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DescribeCustomKeyStoresFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresInputBuilder,
+    inner:
+        crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -78,7 +79,10 @@ impl DescribeCustomKeyStoresFluentBuilder {
         }
     }
     /// Access the DescribeCustomKeyStores as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -107,7 +111,11 @@ impl DescribeCustomKeyStoresFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_custom_key_stores::DescribeCustomKeyStores::orchestrate(&runtime_plugins, input).await
+        crate::operation::describe_custom_key_stores::DescribeCustomKeyStores::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -120,30 +128,45 @@ impl DescribeCustomKeyStoresFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_custom_key_stores::paginator::DescribeCustomKeyStoresPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::describe_custom_key_stores::paginator::DescribeCustomKeyStoresPaginator {
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::describe_custom_key_stores::paginator::DescribeCustomKeyStoresPaginator
+    {
         crate::operation::describe_custom_key_stores::paginator::DescribeCustomKeyStoresPaginator::new(self.handle, self.inner)
     }
     /// <p>Gets only information about the specified custom key store. Enter the key store ID.</p>
     /// <p>By default, this operation gets information about all custom key stores in the account and Region. To limit the output to a particular custom key store, provide either the <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not both.</p>
-    pub fn custom_key_store_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn custom_key_store_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.custom_key_store_id(input.into());
         self
     }
     /// <p>Gets only information about the specified custom key store. Enter the key store ID.</p>
     /// <p>By default, this operation gets information about all custom key stores in the account and Region. To limit the output to a particular custom key store, provide either the <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not both.</p>
-    pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_custom_key_store_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_custom_key_store_id(input);
         self
     }
@@ -154,13 +177,19 @@ impl DescribeCustomKeyStoresFluentBuilder {
     }
     /// <p>Gets only information about the specified custom key store. Enter the friendly name of the custom key store.</p>
     /// <p>By default, this operation gets information about all custom key stores in the account and Region. To limit the output to a particular custom key store, provide either the <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not both.</p>
-    pub fn custom_key_store_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn custom_key_store_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.custom_key_store_name(input.into());
         self
     }
     /// <p>Gets only information about the specified custom key store. Enter the friendly name of the custom key store.</p>
     /// <p>By default, this operation gets information about all custom key stores in the account and Region. To limit the output to a particular custom key store, provide either the <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not both.</p>
-    pub fn set_custom_key_store_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_custom_key_store_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_custom_key_store_name(input);
         self
     }

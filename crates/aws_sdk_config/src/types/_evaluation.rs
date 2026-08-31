@@ -51,7 +51,9 @@ impl Evaluation {
 }
 
 /// A builder for [`Evaluation`](crate::types::Evaluation).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct EvaluationBuilder {
     pub(crate) compliance_resource_type: ::std::option::Option<::std::string::String>,
@@ -63,12 +65,18 @@ pub struct EvaluationBuilder {
 impl EvaluationBuilder {
     /// <p>The type of Amazon Web Services resource that was evaluated.</p>
     /// This field is required.
-    pub fn compliance_resource_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn compliance_resource_type(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.compliance_resource_type = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The type of Amazon Web Services resource that was evaluated.</p>
-    pub fn set_compliance_resource_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_compliance_resource_type(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.compliance_resource_type = input;
         self
     }
@@ -78,12 +86,18 @@ impl EvaluationBuilder {
     }
     /// <p>The ID of the Amazon Web Services resource that was evaluated.</p>
     /// This field is required.
-    pub fn compliance_resource_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn compliance_resource_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.compliance_resource_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ID of the Amazon Web Services resource that was evaluated.</p>
-    pub fn set_compliance_resource_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_compliance_resource_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.compliance_resource_id = input;
         self
     }
@@ -102,7 +116,10 @@ impl EvaluationBuilder {
     /// <p>Indicates whether the Amazon Web Services resource complies with the Config rule that it was evaluated against.</p>
     /// <p>For the <code>Evaluation</code> data type, Config supports only the <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>NOT_APPLICABLE</code> values. Config does not support the <code>INSUFFICIENT_DATA</code> value for this data type.</p>
     /// <p>Similarly, Config does not accept <code>INSUFFICIENT_DATA</code> as the value for <code>ComplianceType</code> from a <code>PutEvaluations</code> request. For example, an Lambda function for a custom Config rule cannot pass an <code>INSUFFICIENT_DATA</code> value to Config.</p>
-    pub fn set_compliance_type(mut self, input: ::std::option::Option<crate::types::ComplianceType>) -> Self {
+    pub fn set_compliance_type(
+        mut self,
+        input: ::std::option::Option<crate::types::ComplianceType>,
+    ) -> Self {
         self.compliance_type = input;
         self
     }
@@ -133,7 +150,10 @@ impl EvaluationBuilder {
         self
     }
     /// <p>The time of the event in Config that triggered the evaluation. For event-based evaluations, the time indicates when Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when Config triggered the evaluation at the frequency that you specified (for example, every 24 hours).</p>
-    pub fn set_ordering_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_ordering_timestamp(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.ordering_timestamp = input;
         self
     }
@@ -147,7 +167,12 @@ impl EvaluationBuilder {
     /// - [`compliance_resource_id`](crate::types::builders::EvaluationBuilder::compliance_resource_id)
     /// - [`compliance_type`](crate::types::builders::EvaluationBuilder::compliance_type)
     /// - [`ordering_timestamp`](crate::types::builders::EvaluationBuilder::ordering_timestamp)
-    pub fn build(self) -> ::std::result::Result<crate::types::Evaluation, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::Evaluation,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::Evaluation {
             compliance_resource_type: self.compliance_resource_type.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

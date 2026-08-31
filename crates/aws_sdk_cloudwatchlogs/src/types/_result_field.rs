@@ -28,7 +28,9 @@ impl ResultField {
 }
 
 /// A builder for [`ResultField`](crate::types::ResultField).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ResultFieldBuilder {
     pub(crate) field: ::std::option::Option<::std::string::String>,

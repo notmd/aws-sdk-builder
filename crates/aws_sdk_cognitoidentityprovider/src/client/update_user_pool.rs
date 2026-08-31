@@ -28,7 +28,11 @@ impl super::Client {
     ///   - [`issuer_configuration(IssuerConfigurationType)`](crate::operation::update_user_pool::builders::UpdateUserPoolFluentBuilder::issuer_configuration) / [`set_issuer_configuration(Option<IssuerConfigurationType>)`](crate::operation::update_user_pool::builders::UpdateUserPoolFluentBuilder::set_issuer_configuration):<br>required: **false**<br><p>The issuer configuration for the user pool. In secondary regions, this parameter must match the existing configuration and cannot be modified.</p><br>
     /// - On success, responds with [`UpdateUserPoolOutput`](crate::operation::update_user_pool::UpdateUserPoolOutput)
     /// - On failure, responds with [`SdkError<UpdateUserPoolError>`](crate::operation::update_user_pool::UpdateUserPoolError)
-    pub fn update_user_pool(&self) -> crate::operation::update_user_pool::builders::UpdateUserPoolFluentBuilder {
-        crate::operation::update_user_pool::builders::UpdateUserPoolFluentBuilder::new(self.handle.clone())
+    pub fn update_user_pool(
+        &self,
+    ) -> crate::operation::update_user_pool::builders::UpdateUserPoolFluentBuilder {
+        crate::operation::update_user_pool::builders::UpdateUserPoolFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

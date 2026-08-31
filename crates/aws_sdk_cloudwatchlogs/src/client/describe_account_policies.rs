@@ -11,7 +11,10 @@ impl super::Client {
     ///   - [`account_policies(Option<Vec::<AccountPolicy>>)`](crate::operation::describe_account_policies::DescribeAccountPoliciesOutput::account_policies): <p>An array of structures that contain information about the CloudWatch Logs account policies that match the specified filters.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::describe_account_policies::DescribeAccountPoliciesOutput::next_token): <p>The token to use when requesting the next set of items. The token expires after 24 hours.</p>
     /// - On failure, responds with [`SdkError<DescribeAccountPoliciesError>`](crate::operation::describe_account_policies::DescribeAccountPoliciesError)
-    pub fn describe_account_policies(&self) -> crate::operation::describe_account_policies::builders::DescribeAccountPoliciesFluentBuilder {
+    pub fn describe_account_policies(
+        &self,
+    ) -> crate::operation::describe_account_policies::builders::DescribeAccountPoliciesFluentBuilder
+    {
         crate::operation::describe_account_policies::builders::DescribeAccountPoliciesFluentBuilder::new(self.handle.clone())
     }
 }

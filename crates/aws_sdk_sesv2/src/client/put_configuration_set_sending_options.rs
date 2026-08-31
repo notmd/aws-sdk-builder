@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutConfigurationSetSendingOptionsError>`](crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError)
     pub fn put_configuration_set_sending_options(
         &self,
-    ) -> crate::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsFluentBuilder {
+    ) -> crate::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsFluentBuilder{
         crate::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsFluentBuilder::new(self.handle.clone())
     }
 }

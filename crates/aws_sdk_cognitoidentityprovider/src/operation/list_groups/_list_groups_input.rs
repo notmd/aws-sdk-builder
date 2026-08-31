@@ -32,7 +32,9 @@ impl ListGroupsInput {
 }
 
 /// A builder for [`ListGroupsInput`](crate::operation::list_groups::ListGroupsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListGroupsInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
@@ -84,7 +86,12 @@ impl ListGroupsInputBuilder {
         &self.next_token
     }
     /// Consumes the builder and constructs a [`ListGroupsInput`](crate::operation::list_groups::ListGroupsInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::list_groups::ListGroupsInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::list_groups::ListGroupsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::list_groups::ListGroupsInput {
             user_pool_id: self.user_pool_id,
             limit: self.limit,

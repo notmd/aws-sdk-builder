@@ -7,7 +7,9 @@ pub fn ser_open_search_resource_config(
         object.key("kmsKeyArn").string(var_1.as_str());
     }
     {
-        object.key("dataSourceRoleArn").string(input.data_source_role_arn.as_str());
+        object
+            .key("dataSourceRoleArn")
+            .string(input.data_source_role_arn.as_str());
     }
     {
         let mut array_2 = object.key("dashboardViewerPrincipals").start_array();

@@ -26,7 +26,9 @@ impl DeleteTermsInput {
 }
 
 /// A builder for [`DeleteTermsInput`](crate::operation::delete_terms::DeleteTermsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteTermsInputBuilder {
     pub(crate) terms_id: ::std::option::Option<::std::string::String>,
@@ -64,7 +66,12 @@ impl DeleteTermsInputBuilder {
         &self.user_pool_id
     }
     /// Consumes the builder and constructs a [`DeleteTermsInput`](crate::operation::delete_terms::DeleteTermsInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::delete_terms::DeleteTermsInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::delete_terms::DeleteTermsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::delete_terms::DeleteTermsInput {
             terms_id: self.terms_id,
             user_pool_id: self.user_pool_id,

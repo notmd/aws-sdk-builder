@@ -33,7 +33,8 @@ impl ::aws_types::request_id::RequestId for GetSessionTokenOutput {
 }
 impl GetSessionTokenOutput {
     /// Creates a new builder-style object to manufacture [`GetSessionTokenOutput`](crate::operation::get_session_token::GetSessionTokenOutput).
-    pub fn builder() -> crate::operation::get_session_token::builders::GetSessionTokenOutputBuilder {
+    pub fn builder() -> crate::operation::get_session_token::builders::GetSessionTokenOutputBuilder
+    {
         crate::operation::get_session_token::builders::GetSessionTokenOutputBuilder::default()
     }
 }
@@ -56,7 +57,10 @@ impl GetSessionTokenOutputBuilder {
     /// <p>The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.</p><note>
     /// <p>The size of the security token that STS API operations return is not fixed. We strongly recommend that you make no assumptions about the maximum size.</p>
     /// </note>
-    pub fn set_credentials(mut self, input: ::std::option::Option<crate::types::Credentials>) -> Self {
+    pub fn set_credentials(
+        mut self,
+        input: ::std::option::Option<crate::types::Credentials>,
+    ) -> Self {
         self.credentials = input;
         self
     }

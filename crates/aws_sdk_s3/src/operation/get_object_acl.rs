@@ -27,9 +27,13 @@ impl GetObjectAcl {
                     .expect("correct error type")
             })
         };
-        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-            .await
-            .map_err(map_err)?;
+        let context = Self::orchestrate_with_stop_point(
+            runtime_plugins,
+            input,
+            ::aws_smithy_runtime::client::orchestrator::StopPoint::None,
+        )
+        .await
+        .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
@@ -51,17 +55,23 @@ impl GetObjectAcl {
     > {
         let input = ::aws_smithy_runtime_api::client::interceptors::context::Input::erase(input);
         use ::tracing::Instrument;
-        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point("S3", "GetObjectAcl", input, runtime_plugins, stop_point)
-            // Create a parent span for the entire operation. Includes a random, internal-only,
-            // seven-digit ID for the operation orchestration so that it can be correlated in the logs.
-            .instrument(::tracing::debug_span!(
-                "S3.GetObjectAcl",
-                "rpc.service" = "S3",
-                "rpc.method" = "GetObjectAcl",
-                "sdk_invocation_id" = ::fastrand::u32(1_000_000..10_000_000),
-                "rpc.system" = "aws-api",
-            ))
-            .await
+        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point(
+            "S3",
+            "GetObjectAcl",
+            input,
+            runtime_plugins,
+            stop_point,
+        )
+        // Create a parent span for the entire operation. Includes a random, internal-only,
+        // seven-digit ID for the operation orchestration so that it can be correlated in the logs.
+        .instrument(::tracing::debug_span!(
+            "S3.GetObjectAcl",
+            "rpc.service" = "S3",
+            "rpc.method" = "GetObjectAcl",
+            "sdk_invocation_id" = ::fastrand::u32(1_000_000..10_000_000),
+            "rpc.system" = "aws-api",
+        ))
+        .await
     }
 
     pub(crate) fn operation_runtime_plugins(
@@ -75,11 +85,13 @@ impl GetObjectAcl {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
-                config_override,
-                client_config.config.clone(),
-                &client_config.runtime_components,
-            ));
+            runtime_plugins = runtime_plugins.with_operation_plugin(
+                crate::config::ConfigOverrideRuntimePlugin::new(
+                    config_override,
+                    client_config.config.clone(),
+                    &client_config.runtime_components,
+                ),
+            );
         }
         runtime_plugins
     }
@@ -88,21 +100,29 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetObje
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("GetObjectAcl");
 
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-            GetObjectAclRequestSerializer,
-        ));
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
-            GetObjectAclResponseDeserializer,
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+                GetObjectAclRequestSerializer,
+            ),
+        );
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
+                GetObjectAclResponseDeserializer,
+            ),
+        );
 
-        cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
-                .operation_name("GetObjectAcl")
-                .build()
-                .expect("required fields set"),
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
+                crate::config::auth::Params::builder()
+                    .operation_name("GetObjectAcl")
+                    .build()
+                    .expect("required fields set"),
+            ),
+        );
 
-        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetObjectAcl", "S3"));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetObjectAcl", "S3"),
+        );
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = false;
         signing_options.content_sha256_header = true;
@@ -120,7 +140,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetObje
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+    ) -> ::std::borrow::Cow<
+        '_,
+        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
+    > {
         #[allow(unused_mut)]
         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetObjectAcl")
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -156,7 +179,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetObje
 struct GetObjectAclTelemetryInputCaptureInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetObjectAclTelemetryInputCaptureInterceptor {
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept
+    for GetObjectAclTelemetryInputCaptureInterceptor
+{
     fn name(&self) -> &'static str {
         "GetObjectAclTelemetryInputCaptureInterceptor"
     }
@@ -179,7 +204,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetObjectAclT
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) = context.input().downcast_ref::<GetObjectAclInput>() else {
+        let ::std::option::Option::Some(input) =
+            context.input().downcast_ref::<GetObjectAclInput>()
+        else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -212,7 +239,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetObjectAclT
 }
 #[derive(Debug)]
 struct GetObjectAclResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetObjectAclResponseDeserializer {
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
+    for GetObjectAclResponseDeserializer
+{
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -224,14 +253,21 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetObject
         #[allow(unused_mut)]
         let mut force_error = false;
         ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
-        if matches!(crate::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
+        if matches!(
+            crate::rest_xml_unwrapped_errors::body_is_error(body),
+            Ok(true)
+        ) {
             force_error = true;
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_get_object_acl::de_get_object_acl_http_error(status, headers, body)
+            crate::protocol_serde::shape_get_object_acl::de_get_object_acl_http_error(
+                status, headers, body,
+            )
         } else {
-            crate::protocol_serde::shape_get_object_acl::de_get_object_acl_http_response(status, headers, body)
+            crate::protocol_serde::shape_get_object_acl::de_get_object_acl_http_response(
+                status, headers, body,
+            )
         };
         crate::protocol_serde::type_erase_result(parse_result)
     }
@@ -239,12 +275,20 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetObject
 #[derive(Debug)]
 struct GetObjectAclRequestSerializer;
 impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetObjectAclRequestSerializer {
-    #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
+    #[allow(
+        unused_mut,
+        clippy::let_and_return,
+        clippy::needless_borrow,
+        clippy::useless_conversion
+    )]
     fn serialize_input(
         &self,
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+    ) -> ::std::result::Result<
+        ::aws_smithy_runtime_api::client::orchestrator::HttpRequest,
+        ::aws_smithy_runtime_api::box_error::BoxError,
+    > {
         let input = input
             .downcast::<crate::operation::get_object_acl::GetObjectAclInput>()
             .expect("correct type");
@@ -257,18 +301,27 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetObjectAcl
             fn uri_base(
                 _input: &crate::operation::get_object_acl::GetObjectAclInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
+            {
                 use ::std::fmt::Write as _;
                 let input_1 = &_input.key;
-                let input_1 = input_1
-                    .as_ref()
-                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("key", "cannot be empty or unset"))?;
-                let key = ::aws_smithy_http::label::fmt_string(input_1, ::aws_smithy_http::label::EncodingStrategy::Greedy);
-                if key.is_empty() {
-                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
+                let input_1 = input_1.as_ref().ok_or_else(|| {
+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
                         "key",
                         "cannot be empty or unset",
-                    ));
+                    )
+                })?;
+                let key = ::aws_smithy_http::label::fmt_string(
+                    input_1,
+                    ::aws_smithy_http::label::EncodingStrategy::Greedy,
+                );
+                if key.is_empty() {
+                    return ::std::result::Result::Err(
+                        ::aws_smithy_types::error::operation::BuildError::missing_field(
+                            "key",
+                            "cannot be empty or unset",
+                        ),
+                    );
                 }
                 ::std::write!(output, "/{Key}", Key = key).expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -276,7 +329,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetObjectAcl
             fn uri_query(
                 _input: &crate::operation::get_object_acl::GetObjectAclInput,
                 mut output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 query.push_v("acl");
                 if let ::std::option::Option::Some(inner_2) = &_input.version_id {
@@ -290,11 +344,17 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetObjectAcl
             fn update_http_builder(
                 input: &crate::operation::get_object_acl::GetObjectAclInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<
+                ::http_1x::request::Builder,
+                ::aws_smithy_types::error::operation::BuildError,
+            > {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
-                let builder = crate::protocol_serde::shape_get_object_acl::ser_get_object_acl_headers(input, builder)?;
+                let builder =
+                    crate::protocol_serde::shape_get_object_acl::ser_get_object_acl_headers(
+                        input, builder,
+                    )?;
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -302,14 +362,22 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetObjectAcl
         };
         let body = ::aws_smithy_types::body::SdkBody::from("");
 
-        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
+        ::std::result::Result::Ok(
+            request_builder
+                .body(body)
+                .expect("valid request")
+                .try_into()
+                .unwrap(),
+        )
     }
 }
 #[derive(Debug)]
 struct GetObjectAclEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetObjectAclEndpointParamsInterceptor {
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept
+    for GetObjectAclEndpointParamsInterceptor
+{
     fn name(&self) -> &'static str {
         "GetObjectAclEndpointParamsInterceptor"
     }
@@ -330,35 +398,67 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetObjectAclE
             .ok_or("failed to downcast to GetObjectAclInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-            .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
+            .set_region(
+                cfg.load::<::aws_types::region::Region>()
+                    .map(|r| r.as_ref().to_owned()),
+            )
+            .set_use_fips(
+                cfg.load::<::aws_types::endpoint_config::UseFips>()
+                    .map(|ty| ty.0),
+            )
+            .set_use_dual_stack(
+                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
+                    .map(|ty| ty.0),
+            )
+            .set_endpoint(
+                cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
+                    .map(|ty| ty.0.clone()),
+            )
             .set_force_path_style(cfg.load::<crate::config::ForcePathStyle>().map(|ty| ty.0))
             .set_use_arn_region(cfg.load::<crate::config::UseArnRegion>().map(|ty| ty.0))
-            .set_disable_multi_region_access_points(cfg.load::<crate::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0))
+            .set_disable_multi_region_access_points(
+                cfg.load::<crate::config::DisableMultiRegionAccessPoints>()
+                    .map(|ty| ty.0),
+            )
             .set_accelerate(cfg.load::<crate::config::Accelerate>().map(|ty| ty.0))
-            .set_disable_s3_express_session_auth(cfg.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0))
+            .set_disable_s3_express_session_auth(
+                cfg.load::<crate::config::DisableS3ExpressSessionAuth>()
+                    .map(|ty| ty.0),
+            )
             .set_bucket(Some(
                 _input
                     .bucket
                     .clone()
                     .filter(|f| !AsRef::<str>::as_ref(f).trim().is_empty())
-                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("bucket", "A required field was not set"))?,
+                    .ok_or_else(|| {
+                        ::aws_smithy_types::error::operation::BuildError::missing_field(
+                            "bucket",
+                            "A required field was not set",
+                        )
+                    })?,
             ))
             .set_key(Some(
                 _input
                     .key
                     .clone()
                     .filter(|f| !AsRef::<str>::as_ref(f).trim().is_empty())
-                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("key", "A required field was not set"))?,
+                    .ok_or_else(|| {
+                        ::aws_smithy_types::error::operation::BuildError::missing_field(
+                            "key",
+                            "A required field was not set",
+                        )
+                    })?,
             ))
             .build()
             .map_err(|err| {
-                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
+                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(
+                    "endpoint params could not be built",
+                    err,
+                )
             })?;
-        cfg.interceptor_state()
-            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
+        cfg.interceptor_state().store_put(
+            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
+        );
         ::std::result::Result::Ok(())
     }
 }
@@ -373,18 +473,24 @@ pub enum GetObjectAclError {
     /// <p>The specified key does not exist.</p>
     NoSuchKey(crate::types::error::NoSuchKey),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(
+        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-GetObjectAclError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-GetObjectAclError) for what information is available for the error."
+    )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl GetObjectAclError {
     /// Creates the `GetObjectAclError::Unhandled` variant from any error type.
     pub fn unhandled(
-        err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
+        err: impl ::std::convert::Into<
+            ::std::boxed::Box<
+                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
+            >,
+        >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.into(),
@@ -405,7 +511,9 @@ impl GetObjectAclError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::NoSuchKey(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::NoSuchKey(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -427,7 +535,9 @@ impl ::std::fmt::Display for GetObjectAclError {
         match self {
             Self::NoSuchKey(_inner) => _inner.fmt(f),
             Self::Unhandled(_inner) => {
-                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                if let ::std::option::Option::Some(code) =
+                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+                {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -447,14 +557,18 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for GetObjectAclError {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetObjectAclError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::NoSuchKey(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::NoSuchKey(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
 }
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetObjectAclError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+        source: ::std::boxed::Box<
+            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
+        >,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {

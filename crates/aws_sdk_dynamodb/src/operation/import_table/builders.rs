@@ -81,11 +81,12 @@ impl ImportTableFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::import_table::ImportTable::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::import_table::ImportTable::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::import_table::ImportTable::orchestrate(&runtime_plugins, input).await
     }
 
@@ -99,12 +100,18 @@ impl ImportTableFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -134,7 +141,10 @@ impl ImportTableFluentBuilder {
         self
     }
     /// <p>The S3 bucket that provides the source for the import.</p>
-    pub fn set_s3_bucket_source(mut self, input: ::std::option::Option<crate::types::S3BucketSource>) -> Self {
+    pub fn set_s3_bucket_source(
+        mut self,
+        input: ::std::option::Option<crate::types::S3BucketSource>,
+    ) -> Self {
         self.inner = self.inner.set_s3_bucket_source(input);
         self
     }
@@ -148,7 +158,10 @@ impl ImportTableFluentBuilder {
         self
     }
     /// <p>The format of the source data. Valid values for <code>ImportFormat</code> are <code>CSV</code>, <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
-    pub fn set_input_format(mut self, input: ::std::option::Option<crate::types::InputFormat>) -> Self {
+    pub fn set_input_format(
+        mut self,
+        input: ::std::option::Option<crate::types::InputFormat>,
+    ) -> Self {
         self.inner = self.inner.set_input_format(input);
         self
     }
@@ -162,12 +175,17 @@ impl ImportTableFluentBuilder {
         self
     }
     /// <p>Additional properties that specify how the input is formatted,</p>
-    pub fn set_input_format_options(mut self, input: ::std::option::Option<crate::types::InputFormatOptions>) -> Self {
+    pub fn set_input_format_options(
+        mut self,
+        input: ::std::option::Option<crate::types::InputFormatOptions>,
+    ) -> Self {
         self.inner = self.inner.set_input_format_options(input);
         self
     }
     /// <p>Additional properties that specify how the input is formatted,</p>
-    pub fn get_input_format_options(&self) -> &::std::option::Option<crate::types::InputFormatOptions> {
+    pub fn get_input_format_options(
+        &self,
+    ) -> &::std::option::Option<crate::types::InputFormatOptions> {
         self.inner.get_input_format_options()
     }
     /// <p>Type of compression to be used on the input coming from the imported table.</p>
@@ -176,26 +194,39 @@ impl ImportTableFluentBuilder {
         self
     }
     /// <p>Type of compression to be used on the input coming from the imported table.</p>
-    pub fn set_input_compression_type(mut self, input: ::std::option::Option<crate::types::InputCompressionType>) -> Self {
+    pub fn set_input_compression_type(
+        mut self,
+        input: ::std::option::Option<crate::types::InputCompressionType>,
+    ) -> Self {
         self.inner = self.inner.set_input_compression_type(input);
         self
     }
     /// <p>Type of compression to be used on the input coming from the imported table.</p>
-    pub fn get_input_compression_type(&self) -> &::std::option::Option<crate::types::InputCompressionType> {
+    pub fn get_input_compression_type(
+        &self,
+    ) -> &::std::option::Option<crate::types::InputCompressionType> {
         self.inner.get_input_compression_type()
     }
     /// <p>Parameters for the table to import the data into.</p>
-    pub fn table_creation_parameters(mut self, input: crate::types::TableCreationParameters) -> Self {
+    pub fn table_creation_parameters(
+        mut self,
+        input: crate::types::TableCreationParameters,
+    ) -> Self {
         self.inner = self.inner.table_creation_parameters(input);
         self
     }
     /// <p>Parameters for the table to import the data into.</p>
-    pub fn set_table_creation_parameters(mut self, input: ::std::option::Option<crate::types::TableCreationParameters>) -> Self {
+    pub fn set_table_creation_parameters(
+        mut self,
+        input: ::std::option::Option<crate::types::TableCreationParameters>,
+    ) -> Self {
         self.inner = self.inner.set_table_creation_parameters(input);
         self
     }
     /// <p>Parameters for the table to import the data into.</p>
-    pub fn get_table_creation_parameters(&self) -> &::std::option::Option<crate::types::TableCreationParameters> {
+    pub fn get_table_creation_parameters(
+        &self,
+    ) -> &::std::option::Option<crate::types::TableCreationParameters> {
         self.inner.get_table_creation_parameters()
     }
 }

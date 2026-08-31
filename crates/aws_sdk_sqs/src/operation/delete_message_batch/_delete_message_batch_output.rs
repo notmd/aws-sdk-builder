@@ -29,16 +29,20 @@ impl ::aws_types::request_id::RequestId for DeleteMessageBatchOutput {
 }
 impl DeleteMessageBatchOutput {
     /// Creates a new builder-style object to manufacture [`DeleteMessageBatchOutput`](crate::operation::delete_message_batch::DeleteMessageBatchOutput).
-    pub fn builder() -> crate::operation::delete_message_batch::builders::DeleteMessageBatchOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::delete_message_batch::builders::DeleteMessageBatchOutputBuilder {
         crate::operation::delete_message_batch::builders::DeleteMessageBatchOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteMessageBatchOutput`](crate::operation::delete_message_batch::DeleteMessageBatchOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteMessageBatchOutputBuilder {
-    pub(crate) successful: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchResultEntry>>,
+    pub(crate) successful:
+        ::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchResultEntry>>,
     pub(crate) failed: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>,
     _request_id: Option<String>,
 }
@@ -55,12 +59,17 @@ impl DeleteMessageBatchOutputBuilder {
         self
     }
     /// <p>A list of <code> <code>DeleteMessageBatchResultEntry</code> </code> items.</p>
-    pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchResultEntry>>) -> Self {
+    pub fn set_successful(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchResultEntry>>,
+    ) -> Self {
         self.successful = input;
         self
     }
     /// <p>A list of <code> <code>DeleteMessageBatchResultEntry</code> </code> items.</p>
-    pub fn get_successful(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchResultEntry>> {
+    pub fn get_successful(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchResultEntry>> {
         &self.successful
     }
     /// Appends an item to `failed`.
@@ -75,12 +84,17 @@ impl DeleteMessageBatchOutputBuilder {
         self
     }
     /// <p>A list of <code> <code>BatchResultErrorEntry</code> </code> items.</p>
-    pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>) -> Self {
+    pub fn set_failed(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>,
+    ) -> Self {
         self.failed = input;
         self
     }
     /// <p>A list of <code> <code>BatchResultErrorEntry</code> </code> items.</p>
-    pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>> {
+    pub fn get_failed(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>> {
         &self.failed
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -98,8 +112,10 @@ impl DeleteMessageBatchOutputBuilder {
     /// - [`failed`](crate::operation::delete_message_batch::builders::DeleteMessageBatchOutputBuilder::failed)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_message_batch::DeleteMessageBatchOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<
+        crate::operation::delete_message_batch::DeleteMessageBatchOutput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::delete_message_batch::DeleteMessageBatchOutput {
             successful: self.successful.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

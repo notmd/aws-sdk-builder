@@ -71,7 +71,9 @@ impl BatchGetItemFluentBuilder {
         }
     }
     /// Access the BatchGetItem as a reference.
-    pub fn as_input(&self) -> &crate::operation::batch_get_item::builders::BatchGetItemInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::batch_get_item::builders::BatchGetItemInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -95,11 +97,12 @@ impl BatchGetItemFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::batch_get_item::BatchGetItem::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::batch_get_item::BatchGetItem::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::batch_get_item::BatchGetItem::orchestrate(&runtime_plugins, input).await
     }
 
@@ -113,12 +116,18 @@ impl BatchGetItemFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -169,7 +178,11 @@ impl BatchGetItemFluentBuilder {
     /// <li>
     /// <p><code>AttributesToGet</code> - This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li>
     /// </ul>
-    pub fn request_items(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::KeysAndAttributes) -> Self {
+    pub fn request_items(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: crate::types::KeysAndAttributes,
+    ) -> Self {
         self.inner = self.inner.request_items(k.into(), v);
         self
     }
@@ -217,7 +230,9 @@ impl BatchGetItemFluentBuilder {
     /// </ul>
     pub fn set_request_items(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::KeysAndAttributes>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, crate::types::KeysAndAttributes>,
+        >,
     ) -> Self {
         self.inner = self.inner.set_request_items(input);
         self
@@ -264,7 +279,11 @@ impl BatchGetItemFluentBuilder {
     /// <li>
     /// <p><code>AttributesToGet</code> - This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li>
     /// </ul>
-    pub fn get_request_items(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::KeysAndAttributes>> {
+    pub fn get_request_items(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, crate::types::KeysAndAttributes>,
+    > {
         self.inner.get_request_items()
     }
     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
@@ -291,7 +310,10 @@ impl BatchGetItemFluentBuilder {
     /// <li>
     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
     /// </ul>
-    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
+    pub fn set_return_consumed_capacity(
+        mut self,
+        input: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
+    ) -> Self {
         self.inner = self.inner.set_return_consumed_capacity(input);
         self
     }
@@ -305,7 +327,9 @@ impl BatchGetItemFluentBuilder {
     /// <li>
     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
     /// </ul>
-    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
+    pub fn get_return_consumed_capacity(
+        &self,
+    ) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
         self.inner.get_return_consumed_capacity()
     }
 }

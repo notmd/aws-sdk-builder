@@ -2,7 +2,8 @@
 pub use ::aws_smithy_runtime_api::box_error::BoxError;
 
 /// Error type returned by the client.
-pub type SdkError<E, R = ::aws_smithy_runtime_api::client::orchestrator::HttpResponse> = ::aws_smithy_runtime_api::client::result::SdkError<E, R>;
+pub type SdkError<E, R = ::aws_smithy_runtime_api::client::orchestrator::HttpResponse> =
+    ::aws_smithy_runtime_api::client::result::SdkError<E, R>;
 pub use ::aws_smithy_runtime_api::client::result::ConnectorError;
 pub use ::aws_smithy_types::error::operation::BuildError;
 
@@ -17,11 +18,16 @@ pub struct UnknownVariantError {
 }
 impl UnknownVariantError {
     pub(crate) fn new(value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        Self { value: value.into() }
+        Self {
+            value: value.into(),
+        }
     }
 }
 impl ::std::fmt::Display for UnknownVariantError {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::result::Result<(), ::std::fmt::Error> {
+    fn fmt(
+        &self,
+        f: &mut ::std::fmt::Formatter<'_>,
+    ) -> ::std::result::Result<(), ::std::fmt::Error> {
         write!(f, "unknown enum variant: '{}'", self.value)
     }
 }

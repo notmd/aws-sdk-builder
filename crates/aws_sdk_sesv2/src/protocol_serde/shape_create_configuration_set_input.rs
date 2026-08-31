@@ -6,7 +6,10 @@ pub fn ser_create_configuration_set_input_input(
     if let Some(var_1) = &input.archiving_options {
         #[allow(unused_mut)]
         let mut object_2 = object.key("ArchivingOptions").start_object();
-        crate::protocol_serde::shape_archiving_options::ser_archiving_options(&mut object_2, var_1)?;
+        crate::protocol_serde::shape_archiving_options::ser_archiving_options(
+            &mut object_2,
+            var_1,
+        )?;
         object_2.finish();
     }
     if let Some(var_3) = &input.configuration_set_name {
@@ -21,7 +24,10 @@ pub fn ser_create_configuration_set_input_input(
     if let Some(var_6) = &input.reputation_options {
         #[allow(unused_mut)]
         let mut object_7 = object.key("ReputationOptions").start_object();
-        crate::protocol_serde::shape_reputation_options::ser_reputation_options(&mut object_7, var_6)?;
+        crate::protocol_serde::shape_reputation_options::ser_reputation_options(
+            &mut object_7,
+            var_6,
+        )?;
         object_7.finish();
     }
     if let Some(var_8) = &input.sending_options {
@@ -33,7 +39,10 @@ pub fn ser_create_configuration_set_input_input(
     if let Some(var_10) = &input.suppression_options {
         #[allow(unused_mut)]
         let mut object_11 = object.key("SuppressionOptions").start_object();
-        crate::protocol_serde::shape_suppression_options::ser_suppression_options(&mut object_11, var_10)?;
+        crate::protocol_serde::shape_suppression_options::ser_suppression_options(
+            &mut object_11,
+            var_10,
+        )?;
         object_11.finish();
     }
     if let Some(var_12) = &input.tags {
@@ -51,7 +60,10 @@ pub fn ser_create_configuration_set_input_input(
     if let Some(var_16) = &input.tracking_options {
         #[allow(unused_mut)]
         let mut object_17 = object.key("TrackingOptions").start_object();
-        crate::protocol_serde::shape_tracking_options::ser_tracking_options(&mut object_17, var_16)?;
+        crate::protocol_serde::shape_tracking_options::ser_tracking_options(
+            &mut object_17,
+            var_16,
+        )?;
         object_17.finish();
     }
     if let Some(var_18) = &input.vdm_options {

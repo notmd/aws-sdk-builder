@@ -12,13 +12,15 @@ impl ::aws_types::request_id::RequestId for DeleteLogAnomalyDetectorOutput {
 }
 impl DeleteLogAnomalyDetectorOutput {
     /// Creates a new builder-style object to manufacture [`DeleteLogAnomalyDetectorOutput`](crate::operation::delete_log_anomaly_detector::DeleteLogAnomalyDetectorOutput).
-    pub fn builder() -> crate::operation::delete_log_anomaly_detector::builders::DeleteLogAnomalyDetectorOutputBuilder {
+    pub fn builder() -> crate::operation::delete_log_anomaly_detector::builders::DeleteLogAnomalyDetectorOutputBuilder{
         crate::operation::delete_log_anomaly_detector::builders::DeleteLogAnomalyDetectorOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteLogAnomalyDetectorOutput`](crate::operation::delete_log_anomaly_detector::DeleteLogAnomalyDetectorOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteLogAnomalyDetectorOutputBuilder {
     _request_id: Option<String>,
@@ -34,7 +36,9 @@ impl DeleteLogAnomalyDetectorOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteLogAnomalyDetectorOutput`](crate::operation::delete_log_anomaly_detector::DeleteLogAnomalyDetectorOutput).
-    pub fn build(self) -> crate::operation::delete_log_anomaly_detector::DeleteLogAnomalyDetectorOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::delete_log_anomaly_detector::DeleteLogAnomalyDetectorOutput {
         crate::operation::delete_log_anomaly_detector::DeleteLogAnomalyDetectorOutput {
             _request_id: self._request_id,
         }

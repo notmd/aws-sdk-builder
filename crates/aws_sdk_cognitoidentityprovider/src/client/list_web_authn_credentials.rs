@@ -10,7 +10,10 @@ impl super::Client {
     ///   - [`credentials(Vec::<WebAuthnCredentialDescription>)`](crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsOutput::credentials): <p>A list of registered passkeys for a user.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsOutput::next_token): <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
     /// - On failure, responds with [`SdkError<ListWebAuthnCredentialsError>`](crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsError)
-    pub fn list_web_authn_credentials(&self) -> crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsFluentBuilder {
+    pub fn list_web_authn_credentials(
+        &self,
+    ) -> crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsFluentBuilder
+    {
         crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsFluentBuilder::new(self.handle.clone())
     }
 }

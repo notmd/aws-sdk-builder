@@ -27,7 +27,9 @@ impl QuotaShareCapacityLimit {
 }
 
 /// A builder for [`QuotaShareCapacityLimit`](crate::types::QuotaShareCapacityLimit).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct QuotaShareCapacityLimitBuilder {
     pub(crate) max_capacity: ::std::option::Option<i32>,
@@ -51,12 +53,18 @@ impl QuotaShareCapacityLimitBuilder {
     }
     /// <p>The unit of compute capacity for the capacityLimit. For example, <code>ml.m5.large</code>.</p>
     /// This field is required.
-    pub fn capacity_unit(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn capacity_unit(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.capacity_unit = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unit of compute capacity for the capacityLimit. For example, <code>ml.m5.large</code>.</p>
-    pub fn set_capacity_unit(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_capacity_unit(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.capacity_unit = input;
         self
     }

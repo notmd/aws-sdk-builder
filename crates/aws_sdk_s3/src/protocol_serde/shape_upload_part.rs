@@ -4,14 +4,24 @@ pub fn de_upload_part_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::upload_part::UploadPartOutput, crate::operation::upload_part::UploadPartError> {
+) -> std::result::Result<
+    crate::operation::upload_part::UploadPartOutput,
+    crate::operation::upload_part::UploadPartError,
+> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::upload_part::UploadPartError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(crate::operation::upload_part::UploadPartError::unhandled)?;
+    generic_builder =
+        crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(crate::operation::upload_part::UploadPartError::generic(generic))
+    Err(crate::operation::upload_part::UploadPartError::generic(
+        generic,
+    ))
 }
 
 #[allow(clippy::unnecessary_wraps)]
@@ -19,10 +29,14 @@ pub fn de_upload_part_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::upload_part::UploadPartOutput, crate::operation::upload_part::UploadPartError> {
+) -> std::result::Result<
+    crate::operation::upload_part::UploadPartOutput,
+    crate::operation::upload_part::UploadPartError,
+> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::upload_part::builders::UploadPartOutputBuilder::default();
+        let mut output =
+            crate::operation::upload_part::builders::UploadPartOutputBuilder::default();
         output = output.set_bucket_key_enabled(
             crate::protocol_serde::shape_upload_part_output::de_bucket_key_enabled_header(_response_headers).map_err(|_| {
                 crate::operation::upload_part::UploadPartError::unhandled(
@@ -31,62 +45,121 @@ pub fn de_upload_part_http_response(
             })?,
         );
         output = output.set_checksum_crc32(
-            crate::protocol_serde::shape_upload_part_output::de_checksum_crc32_header(_response_headers).map_err(|_| {
-                crate::operation::upload_part::UploadPartError::unhandled("Failed to parse ChecksumCRC32 from header `x-amz-checksum-crc32")
+            crate::protocol_serde::shape_upload_part_output::de_checksum_crc32_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::upload_part::UploadPartError::unhandled(
+                    "Failed to parse ChecksumCRC32 from header `x-amz-checksum-crc32",
+                )
             })?,
         );
         output = output.set_checksum_crc32_c(
-            crate::protocol_serde::shape_upload_part_output::de_checksum_crc32_c_header(_response_headers).map_err(|_| {
-                crate::operation::upload_part::UploadPartError::unhandled("Failed to parse ChecksumCRC32C from header `x-amz-checksum-crc32c")
+            crate::protocol_serde::shape_upload_part_output::de_checksum_crc32_c_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::upload_part::UploadPartError::unhandled(
+                    "Failed to parse ChecksumCRC32C from header `x-amz-checksum-crc32c",
+                )
             })?,
         );
         output = output.set_checksum_crc64_nvme(
-            crate::protocol_serde::shape_upload_part_output::de_checksum_crc64_nvme_header(_response_headers).map_err(|_| {
-                crate::operation::upload_part::UploadPartError::unhandled("Failed to parse ChecksumCRC64NVME from header `x-amz-checksum-crc64nvme")
+            crate::protocol_serde::shape_upload_part_output::de_checksum_crc64_nvme_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::upload_part::UploadPartError::unhandled(
+                    "Failed to parse ChecksumCRC64NVME from header `x-amz-checksum-crc64nvme",
+                )
             })?,
         );
         output = output.set_checksum_md5(
-            crate::protocol_serde::shape_upload_part_output::de_checksum_md5_header(_response_headers).map_err(|_| {
-                crate::operation::upload_part::UploadPartError::unhandled("Failed to parse ChecksumMD5 from header `x-amz-checksum-md5")
+            crate::protocol_serde::shape_upload_part_output::de_checksum_md5_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::upload_part::UploadPartError::unhandled(
+                    "Failed to parse ChecksumMD5 from header `x-amz-checksum-md5",
+                )
             })?,
         );
         output = output.set_checksum_sha1(
-            crate::protocol_serde::shape_upload_part_output::de_checksum_sha1_header(_response_headers).map_err(|_| {
-                crate::operation::upload_part::UploadPartError::unhandled("Failed to parse ChecksumSHA1 from header `x-amz-checksum-sha1")
+            crate::protocol_serde::shape_upload_part_output::de_checksum_sha1_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::upload_part::UploadPartError::unhandled(
+                    "Failed to parse ChecksumSHA1 from header `x-amz-checksum-sha1",
+                )
             })?,
         );
         output = output.set_checksum_sha256(
-            crate::protocol_serde::shape_upload_part_output::de_checksum_sha256_header(_response_headers).map_err(|_| {
-                crate::operation::upload_part::UploadPartError::unhandled("Failed to parse ChecksumSHA256 from header `x-amz-checksum-sha256")
+            crate::protocol_serde::shape_upload_part_output::de_checksum_sha256_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::upload_part::UploadPartError::unhandled(
+                    "Failed to parse ChecksumSHA256 from header `x-amz-checksum-sha256",
+                )
             })?,
         );
         output = output.set_checksum_sha512(
-            crate::protocol_serde::shape_upload_part_output::de_checksum_sha512_header(_response_headers).map_err(|_| {
-                crate::operation::upload_part::UploadPartError::unhandled("Failed to parse ChecksumSHA512 from header `x-amz-checksum-sha512")
+            crate::protocol_serde::shape_upload_part_output::de_checksum_sha512_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::upload_part::UploadPartError::unhandled(
+                    "Failed to parse ChecksumSHA512 from header `x-amz-checksum-sha512",
+                )
             })?,
         );
         output = output.set_checksum_xxhash128(
-            crate::protocol_serde::shape_upload_part_output::de_checksum_xxhash128_header(_response_headers).map_err(|_| {
-                crate::operation::upload_part::UploadPartError::unhandled("Failed to parse ChecksumXXHASH128 from header `x-amz-checksum-xxhash128")
+            crate::protocol_serde::shape_upload_part_output::de_checksum_xxhash128_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::upload_part::UploadPartError::unhandled(
+                    "Failed to parse ChecksumXXHASH128 from header `x-amz-checksum-xxhash128",
+                )
             })?,
         );
         output = output.set_checksum_xxhash3(
-            crate::protocol_serde::shape_upload_part_output::de_checksum_xxhash3_header(_response_headers).map_err(|_| {
-                crate::operation::upload_part::UploadPartError::unhandled("Failed to parse ChecksumXXHASH3 from header `x-amz-checksum-xxhash3")
+            crate::protocol_serde::shape_upload_part_output::de_checksum_xxhash3_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::upload_part::UploadPartError::unhandled(
+                    "Failed to parse ChecksumXXHASH3 from header `x-amz-checksum-xxhash3",
+                )
             })?,
         );
         output = output.set_checksum_xxhash64(
-            crate::protocol_serde::shape_upload_part_output::de_checksum_xxhash64_header(_response_headers).map_err(|_| {
-                crate::operation::upload_part::UploadPartError::unhandled("Failed to parse ChecksumXXHASH64 from header `x-amz-checksum-xxhash64")
+            crate::protocol_serde::shape_upload_part_output::de_checksum_xxhash64_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::upload_part::UploadPartError::unhandled(
+                    "Failed to parse ChecksumXXHASH64 from header `x-amz-checksum-xxhash64",
+                )
             })?,
         );
         output = output.set_e_tag(
             crate::protocol_serde::shape_upload_part_output::de_e_tag_header(_response_headers)
-                .map_err(|_| crate::operation::upload_part::UploadPartError::unhandled("Failed to parse ETag from header `ETag"))?,
+                .map_err(|_| {
+                    crate::operation::upload_part::UploadPartError::unhandled(
+                        "Failed to parse ETag from header `ETag",
+                    )
+                })?,
         );
         output = output.set_request_charged(
-            crate::protocol_serde::shape_upload_part_output::de_request_charged_header(_response_headers).map_err(|_| {
-                crate::operation::upload_part::UploadPartError::unhandled("Failed to parse RequestCharged from header `x-amz-request-charged")
+            crate::protocol_serde::shape_upload_part_output::de_request_charged_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::upload_part::UploadPartError::unhandled(
+                    "Failed to parse RequestCharged from header `x-amz-request-charged",
+                )
             })?,
         );
         output = output.set_sse_customer_algorithm(
@@ -117,8 +190,13 @@ pub fn de_upload_part_http_response(
                 )
             })?,
         );
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_extended_request_id(
+            crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers)
+                .map(str::to_string),
+        );
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
@@ -126,7 +204,10 @@ pub fn de_upload_part_http_response(
 pub fn ser_upload_part_headers(
     input: &crate::operation::upload_part::UploadPartInput,
     mut builder: ::http_1x::request::Builder,
-) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+) -> std::result::Result<
+    ::http_1x::request::Builder,
+    ::aws_smithy_types::error::operation::BuildError,
+> {
     if let ::std::option::Option::Some(inner_1) = &input.content_length {
         let mut encoder = ::aws_smithy_types::primitive::Encoder::from(*inner_1);
         let formatted_2 = encoder.encode();
@@ -134,7 +215,10 @@ pub fn ser_upload_part_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "content_length",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("Content-Length", header_value);
@@ -145,7 +229,10 @@ pub fn ser_upload_part_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "content_md5",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("Content-MD5", header_value);
@@ -156,7 +243,10 @@ pub fn ser_upload_part_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_algorithm",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-sdk-checksum-algorithm", header_value);
@@ -167,7 +257,10 @@ pub fn ser_upload_part_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_crc32",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-crc32", header_value);
@@ -178,7 +271,10 @@ pub fn ser_upload_part_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_crc32_c",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-crc32c", header_value);
@@ -189,7 +285,10 @@ pub fn ser_upload_part_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_crc64_nvme",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-crc64nvme", header_value);
@@ -200,7 +299,10 @@ pub fn ser_upload_part_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_sha1",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-sha1", header_value);
@@ -211,7 +313,10 @@ pub fn ser_upload_part_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_sha256",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-sha256", header_value);
@@ -222,7 +327,10 @@ pub fn ser_upload_part_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_sha512",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-sha512", header_value);
@@ -233,7 +341,10 @@ pub fn ser_upload_part_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_md5",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-md5", header_value);
@@ -244,7 +355,10 @@ pub fn ser_upload_part_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_xxhash64",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-xxhash64", header_value);
@@ -255,7 +369,10 @@ pub fn ser_upload_part_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_xxhash3",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-xxhash3", header_value);
@@ -266,7 +383,10 @@ pub fn ser_upload_part_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_xxhash128",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-xxhash128", header_value);
@@ -277,10 +397,16 @@ pub fn ser_upload_part_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "sse_customer_algorithm",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
-        builder = builder.header("x-amz-server-side-encryption-customer-algorithm", header_value);
+        builder = builder.header(
+            "x-amz-server-side-encryption-customer-algorithm",
+            header_value,
+        );
     }
     if let ::std::option::Option::Some(inner_29) = &input.sse_customer_key {
         let formatted_30 = inner_29.as_str();
@@ -288,7 +414,10 @@ pub fn ser_upload_part_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "sse_customer_key",
-                format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &"*** Sensitive Data Redacted ***", err
+                ),
             )
         })?;
         builder = builder.header("x-amz-server-side-encryption-customer-key", header_value);
@@ -299,10 +428,16 @@ pub fn ser_upload_part_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "sse_customer_key_md5",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
-        builder = builder.header("x-amz-server-side-encryption-customer-key-MD5", header_value);
+        builder = builder.header(
+            "x-amz-server-side-encryption-customer-key-MD5",
+            header_value,
+        );
     }
     if let ::std::option::Option::Some(inner_33) = &input.request_payer {
         let formatted_34 = inner_33.as_str();
@@ -310,7 +445,10 @@ pub fn ser_upload_part_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "request_payer",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-request-payer", header_value);
@@ -321,7 +459,10 @@ pub fn ser_upload_part_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "expected_bucket_owner",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-expected-bucket-owner", header_value);

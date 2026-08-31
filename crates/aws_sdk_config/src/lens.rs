@@ -648,7 +648,8 @@ pub(crate) fn lens_get_organization_config_rule_detailed_status_output_output_or
 #[cfg(feature = "op_get_organization_conformance_pack_detailed_status")]
 pub(crate) fn lens_get_organization_conformance_pack_detailed_status_output_output_organization_conformance_pack_detailed_statuses(
     input: crate::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusOutput,
-) -> ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConformancePackDetailedStatus>> {
+) -> ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConformancePackDetailedStatus>>
+{
     let input = input.organization_conformance_pack_detailed_statuses?;
     ::std::option::Option::Some(input)
 }

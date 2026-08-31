@@ -21,7 +21,9 @@ impl JsonInput {
 }
 
 /// A builder for [`JsonInput`](crate::types::JsonInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct JsonInputBuilder {
     pub(crate) r#type: ::std::option::Option<crate::types::JsonType>,
@@ -43,6 +45,8 @@ impl JsonInputBuilder {
     }
     /// Consumes the builder and constructs a [`JsonInput`](crate::types::JsonInput).
     pub fn build(self) -> crate::types::JsonInput {
-        crate::types::JsonInput { r#type: self.r#type }
+        crate::types::JsonInput {
+            r#type: self.r#type,
+        }
     }
 }

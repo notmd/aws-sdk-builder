@@ -21,13 +21,16 @@ impl ::aws_types::request_id::RequestId for CreateExportJobOutput {
 }
 impl CreateExportJobOutput {
     /// Creates a new builder-style object to manufacture [`CreateExportJobOutput`](crate::operation::create_export_job::CreateExportJobOutput).
-    pub fn builder() -> crate::operation::create_export_job::builders::CreateExportJobOutputBuilder {
+    pub fn builder() -> crate::operation::create_export_job::builders::CreateExportJobOutputBuilder
+    {
         crate::operation::create_export_job::builders::CreateExportJobOutputBuilder::default()
     }
 }
 
 /// A builder for [`CreateExportJobOutput`](crate::operation::create_export_job::CreateExportJobOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateExportJobOutputBuilder {
     pub(crate) job_id: ::std::option::Option<::std::string::String>,

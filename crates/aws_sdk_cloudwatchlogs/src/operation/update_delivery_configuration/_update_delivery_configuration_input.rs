@@ -28,25 +28,30 @@ impl UpdateDeliveryConfigurationInput {
         self.field_delimiter.as_deref()
     }
     /// <p>This structure contains parameters that are valid only when the delivery's delivery destination is an S3 bucket.</p>
-    pub fn s3_delivery_configuration(&self) -> ::std::option::Option<&crate::types::S3DeliveryConfiguration> {
+    pub fn s3_delivery_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::S3DeliveryConfiguration> {
         self.s3_delivery_configuration.as_ref()
     }
 }
 impl UpdateDeliveryConfigurationInput {
     /// Creates a new builder-style object to manufacture [`UpdateDeliveryConfigurationInput`](crate::operation::update_delivery_configuration::UpdateDeliveryConfigurationInput).
-    pub fn builder() -> crate::operation::update_delivery_configuration::builders::UpdateDeliveryConfigurationInputBuilder {
+    pub fn builder() -> crate::operation::update_delivery_configuration::builders::UpdateDeliveryConfigurationInputBuilder{
         crate::operation::update_delivery_configuration::builders::UpdateDeliveryConfigurationInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateDeliveryConfigurationInput`](crate::operation::update_delivery_configuration::UpdateDeliveryConfigurationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateDeliveryConfigurationInputBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
     pub(crate) record_fields: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) field_delimiter: ::std::option::Option<::std::string::String>,
-    pub(crate) s3_delivery_configuration: ::std::option::Option<crate::types::S3DeliveryConfiguration>,
+    pub(crate) s3_delivery_configuration:
+        ::std::option::Option<crate::types::S3DeliveryConfiguration>,
 }
 impl UpdateDeliveryConfigurationInputBuilder {
     /// <p>The ID of the delivery to be updated by this request.</p>
@@ -69,28 +74,42 @@ impl UpdateDeliveryConfigurationInputBuilder {
     /// To override the contents of this collection use [`set_record_fields`](Self::set_record_fields).
     ///
     /// <p>The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.</p>
-    pub fn record_fields(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn record_fields(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.record_fields.unwrap_or_default();
         v.push(input.into());
         self.record_fields = ::std::option::Option::Some(v);
         self
     }
     /// <p>The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.</p>
-    pub fn set_record_fields(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_record_fields(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.record_fields = input;
         self
     }
     /// <p>The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.</p>
-    pub fn get_record_fields(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_record_fields(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.record_fields
     }
     /// <p>The field delimiter to use between record fields when the final output format of a delivery is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
-    pub fn field_delimiter(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn field_delimiter(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.field_delimiter = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The field delimiter to use between record fields when the final output format of a delivery is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
-    pub fn set_field_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_field_delimiter(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.field_delimiter = input;
         self
     }
@@ -99,17 +118,25 @@ impl UpdateDeliveryConfigurationInputBuilder {
         &self.field_delimiter
     }
     /// <p>This structure contains parameters that are valid only when the delivery's delivery destination is an S3 bucket.</p>
-    pub fn s3_delivery_configuration(mut self, input: crate::types::S3DeliveryConfiguration) -> Self {
+    pub fn s3_delivery_configuration(
+        mut self,
+        input: crate::types::S3DeliveryConfiguration,
+    ) -> Self {
         self.s3_delivery_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>This structure contains parameters that are valid only when the delivery's delivery destination is an S3 bucket.</p>
-    pub fn set_s3_delivery_configuration(mut self, input: ::std::option::Option<crate::types::S3DeliveryConfiguration>) -> Self {
+    pub fn set_s3_delivery_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::S3DeliveryConfiguration>,
+    ) -> Self {
         self.s3_delivery_configuration = input;
         self
     }
     /// <p>This structure contains parameters that are valid only when the delivery's delivery destination is an S3 bucket.</p>
-    pub fn get_s3_delivery_configuration(&self) -> &::std::option::Option<crate::types::S3DeliveryConfiguration> {
+    pub fn get_s3_delivery_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::S3DeliveryConfiguration> {
         &self.s3_delivery_configuration
     }
     /// Consumes the builder and constructs a [`UpdateDeliveryConfigurationInput`](crate::operation::update_delivery_configuration::UpdateDeliveryConfigurationInput).
@@ -119,11 +146,13 @@ impl UpdateDeliveryConfigurationInputBuilder {
         crate::operation::update_delivery_configuration::UpdateDeliveryConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::update_delivery_configuration::UpdateDeliveryConfigurationInput {
-            id: self.id,
-            record_fields: self.record_fields,
-            field_delimiter: self.field_delimiter,
-            s3_delivery_configuration: self.s3_delivery_configuration,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::update_delivery_configuration::UpdateDeliveryConfigurationInput {
+                id: self.id,
+                record_fields: self.record_fields,
+                field_delimiter: self.field_delimiter,
+                s3_delivery_configuration: self.s3_delivery_configuration,
+            },
+        )
     }
 }

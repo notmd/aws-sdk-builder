@@ -12,7 +12,10 @@ pub fn ser_local_secondary_index(
             {
                 #[allow(unused_mut)]
                 let mut object_3 = array_1.value().start_object();
-                crate::protocol_serde::shape_key_schema_element::ser_key_schema_element(&mut object_3, item_2)?;
+                crate::protocol_serde::shape_key_schema_element::ser_key_schema_element(
+                    &mut object_3,
+                    item_2,
+                )?;
                 object_3.finish();
             }
         }

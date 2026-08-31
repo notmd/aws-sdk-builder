@@ -57,7 +57,9 @@ impl ListRoleTagsFluentBuilder {
         }
     }
     /// Access the ListRoleTags as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_role_tags::builders::ListRoleTagsInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_role_tags::builders::ListRoleTagsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,11 +83,12 @@ impl ListRoleTagsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_role_tags::ListRoleTags::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::list_role_tags::ListRoleTags::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::list_role_tags::ListRoleTags::orchestrate(&runtime_plugins, input).await
     }
 
@@ -99,20 +102,31 @@ impl ListRoleTagsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_role_tags::paginator::ListRoleTagsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_role_tags::paginator::ListRoleTagsPaginator {
-        crate::operation::list_role_tags::paginator::ListRoleTagsPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_role_tags::paginator::ListRoleTagsPaginator {
+        crate::operation::list_role_tags::paginator::ListRoleTagsPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The name of the IAM role for which you want to see the list of tags.</p>
     /// <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>

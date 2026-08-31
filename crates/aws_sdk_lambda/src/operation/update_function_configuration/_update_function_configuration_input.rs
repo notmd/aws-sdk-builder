@@ -174,7 +174,9 @@ impl UpdateFunctionConfigurationInput {
         self.logging_config.as_ref()
     }
     /// <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
-    pub fn capacity_provider_config(&self) -> ::std::option::Option<&crate::types::CapacityProviderConfig> {
+    pub fn capacity_provider_config(
+        &self,
+    ) -> ::std::option::Option<&crate::types::CapacityProviderConfig> {
         self.capacity_provider_config.as_ref()
     }
     /// <p>Configuration settings for <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable functions</a>, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
@@ -184,13 +186,15 @@ impl UpdateFunctionConfigurationInput {
 }
 impl UpdateFunctionConfigurationInput {
     /// Creates a new builder-style object to manufacture [`UpdateFunctionConfigurationInput`](crate::operation::update_function_configuration::UpdateFunctionConfigurationInput).
-    pub fn builder() -> crate::operation::update_function_configuration::builders::UpdateFunctionConfigurationInputBuilder {
+    pub fn builder() -> crate::operation::update_function_configuration::builders::UpdateFunctionConfigurationInputBuilder{
         crate::operation::update_function_configuration::builders::UpdateFunctionConfigurationInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateFunctionConfigurationInput`](crate::operation::update_function_configuration::UpdateFunctionConfigurationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateFunctionConfigurationInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -207,12 +211,14 @@ pub struct UpdateFunctionConfigurationInputBuilder {
     pub(crate) tracing_config: ::std::option::Option<crate::types::TracingConfig>,
     pub(crate) revision_id: ::std::option::Option<::std::string::String>,
     pub(crate) layers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) file_system_configs: ::std::option::Option<::std::vec::Vec<crate::types::FileSystemConfig>>,
+    pub(crate) file_system_configs:
+        ::std::option::Option<::std::vec::Vec<crate::types::FileSystemConfig>>,
     pub(crate) image_config: ::std::option::Option<crate::types::ImageConfig>,
     pub(crate) ephemeral_storage: ::std::option::Option<crate::types::EphemeralStorage>,
     pub(crate) snap_start: ::std::option::Option<crate::types::SnapStart>,
     pub(crate) logging_config: ::std::option::Option<crate::types::LoggingConfig>,
-    pub(crate) capacity_provider_config: ::std::option::Option<crate::types::CapacityProviderConfig>,
+    pub(crate) capacity_provider_config:
+        ::std::option::Option<crate::types::CapacityProviderConfig>,
     pub(crate) durable_config: ::std::option::Option<crate::types::DurableConfig>,
 }
 impl UpdateFunctionConfigurationInputBuilder {
@@ -228,7 +234,10 @@ impl UpdateFunctionConfigurationInputBuilder {
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
@@ -243,7 +252,10 @@ impl UpdateFunctionConfigurationInputBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.function_name = input;
         self
     }
@@ -351,7 +363,10 @@ impl UpdateFunctionConfigurationInputBuilder {
         self
     }
     /// <p>Environment variables that are accessible from function code during execution.</p>
-    pub fn set_environment(mut self, input: ::std::option::Option<crate::types::Environment>) -> Self {
+    pub fn set_environment(
+        mut self,
+        input: ::std::option::Option<crate::types::Environment>,
+    ) -> Self {
         self.environment = input;
         self
     }
@@ -385,7 +400,10 @@ impl UpdateFunctionConfigurationInputBuilder {
         self
     }
     /// <p>A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq">Dead-letter queues</a>.</p>
-    pub fn set_dead_letter_config(mut self, input: ::std::option::Option<crate::types::DeadLetterConfig>) -> Self {
+    pub fn set_dead_letter_config(
+        mut self,
+        input: ::std::option::Option<crate::types::DeadLetterConfig>,
+    ) -> Self {
         self.dead_letter_config = input;
         self
     }
@@ -446,7 +464,10 @@ impl UpdateFunctionConfigurationInputBuilder {
         self
     }
     /// <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html">X-Ray</a>.</p>
-    pub fn set_tracing_config(mut self, input: ::std::option::Option<crate::types::TracingConfig>) -> Self {
+    pub fn set_tracing_config(
+        mut self,
+        input: ::std::option::Option<crate::types::TracingConfig>,
+    ) -> Self {
         self.tracing_config = input;
         self
     }
@@ -480,7 +501,10 @@ impl UpdateFunctionConfigurationInputBuilder {
         self
     }
     /// <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function layers</a> to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>
-    pub fn set_layers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_layers(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.layers = input;
         self
     }
@@ -500,12 +524,17 @@ impl UpdateFunctionConfigurationInputBuilder {
         self
     }
     /// <p>Connection settings for an Amazon EFS file system or an Amazon S3 Files file system.</p>
-    pub fn set_file_system_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FileSystemConfig>>) -> Self {
+    pub fn set_file_system_configs(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::FileSystemConfig>>,
+    ) -> Self {
         self.file_system_configs = input;
         self
     }
     /// <p>Connection settings for an Amazon EFS file system or an Amazon S3 Files file system.</p>
-    pub fn get_file_system_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FileSystemConfig>> {
+    pub fn get_file_system_configs(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::FileSystemConfig>> {
         &self.file_system_configs
     }
     /// <p><a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">Container image configuration values</a> that override the values in the container image Docker file.</p>
@@ -514,7 +543,10 @@ impl UpdateFunctionConfigurationInputBuilder {
         self
     }
     /// <p><a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">Container image configuration values</a> that override the values in the container image Docker file.</p>
-    pub fn set_image_config(mut self, input: ::std::option::Option<crate::types::ImageConfig>) -> Self {
+    pub fn set_image_config(
+        mut self,
+        input: ::std::option::Option<crate::types::ImageConfig>,
+    ) -> Self {
         self.image_config = input;
         self
     }
@@ -528,7 +560,10 @@ impl UpdateFunctionConfigurationInputBuilder {
         self
     }
     /// <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
-    pub fn set_ephemeral_storage(mut self, input: ::std::option::Option<crate::types::EphemeralStorage>) -> Self {
+    pub fn set_ephemeral_storage(
+        mut self,
+        input: ::std::option::Option<crate::types::EphemeralStorage>,
+    ) -> Self {
         self.ephemeral_storage = input;
         self
     }
@@ -556,7 +591,10 @@ impl UpdateFunctionConfigurationInputBuilder {
         self
     }
     /// <p>The function's Amazon CloudWatch Logs configuration settings.</p>
-    pub fn set_logging_config(mut self, input: ::std::option::Option<crate::types::LoggingConfig>) -> Self {
+    pub fn set_logging_config(
+        mut self,
+        input: ::std::option::Option<crate::types::LoggingConfig>,
+    ) -> Self {
         self.logging_config = input;
         self
     }
@@ -570,12 +608,17 @@ impl UpdateFunctionConfigurationInputBuilder {
         self
     }
     /// <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
-    pub fn set_capacity_provider_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderConfig>) -> Self {
+    pub fn set_capacity_provider_config(
+        mut self,
+        input: ::std::option::Option<crate::types::CapacityProviderConfig>,
+    ) -> Self {
         self.capacity_provider_config = input;
         self
     }
     /// <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
-    pub fn get_capacity_provider_config(&self) -> &::std::option::Option<crate::types::CapacityProviderConfig> {
+    pub fn get_capacity_provider_config(
+        &self,
+    ) -> &::std::option::Option<crate::types::CapacityProviderConfig> {
         &self.capacity_provider_config
     }
     /// <p>Configuration settings for <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable functions</a>, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
@@ -584,7 +627,10 @@ impl UpdateFunctionConfigurationInputBuilder {
         self
     }
     /// <p>Configuration settings for <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable functions</a>, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
-    pub fn set_durable_config(mut self, input: ::std::option::Option<crate::types::DurableConfig>) -> Self {
+    pub fn set_durable_config(
+        mut self,
+        input: ::std::option::Option<crate::types::DurableConfig>,
+    ) -> Self {
         self.durable_config = input;
         self
     }
@@ -599,28 +645,30 @@ impl UpdateFunctionConfigurationInputBuilder {
         crate::operation::update_function_configuration::UpdateFunctionConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::update_function_configuration::UpdateFunctionConfigurationInput {
-            function_name: self.function_name,
-            role: self.role,
-            handler: self.handler,
-            description: self.description,
-            timeout: self.timeout,
-            memory_size: self.memory_size,
-            vpc_config: self.vpc_config,
-            environment: self.environment,
-            runtime: self.runtime,
-            dead_letter_config: self.dead_letter_config,
-            kms_key_arn: self.kms_key_arn,
-            tracing_config: self.tracing_config,
-            revision_id: self.revision_id,
-            layers: self.layers,
-            file_system_configs: self.file_system_configs,
-            image_config: self.image_config,
-            ephemeral_storage: self.ephemeral_storage,
-            snap_start: self.snap_start,
-            logging_config: self.logging_config,
-            capacity_provider_config: self.capacity_provider_config,
-            durable_config: self.durable_config,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::update_function_configuration::UpdateFunctionConfigurationInput {
+                function_name: self.function_name,
+                role: self.role,
+                handler: self.handler,
+                description: self.description,
+                timeout: self.timeout,
+                memory_size: self.memory_size,
+                vpc_config: self.vpc_config,
+                environment: self.environment,
+                runtime: self.runtime,
+                dead_letter_config: self.dead_letter_config,
+                kms_key_arn: self.kms_key_arn,
+                tracing_config: self.tracing_config,
+                revision_id: self.revision_id,
+                layers: self.layers,
+                file_system_configs: self.file_system_configs,
+                image_config: self.image_config,
+                ephemeral_storage: self.ephemeral_storage,
+                snap_start: self.snap_start,
+                logging_config: self.logging_config,
+                capacity_provider_config: self.capacity_provider_config,
+                durable_config: self.durable_config,
+            },
+        )
     }
 }

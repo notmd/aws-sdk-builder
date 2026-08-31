@@ -32,13 +32,16 @@ impl GetKeyRotationStatusInput {
 }
 impl GetKeyRotationStatusInput {
     /// Creates a new builder-style object to manufacture [`GetKeyRotationStatusInput`](crate::operation::get_key_rotation_status::GetKeyRotationStatusInput).
-    pub fn builder() -> crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusInputBuilder {
         crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusInputBuilder::default()
     }
 }
 
 /// A builder for [`GetKeyRotationStatusInput`](crate::operation::get_key_rotation_status::GetKeyRotationStatusInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetKeyRotationStatusInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -89,8 +92,14 @@ impl GetKeyRotationStatusInputBuilder {
     /// Consumes the builder and constructs a [`GetKeyRotationStatusInput`](crate::operation::get_key_rotation_status::GetKeyRotationStatusInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_key_rotation_status::GetKeyRotationStatusInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::get_key_rotation_status::GetKeyRotationStatusInput { key_id: self.key_id })
+    ) -> ::std::result::Result<
+        crate::operation::get_key_rotation_status::GetKeyRotationStatusInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::get_key_rotation_status::GetKeyRotationStatusInput {
+                key_id: self.key_id,
+            },
+        )
     }
 }

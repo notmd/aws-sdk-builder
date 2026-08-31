@@ -27,7 +27,9 @@ impl AdminGetDeviceOutput {
 }
 
 /// A builder for [`AdminGetDeviceOutput`](crate::operation::admin_get_device::AdminGetDeviceOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AdminGetDeviceOutputBuilder {
     pub(crate) device: ::std::option::Option<crate::types::DeviceType>,

@@ -34,13 +34,15 @@ impl CheckpointDurableExecutionInput {
 }
 impl CheckpointDurableExecutionInput {
     /// Creates a new builder-style object to manufacture [`CheckpointDurableExecutionInput`](crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionInput).
-    pub fn builder() -> crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionInputBuilder {
+    pub fn builder() -> crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionInputBuilder{
         crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionInputBuilder::default()
     }
 }
 
 /// A builder for [`CheckpointDurableExecutionInput`](crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CheckpointDurableExecutionInputBuilder {
     pub(crate) durable_execution_arn: ::std::option::Option<::std::string::String>,
@@ -51,12 +53,18 @@ pub struct CheckpointDurableExecutionInputBuilder {
 impl CheckpointDurableExecutionInputBuilder {
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
     /// This field is required.
-    pub fn durable_execution_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn durable_execution_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_durable_execution_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.durable_execution_arn = input;
         self
     }
@@ -66,12 +74,18 @@ impl CheckpointDurableExecutionInputBuilder {
     }
     /// <p>A unique token that identifies the current checkpoint state. This token is provided by the Lambda runtime and must be used to ensure checkpoints are applied in the correct order. Each checkpoint operation consumes this token and returns a new one.</p>
     /// This field is required.
-    pub fn checkpoint_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checkpoint_token(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checkpoint_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A unique token that identifies the current checkpoint state. This token is provided by the Lambda runtime and must be used to ensure checkpoints are applied in the correct order. Each checkpoint operation consumes this token and returns a new one.</p>
-    pub fn set_checkpoint_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checkpoint_token(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checkpoint_token = input;
         self
     }
@@ -91,12 +105,17 @@ impl CheckpointDurableExecutionInputBuilder {
         self
     }
     /// <p>An array of state updates to apply during this checkpoint. Each update represents a change to the execution state, such as completing a step, starting a callback, or scheduling a timer. Updates are applied atomically as part of the checkpoint operation.</p>
-    pub fn set_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OperationUpdate>>) -> Self {
+    pub fn set_updates(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::OperationUpdate>>,
+    ) -> Self {
         self.updates = input;
         self
     }
     /// <p>An array of state updates to apply during this checkpoint. Each update represents a change to the execution state, such as completing a step, starting a callback, or scheduling a timer. Updates are applied atomically as part of the checkpoint operation.</p>
-    pub fn get_updates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OperationUpdate>> {
+    pub fn get_updates(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::OperationUpdate>> {
         &self.updates
     }
     /// <p>An optional idempotency token to ensure that duplicate checkpoint requests are handled correctly. If provided, Lambda uses this token to detect and handle duplicate requests within a 15-minute window.</p>
@@ -120,11 +139,13 @@ impl CheckpointDurableExecutionInputBuilder {
         crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionInput {
-            durable_execution_arn: self.durable_execution_arn,
-            checkpoint_token: self.checkpoint_token,
-            updates: self.updates,
-            client_token: self.client_token,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionInput {
+                durable_execution_arn: self.durable_execution_arn,
+                checkpoint_token: self.checkpoint_token,
+                updates: self.updates,
+                client_token: self.client_token,
+            },
+        )
     }
 }

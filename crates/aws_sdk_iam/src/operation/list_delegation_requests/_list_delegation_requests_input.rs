@@ -28,13 +28,17 @@ impl ListDelegationRequestsInput {
 }
 impl ListDelegationRequestsInput {
     /// Creates a new builder-style object to manufacture [`ListDelegationRequestsInput`](crate::operation::list_delegation_requests::ListDelegationRequestsInput).
-    pub fn builder() -> crate::operation::list_delegation_requests::builders::ListDelegationRequestsInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_delegation_requests::builders::ListDelegationRequestsInputBuilder
+    {
         crate::operation::list_delegation_requests::builders::ListDelegationRequestsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListDelegationRequestsInput`](crate::operation::list_delegation_requests::ListDelegationRequestsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListDelegationRequestsInputBuilder {
     pub(crate) owner_id: ::std::option::Option<::std::string::String>,
@@ -94,10 +98,12 @@ impl ListDelegationRequestsInputBuilder {
         crate::operation::list_delegation_requests::ListDelegationRequestsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_delegation_requests::ListDelegationRequestsInput {
-            owner_id: self.owner_id,
-            marker: self.marker,
-            max_items: self.max_items,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::list_delegation_requests::ListDelegationRequestsInput {
+                owner_id: self.owner_id,
+                marker: self.marker,
+                max_items: self.max_items,
+            },
+        )
     }
 }

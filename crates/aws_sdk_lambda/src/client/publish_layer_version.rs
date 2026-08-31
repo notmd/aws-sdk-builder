@@ -20,7 +20,11 @@ impl super::Client {
     ///   - [`compatible_runtimes(Option<Vec::<Runtime>>)`](crate::operation::publish_layer_version::PublishLayerVersionOutput::compatible_runtimes): <p>The layer's compatible runtimes.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
     ///   - [`license_info(Option<String>)`](crate::operation::publish_layer_version::PublishLayerVersionOutput::license_info): <p>The layer's software license.</p>
     /// - On failure, responds with [`SdkError<PublishLayerVersionError>`](crate::operation::publish_layer_version::PublishLayerVersionError)
-    pub fn publish_layer_version(&self) -> crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder {
-        crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::new(self.handle.clone())
+    pub fn publish_layer_version(
+        &self,
+    ) -> crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder {
+        crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

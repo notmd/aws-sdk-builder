@@ -4,7 +4,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListContributorInsightsOutput {
     /// <p>A list of ContributorInsightsSummary.</p>
-    pub contributor_insights_summaries: ::std::option::Option<::std::vec::Vec<crate::types::ContributorInsightsSummary>>,
+    pub contributor_insights_summaries:
+        ::std::option::Option<::std::vec::Vec<crate::types::ContributorInsightsSummary>>,
     /// <p>A token to go to the next page if there is one.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -14,7 +15,9 @@ impl ListContributorInsightsOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.contributor_insights_summaries.is_none()`.
     pub fn contributor_insights_summaries(&self) -> &[crate::types::ContributorInsightsSummary] {
-        self.contributor_insights_summaries.as_deref().unwrap_or_default()
+        self.contributor_insights_summaries
+            .as_deref()
+            .unwrap_or_default()
     }
     /// <p>A token to go to the next page if there is one.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -28,16 +31,21 @@ impl ::aws_types::request_id::RequestId for ListContributorInsightsOutput {
 }
 impl ListContributorInsightsOutput {
     /// Creates a new builder-style object to manufacture [`ListContributorInsightsOutput`](crate::operation::list_contributor_insights::ListContributorInsightsOutput).
-    pub fn builder() -> crate::operation::list_contributor_insights::builders::ListContributorInsightsOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_contributor_insights::builders::ListContributorInsightsOutputBuilder
+    {
         crate::operation::list_contributor_insights::builders::ListContributorInsightsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListContributorInsightsOutput`](crate::operation::list_contributor_insights::ListContributorInsightsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListContributorInsightsOutputBuilder {
-    pub(crate) contributor_insights_summaries: ::std::option::Option<::std::vec::Vec<crate::types::ContributorInsightsSummary>>,
+    pub(crate) contributor_insights_summaries:
+        ::std::option::Option<::std::vec::Vec<crate::types::ContributorInsightsSummary>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -47,7 +55,10 @@ impl ListContributorInsightsOutputBuilder {
     /// To override the contents of this collection use [`set_contributor_insights_summaries`](Self::set_contributor_insights_summaries).
     ///
     /// <p>A list of ContributorInsightsSummary.</p>
-    pub fn contributor_insights_summaries(mut self, input: crate::types::ContributorInsightsSummary) -> Self {
+    pub fn contributor_insights_summaries(
+        mut self,
+        input: crate::types::ContributorInsightsSummary,
+    ) -> Self {
         let mut v = self.contributor_insights_summaries.unwrap_or_default();
         v.push(input);
         self.contributor_insights_summaries = ::std::option::Option::Some(v);
@@ -62,7 +73,9 @@ impl ListContributorInsightsOutputBuilder {
         self
     }
     /// <p>A list of ContributorInsightsSummary.</p>
-    pub fn get_contributor_insights_summaries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ContributorInsightsSummary>> {
+    pub fn get_contributor_insights_summaries(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ContributorInsightsSummary>> {
         &self.contributor_insights_summaries
     }
     /// <p>A token to go to the next page if there is one.</p>
@@ -89,7 +102,9 @@ impl ListContributorInsightsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListContributorInsightsOutput`](crate::operation::list_contributor_insights::ListContributorInsightsOutput).
-    pub fn build(self) -> crate::operation::list_contributor_insights::ListContributorInsightsOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::list_contributor_insights::ListContributorInsightsOutput {
         crate::operation::list_contributor_insights::ListContributorInsightsOutput {
             contributor_insights_summaries: self.contributor_insights_summaries,
             next_token: self.next_token,

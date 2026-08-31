@@ -33,7 +33,9 @@ impl TransformedLogRecord {
 }
 
 /// A builder for [`TransformedLogRecord`](crate::types::TransformedLogRecord).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct TransformedLogRecordBuilder {
     pub(crate) event_number: ::std::option::Option<i64>,
@@ -56,12 +58,18 @@ impl TransformedLogRecordBuilder {
         &self.event_number
     }
     /// <p>The original log event message before it was transformed.</p>
-    pub fn event_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn event_message(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.event_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The original log event message before it was transformed.</p>
-    pub fn set_event_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_event_message(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.event_message = input;
         self
     }
@@ -70,12 +78,18 @@ impl TransformedLogRecordBuilder {
         &self.event_message
     }
     /// <p>The log event message after being transformed.</p>
-    pub fn transformed_event_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn transformed_event_message(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.transformed_event_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The log event message after being transformed.</p>
-    pub fn set_transformed_event_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_transformed_event_message(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.transformed_event_message = input;
         self
     }

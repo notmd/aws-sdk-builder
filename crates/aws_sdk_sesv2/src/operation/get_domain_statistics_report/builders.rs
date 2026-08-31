@@ -3,7 +3,9 @@ pub use crate::operation::get_domain_statistics_report::_get_domain_statistics_r
 
 pub use crate::operation::get_domain_statistics_report::_get_domain_statistics_report_output::GetDomainStatisticsReportOutputBuilder;
 
-impl crate::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportInputBuilder {
+impl
+    crate::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -57,7 +59,7 @@ impl GetDomainStatisticsReportFluentBuilder {
         }
     }
     /// Access the GetDomainStatisticsReport as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +88,11 @@ impl GetDomainStatisticsReportFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_domain_statistics_report::GetDomainStatisticsReport::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_domain_statistics_report::GetDomainStatisticsReport::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,12 +105,18 @@ impl GetDomainStatisticsReportFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -128,7 +140,10 @@ impl GetDomainStatisticsReportFluentBuilder {
         self
     }
     /// <p>The first day (in Unix time) that you want to obtain domain deliverability metrics for.</p>
-    pub fn set_start_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_start_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.inner = self.inner.set_start_date(input);
         self
     }
@@ -142,7 +157,10 @@ impl GetDomainStatisticsReportFluentBuilder {
         self
     }
     /// <p>The last day (in Unix time) that you want to obtain domain deliverability metrics for. The <code>EndDate</code> that you specify has to be less than or equal to 30 days after the <code>StartDate</code>.</p>
-    pub fn set_end_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_end_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.inner = self.inner.set_end_date(input);
         self
     }

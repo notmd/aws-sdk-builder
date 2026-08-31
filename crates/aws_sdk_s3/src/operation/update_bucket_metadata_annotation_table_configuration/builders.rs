@@ -86,7 +86,7 @@ impl UpdateBucketMetadataAnnotationTableConfigurationFluentBuilder {
             crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -110,15 +110,21 @@ impl UpdateBucketMetadataAnnotationTableConfigurationFluentBuilder {
         crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput,
         crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -156,35 +162,54 @@ impl UpdateBucketMetadataAnnotationTableConfigurationFluentBuilder {
         self
     }
     /// <p>Checksum algorithm for the request payload.</p>
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
+    pub fn set_checksum_algorithm(
+        mut self,
+        input: ::std::option::Option<crate::types::ChecksumAlgorithm>,
+    ) -> Self {
         self.inner = self.inner.set_checksum_algorithm(input);
         self
     }
     /// <p>Checksum algorithm for the request payload.</p>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(
+        &self,
+    ) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         self.inner.get_checksum_algorithm()
     }
     /// <p>The annotation table configuration updates to apply.</p>
-    pub fn annotation_table_configuration(mut self, input: crate::types::AnnotationTableConfigurationUpdates) -> Self {
+    pub fn annotation_table_configuration(
+        mut self,
+        input: crate::types::AnnotationTableConfigurationUpdates,
+    ) -> Self {
         self.inner = self.inner.annotation_table_configuration(input);
         self
     }
     /// <p>The annotation table configuration updates to apply.</p>
-    pub fn set_annotation_table_configuration(mut self, input: ::std::option::Option<crate::types::AnnotationTableConfigurationUpdates>) -> Self {
+    pub fn set_annotation_table_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::AnnotationTableConfigurationUpdates>,
+    ) -> Self {
         self.inner = self.inner.set_annotation_table_configuration(input);
         self
     }
     /// <p>The annotation table configuration updates to apply.</p>
-    pub fn get_annotation_table_configuration(&self) -> &::std::option::Option<crate::types::AnnotationTableConfigurationUpdates> {
+    pub fn get_annotation_table_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::AnnotationTableConfigurationUpdates> {
         self.inner.get_annotation_table_configuration()
     }
     /// <p>The account ID of the expected bucket owner.</p>
-    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner.</p>
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

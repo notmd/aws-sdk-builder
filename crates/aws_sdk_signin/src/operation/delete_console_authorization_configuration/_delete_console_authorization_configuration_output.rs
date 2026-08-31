@@ -35,13 +35,15 @@ impl ::aws_types::request_id::RequestId for DeleteConsoleAuthorizationConfigurat
 }
 impl DeleteConsoleAuthorizationConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteConsoleAuthorizationConfigurationOutput`](crate::operation::delete_console_authorization_configuration::DeleteConsoleAuthorizationConfigurationOutput).
-    pub fn builder() -> crate::operation::delete_console_authorization_configuration::builders::DeleteConsoleAuthorizationConfigurationOutputBuilder {
+    pub fn builder() -> crate::operation::delete_console_authorization_configuration::builders::DeleteConsoleAuthorizationConfigurationOutputBuilder{
         crate::operation::delete_console_authorization_configuration::builders::DeleteConsoleAuthorizationConfigurationOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteConsoleAuthorizationConfigurationOutput`](crate::operation::delete_console_authorization_configuration::DeleteConsoleAuthorizationConfigurationOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteConsoleAuthorizationConfigurationOutputBuilder {
     pub(crate) target_id: ::std::option::Option<::std::string::String>,
@@ -114,7 +116,7 @@ impl DeleteConsoleAuthorizationConfigurationOutputBuilder {
     ) -> ::std::result::Result<
         crate::operation::delete_console_authorization_configuration::DeleteConsoleAuthorizationConfigurationOutput,
         ::aws_smithy_types::error::operation::BuildError,
-    > {
+    >{
         ::std::result::Result::Ok(
             crate::operation::delete_console_authorization_configuration::DeleteConsoleAuthorizationConfigurationOutput {
                 target_id: self.target_id

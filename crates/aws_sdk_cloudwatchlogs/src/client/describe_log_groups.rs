@@ -16,7 +16,11 @@ impl super::Client {
     ///   - [`log_groups(Option<Vec::<LogGroup>>)`](crate::operation::describe_log_groups::DescribeLogGroupsOutput::log_groups): <p>An array of structures, where each structure contains the information about one log group.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::describe_log_groups::DescribeLogGroupsOutput::next_token): <p>The token for the next set of items to return. The token expires after 24 hours.</p>
     /// - On failure, responds with [`SdkError<DescribeLogGroupsError>`](crate::operation::describe_log_groups::DescribeLogGroupsError)
-    pub fn describe_log_groups(&self) -> crate::operation::describe_log_groups::builders::DescribeLogGroupsFluentBuilder {
-        crate::operation::describe_log_groups::builders::DescribeLogGroupsFluentBuilder::new(self.handle.clone())
+    pub fn describe_log_groups(
+        &self,
+    ) -> crate::operation::describe_log_groups::builders::DescribeLogGroupsFluentBuilder {
+        crate::operation::describe_log_groups::builders::DescribeLogGroupsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

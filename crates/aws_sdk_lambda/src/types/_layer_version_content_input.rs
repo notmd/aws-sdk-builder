@@ -41,7 +41,9 @@ impl LayerVersionContentInput {
     /// <li>
     /// <p><code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p></li>
     /// </ul>
-    pub fn s3_object_storage_mode(&self) -> ::std::option::Option<&crate::types::S3ObjectStorageMode> {
+    pub fn s3_object_storage_mode(
+        &self,
+    ) -> ::std::option::Option<&crate::types::S3ObjectStorageMode> {
         self.s3_object_storage_mode.as_ref()
     }
     /// <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
@@ -107,12 +109,18 @@ impl LayerVersionContentInputBuilder {
         &self.s3_key
     }
     /// <p>For versioned objects, the version of the layer archive object to use.</p>
-    pub fn s3_object_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn s3_object_version(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.s3_object_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>For versioned objects, the version of the layer archive object to use.</p>
-    pub fn set_s3_object_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_s3_object_version(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.s3_object_version = input;
         self
     }
@@ -138,7 +146,10 @@ impl LayerVersionContentInputBuilder {
     /// <li>
     /// <p><code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p></li>
     /// </ul>
-    pub fn set_s3_object_storage_mode(mut self, input: ::std::option::Option<crate::types::S3ObjectStorageMode>) -> Self {
+    pub fn set_s3_object_storage_mode(
+        mut self,
+        input: ::std::option::Option<crate::types::S3ObjectStorageMode>,
+    ) -> Self {
         self.s3_object_storage_mode = input;
         self
     }
@@ -149,7 +160,9 @@ impl LayerVersionContentInputBuilder {
     /// <li>
     /// <p><code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p></li>
     /// </ul>
-    pub fn get_s3_object_storage_mode(&self) -> &::std::option::Option<crate::types::S3ObjectStorageMode> {
+    pub fn get_s3_object_storage_mode(
+        &self,
+    ) -> &::std::option::Option<crate::types::S3ObjectStorageMode> {
         &self.s3_object_storage_mode
     }
     /// <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>

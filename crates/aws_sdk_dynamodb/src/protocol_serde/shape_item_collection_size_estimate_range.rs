@@ -3,14 +3,24 @@ pub(crate) fn de_item_collection_size_estimate_range<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<::std::vec::Vec<f64>>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<
+    Option<::std::vec::Vec<f64>>,
+    ::aws_smithy_json::deserialize::error::DeserializeError,
+>
 where
-    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+    I: Iterator<
+        Item = Result<
+            ::aws_smithy_json::deserialize::Token<'a>,
+            ::aws_smithy_json::deserialize::error::DeserializeError,
+        >,
+    >,
 {
     if depth >= 128u32 {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "maximum nesting depth exceeded",
+            ),
+        );
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -23,21 +33,28 @@ where
                         break;
                     }
                     _ => {
-                        let value = ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?.map(|v| v.to_f64_lossy());
+                        let value = ::aws_smithy_json::deserialize::token::expect_number_or_null(
+                            tokens.next(),
+                        )?
+                        .map(|v| v.to_f64_lossy());
                         if let Some(value) = value {
                             items.push(value);
                         } else {
-                            return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                "dense list cannot contain null values",
-                            ));
+                            return Err(
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "dense list cannot contain null values",
+                                ),
+                            );
                         }
                     }
                 }
             }
             Ok(Some(items))
         }
-        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "expected start array or null",
-        )),
+        _ => Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start array or null",
+            ),
+        ),
     }
 }

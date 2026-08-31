@@ -76,7 +76,9 @@ impl UntagResourceFluentBuilder {
         }
     }
     /// Access the UntagResource as a reference.
-    pub fn as_input(&self) -> &crate::operation::untag_resource::builders::UntagResourceInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::untag_resource::builders::UntagResourceInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -100,11 +102,12 @@ impl UntagResourceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::untag_resource::UntagResource::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::untag_resource::UntagResource::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::untag_resource::UntagResource::orchestrate(&runtime_plugins, input).await
     }
 
@@ -118,12 +121,18 @@ impl UntagResourceFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -179,7 +188,10 @@ impl UntagResourceFluentBuilder {
         self
     }
     /// <p>One or more tag keys. Specify only the tag keys, not the tag values.</p>
-    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_tag_keys(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.inner = self.inner.set_tag_keys(input);
         self
     }

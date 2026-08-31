@@ -86,7 +86,9 @@ impl BatchWriteItemFluentBuilder {
         }
     }
     /// Access the BatchWriteItem as a reference.
-    pub fn as_input(&self) -> &crate::operation::batch_write_item::builders::BatchWriteItemInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::batch_write_item::builders::BatchWriteItemInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -110,12 +112,14 @@ impl BatchWriteItemFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::batch_write_item::BatchWriteItem::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::batch_write_item::BatchWriteItem::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::batch_write_item::BatchWriteItem::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::batch_write_item::BatchWriteItem::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -128,12 +132,18 @@ impl BatchWriteItemFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -158,7 +168,11 @@ impl BatchWriteItemFluentBuilder {
     /// <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn request_items(mut self, k: impl ::std::convert::Into<::std::string::String>, v: ::std::vec::Vec<crate::types::WriteRequest>) -> Self {
+    pub fn request_items(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: ::std::vec::Vec<crate::types::WriteRequest>,
+    ) -> Self {
         self.inner = self.inner.request_items(k.into(), v);
         self
     }
@@ -180,7 +194,12 @@ impl BatchWriteItemFluentBuilder {
     /// </ul>
     pub fn set_request_items(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::WriteRequest>>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<
+                ::std::string::String,
+                ::std::vec::Vec<crate::types::WriteRequest>,
+            >,
+        >,
     ) -> Self {
         self.inner = self.inner.set_request_items(input);
         self
@@ -203,7 +222,12 @@ impl BatchWriteItemFluentBuilder {
     /// </ul>
     pub fn get_request_items(
         &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::WriteRequest>>> {
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<
+            ::std::string::String,
+            ::std::vec::Vec<crate::types::WriteRequest>,
+        >,
+    > {
         self.inner.get_request_items()
     }
     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
@@ -230,7 +254,10 @@ impl BatchWriteItemFluentBuilder {
     /// <li>
     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
     /// </ul>
-    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
+    pub fn set_return_consumed_capacity(
+        mut self,
+        input: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
+    ) -> Self {
         self.inner = self.inner.set_return_consumed_capacity(input);
         self
     }
@@ -244,21 +271,31 @@ impl BatchWriteItemFluentBuilder {
     /// <li>
     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
     /// </ul>
-    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
+    pub fn get_return_consumed_capacity(
+        &self,
+    ) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
         self.inner.get_return_consumed_capacity()
     }
     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-    pub fn return_item_collection_metrics(mut self, input: crate::types::ReturnItemCollectionMetrics) -> Self {
+    pub fn return_item_collection_metrics(
+        mut self,
+        input: crate::types::ReturnItemCollectionMetrics,
+    ) -> Self {
         self.inner = self.inner.return_item_collection_metrics(input);
         self
     }
     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-    pub fn set_return_item_collection_metrics(mut self, input: ::std::option::Option<crate::types::ReturnItemCollectionMetrics>) -> Self {
+    pub fn set_return_item_collection_metrics(
+        mut self,
+        input: ::std::option::Option<crate::types::ReturnItemCollectionMetrics>,
+    ) -> Self {
         self.inner = self.inner.set_return_item_collection_metrics(input);
         self
     }
     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-    pub fn get_return_item_collection_metrics(&self) -> &::std::option::Option<crate::types::ReturnItemCollectionMetrics> {
+    pub fn get_return_item_collection_metrics(
+        &self,
+    ) -> &::std::option::Option<crate::types::ReturnItemCollectionMetrics> {
         self.inner.get_return_item_collection_metrics()
     }
 }

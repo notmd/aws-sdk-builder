@@ -53,7 +53,9 @@ pub fn de_get_context_keys_for_custom_policy_http_response(
         let mut output = crate::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyOutputBuilder::default();
         output = crate::protocol_serde::shape_get_context_keys_for_custom_policy::de_get_context_keys_for_custom_policy(_response_body, output)
             .map_err(crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
@@ -65,7 +67,7 @@ pub fn de_get_context_keys_for_custom_policy(
 ) -> std::result::Result<
     crate::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+>{
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

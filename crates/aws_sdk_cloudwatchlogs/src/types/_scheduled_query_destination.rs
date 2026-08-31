@@ -17,7 +17,9 @@ pub struct ScheduledQueryDestination {
 }
 impl ScheduledQueryDestination {
     /// <p>The type of destination for query results.</p>
-    pub fn destination_type(&self) -> ::std::option::Option<&crate::types::ScheduledQueryDestinationType> {
+    pub fn destination_type(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ScheduledQueryDestinationType> {
         self.destination_type.as_ref()
     }
     /// <p>The identifier for the destination where results are delivered.</p>
@@ -45,7 +47,9 @@ impl ScheduledQueryDestination {
 }
 
 /// A builder for [`ScheduledQueryDestination`](crate::types::ScheduledQueryDestination).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ScheduledQueryDestinationBuilder {
     pub(crate) destination_type: ::std::option::Option<crate::types::ScheduledQueryDestinationType>,
@@ -61,21 +65,32 @@ impl ScheduledQueryDestinationBuilder {
         self
     }
     /// <p>The type of destination for query results.</p>
-    pub fn set_destination_type(mut self, input: ::std::option::Option<crate::types::ScheduledQueryDestinationType>) -> Self {
+    pub fn set_destination_type(
+        mut self,
+        input: ::std::option::Option<crate::types::ScheduledQueryDestinationType>,
+    ) -> Self {
         self.destination_type = input;
         self
     }
     /// <p>The type of destination for query results.</p>
-    pub fn get_destination_type(&self) -> &::std::option::Option<crate::types::ScheduledQueryDestinationType> {
+    pub fn get_destination_type(
+        &self,
+    ) -> &::std::option::Option<crate::types::ScheduledQueryDestinationType> {
         &self.destination_type
     }
     /// <p>The identifier for the destination where results are delivered.</p>
-    pub fn destination_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn destination_identifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.destination_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The identifier for the destination where results are delivered.</p>
-    pub fn set_destination_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_destination_identifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.destination_identifier = input;
         self
     }
@@ -98,12 +113,18 @@ impl ScheduledQueryDestinationBuilder {
         &self.status
     }
     /// <p>The identifier of the processed result at the destination.</p>
-    pub fn processed_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn processed_identifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.processed_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The identifier of the processed result at the destination.</p>
-    pub fn set_processed_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_processed_identifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.processed_identifier = input;
         self
     }
@@ -112,12 +133,18 @@ impl ScheduledQueryDestinationBuilder {
         &self.processed_identifier
     }
     /// <p>Error message if destination processing failed.</p>
-    pub fn error_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn error_message(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.error_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Error message if destination processing failed.</p>
-    pub fn set_error_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_error_message(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.error_message = input;
         self
     }

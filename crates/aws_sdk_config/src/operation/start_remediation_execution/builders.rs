@@ -3,7 +3,9 @@ pub use crate::operation::start_remediation_execution::_start_remediation_execut
 
 pub use crate::operation::start_remediation_execution::_start_remediation_execution_output::StartRemediationExecutionOutputBuilder;
 
-impl crate::operation::start_remediation_execution::builders::StartRemediationExecutionInputBuilder {
+impl
+    crate::operation::start_remediation_execution::builders::StartRemediationExecutionInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -58,7 +60,7 @@ impl StartRemediationExecutionFluentBuilder {
         }
     }
     /// Access the StartRemediationExecution as a reference.
-    pub fn as_input(&self) -> &crate::operation::start_remediation_execution::builders::StartRemediationExecutionInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::start_remediation_execution::builders::StartRemediationExecutionInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,7 +89,11 @@ impl StartRemediationExecutionFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::start_remediation_execution::StartRemediationExecution::orchestrate(&runtime_plugins, input).await
+        crate::operation::start_remediation_execution::StartRemediationExecution::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -100,22 +106,34 @@ impl StartRemediationExecutionFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The list of names of Config rules that you want to run remediation execution for.</p>
-    pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn config_rule_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.config_rule_name(input.into());
         self
     }
     /// <p>The list of names of Config rules that you want to run remediation execution for.</p>
-    pub fn set_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_config_rule_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_config_rule_name(input);
         self
     }
@@ -134,12 +152,17 @@ impl StartRemediationExecutionFluentBuilder {
         self
     }
     /// <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.</p>
-    pub fn set_resource_keys(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>>) -> Self {
+    pub fn set_resource_keys(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>>,
+    ) -> Self {
         self.inner = self.inner.set_resource_keys(input);
         self
     }
     /// <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.</p>
-    pub fn get_resource_keys(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>> {
+    pub fn get_resource_keys(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>> {
         self.inner.get_resource_keys()
     }
 }

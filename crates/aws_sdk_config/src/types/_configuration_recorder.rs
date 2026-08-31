@@ -132,7 +132,9 @@ impl ConfigurationRecorder {
 }
 
 /// A builder for [`ConfigurationRecorder`](crate::types::ConfigurationRecorder).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ConfigurationRecorderBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
@@ -252,7 +254,10 @@ impl ConfigurationRecorderBuilder {
     /// <p>If you are running ephemeral workloads, you may see increased activity from Config as it records configuration changes associated with creating and deleting these temporary resources. An <i>ephemeral workload</i> is a temporary use of computing resources that are loaded and run when needed. Examples include Amazon Elastic Compute Cloud (Amazon EC2) Spot Instances, Amazon EMR jobs, and Auto Scaling.</p>
     /// <p>If you want to avoid the increased activity from running ephemeral workloads, you can set up the configuration recorder to exclude these resource types from being recorded, or run these types of workloads in a separate account with Config turned off to avoid increased configuration recording and rule evaluations.</p>
     /// </note>
-    pub fn set_recording_group(mut self, input: ::std::option::Option<crate::types::RecordingGroup>) -> Self {
+    pub fn set_recording_group(
+        mut self,
+        input: ::std::option::Option<crate::types::RecordingGroup>,
+    ) -> Self {
         self.recording_group = input;
         self
     }
@@ -291,7 +296,10 @@ impl ConfigurationRecorderBuilder {
     /// <p>Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager, it is recommended that you set the recording frequency to Continuous.</p>
     /// </note>
     /// <p>You can also override the recording frequency for specific resource types.</p>
-    pub fn set_recording_mode(mut self, input: ::std::option::Option<crate::types::RecordingMode>) -> Self {
+    pub fn set_recording_mode(
+        mut self,
+        input: ::std::option::Option<crate::types::RecordingMode>,
+    ) -> Self {
         self.recording_mode = input;
         self
     }
@@ -315,7 +323,10 @@ impl ConfigurationRecorderBuilder {
         self
     }
     /// <p>Specifies whether the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigurationItem.html">ConfigurationItems</a> in scope for the specified configuration recorder are recorded for free (<code>INTERNAL</code>) or if it impacts the costs to your bill (<code>PAID</code>).</p>
-    pub fn set_recording_scope(mut self, input: ::std::option::Option<crate::types::RecordingScope>) -> Self {
+    pub fn set_recording_scope(
+        mut self,
+        input: ::std::option::Option<crate::types::RecordingScope>,
+    ) -> Self {
         self.recording_scope = input;
         self
     }
@@ -324,12 +335,18 @@ impl ConfigurationRecorderBuilder {
         &self.recording_scope
     }
     /// <p>For service-linked configuration recorders, specifies the linked Amazon Web Services service for the configuration recorder.</p>
-    pub fn service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn service_principal(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.service_principal = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>For service-linked configuration recorders, specifies the linked Amazon Web Services service for the configuration recorder.</p>
-    pub fn set_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_service_principal(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.service_principal = input;
         self
     }
@@ -338,12 +355,18 @@ impl ConfigurationRecorderBuilder {
         &self.service_principal
     }
     /// <p>The Amazon Resource Name (ARN) of the connector that specifies the connection between a third-party cloud service provider and Config.</p>
-    pub fn connector_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn connector_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.connector_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the connector that specifies the connection between a third-party cloud service provider and Config.</p>
-    pub fn set_connector_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_connector_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.connector_arn = input;
         self
     }
@@ -357,12 +380,17 @@ impl ConfigurationRecorderBuilder {
         self
     }
     /// <p>Specifies the scope of resources to record from the third-party cloud service provider connected through the connector.</p>
-    pub fn set_scope_configuration(mut self, input: ::std::option::Option<crate::types::ScopeConfiguration>) -> Self {
+    pub fn set_scope_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::ScopeConfiguration>,
+    ) -> Self {
         self.scope_configuration = input;
         self
     }
     /// <p>Specifies the scope of resources to record from the third-party cloud service provider connected through the connector.</p>
-    pub fn get_scope_configuration(&self) -> &::std::option::Option<crate::types::ScopeConfiguration> {
+    pub fn get_scope_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::ScopeConfiguration> {
         &self.scope_configuration
     }
     /// Consumes the builder and constructs a [`ConfigurationRecorder`](crate::types::ConfigurationRecorder).

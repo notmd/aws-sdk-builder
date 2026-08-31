@@ -164,7 +164,9 @@ impl UploadPartCopyFluentBuilder {
         }
     }
     /// Access the UploadPartCopy as a reference.
-    pub fn as_input(&self) -> &crate::operation::upload_part_copy::builders::UploadPartCopyInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::upload_part_copy::builders::UploadPartCopyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -188,12 +190,14 @@ impl UploadPartCopyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::upload_part_copy::UploadPartCopy::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::upload_part_copy::UploadPartCopy::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::upload_part_copy::UploadPartCopy::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::upload_part_copy::UploadPartCopy::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -206,12 +210,18 @@ impl UploadPartCopyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -377,7 +387,10 @@ impl UploadPartCopyFluentBuilder {
     /// <p><code>x-amz-copy-source-if-match</code> condition evaluates to <code>true</code>, and;</p>
     /// <p><code>x-amz-copy-source-if-unmodified-since</code> condition evaluates to <code>false</code>;</p>
     /// <p>Amazon S3 returns <code>200 OK</code> and copies the data.</p>
-    pub fn copy_source_if_match(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn copy_source_if_match(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.copy_source_if_match(input.into());
         self
     }
@@ -386,7 +399,10 @@ impl UploadPartCopyFluentBuilder {
     /// <p><code>x-amz-copy-source-if-match</code> condition evaluates to <code>true</code>, and;</p>
     /// <p><code>x-amz-copy-source-if-unmodified-since</code> condition evaluates to <code>false</code>;</p>
     /// <p>Amazon S3 returns <code>200 OK</code> and copies the data.</p>
-    pub fn set_copy_source_if_match(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_copy_source_if_match(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_copy_source_if_match(input);
         self
     }
@@ -412,7 +428,10 @@ impl UploadPartCopyFluentBuilder {
     /// <p><code>x-amz-copy-source-if-none-match</code> condition evaluates to <code>false</code>, and;</p>
     /// <p><code>x-amz-copy-source-if-modified-since</code> condition evaluates to <code>true</code>;</p>
     /// <p>Amazon S3 returns <code>412 Precondition Failed</code> response code.</p>
-    pub fn set_copy_source_if_modified_since(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_copy_source_if_modified_since(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.inner = self.inner.set_copy_source_if_modified_since(input);
         self
     }
@@ -421,7 +440,9 @@ impl UploadPartCopyFluentBuilder {
     /// <p><code>x-amz-copy-source-if-none-match</code> condition evaluates to <code>false</code>, and;</p>
     /// <p><code>x-amz-copy-source-if-modified-since</code> condition evaluates to <code>true</code>;</p>
     /// <p>Amazon S3 returns <code>412 Precondition Failed</code> response code.</p>
-    pub fn get_copy_source_if_modified_since(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_copy_source_if_modified_since(
+        &self,
+    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         self.inner.get_copy_source_if_modified_since()
     }
     /// <p>Copies the object if its entity tag (ETag) is different than the specified ETag.</p>
@@ -429,7 +450,10 @@ impl UploadPartCopyFluentBuilder {
     /// <p><code>x-amz-copy-source-if-none-match</code> condition evaluates to <code>false</code>, and;</p>
     /// <p><code>x-amz-copy-source-if-modified-since</code> condition evaluates to <code>true</code>;</p>
     /// <p>Amazon S3 returns <code>412 Precondition Failed</code> response code.</p>
-    pub fn copy_source_if_none_match(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn copy_source_if_none_match(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.copy_source_if_none_match(input.into());
         self
     }
@@ -438,7 +462,10 @@ impl UploadPartCopyFluentBuilder {
     /// <p><code>x-amz-copy-source-if-none-match</code> condition evaluates to <code>false</code>, and;</p>
     /// <p><code>x-amz-copy-source-if-modified-since</code> condition evaluates to <code>true</code>;</p>
     /// <p>Amazon S3 returns <code>412 Precondition Failed</code> response code.</p>
-    pub fn set_copy_source_if_none_match(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_copy_source_if_none_match(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_copy_source_if_none_match(input);
         self
     }
@@ -464,7 +491,10 @@ impl UploadPartCopyFluentBuilder {
     /// <p><code>x-amz-copy-source-if-match</code> condition evaluates to <code>true</code>, and;</p>
     /// <p><code>x-amz-copy-source-if-unmodified-since</code> condition evaluates to <code>false</code>;</p>
     /// <p>Amazon S3 returns <code>200 OK</code> and copies the data.</p>
-    pub fn set_copy_source_if_unmodified_since(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_copy_source_if_unmodified_since(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.inner = self.inner.set_copy_source_if_unmodified_since(input);
         self
     }
@@ -473,16 +503,24 @@ impl UploadPartCopyFluentBuilder {
     /// <p><code>x-amz-copy-source-if-match</code> condition evaluates to <code>true</code>, and;</p>
     /// <p><code>x-amz-copy-source-if-unmodified-since</code> condition evaluates to <code>false</code>;</p>
     /// <p>Amazon S3 returns <code>200 OK</code> and copies the data.</p>
-    pub fn get_copy_source_if_unmodified_since(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_copy_source_if_unmodified_since(
+        &self,
+    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         self.inner.get_copy_source_if_unmodified_since()
     }
     /// <p>The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first 10 bytes of the source. You can copy a range only if the source object is greater than 5 MB.</p>
-    pub fn copy_source_range(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn copy_source_range(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.copy_source_range(input.into());
         self
     }
     /// <p>The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first 10 bytes of the source. You can copy a range only if the source object is greater than 5 MB.</p>
-    pub fn set_copy_source_range(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_copy_source_range(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_copy_source_range(input);
         self
     }
@@ -535,14 +573,20 @@ impl UploadPartCopyFluentBuilder {
     /// <p>Specifies the algorithm to use when encrypting the object (for example, AES256).</p><note>
     /// <p>This functionality is not supported when the destination bucket is a directory bucket.</p>
     /// </note>
-    pub fn sse_customer_algorithm(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn sse_customer_algorithm(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.sse_customer_algorithm(input.into());
         self
     }
     /// <p>Specifies the algorithm to use when encrypting the object (for example, AES256).</p><note>
     /// <p>This functionality is not supported when the destination bucket is a directory bucket.</p>
     /// </note>
-    pub fn set_sse_customer_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_sse_customer_algorithm(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_sse_customer_algorithm(input);
         self
     }
@@ -555,14 +599,20 @@ impl UploadPartCopyFluentBuilder {
     /// <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the <code>x-amz-server-side-encryption-customer-algorithm</code> header. This must be the same encryption key specified in the initiate multipart upload request.</p><note>
     /// <p>This functionality is not supported when the destination bucket is a directory bucket.</p>
     /// </note>
-    pub fn sse_customer_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn sse_customer_key(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.sse_customer_key(input.into());
         self
     }
     /// <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the <code>x-amz-server-side-encryption-customer-algorithm</code> header. This must be the same encryption key specified in the initiate multipart upload request.</p><note>
     /// <p>This functionality is not supported when the destination bucket is a directory bucket.</p>
     /// </note>
-    pub fn set_sse_customer_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_sse_customer_key(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_sse_customer_key(input);
         self
     }
@@ -575,14 +625,20 @@ impl UploadPartCopyFluentBuilder {
     /// <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.</p><note>
     /// <p>This functionality is not supported when the destination bucket is a directory bucket.</p>
     /// </note>
-    pub fn sse_customer_key_md5(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn sse_customer_key_md5(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.sse_customer_key_md5(input.into());
         self
     }
     /// <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.</p><note>
     /// <p>This functionality is not supported when the destination bucket is a directory bucket.</p>
     /// </note>
-    pub fn set_sse_customer_key_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_sse_customer_key_md5(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_sse_customer_key_md5(input);
         self
     }
@@ -595,61 +651,85 @@ impl UploadPartCopyFluentBuilder {
     /// <p>Specifies the algorithm to use when decrypting the source object (for example, <code>AES256</code>).</p><note>
     /// <p>This functionality is not supported when the source object is in a directory bucket.</p>
     /// </note>
-    pub fn copy_source_sse_customer_algorithm(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn copy_source_sse_customer_algorithm(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.copy_source_sse_customer_algorithm(input.into());
         self
     }
     /// <p>Specifies the algorithm to use when decrypting the source object (for example, <code>AES256</code>).</p><note>
     /// <p>This functionality is not supported when the source object is in a directory bucket.</p>
     /// </note>
-    pub fn set_copy_source_sse_customer_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_copy_source_sse_customer_algorithm(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_copy_source_sse_customer_algorithm(input);
         self
     }
     /// <p>Specifies the algorithm to use when decrypting the source object (for example, <code>AES256</code>).</p><note>
     /// <p>This functionality is not supported when the source object is in a directory bucket.</p>
     /// </note>
-    pub fn get_copy_source_sse_customer_algorithm(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_copy_source_sse_customer_algorithm(
+        &self,
+    ) -> &::std::option::Option<::std::string::String> {
         self.inner.get_copy_source_sse_customer_algorithm()
     }
     /// <p>Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.</p><note>
     /// <p>This functionality is not supported when the source object is in a directory bucket.</p>
     /// </note>
-    pub fn copy_source_sse_customer_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn copy_source_sse_customer_key(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.copy_source_sse_customer_key(input.into());
         self
     }
     /// <p>Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.</p><note>
     /// <p>This functionality is not supported when the source object is in a directory bucket.</p>
     /// </note>
-    pub fn set_copy_source_sse_customer_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_copy_source_sse_customer_key(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_copy_source_sse_customer_key(input);
         self
     }
     /// <p>Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.</p><note>
     /// <p>This functionality is not supported when the source object is in a directory bucket.</p>
     /// </note>
-    pub fn get_copy_source_sse_customer_key(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_copy_source_sse_customer_key(
+        &self,
+    ) -> &::std::option::Option<::std::string::String> {
         self.inner.get_copy_source_sse_customer_key()
     }
     /// <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.</p><note>
     /// <p>This functionality is not supported when the source object is in a directory bucket.</p>
     /// </note>
-    pub fn copy_source_sse_customer_key_md5(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn copy_source_sse_customer_key_md5(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.copy_source_sse_customer_key_md5(input.into());
         self
     }
     /// <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.</p><note>
     /// <p>This functionality is not supported when the source object is in a directory bucket.</p>
     /// </note>
-    pub fn set_copy_source_sse_customer_key_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_copy_source_sse_customer_key_md5(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_copy_source_sse_customer_key_md5(input);
         self
     }
     /// <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.</p><note>
     /// <p>This functionality is not supported when the source object is in a directory bucket.</p>
     /// </note>
-    pub fn get_copy_source_sse_customer_key_md5(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_copy_source_sse_customer_key_md5(
+        &self,
+    ) -> &::std::option::Option<::std::string::String> {
         self.inner.get_copy_source_sse_customer_key_md5()
     }
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
@@ -662,7 +742,10 @@ impl UploadPartCopyFluentBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+    pub fn set_request_payer(
+        mut self,
+        input: ::std::option::Option<crate::types::RequestPayer>,
+    ) -> Self {
         self.inner = self.inner.set_request_payer(input);
         self
     }
@@ -673,12 +756,18 @@ impl UploadPartCopyFluentBuilder {
         self.inner.get_request_payer()
     }
     /// <p>The account ID of the expected destination bucket owner. If the account ID that you provide does not match the actual owner of the destination bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected destination bucket owner. If the account ID that you provide does not match the actual owner of the destination bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }
@@ -687,17 +776,25 @@ impl UploadPartCopyFluentBuilder {
         self.inner.get_expected_bucket_owner()
     }
     /// <p>The account ID of the expected source bucket owner. If the account ID that you provide does not match the actual owner of the source bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_source_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_source_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.expected_source_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected source bucket owner. If the account ID that you provide does not match the actual owner of the source bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_source_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_source_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_expected_source_bucket_owner(input);
         self
     }
     /// <p>The account ID of the expected source bucket owner. If the account ID that you provide does not match the actual owner of the source bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn get_expected_source_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_expected_source_bucket_owner(
+        &self,
+    ) -> &::std::option::Option<::std::string::String> {
         self.inner.get_expected_source_bucket_owner()
     }
 }

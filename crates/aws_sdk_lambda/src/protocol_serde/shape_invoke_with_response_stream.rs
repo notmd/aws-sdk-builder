@@ -35,10 +35,12 @@ pub fn de_invoke_with_response_stream_http_response(
             )?,
         );
         output = output.set_status_code(Some(_response_status as _));
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        output
-            .build()
-            .map_err(crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled)?
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
+        output.build().map_err(
+            crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled,
+        )?
     })
 }
 
@@ -52,17 +54,23 @@ pub fn de_invoke_with_response_stream_http_error(
     crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(
+        crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled,
+    )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled(
+        None => return Err(
+            crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError::unhandled(
                 generic,
-            ))
-        }
+            ),
+        ),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -691,14 +699,20 @@ pub fn de_invoke_with_response_stream_http_error(
 pub fn ser_invoke_with_response_stream_headers(
     input: &crate::operation::invoke_with_response_stream::InvokeWithResponseStreamInput,
     mut builder: ::http_1x::request::Builder,
-) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+) -> std::result::Result<
+    ::http_1x::request::Builder,
+    ::aws_smithy_types::error::operation::BuildError,
+> {
     if let ::std::option::Option::Some(inner_1) = &input.log_type {
         let formatted_2 = inner_1.as_str();
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "log_type",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("X-Amz-Log-Type", header_value);
@@ -709,7 +723,10 @@ pub fn ser_invoke_with_response_stream_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "client_context",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("X-Amz-Client-Context", header_value);
@@ -720,7 +737,10 @@ pub fn ser_invoke_with_response_stream_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "tenant_id",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("X-Amz-Tenant-Id", header_value);
@@ -731,7 +751,10 @@ pub fn ser_invoke_with_response_stream_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "invocation_type",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("X-Amz-Invocation-Type", header_value);

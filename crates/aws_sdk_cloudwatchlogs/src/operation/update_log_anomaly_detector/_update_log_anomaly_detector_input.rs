@@ -20,7 +20,9 @@ impl UpdateLogAnomalyDetectorInput {
         self.anomaly_detector_arn.as_deref()
     }
     /// <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then setting <code>evaluationFrequency</code> to <code>FIFTEEN_MIN</code> might be appropriate.</p>
-    pub fn evaluation_frequency(&self) -> ::std::option::Option<&crate::types::EvaluationFrequency> {
+    pub fn evaluation_frequency(
+        &self,
+    ) -> ::std::option::Option<&crate::types::EvaluationFrequency> {
         self.evaluation_frequency.as_ref()
     }
     /// <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
@@ -38,13 +40,17 @@ impl UpdateLogAnomalyDetectorInput {
 }
 impl UpdateLogAnomalyDetectorInput {
     /// Creates a new builder-style object to manufacture [`UpdateLogAnomalyDetectorInput`](crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorInput).
-    pub fn builder() -> crate::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorInputBuilder
+    {
         crate::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateLogAnomalyDetectorInput`](crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateLogAnomalyDetectorInputBuilder {
     pub(crate) anomaly_detector_arn: ::std::option::Option<::std::string::String>,
@@ -56,12 +62,18 @@ pub struct UpdateLogAnomalyDetectorInputBuilder {
 impl UpdateLogAnomalyDetectorInputBuilder {
     /// <p>The ARN of the anomaly detector that you want to update.</p>
     /// This field is required.
-    pub fn anomaly_detector_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn anomaly_detector_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.anomaly_detector_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the anomaly detector that you want to update.</p>
-    pub fn set_anomaly_detector_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_anomaly_detector_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.anomaly_detector_arn = input;
         self
     }
@@ -75,21 +87,32 @@ impl UpdateLogAnomalyDetectorInputBuilder {
         self
     }
     /// <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then setting <code>evaluationFrequency</code> to <code>FIFTEEN_MIN</code> might be appropriate.</p>
-    pub fn set_evaluation_frequency(mut self, input: ::std::option::Option<crate::types::EvaluationFrequency>) -> Self {
+    pub fn set_evaluation_frequency(
+        mut self,
+        input: ::std::option::Option<crate::types::EvaluationFrequency>,
+    ) -> Self {
         self.evaluation_frequency = input;
         self
     }
     /// <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then setting <code>evaluationFrequency</code> to <code>FIFTEEN_MIN</code> might be appropriate.</p>
-    pub fn get_evaluation_frequency(&self) -> &::std::option::Option<crate::types::EvaluationFrequency> {
+    pub fn get_evaluation_frequency(
+        &self,
+    ) -> &::std::option::Option<crate::types::EvaluationFrequency> {
         &self.evaluation_frequency
     }
     /// <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
-    pub fn filter_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn filter_pattern(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.filter_pattern = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
-    pub fn set_filter_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_filter_pattern(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.filter_pattern = input;
         self
     }
@@ -133,12 +156,14 @@ impl UpdateLogAnomalyDetectorInputBuilder {
         crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorInput {
-            anomaly_detector_arn: self.anomaly_detector_arn,
-            evaluation_frequency: self.evaluation_frequency,
-            filter_pattern: self.filter_pattern,
-            anomaly_visibility_time: self.anomaly_visibility_time,
-            enabled: self.enabled,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorInput {
+                anomaly_detector_arn: self.anomaly_detector_arn,
+                evaluation_frequency: self.evaluation_frequency,
+                filter_pattern: self.filter_pattern,
+                anomaly_visibility_time: self.anomaly_visibility_time,
+                enabled: self.enabled,
+            },
+        )
     }
 }

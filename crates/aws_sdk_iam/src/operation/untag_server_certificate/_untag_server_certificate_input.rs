@@ -24,13 +24,17 @@ impl UntagServerCertificateInput {
 }
 impl UntagServerCertificateInput {
     /// Creates a new builder-style object to manufacture [`UntagServerCertificateInput`](crate::operation::untag_server_certificate::UntagServerCertificateInput).
-    pub fn builder() -> crate::operation::untag_server_certificate::builders::UntagServerCertificateInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::untag_server_certificate::builders::UntagServerCertificateInputBuilder
+    {
         crate::operation::untag_server_certificate::builders::UntagServerCertificateInputBuilder::default()
     }
 }
 
 /// A builder for [`UntagServerCertificateInput`](crate::operation::untag_server_certificate::UntagServerCertificateInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UntagServerCertificateInputBuilder {
     pub(crate) server_certificate_name: ::std::option::Option<::std::string::String>,
@@ -40,13 +44,19 @@ impl UntagServerCertificateInputBuilder {
     /// <p>The name of the IAM server certificate from which you want to remove tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     /// This field is required.
-    pub fn server_certificate_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn server_certificate_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.server_certificate_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the IAM server certificate from which you want to remove tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_server_certificate_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_server_certificate_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.server_certificate_name = input;
         self
     }
@@ -67,7 +77,10 @@ impl UntagServerCertificateInputBuilder {
         self
     }
     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified IAM server certificate.</p>
-    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_tag_keys(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.tag_keys = input;
         self
     }
@@ -82,9 +95,11 @@ impl UntagServerCertificateInputBuilder {
         crate::operation::untag_server_certificate::UntagServerCertificateInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::untag_server_certificate::UntagServerCertificateInput {
-            server_certificate_name: self.server_certificate_name,
-            tag_keys: self.tag_keys,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::untag_server_certificate::UntagServerCertificateInput {
+                server_certificate_name: self.server_certificate_name,
+                tag_keys: self.tag_keys,
+            },
+        )
     }
 }

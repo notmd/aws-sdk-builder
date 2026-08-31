@@ -24,7 +24,10 @@ pub fn ser_create_delivery_input_input(
     if let Some(var_7) = &input.s3_delivery_configuration {
         #[allow(unused_mut)]
         let mut object_8 = object.key("s3DeliveryConfiguration").start_object();
-        crate::protocol_serde::shape_s3_delivery_configuration::ser_s3_delivery_configuration(&mut object_8, var_7)?;
+        crate::protocol_serde::shape_s3_delivery_configuration::ser_s3_delivery_configuration(
+            &mut object_8,
+            var_7,
+        )?;
         object_8.finish();
     }
     if let Some(var_9) = &input.tags {

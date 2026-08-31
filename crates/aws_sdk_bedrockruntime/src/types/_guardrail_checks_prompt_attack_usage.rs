@@ -21,7 +21,9 @@ impl GuardrailChecksPromptAttackUsage {
 }
 
 /// A builder for [`GuardrailChecksPromptAttackUsage`](crate::types::GuardrailChecksPromptAttackUsage).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GuardrailChecksPromptAttackUsageBuilder {
     pub(crate) text_units: ::std::option::Option<i32>,
@@ -45,7 +47,12 @@ impl GuardrailChecksPromptAttackUsageBuilder {
     /// Consumes the builder and constructs a [`GuardrailChecksPromptAttackUsage`](crate::types::GuardrailChecksPromptAttackUsage).
     /// This method will fail if any of the following fields are not set:
     /// - [`text_units`](crate::types::builders::GuardrailChecksPromptAttackUsageBuilder::text_units)
-    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailChecksPromptAttackUsage, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::GuardrailChecksPromptAttackUsage,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::GuardrailChecksPromptAttackUsage {
             text_units: self.text_units.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

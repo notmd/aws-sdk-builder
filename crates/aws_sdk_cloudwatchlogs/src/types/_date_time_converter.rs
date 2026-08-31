@@ -63,7 +63,9 @@ impl DateTimeConverter {
 }
 
 /// A builder for [`DateTimeConverter`](crate::types::DateTimeConverter).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DateTimeConverterBuilder {
     pub(crate) source: ::std::option::Option<::std::string::String>,
@@ -107,13 +109,19 @@ impl DateTimeConverterBuilder {
     }
     /// <p>The datetime format to use for the converted data in the target field.</p>
     /// <p>If you omit this, the default of <code> yyyy-MM-dd'T'HH:mm:ss.SSS'Z</code> is used.</p>
-    pub fn target_format(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn target_format(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.target_format = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The datetime format to use for the converted data in the target field.</p>
     /// <p>If you omit this, the default of <code> yyyy-MM-dd'T'HH:mm:ss.SSS'Z</code> is used.</p>
-    pub fn set_target_format(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_target_format(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.target_format = input;
         self
     }
@@ -127,28 +135,42 @@ impl DateTimeConverterBuilder {
     /// To override the contents of this collection use [`set_match_patterns`](Self::set_match_patterns).
     ///
     /// <p>A list of patterns to match against the <code>source</code> field.</p>
-    pub fn match_patterns(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn match_patterns(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.match_patterns.unwrap_or_default();
         v.push(input.into());
         self.match_patterns = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of patterns to match against the <code>source</code> field.</p>
-    pub fn set_match_patterns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_match_patterns(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.match_patterns = input;
         self
     }
     /// <p>A list of patterns to match against the <code>source</code> field.</p>
-    pub fn get_match_patterns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_match_patterns(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.match_patterns
     }
     /// <p>The time zone of the source field. If you omit this, the default used is the UTC zone.</p>
-    pub fn source_timezone(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn source_timezone(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.source_timezone = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The time zone of the source field. If you omit this, the default used is the UTC zone.</p>
-    pub fn set_source_timezone(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_source_timezone(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.source_timezone = input;
         self
     }
@@ -157,12 +179,18 @@ impl DateTimeConverterBuilder {
         &self.source_timezone
     }
     /// <p>The time zone of the target field. If you omit this, the default used is the UTC zone.</p>
-    pub fn target_timezone(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn target_timezone(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.target_timezone = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The time zone of the target field. If you omit this, the default used is the UTC zone.</p>
-    pub fn set_target_timezone(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_target_timezone(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.target_timezone = input;
         self
     }
@@ -189,7 +217,12 @@ impl DateTimeConverterBuilder {
     /// - [`source`](crate::types::builders::DateTimeConverterBuilder::source)
     /// - [`target`](crate::types::builders::DateTimeConverterBuilder::target)
     /// - [`match_patterns`](crate::types::builders::DateTimeConverterBuilder::match_patterns)
-    pub fn build(self) -> ::std::result::Result<crate::types::DateTimeConverter, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::DateTimeConverter,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::DateTimeConverter {
             source: self.source.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -84,7 +84,9 @@ pub fn de_delete_role_permissions_boundary_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::delete_role_permissions_boundary::builders::DeleteRolePermissionsBoundaryOutputBuilder::default();
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }

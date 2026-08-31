@@ -79,7 +79,9 @@ impl FieldIndex {
 }
 
 /// A builder for [`FieldIndex`](crate::types::FieldIndex).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct FieldIndexBuilder {
     pub(crate) log_group_identifier: ::std::option::Option<::std::string::String>,
@@ -92,12 +94,18 @@ pub struct FieldIndexBuilder {
 }
 impl FieldIndexBuilder {
     /// <p>If this field index appears in an index policy that applies only to a single log group, the ARN of that log group is displayed here.</p>
-    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_group_identifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.log_group_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>If this field index appears in an index policy that applies only to a single log group, the ARN of that log group is displayed here.</p>
-    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_log_group_identifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.log_group_identifier = input;
         self
     }
@@ -106,12 +114,18 @@ impl FieldIndexBuilder {
         &self.log_group_identifier
     }
     /// <p>The string that this field index matches.</p>
-    pub fn field_index_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn field_index_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.field_index_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The string that this field index matches.</p>
-    pub fn set_field_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_field_index_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.field_index_name = input;
         self
     }
@@ -203,7 +217,10 @@ impl FieldIndexBuilder {
     /// <p><code>INACTIVE</code>: Fields that CloudWatch Logs indexed before but does not index now. This happens if you remove a field from the field index policy or if CloudWatch Logs automatically selects a different field based on your queries.</p></li>
     /// </ul>
     /// <p>For more information about automatically indexed fields, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing-Automatic.html">Automatically indexed fields</a>.</p>
-    pub fn set_index_category(mut self, input: ::std::option::Option<crate::types::IndexCategory>) -> Self {
+    pub fn set_index_category(
+        mut self,
+        input: ::std::option::Option<crate::types::IndexCategory>,
+    ) -> Self {
         self.index_category = input;
         self
     }

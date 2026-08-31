@@ -3,9 +3,14 @@
 pub fn de_inventory_configuration(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::InventoryConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<
+    crate::types::InventoryConfiguration,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::InventoryConfiguration::builder();
@@ -96,9 +101,11 @@ pub fn de_inventory_configuration(
             _ => {}
         }
     }
-    Ok(crate::serde_util::inventory_configuration_correct_errors(builder)
-        .build()
-        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
+    Ok(
+        crate::serde_util::inventory_configuration_correct_errors(builder)
+            .build()
+            .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?,
+    )
 }
 
 pub fn ser_inventory_configuration(
@@ -109,7 +116,10 @@ pub fn ser_inventory_configuration(
     let mut scope = writer.finish();
     if let Some(var_8) = &input.destination {
         let inner_writer = scope.start_el("Destination");
-        crate::protocol_serde::shape_inventory_destination::ser_inventory_destination(var_8, inner_writer)?
+        crate::protocol_serde::shape_inventory_destination::ser_inventory_destination(
+            var_8,
+            inner_writer,
+        )?
     }
     {
         let mut inner_writer = scope.start_el("IsEnabled").finish();
@@ -138,7 +148,10 @@ pub fn ser_inventory_configuration(
     }
     if let Some(var_12) = &input.schedule {
         let inner_writer = scope.start_el("Schedule");
-        crate::protocol_serde::shape_inventory_schedule::ser_inventory_schedule(var_12, inner_writer)?
+        crate::protocol_serde::shape_inventory_schedule::ser_inventory_schedule(
+            var_12,
+            inner_writer,
+        )?
     }
     scope.finish();
     Ok(())

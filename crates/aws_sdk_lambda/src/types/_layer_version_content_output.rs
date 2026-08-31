@@ -51,7 +51,9 @@ impl LayerVersionContentOutput {
 }
 
 /// A builder for [`LayerVersionContentOutput`](crate::types::LayerVersionContentOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct LayerVersionContentOutputBuilder {
     pub(crate) location: ::std::option::Option<::std::string::String>,
@@ -105,12 +107,18 @@ impl LayerVersionContentOutputBuilder {
         &self.code_size
     }
     /// <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
-    pub fn signing_profile_version_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn signing_profile_version_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.signing_profile_version_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
-    pub fn set_signing_profile_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_signing_profile_version_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.signing_profile_version_arn = input;
         self
     }
@@ -119,12 +127,18 @@ impl LayerVersionContentOutputBuilder {
         &self.signing_profile_version_arn
     }
     /// <p>The Amazon Resource Name (ARN) of a signing job.</p>
-    pub fn signing_job_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn signing_job_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.signing_job_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of a signing job.</p>
-    pub fn set_signing_job_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_signing_job_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.signing_job_arn = input;
         self
     }
@@ -138,7 +152,10 @@ impl LayerVersionContentOutputBuilder {
         self
     }
     /// <p>The resolved Amazon S3 object that contains the layer archive.</p>
-    pub fn set_resolved_s3_object(mut self, input: ::std::option::Option<crate::types::ResolvedS3Object>) -> Self {
+    pub fn set_resolved_s3_object(
+        mut self,
+        input: ::std::option::Option<crate::types::ResolvedS3Object>,
+    ) -> Self {
         self.resolved_s3_object = input;
         self
     }

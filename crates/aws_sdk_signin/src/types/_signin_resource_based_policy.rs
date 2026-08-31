@@ -29,7 +29,9 @@ impl SigninResourceBasedPolicy {
 }
 
 /// A builder for [`SigninResourceBasedPolicy`](crate::types::SigninResourceBasedPolicy).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SigninResourceBasedPolicyBuilder {
     pub(crate) version: ::std::option::Option<::std::string::String>,
@@ -62,12 +64,17 @@ impl SigninResourceBasedPolicyBuilder {
         self
     }
     /// Policy statements
-    pub fn set_statement(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyStatement>>) -> Self {
+    pub fn set_statement(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyStatement>>,
+    ) -> Self {
         self.statement = input;
         self
     }
     /// Policy statements
-    pub fn get_statement(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyStatement>> {
+    pub fn get_statement(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyStatement>> {
         &self.statement
     }
     /// Consumes the builder and constructs a [`SigninResourceBasedPolicy`](crate::types::SigninResourceBasedPolicy).

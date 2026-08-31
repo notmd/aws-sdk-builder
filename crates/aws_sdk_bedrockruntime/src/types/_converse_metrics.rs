@@ -21,7 +21,9 @@ impl ConverseMetrics {
 }
 
 /// A builder for [`ConverseMetrics`](crate::types::ConverseMetrics).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ConverseMetricsBuilder {
     pub(crate) latency_ms: ::std::option::Option<i64>,
@@ -45,7 +47,12 @@ impl ConverseMetricsBuilder {
     /// Consumes the builder and constructs a [`ConverseMetrics`](crate::types::ConverseMetrics).
     /// This method will fail if any of the following fields are not set:
     /// - [`latency_ms`](crate::types::builders::ConverseMetricsBuilder::latency_ms)
-    pub fn build(self) -> ::std::result::Result<crate::types::ConverseMetrics, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::ConverseMetrics,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::ConverseMetrics {
             latency_ms: self.latency_ms.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

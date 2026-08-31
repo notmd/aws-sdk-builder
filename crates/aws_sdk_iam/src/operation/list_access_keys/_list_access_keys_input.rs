@@ -36,7 +36,9 @@ impl ListAccessKeysInput {
 }
 
 /// A builder for [`ListAccessKeysInput`](crate::operation::list_access_keys::ListAccessKeysInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListAccessKeysInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -95,7 +97,10 @@ impl ListAccessKeysInputBuilder {
     /// Consumes the builder and constructs a [`ListAccessKeysInput`](crate::operation::list_access_keys::ListAccessKeysInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_access_keys::ListAccessKeysInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::list_access_keys::ListAccessKeysInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::list_access_keys::ListAccessKeysInput {
             user_name: self.user_name,
             marker: self.marker,

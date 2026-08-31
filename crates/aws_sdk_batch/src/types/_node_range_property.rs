@@ -18,7 +18,8 @@ pub struct NodeRangeProperty {
     /// <p>This is an object that represents the properties of the node range for a multi-node parallel job.</p>
     pub eks_properties: ::std::option::Option<crate::types::EksProperties>,
     /// <p>Contains a list of consumable resources required by a job.</p>
-    pub consumable_resource_properties: ::std::option::Option<crate::types::ConsumableResourceProperties>,
+    pub consumable_resource_properties:
+        ::std::option::Option<crate::types::ConsumableResourceProperties>,
 }
 impl NodeRangeProperty {
     /// <p>The range of nodes, using node index values. A range of <code>0:3</code> indicates nodes with index values of <code>0</code> through <code>3</code>. If the starting range value is omitted (<code>:n</code>), then <code>0</code> is used to start the range. If the ending range value is omitted (<code>n:</code>), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes (<code>0:n</code>). You can nest node ranges (for example, <code>0:10</code> and <code>4:5</code>). In this case, the <code>4:5</code> range properties override the <code>0:10</code> properties.</p>
@@ -47,7 +48,9 @@ impl NodeRangeProperty {
         self.eks_properties.as_ref()
     }
     /// <p>Contains a list of consumable resources required by a job.</p>
-    pub fn consumable_resource_properties(&self) -> ::std::option::Option<&crate::types::ConsumableResourceProperties> {
+    pub fn consumable_resource_properties(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ConsumableResourceProperties> {
         self.consumable_resource_properties.as_ref()
     }
 }
@@ -59,7 +62,9 @@ impl NodeRangeProperty {
 }
 
 /// A builder for [`NodeRangeProperty`](crate::types::NodeRangeProperty).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct NodeRangePropertyBuilder {
     pub(crate) target_nodes: ::std::option::Option<::std::string::String>,
@@ -67,7 +72,8 @@ pub struct NodeRangePropertyBuilder {
     pub(crate) instance_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) ecs_properties: ::std::option::Option<crate::types::EcsProperties>,
     pub(crate) eks_properties: ::std::option::Option<crate::types::EksProperties>,
-    pub(crate) consumable_resource_properties: ::std::option::Option<crate::types::ConsumableResourceProperties>,
+    pub(crate) consumable_resource_properties:
+        ::std::option::Option<crate::types::ConsumableResourceProperties>,
 }
 impl NodeRangePropertyBuilder {
     /// <p>The range of nodes, using node index values. A range of <code>0:3</code> indicates nodes with index values of <code>0</code> through <code>3</code>. If the starting range value is omitted (<code>:n</code>), then <code>0</code> is used to start the range. If the ending range value is omitted (<code>n:</code>), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes (<code>0:n</code>). You can nest node ranges (for example, <code>0:10</code> and <code>4:5</code>). In this case, the <code>4:5</code> range properties override the <code>0:10</code> properties.</p>
@@ -91,7 +97,10 @@ impl NodeRangePropertyBuilder {
         self
     }
     /// <p>The container details for the node range.</p>
-    pub fn set_container(mut self, input: ::std::option::Option<crate::types::ContainerProperties>) -> Self {
+    pub fn set_container(
+        mut self,
+        input: ::std::option::Option<crate::types::ContainerProperties>,
+    ) -> Self {
         self.container = input;
         self
     }
@@ -107,7 +116,10 @@ impl NodeRangePropertyBuilder {
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources.</p>
     /// <p>In addition, this list object is currently limited to one element.</p>
     /// </note>
-    pub fn instance_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn instance_types(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.instance_types.unwrap_or_default();
         v.push(input.into());
         self.instance_types = ::std::option::Option::Some(v);
@@ -117,7 +129,10 @@ impl NodeRangePropertyBuilder {
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources.</p>
     /// <p>In addition, this list object is currently limited to one element.</p>
     /// </note>
-    pub fn set_instance_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_instance_types(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.instance_types = input;
         self
     }
@@ -125,7 +140,9 @@ impl NodeRangePropertyBuilder {
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources.</p>
     /// <p>In addition, this list object is currently limited to one element.</p>
     /// </note>
-    pub fn get_instance_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_instance_types(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.instance_types
     }
     /// <p>This is an object that represents the properties of the node range for a multi-node parallel job.</p>
@@ -134,7 +151,10 @@ impl NodeRangePropertyBuilder {
         self
     }
     /// <p>This is an object that represents the properties of the node range for a multi-node parallel job.</p>
-    pub fn set_ecs_properties(mut self, input: ::std::option::Option<crate::types::EcsProperties>) -> Self {
+    pub fn set_ecs_properties(
+        mut self,
+        input: ::std::option::Option<crate::types::EcsProperties>,
+    ) -> Self {
         self.ecs_properties = input;
         self
     }
@@ -148,7 +168,10 @@ impl NodeRangePropertyBuilder {
         self
     }
     /// <p>This is an object that represents the properties of the node range for a multi-node parallel job.</p>
-    pub fn set_eks_properties(mut self, input: ::std::option::Option<crate::types::EksProperties>) -> Self {
+    pub fn set_eks_properties(
+        mut self,
+        input: ::std::option::Option<crate::types::EksProperties>,
+    ) -> Self {
         self.eks_properties = input;
         self
     }
@@ -157,17 +180,25 @@ impl NodeRangePropertyBuilder {
         &self.eks_properties
     }
     /// <p>Contains a list of consumable resources required by a job.</p>
-    pub fn consumable_resource_properties(mut self, input: crate::types::ConsumableResourceProperties) -> Self {
+    pub fn consumable_resource_properties(
+        mut self,
+        input: crate::types::ConsumableResourceProperties,
+    ) -> Self {
         self.consumable_resource_properties = ::std::option::Option::Some(input);
         self
     }
     /// <p>Contains a list of consumable resources required by a job.</p>
-    pub fn set_consumable_resource_properties(mut self, input: ::std::option::Option<crate::types::ConsumableResourceProperties>) -> Self {
+    pub fn set_consumable_resource_properties(
+        mut self,
+        input: ::std::option::Option<crate::types::ConsumableResourceProperties>,
+    ) -> Self {
         self.consumable_resource_properties = input;
         self
     }
     /// <p>Contains a list of consumable resources required by a job.</p>
-    pub fn get_consumable_resource_properties(&self) -> &::std::option::Option<crate::types::ConsumableResourceProperties> {
+    pub fn get_consumable_resource_properties(
+        &self,
+    ) -> &::std::option::Option<crate::types::ConsumableResourceProperties> {
         &self.consumable_resource_properties
     }
     /// Consumes the builder and constructs a [`NodeRangeProperty`](crate::types::NodeRangeProperty).

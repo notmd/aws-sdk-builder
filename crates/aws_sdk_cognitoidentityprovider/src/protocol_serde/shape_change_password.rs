@@ -4,15 +4,24 @@ pub fn de_change_password_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::change_password::ChangePasswordOutput, crate::operation::change_password::ChangePasswordError> {
+) -> std::result::Result<
+    crate::operation::change_password::ChangePasswordOutput,
+    crate::operation::change_password::ChangePasswordError,
+> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::change_password::ChangePasswordError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(crate::operation::change_password::ChangePasswordError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::change_password::ChangePasswordError::unhandled(generic)),
+        None => {
+            return Err(crate::operation::change_password::ChangePasswordError::unhandled(generic))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -226,21 +235,33 @@ pub fn de_change_password_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::change_password::ChangePasswordOutput, crate::operation::change_password::ChangePasswordError> {
+) -> std::result::Result<
+    crate::operation::change_password::ChangePasswordOutput,
+    crate::operation::change_password::ChangePasswordError,
+> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::change_password::builders::ChangePasswordOutputBuilder::default();
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        let mut output =
+            crate::operation::change_password::builders::ChangePasswordOutputBuilder::default();
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
 
 pub fn ser_change_password_input(
     input: &crate::operation::change_password::ChangePasswordInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+) -> ::std::result::Result<
+    ::aws_smithy_types::body::SdkBody,
+    ::aws_smithy_types::error::operation::SerializationError,
+> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_change_password_input::ser_change_password_input_input(&mut object, input)?;
+    crate::protocol_serde::shape_change_password_input::ser_change_password_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

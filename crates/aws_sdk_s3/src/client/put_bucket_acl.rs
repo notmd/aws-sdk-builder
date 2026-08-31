@@ -16,7 +16,11 @@ impl super::Client {
     ///   - [`expected_bucket_owner(impl Into<String>)`](crate::operation::put_bucket_acl::builders::PutBucketAclFluentBuilder::expected_bucket_owner) / [`set_expected_bucket_owner(Option<String>)`](crate::operation::put_bucket_acl::builders::PutBucketAclFluentBuilder::set_expected_bucket_owner):<br>required: **false**<br><p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><br>
     /// - On success, responds with [`PutBucketAclOutput`](crate::operation::put_bucket_acl::PutBucketAclOutput)
     /// - On failure, responds with [`SdkError<PutBucketAclError>`](crate::operation::put_bucket_acl::PutBucketAclError)
-    pub fn put_bucket_acl(&self) -> crate::operation::put_bucket_acl::builders::PutBucketAclFluentBuilder {
-        crate::operation::put_bucket_acl::builders::PutBucketAclFluentBuilder::new(self.handle.clone())
+    pub fn put_bucket_acl(
+        &self,
+    ) -> crate::operation::put_bucket_acl::builders::PutBucketAclFluentBuilder {
+        crate::operation::put_bucket_acl::builders::PutBucketAclFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -47,7 +47,9 @@ pub struct GetSubscriptionAttributesOutput {
     /// </ul>
     /// <p>Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout to Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p></li>
     /// </ul>
-    pub attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub attributes: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     _request_id: Option<String>,
 }
 impl GetSubscriptionAttributesOutput {
@@ -94,7 +96,11 @@ impl GetSubscriptionAttributesOutput {
     /// </ul>
     /// <p>Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout to Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p></li>
     /// </ul>
-    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn attributes(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.attributes.as_ref()
     }
 }
@@ -105,16 +111,20 @@ impl ::aws_types::request_id::RequestId for GetSubscriptionAttributesOutput {
 }
 impl GetSubscriptionAttributesOutput {
     /// Creates a new builder-style object to manufacture [`GetSubscriptionAttributesOutput`](crate::operation::get_subscription_attributes::GetSubscriptionAttributesOutput).
-    pub fn builder() -> crate::operation::get_subscription_attributes::builders::GetSubscriptionAttributesOutputBuilder {
+    pub fn builder() -> crate::operation::get_subscription_attributes::builders::GetSubscriptionAttributesOutputBuilder{
         crate::operation::get_subscription_attributes::builders::GetSubscriptionAttributesOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetSubscriptionAttributesOutput`](crate::operation::get_subscription_attributes::GetSubscriptionAttributesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetSubscriptionAttributesOutputBuilder {
-    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) attributes: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     _request_id: Option<String>,
 }
 impl GetSubscriptionAttributesOutputBuilder {
@@ -165,7 +175,11 @@ impl GetSubscriptionAttributesOutputBuilder {
     /// </ul>
     /// <p>Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout to Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p></li>
     /// </ul>
-    pub fn attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn attributes(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut hash_map = self.attributes.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.attributes = ::std::option::Option::Some(hash_map);
@@ -214,7 +228,12 @@ impl GetSubscriptionAttributesOutputBuilder {
     /// </ul>
     /// <p>Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout to Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p></li>
     /// </ul>
-    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_attributes(
+        mut self,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
+    ) -> Self {
         self.attributes = input;
         self
     }
@@ -261,7 +280,11 @@ impl GetSubscriptionAttributesOutputBuilder {
     /// </ul>
     /// <p>Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout to Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p></li>
     /// </ul>
-    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_attributes(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.attributes
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -274,7 +297,9 @@ impl GetSubscriptionAttributesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetSubscriptionAttributesOutput`](crate::operation::get_subscription_attributes::GetSubscriptionAttributesOutput).
-    pub fn build(self) -> crate::operation::get_subscription_attributes::GetSubscriptionAttributesOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::get_subscription_attributes::GetSubscriptionAttributesOutput {
         crate::operation::get_subscription_attributes::GetSubscriptionAttributesOutput {
             attributes: self.attributes,
             _request_id: self._request_id,

@@ -75,7 +75,10 @@ impl CreateOAuth2TokenResponseBodyBuilder {
         self
     }
     /// Scoped-down AWS credentials (15 minute duration) Present for both authorization code redemption and token refresh
-    pub fn set_access_token(mut self, input: ::std::option::Option<crate::types::AccessToken>) -> Self {
+    pub fn set_access_token(
+        mut self,
+        input: ::std::option::Option<crate::types::AccessToken>,
+    ) -> Self {
         self.access_token = input;
         self
     }
@@ -115,12 +118,18 @@ impl CreateOAuth2TokenResponseBodyBuilder {
     }
     /// Encrypted refresh token with cnf.jkt (SHA-256 thumbprint of presented jwk) Always present in responses (required for both flows)
     /// This field is required.
-    pub fn refresh_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn refresh_token(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.refresh_token = ::std::option::Option::Some(input.into());
         self
     }
     /// Encrypted refresh token with cnf.jkt (SHA-256 thumbprint of presented jwk) Always present in responses (required for both flows)
-    pub fn set_refresh_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_refresh_token(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.refresh_token = input;
         self
     }
@@ -147,7 +156,12 @@ impl CreateOAuth2TokenResponseBodyBuilder {
     /// - [`token_type`](crate::types::builders::CreateOAuth2TokenResponseBodyBuilder::token_type)
     /// - [`expires_in`](crate::types::builders::CreateOAuth2TokenResponseBodyBuilder::expires_in)
     /// - [`refresh_token`](crate::types::builders::CreateOAuth2TokenResponseBodyBuilder::refresh_token)
-    pub fn build(self) -> ::std::result::Result<crate::types::CreateOAuth2TokenResponseBody, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::CreateOAuth2TokenResponseBody,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::CreateOAuth2TokenResponseBody {
             access_token: self.access_token,
             token_type: self.token_type.ok_or_else(|| {

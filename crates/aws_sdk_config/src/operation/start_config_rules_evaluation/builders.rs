@@ -74,7 +74,7 @@ impl StartConfigRulesEvaluationFluentBuilder {
         }
     }
     /// Access the StartConfigRulesEvaluation as a reference.
-    pub fn as_input(&self) -> &crate::operation::start_config_rules_evaluation::builders::StartConfigRulesEvaluationInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::start_config_rules_evaluation::builders::StartConfigRulesEvaluationInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -103,7 +103,11 @@ impl StartConfigRulesEvaluationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluation::orchestrate(&runtime_plugins, input).await
+        crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluation::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -116,12 +120,18 @@ impl StartConfigRulesEvaluationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -131,17 +141,25 @@ impl StartConfigRulesEvaluationFluentBuilder {
     /// To override the contents of this collection use [`set_config_rule_names`](Self::set_config_rule_names).
     ///
     /// <p>The list of names of Config rules that you want to run evaluations for.</p>
-    pub fn config_rule_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn config_rule_names(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.config_rule_names(input.into());
         self
     }
     /// <p>The list of names of Config rules that you want to run evaluations for.</p>
-    pub fn set_config_rule_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_config_rule_names(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.inner = self.inner.set_config_rule_names(input);
         self
     }
     /// <p>The list of names of Config rules that you want to run evaluations for.</p>
-    pub fn get_config_rule_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_config_rule_names(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_config_rule_names()
     }
 }

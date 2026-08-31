@@ -36,13 +36,17 @@ impl DescribeCustomKeyStoresInput {
 }
 impl DescribeCustomKeyStoresInput {
     /// Creates a new builder-style object to manufacture [`DescribeCustomKeyStoresInput`](crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresInput).
-    pub fn builder() -> crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresInputBuilder
+    {
         crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeCustomKeyStoresInput`](crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeCustomKeyStoresInputBuilder {
     pub(crate) custom_key_store_id: ::std::option::Option<::std::string::String>,
@@ -53,13 +57,19 @@ pub struct DescribeCustomKeyStoresInputBuilder {
 impl DescribeCustomKeyStoresInputBuilder {
     /// <p>Gets only information about the specified custom key store. Enter the key store ID.</p>
     /// <p>By default, this operation gets information about all custom key stores in the account and Region. To limit the output to a particular custom key store, provide either the <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not both.</p>
-    pub fn custom_key_store_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn custom_key_store_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.custom_key_store_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Gets only information about the specified custom key store. Enter the key store ID.</p>
     /// <p>By default, this operation gets information about all custom key stores in the account and Region. To limit the output to a particular custom key store, provide either the <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not both.</p>
-    pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_custom_key_store_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.custom_key_store_id = input;
         self
     }
@@ -70,13 +80,19 @@ impl DescribeCustomKeyStoresInputBuilder {
     }
     /// <p>Gets only information about the specified custom key store. Enter the friendly name of the custom key store.</p>
     /// <p>By default, this operation gets information about all custom key stores in the account and Region. To limit the output to a particular custom key store, provide either the <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not both.</p>
-    pub fn custom_key_store_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn custom_key_store_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.custom_key_store_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Gets only information about the specified custom key store. Enter the friendly name of the custom key store.</p>
     /// <p>By default, this operation gets information about all custom key stores in the account and Region. To limit the output to a particular custom key store, provide either the <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not both.</p>
-    pub fn set_custom_key_store_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_custom_key_store_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.custom_key_store_name = input;
         self
     }
@@ -120,11 +136,13 @@ impl DescribeCustomKeyStoresInputBuilder {
         crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresInput {
-            custom_key_store_id: self.custom_key_store_id,
-            custom_key_store_name: self.custom_key_store_name,
-            limit: self.limit,
-            marker: self.marker,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresInput {
+                custom_key_store_id: self.custom_key_store_id,
+                custom_key_store_name: self.custom_key_store_name,
+                limit: self.limit,
+                marker: self.marker,
+            },
+        )
     }
 }

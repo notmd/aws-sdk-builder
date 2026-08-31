@@ -7,7 +7,10 @@ impl super::Client {
     ///   - [`vpc_endpoint_id(impl Into<String>)`](crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationFluentBuilder::vpc_endpoint_id) / [`set_vpc_endpoint_id(Option<String>)`](crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationFluentBuilder::set_vpc_endpoint_id):<br>required: **false**<br><p>The ID of the VPC endpoint to use for syslog ingestion.</p><br>
     /// - On success, responds with [`PutSyslogConfigurationOutput`](crate::operation::put_syslog_configuration::PutSyslogConfigurationOutput)
     /// - On failure, responds with [`SdkError<PutSyslogConfigurationError>`](crate::operation::put_syslog_configuration::PutSyslogConfigurationError)
-    pub fn put_syslog_configuration(&self) -> crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationFluentBuilder {
+    pub fn put_syslog_configuration(
+        &self,
+    ) -> crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationFluentBuilder
+    {
         crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

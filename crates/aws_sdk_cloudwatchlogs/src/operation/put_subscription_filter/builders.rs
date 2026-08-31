@@ -71,7 +71,10 @@ impl PutSubscriptionFilterFluentBuilder {
         }
     }
     /// Access the PutSubscriptionFilter as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_subscription_filter::builders::PutSubscriptionFilterInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_subscription_filter::builders::PutSubscriptionFilterInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -100,7 +103,11 @@ impl PutSubscriptionFilterFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_subscription_filter::PutSubscriptionFilter::orchestrate(&runtime_plugins, input).await
+        crate::operation::put_subscription_filter::PutSubscriptionFilter::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -113,22 +120,34 @@ impl PutSubscriptionFilterFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the log group.</p>
-    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_group_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.log_group_name(input.into());
         self
     }
     /// <p>The name of the log group.</p>
-    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_log_group_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_log_group_name(input);
         self
     }
@@ -151,12 +170,18 @@ impl PutSubscriptionFilterFluentBuilder {
         self.inner.get_filter_name()
     }
     /// <p>A filter pattern for subscribing to a filtered stream of log events.</p>
-    pub fn filter_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn filter_pattern(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.filter_pattern(input.into());
         self
     }
     /// <p>A filter pattern for subscribing to a filtered stream of log events.</p>
-    pub fn set_filter_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_filter_pattern(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_filter_pattern(input);
         self
     }
@@ -176,7 +201,10 @@ impl PutSubscriptionFilterFluentBuilder {
     /// <li>
     /// <p>A Lambda function belonging to the same account as the subscription filter, for same-account delivery.</p></li>
     /// </ul>
-    pub fn destination_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn destination_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.destination_arn(input.into());
         self
     }
@@ -192,7 +220,10 @@ impl PutSubscriptionFilterFluentBuilder {
     /// <li>
     /// <p>A Lambda function belonging to the same account as the subscription filter, for same-account delivery.</p></li>
     /// </ul>
-    pub fn set_destination_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_destination_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_destination_arn(input);
         self
     }
@@ -231,7 +262,10 @@ impl PutSubscriptionFilterFluentBuilder {
         self
     }
     /// <p>The method used to distribute log data to the destination. By default, log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis data stream.</p>
-    pub fn set_distribution(mut self, input: ::std::option::Option<crate::types::Distribution>) -> Self {
+    pub fn set_distribution(
+        mut self,
+        input: ::std::option::Option<crate::types::Distribution>,
+    ) -> Self {
         self.inner = self.inner.set_distribution(input);
         self
     }
@@ -257,12 +291,18 @@ impl PutSubscriptionFilterFluentBuilder {
         self.inner.get_apply_on_transformed_logs()
     }
     /// <p>A filter expression that specifies which log events should be processed by this subscription filter based on system fields such as source account and source region. Uses selection criteria syntax with operators like <code>=</code>, <code>!=</code>, <code>AND</code>, <code>OR</code>, <code>IN</code>, <code>NOT IN</code>. Example: <code>@aws.region NOT IN \["cn-north-1"\]</code> or <code>@aws.account = "123456789012" AND @aws.region = "us-east-1"</code>. Maximum length: 2000 characters.</p>
-    pub fn field_selection_criteria(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn field_selection_criteria(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.field_selection_criteria(input.into());
         self
     }
     /// <p>A filter expression that specifies which log events should be processed by this subscription filter based on system fields such as source account and source region. Uses selection criteria syntax with operators like <code>=</code>, <code>!=</code>, <code>AND</code>, <code>OR</code>, <code>IN</code>, <code>NOT IN</code>. Example: <code>@aws.region NOT IN \["cn-north-1"\]</code> or <code>@aws.account = "123456789012" AND @aws.region = "us-east-1"</code>. Maximum length: 2000 characters.</p>
-    pub fn set_field_selection_criteria(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_field_selection_criteria(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_field_selection_criteria(input);
         self
     }
@@ -276,17 +316,25 @@ impl PutSubscriptionFilterFluentBuilder {
     /// To override the contents of this collection use [`set_emit_system_fields`](Self::set_emit_system_fields).
     ///
     /// <p>A list of system fields to include in the log events sent to the subscription destination. Valid values are <code>@aws.account</code>, <code>@aws.region</code>, and <code>@source.log</code>. These fields provide source information for centralized log data in the forwarded payload.</p>
-    pub fn emit_system_fields(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn emit_system_fields(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.emit_system_fields(input.into());
         self
     }
     /// <p>A list of system fields to include in the log events sent to the subscription destination. Valid values are <code>@aws.account</code>, <code>@aws.region</code>, and <code>@source.log</code>. These fields provide source information for centralized log data in the forwarded payload.</p>
-    pub fn set_emit_system_fields(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_emit_system_fields(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.inner = self.inner.set_emit_system_fields(input);
         self
     }
     /// <p>A list of system fields to include in the log events sent to the subscription destination. Valid values are <code>@aws.account</code>, <code>@aws.region</code>, and <code>@source.log</code>. These fields provide source information for centralized log data in the forwarded payload.</p>
-    pub fn get_emit_system_fields(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_emit_system_fields(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_emit_system_fields()
     }
 }

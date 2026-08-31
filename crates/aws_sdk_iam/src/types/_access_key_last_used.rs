@@ -86,7 +86,9 @@ impl AccessKeyLastUsed {
 }
 
 /// A builder for [`AccessKeyLastUsed`](crate::types::AccessKeyLastUsed).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AccessKeyLastUsedBuilder {
     pub(crate) last_used_date: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -116,7 +118,10 @@ impl AccessKeyLastUsedBuilder {
     /// <li>
     /// <p>There is no sign-in data associated with the user.</p></li>
     /// </ul>
-    pub fn set_last_used_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_last_used_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.last_used_date = input;
         self
     }
@@ -217,7 +222,12 @@ impl AccessKeyLastUsedBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`service_name`](crate::types::builders::AccessKeyLastUsedBuilder::service_name)
     /// - [`region`](crate::types::builders::AccessKeyLastUsedBuilder::region)
-    pub fn build(self) -> ::std::result::Result<crate::types::AccessKeyLastUsed, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::AccessKeyLastUsed,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::AccessKeyLastUsed {
             last_used_date: self.last_used_date,
             service_name: self.service_name.ok_or_else(|| {

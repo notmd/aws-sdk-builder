@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeletePendingAggregationRequestError>`](crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError)
     pub fn delete_pending_aggregation_request(
         &self,
-    ) -> crate::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestFluentBuilder {
+    ) -> crate::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestFluentBuilder{
         crate::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestFluentBuilder::new(self.handle.clone())
     }
 }

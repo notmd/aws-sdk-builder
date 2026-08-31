@@ -42,7 +42,9 @@ impl ::std::fmt::Debug for AdminListUserAuthEventsInput {
 }
 impl AdminListUserAuthEventsInput {
     /// Creates a new builder-style object to manufacture [`AdminListUserAuthEventsInput`](crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsInput).
-    pub fn builder() -> crate::operation::admin_list_user_auth_events::builders::AdminListUserAuthEventsInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::admin_list_user_auth_events::builders::AdminListUserAuthEventsInputBuilder
+    {
         crate::operation::admin_list_user_auth_events::builders::AdminListUserAuthEventsInputBuilder::default()
     }
 }
@@ -122,12 +124,14 @@ impl AdminListUserAuthEventsInputBuilder {
         crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsInput {
-            user_pool_id: self.user_pool_id,
-            username: self.username,
-            max_results: self.max_results,
-            next_token: self.next_token,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsInput {
+                user_pool_id: self.user_pool_id,
+                username: self.username,
+                max_results: self.max_results,
+                next_token: self.next_token,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for AdminListUserAuthEventsInputBuilder {

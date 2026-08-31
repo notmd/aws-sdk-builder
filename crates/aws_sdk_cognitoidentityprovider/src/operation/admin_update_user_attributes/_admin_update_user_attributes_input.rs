@@ -26,7 +26,9 @@ pub struct AdminUpdateUserAttributesInput {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub client_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub client_metadata: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
 }
 impl AdminUpdateUserAttributesInput {
     /// <p>The ID of the user pool where you want to update user attributes.</p>
@@ -59,7 +61,11 @@ impl AdminUpdateUserAttributesInput {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub fn client_metadata(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn client_metadata(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.client_metadata.as_ref()
     }
 }
@@ -75,7 +81,7 @@ impl ::std::fmt::Debug for AdminUpdateUserAttributesInput {
 }
 impl AdminUpdateUserAttributesInput {
     /// Creates a new builder-style object to manufacture [`AdminUpdateUserAttributesInput`](crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput).
-    pub fn builder() -> crate::operation::admin_update_user_attributes::builders::AdminUpdateUserAttributesInputBuilder {
+    pub fn builder() -> crate::operation::admin_update_user_attributes::builders::AdminUpdateUserAttributesInputBuilder{
         crate::operation::admin_update_user_attributes::builders::AdminUpdateUserAttributesInputBuilder::default()
     }
 }
@@ -87,7 +93,9 @@ pub struct AdminUpdateUserAttributesInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
     pub(crate) username: ::std::option::Option<::std::string::String>,
     pub(crate) user_attributes: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
-    pub(crate) client_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) client_metadata: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
 }
 impl AdminUpdateUserAttributesInputBuilder {
     /// <p>The ID of the user pool where you want to update user attributes.</p>
@@ -138,7 +146,10 @@ impl AdminUpdateUserAttributesInputBuilder {
     /// <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
     /// <p>If your user pool requires verification before Amazon Cognito updates an attribute value that you specify in this request, Amazon Cognito doesn’t immediately update the value of that attribute. After your user receives and responds to a verification message to verify the new value, Amazon Cognito updates the attribute value. Your user can sign in and receive messages with the original attribute value until they verify the new value.</p>
     /// <p>To skip the verification message and update the value of an attribute that requires verification in the same API request, include the <code>email_verified</code> or <code>phone_number_verified</code> attribute, with a value of <code>true</code>. If you set the <code>email_verified</code> or <code>phone_number_verified</code> value for an <code>email</code> or <code>phone_number</code> attribute that requires verification to <code>true</code>, Amazon Cognito doesn’t send a verification message to your user.</p>
-    pub fn set_user_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>) -> Self {
+    pub fn set_user_attributes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
+    ) -> Self {
         self.user_attributes = input;
         self
     }
@@ -146,7 +157,9 @@ impl AdminUpdateUserAttributesInputBuilder {
     /// <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
     /// <p>If your user pool requires verification before Amazon Cognito updates an attribute value that you specify in this request, Amazon Cognito doesn’t immediately update the value of that attribute. After your user receives and responds to a verification message to verify the new value, Amazon Cognito updates the attribute value. Your user can sign in and receive messages with the original attribute value until they verify the new value.</p>
     /// <p>To skip the verification message and update the value of an attribute that requires verification in the same API request, include the <code>email_verified</code> or <code>phone_number_verified</code> attribute, with a value of <code>true</code>. If you set the <code>email_verified</code> or <code>phone_number_verified</code> value for an <code>email</code> or <code>phone_number</code> attribute that requires verification to <code>true</code>, Amazon Cognito doesn’t send a verification message to your user.</p>
-    pub fn get_user_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
+    pub fn get_user_attributes(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
         &self.user_attributes
     }
     /// Adds a key-value pair to `client_metadata`.
@@ -191,7 +204,9 @@ impl AdminUpdateUserAttributesInputBuilder {
     /// </note>
     pub fn set_client_metadata(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
     ) -> Self {
         self.client_metadata = input;
         self
@@ -209,7 +224,11 @@ impl AdminUpdateUserAttributesInputBuilder {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub fn get_client_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_client_metadata(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.client_metadata
     }
     /// Consumes the builder and constructs a [`AdminUpdateUserAttributesInput`](crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput).
@@ -219,12 +238,14 @@ impl AdminUpdateUserAttributesInputBuilder {
         crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput {
-            user_pool_id: self.user_pool_id,
-            username: self.username,
-            user_attributes: self.user_attributes,
-            client_metadata: self.client_metadata,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput {
+                user_pool_id: self.user_pool_id,
+                username: self.username,
+                user_attributes: self.user_attributes,
+                client_metadata: self.client_metadata,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for AdminUpdateUserAttributesInputBuilder {

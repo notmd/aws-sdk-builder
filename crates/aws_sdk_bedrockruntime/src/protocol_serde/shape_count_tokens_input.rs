@@ -6,7 +6,10 @@ pub fn ser_count_tokens_input_input(
     if let Some(var_1) = &input.input {
         #[allow(unused_mut)]
         let mut object_2 = object.key("input").start_object();
-        crate::protocol_serde::shape_count_tokens_input::ser_count_tokens_input(&mut object_2, var_1)?;
+        crate::protocol_serde::shape_count_tokens_input::ser_count_tokens_input(
+            &mut object_2,
+            var_1,
+        )?;
         object_2.finish();
     }
     Ok(())
@@ -26,13 +29,18 @@ pub fn ser_count_tokens_input(
         crate::types::CountTokensInput::Converse(inner) => {
             #[allow(unused_mut)]
             let mut object_4 = object_2.key("converse").start_object();
-            crate::protocol_serde::shape_converse_tokens_request::ser_converse_tokens_request(&mut object_4, inner)?;
+            crate::protocol_serde::shape_converse_tokens_request::ser_converse_tokens_request(
+                &mut object_4,
+                inner,
+            )?;
             object_4.finish();
         }
         crate::types::CountTokensInput::Unknown => {
-            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                "CountTokensInput",
-            ))
+            return Err(
+                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
+                    "CountTokensInput",
+                ),
+            )
         }
     }
     Ok(())

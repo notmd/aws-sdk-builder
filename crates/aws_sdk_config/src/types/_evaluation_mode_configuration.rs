@@ -21,7 +21,9 @@ impl EvaluationModeConfiguration {
 }
 
 /// A builder for [`EvaluationModeConfiguration`](crate::types::EvaluationModeConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct EvaluationModeConfigurationBuilder {
     pub(crate) mode: ::std::option::Option<crate::types::EvaluationMode>,

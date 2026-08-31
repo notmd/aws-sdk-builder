@@ -12,7 +12,10 @@ pub fn ser_destination_configuration(
     if let Some(var_3) = &input.lookup_table_configuration {
         #[allow(unused_mut)]
         let mut object_4 = object.key("lookupTableConfiguration").start_object();
-        crate::protocol_serde::shape_lookup_table_configuration::ser_lookup_table_configuration(&mut object_4, var_3)?;
+        crate::protocol_serde::shape_lookup_table_configuration::ser_lookup_table_configuration(
+            &mut object_4,
+            var_3,
+        )?;
         object_4.finish();
     }
     Ok(())
@@ -22,14 +25,24 @@ pub(crate) fn de_destination_configuration<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::DestinationConfiguration>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<
+    Option<crate::types::DestinationConfiguration>,
+    ::aws_smithy_json::deserialize::error::DeserializeError,
+>
 where
-    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+    I: Iterator<
+        Item = Result<
+            ::aws_smithy_json::deserialize::Token<'a>,
+            ::aws_smithy_json::deserialize::error::DeserializeError,
+        >,
+    >,
 {
     if depth >= 128u32 {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "maximum nesting depth exceeded",
+            ),
+        );
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -39,32 +52,38 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "s3Configuration" => {
-                            builder = builder.set_s3_configuration(crate::protocol_serde::shape_s3_configuration::de_s3_configuration(
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "s3Configuration" => {
+                                builder = builder.set_s3_configuration(crate::protocol_serde::shape_s3_configuration::de_s3_configuration(
                                 tokens,
                                 _value,
                                 depth + 1,
                             )?);
-                        }
-                        "lookupTableConfiguration" => {
-                            builder = builder.set_lookup_table_configuration(
+                            }
+                            "lookupTableConfiguration" => {
+                                builder = builder.set_lookup_table_configuration(
                                 crate::protocol_serde::shape_lookup_table_configuration::de_lookup_table_configuration(tokens, _value, depth + 1)?,
                             );
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
-                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )))
+                        return Err(
+                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                format!("expected object key or end object, found: {other:?}"),
+                            ),
+                        )
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "expected start object or null",
-        )),
+        _ => Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ),
+        ),
     }
 }

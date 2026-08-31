@@ -30,7 +30,9 @@ impl ErrorDetails {
 }
 
 /// A builder for [`ErrorDetails`](crate::types::ErrorDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ErrorDetailsBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
@@ -71,7 +73,12 @@ impl ErrorDetailsBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`message`](crate::types::builders::ErrorDetailsBuilder::message)
     /// - [`code`](crate::types::builders::ErrorDetailsBuilder::code)
-    pub fn build(self) -> ::std::result::Result<crate::types::ErrorDetails, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::ErrorDetails,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::ErrorDetails {
             message: self.message.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -23,7 +23,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<IntrospectOAuth2TokenWithIAMError>`](crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError)
     pub fn introspect_o_auth2_token_with_iam(
         &self,
-    ) -> crate::operation::introspect_o_auth2_token_with_iam::builders::IntrospectOAuth2TokenWithIAMFluentBuilder {
+    ) -> crate::operation::introspect_o_auth2_token_with_iam::builders::IntrospectOAuth2TokenWithIAMFluentBuilder{
         crate::operation::introspect_o_auth2_token_with_iam::builders::IntrospectOAuth2TokenWithIAMFluentBuilder::new(self.handle.clone())
     }
 }

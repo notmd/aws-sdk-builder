@@ -21,7 +21,9 @@ impl GuardrailOutputContent {
 }
 
 /// A builder for [`GuardrailOutputContent`](crate::types::GuardrailOutputContent).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GuardrailOutputContentBuilder {
     pub(crate) text: ::std::option::Option<::std::string::String>,

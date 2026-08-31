@@ -30,7 +30,9 @@ impl GetRolePolicyInput {
 }
 
 /// A builder for [`GetRolePolicyInput`](crate::operation::get_role_policy::GetRolePolicyInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetRolePolicyInputBuilder {
     pub(crate) role_name: ::std::option::Option<::std::string::String>,
@@ -76,7 +78,10 @@ impl GetRolePolicyInputBuilder {
     /// Consumes the builder and constructs a [`GetRolePolicyInput`](crate::operation::get_role_policy::GetRolePolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_role_policy::GetRolePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::get_role_policy::GetRolePolicyInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::get_role_policy::GetRolePolicyInput {
             role_name: self.role_name,
             policy_name: self.policy_name,

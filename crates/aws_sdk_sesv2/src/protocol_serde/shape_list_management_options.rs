@@ -4,7 +4,9 @@ pub fn ser_list_management_options(
     input: &crate::types::ListManagementOptions,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     {
-        object.key("ContactListName").string(input.contact_list_name.as_str());
+        object
+            .key("ContactListName")
+            .string(input.contact_list_name.as_str());
     }
     if let Some(var_1) = &input.topic_name {
         object.key("TopicName").string(var_1.as_str());

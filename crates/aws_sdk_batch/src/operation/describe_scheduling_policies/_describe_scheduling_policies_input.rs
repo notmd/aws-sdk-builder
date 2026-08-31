@@ -17,13 +17,15 @@ impl DescribeSchedulingPoliciesInput {
 }
 impl DescribeSchedulingPoliciesInput {
     /// Creates a new builder-style object to manufacture [`DescribeSchedulingPoliciesInput`](crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesInput).
-    pub fn builder() -> crate::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesInputBuilder {
+    pub fn builder() -> crate::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesInputBuilder{
         crate::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeSchedulingPoliciesInput`](crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeSchedulingPoliciesInputBuilder {
     pub(crate) arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -41,7 +43,10 @@ impl DescribeSchedulingPoliciesInputBuilder {
         self
     }
     /// <p>A list of up to 100 scheduling policy Amazon Resource Name (ARN) entries.</p>
-    pub fn set_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_arns(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.arns = input;
         self
     }
@@ -56,6 +61,10 @@ impl DescribeSchedulingPoliciesInputBuilder {
         crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesInput { arns: self.arns })
+        ::std::result::Result::Ok(
+            crate::operation::describe_scheduling_policies::DescribeSchedulingPoliciesInput {
+                arns: self.arns,
+            },
+        )
     }
 }

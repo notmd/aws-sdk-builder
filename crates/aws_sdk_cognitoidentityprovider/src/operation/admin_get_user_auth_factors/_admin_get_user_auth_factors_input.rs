@@ -28,7 +28,9 @@ impl ::std::fmt::Debug for AdminGetUserAuthFactorsInput {
 }
 impl AdminGetUserAuthFactorsInput {
     /// Creates a new builder-style object to manufacture [`AdminGetUserAuthFactorsInput`](crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsInput).
-    pub fn builder() -> crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsInputBuilder
+    {
         crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsInputBuilder::default()
     }
 }
@@ -78,10 +80,12 @@ impl AdminGetUserAuthFactorsInputBuilder {
         crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsInput {
-            user_pool_id: self.user_pool_id,
-            username: self.username,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsInput {
+                user_pool_id: self.user_pool_id,
+                username: self.username,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for AdminGetUserAuthFactorsInputBuilder {

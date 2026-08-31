@@ -63,7 +63,7 @@ impl DeleteServiceLinkedConfigurationRecorderFluentBuilder {
     /// Access the DeleteServiceLinkedConfigurationRecorder as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderInputBuilder {
+    ) -> &crate::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,7 +82,7 @@ impl DeleteServiceLinkedConfigurationRecorderFluentBuilder {
             crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -104,25 +104,37 @@ impl DeleteServiceLinkedConfigurationRecorderFluentBuilder {
         crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput,
         crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to delete. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use <code>Arn</code> instead.</p>
-    pub fn service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn service_principal(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.service_principal(input.into());
         self
     }
     /// <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to delete. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use <code>Arn</code> instead.</p>
-    pub fn set_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_service_principal(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_service_principal(input);
         self
     }

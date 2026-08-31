@@ -9,7 +9,11 @@ impl super::Client {
     /// - On success, responds with [`DescribePackageGroupOutput`](crate::operation::describe_package_group::DescribePackageGroupOutput) with field(s):
     ///   - [`package_group(Option<PackageGroupDescription>)`](crate::operation::describe_package_group::DescribePackageGroupOutput::package_group): <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageGroupDescription.html">PackageGroupDescription</a> object that contains information about the requested package group.</p>
     /// - On failure, responds with [`SdkError<DescribePackageGroupError>`](crate::operation::describe_package_group::DescribePackageGroupError)
-    pub fn describe_package_group(&self) -> crate::operation::describe_package_group::builders::DescribePackageGroupFluentBuilder {
-        crate::operation::describe_package_group::builders::DescribePackageGroupFluentBuilder::new(self.handle.clone())
+    pub fn describe_package_group(
+        &self,
+    ) -> crate::operation::describe_package_group::builders::DescribePackageGroupFluentBuilder {
+        crate::operation::describe_package_group::builders::DescribePackageGroupFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

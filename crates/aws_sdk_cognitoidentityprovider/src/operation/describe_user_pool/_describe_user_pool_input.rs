@@ -15,13 +15,16 @@ impl DescribeUserPoolInput {
 }
 impl DescribeUserPoolInput {
     /// Creates a new builder-style object to manufacture [`DescribeUserPoolInput`](crate::operation::describe_user_pool::DescribeUserPoolInput).
-    pub fn builder() -> crate::operation::describe_user_pool::builders::DescribeUserPoolInputBuilder {
+    pub fn builder() -> crate::operation::describe_user_pool::builders::DescribeUserPoolInputBuilder
+    {
         crate::operation::describe_user_pool::builders::DescribeUserPoolInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeUserPoolInput`](crate::operation::describe_user_pool::DescribeUserPoolInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeUserPoolInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
@@ -45,9 +48,14 @@ impl DescribeUserPoolInputBuilder {
     /// Consumes the builder and constructs a [`DescribeUserPoolInput`](crate::operation::describe_user_pool::DescribeUserPoolInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::describe_user_pool::DescribeUserPoolInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::describe_user_pool::DescribeUserPoolInput {
-            user_pool_id: self.user_pool_id,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::describe_user_pool::DescribeUserPoolInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::describe_user_pool::DescribeUserPoolInput {
+                user_pool_id: self.user_pool_id,
+            },
+        )
     }
 }

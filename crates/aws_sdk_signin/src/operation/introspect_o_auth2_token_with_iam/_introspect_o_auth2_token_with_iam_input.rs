@@ -29,7 +29,7 @@ impl ::std::fmt::Debug for IntrospectOAuth2TokenWithIamInput {
 }
 impl IntrospectOAuth2TokenWithIamInput {
     /// Creates a new builder-style object to manufacture [`IntrospectOAuth2TokenWithIamInput`](crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIamInput).
-    pub fn builder() -> crate::operation::introspect_o_auth2_token_with_iam::builders::IntrospectOAuth2TokenWithIamInputBuilder {
+    pub fn builder() -> crate::operation::introspect_o_auth2_token_with_iam::builders::IntrospectOAuth2TokenWithIamInputBuilder{
         crate::operation::introspect_o_auth2_token_with_iam::builders::IntrospectOAuth2TokenWithIamInputBuilder::default()
     }
 }
@@ -58,12 +58,18 @@ impl IntrospectOAuth2TokenWithIamInputBuilder {
         &self.token
     }
     /// Optional hint about the type of the token submitted for introspection. The server uses this hint to optimize lookup, but still falls back to the other token type on miss. Allowed values: access_token, refresh_token.
-    pub fn token_type_hint(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn token_type_hint(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.token_type_hint = ::std::option::Option::Some(input.into());
         self
     }
     /// Optional hint about the type of the token submitted for introspection. The server uses this hint to optimize lookup, but still falls back to the other token type on miss. Allowed values: access_token, refresh_token.
-    pub fn set_token_type_hint(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_token_type_hint(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.token_type_hint = input;
         self
     }

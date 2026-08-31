@@ -7,7 +7,9 @@ pub struct PropagateTags {
     /// <p>The tag propagation mode. Set to <code>Explicit</code> to propagate the tags specified in <code>ExplicitTags</code> to managed resources. Set to <code>None</code> to disable tag propagation.</p>
     pub mode: ::std::option::Option<crate::types::PropagateTagsMode>,
     /// <p>A list of tags to apply to managed resources when <code>Mode</code> is set to <code>Explicit</code>. You can specify up to 40 tags.</p>
-    pub explicit_tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub explicit_tags: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
 }
 impl PropagateTags {
     /// <p>The tag propagation mode. Set to <code>Explicit</code> to propagate the tags specified in <code>ExplicitTags</code> to managed resources. Set to <code>None</code> to disable tag propagation.</p>
@@ -15,7 +17,11 @@ impl PropagateTags {
         self.mode.as_ref()
     }
     /// <p>A list of tags to apply to managed resources when <code>Mode</code> is set to <code>Explicit</code>. You can specify up to 40 tags.</p>
-    pub fn explicit_tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn explicit_tags(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.explicit_tags.as_ref()
     }
 }
@@ -27,11 +33,15 @@ impl PropagateTags {
 }
 
 /// A builder for [`PropagateTags`](crate::types::PropagateTags).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PropagateTagsBuilder {
     pub(crate) mode: ::std::option::Option<crate::types::PropagateTagsMode>,
-    pub(crate) explicit_tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) explicit_tags: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
 }
 impl PropagateTagsBuilder {
     /// <p>The tag propagation mode. Set to <code>Explicit</code> to propagate the tags specified in <code>ExplicitTags</code> to managed resources. Set to <code>None</code> to disable tag propagation.</p>
@@ -40,7 +50,10 @@ impl PropagateTagsBuilder {
         self
     }
     /// <p>The tag propagation mode. Set to <code>Explicit</code> to propagate the tags specified in <code>ExplicitTags</code> to managed resources. Set to <code>None</code> to disable tag propagation.</p>
-    pub fn set_mode(mut self, input: ::std::option::Option<crate::types::PropagateTagsMode>) -> Self {
+    pub fn set_mode(
+        mut self,
+        input: ::std::option::Option<crate::types::PropagateTagsMode>,
+    ) -> Self {
         self.mode = input;
         self
     }
@@ -53,7 +66,11 @@ impl PropagateTagsBuilder {
     /// To override the contents of this collection use [`set_explicit_tags`](Self::set_explicit_tags).
     ///
     /// <p>A list of tags to apply to managed resources when <code>Mode</code> is set to <code>Explicit</code>. You can specify up to 40 tags.</p>
-    pub fn explicit_tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn explicit_tags(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut hash_map = self.explicit_tags.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.explicit_tags = ::std::option::Option::Some(hash_map);
@@ -62,13 +79,19 @@ impl PropagateTagsBuilder {
     /// <p>A list of tags to apply to managed resources when <code>Mode</code> is set to <code>Explicit</code>. You can specify up to 40 tags.</p>
     pub fn set_explicit_tags(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
     ) -> Self {
         self.explicit_tags = input;
         self
     }
     /// <p>A list of tags to apply to managed resources when <code>Mode</code> is set to <code>Explicit</code>. You can specify up to 40 tags.</p>
-    pub fn get_explicit_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_explicit_tags(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.explicit_tags
     }
     /// Consumes the builder and constructs a [`PropagateTags`](crate::types::PropagateTags).

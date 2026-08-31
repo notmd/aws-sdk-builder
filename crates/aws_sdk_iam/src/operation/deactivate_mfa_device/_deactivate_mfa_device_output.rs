@@ -12,13 +12,17 @@ impl ::aws_types::request_id::RequestId for DeactivateMfaDeviceOutput {
 }
 impl DeactivateMfaDeviceOutput {
     /// Creates a new builder-style object to manufacture [`DeactivateMfaDeviceOutput`](crate::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput).
-    pub fn builder() -> crate::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceOutputBuilder {
-        crate::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceOutputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceOutputBuilder {
+        crate::operation::deactivate_mfa_device::builders::DeactivateMfaDeviceOutputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`DeactivateMfaDeviceOutput`](crate::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeactivateMfaDeviceOutputBuilder {
     _request_id: Option<String>,

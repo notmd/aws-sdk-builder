@@ -6,7 +6,11 @@ impl super::Client {
     /// - On success, responds with [`GetResourcePolicyOutput`](crate::operation::get_resource_policy::GetResourcePolicyOutput) with field(s):
     ///   - [`signin_resource_based_policy(Option<SigninResourceBasedPolicy>)`](crate::operation::get_resource_policy::GetResourcePolicyOutput::signin_resource_based_policy): The account's SignIn resource-based policy
     /// - On failure, responds with [`SdkError<GetResourcePolicyError>`](crate::operation::get_resource_policy::GetResourcePolicyError)
-    pub fn get_resource_policy(&self) -> crate::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder {
-        crate::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder::new(self.handle.clone())
+    pub fn get_resource_policy(
+        &self,
+    ) -> crate::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder {
+        crate::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

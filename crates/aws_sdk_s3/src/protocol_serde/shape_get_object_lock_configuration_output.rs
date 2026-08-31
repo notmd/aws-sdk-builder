@@ -15,7 +15,10 @@ pub(crate) fn de_object_lock_configuration_payload(
 
 pub fn de_object_lock_configuration(
     inp: &[u8],
-) -> std::result::Result<crate::types::ObjectLockConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> std::result::Result<
+    crate::types::ObjectLockConfiguration,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
     #[allow(unused_mut)]
     let mut decoder = doc.root_element()?;
@@ -27,5 +30,8 @@ pub fn de_object_lock_configuration(
     }
     #[allow(unused_variables)]
     let depth = 0u32;
-    crate::protocol_serde::shape_object_lock_configuration::de_object_lock_configuration(&mut decoder, depth + 1)
+    crate::protocol_serde::shape_object_lock_configuration::de_object_lock_configuration(
+        &mut decoder,
+        depth + 1,
+    )
 }

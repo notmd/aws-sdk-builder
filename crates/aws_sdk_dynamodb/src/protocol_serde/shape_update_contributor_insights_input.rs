@@ -10,7 +10,9 @@ pub fn ser_update_contributor_insights_input_input(
         object.key("IndexName").string(var_2.as_str());
     }
     if let Some(var_3) = &input.contributor_insights_action {
-        object.key("ContributorInsightsAction").string(var_3.as_str());
+        object
+            .key("ContributorInsightsAction")
+            .string(var_3.as_str());
     }
     if let Some(var_4) = &input.contributor_insights_mode {
         object.key("ContributorInsightsMode").string(var_4.as_str());

@@ -24,7 +24,9 @@ impl CreateVectorIndexAction {
         self.index_name.deref()
     }
     /// <p>The attribute that contains vector embeddings. If multiple vector indexes reference the same attribute, they must all use the same number of dimensions.</p>
-    pub fn vector_attribute(&self) -> ::std::option::Option<&crate::types::VectorAttributeDefinition> {
+    pub fn vector_attribute(
+        &self,
+    ) -> ::std::option::Option<&crate::types::VectorAttributeDefinition> {
         self.vector_attribute.as_ref()
     }
     /// <p>The partition key and inline filter attribute definitions for the vector index.</p>
@@ -54,12 +56,15 @@ impl CreateVectorIndexAction {
 }
 
 /// A builder for [`CreateVectorIndexAction`](crate::types::CreateVectorIndexAction).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateVectorIndexActionBuilder {
     pub(crate) index_name: ::std::option::Option<::std::string::String>,
     pub(crate) vector_attribute: ::std::option::Option<crate::types::VectorAttributeDefinition>,
-    pub(crate) search_schema: ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>,
+    pub(crate) search_schema:
+        ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>,
     pub(crate) projection: ::std::option::Option<crate::types::Projection>,
     pub(crate) dimensions: ::std::option::Option<i64>,
     pub(crate) distance_function: ::std::option::Option<crate::types::VectorDistanceFunction>,
@@ -87,12 +92,17 @@ impl CreateVectorIndexActionBuilder {
         self
     }
     /// <p>The attribute that contains vector embeddings. If multiple vector indexes reference the same attribute, they must all use the same number of dimensions.</p>
-    pub fn set_vector_attribute(mut self, input: ::std::option::Option<crate::types::VectorAttributeDefinition>) -> Self {
+    pub fn set_vector_attribute(
+        mut self,
+        input: ::std::option::Option<crate::types::VectorAttributeDefinition>,
+    ) -> Self {
         self.vector_attribute = input;
         self
     }
     /// <p>The attribute that contains vector embeddings. If multiple vector indexes reference the same attribute, they must all use the same number of dimensions.</p>
-    pub fn get_vector_attribute(&self) -> &::std::option::Option<crate::types::VectorAttributeDefinition> {
+    pub fn get_vector_attribute(
+        &self,
+    ) -> &::std::option::Option<crate::types::VectorAttributeDefinition> {
         &self.vector_attribute
     }
     /// Appends an item to `search_schema`.
@@ -107,12 +117,17 @@ impl CreateVectorIndexActionBuilder {
         self
     }
     /// <p>The partition key and inline filter attribute definitions for the vector index.</p>
-    pub fn set_search_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>) -> Self {
+    pub fn set_search_schema(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>,
+    ) -> Self {
         self.search_schema = input;
         self
     }
     /// <p>The partition key and inline filter attribute definitions for the vector index.</p>
-    pub fn get_search_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>> {
+    pub fn get_search_schema(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>> {
         &self.search_schema
     }
     /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
@@ -122,7 +137,10 @@ impl CreateVectorIndexActionBuilder {
         self
     }
     /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
-    pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
+    pub fn set_projection(
+        mut self,
+        input: ::std::option::Option<crate::types::Projection>,
+    ) -> Self {
         self.projection = input;
         self
     }
@@ -152,12 +170,17 @@ impl CreateVectorIndexActionBuilder {
         self
     }
     /// <p>The distance function used to calculate similarity. Valid values: <code>COSINE</code>, <code>EUCLIDEAN</code>, <code>DOT_PRODUCT</code>.</p>
-    pub fn set_distance_function(mut self, input: ::std::option::Option<crate::types::VectorDistanceFunction>) -> Self {
+    pub fn set_distance_function(
+        mut self,
+        input: ::std::option::Option<crate::types::VectorDistanceFunction>,
+    ) -> Self {
         self.distance_function = input;
         self
     }
     /// <p>The distance function used to calculate similarity. Valid values: <code>COSINE</code>, <code>EUCLIDEAN</code>, <code>DOT_PRODUCT</code>.</p>
-    pub fn get_distance_function(&self) -> &::std::option::Option<crate::types::VectorDistanceFunction> {
+    pub fn get_distance_function(
+        &self,
+    ) -> &::std::option::Option<crate::types::VectorDistanceFunction> {
         &self.distance_function
     }
     /// Consumes the builder and constructs a [`CreateVectorIndexAction`](crate::types::CreateVectorIndexAction).
@@ -165,7 +188,12 @@ impl CreateVectorIndexActionBuilder {
     /// - [`index_name`](crate::types::builders::CreateVectorIndexActionBuilder::index_name)
     /// - [`dimensions`](crate::types::builders::CreateVectorIndexActionBuilder::dimensions)
     /// - [`distance_function`](crate::types::builders::CreateVectorIndexActionBuilder::distance_function)
-    pub fn build(self) -> ::std::result::Result<crate::types::CreateVectorIndexAction, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::CreateVectorIndexAction,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::CreateVectorIndexAction {
             index_name: self.index_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

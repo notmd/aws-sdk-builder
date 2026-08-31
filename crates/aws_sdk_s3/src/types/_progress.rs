@@ -33,7 +33,9 @@ impl Progress {
 }
 
 /// A builder for [`Progress`](crate::types::Progress).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ProgressBuilder {
     pub(crate) bytes_scanned: ::std::option::Option<i64>,

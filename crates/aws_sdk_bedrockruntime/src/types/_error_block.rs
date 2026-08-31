@@ -50,7 +50,9 @@ impl ErrorBlockBuilder {
     }
     /// Consumes the builder and constructs a [`ErrorBlock`](crate::types::ErrorBlock).
     pub fn build(self) -> crate::types::ErrorBlock {
-        crate::types::ErrorBlock { message: self.message }
+        crate::types::ErrorBlock {
+            message: self.message,
+        }
     }
 }
 impl ::std::fmt::Debug for ErrorBlockBuilder {

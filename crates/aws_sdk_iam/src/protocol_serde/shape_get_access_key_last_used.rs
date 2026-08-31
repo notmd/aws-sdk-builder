@@ -9,8 +9,12 @@ pub fn de_get_access_key_last_used_http_error(
     crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     Err(crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError::generic(generic))
@@ -28,9 +32,17 @@ pub fn de_get_access_key_last_used_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedOutputBuilder::default();
-        output = crate::protocol_serde::shape_get_access_key_last_used::de_get_access_key_last_used(_response_body, output)
-            .map_err(crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output =
+            crate::protocol_serde::shape_get_access_key_last_used::de_get_access_key_last_used(
+                _response_body,
+                output,
+            )
+            .map_err(
+                crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError::unhandled,
+            )?;
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }

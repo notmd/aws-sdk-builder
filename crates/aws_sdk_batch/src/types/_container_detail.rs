@@ -55,7 +55,8 @@ pub struct ContainerDetail {
     /// <p>The network interfaces that are associated with the job.</p>
     pub network_interfaces: ::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>>,
     /// <p>The type and amount of resources to assign to a container. The supported resources include <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</p>
-    pub resource_requirements: ::std::option::Option<::std::vec::Vec<crate::types::ResourceRequirement>>,
+    pub resource_requirements:
+        ::std::option::Option<::std::vec::Vec<crate::types::ResourceRequirement>>,
     /// <p>Linux-specific modifications that are applied to the container, such as details for device mappings.</p>
     pub linux_parameters: ::std::option::Option<crate::types::LinuxParameters>,
     /// <p>The log configuration specification for the container.</p>
@@ -71,7 +72,8 @@ pub struct ContainerDetail {
     /// <p>The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.</p>
     pub network_configuration: ::std::option::Option<crate::types::NetworkConfiguration>,
     /// <p>The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.</p>
-    pub fargate_platform_configuration: ::std::option::Option<crate::types::FargatePlatformConfiguration>,
+    pub fargate_platform_configuration:
+        ::std::option::Option<crate::types::FargatePlatformConfiguration>,
     /// <p>The amount of ephemeral storage allocated for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on Fargate.</p>
     pub ephemeral_storage: ::std::option::Option<crate::types::EphemeralStorage>,
     /// <p>An object that represents the compute environment architecture for Batch jobs on Fargate.</p>
@@ -211,11 +213,15 @@ impl ContainerDetail {
         self.secrets.as_deref().unwrap_or_default()
     }
     /// <p>The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.</p>
-    pub fn network_configuration(&self) -> ::std::option::Option<&crate::types::NetworkConfiguration> {
+    pub fn network_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::NetworkConfiguration> {
         self.network_configuration.as_ref()
     }
     /// <p>The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.</p>
-    pub fn fargate_platform_configuration(&self) -> ::std::option::Option<&crate::types::FargatePlatformConfiguration> {
+    pub fn fargate_platform_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::FargatePlatformConfiguration> {
         self.fargate_platform_configuration.as_ref()
     }
     /// <p>The amount of ephemeral storage allocated for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on Fargate.</p>
@@ -227,7 +233,9 @@ impl ContainerDetail {
         self.runtime_platform.as_ref()
     }
     /// <p>The private repository authentication credentials to use.</p>
-    pub fn repository_credentials(&self) -> ::std::option::Option<&crate::types::RepositoryCredentials> {
+    pub fn repository_credentials(
+        &self,
+    ) -> ::std::option::Option<&crate::types::RepositoryCredentials> {
         self.repository_credentials.as_ref()
     }
     /// <p>Determines whether execute command functionality is turned on for this task. If <code>true</code>, execute command functionality is turned on all the containers in the task.</p>
@@ -243,7 +251,9 @@ impl ContainerDetail {
 }
 
 /// A builder for [`ContainerDetail`](crate::types::ContainerDetail).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ContainerDetailBuilder {
     pub(crate) image: ::std::option::Option<::std::string::String>,
@@ -265,13 +275,16 @@ pub struct ContainerDetailBuilder {
     pub(crate) task_arn: ::std::option::Option<::std::string::String>,
     pub(crate) log_stream_name: ::std::option::Option<::std::string::String>,
     pub(crate) instance_type: ::std::option::Option<::std::string::String>,
-    pub(crate) network_interfaces: ::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>>,
-    pub(crate) resource_requirements: ::std::option::Option<::std::vec::Vec<crate::types::ResourceRequirement>>,
+    pub(crate) network_interfaces:
+        ::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>>,
+    pub(crate) resource_requirements:
+        ::std::option::Option<::std::vec::Vec<crate::types::ResourceRequirement>>,
     pub(crate) linux_parameters: ::std::option::Option<crate::types::LinuxParameters>,
     pub(crate) log_configuration: ::std::option::Option<crate::types::LogConfiguration>,
     pub(crate) secrets: ::std::option::Option<::std::vec::Vec<crate::types::Secret>>,
     pub(crate) network_configuration: ::std::option::Option<crate::types::NetworkConfiguration>,
-    pub(crate) fargate_platform_configuration: ::std::option::Option<crate::types::FargatePlatformConfiguration>,
+    pub(crate) fargate_platform_configuration:
+        ::std::option::Option<crate::types::FargatePlatformConfiguration>,
     pub(crate) ephemeral_storage: ::std::option::Option<crate::types::EphemeralStorage>,
     pub(crate) runtime_platform: ::std::option::Option<crate::types::RuntimePlatform>,
     pub(crate) repository_credentials: ::std::option::Option<crate::types::RepositoryCredentials>,
@@ -338,7 +351,10 @@ impl ContainerDetailBuilder {
         self
     }
     /// <p>The command that's passed to the container.</p>
-    pub fn set_command(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_command(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.command = input;
         self
     }
@@ -361,12 +377,18 @@ impl ContainerDetailBuilder {
         &self.job_role_arn
     }
     /// <p>The Amazon Resource Name (ARN) of the execution role that Batch can assume. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html">Batch execution IAM role</a> in the <i>Batch User Guide</i>.</p>
-    pub fn execution_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn execution_role_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.execution_role_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the execution role that Batch can assume. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html">Batch execution IAM role</a> in the <i>Batch User Guide</i>.</p>
-    pub fn set_execution_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_execution_role_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.execution_role_arn = input;
         self
     }
@@ -386,7 +408,10 @@ impl ContainerDetailBuilder {
         self
     }
     /// <p>A list of volumes that are associated with the job.</p>
-    pub fn set_volumes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Volume>>) -> Self {
+    pub fn set_volumes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Volume>>,
+    ) -> Self {
         self.volumes = input;
         self
     }
@@ -410,14 +435,19 @@ impl ContainerDetailBuilder {
     /// <p>The environment variables to pass to a container.</p><note>
     /// <p>Environment variables cannot start with "<code>AWS_BATCH</code>". This naming convention is reserved for variables that Batch sets.</p>
     /// </note>
-    pub fn set_environment(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuePair>>) -> Self {
+    pub fn set_environment(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuePair>>,
+    ) -> Self {
         self.environment = input;
         self
     }
     /// <p>The environment variables to pass to a container.</p><note>
     /// <p>Environment variables cannot start with "<code>AWS_BATCH</code>". This naming convention is reserved for variables that Batch sets.</p>
     /// </note>
-    pub fn get_environment(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuePair>> {
+    pub fn get_environment(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuePair>> {
         &self.environment
     }
     /// Appends an item to `mount_points`.
@@ -432,12 +462,17 @@ impl ContainerDetailBuilder {
         self
     }
     /// <p>The mount points for data volumes in your container.</p>
-    pub fn set_mount_points(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MountPoint>>) -> Self {
+    pub fn set_mount_points(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::MountPoint>>,
+    ) -> Self {
         self.mount_points = input;
         self
     }
     /// <p>The mount points for data volumes in your container.</p>
-    pub fn get_mount_points(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MountPoint>> {
+    pub fn get_mount_points(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MountPoint>> {
         &self.mount_points
     }
     /// <p>When this parameter is true, the container is given read-only access to its root file system. This parameter maps to <code>ReadonlyRootfs</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--read-only</code> option to <a href="https://docs.docker.com/engine/reference/commandline/run/"> <code>docker run</code> </a>.</p>
@@ -470,7 +505,10 @@ impl ContainerDetailBuilder {
     /// <p>A list of <code>ulimit</code> values to set in the container. This parameter maps to <code>Ulimits</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--ulimit</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p><note>
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources.</p>
     /// </note>
-    pub fn set_ulimits(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Ulimit>>) -> Self {
+    pub fn set_ulimits(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Ulimit>>,
+    ) -> Self {
         self.ulimits = input;
         self
     }
@@ -543,12 +581,18 @@ impl ContainerDetailBuilder {
         &self.reason
     }
     /// <p>The Amazon Resource Name (ARN) of the container instance that the container is running on.</p>
-    pub fn container_instance_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn container_instance_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.container_instance_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the container instance that the container is running on.</p>
-    pub fn set_container_instance_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_container_instance_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.container_instance_arn = input;
         self
     }
@@ -571,12 +615,18 @@ impl ContainerDetailBuilder {
         &self.task_arn
     }
     /// <p>The name of the Amazon CloudWatch Logs log stream that's associated with the container. The log group for Batch jobs is <code>/aws/batch/job</code>. Each container attempt receives a log stream name when they reach the <code>RUNNING</code> status.</p>
-    pub fn log_stream_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_stream_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.log_stream_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the Amazon CloudWatch Logs log stream that's associated with the container. The log group for Batch jobs is <code>/aws/batch/job</code>. Each container attempt receives a log stream name when they reach the <code>RUNNING</code> status.</p>
-    pub fn set_log_stream_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_log_stream_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.log_stream_name = input;
         self
     }
@@ -587,14 +637,20 @@ impl ContainerDetailBuilder {
     /// <p>The instance type of the underlying host infrastructure of a multi-node parallel job.</p><note>
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources.</p>
     /// </note>
-    pub fn instance_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn instance_type(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.instance_type = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The instance type of the underlying host infrastructure of a multi-node parallel job.</p><note>
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources.</p>
     /// </note>
-    pub fn set_instance_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_instance_type(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.instance_type = input;
         self
     }
@@ -616,12 +672,17 @@ impl ContainerDetailBuilder {
         self
     }
     /// <p>The network interfaces that are associated with the job.</p>
-    pub fn set_network_interfaces(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>>) -> Self {
+    pub fn set_network_interfaces(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>>,
+    ) -> Self {
         self.network_interfaces = input;
         self
     }
     /// <p>The network interfaces that are associated with the job.</p>
-    pub fn get_network_interfaces(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>> {
+    pub fn get_network_interfaces(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::NetworkInterface>> {
         &self.network_interfaces
     }
     /// Appends an item to `resource_requirements`.
@@ -636,12 +697,17 @@ impl ContainerDetailBuilder {
         self
     }
     /// <p>The type and amount of resources to assign to a container. The supported resources include <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</p>
-    pub fn set_resource_requirements(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceRequirement>>) -> Self {
+    pub fn set_resource_requirements(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceRequirement>>,
+    ) -> Self {
         self.resource_requirements = input;
         self
     }
     /// <p>The type and amount of resources to assign to a container. The supported resources include <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</p>
-    pub fn get_resource_requirements(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceRequirement>> {
+    pub fn get_resource_requirements(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceRequirement>> {
         &self.resource_requirements
     }
     /// <p>Linux-specific modifications that are applied to the container, such as details for device mappings.</p>
@@ -650,7 +716,10 @@ impl ContainerDetailBuilder {
         self
     }
     /// <p>Linux-specific modifications that are applied to the container, such as details for device mappings.</p>
-    pub fn set_linux_parameters(mut self, input: ::std::option::Option<crate::types::LinuxParameters>) -> Self {
+    pub fn set_linux_parameters(
+        mut self,
+        input: ::std::option::Option<crate::types::LinuxParameters>,
+    ) -> Self {
         self.linux_parameters = input;
         self
     }
@@ -676,7 +745,10 @@ impl ContainerDetailBuilder {
     /// <p>This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version | grep "Server API version"</code></p><note>
     /// <p>The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the <code>ECS_AVAILABLE_LOGGING_DRIVERS</code> environment variable before containers placed on that instance can use these log configuration options. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon ECS container agent configuration</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
     /// </note>
-    pub fn set_log_configuration(mut self, input: ::std::option::Option<crate::types::LogConfiguration>) -> Self {
+    pub fn set_log_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::LogConfiguration>,
+    ) -> Self {
         self.log_configuration = input;
         self
     }
@@ -702,7 +774,10 @@ impl ContainerDetailBuilder {
         self
     }
     /// <p>The secrets to pass to the container. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html">Specifying sensitive data</a> in the <i>Batch User Guide</i>.</p>
-    pub fn set_secrets(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Secret>>) -> Self {
+    pub fn set_secrets(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Secret>>,
+    ) -> Self {
         self.secrets = input;
         self
     }
@@ -716,26 +791,39 @@ impl ContainerDetailBuilder {
         self
     }
     /// <p>The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.</p>
-    pub fn set_network_configuration(mut self, input: ::std::option::Option<crate::types::NetworkConfiguration>) -> Self {
+    pub fn set_network_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::NetworkConfiguration>,
+    ) -> Self {
         self.network_configuration = input;
         self
     }
     /// <p>The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.</p>
-    pub fn get_network_configuration(&self) -> &::std::option::Option<crate::types::NetworkConfiguration> {
+    pub fn get_network_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::NetworkConfiguration> {
         &self.network_configuration
     }
     /// <p>The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.</p>
-    pub fn fargate_platform_configuration(mut self, input: crate::types::FargatePlatformConfiguration) -> Self {
+    pub fn fargate_platform_configuration(
+        mut self,
+        input: crate::types::FargatePlatformConfiguration,
+    ) -> Self {
         self.fargate_platform_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.</p>
-    pub fn set_fargate_platform_configuration(mut self, input: ::std::option::Option<crate::types::FargatePlatformConfiguration>) -> Self {
+    pub fn set_fargate_platform_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::FargatePlatformConfiguration>,
+    ) -> Self {
         self.fargate_platform_configuration = input;
         self
     }
     /// <p>The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.</p>
-    pub fn get_fargate_platform_configuration(&self) -> &::std::option::Option<crate::types::FargatePlatformConfiguration> {
+    pub fn get_fargate_platform_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::FargatePlatformConfiguration> {
         &self.fargate_platform_configuration
     }
     /// <p>The amount of ephemeral storage allocated for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on Fargate.</p>
@@ -744,7 +832,10 @@ impl ContainerDetailBuilder {
         self
     }
     /// <p>The amount of ephemeral storage allocated for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on Fargate.</p>
-    pub fn set_ephemeral_storage(mut self, input: ::std::option::Option<crate::types::EphemeralStorage>) -> Self {
+    pub fn set_ephemeral_storage(
+        mut self,
+        input: ::std::option::Option<crate::types::EphemeralStorage>,
+    ) -> Self {
         self.ephemeral_storage = input;
         self
     }
@@ -758,7 +849,10 @@ impl ContainerDetailBuilder {
         self
     }
     /// <p>An object that represents the compute environment architecture for Batch jobs on Fargate.</p>
-    pub fn set_runtime_platform(mut self, input: ::std::option::Option<crate::types::RuntimePlatform>) -> Self {
+    pub fn set_runtime_platform(
+        mut self,
+        input: ::std::option::Option<crate::types::RuntimePlatform>,
+    ) -> Self {
         self.runtime_platform = input;
         self
     }
@@ -772,12 +866,17 @@ impl ContainerDetailBuilder {
         self
     }
     /// <p>The private repository authentication credentials to use.</p>
-    pub fn set_repository_credentials(mut self, input: ::std::option::Option<crate::types::RepositoryCredentials>) -> Self {
+    pub fn set_repository_credentials(
+        mut self,
+        input: ::std::option::Option<crate::types::RepositoryCredentials>,
+    ) -> Self {
         self.repository_credentials = input;
         self
     }
     /// <p>The private repository authentication credentials to use.</p>
-    pub fn get_repository_credentials(&self) -> &::std::option::Option<crate::types::RepositoryCredentials> {
+    pub fn get_repository_credentials(
+        &self,
+    ) -> &::std::option::Option<crate::types::RepositoryCredentials> {
         &self.repository_credentials
     }
     /// <p>Determines whether execute command functionality is turned on for this task. If <code>true</code>, execute command functionality is turned on all the containers in the task.</p>

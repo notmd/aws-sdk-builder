@@ -9,9 +9,14 @@ pub fn de_list_directory_buckets_http_error(
     crate::operation::list_directory_buckets::ListDirectoryBucketsError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::list_directory_buckets::ListDirectoryBucketsError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(crate::operation::list_directory_buckets::ListDirectoryBucketsError::unhandled)?;
+    generic_builder =
+        crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     Err(crate::operation::list_directory_buckets::ListDirectoryBucketsError::generic(generic))
@@ -29,10 +34,18 @@ pub fn de_list_directory_buckets_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::list_directory_buckets::builders::ListDirectoryBucketsOutputBuilder::default();
-        output = crate::protocol_serde::shape_list_directory_buckets::de_list_directory_buckets(_response_body, output)
-            .map_err(crate::operation::list_directory_buckets::ListDirectoryBucketsError::unhandled)?;
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output = crate::protocol_serde::shape_list_directory_buckets::de_list_directory_buckets(
+            _response_body,
+            output,
+        )
+        .map_err(crate::operation::list_directory_buckets::ListDirectoryBucketsError::unhandled)?;
+        output._set_extended_request_id(
+            crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers)
+                .map(str::to_string),
+        );
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }

@@ -57,7 +57,9 @@ impl ListLayerVersionsFluentBuilder {
         }
     }
     /// Access the ListLayerVersions as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_layer_versions::builders::ListLayerVersionsInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_layer_versions::builders::ListLayerVersionsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,12 +83,17 @@ impl ListLayerVersionsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_layer_versions::ListLayerVersions::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_layer_versions::ListLayerVersions::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::list_layer_versions::ListLayerVersions::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_layer_versions::ListLayerVersions::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,20 +106,31 @@ impl ListLayerVersionsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_layer_versions::paginator::ListLayerVersionsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_layer_versions::paginator::ListLayerVersionsPaginator {
-        crate::operation::list_layer_versions::paginator::ListLayerVersionsPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_layer_versions::paginator::ListLayerVersionsPaginator {
+        crate::operation::list_layer_versions::paginator::ListLayerVersionsPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
     pub fn compatible_architecture(mut self, input: crate::types::Architecture) -> Self {
@@ -120,12 +138,17 @@ impl ListLayerVersionsFluentBuilder {
         self
     }
     /// <p>The compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
-    pub fn set_compatible_architecture(mut self, input: ::std::option::Option<crate::types::Architecture>) -> Self {
+    pub fn set_compatible_architecture(
+        mut self,
+        input: ::std::option::Option<crate::types::Architecture>,
+    ) -> Self {
         self.inner = self.inner.set_compatible_architecture(input);
         self
     }
     /// <p>The compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
-    pub fn get_compatible_architecture(&self) -> &::std::option::Option<crate::types::Architecture> {
+    pub fn get_compatible_architecture(
+        &self,
+    ) -> &::std::option::Option<crate::types::Architecture> {
         self.inner.get_compatible_architecture()
     }
     /// <p>A runtime identifier.</p>
@@ -138,7 +161,10 @@ impl ListLayerVersionsFluentBuilder {
     /// <p>A runtime identifier.</p>
     /// <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
     /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-    pub fn set_compatible_runtime(mut self, input: ::std::option::Option<crate::types::Runtime>) -> Self {
+    pub fn set_compatible_runtime(
+        mut self,
+        input: ::std::option::Option<crate::types::Runtime>,
+    ) -> Self {
         self.inner = self.inner.set_compatible_runtime(input);
         self
     }

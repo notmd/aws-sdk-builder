@@ -34,7 +34,9 @@ impl ImportBatch {
 }
 
 /// A builder for [`ImportBatch`](crate::types::ImportBatch).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ImportBatchBuilder {
     pub(crate) batch_id: ::std::option::Option<::std::string::String>,
@@ -73,12 +75,18 @@ impl ImportBatchBuilder {
         &self.status
     }
     /// <p>The error message if the batch failed to import. Only present when status is FAILED.</p>
-    pub fn error_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn error_message(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.error_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The error message if the batch failed to import. Only present when status is FAILED.</p>
-    pub fn set_error_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_error_message(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.error_message = input;
         self
     }
@@ -90,7 +98,12 @@ impl ImportBatchBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`batch_id`](crate::types::builders::ImportBatchBuilder::batch_id)
     /// - [`status`](crate::types::builders::ImportBatchBuilder::status)
-    pub fn build(self) -> ::std::result::Result<crate::types::ImportBatch, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::ImportBatch,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::ImportBatch {
             batch_id: self.batch_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

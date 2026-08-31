@@ -13,7 +13,9 @@ impl SimplePrefix {
 }
 
 /// A builder for [`SimplePrefix`](crate::types::SimplePrefix).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SimplePrefixBuilder {}
 impl SimplePrefixBuilder {

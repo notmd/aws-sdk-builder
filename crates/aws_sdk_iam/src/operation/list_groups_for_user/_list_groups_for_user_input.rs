@@ -30,13 +30,16 @@ impl ListGroupsForUserInput {
 }
 impl ListGroupsForUserInput {
     /// Creates a new builder-style object to manufacture [`ListGroupsForUserInput`](crate::operation::list_groups_for_user::ListGroupsForUserInput).
-    pub fn builder() -> crate::operation::list_groups_for_user::builders::ListGroupsForUserInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_groups_for_user::builders::ListGroupsForUserInputBuilder {
         crate::operation::list_groups_for_user::builders::ListGroupsForUserInputBuilder::default()
     }
 }
 
 /// A builder for [`ListGroupsForUserInput`](crate::operation::list_groups_for_user::ListGroupsForUserInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListGroupsForUserInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -96,11 +99,16 @@ impl ListGroupsForUserInputBuilder {
     /// Consumes the builder and constructs a [`ListGroupsForUserInput`](crate::operation::list_groups_for_user::ListGroupsForUserInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_groups_for_user::ListGroupsForUserInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_groups_for_user::ListGroupsForUserInput {
-            user_name: self.user_name,
-            marker: self.marker,
-            max_items: self.max_items,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::list_groups_for_user::ListGroupsForUserInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::list_groups_for_user::ListGroupsForUserInput {
+                user_name: self.user_name,
+                marker: self.marker,
+                max_items: self.max_items,
+            },
+        )
     }
 }

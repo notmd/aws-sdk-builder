@@ -29,16 +29,21 @@ impl ::aws_types::request_id::RequestId for ListReputationEntitiesOutput {
 }
 impl ListReputationEntitiesOutput {
     /// Creates a new builder-style object to manufacture [`ListReputationEntitiesOutput`](crate::operation::list_reputation_entities::ListReputationEntitiesOutput).
-    pub fn builder() -> crate::operation::list_reputation_entities::builders::ListReputationEntitiesOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_reputation_entities::builders::ListReputationEntitiesOutputBuilder
+    {
         crate::operation::list_reputation_entities::builders::ListReputationEntitiesOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListReputationEntitiesOutput`](crate::operation::list_reputation_entities::ListReputationEntitiesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListReputationEntitiesOutputBuilder {
-    pub(crate) reputation_entities: ::std::option::Option<::std::vec::Vec<crate::types::ReputationEntity>>,
+    pub(crate) reputation_entities:
+        ::std::option::Option<::std::vec::Vec<crate::types::ReputationEntity>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -55,12 +60,17 @@ impl ListReputationEntitiesOutputBuilder {
         self
     }
     /// <p>An array that contains information about the reputation entities in your account.</p>
-    pub fn set_reputation_entities(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReputationEntity>>) -> Self {
+    pub fn set_reputation_entities(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ReputationEntity>>,
+    ) -> Self {
         self.reputation_entities = input;
         self
     }
     /// <p>An array that contains information about the reputation entities in your account.</p>
-    pub fn get_reputation_entities(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReputationEntity>> {
+    pub fn get_reputation_entities(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ReputationEntity>> {
         &self.reputation_entities
     }
     /// <p>A token that indicates that there are additional reputation entities to list. To view additional reputation entities, issue another request to <code>ListReputationEntities</code>, and pass this token in the <code>NextToken</code> parameter.</p>

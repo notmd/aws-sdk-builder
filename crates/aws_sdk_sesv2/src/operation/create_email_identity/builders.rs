@@ -62,7 +62,9 @@ impl CreateEmailIdentityFluentBuilder {
         }
     }
     /// Access the CreateEmailIdentity as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_email_identity::builders::CreateEmailIdentityInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::create_email_identity::builders::CreateEmailIdentityInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,12 +88,17 @@ impl CreateEmailIdentityFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_email_identity::CreateEmailIdentity::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_email_identity::CreateEmailIdentity::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::create_email_identity::CreateEmailIdentity::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::create_email_identity::CreateEmailIdentity::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -104,22 +111,34 @@ impl CreateEmailIdentityFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The email address or domain to verify.</p>
-    pub fn email_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn email_identity(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.email_identity(input.into());
         self
     }
     /// <p>The email address or domain to verify.</p>
-    pub fn set_email_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_email_identity(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_email_identity(input);
         self
     }
@@ -138,7 +157,10 @@ impl CreateEmailIdentityFluentBuilder {
         self
     }
     /// <p>An array of objects that define the tags (keys and values) to associate with the email identity.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
@@ -154,22 +176,33 @@ impl CreateEmailIdentityFluentBuilder {
     }
     /// <p>If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
     /// <p>You can only specify this object if the email identity is a domain, as opposed to an address.</p>
-    pub fn set_dkim_signing_attributes(mut self, input: ::std::option::Option<crate::types::DkimSigningAttributes>) -> Self {
+    pub fn set_dkim_signing_attributes(
+        mut self,
+        input: ::std::option::Option<crate::types::DkimSigningAttributes>,
+    ) -> Self {
         self.inner = self.inner.set_dkim_signing_attributes(input);
         self
     }
     /// <p>If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
     /// <p>You can only specify this object if the email identity is a domain, as opposed to an address.</p>
-    pub fn get_dkim_signing_attributes(&self) -> &::std::option::Option<crate::types::DkimSigningAttributes> {
+    pub fn get_dkim_signing_attributes(
+        &self,
+    ) -> &::std::option::Option<crate::types::DkimSigningAttributes> {
         self.inner.get_dkim_signing_attributes()
     }
     /// <p>The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.</p>
-    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn configuration_set_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.</p>
-    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_configuration_set_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }

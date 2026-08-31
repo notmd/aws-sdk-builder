@@ -14,7 +14,8 @@ pub struct UpdateUserPoolInput {
     /// <p>A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.</p>
     pub lambda_config: ::std::option::Option<crate::types::LambdaConfigType>,
     /// <p>The attributes that you want your user pool to automatically verify. Possible values: <b>email</b>, <b>phone_number</b>. For more information see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves">Verifying contact information at sign-up</a>.</p>
-    pub auto_verified_attributes: ::std::option::Option<::std::vec::Vec<crate::types::VerifiedAttributeType>>,
+    pub auto_verified_attributes:
+        ::std::option::Option<::std::vec::Vec<crate::types::VerifiedAttributeType>>,
     /// <p>This parameter is no longer used.</p>
     pub sms_verification_message: ::std::option::Option<::std::string::String>,
     /// <p>This parameter is no longer used.</p>
@@ -23,11 +24,13 @@ pub struct UpdateUserPoolInput {
     pub email_verification_subject: ::std::option::Option<::std::string::String>,
     /// <p>The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.</p>
     /// <p>Set the email message type that corresponds to your <code>DefaultEmailOption</code> selection. For <code>CONFIRM_WITH_LINK</code>, specify an <code>EmailMessageByLink</code> and leave <code>EmailMessage</code> blank. For <code>CONFIRM_WITH_CODE</code>, specify an <code>EmailMessage</code> and leave <code>EmailMessageByLink</code> blank. When you supply both parameters with either choice, Amazon Cognito returns an error.</p>
-    pub verification_message_template: ::std::option::Option<crate::types::VerificationMessageTemplateType>,
+    pub verification_message_template:
+        ::std::option::Option<crate::types::VerificationMessageTemplateType>,
     /// <p>The contents of the SMS message that your user pool sends to users in SMS authentication.</p>
     pub sms_authentication_message: ::std::option::Option<::std::string::String>,
     /// <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to email addresses and phone numbers</a>.</p>
-    pub user_attribute_update_settings: ::std::option::Option<crate::types::UserAttributeUpdateSettingsType>,
+    pub user_attribute_update_settings:
+        ::std::option::Option<crate::types::UserAttributeUpdateSettingsType>,
     /// <p>Sets multi-factor authentication (MFA) to be on, off, or optional. When <code>ON</code>, all users must set up MFA before they can sign in. When <code>OPTIONAL</code>, your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose <code>OPTIONAL</code>.</p>
     /// <p>When <code>MfaConfiguration</code> is <code>OPTIONAL</code>, managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.</p>
     pub mfa_configuration: ::std::option::Option<crate::types::UserPoolMfaType>,
@@ -40,7 +43,9 @@ pub struct UpdateUserPoolInput {
     /// <p>The SMS configuration with the settings for your Amazon Cognito user pool to send SMS message with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an Identity and Access Management (IAM) role in your Amazon Web Services account. For more information see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html">SMS message settings</a>.</p>
     pub sms_configuration: ::std::option::Option<crate::types::SmsConfigurationType>,
     /// <p>The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
-    pub user_pool_tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub user_pool_tags: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     /// <p>The configuration for administrative creation of users. Includes the template for the invitation message for new users, the duration of temporary passwords, and permitting self-service sign-up.</p>
     pub admin_create_user_config: ::std::option::Option<crate::types::AdminCreateUserConfigType>,
     /// <p>Contains settings for activation of threat protection, including the operating mode and additional authentication types. To log user security information but take no action, set to <code>AUDIT</code>. To configure automatic security responses to potentially unwanted traffic to your user pool, set to <code>ENFORCED</code>.</p>
@@ -68,7 +73,9 @@ impl UpdateUserPoolInput {
     }
     /// <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.</p>
     /// <p>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API request, Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool, send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an <code>UpdateUserPool</code> API request.</p>
-    pub fn deletion_protection(&self) -> ::std::option::Option<&crate::types::DeletionProtectionType> {
+    pub fn deletion_protection(
+        &self,
+    ) -> ::std::option::Option<&crate::types::DeletionProtectionType> {
         self.deletion_protection.as_ref()
     }
     /// <p>A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.</p>
@@ -95,7 +102,9 @@ impl UpdateUserPoolInput {
     }
     /// <p>The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.</p>
     /// <p>Set the email message type that corresponds to your <code>DefaultEmailOption</code> selection. For <code>CONFIRM_WITH_LINK</code>, specify an <code>EmailMessageByLink</code> and leave <code>EmailMessage</code> blank. For <code>CONFIRM_WITH_CODE</code>, specify an <code>EmailMessage</code> and leave <code>EmailMessageByLink</code> blank. When you supply both parameters with either choice, Amazon Cognito returns an error.</p>
-    pub fn verification_message_template(&self) -> ::std::option::Option<&crate::types::VerificationMessageTemplateType> {
+    pub fn verification_message_template(
+        &self,
+    ) -> ::std::option::Option<&crate::types::VerificationMessageTemplateType> {
         self.verification_message_template.as_ref()
     }
     /// <p>The contents of the SMS message that your user pool sends to users in SMS authentication.</p>
@@ -103,7 +112,9 @@ impl UpdateUserPoolInput {
         self.sms_authentication_message.as_deref()
     }
     /// <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to email addresses and phone numbers</a>.</p>
-    pub fn user_attribute_update_settings(&self) -> ::std::option::Option<&crate::types::UserAttributeUpdateSettingsType> {
+    pub fn user_attribute_update_settings(
+        &self,
+    ) -> ::std::option::Option<&crate::types::UserAttributeUpdateSettingsType> {
         self.user_attribute_update_settings.as_ref()
     }
     /// <p>Sets multi-factor authentication (MFA) to be on, off, or optional. When <code>ON</code>, all users must set up MFA before they can sign in. When <code>OPTIONAL</code>, your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose <code>OPTIONAL</code>.</p>
@@ -114,11 +125,15 @@ impl UpdateUserPoolInput {
     /// <p>The device-remembering configuration for a user pool. Device remembering or device tracking is a "Remember me on this device" option for user pools that perform authentication with the device key of a trusted device in the back end, instead of a user-provided MFA code. For more information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>. A null value indicates that you have deactivated device remembering in your user pool.</p><note>
     /// <p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with devices</a>.</p>
     /// </note>
-    pub fn device_configuration(&self) -> ::std::option::Option<&crate::types::DeviceConfigurationType> {
+    pub fn device_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::DeviceConfigurationType> {
         self.device_configuration.as_ref()
     }
     /// <p>The email configuration of your user pool. The email configuration type sets your preferred sending method, Amazon Web Services Region, and sender for email invitation and verification messages from your user pool.</p>
-    pub fn email_configuration(&self) -> ::std::option::Option<&crate::types::EmailConfigurationType> {
+    pub fn email_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::EmailConfigurationType> {
         self.email_configuration.as_ref()
     }
     /// <p>The SMS configuration with the settings for your Amazon Cognito user pool to send SMS message with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an Identity and Access Management (IAM) role in your Amazon Web Services account. For more information see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html">SMS message settings</a>.</p>
@@ -126,11 +141,17 @@ impl UpdateUserPoolInput {
         self.sms_configuration.as_ref()
     }
     /// <p>The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
-    pub fn user_pool_tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn user_pool_tags(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.user_pool_tags.as_ref()
     }
     /// <p>The configuration for administrative creation of users. Includes the template for the invitation message for new users, the duration of temporary passwords, and permitting self-service sign-up.</p>
-    pub fn admin_create_user_config(&self) -> ::std::option::Option<&crate::types::AdminCreateUserConfigType> {
+    pub fn admin_create_user_config(
+        &self,
+    ) -> ::std::option::Option<&crate::types::AdminCreateUserConfigType> {
         self.admin_create_user_config.as_ref()
     }
     /// <p>Contains settings for activation of threat protection, including the operating mode and additional authentication types. To log user security information but take no action, set to <code>AUDIT</code>. To configure automatic security responses to potentially unwanted traffic to your user pool, set to <code>ENFORCED</code>.</p>
@@ -139,7 +160,9 @@ impl UpdateUserPoolInput {
         self.user_pool_add_ons.as_ref()
     }
     /// <p>The available verified method a user can use to recover their password when they call <code>ForgotPassword</code>. You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.</p>
-    pub fn account_recovery_setting(&self) -> ::std::option::Option<&crate::types::AccountRecoverySettingType> {
+    pub fn account_recovery_setting(
+        &self,
+    ) -> ::std::option::Option<&crate::types::AccountRecoverySettingType> {
         self.account_recovery_setting.as_ref()
     }
     /// <p>The updated name of your user pool.</p>
@@ -155,7 +178,9 @@ impl UpdateUserPoolInput {
         self.key_configuration.as_ref()
     }
     /// <p>The issuer configuration for the user pool. In secondary regions, this parameter must match the existing configuration and cannot be modified.</p>
-    pub fn issuer_configuration(&self) -> ::std::option::Option<&crate::types::IssuerConfigurationType> {
+    pub fn issuer_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::IssuerConfigurationType> {
         self.issuer_configuration.as_ref()
     }
 }
@@ -167,28 +192,37 @@ impl UpdateUserPoolInput {
 }
 
 /// A builder for [`UpdateUserPoolInput`](crate::operation::update_user_pool::UpdateUserPoolInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateUserPoolInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
     pub(crate) policies: ::std::option::Option<crate::types::UserPoolPolicyType>,
     pub(crate) deletion_protection: ::std::option::Option<crate::types::DeletionProtectionType>,
     pub(crate) lambda_config: ::std::option::Option<crate::types::LambdaConfigType>,
-    pub(crate) auto_verified_attributes: ::std::option::Option<::std::vec::Vec<crate::types::VerifiedAttributeType>>,
+    pub(crate) auto_verified_attributes:
+        ::std::option::Option<::std::vec::Vec<crate::types::VerifiedAttributeType>>,
     pub(crate) sms_verification_message: ::std::option::Option<::std::string::String>,
     pub(crate) email_verification_message: ::std::option::Option<::std::string::String>,
     pub(crate) email_verification_subject: ::std::option::Option<::std::string::String>,
-    pub(crate) verification_message_template: ::std::option::Option<crate::types::VerificationMessageTemplateType>,
+    pub(crate) verification_message_template:
+        ::std::option::Option<crate::types::VerificationMessageTemplateType>,
     pub(crate) sms_authentication_message: ::std::option::Option<::std::string::String>,
-    pub(crate) user_attribute_update_settings: ::std::option::Option<crate::types::UserAttributeUpdateSettingsType>,
+    pub(crate) user_attribute_update_settings:
+        ::std::option::Option<crate::types::UserAttributeUpdateSettingsType>,
     pub(crate) mfa_configuration: ::std::option::Option<crate::types::UserPoolMfaType>,
     pub(crate) device_configuration: ::std::option::Option<crate::types::DeviceConfigurationType>,
     pub(crate) email_configuration: ::std::option::Option<crate::types::EmailConfigurationType>,
     pub(crate) sms_configuration: ::std::option::Option<crate::types::SmsConfigurationType>,
-    pub(crate) user_pool_tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    pub(crate) admin_create_user_config: ::std::option::Option<crate::types::AdminCreateUserConfigType>,
+    pub(crate) user_pool_tags: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
+    pub(crate) admin_create_user_config:
+        ::std::option::Option<crate::types::AdminCreateUserConfigType>,
     pub(crate) user_pool_add_ons: ::std::option::Option<crate::types::UserPoolAddOnsType>,
-    pub(crate) account_recovery_setting: ::std::option::Option<crate::types::AccountRecoverySettingType>,
+    pub(crate) account_recovery_setting:
+        ::std::option::Option<crate::types::AccountRecoverySettingType>,
     pub(crate) pool_name: ::std::option::Option<::std::string::String>,
     pub(crate) user_pool_tier: ::std::option::Option<crate::types::UserPoolTierType>,
     pub(crate) key_configuration: ::std::option::Option<crate::types::KeyConfigurationType>,
@@ -216,7 +250,10 @@ impl UpdateUserPoolInputBuilder {
         self
     }
     /// <p>The password policy and sign-in policy in the user pool. The password policy sets options like password complexity requirements and password history. The sign-in policy sets the options available to applications in <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice">choice-based authentication</a>.</p>
-    pub fn set_policies(mut self, input: ::std::option::Option<crate::types::UserPoolPolicyType>) -> Self {
+    pub fn set_policies(
+        mut self,
+        input: ::std::option::Option<crate::types::UserPoolPolicyType>,
+    ) -> Self {
         self.policies = input;
         self
     }
@@ -232,13 +269,18 @@ impl UpdateUserPoolInputBuilder {
     }
     /// <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.</p>
     /// <p>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API request, Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool, send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an <code>UpdateUserPool</code> API request.</p>
-    pub fn set_deletion_protection(mut self, input: ::std::option::Option<crate::types::DeletionProtectionType>) -> Self {
+    pub fn set_deletion_protection(
+        mut self,
+        input: ::std::option::Option<crate::types::DeletionProtectionType>,
+    ) -> Self {
         self.deletion_protection = input;
         self
     }
     /// <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.</p>
     /// <p>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API request, Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool, send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an <code>UpdateUserPool</code> API request.</p>
-    pub fn get_deletion_protection(&self) -> &::std::option::Option<crate::types::DeletionProtectionType> {
+    pub fn get_deletion_protection(
+        &self,
+    ) -> &::std::option::Option<crate::types::DeletionProtectionType> {
         &self.deletion_protection
     }
     /// <p>A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.</p>
@@ -247,7 +289,10 @@ impl UpdateUserPoolInputBuilder {
         self
     }
     /// <p>A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.</p>
-    pub fn set_lambda_config(mut self, input: ::std::option::Option<crate::types::LambdaConfigType>) -> Self {
+    pub fn set_lambda_config(
+        mut self,
+        input: ::std::option::Option<crate::types::LambdaConfigType>,
+    ) -> Self {
         self.lambda_config = input;
         self
     }
@@ -267,21 +312,32 @@ impl UpdateUserPoolInputBuilder {
         self
     }
     /// <p>The attributes that you want your user pool to automatically verify. Possible values: <b>email</b>, <b>phone_number</b>. For more information see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves">Verifying contact information at sign-up</a>.</p>
-    pub fn set_auto_verified_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VerifiedAttributeType>>) -> Self {
+    pub fn set_auto_verified_attributes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::VerifiedAttributeType>>,
+    ) -> Self {
         self.auto_verified_attributes = input;
         self
     }
     /// <p>The attributes that you want your user pool to automatically verify. Possible values: <b>email</b>, <b>phone_number</b>. For more information see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves">Verifying contact information at sign-up</a>.</p>
-    pub fn get_auto_verified_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VerifiedAttributeType>> {
+    pub fn get_auto_verified_attributes(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::VerifiedAttributeType>> {
         &self.auto_verified_attributes
     }
     /// <p>This parameter is no longer used.</p>
-    pub fn sms_verification_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn sms_verification_message(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.sms_verification_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>This parameter is no longer used.</p>
-    pub fn set_sms_verification_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_sms_verification_message(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.sms_verification_message = input;
         self
     }
@@ -290,12 +346,18 @@ impl UpdateUserPoolInputBuilder {
         &self.sms_verification_message
     }
     /// <p>This parameter is no longer used.</p>
-    pub fn email_verification_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn email_verification_message(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.email_verification_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>This parameter is no longer used.</p>
-    pub fn set_email_verification_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_email_verification_message(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.email_verification_message = input;
         self
     }
@@ -304,12 +366,18 @@ impl UpdateUserPoolInputBuilder {
         &self.email_verification_message
     }
     /// <p>This parameter is no longer used.</p>
-    pub fn email_verification_subject(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn email_verification_subject(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.email_verification_subject = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>This parameter is no longer used.</p>
-    pub fn set_email_verification_subject(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_email_verification_subject(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.email_verification_subject = input;
         self
     }
@@ -319,28 +387,42 @@ impl UpdateUserPoolInputBuilder {
     }
     /// <p>The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.</p>
     /// <p>Set the email message type that corresponds to your <code>DefaultEmailOption</code> selection. For <code>CONFIRM_WITH_LINK</code>, specify an <code>EmailMessageByLink</code> and leave <code>EmailMessage</code> blank. For <code>CONFIRM_WITH_CODE</code>, specify an <code>EmailMessage</code> and leave <code>EmailMessageByLink</code> blank. When you supply both parameters with either choice, Amazon Cognito returns an error.</p>
-    pub fn verification_message_template(mut self, input: crate::types::VerificationMessageTemplateType) -> Self {
+    pub fn verification_message_template(
+        mut self,
+        input: crate::types::VerificationMessageTemplateType,
+    ) -> Self {
         self.verification_message_template = ::std::option::Option::Some(input);
         self
     }
     /// <p>The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.</p>
     /// <p>Set the email message type that corresponds to your <code>DefaultEmailOption</code> selection. For <code>CONFIRM_WITH_LINK</code>, specify an <code>EmailMessageByLink</code> and leave <code>EmailMessage</code> blank. For <code>CONFIRM_WITH_CODE</code>, specify an <code>EmailMessage</code> and leave <code>EmailMessageByLink</code> blank. When you supply both parameters with either choice, Amazon Cognito returns an error.</p>
-    pub fn set_verification_message_template(mut self, input: ::std::option::Option<crate::types::VerificationMessageTemplateType>) -> Self {
+    pub fn set_verification_message_template(
+        mut self,
+        input: ::std::option::Option<crate::types::VerificationMessageTemplateType>,
+    ) -> Self {
         self.verification_message_template = input;
         self
     }
     /// <p>The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.</p>
     /// <p>Set the email message type that corresponds to your <code>DefaultEmailOption</code> selection. For <code>CONFIRM_WITH_LINK</code>, specify an <code>EmailMessageByLink</code> and leave <code>EmailMessage</code> blank. For <code>CONFIRM_WITH_CODE</code>, specify an <code>EmailMessage</code> and leave <code>EmailMessageByLink</code> blank. When you supply both parameters with either choice, Amazon Cognito returns an error.</p>
-    pub fn get_verification_message_template(&self) -> &::std::option::Option<crate::types::VerificationMessageTemplateType> {
+    pub fn get_verification_message_template(
+        &self,
+    ) -> &::std::option::Option<crate::types::VerificationMessageTemplateType> {
         &self.verification_message_template
     }
     /// <p>The contents of the SMS message that your user pool sends to users in SMS authentication.</p>
-    pub fn sms_authentication_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn sms_authentication_message(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.sms_authentication_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The contents of the SMS message that your user pool sends to users in SMS authentication.</p>
-    pub fn set_sms_authentication_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_sms_authentication_message(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.sms_authentication_message = input;
         self
     }
@@ -349,17 +431,25 @@ impl UpdateUserPoolInputBuilder {
         &self.sms_authentication_message
     }
     /// <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to email addresses and phone numbers</a>.</p>
-    pub fn user_attribute_update_settings(mut self, input: crate::types::UserAttributeUpdateSettingsType) -> Self {
+    pub fn user_attribute_update_settings(
+        mut self,
+        input: crate::types::UserAttributeUpdateSettingsType,
+    ) -> Self {
         self.user_attribute_update_settings = ::std::option::Option::Some(input);
         self
     }
     /// <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to email addresses and phone numbers</a>.</p>
-    pub fn set_user_attribute_update_settings(mut self, input: ::std::option::Option<crate::types::UserAttributeUpdateSettingsType>) -> Self {
+    pub fn set_user_attribute_update_settings(
+        mut self,
+        input: ::std::option::Option<crate::types::UserAttributeUpdateSettingsType>,
+    ) -> Self {
         self.user_attribute_update_settings = input;
         self
     }
     /// <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to email addresses and phone numbers</a>.</p>
-    pub fn get_user_attribute_update_settings(&self) -> &::std::option::Option<crate::types::UserAttributeUpdateSettingsType> {
+    pub fn get_user_attribute_update_settings(
+        &self,
+    ) -> &::std::option::Option<crate::types::UserAttributeUpdateSettingsType> {
         &self.user_attribute_update_settings
     }
     /// <p>Sets multi-factor authentication (MFA) to be on, off, or optional. When <code>ON</code>, all users must set up MFA before they can sign in. When <code>OPTIONAL</code>, your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose <code>OPTIONAL</code>.</p>
@@ -370,7 +460,10 @@ impl UpdateUserPoolInputBuilder {
     }
     /// <p>Sets multi-factor authentication (MFA) to be on, off, or optional. When <code>ON</code>, all users must set up MFA before they can sign in. When <code>OPTIONAL</code>, your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose <code>OPTIONAL</code>.</p>
     /// <p>When <code>MfaConfiguration</code> is <code>OPTIONAL</code>, managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.</p>
-    pub fn set_mfa_configuration(mut self, input: ::std::option::Option<crate::types::UserPoolMfaType>) -> Self {
+    pub fn set_mfa_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::UserPoolMfaType>,
+    ) -> Self {
         self.mfa_configuration = input;
         self
     }
@@ -389,14 +482,19 @@ impl UpdateUserPoolInputBuilder {
     /// <p>The device-remembering configuration for a user pool. Device remembering or device tracking is a "Remember me on this device" option for user pools that perform authentication with the device key of a trusted device in the back end, instead of a user-provided MFA code. For more information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>. A null value indicates that you have deactivated device remembering in your user pool.</p><note>
     /// <p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with devices</a>.</p>
     /// </note>
-    pub fn set_device_configuration(mut self, input: ::std::option::Option<crate::types::DeviceConfigurationType>) -> Self {
+    pub fn set_device_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::DeviceConfigurationType>,
+    ) -> Self {
         self.device_configuration = input;
         self
     }
     /// <p>The device-remembering configuration for a user pool. Device remembering or device tracking is a "Remember me on this device" option for user pools that perform authentication with the device key of a trusted device in the back end, instead of a user-provided MFA code. For more information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>. A null value indicates that you have deactivated device remembering in your user pool.</p><note>
     /// <p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with devices</a>.</p>
     /// </note>
-    pub fn get_device_configuration(&self) -> &::std::option::Option<crate::types::DeviceConfigurationType> {
+    pub fn get_device_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::DeviceConfigurationType> {
         &self.device_configuration
     }
     /// <p>The email configuration of your user pool. The email configuration type sets your preferred sending method, Amazon Web Services Region, and sender for email invitation and verification messages from your user pool.</p>
@@ -405,12 +503,17 @@ impl UpdateUserPoolInputBuilder {
         self
     }
     /// <p>The email configuration of your user pool. The email configuration type sets your preferred sending method, Amazon Web Services Region, and sender for email invitation and verification messages from your user pool.</p>
-    pub fn set_email_configuration(mut self, input: ::std::option::Option<crate::types::EmailConfigurationType>) -> Self {
+    pub fn set_email_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::EmailConfigurationType>,
+    ) -> Self {
         self.email_configuration = input;
         self
     }
     /// <p>The email configuration of your user pool. The email configuration type sets your preferred sending method, Amazon Web Services Region, and sender for email invitation and verification messages from your user pool.</p>
-    pub fn get_email_configuration(&self) -> &::std::option::Option<crate::types::EmailConfigurationType> {
+    pub fn get_email_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::EmailConfigurationType> {
         &self.email_configuration
     }
     /// <p>The SMS configuration with the settings for your Amazon Cognito user pool to send SMS message with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an Identity and Access Management (IAM) role in your Amazon Web Services account. For more information see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html">SMS message settings</a>.</p>
@@ -419,12 +522,17 @@ impl UpdateUserPoolInputBuilder {
         self
     }
     /// <p>The SMS configuration with the settings for your Amazon Cognito user pool to send SMS message with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an Identity and Access Management (IAM) role in your Amazon Web Services account. For more information see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html">SMS message settings</a>.</p>
-    pub fn set_sms_configuration(mut self, input: ::std::option::Option<crate::types::SmsConfigurationType>) -> Self {
+    pub fn set_sms_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::SmsConfigurationType>,
+    ) -> Self {
         self.sms_configuration = input;
         self
     }
     /// <p>The SMS configuration with the settings for your Amazon Cognito user pool to send SMS message with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an Identity and Access Management (IAM) role in your Amazon Web Services account. For more information see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html">SMS message settings</a>.</p>
-    pub fn get_sms_configuration(&self) -> &::std::option::Option<crate::types::SmsConfigurationType> {
+    pub fn get_sms_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::SmsConfigurationType> {
         &self.sms_configuration
     }
     /// Adds a key-value pair to `user_pool_tags`.
@@ -445,27 +553,41 @@ impl UpdateUserPoolInputBuilder {
     /// <p>The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
     pub fn set_user_pool_tags(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
     ) -> Self {
         self.user_pool_tags = input;
         self
     }
     /// <p>The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
-    pub fn get_user_pool_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_user_pool_tags(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.user_pool_tags
     }
     /// <p>The configuration for administrative creation of users. Includes the template for the invitation message for new users, the duration of temporary passwords, and permitting self-service sign-up.</p>
-    pub fn admin_create_user_config(mut self, input: crate::types::AdminCreateUserConfigType) -> Self {
+    pub fn admin_create_user_config(
+        mut self,
+        input: crate::types::AdminCreateUserConfigType,
+    ) -> Self {
         self.admin_create_user_config = ::std::option::Option::Some(input);
         self
     }
     /// <p>The configuration for administrative creation of users. Includes the template for the invitation message for new users, the duration of temporary passwords, and permitting self-service sign-up.</p>
-    pub fn set_admin_create_user_config(mut self, input: ::std::option::Option<crate::types::AdminCreateUserConfigType>) -> Self {
+    pub fn set_admin_create_user_config(
+        mut self,
+        input: ::std::option::Option<crate::types::AdminCreateUserConfigType>,
+    ) -> Self {
         self.admin_create_user_config = input;
         self
     }
     /// <p>The configuration for administrative creation of users. Includes the template for the invitation message for new users, the duration of temporary passwords, and permitting self-service sign-up.</p>
-    pub fn get_admin_create_user_config(&self) -> &::std::option::Option<crate::types::AdminCreateUserConfigType> {
+    pub fn get_admin_create_user_config(
+        &self,
+    ) -> &::std::option::Option<crate::types::AdminCreateUserConfigType> {
         &self.admin_create_user_config
     }
     /// <p>Contains settings for activation of threat protection, including the operating mode and additional authentication types. To log user security information but take no action, set to <code>AUDIT</code>. To configure automatic security responses to potentially unwanted traffic to your user pool, set to <code>ENFORCED</code>.</p>
@@ -476,27 +598,40 @@ impl UpdateUserPoolInputBuilder {
     }
     /// <p>Contains settings for activation of threat protection, including the operating mode and additional authentication types. To log user security information but take no action, set to <code>AUDIT</code>. To configure automatic security responses to potentially unwanted traffic to your user pool, set to <code>ENFORCED</code>.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">Adding advanced security to a user pool</a>. To activate this setting, your user pool must be on the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html"> Plus tier</a>.</p>
-    pub fn set_user_pool_add_ons(mut self, input: ::std::option::Option<crate::types::UserPoolAddOnsType>) -> Self {
+    pub fn set_user_pool_add_ons(
+        mut self,
+        input: ::std::option::Option<crate::types::UserPoolAddOnsType>,
+    ) -> Self {
         self.user_pool_add_ons = input;
         self
     }
     /// <p>Contains settings for activation of threat protection, including the operating mode and additional authentication types. To log user security information but take no action, set to <code>AUDIT</code>. To configure automatic security responses to potentially unwanted traffic to your user pool, set to <code>ENFORCED</code>.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">Adding advanced security to a user pool</a>. To activate this setting, your user pool must be on the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html"> Plus tier</a>.</p>
-    pub fn get_user_pool_add_ons(&self) -> &::std::option::Option<crate::types::UserPoolAddOnsType> {
+    pub fn get_user_pool_add_ons(
+        &self,
+    ) -> &::std::option::Option<crate::types::UserPoolAddOnsType> {
         &self.user_pool_add_ons
     }
     /// <p>The available verified method a user can use to recover their password when they call <code>ForgotPassword</code>. You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.</p>
-    pub fn account_recovery_setting(mut self, input: crate::types::AccountRecoverySettingType) -> Self {
+    pub fn account_recovery_setting(
+        mut self,
+        input: crate::types::AccountRecoverySettingType,
+    ) -> Self {
         self.account_recovery_setting = ::std::option::Option::Some(input);
         self
     }
     /// <p>The available verified method a user can use to recover their password when they call <code>ForgotPassword</code>. You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.</p>
-    pub fn set_account_recovery_setting(mut self, input: ::std::option::Option<crate::types::AccountRecoverySettingType>) -> Self {
+    pub fn set_account_recovery_setting(
+        mut self,
+        input: ::std::option::Option<crate::types::AccountRecoverySettingType>,
+    ) -> Self {
         self.account_recovery_setting = input;
         self
     }
     /// <p>The available verified method a user can use to recover their password when they call <code>ForgotPassword</code>. You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.</p>
-    pub fn get_account_recovery_setting(&self) -> &::std::option::Option<crate::types::AccountRecoverySettingType> {
+    pub fn get_account_recovery_setting(
+        &self,
+    ) -> &::std::option::Option<crate::types::AccountRecoverySettingType> {
         &self.account_recovery_setting
     }
     /// <p>The updated name of your user pool.</p>
@@ -519,7 +654,10 @@ impl UpdateUserPoolInputBuilder {
         self
     }
     /// <p>The user pool <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html">feature plan</a>, or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to <code>ESSENTIALS</code>.</p>
-    pub fn set_user_pool_tier(mut self, input: ::std::option::Option<crate::types::UserPoolTierType>) -> Self {
+    pub fn set_user_pool_tier(
+        mut self,
+        input: ::std::option::Option<crate::types::UserPoolTierType>,
+    ) -> Self {
         self.user_pool_tier = input;
         self
     }
@@ -533,12 +671,17 @@ impl UpdateUserPoolInputBuilder {
         self
     }
     /// <p>The key configuration for the user pool. In secondary regions, this parameter must match the existing configuration and cannot be modified.</p>
-    pub fn set_key_configuration(mut self, input: ::std::option::Option<crate::types::KeyConfigurationType>) -> Self {
+    pub fn set_key_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::KeyConfigurationType>,
+    ) -> Self {
         self.key_configuration = input;
         self
     }
     /// <p>The key configuration for the user pool. In secondary regions, this parameter must match the existing configuration and cannot be modified.</p>
-    pub fn get_key_configuration(&self) -> &::std::option::Option<crate::types::KeyConfigurationType> {
+    pub fn get_key_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::KeyConfigurationType> {
         &self.key_configuration
     }
     /// <p>The issuer configuration for the user pool. In secondary regions, this parameter must match the existing configuration and cannot be modified.</p>
@@ -547,18 +690,26 @@ impl UpdateUserPoolInputBuilder {
         self
     }
     /// <p>The issuer configuration for the user pool. In secondary regions, this parameter must match the existing configuration and cannot be modified.</p>
-    pub fn set_issuer_configuration(mut self, input: ::std::option::Option<crate::types::IssuerConfigurationType>) -> Self {
+    pub fn set_issuer_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::IssuerConfigurationType>,
+    ) -> Self {
         self.issuer_configuration = input;
         self
     }
     /// <p>The issuer configuration for the user pool. In secondary regions, this parameter must match the existing configuration and cannot be modified.</p>
-    pub fn get_issuer_configuration(&self) -> &::std::option::Option<crate::types::IssuerConfigurationType> {
+    pub fn get_issuer_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::IssuerConfigurationType> {
         &self.issuer_configuration
     }
     /// Consumes the builder and constructs a [`UpdateUserPoolInput`](crate::operation::update_user_pool::UpdateUserPoolInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::update_user_pool::UpdateUserPoolInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::update_user_pool::UpdateUserPoolInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::update_user_pool::UpdateUserPoolInput {
             user_pool_id: self.user_pool_id,
             policies: self.policies,

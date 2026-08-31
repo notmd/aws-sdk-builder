@@ -18,13 +18,15 @@ impl ::aws_types::request_id::RequestId for DeleteBucketInventoryConfigurationOu
 }
 impl DeleteBucketInventoryConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketInventoryConfigurationOutput`](crate::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationOutput).
-    pub fn builder() -> crate::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationOutputBuilder {
+    pub fn builder() -> crate::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationOutputBuilder{
         crate::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteBucketInventoryConfigurationOutput`](crate::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteBucketInventoryConfigurationOutputBuilder {
     _extended_request_id: Option<String>,
@@ -36,7 +38,10 @@ impl DeleteBucketInventoryConfigurationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(
+        &mut self,
+        extended_request_id: Option<String>,
+    ) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -50,7 +55,7 @@ impl DeleteBucketInventoryConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteBucketInventoryConfigurationOutput`](crate::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationOutput).
-    pub fn build(self) -> crate::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationOutput {
+    pub fn build(self) -> crate::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationOutput{
         crate::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

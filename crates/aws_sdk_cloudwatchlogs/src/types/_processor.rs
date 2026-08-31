@@ -163,7 +163,9 @@ impl Processor {
 }
 
 /// A builder for [`Processor`](crate::types::Processor).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ProcessorBuilder {
     pub(crate) add_keys: ::std::option::Option<crate::types::AddKeys>,
@@ -239,12 +241,17 @@ impl ProcessorBuilder {
         self
     }
     /// <p>Use this parameter to include the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-datetimeConverter"> datetimeConverter</a> processor in your transformer.</p>
-    pub fn set_date_time_converter(mut self, input: ::std::option::Option<crate::types::DateTimeConverter>) -> Self {
+    pub fn set_date_time_converter(
+        mut self,
+        input: ::std::option::Option<crate::types::DateTimeConverter>,
+    ) -> Self {
         self.date_time_converter = input;
         self
     }
     /// <p>Use this parameter to include the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-datetimeConverter"> datetimeConverter</a> processor in your transformer.</p>
-    pub fn get_date_time_converter(&self) -> &::std::option::Option<crate::types::DateTimeConverter> {
+    pub fn get_date_time_converter(
+        &self,
+    ) -> &::std::option::Option<crate::types::DateTimeConverter> {
         &self.date_time_converter
     }
     /// <p>Use this parameter to include the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-deleteKeys"> deleteKeys</a> processor in your transformer.</p>
@@ -253,7 +260,10 @@ impl ProcessorBuilder {
         self
     }
     /// <p>Use this parameter to include the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-deleteKeys"> deleteKeys</a> processor in your transformer.</p>
-    pub fn set_delete_keys(mut self, input: ::std::option::Option<crate::types::DeleteKeys>) -> Self {
+    pub fn set_delete_keys(
+        mut self,
+        input: ::std::option::Option<crate::types::DeleteKeys>,
+    ) -> Self {
         self.delete_keys = input;
         self
     }
@@ -281,7 +291,10 @@ impl ProcessorBuilder {
         self
     }
     /// <p>Use this parameter to include the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-listToMap"> listToMap</a> processor in your transformer.</p>
-    pub fn set_list_to_map(mut self, input: ::std::option::Option<crate::types::ListToMap>) -> Self {
+    pub fn set_list_to_map(
+        mut self,
+        input: ::std::option::Option<crate::types::ListToMap>,
+    ) -> Self {
         self.list_to_map = input;
         self
     }
@@ -295,7 +308,10 @@ impl ProcessorBuilder {
         self
     }
     /// <p>Use this parameter to include the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-lowerCaseString"> lowerCaseString</a> processor in your transformer.</p>
-    pub fn set_lower_case_string(mut self, input: ::std::option::Option<crate::types::LowerCaseString>) -> Self {
+    pub fn set_lower_case_string(
+        mut self,
+        input: ::std::option::Option<crate::types::LowerCaseString>,
+    ) -> Self {
         self.lower_case_string = input;
         self
     }
@@ -325,7 +341,10 @@ impl ProcessorBuilder {
     }
     /// <p>Use this parameter to include the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseCloudfront"> parseCloudfront</a> processor in your transformer.</p>
     /// <p>If you use this processor, it must be the first processor in your transformer.</p>
-    pub fn set_parse_cloudfront(mut self, input: ::std::option::Option<crate::types::ParseCloudfront>) -> Self {
+    pub fn set_parse_cloudfront(
+        mut self,
+        input: ::std::option::Option<crate::types::ParseCloudfront>,
+    ) -> Self {
         self.parse_cloudfront = input;
         self
     }
@@ -354,7 +373,10 @@ impl ProcessorBuilder {
         self
     }
     /// <p>Use this parameter to include the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseKeyValue"> parseKeyValue</a> processor in your transformer.</p>
-    pub fn set_parse_key_value(mut self, input: ::std::option::Option<crate::types::ParseKeyValue>) -> Self {
+    pub fn set_parse_key_value(
+        mut self,
+        input: ::std::option::Option<crate::types::ParseKeyValue>,
+    ) -> Self {
         self.parse_key_value = input;
         self
     }
@@ -370,7 +392,10 @@ impl ProcessorBuilder {
     }
     /// <p>Use this parameter to include the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseRoute53"> parseRoute53</a> processor in your transformer.</p>
     /// <p>If you use this processor, it must be the first processor in your transformer.</p>
-    pub fn set_parse_route53(mut self, input: ::std::option::Option<crate::types::ParseRoute53>) -> Self {
+    pub fn set_parse_route53(
+        mut self,
+        input: ::std::option::Option<crate::types::ParseRoute53>,
+    ) -> Self {
         self.parse_route53 = input;
         self
     }
@@ -385,7 +410,10 @@ impl ProcessorBuilder {
         self
     }
     /// <p>Use this parameter to convert logs into Open Cybersecurity Schema (OCSF) format.</p>
-    pub fn set_parse_to_ocsf(mut self, input: ::std::option::Option<crate::types::ParseToOcsf>) -> Self {
+    pub fn set_parse_to_ocsf(
+        mut self,
+        input: ::std::option::Option<crate::types::ParseToOcsf>,
+    ) -> Self {
         self.parse_to_ocsf = input;
         self
     }
@@ -401,7 +429,10 @@ impl ProcessorBuilder {
     }
     /// <p>Use this parameter to include the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parsePostGres"> parsePostGres</a> processor in your transformer.</p>
     /// <p>If you use this processor, it must be the first processor in your transformer.</p>
-    pub fn set_parse_postgres(mut self, input: ::std::option::Option<crate::types::ParsePostgres>) -> Self {
+    pub fn set_parse_postgres(
+        mut self,
+        input: ::std::option::Option<crate::types::ParsePostgres>,
+    ) -> Self {
         self.parse_postgres = input;
         self
     }
@@ -450,7 +481,10 @@ impl ProcessorBuilder {
         self
     }
     /// <p>Use this parameter to include the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-renameKeys"> renameKeys</a> processor in your transformer.</p>
-    pub fn set_rename_keys(mut self, input: ::std::option::Option<crate::types::RenameKeys>) -> Self {
+    pub fn set_rename_keys(
+        mut self,
+        input: ::std::option::Option<crate::types::RenameKeys>,
+    ) -> Self {
         self.rename_keys = input;
         self
     }
@@ -464,7 +498,10 @@ impl ProcessorBuilder {
         self
     }
     /// <p>Use this parameter to include the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-splitString"> splitString</a> processor in your transformer.</p>
-    pub fn set_split_string(mut self, input: ::std::option::Option<crate::types::SplitString>) -> Self {
+    pub fn set_split_string(
+        mut self,
+        input: ::std::option::Option<crate::types::SplitString>,
+    ) -> Self {
         self.split_string = input;
         self
     }
@@ -478,7 +515,10 @@ impl ProcessorBuilder {
         self
     }
     /// <p>Use this parameter to include the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-substituteString"> substituteString</a> processor in your transformer.</p>
-    pub fn set_substitute_string(mut self, input: ::std::option::Option<crate::types::SubstituteString>) -> Self {
+    pub fn set_substitute_string(
+        mut self,
+        input: ::std::option::Option<crate::types::SubstituteString>,
+    ) -> Self {
         self.substitute_string = input;
         self
     }
@@ -492,7 +532,10 @@ impl ProcessorBuilder {
         self
     }
     /// <p>Use this parameter to include the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-trimString"> trimString</a> processor in your transformer.</p>
-    pub fn set_trim_string(mut self, input: ::std::option::Option<crate::types::TrimString>) -> Self {
+    pub fn set_trim_string(
+        mut self,
+        input: ::std::option::Option<crate::types::TrimString>,
+    ) -> Self {
         self.trim_string = input;
         self
     }
@@ -506,7 +549,10 @@ impl ProcessorBuilder {
         self
     }
     /// <p>Use this parameter to include the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-typeConverter"> typeConverter</a> processor in your transformer.</p>
-    pub fn set_type_converter(mut self, input: ::std::option::Option<crate::types::TypeConverter>) -> Self {
+    pub fn set_type_converter(
+        mut self,
+        input: ::std::option::Option<crate::types::TypeConverter>,
+    ) -> Self {
         self.type_converter = input;
         self
     }
@@ -520,7 +566,10 @@ impl ProcessorBuilder {
         self
     }
     /// <p>Use this parameter to include the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-upperCaseString"> upperCaseString</a> processor in your transformer.</p>
-    pub fn set_upper_case_string(mut self, input: ::std::option::Option<crate::types::UpperCaseString>) -> Self {
+    pub fn set_upper_case_string(
+        mut self,
+        input: ::std::option::Option<crate::types::UpperCaseString>,
+    ) -> Self {
         self.upper_case_string = input;
         self
     }

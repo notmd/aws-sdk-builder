@@ -20,13 +20,17 @@ impl TerminateServiceJobInput {
 }
 impl TerminateServiceJobInput {
     /// Creates a new builder-style object to manufacture [`TerminateServiceJobInput`](crate::operation::terminate_service_job::TerminateServiceJobInput).
-    pub fn builder() -> crate::operation::terminate_service_job::builders::TerminateServiceJobInputBuilder {
-        crate::operation::terminate_service_job::builders::TerminateServiceJobInputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::terminate_service_job::builders::TerminateServiceJobInputBuilder {
+        crate::operation::terminate_service_job::builders::TerminateServiceJobInputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`TerminateServiceJobInput`](crate::operation::terminate_service_job::TerminateServiceJobInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct TerminateServiceJobInputBuilder {
     pub(crate) job_id: ::std::option::Option<::std::string::String>,
@@ -66,11 +70,15 @@ impl TerminateServiceJobInputBuilder {
     /// Consumes the builder and constructs a [`TerminateServiceJobInput`](crate::operation::terminate_service_job::TerminateServiceJobInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::terminate_service_job::TerminateServiceJobInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::terminate_service_job::TerminateServiceJobInput {
-            job_id: self.job_id,
-            reason: self.reason,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::terminate_service_job::TerminateServiceJobInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::terminate_service_job::TerminateServiceJobInput {
+                job_id: self.job_id,
+                reason: self.reason,
+            },
+        )
     }
 }

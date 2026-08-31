@@ -60,7 +60,9 @@ impl ParseKeyValue {
 }
 
 /// A builder for [`ParseKeyValue`](crate::types::ParseKeyValue).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ParseKeyValueBuilder {
     pub(crate) source: ::std::option::Option<::std::string::String>,
@@ -101,12 +103,18 @@ impl ParseKeyValueBuilder {
         &self.destination
     }
     /// <p>The field delimiter string that is used between key-value pairs in the original log events. If you omit this, the ampersand <code>&amp;</code> character is used.</p>
-    pub fn field_delimiter(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn field_delimiter(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.field_delimiter = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The field delimiter string that is used between key-value pairs in the original log events. If you omit this, the ampersand <code>&amp;</code> character is used.</p>
-    pub fn set_field_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_field_delimiter(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.field_delimiter = input;
         self
     }
@@ -116,13 +124,19 @@ impl ParseKeyValueBuilder {
     }
     /// <p>The delimiter string to use between the key and value in each pair in the transformed log event.</p>
     /// <p>If you omit this, the equal <code>=</code> character is used.</p>
-    pub fn key_value_delimiter(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn key_value_delimiter(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.key_value_delimiter = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The delimiter string to use between the key and value in each pair in the transformed log event.</p>
     /// <p>If you omit this, the equal <code>=</code> character is used.</p>
-    pub fn set_key_value_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_key_value_delimiter(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.key_value_delimiter = input;
         self
     }
@@ -146,12 +160,18 @@ impl ParseKeyValueBuilder {
         &self.key_prefix
     }
     /// <p>A value to insert into the value field in the result, when a key-value pair is not successfully split.</p>
-    pub fn non_match_value(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn non_match_value(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.non_match_value = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A value to insert into the value field in the result, when a key-value pair is not successfully split.</p>
-    pub fn set_non_match_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_non_match_value(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.non_match_value = input;
         self
     }

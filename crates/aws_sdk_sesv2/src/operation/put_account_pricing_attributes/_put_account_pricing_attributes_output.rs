@@ -13,13 +13,15 @@ impl ::aws_types::request_id::RequestId for PutAccountPricingAttributesOutput {
 }
 impl PutAccountPricingAttributesOutput {
     /// Creates a new builder-style object to manufacture [`PutAccountPricingAttributesOutput`](crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesOutput).
-    pub fn builder() -> crate::operation::put_account_pricing_attributes::builders::PutAccountPricingAttributesOutputBuilder {
+    pub fn builder() -> crate::operation::put_account_pricing_attributes::builders::PutAccountPricingAttributesOutputBuilder{
         crate::operation::put_account_pricing_attributes::builders::PutAccountPricingAttributesOutputBuilder::default()
     }
 }
 
 /// A builder for [`PutAccountPricingAttributesOutput`](crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutAccountPricingAttributesOutputBuilder {
     _request_id: Option<String>,
@@ -35,7 +37,9 @@ impl PutAccountPricingAttributesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutAccountPricingAttributesOutput`](crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesOutput).
-    pub fn build(self) -> crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesOutput {
         crate::operation::put_account_pricing_attributes::PutAccountPricingAttributesOutput {
             _request_id: self._request_id,
         }

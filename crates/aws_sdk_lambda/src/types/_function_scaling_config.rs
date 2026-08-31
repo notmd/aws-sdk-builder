@@ -27,7 +27,9 @@ impl FunctionScalingConfig {
 }
 
 /// A builder for [`FunctionScalingConfig`](crate::types::FunctionScalingConfig).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct FunctionScalingConfigBuilder {
     pub(crate) min_execution_environments: ::std::option::Option<i32>,

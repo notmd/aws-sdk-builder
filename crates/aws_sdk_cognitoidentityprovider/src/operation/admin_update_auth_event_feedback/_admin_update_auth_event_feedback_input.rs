@@ -42,7 +42,7 @@ impl ::std::fmt::Debug for AdminUpdateAuthEventFeedbackInput {
 }
 impl AdminUpdateAuthEventFeedbackInput {
     /// Creates a new builder-style object to manufacture [`AdminUpdateAuthEventFeedbackInput`](crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackInput).
-    pub fn builder() -> crate::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackInputBuilder {
+    pub fn builder() -> crate::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackInputBuilder{
         crate::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackInputBuilder::default()
     }
 }
@@ -109,7 +109,10 @@ impl AdminUpdateAuthEventFeedbackInputBuilder {
         self
     }
     /// <p>Your feedback to the authentication event. When you provide a <code>FeedbackValue</code> value of <code>valid</code>, you tell Amazon Cognito that you trust a user session where Amazon Cognito has evaluated some level of risk. When you provide a <code>FeedbackValue</code> value of <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
-    pub fn set_feedback_value(mut self, input: ::std::option::Option<crate::types::FeedbackValueType>) -> Self {
+    pub fn set_feedback_value(
+        mut self,
+        input: ::std::option::Option<crate::types::FeedbackValueType>,
+    ) -> Self {
         self.feedback_value = input;
         self
     }
@@ -124,12 +127,14 @@ impl AdminUpdateAuthEventFeedbackInputBuilder {
         crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackInput {
-            user_pool_id: self.user_pool_id,
-            username: self.username,
-            event_id: self.event_id,
-            feedback_value: self.feedback_value,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackInput {
+                user_pool_id: self.user_pool_id,
+                username: self.username,
+                event_id: self.event_id,
+                feedback_value: self.feedback_value,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for AdminUpdateAuthEventFeedbackInputBuilder {

@@ -27,7 +27,9 @@ impl PackageGroupReference {
 }
 
 /// A builder for [`PackageGroupReference`](crate::types::PackageGroupReference).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PackageGroupReferenceBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,

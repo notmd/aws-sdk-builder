@@ -44,7 +44,7 @@ impl
             crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesOutput,
             crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -58,7 +58,7 @@ impl PutTenantSuppressionAttributesFluentBuilder {
         }
     }
     /// Access the PutTenantSuppressionAttributes as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -77,7 +77,7 @@ impl PutTenantSuppressionAttributesFluentBuilder {
             crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -100,12 +100,18 @@ impl PutTenantSuppressionAttributesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -146,7 +152,10 @@ impl PutTenantSuppressionAttributesFluentBuilder {
     /// <li>
     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list when a message sent to that address results in a hard bounce.</p></li>
     /// </ul>
-    pub fn set_suppressed_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>) -> Self {
+    pub fn set_suppressed_reasons(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>,
+    ) -> Self {
         self.inner = self.inner.set_suppressed_reasons(input);
         self
     }
@@ -157,7 +166,9 @@ impl PutTenantSuppressionAttributesFluentBuilder {
     /// <li>
     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list when a message sent to that address results in a hard bounce.</p></li>
     /// </ul>
-    pub fn get_suppressed_reasons(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>> {
+    pub fn get_suppressed_reasons(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>> {
         self.inner.get_suppressed_reasons()
     }
     /// <p>The suppression scope for the tenant. Specify <code>TENANT</code> to use the tenant's own suppression list, or <code>ACCOUNT</code> to use the account-level suppression list.</p><note>
@@ -170,14 +181,19 @@ impl PutTenantSuppressionAttributesFluentBuilder {
     /// <p>The suppression scope for the tenant. Specify <code>TENANT</code> to use the tenant's own suppression list, or <code>ACCOUNT</code> to use the account-level suppression list.</p><note>
     /// <p>If you don't specify a suppression scope, the tenant defaults to <code>ACCOUNT</code> scope and uses the account-level suppression list.</p>
     /// </note>
-    pub fn set_suppression_scope(mut self, input: ::std::option::Option<crate::types::SuppressionListScope>) -> Self {
+    pub fn set_suppression_scope(
+        mut self,
+        input: ::std::option::Option<crate::types::SuppressionListScope>,
+    ) -> Self {
         self.inner = self.inner.set_suppression_scope(input);
         self
     }
     /// <p>The suppression scope for the tenant. Specify <code>TENANT</code> to use the tenant's own suppression list, or <code>ACCOUNT</code> to use the account-level suppression list.</p><note>
     /// <p>If you don't specify a suppression scope, the tenant defaults to <code>ACCOUNT</code> scope and uses the account-level suppression list.</p>
     /// </note>
-    pub fn get_suppression_scope(&self) -> &::std::option::Option<crate::types::SuppressionListScope> {
+    pub fn get_suppression_scope(
+        &self,
+    ) -> &::std::option::Option<crate::types::SuppressionListScope> {
         self.inner.get_suppression_scope()
     }
 }

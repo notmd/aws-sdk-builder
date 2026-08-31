@@ -20,13 +20,16 @@ impl ::aws_types::request_id::RequestId for RotateKeyOnDemandOutput {
 }
 impl RotateKeyOnDemandOutput {
     /// Creates a new builder-style object to manufacture [`RotateKeyOnDemandOutput`](crate::operation::rotate_key_on_demand::RotateKeyOnDemandOutput).
-    pub fn builder() -> crate::operation::rotate_key_on_demand::builders::RotateKeyOnDemandOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::rotate_key_on_demand::builders::RotateKeyOnDemandOutputBuilder {
         crate::operation::rotate_key_on_demand::builders::RotateKeyOnDemandOutputBuilder::default()
     }
 }
 
 /// A builder for [`RotateKeyOnDemandOutput`](crate::operation::rotate_key_on_demand::RotateKeyOnDemandOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RotateKeyOnDemandOutputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,

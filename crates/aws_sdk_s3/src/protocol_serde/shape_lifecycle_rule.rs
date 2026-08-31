@@ -5,7 +5,9 @@ pub fn de_lifecycle_rule(
     depth: u32,
 ) -> ::std::result::Result<crate::types::LifecycleRule, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::LifecycleRule::builder();
@@ -141,7 +143,10 @@ pub fn ser_lifecycle_rule(
     let mut scope = writer.finish();
     if let Some(var_12) = &input.expiration {
         let inner_writer = scope.start_el("Expiration");
-        crate::protocol_serde::shape_lifecycle_expiration::ser_lifecycle_expiration(var_12, inner_writer)?
+        crate::protocol_serde::shape_lifecycle_expiration::ser_lifecycle_expiration(
+            var_12,
+            inner_writer,
+        )?
     }
     if let Some(var_13) = &input.id {
         let mut inner_writer = scope.start_el("ID").finish();
@@ -153,7 +158,10 @@ pub fn ser_lifecycle_rule(
     }
     if let Some(var_15) = &input.filter {
         let inner_writer = scope.start_el("Filter");
-        crate::protocol_serde::shape_lifecycle_rule_filter::ser_lifecycle_rule_filter(var_15, inner_writer)?
+        crate::protocol_serde::shape_lifecycle_rule_filter::ser_lifecycle_rule_filter(
+            var_15,
+            inner_writer,
+        )?
     }
     {
         let mut inner_writer = scope.start_el("Status").finish();

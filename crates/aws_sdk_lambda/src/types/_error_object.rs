@@ -61,12 +61,18 @@ pub struct ErrorObjectBuilder {
 }
 impl ErrorObjectBuilder {
     /// <p>A human-readable error message.</p>
-    pub fn error_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn error_message(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.error_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A human-readable error message.</p>
-    pub fn set_error_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_error_message(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.error_message = input;
         self
     }
@@ -114,12 +120,17 @@ impl ErrorObjectBuilder {
         self
     }
     /// <p>Stack trace information for the error.</p>
-    pub fn set_stack_trace(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_stack_trace(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.stack_trace = input;
         self
     }
     /// <p>Stack trace information for the error.</p>
-    pub fn get_stack_trace(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_stack_trace(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.stack_trace
     }
     /// Consumes the builder and constructs a [`ErrorObject`](crate::types::ErrorObject).

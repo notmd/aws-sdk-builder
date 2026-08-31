@@ -37,14 +37,20 @@ pub struct ScanFluentBuilder {
     inner: crate::operation::scan::builders::ScanInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
-impl crate::client::customize::internal::CustomizableSend<crate::operation::scan::ScanOutput, crate::operation::scan::ScanError>
-    for ScanFluentBuilder
+impl
+    crate::client::customize::internal::CustomizableSend<
+        crate::operation::scan::ScanOutput,
+        crate::operation::scan::ScanError,
+    > for ScanFluentBuilder
 {
     fn send(
         self,
         config_override: crate::config::Builder,
     ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<crate::operation::scan::ScanOutput, crate::operation::scan::ScanError>,
+        crate::client::customize::internal::SendResult<
+            crate::operation::scan::ScanOutput,
+            crate::operation::scan::ScanError,
+        >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -83,23 +89,36 @@ impl ScanFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::scan::Scan::operation_runtime_plugins(self.handle.runtime_plugins.clone(), &self.handle.conf, self.config_override);
+        let runtime_plugins = crate::operation::scan::Scan::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::scan::Scan::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
     pub fn customize(
         self,
-    ) -> crate::client::customize::CustomizableOperation<crate::operation::scan::ScanOutput, crate::operation::scan::ScanError, Self> {
+    ) -> crate::client::customize::CustomizableOperation<
+        crate::operation::scan::ScanOutput,
+        crate::operation::scan::ScanError,
+        Self,
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -146,17 +165,25 @@ impl ScanFluentBuilder {
     /// To override the contents of this collection use [`set_attributes_to_get`](Self::set_attributes_to_get).
     ///
     /// <p>This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn attributes_to_get(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.attributes_to_get(input.into());
         self
     }
     /// <p>This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn set_attributes_to_get(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_attributes_to_get(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.inner = self.inner.set_attributes_to_get(input);
         self
     }
     /// <p>This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_attributes_to_get(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_attributes_to_get(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_attributes_to_get()
     }
     /// <p>The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation, so that you can pick up where you left off. Also, if the processed dataset size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation to continue the operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Working with Queries</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -238,20 +265,30 @@ impl ScanFluentBuilder {
     /// To override the contents of this collection use [`set_scan_filter`](Self::set_scan_filter).
     ///
     /// <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ScanFilter.html">ScanFilter</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn scan_filter(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::Condition) -> Self {
+    pub fn scan_filter(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: crate::types::Condition,
+    ) -> Self {
         self.inner = self.inner.scan_filter(k.into(), v);
         self
     }
     /// <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ScanFilter.html">ScanFilter</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn set_scan_filter(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Condition>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, crate::types::Condition>,
+        >,
     ) -> Self {
         self.inner = self.inner.set_scan_filter(input);
         self
     }
     /// <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ScanFilter.html">ScanFilter</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_scan_filter(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Condition>> {
+    pub fn get_scan_filter(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, crate::types::Condition>,
+    > {
         self.inner.get_scan_filter()
     }
     /// <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -260,12 +297,17 @@ impl ScanFluentBuilder {
         self
     }
     /// <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn set_conditional_operator(mut self, input: ::std::option::Option<crate::types::ConditionalOperator>) -> Self {
+    pub fn set_conditional_operator(
+        mut self,
+        input: ::std::option::Option<crate::types::ConditionalOperator>,
+    ) -> Self {
         self.inner = self.inner.set_conditional_operator(input);
         self
     }
     /// <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_conditional_operator(&self) -> &::std::option::Option<crate::types::ConditionalOperator> {
+    pub fn get_conditional_operator(
+        &self,
+    ) -> &::std::option::Option<crate::types::ConditionalOperator> {
         self.inner.get_conditional_operator()
     }
     ///
@@ -276,7 +318,11 @@ impl ScanFluentBuilder {
     /// <p>The primary key of the first item that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedKey</code> in the previous operation.</p>
     /// <p>The data type for <code>ExclusiveStartKey</code> must be String, Number or Binary. No set data types are allowed.</p>
     /// <p>In a parallel scan, a <code>Scan</code> request that includes <code>ExclusiveStartKey</code> must specify the same segment whose previous <code>Scan</code> returned the corresponding value of <code>LastEvaluatedKey</code>.</p>
-    pub fn exclusive_start_key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
+    pub fn exclusive_start_key(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: crate::types::AttributeValue,
+    ) -> Self {
         self.inner = self.inner.exclusive_start_key(k.into(), v);
         self
     }
@@ -285,7 +331,9 @@ impl ScanFluentBuilder {
     /// <p>In a parallel scan, a <code>Scan</code> request that includes <code>ExclusiveStartKey</code> must specify the same segment whose previous <code>Scan</code> returned the corresponding value of <code>LastEvaluatedKey</code>.</p>
     pub fn set_exclusive_start_key(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
+        >,
     ) -> Self {
         self.inner = self.inner.set_exclusive_start_key(input);
         self
@@ -295,7 +343,9 @@ impl ScanFluentBuilder {
     /// <p>In a parallel scan, a <code>Scan</code> request that includes <code>ExclusiveStartKey</code> must specify the same segment whose previous <code>Scan</code> returned the corresponding value of <code>LastEvaluatedKey</code>.</p>
     pub fn get_exclusive_start_key(
         &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
+    > {
         self.inner.get_exclusive_start_key()
     }
     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
@@ -322,7 +372,10 @@ impl ScanFluentBuilder {
     /// <li>
     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
     /// </ul>
-    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
+    pub fn set_return_consumed_capacity(
+        mut self,
+        input: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
+    ) -> Self {
         self.inner = self.inner.set_return_consumed_capacity(input);
         self
     }
@@ -336,7 +389,9 @@ impl ScanFluentBuilder {
     /// <li>
     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
     /// </ul>
-    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
+    pub fn get_return_consumed_capacity(
+        &self,
+    ) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
         self.inner.get_return_consumed_capacity()
     }
     /// <p>For a parallel <code>Scan</code> request, <code>TotalSegments</code> represents the total number of segments into which the <code>Scan</code> operation will be divided. The value of <code>TotalSegments</code> corresponds to the number of application workers that will perform the parallel scan. For example, if you want to use four application threads to scan a table or an index, specify a <code>TotalSegments</code> value of 4.</p>
@@ -388,14 +443,20 @@ impl ScanFluentBuilder {
     /// <p>A string that identifies one or more attributes to retrieve from the specified table or index. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p>
     /// <p>If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn projection_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn projection_expression(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.projection_expression(input.into());
         self
     }
     /// <p>A string that identifies one or more attributes to retrieve from the specified table or index. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p>
     /// <p>If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn set_projection_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_projection_expression(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_projection_expression(input);
         self
     }
@@ -409,7 +470,10 @@ impl ScanFluentBuilder {
     /// <p>A <code>FilterExpression</code> is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.</p>
     /// </note>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.FilterExpression">Filter Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn filter_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn filter_expression(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.filter_expression(input.into());
         self
     }
@@ -417,7 +481,10 @@ impl ScanFluentBuilder {
     /// <p>A <code>FilterExpression</code> is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.</p>
     /// </note>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.FilterExpression">Filter Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn set_filter_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_filter_expression(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_filter_expression(input);
         self
     }
@@ -497,7 +564,9 @@ impl ScanFluentBuilder {
     /// <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn set_expression_attribute_names(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
     ) -> Self {
         self.inner = self.inner.set_expression_attribute_names(input);
         self
@@ -531,7 +600,9 @@ impl ScanFluentBuilder {
     /// <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn get_expression_attribute_names(
         &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.inner.get_expression_attribute_names()
     }
     ///
@@ -547,7 +618,11 @@ impl ScanFluentBuilder {
     /// <p>You could then use these values in an expression, such as this:</p>
     /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
     /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn expression_attribute_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
+    pub fn expression_attribute_values(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: crate::types::AttributeValue,
+    ) -> Self {
         self.inner = self.inner.expression_attribute_values(k.into(), v);
         self
     }
@@ -561,7 +636,9 @@ impl ScanFluentBuilder {
     /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn set_expression_attribute_values(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
+        >,
     ) -> Self {
         self.inner = self.inner.set_expression_attribute_values(input);
         self
@@ -576,7 +653,9 @@ impl ScanFluentBuilder {
     /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn get_expression_attribute_values(
         &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
+    > {
         self.inner.get_expression_attribute_values()
     }
     /// <p>A Boolean value that determines the read consistency model during the scan:</p>

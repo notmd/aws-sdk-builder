@@ -4,7 +4,9 @@ pub fn ser_re_encrypt_input_input(
     input: &crate::operation::re_encrypt::ReEncryptInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     if let Some(var_1) = &input.ciphertext_blob {
-        object.key("CiphertextBlob").string_unchecked(&::aws_smithy_types::base64::encode(var_1));
+        object
+            .key("CiphertextBlob")
+            .string_unchecked(&::aws_smithy_types::base64::encode(var_1));
     }
     if let Some(var_2) = &input.source_encryption_context {
         #[allow(unused_mut)]
@@ -33,10 +35,14 @@ pub fn ser_re_encrypt_input_input(
         object_9.finish();
     }
     if let Some(var_12) = &input.source_encryption_algorithm {
-        object.key("SourceEncryptionAlgorithm").string(var_12.as_str());
+        object
+            .key("SourceEncryptionAlgorithm")
+            .string(var_12.as_str());
     }
     if let Some(var_13) = &input.destination_encryption_algorithm {
-        object.key("DestinationEncryptionAlgorithm").string(var_13.as_str());
+        object
+            .key("DestinationEncryptionAlgorithm")
+            .string(var_13.as_str());
     }
     if let Some(var_14) = &input.grant_tokens {
         let mut array_15 = object.key("GrantTokens").start_array();

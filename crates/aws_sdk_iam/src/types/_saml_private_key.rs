@@ -28,7 +28,9 @@ impl SamlPrivateKey {
 }
 
 /// A builder for [`SamlPrivateKey`](crate::types::SamlPrivateKey).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SamlPrivateKeyBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -55,7 +57,10 @@ impl SamlPrivateKeyBuilder {
         self
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time </a> format, when the private key was uploaded.</p>
-    pub fn set_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_timestamp(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.timestamp = input;
         self
     }

@@ -28,16 +28,19 @@ impl ListConfigurationRecordersInput {
 }
 impl ListConfigurationRecordersInput {
     /// Creates a new builder-style object to manufacture [`ListConfigurationRecordersInput`](crate::operation::list_configuration_recorders::ListConfigurationRecordersInput).
-    pub fn builder() -> crate::operation::list_configuration_recorders::builders::ListConfigurationRecordersInputBuilder {
+    pub fn builder() -> crate::operation::list_configuration_recorders::builders::ListConfigurationRecordersInputBuilder{
         crate::operation::list_configuration_recorders::builders::ListConfigurationRecordersInputBuilder::default()
     }
 }
 
 /// A builder for [`ListConfigurationRecordersInput`](crate::operation::list_configuration_recorders::ListConfigurationRecordersInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListConfigurationRecordersInputBuilder {
-    pub(crate) filters: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorderFilter>>,
+    pub(crate) filters:
+        ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorderFilter>>,
     pub(crate) max_results: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
@@ -54,12 +57,17 @@ impl ListConfigurationRecordersInputBuilder {
         self
     }
     /// <p>Filters the results based on a list of <code>ConfigurationRecorderFilter</code> objects that you specify.</p>
-    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorderFilter>>) -> Self {
+    pub fn set_filters(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorderFilter>>,
+    ) -> Self {
         self.filters = input;
         self
     }
     /// <p>Filters the results based on a list of <code>ConfigurationRecorderFilter</code> objects that you specify.</p>
-    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorderFilter>> {
+    pub fn get_filters(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorderFilter>> {
         &self.filters
     }
     /// <p>The maximum number of results to include in the response.</p>
@@ -97,10 +105,12 @@ impl ListConfigurationRecordersInputBuilder {
         crate::operation::list_configuration_recorders::ListConfigurationRecordersInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_configuration_recorders::ListConfigurationRecordersInput {
-            filters: self.filters,
-            max_results: self.max_results,
-            next_token: self.next_token,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::list_configuration_recorders::ListConfigurationRecordersInput {
+                filters: self.filters,
+                max_results: self.max_results,
+                next_token: self.next_token,
+            },
+        )
     }
 }

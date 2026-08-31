@@ -95,7 +95,9 @@ impl OrganizationConformancePackDetailedStatus {
 }
 
 /// A builder for [`OrganizationConformancePackDetailedStatus`](crate::types::OrganizationConformancePackDetailedStatus).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct OrganizationConformancePackDetailedStatusBuilder {
     pub(crate) account_id: ::std::option::Option<::std::string::String>,
@@ -123,12 +125,18 @@ impl OrganizationConformancePackDetailedStatusBuilder {
     }
     /// <p>The name of conformance pack deployed in the member account.</p>
     /// This field is required.
-    pub fn conformance_pack_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn conformance_pack_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.conformance_pack_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of conformance pack deployed in the member account.</p>
-    pub fn set_conformance_pack_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_conformance_pack_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.conformance_pack_name = input;
         self
     }
@@ -185,7 +193,10 @@ impl OrganizationConformancePackDetailedStatusBuilder {
     /// <li>
     /// <p><code>UPDATE_FAILED</code> when conformance pack deletion has failed in the member account.</p></li>
     /// </ul>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::OrganizationResourceDetailedStatus>) -> Self {
+    pub fn set_status(
+        mut self,
+        input: ::std::option::Option<crate::types::OrganizationResourceDetailedStatus>,
+    ) -> Self {
         self.status = input;
         self
     }
@@ -211,7 +222,9 @@ impl OrganizationConformancePackDetailedStatusBuilder {
     /// <li>
     /// <p><code>UPDATE_FAILED</code> when conformance pack deletion has failed in the member account.</p></li>
     /// </ul>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::OrganizationResourceDetailedStatus> {
+    pub fn get_status(
+        &self,
+    ) -> &::std::option::Option<crate::types::OrganizationResourceDetailedStatus> {
         &self.status
     }
     /// <p>An error code that is returned when conformance pack creation or deletion failed in the member account.</p>
@@ -229,12 +242,18 @@ impl OrganizationConformancePackDetailedStatusBuilder {
         &self.error_code
     }
     /// <p>An error message indicating that conformance pack account creation or deletion has failed due to an error in the member account.</p>
-    pub fn error_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn error_message(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.error_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>An error message indicating that conformance pack account creation or deletion has failed due to an error in the member account.</p>
-    pub fn set_error_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_error_message(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.error_message = input;
         self
     }
@@ -248,7 +267,10 @@ impl OrganizationConformancePackDetailedStatusBuilder {
         self
     }
     /// <p>The timestamp of the last status update.</p>
-    pub fn set_last_update_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_last_update_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.last_update_time = input;
         self
     }
@@ -263,7 +285,10 @@ impl OrganizationConformancePackDetailedStatusBuilder {
     /// - [`status`](crate::types::builders::OrganizationConformancePackDetailedStatusBuilder::status)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::types::OrganizationConformancePackDetailedStatus, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::types::OrganizationConformancePackDetailedStatus,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::OrganizationConformancePackDetailedStatus {
             account_id: self.account_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

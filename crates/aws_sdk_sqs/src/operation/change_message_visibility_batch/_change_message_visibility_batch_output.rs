@@ -29,16 +29,20 @@ impl ::aws_types::request_id::RequestId for ChangeMessageVisibilityBatchOutput {
 }
 impl ChangeMessageVisibilityBatchOutput {
     /// Creates a new builder-style object to manufacture [`ChangeMessageVisibilityBatchOutput`](crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchOutput).
-    pub fn builder() -> crate::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchOutputBuilder {
+    pub fn builder() -> crate::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchOutputBuilder{
         crate::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchOutputBuilder::default()
     }
 }
 
 /// A builder for [`ChangeMessageVisibilityBatchOutput`](crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ChangeMessageVisibilityBatchOutputBuilder {
-    pub(crate) successful: ::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchResultEntry>>,
+    pub(crate) successful: ::std::option::Option<
+        ::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchResultEntry>,
+    >,
     pub(crate) failed: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>,
     _request_id: Option<String>,
 }
@@ -48,19 +52,31 @@ impl ChangeMessageVisibilityBatchOutputBuilder {
     /// To override the contents of this collection use [`set_successful`](Self::set_successful).
     ///
     /// <p>A list of <code> <code>ChangeMessageVisibilityBatchResultEntry</code> </code> items.</p>
-    pub fn successful(mut self, input: crate::types::ChangeMessageVisibilityBatchResultEntry) -> Self {
+    pub fn successful(
+        mut self,
+        input: crate::types::ChangeMessageVisibilityBatchResultEntry,
+    ) -> Self {
         let mut v = self.successful.unwrap_or_default();
         v.push(input);
         self.successful = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of <code> <code>ChangeMessageVisibilityBatchResultEntry</code> </code> items.</p>
-    pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchResultEntry>>) -> Self {
+    pub fn set_successful(
+        mut self,
+        input: ::std::option::Option<
+            ::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchResultEntry>,
+        >,
+    ) -> Self {
         self.successful = input;
         self
     }
     /// <p>A list of <code> <code>ChangeMessageVisibilityBatchResultEntry</code> </code> items.</p>
-    pub fn get_successful(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchResultEntry>> {
+    pub fn get_successful(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchResultEntry>,
+    > {
         &self.successful
     }
     /// Appends an item to `failed`.
@@ -75,12 +91,17 @@ impl ChangeMessageVisibilityBatchOutputBuilder {
         self
     }
     /// <p>A list of <code> <code>BatchResultErrorEntry</code> </code> items.</p>
-    pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>) -> Self {
+    pub fn set_failed(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>,
+    ) -> Self {
         self.failed = input;
         self
     }
     /// <p>A list of <code> <code>BatchResultErrorEntry</code> </code> items.</p>
-    pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>> {
+    pub fn get_failed(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>> {
         &self.failed
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

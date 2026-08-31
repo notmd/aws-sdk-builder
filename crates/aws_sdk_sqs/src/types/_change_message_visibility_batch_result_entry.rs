@@ -22,7 +22,9 @@ impl ChangeMessageVisibilityBatchResultEntry {
 }
 
 /// A builder for [`ChangeMessageVisibilityBatchResultEntry`](crate::types::ChangeMessageVisibilityBatchResultEntry).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ChangeMessageVisibilityBatchResultEntryBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
@@ -48,7 +50,10 @@ impl ChangeMessageVisibilityBatchResultEntryBuilder {
     /// - [`id`](crate::types::builders::ChangeMessageVisibilityBatchResultEntryBuilder::id)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::types::ChangeMessageVisibilityBatchResultEntry, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::types::ChangeMessageVisibilityBatchResultEntry,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::ChangeMessageVisibilityBatchResultEntry {
             id: self.id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -28,13 +28,15 @@ impl ::aws_types::request_id::RequestId for ListOrganizationsFeaturesOutput {
 }
 impl ListOrganizationsFeaturesOutput {
     /// Creates a new builder-style object to manufacture [`ListOrganizationsFeaturesOutput`](crate::operation::list_organizations_features::ListOrganizationsFeaturesOutput).
-    pub fn builder() -> crate::operation::list_organizations_features::builders::ListOrganizationsFeaturesOutputBuilder {
+    pub fn builder() -> crate::operation::list_organizations_features::builders::ListOrganizationsFeaturesOutputBuilder{
         crate::operation::list_organizations_features::builders::ListOrganizationsFeaturesOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListOrganizationsFeaturesOutput`](crate::operation::list_organizations_features::ListOrganizationsFeaturesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListOrganizationsFeaturesOutputBuilder {
     pub(crate) organization_id: ::std::option::Option<::std::string::String>,
@@ -43,12 +45,18 @@ pub struct ListOrganizationsFeaturesOutputBuilder {
 }
 impl ListOrganizationsFeaturesOutputBuilder {
     /// <p>The unique identifier (ID) of an organization.</p>
-    pub fn organization_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn organization_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.organization_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier (ID) of an organization.</p>
-    pub fn set_organization_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_organization_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.organization_id = input;
         self
     }
@@ -68,12 +76,17 @@ impl ListOrganizationsFeaturesOutputBuilder {
         self
     }
     /// <p>Specifies the features that are currently available in your organization.</p>
-    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>) -> Self {
+    pub fn set_enabled_features(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
+    ) -> Self {
         self.enabled_features = input;
         self
     }
     /// <p>Specifies the features that are currently available in your organization.</p>
-    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FeatureType>> {
+    pub fn get_enabled_features(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::FeatureType>> {
         &self.enabled_features
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -86,7 +99,9 @@ impl ListOrganizationsFeaturesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListOrganizationsFeaturesOutput`](crate::operation::list_organizations_features::ListOrganizationsFeaturesOutput).
-    pub fn build(self) -> crate::operation::list_organizations_features::ListOrganizationsFeaturesOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::list_organizations_features::ListOrganizationsFeaturesOutput {
         crate::operation::list_organizations_features::ListOrganizationsFeaturesOutput {
             organization_id: self.organization_id,
             enabled_features: self.enabled_features,

@@ -32,13 +32,15 @@ impl RemoveLayerVersionPermissionInput {
 }
 impl RemoveLayerVersionPermissionInput {
     /// Creates a new builder-style object to manufacture [`RemoveLayerVersionPermissionInput`](crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput).
-    pub fn builder() -> crate::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionInputBuilder {
+    pub fn builder() -> crate::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionInputBuilder{
         crate::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionInputBuilder::default()
     }
 }
 
 /// A builder for [`RemoveLayerVersionPermissionInput`](crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RemoveLayerVersionPermissionInputBuilder {
     pub(crate) layer_name: ::std::option::Option<::std::string::String>,
@@ -113,11 +115,13 @@ impl RemoveLayerVersionPermissionInputBuilder {
         crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput {
-            layer_name: self.layer_name,
-            version_number: self.version_number,
-            statement_id: self.statement_id,
-            revision_id: self.revision_id,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput {
+                layer_name: self.layer_name,
+                version_number: self.version_number,
+                statement_id: self.statement_id,
+                revision_id: self.revision_id,
+            },
+        )
     }
 }

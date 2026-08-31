@@ -43,7 +43,7 @@ impl
             crate::operation::disassociate_external_connection::DisassociateExternalConnectionOutput,
             crate::operation::disassociate_external_connection::DisassociateExternalConnectionError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -57,7 +57,7 @@ impl DisassociateExternalConnectionFluentBuilder {
         }
     }
     /// Access the DisassociateExternalConnection as a reference.
-    pub fn as_input(&self) -> &crate::operation::disassociate_external_connection::builders::DisassociateExternalConnectionInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::disassociate_external_connection::builders::DisassociateExternalConnectionInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -99,12 +99,18 @@ impl DisassociateExternalConnectionFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -151,12 +157,18 @@ impl DisassociateExternalConnectionFluentBuilder {
         self.inner.get_repository()
     }
     /// <p>The name of the external connection to be removed from the repository.</p>
-    pub fn external_connection(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn external_connection(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.external_connection(input.into());
         self
     }
     /// <p>The name of the external connection to be removed from the repository.</p>
-    pub fn set_external_connection(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_external_connection(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_external_connection(input);
         self
     }

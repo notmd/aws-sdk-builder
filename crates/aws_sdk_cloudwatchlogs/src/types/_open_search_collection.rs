@@ -33,7 +33,9 @@ impl OpenSearchCollection {
 }
 
 /// A builder for [`OpenSearchCollection`](crate::types::OpenSearchCollection).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct OpenSearchCollectionBuilder {
     pub(crate) collection_endpoint: ::std::option::Option<::std::string::String>,
@@ -42,12 +44,18 @@ pub struct OpenSearchCollectionBuilder {
 }
 impl OpenSearchCollectionBuilder {
     /// <p>The endpoint of the collection.</p>
-    pub fn collection_endpoint(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn collection_endpoint(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.collection_endpoint = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The endpoint of the collection.</p>
-    pub fn set_collection_endpoint(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_collection_endpoint(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.collection_endpoint = input;
         self
     }
@@ -56,12 +64,18 @@ impl OpenSearchCollectionBuilder {
         &self.collection_endpoint
     }
     /// <p>The ARN of the collection.</p>
-    pub fn collection_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn collection_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.collection_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the collection.</p>
-    pub fn set_collection_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_collection_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.collection_arn = input;
         self
     }
@@ -75,7 +89,10 @@ impl OpenSearchCollectionBuilder {
         self
     }
     /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::OpenSearchResourceStatus>) -> Self {
+    pub fn set_status(
+        mut self,
+        input: ::std::option::Option<crate::types::OpenSearchResourceStatus>,
+    ) -> Self {
         self.status = input;
         self
     }

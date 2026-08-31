@@ -23,7 +23,9 @@ impl ParseCloudfront {
 }
 
 /// A builder for [`ParseCloudfront`](crate::types::ParseCloudfront).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ParseCloudfrontBuilder {
     pub(crate) source: ::std::option::Option<::std::string::String>,
@@ -45,6 +47,8 @@ impl ParseCloudfrontBuilder {
     }
     /// Consumes the builder and constructs a [`ParseCloudfront`](crate::types::ParseCloudfront).
     pub fn build(self) -> crate::types::ParseCloudfront {
-        crate::types::ParseCloudfront { source: self.source }
+        crate::types::ParseCloudfront {
+            source: self.source,
+        }
     }
 }

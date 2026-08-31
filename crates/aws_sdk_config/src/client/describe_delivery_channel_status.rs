@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeDeliveryChannelStatusError>`](crate::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusError)
     pub fn describe_delivery_channel_status(
         &self,
-    ) -> crate::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusFluentBuilder {
+    ) -> crate::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusFluentBuilder{
         crate::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusFluentBuilder::new(self.handle.clone())
     }
 }

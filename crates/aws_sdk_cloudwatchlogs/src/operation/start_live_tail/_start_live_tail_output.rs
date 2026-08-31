@@ -4,15 +4,20 @@
 #[derive(::std::fmt::Debug)]
 pub struct StartLiveTailOutput {
     /// <p>An object that includes the stream returned by your request. It can include both log events and exceptions.</p>
-    pub response_stream:
-        crate::event_receiver::EventReceiver<crate::types::StartLiveTailResponseStream, crate::types::error::StartLiveTailResponseStreamError>,
+    pub response_stream: crate::event_receiver::EventReceiver<
+        crate::types::StartLiveTailResponseStream,
+        crate::types::error::StartLiveTailResponseStreamError,
+    >,
     _request_id: Option<String>,
 }
 impl StartLiveTailOutput {
     /// <p>An object that includes the stream returned by your request. It can include both log events and exceptions.</p>
     pub fn response_stream(
         &self,
-    ) -> &crate::event_receiver::EventReceiver<crate::types::StartLiveTailResponseStream, crate::types::error::StartLiveTailResponseStreamError> {
+    ) -> &crate::event_receiver::EventReceiver<
+        crate::types::StartLiveTailResponseStream,
+        crate::types::error::StartLiveTailResponseStreamError,
+    > {
         &self.response_stream
     }
 }
@@ -27,7 +32,9 @@ impl StartLiveTailOutput {
         crate::operation::start_live_tail::builders::StartLiveTailOutputBuilder::default()
     }
     #[allow(unused)]
-    pub(crate) fn into_builder(self) -> crate::operation::start_live_tail::builders::StartLiveTailOutputBuilder {
+    pub(crate) fn into_builder(
+        self,
+    ) -> crate::operation::start_live_tail::builders::StartLiveTailOutputBuilder {
         Self::builder().response_stream(self.response_stream)
     }
 }
@@ -37,7 +44,10 @@ impl StartLiveTailOutput {
 #[non_exhaustive]
 pub struct StartLiveTailOutputBuilder {
     pub(crate) response_stream: ::std::option::Option<
-        crate::event_receiver::EventReceiver<crate::types::StartLiveTailResponseStream, crate::types::error::StartLiveTailResponseStreamError>,
+        crate::event_receiver::EventReceiver<
+            crate::types::StartLiveTailResponseStream,
+            crate::types::error::StartLiveTailResponseStreamError,
+        >,
     >,
     _request_id: Option<String>,
 }
@@ -45,7 +55,10 @@ impl StartLiveTailOutputBuilder {
     /// <p>An object that includes the stream returned by your request. It can include both log events and exceptions.</p>
     pub fn response_stream(
         mut self,
-        input: crate::event_receiver::EventReceiver<crate::types::StartLiveTailResponseStream, crate::types::error::StartLiveTailResponseStreamError>,
+        input: crate::event_receiver::EventReceiver<
+            crate::types::StartLiveTailResponseStream,
+            crate::types::error::StartLiveTailResponseStreamError,
+        >,
     ) -> Self {
         self.response_stream = ::std::option::Option::Some(input);
         self
@@ -54,7 +67,10 @@ impl StartLiveTailOutputBuilder {
     pub fn set_response_stream(
         mut self,
         input: ::std::option::Option<
-            crate::event_receiver::EventReceiver<crate::types::StartLiveTailResponseStream, crate::types::error::StartLiveTailResponseStreamError>,
+            crate::event_receiver::EventReceiver<
+                crate::types::StartLiveTailResponseStream,
+                crate::types::error::StartLiveTailResponseStreamError,
+            >,
         >,
     ) -> Self {
         self.response_stream = input;
@@ -64,7 +80,10 @@ impl StartLiveTailOutputBuilder {
     pub fn get_response_stream(
         &self,
     ) -> &::std::option::Option<
-        crate::event_receiver::EventReceiver<crate::types::StartLiveTailResponseStream, crate::types::error::StartLiveTailResponseStreamError>,
+        crate::event_receiver::EventReceiver<
+            crate::types::StartLiveTailResponseStream,
+            crate::types::error::StartLiveTailResponseStreamError,
+        >,
     > {
         &self.response_stream
     }
@@ -82,7 +101,10 @@ impl StartLiveTailOutputBuilder {
     /// - [`response_stream`](crate::operation::start_live_tail::builders::StartLiveTailOutputBuilder::response_stream)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::start_live_tail::StartLiveTailOutput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::start_live_tail::StartLiveTailOutput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::start_live_tail::StartLiveTailOutput {
             response_stream: self.response_stream.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

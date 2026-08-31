@@ -34,13 +34,16 @@ impl ::aws_types::request_id::RequestId for ListGroupsForUserOutput {
 }
 impl ListGroupsForUserOutput {
     /// Creates a new builder-style object to manufacture [`ListGroupsForUserOutput`](crate::operation::list_groups_for_user::ListGroupsForUserOutput).
-    pub fn builder() -> crate::operation::list_groups_for_user::builders::ListGroupsForUserOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_groups_for_user::builders::ListGroupsForUserOutputBuilder {
         crate::operation::list_groups_for_user::builders::ListGroupsForUserOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListGroupsForUserOutput`](crate::operation::list_groups_for_user::ListGroupsForUserOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListGroupsForUserOutputBuilder {
     pub(crate) groups: ::std::option::Option<::std::vec::Vec<crate::types::Group>>,
@@ -61,7 +64,10 @@ impl ListGroupsForUserOutputBuilder {
         self
     }
     /// <p>A list of groups.</p>
-    pub fn set_groups(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Group>>) -> Self {
+    pub fn set_groups(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Group>>,
+    ) -> Self {
         self.groups = input;
         self
     }
@@ -111,8 +117,10 @@ impl ListGroupsForUserOutputBuilder {
     /// - [`groups`](crate::operation::list_groups_for_user::builders::ListGroupsForUserOutputBuilder::groups)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_groups_for_user::ListGroupsForUserOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<
+        crate::operation::list_groups_for_user::ListGroupsForUserOutput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::list_groups_for_user::ListGroupsForUserOutput {
             groups: self.groups.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

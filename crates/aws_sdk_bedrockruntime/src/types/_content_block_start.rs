@@ -36,7 +36,9 @@ impl ContentBlockStart {
     }
     /// Tries to convert the enum instance into [`ToolResult`](crate::types::ContentBlockStart::ToolResult), extracting the inner [`ToolResultBlockStart`](crate::types::ToolResultBlockStart).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_tool_result(&self) -> ::std::result::Result<&crate::types::ToolResultBlockStart, &Self> {
+    pub fn as_tool_result(
+        &self,
+    ) -> ::std::result::Result<&crate::types::ToolResultBlockStart, &Self> {
         if let ContentBlockStart::ToolResult(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

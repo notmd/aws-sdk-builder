@@ -5,7 +5,9 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListCustomVerificationEmailTemplatesOutput {
     /// <p>A list of the custom verification email templates that exist in your account.</p>
-    pub custom_verification_email_templates: ::std::option::Option<::std::vec::Vec<crate::types::CustomVerificationEmailTemplateMetadata>>,
+    pub custom_verification_email_templates: ::std::option::Option<
+        ::std::vec::Vec<crate::types::CustomVerificationEmailTemplateMetadata>,
+    >,
     /// <p>A token indicating that there are additional custom verification email templates available to be listed. Pass this token to a subsequent call to <code>ListCustomVerificationEmailTemplates</code> to retrieve the next 50 custom verification email templates.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -14,8 +16,12 @@ impl ListCustomVerificationEmailTemplatesOutput {
     /// <p>A list of the custom verification email templates that exist in your account.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.custom_verification_email_templates.is_none()`.
-    pub fn custom_verification_email_templates(&self) -> &[crate::types::CustomVerificationEmailTemplateMetadata] {
-        self.custom_verification_email_templates.as_deref().unwrap_or_default()
+    pub fn custom_verification_email_templates(
+        &self,
+    ) -> &[crate::types::CustomVerificationEmailTemplateMetadata] {
+        self.custom_verification_email_templates
+            .as_deref()
+            .unwrap_or_default()
     }
     /// <p>A token indicating that there are additional custom verification email templates available to be listed. Pass this token to a subsequent call to <code>ListCustomVerificationEmailTemplates</code> to retrieve the next 50 custom verification email templates.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -29,16 +35,20 @@ impl ::aws_types::request_id::RequestId for ListCustomVerificationEmailTemplates
 }
 impl ListCustomVerificationEmailTemplatesOutput {
     /// Creates a new builder-style object to manufacture [`ListCustomVerificationEmailTemplatesOutput`](crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesOutput).
-    pub fn builder() -> crate::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesOutputBuilder {
+    pub fn builder() -> crate::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesOutputBuilder{
         crate::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListCustomVerificationEmailTemplatesOutput`](crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListCustomVerificationEmailTemplatesOutputBuilder {
-    pub(crate) custom_verification_email_templates: ::std::option::Option<::std::vec::Vec<crate::types::CustomVerificationEmailTemplateMetadata>>,
+    pub(crate) custom_verification_email_templates: ::std::option::Option<
+        ::std::vec::Vec<crate::types::CustomVerificationEmailTemplateMetadata>,
+    >,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -48,7 +58,10 @@ impl ListCustomVerificationEmailTemplatesOutputBuilder {
     /// To override the contents of this collection use [`set_custom_verification_email_templates`](Self::set_custom_verification_email_templates).
     ///
     /// <p>A list of the custom verification email templates that exist in your account.</p>
-    pub fn custom_verification_email_templates(mut self, input: crate::types::CustomVerificationEmailTemplateMetadata) -> Self {
+    pub fn custom_verification_email_templates(
+        mut self,
+        input: crate::types::CustomVerificationEmailTemplateMetadata,
+    ) -> Self {
         let mut v = self.custom_verification_email_templates.unwrap_or_default();
         v.push(input);
         self.custom_verification_email_templates = ::std::option::Option::Some(v);
@@ -57,7 +70,9 @@ impl ListCustomVerificationEmailTemplatesOutputBuilder {
     /// <p>A list of the custom verification email templates that exist in your account.</p>
     pub fn set_custom_verification_email_templates(
         mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::CustomVerificationEmailTemplateMetadata>>,
+        input: ::std::option::Option<
+            ::std::vec::Vec<crate::types::CustomVerificationEmailTemplateMetadata>,
+        >,
     ) -> Self {
         self.custom_verification_email_templates = input;
         self
@@ -65,7 +80,9 @@ impl ListCustomVerificationEmailTemplatesOutputBuilder {
     /// <p>A list of the custom verification email templates that exist in your account.</p>
     pub fn get_custom_verification_email_templates(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::CustomVerificationEmailTemplateMetadata>> {
+    ) -> &::std::option::Option<
+        ::std::vec::Vec<crate::types::CustomVerificationEmailTemplateMetadata>,
+    > {
         &self.custom_verification_email_templates
     }
     /// <p>A token indicating that there are additional custom verification email templates available to be listed. Pass this token to a subsequent call to <code>ListCustomVerificationEmailTemplates</code> to retrieve the next 50 custom verification email templates.</p>
@@ -92,7 +109,7 @@ impl ListCustomVerificationEmailTemplatesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListCustomVerificationEmailTemplatesOutput`](crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesOutput).
-    pub fn build(self) -> crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesOutput {
+    pub fn build(self) -> crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesOutput{
         crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesOutput {
             custom_verification_email_templates: self.custom_verification_email_templates,
             next_token: self.next_token,

@@ -24,7 +24,9 @@ impl ParseVpc {
 }
 
 /// A builder for [`ParseVpc`](crate::types::ParseVpc).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ParseVpcBuilder {
     pub(crate) source: ::std::option::Option<::std::string::String>,
@@ -46,6 +48,8 @@ impl ParseVpcBuilder {
     }
     /// Consumes the builder and constructs a [`ParseVpc`](crate::types::ParseVpc).
     pub fn build(self) -> crate::types::ParseVpc {
-        crate::types::ParseVpc { source: self.source }
+        crate::types::ParseVpc {
+            source: self.source,
+        }
     }
 }

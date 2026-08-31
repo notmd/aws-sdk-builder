@@ -12,7 +12,10 @@ pub fn ser_global_secondary_index(
             {
                 #[allow(unused_mut)]
                 let mut object_3 = array_1.value().start_object();
-                crate::protocol_serde::shape_key_schema_element::ser_key_schema_element(&mut object_3, item_2)?;
+                crate::protocol_serde::shape_key_schema_element::ser_key_schema_element(
+                    &mut object_3,
+                    item_2,
+                )?;
                 object_3.finish();
             }
         }
@@ -27,13 +30,19 @@ pub fn ser_global_secondary_index(
     if let Some(var_6) = &input.provisioned_throughput {
         #[allow(unused_mut)]
         let mut object_7 = object.key("ProvisionedThroughput").start_object();
-        crate::protocol_serde::shape_provisioned_throughput::ser_provisioned_throughput(&mut object_7, var_6)?;
+        crate::protocol_serde::shape_provisioned_throughput::ser_provisioned_throughput(
+            &mut object_7,
+            var_6,
+        )?;
         object_7.finish();
     }
     if let Some(var_8) = &input.on_demand_throughput {
         #[allow(unused_mut)]
         let mut object_9 = object.key("OnDemandThroughput").start_object();
-        crate::protocol_serde::shape_on_demand_throughput::ser_on_demand_throughput(&mut object_9, var_8)?;
+        crate::protocol_serde::shape_on_demand_throughput::ser_on_demand_throughput(
+            &mut object_9,
+            var_8,
+        )?;
         object_9.finish();
     }
     if let Some(var_10) = &input.warm_throughput {
@@ -49,14 +58,24 @@ pub(crate) fn de_global_secondary_index<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::GlobalSecondaryIndex>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<
+    Option<crate::types::GlobalSecondaryIndex>,
+    ::aws_smithy_json::deserialize::error::DeserializeError,
+>
 where
-    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+    I: Iterator<
+        Item = Result<
+            ::aws_smithy_json::deserialize::Token<'a>,
+            ::aws_smithy_json::deserialize::error::DeserializeError,
+        >,
+    >,
 {
     if depth >= 128u32 {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "maximum nesting depth exceeded",
+            ),
+        );
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -70,16 +89,30 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "IndexName" => {
                                 builder = builder.set_index_name(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                        .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                        tokens.next(),
+                                    )?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
                                 );
                             }
                             "KeySchema" => {
-                                builder = builder.set_key_schema(crate::protocol_serde::shape_key_schema::de_key_schema(tokens, _value, depth + 1)?);
+                                builder = builder.set_key_schema(
+                                    crate::protocol_serde::shape_key_schema::de_key_schema(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "Projection" => {
-                                builder = builder.set_projection(crate::protocol_serde::shape_projection::de_projection(tokens, _value, depth + 1)?);
+                                builder = builder.set_projection(
+                                    crate::protocol_serde::shape_projection::de_projection(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "ProvisionedThroughput" => {
                                 builder = builder.set_provisioned_throughput(
@@ -102,18 +135,29 @@ where
                         }
                     }
                     other => {
-                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )))
+                        return Err(
+                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                format!("expected object key or end object, found: {other:?}"),
+                            ),
+                        )
                     }
                 }
             }
-            Ok(Some(crate::serde_util::global_secondary_index_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(
+                crate::serde_util::global_secondary_index_correct_errors(builder)
+                    .build()
+                    .map_err(|err| {
+                        ::aws_smithy_json::deserialize::error::DeserializeError::custom_source(
+                            "Response was invalid",
+                            err,
+                        )
+                    })?,
+            ))
         }
-        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "expected start object or null",
-        )),
+        _ => Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ),
+        ),
     }
 }

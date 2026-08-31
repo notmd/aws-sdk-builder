@@ -44,7 +44,7 @@ impl
             crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutOutput,
             crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -58,7 +58,7 @@ impl CheckIfPhoneNumberIsOptedOutFluentBuilder {
         }
     }
     /// Access the CheckIfPhoneNumberIsOptedOut as a reference.
-    pub fn as_input(&self) -> &crate::operation::check_if_phone_number_is_opted_out::builders::CheckIfPhoneNumberIsOptedOutInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::check_if_phone_number_is_opted_out::builders::CheckIfPhoneNumberIsOptedOutInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -100,12 +100,18 @@ impl CheckIfPhoneNumberIsOptedOutFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }

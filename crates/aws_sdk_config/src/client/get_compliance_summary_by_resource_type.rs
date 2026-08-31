@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetComplianceSummaryByResourceTypeError>`](crate::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeError)
     pub fn get_compliance_summary_by_resource_type(
         &self,
-    ) -> crate::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeFluentBuilder {
+    ) -> crate::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeFluentBuilder{
         crate::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeFluentBuilder::new(self.handle.clone())
     }
 }

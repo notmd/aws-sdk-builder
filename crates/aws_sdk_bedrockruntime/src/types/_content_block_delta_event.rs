@@ -27,7 +27,9 @@ impl ContentBlockDeltaEvent {
 }
 
 /// A builder for [`ContentBlockDeltaEvent`](crate::types::ContentBlockDeltaEvent).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ContentBlockDeltaEventBuilder {
     pub(crate) delta: ::std::option::Option<crate::types::ContentBlockDelta>,
@@ -41,7 +43,10 @@ impl ContentBlockDeltaEventBuilder {
         self
     }
     /// <p>The delta for a content block delta event.</p>
-    pub fn set_delta(mut self, input: ::std::option::Option<crate::types::ContentBlockDelta>) -> Self {
+    pub fn set_delta(
+        mut self,
+        input: ::std::option::Option<crate::types::ContentBlockDelta>,
+    ) -> Self {
         self.delta = input;
         self
     }
@@ -67,7 +72,12 @@ impl ContentBlockDeltaEventBuilder {
     /// Consumes the builder and constructs a [`ContentBlockDeltaEvent`](crate::types::ContentBlockDeltaEvent).
     /// This method will fail if any of the following fields are not set:
     /// - [`content_block_index`](crate::types::builders::ContentBlockDeltaEventBuilder::content_block_index)
-    pub fn build(self) -> ::std::result::Result<crate::types::ContentBlockDeltaEvent, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::ContentBlockDeltaEvent,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::ContentBlockDeltaEvent {
             delta: self.delta,
             content_block_index: self.content_block_index.ok_or_else(|| {

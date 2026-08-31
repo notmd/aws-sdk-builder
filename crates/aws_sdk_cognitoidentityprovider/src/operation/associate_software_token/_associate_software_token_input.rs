@@ -30,7 +30,9 @@ impl ::std::fmt::Debug for AssociateSoftwareTokenInput {
 }
 impl AssociateSoftwareTokenInput {
     /// Creates a new builder-style object to manufacture [`AssociateSoftwareTokenInput`](crate::operation::associate_software_token::AssociateSoftwareTokenInput).
-    pub fn builder() -> crate::operation::associate_software_token::builders::AssociateSoftwareTokenInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::associate_software_token::builders::AssociateSoftwareTokenInputBuilder
+    {
         crate::operation::associate_software_token::builders::AssociateSoftwareTokenInputBuilder::default()
     }
 }
@@ -81,10 +83,12 @@ impl AssociateSoftwareTokenInputBuilder {
         crate::operation::associate_software_token::AssociateSoftwareTokenInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::associate_software_token::AssociateSoftwareTokenInput {
-            access_token: self.access_token,
-            session: self.session,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::associate_software_token::AssociateSoftwareTokenInput {
+                access_token: self.access_token,
+                session: self.session,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for AssociateSoftwareTokenInputBuilder {

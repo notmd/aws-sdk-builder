@@ -32,7 +32,9 @@ impl ListImportsInput {
 }
 
 /// A builder for [`ListImportsInput`](crate::operation::list_imports::ListImportsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListImportsInputBuilder {
     pub(crate) table_arn: ::std::option::Option<::std::string::String>,
@@ -83,7 +85,12 @@ impl ListImportsInputBuilder {
         &self.next_token
     }
     /// Consumes the builder and constructs a [`ListImportsInput`](crate::operation::list_imports::ListImportsInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::list_imports::ListImportsInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::list_imports::ListImportsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::list_imports::ListImportsInput {
             table_arn: self.table_arn,
             page_size: self.page_size,

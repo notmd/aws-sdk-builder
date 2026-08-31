@@ -6,7 +6,10 @@ pub fn ser_account_takeover_risk_configuration_type(
     if let Some(var_1) = &input.notify_configuration {
         #[allow(unused_mut)]
         let mut object_2 = object.key("NotifyConfiguration").start_object();
-        crate::protocol_serde::shape_notify_configuration_type::ser_notify_configuration_type(&mut object_2, var_1)?;
+        crate::protocol_serde::shape_notify_configuration_type::ser_notify_configuration_type(
+            &mut object_2,
+            var_1,
+        )?;
         object_2.finish();
     }
     if let Some(var_3) = &input.actions {
@@ -22,53 +25,71 @@ pub(crate) fn de_account_takeover_risk_configuration_type<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::AccountTakeoverRiskConfigurationType>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<
+    Option<crate::types::AccountTakeoverRiskConfigurationType>,
+    ::aws_smithy_json::deserialize::error::DeserializeError,
+>
 where
-    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+    I: Iterator<
+        Item = Result<
+            ::aws_smithy_json::deserialize::Token<'a>,
+            ::aws_smithy_json::deserialize::error::DeserializeError,
+        >,
+    >,
 {
     if depth >= 128u32 {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "maximum nesting depth exceeded",
+            ),
+        );
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder = crate::types::builders::AccountTakeoverRiskConfigurationTypeBuilder::default();
+            let mut builder =
+                crate::types::builders::AccountTakeoverRiskConfigurationTypeBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "NotifyConfiguration" => {
-                            builder = builder.set_notify_configuration(
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "NotifyConfiguration" => {
+                                builder = builder.set_notify_configuration(
                                 crate::protocol_serde::shape_notify_configuration_type::de_notify_configuration_type(tokens, _value, depth + 1)?,
                             );
-                        }
-                        "Actions" => {
-                            builder = builder.set_actions(
+                            }
+                            "Actions" => {
+                                builder = builder.set_actions(
                                 crate::protocol_serde::shape_account_takeover_actions_type::de_account_takeover_actions_type(
                                     tokens,
                                     _value,
                                     depth + 1,
                                 )?,
                             );
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
-                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )))
+                        return Err(
+                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                format!("expected object key or end object, found: {other:?}"),
+                            ),
+                        )
                     }
                 }
             }
             Ok(Some(
-                crate::serde_util::account_takeover_risk_configuration_type_correct_errors(builder).build(),
+                crate::serde_util::account_takeover_risk_configuration_type_correct_errors(builder)
+                    .build(),
             ))
         }
-        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "expected start object or null",
-        )),
+        _ => Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ),
+        ),
     }
 }

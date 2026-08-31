@@ -15,13 +15,17 @@ impl DeleteSchedulingPolicyInput {
 }
 impl DeleteSchedulingPolicyInput {
     /// Creates a new builder-style object to manufacture [`DeleteSchedulingPolicyInput`](crate::operation::delete_scheduling_policy::DeleteSchedulingPolicyInput).
-    pub fn builder() -> crate::operation::delete_scheduling_policy::builders::DeleteSchedulingPolicyInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::delete_scheduling_policy::builders::DeleteSchedulingPolicyInputBuilder
+    {
         crate::operation::delete_scheduling_policy::builders::DeleteSchedulingPolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteSchedulingPolicyInput`](crate::operation::delete_scheduling_policy::DeleteSchedulingPolicyInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteSchedulingPolicyInputBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
@@ -49,6 +53,10 @@ impl DeleteSchedulingPolicyInputBuilder {
         crate::operation::delete_scheduling_policy::DeleteSchedulingPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::delete_scheduling_policy::DeleteSchedulingPolicyInput { arn: self.arn })
+        ::std::result::Result::Ok(
+            crate::operation::delete_scheduling_policy::DeleteSchedulingPolicyInput {
+                arn: self.arn,
+            },
+        )
     }
 }

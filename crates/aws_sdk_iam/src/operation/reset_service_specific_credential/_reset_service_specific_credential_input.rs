@@ -24,13 +24,15 @@ impl ResetServiceSpecificCredentialInput {
 }
 impl ResetServiceSpecificCredentialInput {
     /// Creates a new builder-style object to manufacture [`ResetServiceSpecificCredentialInput`](crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialInput).
-    pub fn builder() -> crate::operation::reset_service_specific_credential::builders::ResetServiceSpecificCredentialInputBuilder {
+    pub fn builder() -> crate::operation::reset_service_specific_credential::builders::ResetServiceSpecificCredentialInputBuilder{
         crate::operation::reset_service_specific_credential::builders::ResetServiceSpecificCredentialInputBuilder::default()
     }
 }
 
 /// A builder for [`ResetServiceSpecificCredentialInput`](crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ResetServiceSpecificCredentialInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -57,19 +59,27 @@ impl ResetServiceSpecificCredentialInputBuilder {
     /// <p>The unique identifier of the service-specific credential.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
     /// This field is required.
-    pub fn service_specific_credential_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn service_specific_credential_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.service_specific_credential_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier of the service-specific credential.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
-    pub fn set_service_specific_credential_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_service_specific_credential_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.service_specific_credential_id = input;
         self
     }
     /// <p>The unique identifier of the service-specific credential.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
-    pub fn get_service_specific_credential_id(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_service_specific_credential_id(
+        &self,
+    ) -> &::std::option::Option<::std::string::String> {
         &self.service_specific_credential_id
     }
     /// Consumes the builder and constructs a [`ResetServiceSpecificCredentialInput`](crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialInput).

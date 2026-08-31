@@ -23,7 +23,9 @@ pub struct UpdateUserAttributesInput {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub client_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub client_metadata: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
 }
 impl UpdateUserAttributesInput {
     /// <p>An array of name-value pairs representing user attributes.</p>
@@ -51,7 +53,11 @@ impl UpdateUserAttributesInput {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub fn client_metadata(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn client_metadata(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.client_metadata.as_ref()
     }
 }
@@ -66,7 +72,8 @@ impl ::std::fmt::Debug for UpdateUserAttributesInput {
 }
 impl UpdateUserAttributesInput {
     /// Creates a new builder-style object to manufacture [`UpdateUserAttributesInput`](crate::operation::update_user_attributes::UpdateUserAttributesInput).
-    pub fn builder() -> crate::operation::update_user_attributes::builders::UpdateUserAttributesInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_user_attributes::builders::UpdateUserAttributesInputBuilder {
         crate::operation::update_user_attributes::builders::UpdateUserAttributesInputBuilder::default()
     }
 }
@@ -77,7 +84,9 @@ impl UpdateUserAttributesInput {
 pub struct UpdateUserAttributesInputBuilder {
     pub(crate) user_attributes: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
     pub(crate) access_token: ::std::option::Option<::std::string::String>,
-    pub(crate) client_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) client_metadata: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
 }
 impl UpdateUserAttributesInputBuilder {
     /// Appends an item to `user_attributes`.
@@ -96,14 +105,19 @@ impl UpdateUserAttributesInputBuilder {
     /// <p>An array of name-value pairs representing user attributes.</p>
     /// <p>For custom attributes, you must add a <code>custom:</code> prefix to the attribute name.</p>
     /// <p>If you have set an attribute to require verification before Amazon Cognito updates its value, this request doesn’t immediately update the value of that attribute. After your user receives and responds to a verification message to verify the new value, Amazon Cognito updates the attribute value. Your user can sign in and receive messages with the original attribute value until they verify the new value.</p>
-    pub fn set_user_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>) -> Self {
+    pub fn set_user_attributes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
+    ) -> Self {
         self.user_attributes = input;
         self
     }
     /// <p>An array of name-value pairs representing user attributes.</p>
     /// <p>For custom attributes, you must add a <code>custom:</code> prefix to the attribute name.</p>
     /// <p>If you have set an attribute to require verification before Amazon Cognito updates its value, this request doesn’t immediately update the value of that attribute. After your user receives and responds to a verification message to verify the new value, Amazon Cognito updates the attribute value. Your user can sign in and receive messages with the original attribute value until they verify the new value.</p>
-    pub fn get_user_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
+    pub fn get_user_attributes(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
         &self.user_attributes
     }
     /// <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
@@ -163,7 +177,9 @@ impl UpdateUserAttributesInputBuilder {
     /// </note>
     pub fn set_client_metadata(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
     ) -> Self {
         self.client_metadata = input;
         self
@@ -181,19 +197,27 @@ impl UpdateUserAttributesInputBuilder {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub fn get_client_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_client_metadata(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.client_metadata
     }
     /// Consumes the builder and constructs a [`UpdateUserAttributesInput`](crate::operation::update_user_attributes::UpdateUserAttributesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::update_user_attributes::UpdateUserAttributesInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::update_user_attributes::UpdateUserAttributesInput {
-            user_attributes: self.user_attributes,
-            access_token: self.access_token,
-            client_metadata: self.client_metadata,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::update_user_attributes::UpdateUserAttributesInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::update_user_attributes::UpdateUserAttributesInput {
+                user_attributes: self.user_attributes,
+                access_token: self.access_token,
+                client_metadata: self.client_metadata,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for UpdateUserAttributesInputBuilder {

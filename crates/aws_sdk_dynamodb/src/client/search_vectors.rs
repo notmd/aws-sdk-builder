@@ -16,7 +16,11 @@ impl super::Client {
     ///   - [`consumed_capacity(Option<VectorCapacity>)`](crate::operation::search_vectors::SearchVectorsOutput::consumed_capacity): <p>The capacity units consumed by the <code>SearchVectors</code> operation. Contains <code>VectorSearchRequestBytes</code>, which represents the vector search capacity consumed.</p>
     ///   - [`search_results(Option<Vec::<SearchResultItem>>)`](crate::operation::search_vectors::SearchVectorsOutput::search_results): <p>A list of items returned by the vector similarity search, sorted by similarity with the most similar item first. Each item contains the projected attributes and a similarity score.</p>
     /// - On failure, responds with [`SdkError<SearchVectorsError>`](crate::operation::search_vectors::SearchVectorsError)
-    pub fn search_vectors(&self) -> crate::operation::search_vectors::builders::SearchVectorsFluentBuilder {
-        crate::operation::search_vectors::builders::SearchVectorsFluentBuilder::new(self.handle.clone())
+    pub fn search_vectors(
+        &self,
+    ) -> crate::operation::search_vectors::builders::SearchVectorsFluentBuilder {
+        crate::operation::search_vectors::builders::SearchVectorsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

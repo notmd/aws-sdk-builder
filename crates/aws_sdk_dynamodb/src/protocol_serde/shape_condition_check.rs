@@ -10,7 +10,10 @@ pub fn ser_condition_check(
             {
                 #[allow(unused_mut)]
                 let mut object_4 = object_1.key(key_2.as_str()).start_object();
-                crate::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_4, value_3)?;
+                crate::protocol_serde::shape_attribute_value::ser_attribute_value(
+                    &mut object_4,
+                    value_3,
+                )?;
                 object_4.finish();
             }
         }
@@ -20,7 +23,9 @@ pub fn ser_condition_check(
         object.key("TableName").string(input.table_name.as_str());
     }
     {
-        object.key("ConditionExpression").string(input.condition_expression.as_str());
+        object
+            .key("ConditionExpression")
+            .string(input.condition_expression.as_str());
     }
     if let Some(var_5) = &input.expression_attribute_names {
         #[allow(unused_mut)]
@@ -39,14 +44,19 @@ pub fn ser_condition_check(
             {
                 #[allow(unused_mut)]
                 let mut object_13 = object_10.key(key_11.as_str()).start_object();
-                crate::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_13, value_12)?;
+                crate::protocol_serde::shape_attribute_value::ser_attribute_value(
+                    &mut object_13,
+                    value_12,
+                )?;
                 object_13.finish();
             }
         }
         object_10.finish();
     }
     if let Some(var_14) = &input.return_values_on_condition_check_failure {
-        object.key("ReturnValuesOnConditionCheckFailure").string(var_14.as_str());
+        object
+            .key("ReturnValuesOnConditionCheckFailure")
+            .string(var_14.as_str());
     }
     Ok(())
 }

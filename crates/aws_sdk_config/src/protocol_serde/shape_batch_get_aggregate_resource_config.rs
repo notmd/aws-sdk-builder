@@ -69,14 +69,19 @@ pub fn de_batch_get_aggregate_resource_config_http_response(
         let mut output = crate::operation::batch_get_aggregate_resource_config::builders::BatchGetAggregateResourceConfigOutputBuilder::default();
         output = crate::protocol_serde::shape_batch_get_aggregate_resource_config::de_batch_get_aggregate_resource_config(_response_body, output)
             .map_err(crate::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfigError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
 
 pub fn ser_batch_get_aggregate_resource_config_input(
     input: &crate::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfigInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+) -> ::std::result::Result<
+    ::aws_smithy_types::body::SdkBody,
+    ::aws_smithy_types::error::operation::SerializationError,
+> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_batch_get_aggregate_resource_config_input::ser_batch_get_aggregate_resource_config_input_input(&mut object, input)?;
@@ -90,8 +95,11 @@ pub(crate) fn de_batch_get_aggregate_resource_config(
 ) -> ::std::result::Result<
     crate::operation::batch_get_aggregate_resource_config::builders::BatchGetAggregateResourceConfigOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+>{
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
+        crate::protocol_serde::or_empty_doc(_value),
+    )
+    .peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -99,34 +107,40 @@ pub(crate) fn de_batch_get_aggregate_resource_config(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "BaseConfigurationItems" => {
-                    builder = builder.set_base_configuration_items(
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "BaseConfigurationItems" => {
+                        builder = builder.set_base_configuration_items(
                         crate::protocol_serde::shape_base_configuration_items::de_base_configuration_items(tokens, _value, depth + 1)?,
                     );
-                }
-                "UnprocessedResourceIdentifiers" => {
-                    builder = builder.set_unprocessed_resource_identifiers(
+                    }
+                    "UnprocessedResourceIdentifiers" => {
+                        builder = builder.set_unprocessed_resource_identifiers(
                         crate::protocol_serde::shape_unprocessed_resource_identifier_list::de_unprocessed_resource_identifier_list(
                             tokens,
                             _value,
                             depth + 1,
                         )?,
                     );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
+                return Err(
+                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                        "expected object key or end object, found: {other:?}"
+                    )),
+                )
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "found more JSON tokens after completing parsing",
+            ),
+        );
     }
     Ok(builder)
 }

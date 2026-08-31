@@ -48,7 +48,9 @@ impl RemediationException {
 }
 
 /// A builder for [`RemediationException`](crate::types::RemediationException).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RemediationExceptionBuilder {
     pub(crate) config_rule_name: ::std::option::Option<::std::string::String>,
@@ -60,12 +62,18 @@ pub struct RemediationExceptionBuilder {
 impl RemediationExceptionBuilder {
     /// <p>The name of the Config rule.</p>
     /// This field is required.
-    pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn config_rule_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.config_rule_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the Config rule.</p>
-    pub fn set_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_config_rule_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.config_rule_name = input;
         self
     }
@@ -75,12 +83,18 @@ impl RemediationExceptionBuilder {
     }
     /// <p>The type of a resource.</p>
     /// This field is required.
-    pub fn resource_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn resource_type(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.resource_type = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The type of a resource.</p>
-    pub fn set_resource_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_resource_type(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.resource_type = input;
         self
     }
@@ -123,7 +137,10 @@ impl RemediationExceptionBuilder {
         self
     }
     /// <p>The time when the remediation exception will be deleted.</p>
-    pub fn set_expiration_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_expiration_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.expiration_time = input;
         self
     }
@@ -136,7 +153,12 @@ impl RemediationExceptionBuilder {
     /// - [`config_rule_name`](crate::types::builders::RemediationExceptionBuilder::config_rule_name)
     /// - [`resource_type`](crate::types::builders::RemediationExceptionBuilder::resource_type)
     /// - [`resource_id`](crate::types::builders::RemediationExceptionBuilder::resource_id)
-    pub fn build(self) -> ::std::result::Result<crate::types::RemediationException, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::RemediationException,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::RemediationException {
             config_rule_name: self.config_rule_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

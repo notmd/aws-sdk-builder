@@ -72,13 +72,16 @@ impl PutObjectRetentionInput {
 }
 impl PutObjectRetentionInput {
     /// Creates a new builder-style object to manufacture [`PutObjectRetentionInput`](crate::operation::put_object_retention::PutObjectRetentionInput).
-    pub fn builder() -> crate::operation::put_object_retention::builders::PutObjectRetentionInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::put_object_retention::builders::PutObjectRetentionInputBuilder {
         crate::operation::put_object_retention::builders::PutObjectRetentionInputBuilder::default()
     }
 }
 
 /// A builder for [`PutObjectRetentionInput`](crate::operation::put_object_retention::PutObjectRetentionInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutObjectRetentionInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -131,7 +134,10 @@ impl PutObjectRetentionInputBuilder {
         self
     }
     /// <p>The container element for the Object Retention configuration.</p>
-    pub fn set_retention(mut self, input: ::std::option::Option<crate::types::ObjectLockRetention>) -> Self {
+    pub fn set_retention(
+        mut self,
+        input: ::std::option::Option<crate::types::ObjectLockRetention>,
+    ) -> Self {
         self.retention = input;
         self
     }
@@ -149,7 +155,10 @@ impl PutObjectRetentionInputBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+    pub fn set_request_payer(
+        mut self,
+        input: ::std::option::Option<crate::types::RequestPayer>,
+    ) -> Self {
         self.request_payer = input;
         self
     }
@@ -212,22 +221,33 @@ impl PutObjectRetentionInputBuilder {
     }
     /// <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
+    pub fn set_checksum_algorithm(
+        mut self,
+        input: ::std::option::Option<crate::types::ChecksumAlgorithm>,
+    ) -> Self {
         self.checksum_algorithm = input;
         self
     }
     /// <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(
+        &self,
+    ) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         &self.checksum_algorithm
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -238,18 +258,22 @@ impl PutObjectRetentionInputBuilder {
     /// Consumes the builder and constructs a [`PutObjectRetentionInput`](crate::operation::put_object_retention::PutObjectRetentionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::put_object_retention::PutObjectRetentionInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::put_object_retention::PutObjectRetentionInput {
-            bucket: self.bucket,
-            key: self.key,
-            retention: self.retention,
-            request_payer: self.request_payer,
-            version_id: self.version_id,
-            bypass_governance_retention: self.bypass_governance_retention,
-            content_md5: self.content_md5,
-            checksum_algorithm: self.checksum_algorithm,
-            expected_bucket_owner: self.expected_bucket_owner,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::put_object_retention::PutObjectRetentionInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::put_object_retention::PutObjectRetentionInput {
+                bucket: self.bucket,
+                key: self.key,
+                retention: self.retention,
+                request_payer: self.request_payer,
+                version_id: self.version_id,
+                bypass_governance_retention: self.bypass_governance_retention,
+                content_md5: self.content_md5,
+                checksum_algorithm: self.checksum_algorithm,
+                expected_bucket_owner: self.expected_bucket_owner,
+            },
+        )
     }
 }

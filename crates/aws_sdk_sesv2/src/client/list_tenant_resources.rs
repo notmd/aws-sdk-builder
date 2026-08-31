@@ -12,7 +12,11 @@ impl super::Client {
     ///   - [`tenant_resources(Option<Vec::<TenantResource>>)`](crate::operation::list_tenant_resources::ListTenantResourcesOutput::tenant_resources): <p>An array that contains information about each resource associated with the tenant.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::list_tenant_resources::ListTenantResourcesOutput::next_token): <p>A token that indicates that there are additional resources to list. To view additional resources, issue another request to <code>ListTenantResources</code>, and pass this token in the <code>NextToken</code> parameter.</p>
     /// - On failure, responds with [`SdkError<ListTenantResourcesError>`](crate::operation::list_tenant_resources::ListTenantResourcesError)
-    pub fn list_tenant_resources(&self) -> crate::operation::list_tenant_resources::builders::ListTenantResourcesFluentBuilder {
-        crate::operation::list_tenant_resources::builders::ListTenantResourcesFluentBuilder::new(self.handle.clone())
+    pub fn list_tenant_resources(
+        &self,
+    ) -> crate::operation::list_tenant_resources::builders::ListTenantResourcesFluentBuilder {
+        crate::operation::list_tenant_resources::builders::ListTenantResourcesFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

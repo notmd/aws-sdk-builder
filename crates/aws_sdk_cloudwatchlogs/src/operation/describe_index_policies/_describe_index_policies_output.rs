@@ -28,13 +28,17 @@ impl ::aws_types::request_id::RequestId for DescribeIndexPoliciesOutput {
 }
 impl DescribeIndexPoliciesOutput {
     /// Creates a new builder-style object to manufacture [`DescribeIndexPoliciesOutput`](crate::operation::describe_index_policies::DescribeIndexPoliciesOutput).
-    pub fn builder() -> crate::operation::describe_index_policies::builders::DescribeIndexPoliciesOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::describe_index_policies::builders::DescribeIndexPoliciesOutputBuilder
+    {
         crate::operation::describe_index_policies::builders::DescribeIndexPoliciesOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeIndexPoliciesOutput`](crate::operation::describe_index_policies::DescribeIndexPoliciesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeIndexPoliciesOutputBuilder {
     pub(crate) index_policies: ::std::option::Option<::std::vec::Vec<crate::types::IndexPolicy>>,
@@ -54,12 +58,17 @@ impl DescribeIndexPoliciesOutputBuilder {
         self
     }
     /// <p>An array containing the field index policies.</p>
-    pub fn set_index_policies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::IndexPolicy>>) -> Self {
+    pub fn set_index_policies(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::IndexPolicy>>,
+    ) -> Self {
         self.index_policies = input;
         self
     }
     /// <p>An array containing the field index policies.</p>
-    pub fn get_index_policies(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::IndexPolicy>> {
+    pub fn get_index_policies(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::IndexPolicy>> {
         &self.index_policies
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>

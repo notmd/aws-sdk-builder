@@ -7,7 +7,9 @@ pub fn ser_converse_stream_input_input(
         object.key("additionalModelRequestFields").document(var_1);
     }
     if let Some(var_2) = &input.additional_model_response_field_paths {
-        let mut array_3 = object.key("additionalModelResponseFieldPaths").start_array();
+        let mut array_3 = object
+            .key("additionalModelResponseFieldPaths")
+            .start_array();
         for item_4 in var_2 {
             {
                 array_3.value().string(item_4.as_str());
@@ -24,7 +26,10 @@ pub fn ser_converse_stream_input_input(
     if let Some(var_7) = &input.inference_config {
         #[allow(unused_mut)]
         let mut object_8 = object.key("inferenceConfig").start_object();
-        crate::protocol_serde::shape_inference_configuration::ser_inference_configuration(&mut object_8, var_7)?;
+        crate::protocol_serde::shape_inference_configuration::ser_inference_configuration(
+            &mut object_8,
+            var_7,
+        )?;
         object_8.finish();
     }
     if let Some(var_9) = &input.messages {
@@ -48,7 +53,10 @@ pub fn ser_converse_stream_input_input(
     if let Some(var_15) = &input.performance_config {
         #[allow(unused_mut)]
         let mut object_16 = object.key("performanceConfig").start_object();
-        crate::protocol_serde::shape_performance_configuration::ser_performance_configuration(&mut object_16, var_15)?;
+        crate::protocol_serde::shape_performance_configuration::ser_performance_configuration(
+            &mut object_16,
+            var_15,
+        )?;
         object_16.finish();
     }
     if let Some(var_17) = &input.prompt_variables {
@@ -58,7 +66,10 @@ pub fn ser_converse_stream_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_21 = object_18.key(key_19.as_str()).start_object();
-                crate::protocol_serde::shape_prompt_variable_values::ser_prompt_variable_values(&mut object_21, value_20)?;
+                crate::protocol_serde::shape_prompt_variable_values::ser_prompt_variable_values(
+                    &mut object_21,
+                    value_20,
+                )?;
                 object_21.finish();
             }
         }
@@ -86,7 +97,10 @@ pub fn ser_converse_stream_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_31 = array_29.value().start_object();
-                crate::protocol_serde::shape_system_content_block::ser_system_content_block(&mut object_31, item_30)?;
+                crate::protocol_serde::shape_system_content_block::ser_system_content_block(
+                    &mut object_31,
+                    item_30,
+                )?;
                 object_31.finish();
             }
         }
@@ -95,7 +109,10 @@ pub fn ser_converse_stream_input_input(
     if let Some(var_32) = &input.tool_config {
         #[allow(unused_mut)]
         let mut object_33 = object.key("toolConfig").start_object();
-        crate::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_33, var_32)?;
+        crate::protocol_serde::shape_tool_configuration::ser_tool_configuration(
+            &mut object_33,
+            var_32,
+        )?;
         object_33.finish();
     }
     Ok(())

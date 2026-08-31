@@ -27,9 +27,13 @@ impl DeleteSuppressedDestination {
                     .expect("correct error type")
             })
         };
-        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-            .await
-            .map_err(map_err)?;
+        let context = Self::orchestrate_with_stop_point(
+            runtime_plugins,
+            input,
+            ::aws_smithy_runtime::client::orchestrator::StopPoint::None,
+        )
+        .await
+        .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
@@ -51,17 +55,23 @@ impl DeleteSuppressedDestination {
     > {
         let input = ::aws_smithy_runtime_api::client::interceptors::context::Input::erase(input);
         use ::tracing::Instrument;
-        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point("SESv2", "DeleteSuppressedDestination", input, runtime_plugins, stop_point)
-            // Create a parent span for the entire operation. Includes a random, internal-only,
-            // seven-digit ID for the operation orchestration so that it can be correlated in the logs.
-            .instrument(::tracing::debug_span!(
-                "SESv2.DeleteSuppressedDestination",
-                "rpc.service" = "SESv2",
-                "rpc.method" = "DeleteSuppressedDestination",
-                "sdk_invocation_id" = ::fastrand::u32(1_000_000..10_000_000),
-                "rpc.system" = "aws-api",
-            ))
-            .await
+        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point(
+            "SESv2",
+            "DeleteSuppressedDestination",
+            input,
+            runtime_plugins,
+            stop_point,
+        )
+        // Create a parent span for the entire operation. Includes a random, internal-only,
+        // seven-digit ID for the operation orchestration so that it can be correlated in the logs.
+        .instrument(::tracing::debug_span!(
+            "SESv2.DeleteSuppressedDestination",
+            "rpc.service" = "SESv2",
+            "rpc.method" = "DeleteSuppressedDestination",
+            "sdk_invocation_id" = ::fastrand::u32(1_000_000..10_000_000),
+            "rpc.system" = "aws-api",
+        ))
+        .await
     }
 
     pub(crate) fn operation_runtime_plugins(
@@ -75,37 +85,49 @@ impl DeleteSuppressedDestination {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
-                config_override,
-                client_config.config.clone(),
-                &client_config.runtime_components,
-            ));
+            runtime_plugins = runtime_plugins.with_operation_plugin(
+                crate::config::ConfigOverrideRuntimePlugin::new(
+                    config_override,
+                    client_config.config.clone(),
+                    &client_config.runtime_components,
+                ),
+            );
         }
         runtime_plugins
     }
 }
-impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DeleteSuppressedDestination {
+impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
+    for DeleteSuppressedDestination
+{
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("DeleteSuppressedDestination");
 
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-            DeleteSuppressedDestinationRequestSerializer,
-        ));
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
-            DeleteSuppressedDestinationResponseDeserializer,
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+                DeleteSuppressedDestinationRequestSerializer,
+            ),
+        );
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
+                DeleteSuppressedDestinationResponseDeserializer,
+            ),
+        );
 
-        cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
-                .operation_name("DeleteSuppressedDestination")
-                .build()
-                .expect("required fields set"),
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
+                crate::config::auth::Params::builder()
+                    .operation_name("DeleteSuppressedDestination")
+                    .build()
+                    .expect("required fields set"),
+            ),
+        );
 
-        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-            "DeleteSuppressedDestination",
-            "SESv2",
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+                "DeleteSuppressedDestination",
+                "SESv2",
+            ),
+        );
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -123,7 +145,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DeleteS
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+    ) -> ::std::borrow::Cow<
+        '_,
+        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
+    > {
         #[allow(unused_mut)]
         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteSuppressedDestination")
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -153,7 +178,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DeleteS
 struct DeleteSuppressedDestinationTelemetryInputCaptureInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DeleteSuppressedDestinationTelemetryInputCaptureInterceptor {
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept
+    for DeleteSuppressedDestinationTelemetryInputCaptureInterceptor
+{
     fn name(&self) -> &'static str {
         "DeleteSuppressedDestinationTelemetryInputCaptureInterceptor"
     }
@@ -176,7 +203,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DeleteSuppres
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) = context.input().downcast_ref::<DeleteSuppressedDestinationInput>() else {
+        let ::std::option::Option::Some(input) = context
+            .input()
+            .downcast_ref::<DeleteSuppressedDestinationInput>()
+        else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -199,7 +229,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DeleteSuppres
 }
 #[derive(Debug)]
 struct DeleteSuppressedDestinationResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for DeleteSuppressedDestinationResponseDeserializer {
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
+    for DeleteSuppressedDestinationResponseDeserializer
+{
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -221,13 +253,23 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for DeleteSup
 }
 #[derive(Debug)]
 struct DeleteSuppressedDestinationRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteSuppressedDestinationRequestSerializer {
-    #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
+    for DeleteSuppressedDestinationRequestSerializer
+{
+    #[allow(
+        unused_mut,
+        clippy::let_and_return,
+        clippy::needless_borrow,
+        clippy::useless_conversion
+    )]
     fn serialize_input(
         &self,
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+    ) -> ::std::result::Result<
+        ::aws_smithy_runtime_api::client::orchestrator::HttpRequest,
+        ::aws_smithy_runtime_api::box_error::BoxError,
+    > {
         let input = input
             .downcast::<crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationInput>()
             .expect("correct type");
@@ -240,27 +282,41 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteSuppre
             fn uri_base(
                 _input: &crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
+            {
                 use ::std::fmt::Write as _;
                 let input_1 = &_input.email_address;
-                let input_1 = input_1
-                    .as_ref()
-                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("email_address", "cannot be empty or unset"))?;
-                let email_address = ::aws_smithy_http::label::fmt_string(input_1, ::aws_smithy_http::label::EncodingStrategy::Default);
-                if email_address.is_empty() {
-                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
+                let input_1 = input_1.as_ref().ok_or_else(|| {
+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
                         "email_address",
                         "cannot be empty or unset",
-                    ));
+                    )
+                })?;
+                let email_address = ::aws_smithy_http::label::fmt_string(
+                    input_1,
+                    ::aws_smithy_http::label::EncodingStrategy::Default,
+                );
+                if email_address.is_empty() {
+                    return ::std::result::Result::Err(
+                        ::aws_smithy_types::error::operation::BuildError::missing_field(
+                            "email_address",
+                            "cannot be empty or unset",
+                        ),
+                    );
                 }
-                ::std::write!(output, "/v2/email/suppression/addresses/{EmailAddress}", EmailAddress = email_address)
-                    .expect("formatting should succeed");
+                ::std::write!(
+                    output,
+                    "/v2/email/suppression/addresses/{EmailAddress}",
+                    EmailAddress = email_address
+                )
+                .expect("formatting should succeed");
                 ::std::result::Result::Ok(())
             }
             fn uri_query(
                 _input: &crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationInput,
                 mut output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.tenant_name {
                     {
@@ -273,7 +329,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteSuppre
             fn update_http_builder(
                 input: &crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<
+                ::http_1x::request::Builder,
+                ::aws_smithy_types::error::operation::BuildError,
+            > {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
@@ -284,14 +343,22 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteSuppre
         };
         let body = ::aws_smithy_types::body::SdkBody::from("");
 
-        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
+        ::std::result::Result::Ok(
+            request_builder
+                .body(body)
+                .expect("valid request")
+                .try_into()
+                .unwrap(),
+        )
     }
 }
 #[derive(Debug)]
 struct DeleteSuppressedDestinationEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DeleteSuppressedDestinationEndpointParamsInterceptor {
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept
+    for DeleteSuppressedDestinationEndpointParamsInterceptor
+{
     fn name(&self) -> &'static str {
         "DeleteSuppressedDestinationEndpointParamsInterceptor"
     }
@@ -312,16 +379,32 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DeleteSuppres
             .ok_or("failed to downcast to DeleteSuppressedDestinationInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-            .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
+            .set_region(
+                cfg.load::<::aws_types::region::Region>()
+                    .map(|r| r.as_ref().to_owned()),
+            )
+            .set_use_dual_stack(
+                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
+                    .map(|ty| ty.0),
+            )
+            .set_use_fips(
+                cfg.load::<::aws_types::endpoint_config::UseFips>()
+                    .map(|ty| ty.0),
+            )
+            .set_endpoint(
+                cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
+                    .map(|ty| ty.0.clone()),
+            )
             .build()
             .map_err(|err| {
-                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
+                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(
+                    "endpoint params could not be built",
+                    err,
+                )
             })?;
-        cfg.interceptor_state()
-            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
+        cfg.interceptor_state().store_put(
+            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
+        );
         ::std::result::Result::Ok(())
     }
 }
@@ -340,18 +423,24 @@ pub enum DeleteSuppressedDestinationError {
     /// <p>Too many requests have been made to the operation.</p>
     TooManyRequestsException(crate::types::error::TooManyRequestsException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(
+        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-DeleteSuppressedDestinationError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-DeleteSuppressedDestinationError) for what information is available for the error."
+    )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl DeleteSuppressedDestinationError {
     /// Creates the `DeleteSuppressedDestinationError::Unhandled` variant from any error type.
     pub fn unhandled(
-        err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
+        err: impl ::std::convert::Into<
+            ::std::boxed::Box<
+                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
+            >,
+        >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.into(),
@@ -372,9 +461,15 @@ impl DeleteSuppressedDestinationError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::BadRequestException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::NotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::TooManyRequestsException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::BadRequestException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::NotFoundException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::TooManyRequestsException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -408,7 +503,9 @@ impl ::std::fmt::Display for DeleteSuppressedDestinationError {
             Self::NotFoundException(_inner) => _inner.fmt(f),
             Self::TooManyRequestsException(_inner) => _inner.fmt(f),
             Self::Unhandled(_inner) => {
-                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                if let ::std::option::Option::Some(code) =
+                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+                {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -425,19 +522,31 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for DeleteSuppressedDestination
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DeleteSuppressedDestinationError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
+    for DeleteSuppressedDestinationError
+{
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::BadRequestException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::NotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyRequestsException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::BadRequestException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::NotFoundException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::TooManyRequestsException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DeleteSuppressedDestinationError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
+    for DeleteSuppressedDestinationError
+{
     fn create_unhandled_error(
-        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+        source: ::std::boxed::Box<
+            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
+        >,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -446,7 +555,9 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DeleteSu
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationError {
+impl ::aws_types::request_id::RequestId
+    for crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationError
+{
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

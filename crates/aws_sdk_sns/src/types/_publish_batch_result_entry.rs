@@ -37,7 +37,9 @@ impl PublishBatchResultEntry {
 }
 
 /// A builder for [`PublishBatchResultEntry`](crate::types::PublishBatchResultEntry).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PublishBatchResultEntryBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
@@ -76,14 +78,20 @@ impl PublishBatchResultEntryBuilder {
     /// <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
     /// <p>The large, non-consecutive number that Amazon SNS assigns to each message.</p>
     /// <p>The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for a particular <code>MessageGroupId</code>.</p>
-    pub fn sequence_number(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn sequence_number(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.sequence_number = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
     /// <p>The large, non-consecutive number that Amazon SNS assigns to each message.</p>
     /// <p>The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for a particular <code>MessageGroupId</code>.</p>
-    pub fn set_sequence_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_sequence_number(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.sequence_number = input;
         self
     }

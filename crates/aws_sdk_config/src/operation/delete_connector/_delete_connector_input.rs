@@ -20,7 +20,9 @@ impl DeleteConnectorInput {
 }
 
 /// A builder for [`DeleteConnectorInput`](crate::operation::delete_connector::DeleteConnectorInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteConnectorInputBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
@@ -44,7 +46,12 @@ impl DeleteConnectorInputBuilder {
     /// Consumes the builder and constructs a [`DeleteConnectorInput`](crate::operation::delete_connector::DeleteConnectorInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_connector::DeleteConnectorInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_connector::DeleteConnectorInput { arn: self.arn })
+    ) -> ::std::result::Result<
+        crate::operation::delete_connector::DeleteConnectorInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(crate::operation::delete_connector::DeleteConnectorInput {
+            arn: self.arn,
+        })
     }
 }

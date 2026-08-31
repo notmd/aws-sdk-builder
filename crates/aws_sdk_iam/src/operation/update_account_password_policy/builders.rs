@@ -60,7 +60,7 @@ impl UpdateAccountPasswordPolicyFluentBuilder {
         }
     }
     /// Access the UpdateAccountPasswordPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,7 +89,11 @@ impl UpdateAccountPasswordPolicyFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::update_account_password_policy::UpdateAccountPasswordPolicy::orchestrate(&runtime_plugins, input).await
+        crate::operation::update_account_password_policy::UpdateAccountPasswordPolicy::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -102,12 +106,18 @@ impl UpdateAccountPasswordPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -207,7 +217,10 @@ impl UpdateAccountPasswordPolicyFluentBuilder {
     }
     /// <p>Allows all IAM users in your account to use the Amazon Web Services Management Console to change their own passwords. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_enable-user-change.html">Permitting IAM users to change their own passwords</a> in the <i>IAM User Guide</i>.</p>
     /// <p>If you do not specify a value for this parameter, then the operation uses the default value of <code>false</code>. The result is that IAM users in the account do not automatically have permissions to change their own password.</p>
-    pub fn set_allow_users_to_change_password(mut self, input: ::std::option::Option<bool>) -> Self {
+    pub fn set_allow_users_to_change_password(
+        mut self,
+        input: ::std::option::Option<bool>,
+    ) -> Self {
         self.inner = self.inner.set_allow_users_to_change_password(input);
         self
     }

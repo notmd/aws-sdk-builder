@@ -57,7 +57,9 @@ impl ListAnomaliesFluentBuilder {
         }
     }
     /// Access the ListAnomalies as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_anomalies::builders::ListAnomaliesInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_anomalies::builders::ListAnomaliesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,11 +83,12 @@ impl ListAnomaliesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_anomalies::ListAnomalies::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::list_anomalies::ListAnomalies::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::list_anomalies::ListAnomalies::orchestrate(&runtime_plugins, input).await
     }
 
@@ -99,28 +102,45 @@ impl ListAnomaliesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_anomalies::paginator::ListAnomaliesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_anomalies::paginator::ListAnomaliesPaginator {
-        crate::operation::list_anomalies::paginator::ListAnomaliesPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_anomalies::paginator::ListAnomaliesPaginator {
+        crate::operation::list_anomalies::paginator::ListAnomaliesPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>Use this to optionally limit the results to only the anomalies found by a certain anomaly detector.</p>
-    pub fn anomaly_detector_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn anomaly_detector_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.anomaly_detector_arn(input.into());
         self
     }
     /// <p>Use this to optionally limit the results to only the anomalies found by a certain anomaly detector.</p>
-    pub fn set_anomaly_detector_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_anomaly_detector_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_anomaly_detector_arn(input);
         self
     }
@@ -134,7 +154,10 @@ impl ListAnomaliesFluentBuilder {
         self
     }
     /// <p>You can specify this parameter if you want to the operation to return only anomalies that are currently either suppressed or unsuppressed.</p>
-    pub fn set_suppression_state(mut self, input: ::std::option::Option<crate::types::SuppressionState>) -> Self {
+    pub fn set_suppression_state(
+        mut self,
+        input: ::std::option::Option<crate::types::SuppressionState>,
+    ) -> Self {
         self.inner = self.inner.set_suppression_state(input);
         self
     }

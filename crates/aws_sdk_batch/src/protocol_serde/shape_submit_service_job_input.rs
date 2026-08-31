@@ -24,7 +24,10 @@ pub fn ser_submit_service_job_input_input(
     if let Some(var_7) = &input.retry_strategy {
         #[allow(unused_mut)]
         let mut object_8 = object.key("retryStrategy").start_object();
-        crate::protocol_serde::shape_service_job_retry_strategy::ser_service_job_retry_strategy(&mut object_8, var_7)?;
+        crate::protocol_serde::shape_service_job_retry_strategy::ser_service_job_retry_strategy(
+            &mut object_8,
+            var_7,
+        )?;
         object_8.finish();
     }
     if let Some(var_9) = &input.scheduling_priority {
@@ -55,7 +58,10 @@ pub fn ser_submit_service_job_input_input(
     if let Some(var_17) = &input.timeout_config {
         #[allow(unused_mut)]
         let mut object_18 = object.key("timeoutConfig").start_object();
-        crate::protocol_serde::shape_service_job_timeout::ser_service_job_timeout(&mut object_18, var_17)?;
+        crate::protocol_serde::shape_service_job_timeout::ser_service_job_timeout(
+            &mut object_18,
+            var_17,
+        )?;
         object_18.finish();
     }
     Ok(())

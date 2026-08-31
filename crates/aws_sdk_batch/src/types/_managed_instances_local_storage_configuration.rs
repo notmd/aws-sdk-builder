@@ -21,7 +21,9 @@ impl ManagedInstancesLocalStorageConfiguration {
 }
 
 /// A builder for [`ManagedInstancesLocalStorageConfiguration`](crate::types::ManagedInstancesLocalStorageConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ManagedInstancesLocalStorageConfigurationBuilder {
     pub(crate) use_local_storage: ::std::option::Option<bool>,

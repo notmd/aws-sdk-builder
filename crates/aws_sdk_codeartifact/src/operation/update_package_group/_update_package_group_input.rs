@@ -38,13 +38,16 @@ impl UpdatePackageGroupInput {
 }
 impl UpdatePackageGroupInput {
     /// Creates a new builder-style object to manufacture [`UpdatePackageGroupInput`](crate::operation::update_package_group::UpdatePackageGroupInput).
-    pub fn builder() -> crate::operation::update_package_group::builders::UpdatePackageGroupInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_package_group::builders::UpdatePackageGroupInputBuilder {
         crate::operation::update_package_group::builders::UpdatePackageGroupInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdatePackageGroupInput`](crate::operation::update_package_group::UpdatePackageGroupInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdatePackageGroupInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -85,12 +88,18 @@ impl UpdatePackageGroupInputBuilder {
     }
     /// <p>The pattern of the package group to be updated.</p>
     /// This field is required.
-    pub fn package_group(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn package_group(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.package_group = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The pattern of the package group to be updated.</p>
-    pub fn set_package_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_package_group(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.package_group = input;
         self
     }
@@ -129,14 +138,18 @@ impl UpdatePackageGroupInputBuilder {
     /// Consumes the builder and constructs a [`UpdatePackageGroupInput`](crate::operation::update_package_group::UpdatePackageGroupInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::update_package_group::UpdatePackageGroupInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::update_package_group::UpdatePackageGroupInput {
-            domain: self.domain,
-            domain_owner: self.domain_owner,
-            package_group: self.package_group,
-            contact_info: self.contact_info,
-            description: self.description,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::update_package_group::UpdatePackageGroupInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::update_package_group::UpdatePackageGroupInput {
+                domain: self.domain,
+                domain_owner: self.domain_owner,
+                package_group: self.package_group,
+                contact_info: self.contact_info,
+                description: self.description,
+            },
+        )
     }
 }

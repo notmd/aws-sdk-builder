@@ -9,7 +9,8 @@ pub struct Contact {
     /// <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
     pub topic_preferences: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
     /// <p>The default topic preferences applied to the contact.</p>
-    pub topic_default_preferences: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
+    pub topic_default_preferences:
+        ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
     /// <p>A boolean value status noting if the contact is unsubscribed from all contact list topics.</p>
     pub unsubscribe_all: bool,
     /// <p>A timestamp noting the last time the contact's information was updated.</p>
@@ -30,7 +31,9 @@ impl Contact {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.topic_default_preferences.is_none()`.
     pub fn topic_default_preferences(&self) -> &[crate::types::TopicPreference] {
-        self.topic_default_preferences.as_deref().unwrap_or_default()
+        self.topic_default_preferences
+            .as_deref()
+            .unwrap_or_default()
     }
     /// <p>A boolean value status noting if the contact is unsubscribed from all contact list topics.</p>
     pub fn unsubscribe_all(&self) -> bool {
@@ -49,23 +52,33 @@ impl Contact {
 }
 
 /// A builder for [`Contact`](crate::types::Contact).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ContactBuilder {
     pub(crate) email_address: ::std::option::Option<::std::string::String>,
-    pub(crate) topic_preferences: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
-    pub(crate) topic_default_preferences: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
+    pub(crate) topic_preferences:
+        ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
+    pub(crate) topic_default_preferences:
+        ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
     pub(crate) unsubscribe_all: ::std::option::Option<bool>,
     pub(crate) last_updated_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl ContactBuilder {
     /// <p>The contact's email address.</p>
-    pub fn email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn email_address(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.email_address = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The contact's email address.</p>
-    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_email_address(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.email_address = input;
         self
     }
@@ -85,12 +98,17 @@ impl ContactBuilder {
         self
     }
     /// <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
-    pub fn set_topic_preferences(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>) -> Self {
+    pub fn set_topic_preferences(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
+    ) -> Self {
         self.topic_preferences = input;
         self
     }
     /// <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
-    pub fn get_topic_preferences(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>> {
+    pub fn get_topic_preferences(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>> {
         &self.topic_preferences
     }
     /// Appends an item to `topic_default_preferences`.
@@ -105,12 +123,17 @@ impl ContactBuilder {
         self
     }
     /// <p>The default topic preferences applied to the contact.</p>
-    pub fn set_topic_default_preferences(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>) -> Self {
+    pub fn set_topic_default_preferences(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>>,
+    ) -> Self {
         self.topic_default_preferences = input;
         self
     }
     /// <p>The default topic preferences applied to the contact.</p>
-    pub fn get_topic_default_preferences(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>> {
+    pub fn get_topic_default_preferences(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::TopicPreference>> {
         &self.topic_default_preferences
     }
     /// <p>A boolean value status noting if the contact is unsubscribed from all contact list topics.</p>
@@ -133,12 +156,17 @@ impl ContactBuilder {
         self
     }
     /// <p>A timestamp noting the last time the contact's information was updated.</p>
-    pub fn set_last_updated_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_last_updated_timestamp(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.last_updated_timestamp = input;
         self
     }
     /// <p>A timestamp noting the last time the contact's information was updated.</p>
-    pub fn get_last_updated_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_last_updated_timestamp(
+        &self,
+    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_updated_timestamp
     }
     /// Consumes the builder and constructs a [`Contact`](crate::types::Contact).

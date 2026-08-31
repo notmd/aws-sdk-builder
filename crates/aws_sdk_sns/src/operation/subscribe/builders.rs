@@ -31,14 +31,20 @@ pub struct SubscribeFluentBuilder {
     inner: crate::operation::subscribe::builders::SubscribeInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
-impl crate::client::customize::internal::CustomizableSend<crate::operation::subscribe::SubscribeOutput, crate::operation::subscribe::SubscribeError>
-    for SubscribeFluentBuilder
+impl
+    crate::client::customize::internal::CustomizableSend<
+        crate::operation::subscribe::SubscribeOutput,
+        crate::operation::subscribe::SubscribeError,
+    > for SubscribeFluentBuilder
 {
     fn send(
         self,
         config_override: crate::config::Builder,
     ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<crate::operation::subscribe::SubscribeOutput, crate::operation::subscribe::SubscribeError>,
+        crate::client::customize::internal::SendResult<
+            crate::operation::subscribe::SubscribeOutput,
+            crate::operation::subscribe::SubscribeError,
+        >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -95,12 +101,18 @@ impl SubscribeFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -320,7 +332,11 @@ impl SubscribeFluentBuilder {
     /// <p><code>Pending</code> – The default state while the replay initiates.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn attributes(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.attributes(k.into(), v.into());
         self
     }
@@ -373,7 +389,12 @@ impl SubscribeFluentBuilder {
     /// <p><code>Pending</code> – The default state while the replay initiates.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_attributes(
+        mut self,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
+    ) -> Self {
         self.inner = self.inner.set_attributes(input);
         self
     }
@@ -426,7 +447,11 @@ impl SubscribeFluentBuilder {
     /// <p><code>Pending</code> – The default state while the replay initiates.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_attributes(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.inner.get_attributes()
     }
     /// <p>Sets whether the response from the <code>Subscribe</code> request includes the subscription ARN, even if the subscription is not yet confirmed.</p>

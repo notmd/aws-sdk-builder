@@ -21,13 +21,17 @@ impl ::aws_types::request_id::RequestId for DescribeUserPoolClientOutput {
 }
 impl DescribeUserPoolClientOutput {
     /// Creates a new builder-style object to manufacture [`DescribeUserPoolClientOutput`](crate::operation::describe_user_pool_client::DescribeUserPoolClientOutput).
-    pub fn builder() -> crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientOutputBuilder
+    {
         crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeUserPoolClientOutput`](crate::operation::describe_user_pool_client::DescribeUserPoolClientOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeUserPoolClientOutputBuilder {
     pub(crate) user_pool_client: ::std::option::Option<crate::types::UserPoolClientType>,
@@ -40,7 +44,10 @@ impl DescribeUserPoolClientOutputBuilder {
         self
     }
     /// <p>The details of the request app client.</p>
-    pub fn set_user_pool_client(mut self, input: ::std::option::Option<crate::types::UserPoolClientType>) -> Self {
+    pub fn set_user_pool_client(
+        mut self,
+        input: ::std::option::Option<crate::types::UserPoolClientType>,
+    ) -> Self {
         self.user_pool_client = input;
         self
     }
@@ -58,7 +65,9 @@ impl DescribeUserPoolClientOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeUserPoolClientOutput`](crate::operation::describe_user_pool_client::DescribeUserPoolClientOutput).
-    pub fn build(self) -> crate::operation::describe_user_pool_client::DescribeUserPoolClientOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::describe_user_pool_client::DescribeUserPoolClientOutput {
         crate::operation::describe_user_pool_client::DescribeUserPoolClientOutput {
             user_pool_client: self.user_pool_client,
             _request_id: self._request_id,

@@ -39,7 +39,9 @@ impl ResourceTenantMetadata {
 }
 
 /// A builder for [`ResourceTenantMetadata`](crate::types::ResourceTenantMetadata).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ResourceTenantMetadataBuilder {
     pub(crate) tenant_name: ::std::option::Option<::std::string::String>,
@@ -96,7 +98,10 @@ impl ResourceTenantMetadataBuilder {
         self
     }
     /// <p>The date and time when the resource was associated with the tenant.</p>
-    pub fn set_associated_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_associated_timestamp(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.associated_timestamp = input;
         self
     }

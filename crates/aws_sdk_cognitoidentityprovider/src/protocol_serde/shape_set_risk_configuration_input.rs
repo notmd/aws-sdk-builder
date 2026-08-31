@@ -11,7 +11,9 @@ pub fn ser_set_risk_configuration_input_input(
     }
     if let Some(var_3) = &input.compromised_credentials_risk_configuration {
         #[allow(unused_mut)]
-        let mut object_4 = object.key("CompromisedCredentialsRiskConfiguration").start_object();
+        let mut object_4 = object
+            .key("CompromisedCredentialsRiskConfiguration")
+            .start_object();
         crate::protocol_serde::shape_compromised_credentials_risk_configuration_type::ser_compromised_credentials_risk_configuration_type(
             &mut object_4,
             var_3,
@@ -20,7 +22,9 @@ pub fn ser_set_risk_configuration_input_input(
     }
     if let Some(var_5) = &input.account_takeover_risk_configuration {
         #[allow(unused_mut)]
-        let mut object_6 = object.key("AccountTakeoverRiskConfiguration").start_object();
+        let mut object_6 = object
+            .key("AccountTakeoverRiskConfiguration")
+            .start_object();
         crate::protocol_serde::shape_account_takeover_risk_configuration_type::ser_account_takeover_risk_configuration_type(&mut object_6, var_5)?;
         object_6.finish();
     }

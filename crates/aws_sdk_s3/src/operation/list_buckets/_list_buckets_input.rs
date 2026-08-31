@@ -50,7 +50,9 @@ impl ListBucketsInput {
 }
 
 /// A builder for [`ListBucketsInput`](crate::operation::list_buckets::ListBucketsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListBucketsInputBuilder {
     pub(crate) max_buckets: ::std::option::Option<i32>,
@@ -78,7 +80,10 @@ impl ListBucketsInputBuilder {
     /// <p>Required: No.</p><note>
     /// <p>If you specify the <code>bucket-region</code>, <code>prefix</code>, or <code>continuation-token</code> query parameters without using <code>max-buckets</code> to set the maximum number of buckets returned in the response, Amazon S3 applies a default page size of 10,000 and provides a continuation token if there are more buckets.</p>
     /// </note>
-    pub fn continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn continuation_token(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
@@ -87,7 +92,10 @@ impl ListBucketsInputBuilder {
     /// <p>Required: No.</p><note>
     /// <p>If you specify the <code>bucket-region</code>, <code>prefix</code>, or <code>continuation-token</code> query parameters without using <code>max-buckets</code> to set the maximum number of buckets returned in the response, Amazon S3 applies a default page size of 10,000 and provides a continuation token if there are more buckets.</p>
     /// </note>
-    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_continuation_token(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.continuation_token = input;
         self
     }
@@ -116,14 +124,20 @@ impl ListBucketsInputBuilder {
     /// <p>Limits the response to buckets that are located in the specified Amazon Web Services Region. The Amazon Web Services Region must be expressed according to the Amazon Web Services Region code, such as <code>us-west-2</code> for the US West (Oregon) Region. For a list of the valid values for all of the Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a>.</p><note>
     /// <p>Requests made to a Regional endpoint that is different from the <code>bucket-region</code> parameter are not supported. For example, if you want to limit the response to your buckets in Region <code>us-west-2</code>, the request must be made to an endpoint in Region <code>us-west-2</code>.</p>
     /// </note>
-    pub fn bucket_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn bucket_region(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.bucket_region = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Limits the response to buckets that are located in the specified Amazon Web Services Region. The Amazon Web Services Region must be expressed according to the Amazon Web Services Region code, such as <code>us-west-2</code> for the US West (Oregon) Region. For a list of the valid values for all of the Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a>.</p><note>
     /// <p>Requests made to a Regional endpoint that is different from the <code>bucket-region</code> parameter are not supported. For example, if you want to limit the response to your buckets in Region <code>us-west-2</code>, the request must be made to an endpoint in Region <code>us-west-2</code>.</p>
     /// </note>
-    pub fn set_bucket_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_bucket_region(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.bucket_region = input;
         self
     }
@@ -134,7 +148,12 @@ impl ListBucketsInputBuilder {
         &self.bucket_region
     }
     /// Consumes the builder and constructs a [`ListBucketsInput`](crate::operation::list_buckets::ListBucketsInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::list_buckets::ListBucketsInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::list_buckets::ListBucketsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::list_buckets::ListBucketsInput {
             max_buckets: self.max_buckets,
             continuation_token: self.continuation_token,

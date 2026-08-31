@@ -84,7 +84,9 @@ impl CompleteMultipartUploadInput {
         self.key.as_deref()
     }
     /// <p>The container for the multipart upload request information.</p>
-    pub fn multipart_upload(&self) -> ::std::option::Option<&crate::types::CompletedMultipartUpload> {
+    pub fn multipart_upload(
+        &self,
+    ) -> ::std::option::Option<&crate::types::CompletedMultipartUpload> {
         self.multipart_upload.as_ref()
     }
     /// <p>ID for the initiated multipart upload.</p>
@@ -213,7 +215,9 @@ impl ::std::fmt::Debug for CompleteMultipartUploadInput {
 }
 impl CompleteMultipartUploadInput {
     /// Creates a new builder-style object to manufacture [`CompleteMultipartUploadInput`](crate::operation::complete_multipart_upload::CompleteMultipartUploadInput).
-    pub fn builder() -> crate::operation::complete_multipart_upload::builders::CompleteMultipartUploadInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::complete_multipart_upload::builders::CompleteMultipartUploadInputBuilder
+    {
         crate::operation::complete_multipart_upload::builders::CompleteMultipartUploadInputBuilder::default()
     }
 }
@@ -298,12 +302,17 @@ impl CompleteMultipartUploadInputBuilder {
         self
     }
     /// <p>The container for the multipart upload request information.</p>
-    pub fn set_multipart_upload(mut self, input: ::std::option::Option<crate::types::CompletedMultipartUpload>) -> Self {
+    pub fn set_multipart_upload(
+        mut self,
+        input: ::std::option::Option<crate::types::CompletedMultipartUpload>,
+    ) -> Self {
         self.multipart_upload = input;
         self
     }
     /// <p>The container for the multipart upload request information.</p>
-    pub fn get_multipart_upload(&self) -> &::std::option::Option<crate::types::CompletedMultipartUpload> {
+    pub fn get_multipart_upload(
+        &self,
+    ) -> &::std::option::Option<crate::types::CompletedMultipartUpload> {
         &self.multipart_upload
     }
     /// <p>ID for the initiated multipart upload.</p>
@@ -322,12 +331,18 @@ impl CompleteMultipartUploadInputBuilder {
         &self.upload_id
     }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit <code>CRC32</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn checksum_crc32(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_crc32(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_crc32 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit <code>CRC32</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_checksum_crc32(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_crc32(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_crc32 = input;
         self
     }
@@ -336,12 +351,18 @@ impl CompleteMultipartUploadInputBuilder {
         &self.checksum_crc32
     }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit <code>CRC32C</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn checksum_crc32_c(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_crc32_c(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_crc32_c = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit <code>CRC32C</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_checksum_crc32_c(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_crc32_c(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_crc32_c = input;
         self
     }
@@ -350,12 +371,18 @@ impl CompleteMultipartUploadInputBuilder {
         &self.checksum_crc32_c
     }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 64-bit <code>CRC64NVME</code> checksum of the object. The <code>CRC64NVME</code> checksum is always a full object checksum. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn checksum_crc64_nvme(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_crc64_nvme(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_crc64_nvme = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 64-bit <code>CRC64NVME</code> checksum of the object. The <code>CRC64NVME</code> checksum is always a full object checksum. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn set_checksum_crc64_nvme(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_crc64_nvme(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_crc64_nvme = input;
         self
     }
@@ -364,12 +391,18 @@ impl CompleteMultipartUploadInputBuilder {
         &self.checksum_crc64_nvme
     }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 160-bit <code>SHA1</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn checksum_sha1(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_sha1(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_sha1 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 160-bit <code>SHA1</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_checksum_sha1(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_sha1(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_sha1 = input;
         self
     }
@@ -378,12 +411,18 @@ impl CompleteMultipartUploadInputBuilder {
         &self.checksum_sha1
     }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 256-bit <code>SHA256</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn checksum_sha256(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_sha256(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_sha256 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 256-bit <code>SHA256</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_checksum_sha256(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_sha256(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_sha256 = input;
         self
     }
@@ -392,12 +431,18 @@ impl CompleteMultipartUploadInputBuilder {
         &self.checksum_sha256
     }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 512-bit <code>SHA512</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn checksum_sha512(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_sha512(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_sha512 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 512-bit <code>SHA512</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn set_checksum_sha512(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_sha512(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_sha512 = input;
         self
     }
@@ -420,12 +465,18 @@ impl CompleteMultipartUploadInputBuilder {
         &self.checksum_md5
     }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn checksum_xxhash64(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_xxhash64(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_xxhash64 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn set_checksum_xxhash64(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_xxhash64(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_xxhash64 = input;
         self
     }
@@ -434,12 +485,18 @@ impl CompleteMultipartUploadInputBuilder {
         &self.checksum_xxhash64
     }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn checksum_xxhash3(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_xxhash3(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_xxhash3 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn set_checksum_xxhash3(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_xxhash3(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_xxhash3 = input;
         self
     }
@@ -448,12 +505,18 @@ impl CompleteMultipartUploadInputBuilder {
         &self.checksum_xxhash3
     }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn checksum_xxhash128(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn checksum_xxhash128(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.checksum_xxhash128 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn set_checksum_xxhash128(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_checksum_xxhash128(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.checksum_xxhash128 = input;
         self
     }
@@ -467,7 +530,10 @@ impl CompleteMultipartUploadInputBuilder {
         self
     }
     /// <p>This header specifies the checksum type of the object, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum that was specified. If the checksum type doesn’t match the checksum type that was specified for the object during the <code>CreateMultipartUpload</code> request, it’ll result in a <code>BadDigest</code> error. For more information, see Checking object integrity in the Amazon S3 User Guide.</p>
-    pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self {
+    pub fn set_checksum_type(
+        mut self,
+        input: ::std::option::Option<crate::types::ChecksumType>,
+    ) -> Self {
         self.checksum_type = input;
         self
     }
@@ -499,7 +565,10 @@ impl CompleteMultipartUploadInputBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+    pub fn set_request_payer(
+        mut self,
+        input: ::std::option::Option<crate::types::RequestPayer>,
+    ) -> Self {
         self.request_payer = input;
         self
     }
@@ -510,12 +579,18 @@ impl CompleteMultipartUploadInputBuilder {
         &self.request_payer
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -550,7 +625,10 @@ impl CompleteMultipartUploadInputBuilder {
     /// <p>If a conflicting operation occurs during the upload S3 returns a <code>409 ConditionalRequestConflict</code> response. On a 409 failure you should re-initiate the multipart upload with <code>CreateMultipartUpload</code> and re-upload each part.</p>
     /// <p>Expects the '*' (asterisk) character.</p>
     /// <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>, or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-requests.html">Conditional requests</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn if_none_match(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn if_none_match(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.if_none_match = ::std::option::Option::Some(input.into());
         self
     }
@@ -558,7 +636,10 @@ impl CompleteMultipartUploadInputBuilder {
     /// <p>If a conflicting operation occurs during the upload S3 returns a <code>409 ConditionalRequestConflict</code> response. On a 409 failure you should re-initiate the multipart upload with <code>CreateMultipartUpload</code> and re-upload each part.</p>
     /// <p>Expects the '*' (asterisk) character.</p>
     /// <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>, or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-requests.html">Conditional requests</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_if_none_match(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_if_none_match(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.if_none_match = input;
         self
     }
@@ -572,14 +653,20 @@ impl CompleteMultipartUploadInputBuilder {
     /// <p>The server-side encryption (SSE) algorithm used to encrypt the object. This parameter is required only when the object was created using a checksum algorithm or if your bucket policy requires the use of SSE-C. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html#ssec-require-condition-key">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn sse_customer_algorithm(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn sse_customer_algorithm(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.sse_customer_algorithm = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The server-side encryption (SSE) algorithm used to encrypt the object. This parameter is required only when the object was created using a checksum algorithm or if your bucket policy requires the use of SSE-C. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html#ssec-require-condition-key">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_sse_customer_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_sse_customer_algorithm(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.sse_customer_algorithm = input;
         self
     }
@@ -592,14 +679,20 @@ impl CompleteMultipartUploadInputBuilder {
     /// <p>The server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn sse_customer_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn sse_customer_key(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.sse_customer_key = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_sse_customer_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_sse_customer_key(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.sse_customer_key = input;
         self
     }
@@ -612,14 +705,20 @@ impl CompleteMultipartUploadInputBuilder {
     /// <p>The MD5 server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn sse_customer_key_md5(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn sse_customer_key_md5(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.sse_customer_key_md5 = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The MD5 server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_sse_customer_key_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_sse_customer_key_md5(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.sse_customer_key_md5 = input;
         self
     }
@@ -636,31 +735,33 @@ impl CompleteMultipartUploadInputBuilder {
         crate::operation::complete_multipart_upload::CompleteMultipartUploadInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::complete_multipart_upload::CompleteMultipartUploadInput {
-            bucket: self.bucket,
-            key: self.key,
-            multipart_upload: self.multipart_upload,
-            upload_id: self.upload_id,
-            checksum_crc32: self.checksum_crc32,
-            checksum_crc32_c: self.checksum_crc32_c,
-            checksum_crc64_nvme: self.checksum_crc64_nvme,
-            checksum_sha1: self.checksum_sha1,
-            checksum_sha256: self.checksum_sha256,
-            checksum_sha512: self.checksum_sha512,
-            checksum_md5: self.checksum_md5,
-            checksum_xxhash64: self.checksum_xxhash64,
-            checksum_xxhash3: self.checksum_xxhash3,
-            checksum_xxhash128: self.checksum_xxhash128,
-            checksum_type: self.checksum_type,
-            mpu_object_size: self.mpu_object_size,
-            request_payer: self.request_payer,
-            expected_bucket_owner: self.expected_bucket_owner,
-            if_match: self.if_match,
-            if_none_match: self.if_none_match,
-            sse_customer_algorithm: self.sse_customer_algorithm,
-            sse_customer_key: self.sse_customer_key,
-            sse_customer_key_md5: self.sse_customer_key_md5,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::complete_multipart_upload::CompleteMultipartUploadInput {
+                bucket: self.bucket,
+                key: self.key,
+                multipart_upload: self.multipart_upload,
+                upload_id: self.upload_id,
+                checksum_crc32: self.checksum_crc32,
+                checksum_crc32_c: self.checksum_crc32_c,
+                checksum_crc64_nvme: self.checksum_crc64_nvme,
+                checksum_sha1: self.checksum_sha1,
+                checksum_sha256: self.checksum_sha256,
+                checksum_sha512: self.checksum_sha512,
+                checksum_md5: self.checksum_md5,
+                checksum_xxhash64: self.checksum_xxhash64,
+                checksum_xxhash3: self.checksum_xxhash3,
+                checksum_xxhash128: self.checksum_xxhash128,
+                checksum_type: self.checksum_type,
+                mpu_object_size: self.mpu_object_size,
+                request_payer: self.request_payer,
+                expected_bucket_owner: self.expected_bucket_owner,
+                if_match: self.if_match,
+                if_none_match: self.if_none_match,
+                sse_customer_algorithm: self.sse_customer_algorithm,
+                sse_customer_key: self.sse_customer_key,
+                sse_customer_key_md5: self.sse_customer_key_md5,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for CompleteMultipartUploadInputBuilder {

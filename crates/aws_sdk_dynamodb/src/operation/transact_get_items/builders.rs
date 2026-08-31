@@ -68,7 +68,9 @@ impl TransactGetItemsFluentBuilder {
         }
     }
     /// Access the TransactGetItems as a reference.
-    pub fn as_input(&self) -> &crate::operation::transact_get_items::builders::TransactGetItemsInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::transact_get_items::builders::TransactGetItemsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,12 +94,14 @@ impl TransactGetItemsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::transact_get_items::TransactGetItems::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::transact_get_items::TransactGetItems::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::transact_get_items::TransactGetItems::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::transact_get_items::TransactGetItems::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -110,12 +114,18 @@ impl TransactGetItemsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -130,12 +140,17 @@ impl TransactGetItemsFluentBuilder {
         self
     }
     /// <p>An ordered array of up to 100 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure.</p>
-    pub fn set_transact_items(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TransactGetItem>>) -> Self {
+    pub fn set_transact_items(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::TransactGetItem>>,
+    ) -> Self {
         self.inner = self.inner.set_transact_items(input);
         self
     }
     /// <p>An ordered array of up to 100 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure.</p>
-    pub fn get_transact_items(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TransactGetItem>> {
+    pub fn get_transact_items(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::TransactGetItem>> {
         self.inner.get_transact_items()
     }
     /// <p>A value of <code>TOTAL</code> causes consumed capacity information to be returned, and a value of <code>NONE</code> prevents that information from being returned. No other value is valid.</p>
@@ -144,12 +159,17 @@ impl TransactGetItemsFluentBuilder {
         self
     }
     /// <p>A value of <code>TOTAL</code> causes consumed capacity information to be returned, and a value of <code>NONE</code> prevents that information from being returned. No other value is valid.</p>
-    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
+    pub fn set_return_consumed_capacity(
+        mut self,
+        input: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
+    ) -> Self {
         self.inner = self.inner.set_return_consumed_capacity(input);
         self
     }
     /// <p>A value of <code>TOTAL</code> causes consumed capacity information to be returned, and a value of <code>NONE</code> prevents that information from being returned. No other value is valid.</p>
-    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
+    pub fn get_return_consumed_capacity(
+        &self,
+    ) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
         self.inner.get_return_consumed_capacity()
     }
 }

@@ -57,7 +57,7 @@ impl EnableKinesisStreamingDestinationFluentBuilder {
         }
     }
     /// Access the EnableKinesisStreamingDestination as a reference.
-    pub fn as_input(&self) -> &crate::operation::enable_kinesis_streaming_destination::builders::EnableKinesisStreamingDestinationInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::enable_kinesis_streaming_destination::builders::EnableKinesisStreamingDestinationInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +76,7 @@ impl EnableKinesisStreamingDestinationFluentBuilder {
             crate::operation::enable_kinesis_streaming_destination::EnableKinesisStreamingDestinationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -96,15 +96,21 @@ impl EnableKinesisStreamingDestinationFluentBuilder {
         crate::operation::enable_kinesis_streaming_destination::EnableKinesisStreamingDestinationOutput,
         crate::operation::enable_kinesis_streaming_destination::EnableKinesisStreamingDestinationError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -137,7 +143,10 @@ impl EnableKinesisStreamingDestinationFluentBuilder {
         self.inner.get_stream_arn()
     }
     /// <p>The source for the Kinesis streaming information that is being enabled.</p>
-    pub fn enable_kinesis_streaming_configuration(mut self, input: crate::types::EnableKinesisStreamingConfiguration) -> Self {
+    pub fn enable_kinesis_streaming_configuration(
+        mut self,
+        input: crate::types::EnableKinesisStreamingConfiguration,
+    ) -> Self {
         self.inner = self.inner.enable_kinesis_streaming_configuration(input);
         self
     }
@@ -150,7 +159,9 @@ impl EnableKinesisStreamingDestinationFluentBuilder {
         self
     }
     /// <p>The source for the Kinesis streaming information that is being enabled.</p>
-    pub fn get_enable_kinesis_streaming_configuration(&self) -> &::std::option::Option<crate::types::EnableKinesisStreamingConfiguration> {
+    pub fn get_enable_kinesis_streaming_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::EnableKinesisStreamingConfiguration> {
         self.inner.get_enable_kinesis_streaming_configuration()
     }
 }

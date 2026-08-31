@@ -44,7 +44,7 @@ impl
             crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
             crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -58,7 +58,7 @@ impl ListOpenIDConnectProviderTagsFluentBuilder {
         }
     }
     /// Access the ListOpenIDConnectProviderTags as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -77,7 +77,7 @@ impl ListOpenIDConnectProviderTagsFluentBuilder {
             crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -100,36 +100,50 @@ impl ListOpenIDConnectProviderTagsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginator {
+    pub fn into_paginator(self) -> crate::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginator{
         crate::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginator::new(self.handle, self.inner)
     }
     /// <p>The ARN of the OpenID Connect (OIDC) identity provider whose tags you want to see.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn open_id_connect_provider_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn open_id_connect_provider_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.open_id_connect_provider_arn(input.into());
         self
     }
     /// <p>The ARN of the OpenID Connect (OIDC) identity provider whose tags you want to see.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_open_id_connect_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_open_id_connect_provider_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_open_id_connect_provider_arn(input);
         self
     }
     /// <p>The ARN of the OpenID Connect (OIDC) identity provider whose tags you want to see.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn get_open_id_connect_provider_arn(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_open_id_connect_provider_arn(
+        &self,
+    ) -> &::std::option::Option<::std::string::String> {
         self.inner.get_open_id_connect_provider_arn()
     }
     /// <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>

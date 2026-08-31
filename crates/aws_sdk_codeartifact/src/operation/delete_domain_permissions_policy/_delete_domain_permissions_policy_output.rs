@@ -20,13 +20,15 @@ impl ::aws_types::request_id::RequestId for DeleteDomainPermissionsPolicyOutput 
 }
 impl DeleteDomainPermissionsPolicyOutput {
     /// Creates a new builder-style object to manufacture [`DeleteDomainPermissionsPolicyOutput`](crate::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyOutput).
-    pub fn builder() -> crate::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyOutputBuilder {
+    pub fn builder() -> crate::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyOutputBuilder{
         crate::operation::delete_domain_permissions_policy::builders::DeleteDomainPermissionsPolicyOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteDomainPermissionsPolicyOutput`](crate::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteDomainPermissionsPolicyOutputBuilder {
     pub(crate) policy: ::std::option::Option<crate::types::ResourcePolicy>,
@@ -39,7 +41,10 @@ impl DeleteDomainPermissionsPolicyOutputBuilder {
         self
     }
     /// <p>Information about the deleted resource policy after processing the request.</p>
-    pub fn set_policy(mut self, input: ::std::option::Option<crate::types::ResourcePolicy>) -> Self {
+    pub fn set_policy(
+        mut self,
+        input: ::std::option::Option<crate::types::ResourcePolicy>,
+    ) -> Self {
         self.policy = input;
         self
     }
@@ -57,7 +62,10 @@ impl DeleteDomainPermissionsPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteDomainPermissionsPolicyOutput`](crate::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyOutput).
-    pub fn build(self) -> crate::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyOutput
+    {
         crate::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyOutput {
             policy: self.policy,
             _request_id: self._request_id,

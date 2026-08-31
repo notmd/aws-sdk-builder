@@ -35,7 +35,8 @@ impl crate::operation::describe_user_pool_client::builders::DescribeUserPoolClie
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DescribeUserPoolClientFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientInputBuilder,
+    inner:
+        crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -66,7 +67,10 @@ impl DescribeUserPoolClientFluentBuilder {
         }
     }
     /// Access the DescribeUserPoolClient as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -95,7 +99,11 @@ impl DescribeUserPoolClientFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_user_pool_client::DescribeUserPoolClient::orchestrate(&runtime_plugins, input).await
+        crate::operation::describe_user_pool_client::DescribeUserPoolClient::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -108,12 +116,18 @@ impl DescribeUserPoolClientFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }

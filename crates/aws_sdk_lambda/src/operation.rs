@@ -21,8 +21,6 @@ pub mod create_alias;
 /// Types for the `CreateCapacityProvider` operation.
 pub mod create_capacity_provider;
 
-
-
 #[cfg(feature = "op_create_function")]
 /// Types for the `CreateFunction` operation.
 pub mod create_function;
@@ -246,7 +244,6 @@ pub mod list_versions_by_function;
 #[cfg(feature = "op_publish_layer_version")]
 /// Types for the `PublishLayerVersion` operation.
 pub mod publish_layer_version;
-
 
 #[cfg(feature = "op_put_function_code_signing_config")]
 /// Types for the `PutFunctionCodeSigningConfig` operation.

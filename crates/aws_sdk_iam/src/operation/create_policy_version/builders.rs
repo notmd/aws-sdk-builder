@@ -59,7 +59,9 @@ impl CreatePolicyVersionFluentBuilder {
         }
     }
     /// Access the CreatePolicyVersion as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_policy_version::builders::CreatePolicyVersionInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::create_policy_version::builders::CreatePolicyVersionInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,12 +85,17 @@ impl CreatePolicyVersionFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_policy_version::CreatePolicyVersion::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_policy_version::CreatePolicyVersion::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::create_policy_version::CreatePolicyVersion::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::create_policy_version::CreatePolicyVersion::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -101,12 +108,18 @@ impl CreatePolicyVersionFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -139,7 +152,10 @@ impl CreatePolicyVersionFluentBuilder {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn policy_document(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.policy_document(input.into());
         self
     }
@@ -155,7 +171,10 @@ impl CreatePolicyVersionFluentBuilder {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_policy_document(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_policy_document(input);
         self
     }

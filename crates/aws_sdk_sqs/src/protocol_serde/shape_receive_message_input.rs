@@ -52,7 +52,9 @@ pub fn ser_receive_message_input_input(
         );
     }
     if let Some(var_14) = &input.receive_request_attempt_id {
-        object.key("ReceiveRequestAttemptId").string(var_14.as_str());
+        object
+            .key("ReceiveRequestAttemptId")
+            .string(var_14.as_str());
     }
     Ok(())
 }

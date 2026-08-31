@@ -20,19 +20,25 @@ impl PutFunctionScalingConfigInput {
         self.qualifier.as_deref()
     }
     /// <p>The scaling configuration to apply to the function, including minimum and maximum execution environment limits.</p>
-    pub fn function_scaling_config(&self) -> ::std::option::Option<&crate::types::FunctionScalingConfig> {
+    pub fn function_scaling_config(
+        &self,
+    ) -> ::std::option::Option<&crate::types::FunctionScalingConfig> {
         self.function_scaling_config.as_ref()
     }
 }
 impl PutFunctionScalingConfigInput {
     /// Creates a new builder-style object to manufacture [`PutFunctionScalingConfigInput`](crate::operation::put_function_scaling_config::PutFunctionScalingConfigInput).
-    pub fn builder() -> crate::operation::put_function_scaling_config::builders::PutFunctionScalingConfigInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::put_function_scaling_config::builders::PutFunctionScalingConfigInputBuilder
+    {
         crate::operation::put_function_scaling_config::builders::PutFunctionScalingConfigInputBuilder::default()
     }
 }
 
 /// A builder for [`PutFunctionScalingConfigInput`](crate::operation::put_function_scaling_config::PutFunctionScalingConfigInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutFunctionScalingConfigInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -42,12 +48,18 @@ pub struct PutFunctionScalingConfigInputBuilder {
 impl PutFunctionScalingConfigInputBuilder {
     /// <p>The name or ARN of the Lambda function.</p>
     /// This field is required.
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name or ARN of the Lambda function.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.function_name = input;
         self
     }
@@ -76,12 +88,17 @@ impl PutFunctionScalingConfigInputBuilder {
         self
     }
     /// <p>The scaling configuration to apply to the function, including minimum and maximum execution environment limits.</p>
-    pub fn set_function_scaling_config(mut self, input: ::std::option::Option<crate::types::FunctionScalingConfig>) -> Self {
+    pub fn set_function_scaling_config(
+        mut self,
+        input: ::std::option::Option<crate::types::FunctionScalingConfig>,
+    ) -> Self {
         self.function_scaling_config = input;
         self
     }
     /// <p>The scaling configuration to apply to the function, including minimum and maximum execution environment limits.</p>
-    pub fn get_function_scaling_config(&self) -> &::std::option::Option<crate::types::FunctionScalingConfig> {
+    pub fn get_function_scaling_config(
+        &self,
+    ) -> &::std::option::Option<crate::types::FunctionScalingConfig> {
         &self.function_scaling_config
     }
     /// Consumes the builder and constructs a [`PutFunctionScalingConfigInput`](crate::operation::put_function_scaling_config::PutFunctionScalingConfigInput).
@@ -91,10 +108,12 @@ impl PutFunctionScalingConfigInputBuilder {
         crate::operation::put_function_scaling_config::PutFunctionScalingConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::put_function_scaling_config::PutFunctionScalingConfigInput {
-            function_name: self.function_name,
-            qualifier: self.qualifier,
-            function_scaling_config: self.function_scaling_config,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::put_function_scaling_config::PutFunctionScalingConfigInput {
+                function_name: self.function_name,
+                qualifier: self.qualifier,
+                function_scaling_config: self.function_scaling_config,
+            },
+        )
     }
 }

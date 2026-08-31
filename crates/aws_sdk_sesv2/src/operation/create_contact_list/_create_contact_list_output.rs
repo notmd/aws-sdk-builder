@@ -12,13 +12,16 @@ impl ::aws_types::request_id::RequestId for CreateContactListOutput {
 }
 impl CreateContactListOutput {
     /// Creates a new builder-style object to manufacture [`CreateContactListOutput`](crate::operation::create_contact_list::CreateContactListOutput).
-    pub fn builder() -> crate::operation::create_contact_list::builders::CreateContactListOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::create_contact_list::builders::CreateContactListOutputBuilder {
         crate::operation::create_contact_list::builders::CreateContactListOutputBuilder::default()
     }
 }
 
 /// A builder for [`CreateContactListOutput`](crate::operation::create_contact_list::CreateContactListOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateContactListOutputBuilder {
     _request_id: Option<String>,

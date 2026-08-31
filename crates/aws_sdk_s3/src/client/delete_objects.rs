@@ -15,7 +15,11 @@ impl super::Client {
     ///   - [`request_charged(Option<RequestCharged>)`](crate::operation::delete_objects::DeleteObjectsOutput::request_charged): <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>  <p>This functionality is not supported for directory buckets.</p> </note>
     ///   - [`errors(Option<Vec::<Error>>)`](crate::operation::delete_objects::DeleteObjectsOutput::errors): <p>Container for a failed delete action that describes the object that Amazon S3 attempted to delete and the error it encountered.</p>
     /// - On failure, responds with [`SdkError<DeleteObjectsError>`](crate::operation::delete_objects::DeleteObjectsError)
-    pub fn delete_objects(&self) -> crate::operation::delete_objects::builders::DeleteObjectsFluentBuilder {
-        crate::operation::delete_objects::builders::DeleteObjectsFluentBuilder::new(self.handle.clone())
+    pub fn delete_objects(
+        &self,
+    ) -> crate::operation::delete_objects::builders::DeleteObjectsFluentBuilder {
+        crate::operation::delete_objects::builders::DeleteObjectsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

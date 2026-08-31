@@ -24,7 +24,11 @@ impl super::Client {
     ///   - [`scope(Option<Vec::<String>>)`](crate::operation::create_token_with_iam::CreateTokenWithIamOutput::scope): <p>The list of scopes for which authorization is granted. The access token that is issued is limited to the scopes that are granted.</p>
     ///   - [`aws_additional_details(Option<AwsAdditionalDetails>)`](crate::operation::create_token_with_iam::CreateTokenWithIamOutput::aws_additional_details): <p>A structure containing information from IAM Identity Center managed user and group information.</p>
     /// - On failure, responds with [`SdkError<CreateTokenWithIAMError>`](crate::operation::create_token_with_iam::CreateTokenWithIAMError)
-    pub fn create_token_with_iam(&self) -> crate::operation::create_token_with_iam::builders::CreateTokenWithIAMFluentBuilder {
-        crate::operation::create_token_with_iam::builders::CreateTokenWithIAMFluentBuilder::new(self.handle.clone())
+    pub fn create_token_with_iam(
+        &self,
+    ) -> crate::operation::create_token_with_iam::builders::CreateTokenWithIAMFluentBuilder {
+        crate::operation::create_token_with_iam::builders::CreateTokenWithIAMFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

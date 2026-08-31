@@ -67,7 +67,7 @@ impl AdminUpdateAuthEventFeedbackFluentBuilder {
         }
     }
     /// Access the AdminUpdateAuthEventFeedback as a reference.
-    pub fn as_input(&self) -> &crate::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -109,12 +109,18 @@ impl AdminUpdateAuthEventFeedbackFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -166,7 +172,10 @@ impl AdminUpdateAuthEventFeedbackFluentBuilder {
         self
     }
     /// <p>Your feedback to the authentication event. When you provide a <code>FeedbackValue</code> value of <code>valid</code>, you tell Amazon Cognito that you trust a user session where Amazon Cognito has evaluated some level of risk. When you provide a <code>FeedbackValue</code> value of <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
-    pub fn set_feedback_value(mut self, input: ::std::option::Option<crate::types::FeedbackValueType>) -> Self {
+    pub fn set_feedback_value(
+        mut self,
+        input: ::std::option::Option<crate::types::FeedbackValueType>,
+    ) -> Self {
         self.inner = self.inner.set_feedback_value(input);
         self
     }

@@ -29,7 +29,9 @@ impl PolicyUser {
 }
 
 /// A builder for [`PolicyUser`](crate::types::PolicyUser).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PolicyUserBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,

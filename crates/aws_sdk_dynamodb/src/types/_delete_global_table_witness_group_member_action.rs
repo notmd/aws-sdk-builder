@@ -22,7 +22,9 @@ impl DeleteGlobalTableWitnessGroupMemberAction {
 }
 
 /// A builder for [`DeleteGlobalTableWitnessGroupMemberAction`](crate::types::DeleteGlobalTableWitnessGroupMemberAction).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteGlobalTableWitnessGroupMemberActionBuilder {
     pub(crate) region_name: ::std::option::Option<::std::string::String>,
@@ -48,7 +50,10 @@ impl DeleteGlobalTableWitnessGroupMemberActionBuilder {
     /// - [`region_name`](crate::types::builders::DeleteGlobalTableWitnessGroupMemberActionBuilder::region_name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::types::DeleteGlobalTableWitnessGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::types::DeleteGlobalTableWitnessGroupMemberAction,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::DeleteGlobalTableWitnessGroupMemberAction {
             region_name: self.region_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

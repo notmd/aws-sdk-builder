@@ -91,11 +91,12 @@ impl UpdateTableFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_table::UpdateTable::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::update_table::UpdateTable::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::update_table::UpdateTable::orchestrate(&runtime_plugins, input).await
     }
 
@@ -109,12 +110,18 @@ impl UpdateTableFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -129,12 +136,17 @@ impl UpdateTableFluentBuilder {
         self
     }
     /// <p>An array of attributes that describe the key schema for the table and indexes. If you are adding a new global secondary index to the table, <code>AttributeDefinitions</code> must include the key element(s) of the new index.</p>
-    pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>) -> Self {
+    pub fn set_attribute_definitions(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>,
+    ) -> Self {
         self.inner = self.inner.set_attribute_definitions(input);
         self
     }
     /// <p>An array of attributes that describe the key schema for the table and indexes. If you are adding a new global secondary index to the table, <code>AttributeDefinitions</code> must include the key element(s) of the new index.</p>
-    pub fn get_attribute_definitions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>> {
+    pub fn get_attribute_definitions(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>> {
         self.inner.get_attribute_definitions()
     }
     /// <p>The name of the table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
@@ -169,7 +181,10 @@ impl UpdateTableFluentBuilder {
     /// <li>
     /// <p><code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for steady workloads with predictable growth where capacity requirements can be reliably forecasted. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p></li>
     /// </ul>
-    pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
+    pub fn set_billing_mode(
+        mut self,
+        input: ::std::option::Option<crate::types::BillingMode>,
+    ) -> Self {
         self.inner = self.inner.set_billing_mode(input);
         self
     }
@@ -189,12 +204,17 @@ impl UpdateTableFluentBuilder {
         self
     }
     /// <p>The new provisioned throughput settings for the specified table or index.</p>
-    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
+    pub fn set_provisioned_throughput(
+        mut self,
+        input: ::std::option::Option<crate::types::ProvisionedThroughput>,
+    ) -> Self {
         self.inner = self.inner.set_provisioned_throughput(input);
         self
     }
     /// <p>The new provisioned throughput settings for the specified table or index.</p>
-    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
+    pub fn get_provisioned_throughput(
+        &self,
+    ) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
         self.inner.get_provisioned_throughput()
     }
     ///
@@ -213,7 +233,10 @@ impl UpdateTableFluentBuilder {
     /// </ul>
     /// <p>You can create or delete only one global secondary index per <code>UpdateTable</code> operation.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn global_secondary_index_updates(mut self, input: crate::types::GlobalSecondaryIndexUpdate) -> Self {
+    pub fn global_secondary_index_updates(
+        mut self,
+        input: crate::types::GlobalSecondaryIndexUpdate,
+    ) -> Self {
         self.inner = self.inner.global_secondary_index_updates(input);
         self
     }
@@ -246,7 +269,9 @@ impl UpdateTableFluentBuilder {
     /// </ul>
     /// <p>You can create or delete only one global secondary index per <code>UpdateTable</code> operation.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_global_secondary_index_updates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexUpdate>> {
+    pub fn get_global_secondary_index_updates(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexUpdate>> {
         self.inner.get_global_secondary_index_updates()
     }
     /// <p>Represents the DynamoDB Streams configuration for the table.</p><note>
@@ -259,14 +284,19 @@ impl UpdateTableFluentBuilder {
     /// <p>Represents the DynamoDB Streams configuration for the table.</p><note>
     /// <p>You receive a <code>ValidationException</code> if you try to enable a stream on a table that already has a stream, or if you try to disable a stream on a table that doesn't have a stream.</p>
     /// </note>
-    pub fn set_stream_specification(mut self, input: ::std::option::Option<crate::types::StreamSpecification>) -> Self {
+    pub fn set_stream_specification(
+        mut self,
+        input: ::std::option::Option<crate::types::StreamSpecification>,
+    ) -> Self {
         self.inner = self.inner.set_stream_specification(input);
         self
     }
     /// <p>Represents the DynamoDB Streams configuration for the table.</p><note>
     /// <p>You receive a <code>ValidationException</code> if you try to enable a stream on a table that already has a stream, or if you try to disable a stream on a table that doesn't have a stream.</p>
     /// </note>
-    pub fn get_stream_specification(&self) -> &::std::option::Option<crate::types::StreamSpecification> {
+    pub fn get_stream_specification(
+        &self,
+    ) -> &::std::option::Option<crate::types::StreamSpecification> {
         self.inner.get_stream_specification()
     }
     /// <p>The new server-side encryption settings for the specified table.</p>
@@ -275,7 +305,10 @@ impl UpdateTableFluentBuilder {
         self
     }
     /// <p>The new server-side encryption settings for the specified table.</p>
-    pub fn set_sse_specification(mut self, input: ::std::option::Option<crate::types::SseSpecification>) -> Self {
+    pub fn set_sse_specification(
+        mut self,
+        input: ::std::option::Option<crate::types::SseSpecification>,
+    ) -> Self {
         self.inner = self.inner.set_sse_specification(input);
         self
     }
@@ -294,12 +327,17 @@ impl UpdateTableFluentBuilder {
         self
     }
     /// <p>A list of replica update actions (create, delete, or update) for the table.</p>
-    pub fn set_replica_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicationGroupUpdate>>) -> Self {
+    pub fn set_replica_updates(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicationGroupUpdate>>,
+    ) -> Self {
         self.inner = self.inner.set_replica_updates(input);
         self
     }
     /// <p>A list of replica update actions (create, delete, or update) for the table.</p>
-    pub fn get_replica_updates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicationGroupUpdate>> {
+    pub fn get_replica_updates(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicationGroupUpdate>> {
         self.inner.get_replica_updates()
     }
     /// <p>The table class of the table to be updated. Valid values are <code>STANDARD</code> and <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
@@ -308,7 +346,10 @@ impl UpdateTableFluentBuilder {
         self
     }
     /// <p>The table class of the table to be updated. Valid values are <code>STANDARD</code> and <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
-    pub fn set_table_class(mut self, input: ::std::option::Option<crate::types::TableClass>) -> Self {
+    pub fn set_table_class(
+        mut self,
+        input: ::std::option::Option<crate::types::TableClass>,
+    ) -> Self {
         self.inner = self.inner.set_table_class(input);
         self
     }
@@ -352,7 +393,10 @@ impl UpdateTableFluentBuilder {
     /// <p><code>STRONG</code>: Configures a new global table for multi-Region strong consistency (MRSC).</p></li>
     /// </ul>
     /// <p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>. For more information about global tables consistency modes, see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes"> Consistency modes</a> in DynamoDB developer guide.</p>
-    pub fn set_multi_region_consistency(mut self, input: ::std::option::Option<crate::types::MultiRegionConsistency>) -> Self {
+    pub fn set_multi_region_consistency(
+        mut self,
+        input: ::std::option::Option<crate::types::MultiRegionConsistency>,
+    ) -> Self {
         self.inner = self.inner.set_multi_region_consistency(input);
         self
     }
@@ -365,7 +409,9 @@ impl UpdateTableFluentBuilder {
     /// <p><code>STRONG</code>: Configures a new global table for multi-Region strong consistency (MRSC).</p></li>
     /// </ul>
     /// <p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>. For more information about global tables consistency modes, see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes"> Consistency modes</a> in DynamoDB developer guide.</p>
-    pub fn get_multi_region_consistency(&self) -> &::std::option::Option<crate::types::MultiRegionConsistency> {
+    pub fn get_multi_region_consistency(
+        &self,
+    ) -> &::std::option::Option<crate::types::MultiRegionConsistency> {
         self.inner.get_multi_region_consistency()
     }
     ///
@@ -382,7 +428,10 @@ impl UpdateTableFluentBuilder {
     /// </ul>
     /// <p>You can create or delete only one witness per <code>UpdateTable</code> operation.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">Multi-Region strong consistency (MRSC)</a> in the Amazon DynamoDB Developer Guide</p>
-    pub fn global_table_witness_updates(mut self, input: crate::types::GlobalTableWitnessGroupUpdate) -> Self {
+    pub fn global_table_witness_updates(
+        mut self,
+        input: crate::types::GlobalTableWitnessGroupUpdate,
+    ) -> Self {
         self.inner = self.inner.global_table_witness_updates(input);
         self
     }
@@ -411,7 +460,9 @@ impl UpdateTableFluentBuilder {
     /// </ul>
     /// <p>You can create or delete only one witness per <code>UpdateTable</code> operation.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">Multi-Region strong consistency (MRSC)</a> in the Amazon DynamoDB Developer Guide</p>
-    pub fn get_global_table_witness_updates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalTableWitnessGroupUpdate>> {
+    pub fn get_global_table_witness_updates(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalTableWitnessGroupUpdate>> {
         self.inner.get_global_table_witness_updates()
     }
     /// <p>Updates the maximum number of read and write units for the specified table in on-demand capacity mode. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
@@ -420,12 +471,17 @@ impl UpdateTableFluentBuilder {
         self
     }
     /// <p>Updates the maximum number of read and write units for the specified table in on-demand capacity mode. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
+    pub fn set_on_demand_throughput(
+        mut self,
+        input: ::std::option::Option<crate::types::OnDemandThroughput>,
+    ) -> Self {
         self.inner = self.inner.set_on_demand_throughput(input);
         self
     }
     /// <p>Updates the maximum number of read and write units for the specified table in on-demand capacity mode. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
+    pub fn get_on_demand_throughput(
+        &self,
+    ) -> &::std::option::Option<crate::types::OnDemandThroughput> {
         self.inner.get_on_demand_throughput()
     }
     /// <p>Represents the warm throughput (in read units per second and write units per second) for updating a table.</p>
@@ -434,7 +490,10 @@ impl UpdateTableFluentBuilder {
         self
     }
     /// <p>Represents the warm throughput (in read units per second and write units per second) for updating a table.</p>
-    pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::WarmThroughput>) -> Self {
+    pub fn set_warm_throughput(
+        mut self,
+        input: ::std::option::Option<crate::types::WarmThroughput>,
+    ) -> Self {
         self.inner = self.inner.set_warm_throughput(input);
         self
     }
@@ -449,7 +508,10 @@ impl UpdateTableFluentBuilder {
     /// <li>
     /// <p><code>DISABLED</code>: Remove settings replication on a regional table. Settings replication needs to be defined to ENABLED again in order to create a Multi-Account Global Table using this table.</p></li>
     /// </ul>
-    pub fn global_table_settings_replication_mode(mut self, input: crate::types::GlobalTableSettingsReplicationMode) -> Self {
+    pub fn global_table_settings_replication_mode(
+        mut self,
+        input: crate::types::GlobalTableSettingsReplicationMode,
+    ) -> Self {
         self.inner = self.inner.global_table_settings_replication_mode(input);
         self
     }
@@ -474,7 +536,9 @@ impl UpdateTableFluentBuilder {
     /// <li>
     /// <p><code>DISABLED</code>: Remove settings replication on a regional table. Settings replication needs to be defined to ENABLED again in order to create a Multi-Account Global Table using this table.</p></li>
     /// </ul>
-    pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<crate::types::GlobalTableSettingsReplicationMode> {
+    pub fn get_global_table_settings_replication_mode(
+        &self,
+    ) -> &::std::option::Option<crate::types::GlobalTableSettingsReplicationMode> {
         self.inner.get_global_table_settings_replication_mode()
     }
     ///
@@ -490,13 +554,18 @@ impl UpdateTableFluentBuilder {
     }
     /// <p>A list of vector indexes to be added to or removed from the table. You can add or remove one vector index for each <code>UpdateTable</code> operation.</p>
     /// <p>To add a vector index, specify <code>IndexName</code>, <code>VectorAttribute</code>, <code>Dimensions</code>, <code>DistanceFunction</code>, and <code>Projection</code>. To remove a vector index, specify only the <code>IndexName</code>.</p>
-    pub fn set_vector_index_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndexUpdate>>) -> Self {
+    pub fn set_vector_index_updates(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndexUpdate>>,
+    ) -> Self {
         self.inner = self.inner.set_vector_index_updates(input);
         self
     }
     /// <p>A list of vector indexes to be added to or removed from the table. You can add or remove one vector index for each <code>UpdateTable</code> operation.</p>
     /// <p>To add a vector index, specify <code>IndexName</code>, <code>VectorAttribute</code>, <code>Dimensions</code>, <code>DistanceFunction</code>, and <code>Projection</code>. To remove a vector index, specify only the <code>IndexName</code>.</p>
-    pub fn get_vector_index_updates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VectorIndexUpdate>> {
+    pub fn get_vector_index_updates(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::VectorIndexUpdate>> {
         self.inner.get_vector_index_updates()
     }
 }

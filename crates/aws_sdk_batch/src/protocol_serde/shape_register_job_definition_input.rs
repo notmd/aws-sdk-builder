@@ -12,7 +12,10 @@ pub fn ser_register_job_definition_input_input(
     if let Some(var_3) = &input.container_properties {
         #[allow(unused_mut)]
         let mut object_4 = object.key("containerProperties").start_object();
-        crate::protocol_serde::shape_container_properties::ser_container_properties(&mut object_4, var_3)?;
+        crate::protocol_serde::shape_container_properties::ser_container_properties(
+            &mut object_4,
+            var_3,
+        )?;
         object_4.finish();
     }
     if let Some(var_5) = &input.ecs_properties {

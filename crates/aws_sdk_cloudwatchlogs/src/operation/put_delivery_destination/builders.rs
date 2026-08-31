@@ -71,7 +71,10 @@ impl PutDeliveryDestinationFluentBuilder {
         }
     }
     /// Access the PutDeliveryDestination as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_delivery_destination::builders::PutDeliveryDestinationInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_delivery_destination::builders::PutDeliveryDestinationInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -100,7 +103,11 @@ impl PutDeliveryDestinationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_delivery_destination::PutDeliveryDestination::orchestrate(&runtime_plugins, input).await
+        crate::operation::put_delivery_destination::PutDeliveryDestination::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -113,12 +120,18 @@ impl PutDeliveryDestinationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -142,7 +155,10 @@ impl PutDeliveryDestinationFluentBuilder {
         self
     }
     /// <p>The format for the logs that this delivery destination will receive.</p>
-    pub fn set_output_format(mut self, input: ::std::option::Option<crate::types::OutputFormat>) -> Self {
+    pub fn set_output_format(
+        mut self,
+        input: ::std::option::Option<crate::types::OutputFormat>,
+    ) -> Self {
         self.inner = self.inner.set_output_format(input);
         self
     }
@@ -153,21 +169,29 @@ impl PutDeliveryDestinationFluentBuilder {
     /// <p>A structure that contains the ARN of the Amazon Web Services resource that will receive the logs.</p><note>
     /// <p><code>deliveryDestinationConfiguration</code> is required for CloudWatch Logs, Amazon S3, Firehose log delivery destinations and not required for X-Ray trace delivery destinations. <code>deliveryDestinationType</code> is needed for X-Ray trace delivery destinations but not required for other logs delivery destinations.</p>
     /// </note>
-    pub fn delivery_destination_configuration(mut self, input: crate::types::DeliveryDestinationConfiguration) -> Self {
+    pub fn delivery_destination_configuration(
+        mut self,
+        input: crate::types::DeliveryDestinationConfiguration,
+    ) -> Self {
         self.inner = self.inner.delivery_destination_configuration(input);
         self
     }
     /// <p>A structure that contains the ARN of the Amazon Web Services resource that will receive the logs.</p><note>
     /// <p><code>deliveryDestinationConfiguration</code> is required for CloudWatch Logs, Amazon S3, Firehose log delivery destinations and not required for X-Ray trace delivery destinations. <code>deliveryDestinationType</code> is needed for X-Ray trace delivery destinations but not required for other logs delivery destinations.</p>
     /// </note>
-    pub fn set_delivery_destination_configuration(mut self, input: ::std::option::Option<crate::types::DeliveryDestinationConfiguration>) -> Self {
+    pub fn set_delivery_destination_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::DeliveryDestinationConfiguration>,
+    ) -> Self {
         self.inner = self.inner.set_delivery_destination_configuration(input);
         self
     }
     /// <p>A structure that contains the ARN of the Amazon Web Services resource that will receive the logs.</p><note>
     /// <p><code>deliveryDestinationConfiguration</code> is required for CloudWatch Logs, Amazon S3, Firehose log delivery destinations and not required for X-Ray trace delivery destinations. <code>deliveryDestinationType</code> is needed for X-Ray trace delivery destinations but not required for other logs delivery destinations.</p>
     /// </note>
-    pub fn get_delivery_destination_configuration(&self) -> &::std::option::Option<crate::types::DeliveryDestinationConfiguration> {
+    pub fn get_delivery_destination_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::DeliveryDestinationConfiguration> {
         self.inner.get_delivery_destination_configuration()
     }
     /// <p>The type of delivery destination. This parameter specifies the target service where log data will be delivered. Valid values include:</p>
@@ -182,7 +206,10 @@ impl PutDeliveryDestinationFluentBuilder {
     /// <p><code>XRAY</code> - Amazon Web Services X-Ray for distributed tracing and application monitoring</p></li>
     /// </ul>
     /// <p>The delivery destination type determines the format and configuration options available for log delivery.</p>
-    pub fn delivery_destination_type(mut self, input: crate::types::DeliveryDestinationType) -> Self {
+    pub fn delivery_destination_type(
+        mut self,
+        input: crate::types::DeliveryDestinationType,
+    ) -> Self {
         self.inner = self.inner.delivery_destination_type(input);
         self
     }
@@ -198,7 +225,10 @@ impl PutDeliveryDestinationFluentBuilder {
     /// <p><code>XRAY</code> - Amazon Web Services X-Ray for distributed tracing and application monitoring</p></li>
     /// </ul>
     /// <p>The delivery destination type determines the format and configuration options available for log delivery.</p>
-    pub fn set_delivery_destination_type(mut self, input: ::std::option::Option<crate::types::DeliveryDestinationType>) -> Self {
+    pub fn set_delivery_destination_type(
+        mut self,
+        input: ::std::option::Option<crate::types::DeliveryDestinationType>,
+    ) -> Self {
         self.inner = self.inner.set_delivery_destination_type(input);
         self
     }
@@ -214,7 +244,9 @@ impl PutDeliveryDestinationFluentBuilder {
     /// <p><code>XRAY</code> - Amazon Web Services X-Ray for distributed tracing and application monitoring</p></li>
     /// </ul>
     /// <p>The delivery destination type determines the format and configuration options available for log delivery.</p>
-    pub fn get_delivery_destination_type(&self) -> &::std::option::Option<crate::types::DeliveryDestinationType> {
+    pub fn get_delivery_destination_type(
+        &self,
+    ) -> &::std::option::Option<crate::types::DeliveryDestinationType> {
         self.inner.get_delivery_destination_type()
     }
     ///
@@ -224,19 +256,32 @@ impl PutDeliveryDestinationFluentBuilder {
     ///
     /// <p>An optional list of key-value pairs to associate with the resource.</p>
     /// <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a></p>
-    pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn tags(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.tags(k.into(), v.into());
         self
     }
     /// <p>An optional list of key-value pairs to associate with the resource.</p>
     /// <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a></p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
+    ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
     /// <p>An optional list of key-value pairs to associate with the resource.</p>
     /// <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a></p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.inner.get_tags()
     }
 }

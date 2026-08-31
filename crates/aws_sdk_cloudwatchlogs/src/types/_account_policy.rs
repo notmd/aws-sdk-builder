@@ -59,7 +59,9 @@ impl AccountPolicy {
 }
 
 /// A builder for [`AccountPolicy`](crate::types::AccountPolicy).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AccountPolicyBuilder {
     pub(crate) policy_name: ::std::option::Option<::std::string::String>,
@@ -87,13 +89,19 @@ impl AccountPolicyBuilder {
     }
     /// <p>The policy document for this account policy.</p>
     /// <p>The JSON specified in <code>policyDocument</code> can be up to 30,720 characters.</p>
-    pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn policy_document(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.policy_document = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The policy document for this account policy.</p>
     /// <p>The JSON specified in <code>policyDocument</code> can be up to 30,720 characters.</p>
-    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_policy_document(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.policy_document = input;
         self
     }
@@ -122,7 +130,10 @@ impl AccountPolicyBuilder {
         self
     }
     /// <p>The type of policy for this account policy.</p>
-    pub fn set_policy_type(mut self, input: ::std::option::Option<crate::types::PolicyType>) -> Self {
+    pub fn set_policy_type(
+        mut self,
+        input: ::std::option::Option<crate::types::PolicyType>,
+    ) -> Self {
         self.policy_type = input;
         self
     }
@@ -145,12 +156,18 @@ impl AccountPolicyBuilder {
         &self.scope
     }
     /// <p>The log group selection criteria that is used for this policy.</p>
-    pub fn selection_criteria(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn selection_criteria(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.selection_criteria = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The log group selection criteria that is used for this policy.</p>
-    pub fn set_selection_criteria(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_selection_criteria(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.selection_criteria = input;
         self
     }

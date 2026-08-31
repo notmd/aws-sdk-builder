@@ -16,7 +16,10 @@ impl super::Client {
     ///   - [`challenge_parameters(Option<HashMap::<String, String>>)`](crate::operation::respond_to_auth_challenge::RespondToAuthChallengeOutput::challenge_parameters): <p>The parameters that define your response to the next challenge.</p>
     ///   - [`authentication_result(Option<AuthenticationResultType>)`](crate::operation::respond_to_auth_challenge::RespondToAuthChallengeOutput::authentication_result): <p>The outcome of a successful authentication process. After your application has passed all challenges, Amazon Cognito returns an <code>AuthenticationResult</code> with the JSON web tokens (JWTs) that indicate successful sign-in.</p>
     /// - On failure, responds with [`SdkError<RespondToAuthChallengeError>`](crate::operation::respond_to_auth_challenge::RespondToAuthChallengeError)
-    pub fn respond_to_auth_challenge(&self) -> crate::operation::respond_to_auth_challenge::builders::RespondToAuthChallengeFluentBuilder {
+    pub fn respond_to_auth_challenge(
+        &self,
+    ) -> crate::operation::respond_to_auth_challenge::builders::RespondToAuthChallengeFluentBuilder
+    {
         crate::operation::respond_to_auth_challenge::builders::RespondToAuthChallengeFluentBuilder::new(self.handle.clone())
     }
 }

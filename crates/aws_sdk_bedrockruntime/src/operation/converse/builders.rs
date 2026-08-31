@@ -38,14 +38,20 @@ pub struct ConverseFluentBuilder {
     inner: crate::operation::converse::builders::ConverseInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
-impl crate::client::customize::internal::CustomizableSend<crate::operation::converse::ConverseOutput, crate::operation::converse::ConverseError>
-    for ConverseFluentBuilder
+impl
+    crate::client::customize::internal::CustomizableSend<
+        crate::operation::converse::ConverseOutput,
+        crate::operation::converse::ConverseError,
+    > for ConverseFluentBuilder
 {
     fn send(
         self,
         config_override: crate::config::Builder,
     ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<crate::operation::converse::ConverseOutput, crate::operation::converse::ConverseError>,
+        crate::client::customize::internal::SendResult<
+            crate::operation::converse::ConverseOutput,
+            crate::operation::converse::ConverseError,
+        >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -95,16 +101,25 @@ impl ConverseFluentBuilder {
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
     pub fn customize(
         self,
-    ) -> crate::client::customize::CustomizableOperation<crate::operation::converse::ConverseOutput, crate::operation::converse::ConverseError, Self>
-    {
+    ) -> crate::client::customize::CustomizableOperation<
+        crate::operation::converse::ConverseOutput,
+        crate::operation::converse::ConverseError,
+        Self,
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -172,7 +187,10 @@ impl ConverseFluentBuilder {
         self
     }
     /// <p>The messages that you want to send to the model.</p>
-    pub fn set_messages(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Message>>) -> Self {
+    pub fn set_messages(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Message>>,
+    ) -> Self {
         self.inner = self.inner.set_messages(input);
         self
     }
@@ -191,12 +209,17 @@ impl ConverseFluentBuilder {
         self
     }
     /// <p>A prompt that provides instructions or context to the model about the task it should perform, or the persona it should adopt during the conversation.</p>
-    pub fn set_system(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SystemContentBlock>>) -> Self {
+    pub fn set_system(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::SystemContentBlock>>,
+    ) -> Self {
         self.inner = self.inner.set_system(input);
         self
     }
     /// <p>A prompt that provides instructions or context to the model about the task it should perform, or the persona it should adopt during the conversation.</p>
-    pub fn get_system(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SystemContentBlock>> {
+    pub fn get_system(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SystemContentBlock>> {
         self.inner.get_system()
     }
     /// <p>Inference parameters to pass to the model. <code>Converse</code> and <code>ConverseStream</code> support a base set of inference parameters. If you need to pass additional parameters that the model supports, use the <code>additionalModelRequestFields</code> request field.</p>
@@ -205,12 +228,17 @@ impl ConverseFluentBuilder {
         self
     }
     /// <p>Inference parameters to pass to the model. <code>Converse</code> and <code>ConverseStream</code> support a base set of inference parameters. If you need to pass additional parameters that the model supports, use the <code>additionalModelRequestFields</code> request field.</p>
-    pub fn set_inference_config(mut self, input: ::std::option::Option<crate::types::InferenceConfiguration>) -> Self {
+    pub fn set_inference_config(
+        mut self,
+        input: ::std::option::Option<crate::types::InferenceConfiguration>,
+    ) -> Self {
         self.inner = self.inner.set_inference_config(input);
         self
     }
     /// <p>Inference parameters to pass to the model. <code>Converse</code> and <code>ConverseStream</code> support a base set of inference parameters. If you need to pass additional parameters that the model supports, use the <code>additionalModelRequestFields</code> request field.</p>
-    pub fn get_inference_config(&self) -> &::std::option::Option<crate::types::InferenceConfiguration> {
+    pub fn get_inference_config(
+        &self,
+    ) -> &::std::option::Option<crate::types::InferenceConfiguration> {
         self.inner.get_inference_config()
     }
     /// <p>Configuration information for the tools that the model can use when generating a response.</p>
@@ -221,7 +249,10 @@ impl ConverseFluentBuilder {
     }
     /// <p>Configuration information for the tools that the model can use when generating a response.</p>
     /// <p>For information about models that support tool use, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference.html#conversation-inference-supported-models-features">Supported models and model features</a>.</p>
-    pub fn set_tool_config(mut self, input: ::std::option::Option<crate::types::ToolConfiguration>) -> Self {
+    pub fn set_tool_config(
+        mut self,
+        input: ::std::option::Option<crate::types::ToolConfiguration>,
+    ) -> Self {
         self.inner = self.inner.set_tool_config(input);
         self
     }
@@ -236,12 +267,17 @@ impl ConverseFluentBuilder {
         self
     }
     /// <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
-    pub fn set_guardrail_config(mut self, input: ::std::option::Option<crate::types::GuardrailConfiguration>) -> Self {
+    pub fn set_guardrail_config(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailConfiguration>,
+    ) -> Self {
         self.inner = self.inner.set_guardrail_config(input);
         self
     }
     /// <p>Configuration information for a guardrail that you want to use in the request. If you include <code>guardContent</code> blocks in the <code>content</code> field in the <code>messages</code> field, the guardrail operates only on those messages. If you include no <code>guardContent</code> blocks, the guardrail operates on all messages in the request body and in any included prompt resource.</p>
-    pub fn get_guardrail_config(&self) -> &::std::option::Option<crate::types::GuardrailConfiguration> {
+    pub fn get_guardrail_config(
+        &self,
+    ) -> &::std::option::Option<crate::types::GuardrailConfiguration> {
         self.inner.get_guardrail_config()
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
@@ -250,12 +286,17 @@ impl ConverseFluentBuilder {
         self
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn set_additional_model_request_fields(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
+    pub fn set_additional_model_request_fields(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::Document>,
+    ) -> Self {
         self.inner = self.inner.set_additional_model_request_fields(input);
         self
     }
     /// <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
-    pub fn get_additional_model_request_fields(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
+    pub fn get_additional_model_request_fields(
+        &self,
+    ) -> &::std::option::Option<::aws_smithy_types::Document> {
         self.inner.get_additional_model_request_fields()
     }
     ///
@@ -264,14 +305,20 @@ impl ConverseFluentBuilder {
     /// To override the contents of this collection use [`set_prompt_variables`](Self::set_prompt_variables).
     ///
     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
-    pub fn prompt_variables(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::PromptVariableValues) -> Self {
+    pub fn prompt_variables(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: crate::types::PromptVariableValues,
+    ) -> Self {
         self.inner = self.inner.prompt_variables(k.into(), v);
         self
     }
     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
     pub fn set_prompt_variables(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>,
+        >,
     ) -> Self {
         self.inner = self.inner.set_prompt_variables(input);
         self
@@ -279,7 +326,9 @@ impl ConverseFluentBuilder {
     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
     pub fn get_prompt_variables(
         &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>> {
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, crate::types::PromptVariableValues>,
+    > {
         self.inner.get_prompt_variables()
     }
     ///
@@ -291,15 +340,23 @@ impl ConverseFluentBuilder {
     /// <p><code>\[ "/stop_sequence" \]</code></p>
     /// <p>For information about the JSON Pointer syntax, see the <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet Engineering Task Force (IETF)</a> documentation.</p>
     /// <p><code>Converse</code> and <code>ConverseStream</code> reject an empty JSON Pointer or incorrectly structured JSON Pointer with a <code>400</code> error code. if the JSON Pointer is valid, but the requested field is not in the model response, it is ignored by <code>Converse</code>.</p>
-    pub fn additional_model_response_field_paths(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.inner = self.inner.additional_model_response_field_paths(input.into());
+    pub fn additional_model_response_field_paths(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
+        self.inner = self
+            .inner
+            .additional_model_response_field_paths(input.into());
         self
     }
     /// <p>Additional model parameters field paths to return in the response. <code>Converse</code> and <code>ConverseStream</code> return the requested fields as a JSON Pointer object in the <code>additionalModelResponseFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
     /// <p><code>\[ "/stop_sequence" \]</code></p>
     /// <p>For information about the JSON Pointer syntax, see the <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet Engineering Task Force (IETF)</a> documentation.</p>
     /// <p><code>Converse</code> and <code>ConverseStream</code> reject an empty JSON Pointer or incorrectly structured JSON Pointer with a <code>400</code> error code. if the JSON Pointer is valid, but the requested field is not in the model response, it is ignored by <code>Converse</code>.</p>
-    pub fn set_additional_model_response_field_paths(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_additional_model_response_field_paths(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.inner = self.inner.set_additional_model_response_field_paths(input);
         self
     }
@@ -307,7 +364,9 @@ impl ConverseFluentBuilder {
     /// <p><code>\[ "/stop_sequence" \]</code></p>
     /// <p>For information about the JSON Pointer syntax, see the <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet Engineering Task Force (IETF)</a> documentation.</p>
     /// <p><code>Converse</code> and <code>ConverseStream</code> reject an empty JSON Pointer or incorrectly structured JSON Pointer with a <code>400</code> error code. if the JSON Pointer is valid, but the requested field is not in the model response, it is ignored by <code>Converse</code>.</p>
-    pub fn get_additional_model_response_field_paths(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_additional_model_response_field_paths(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_additional_model_response_field_paths()
     }
     ///
@@ -327,13 +386,19 @@ impl ConverseFluentBuilder {
     /// <p>Key-value pairs that you can use to filter invocation logs.</p>
     pub fn set_request_metadata(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
     ) -> Self {
         self.inner = self.inner.set_request_metadata(input);
         self
     }
     /// <p>Key-value pairs that you can use to filter invocation logs.</p>
-    pub fn get_request_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_request_metadata(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.inner.get_request_metadata()
     }
     /// <p>Model performance settings for the request.</p>
@@ -342,12 +407,17 @@ impl ConverseFluentBuilder {
         self
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn set_performance_config(mut self, input: ::std::option::Option<crate::types::PerformanceConfiguration>) -> Self {
+    pub fn set_performance_config(
+        mut self,
+        input: ::std::option::Option<crate::types::PerformanceConfiguration>,
+    ) -> Self {
         self.inner = self.inner.set_performance_config(input);
         self
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn get_performance_config(&self) -> &::std::option::Option<crate::types::PerformanceConfiguration> {
+    pub fn get_performance_config(
+        &self,
+    ) -> &::std::option::Option<crate::types::PerformanceConfiguration> {
         self.inner.get_performance_config()
     }
     /// <p>Specifies the processing tier configuration used for serving the request.</p>
@@ -356,7 +426,10 @@ impl ConverseFluentBuilder {
         self
     }
     /// <p>Specifies the processing tier configuration used for serving the request.</p>
-    pub fn set_service_tier(mut self, input: ::std::option::Option<crate::types::ServiceTier>) -> Self {
+    pub fn set_service_tier(
+        mut self,
+        input: ::std::option::Option<crate::types::ServiceTier>,
+    ) -> Self {
         self.inner = self.inner.set_service_tier(input);
         self
     }
@@ -370,7 +443,10 @@ impl ConverseFluentBuilder {
         self
     }
     /// <p>Output configuration for a model response.</p>
-    pub fn set_output_config(mut self, input: ::std::option::Option<crate::types::OutputConfig>) -> Self {
+    pub fn set_output_config(
+        mut self,
+        input: ::std::option::Option<crate::types::OutputConfig>,
+    ) -> Self {
         self.inner = self.inner.set_output_config(input);
         self
     }

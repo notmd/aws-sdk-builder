@@ -7,7 +7,9 @@ pub struct PolicyStatement {
     /// Effect of the policy statement (Allow/Deny)
     pub effect: ::std::option::Option<::std::string::String>,
     /// Principal the statement applies to
-    pub principal: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub principal: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     /// Actions the statement controls
     pub action: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// Resource the statement applies to
@@ -16,7 +18,10 @@ pub struct PolicyStatement {
     pub condition: ::std::option::Option<
         ::std::collections::HashMap<
             ::std::string::String,
-            ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>,
+            ::std::collections::HashMap<
+                ::std::string::String,
+                ::std::vec::Vec<::std::string::String>,
+            >,
         >,
     >,
 }
@@ -26,7 +31,11 @@ impl PolicyStatement {
         self.effect.as_deref()
     }
     /// Principal the statement applies to
-    pub fn principal(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn principal(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.principal.as_ref()
     }
     /// Actions the statement controls
@@ -45,7 +54,10 @@ impl PolicyStatement {
     ) -> ::std::option::Option<
         &::std::collections::HashMap<
             ::std::string::String,
-            ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>,
+            ::std::collections::HashMap<
+                ::std::string::String,
+                ::std::vec::Vec<::std::string::String>,
+            >,
         >,
     > {
         self.condition.as_ref()
@@ -59,17 +71,24 @@ impl PolicyStatement {
 }
 
 /// A builder for [`PolicyStatement`](crate::types::PolicyStatement).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PolicyStatementBuilder {
     pub(crate) effect: ::std::option::Option<::std::string::String>,
-    pub(crate) principal: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) principal: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     pub(crate) action: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) resource: ::std::option::Option<::std::string::String>,
     pub(crate) condition: ::std::option::Option<
         ::std::collections::HashMap<
             ::std::string::String,
-            ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>,
+            ::std::collections::HashMap<
+                ::std::string::String,
+                ::std::vec::Vec<::std::string::String>,
+            >,
         >,
     >,
 }
@@ -93,19 +112,32 @@ impl PolicyStatementBuilder {
     /// To override the contents of this collection use [`set_principal`](Self::set_principal).
     ///
     /// Principal the statement applies to
-    pub fn principal(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn principal(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut hash_map = self.principal.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.principal = ::std::option::Option::Some(hash_map);
         self
     }
     /// Principal the statement applies to
-    pub fn set_principal(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_principal(
+        mut self,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
+    ) -> Self {
         self.principal = input;
         self
     }
     /// Principal the statement applies to
-    pub fn get_principal(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_principal(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.principal
     }
     /// Appends an item to `action`.
@@ -120,7 +152,10 @@ impl PolicyStatementBuilder {
         self
     }
     /// Actions the statement controls
-    pub fn set_action(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_action(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.action = input;
         self
     }
@@ -150,7 +185,10 @@ impl PolicyStatementBuilder {
     pub fn condition(
         mut self,
         k: impl ::std::convert::Into<::std::string::String>,
-        v: ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>,
+        v: ::std::collections::HashMap<
+            ::std::string::String,
+            ::std::vec::Vec<::std::string::String>,
+        >,
     ) -> Self {
         let mut hash_map = self.condition.unwrap_or_default();
         hash_map.insert(k.into(), v);
@@ -163,7 +201,10 @@ impl PolicyStatementBuilder {
         input: ::std::option::Option<
             ::std::collections::HashMap<
                 ::std::string::String,
-                ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>,
+                ::std::collections::HashMap<
+                    ::std::string::String,
+                    ::std::vec::Vec<::std::string::String>,
+                >,
             >,
         >,
     ) -> Self {
@@ -176,7 +217,10 @@ impl PolicyStatementBuilder {
     ) -> &::std::option::Option<
         ::std::collections::HashMap<
             ::std::string::String,
-            ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>,
+            ::std::collections::HashMap<
+                ::std::string::String,
+                ::std::vec::Vec<::std::string::String>,
+            >,
         >,
     > {
         &self.condition

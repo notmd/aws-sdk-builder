@@ -33,7 +33,9 @@ impl ListTermsOutput {
 }
 
 /// A builder for [`ListTermsOutput`](crate::operation::list_terms::ListTermsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListTermsOutputBuilder {
     pub(crate) terms: ::std::option::Option<::std::vec::Vec<crate::types::TermsDescriptionType>>,
@@ -53,12 +55,17 @@ impl ListTermsOutputBuilder {
         self
     }
     /// <p>A summary of the requested terms documents. Includes unique identifiers for later changes to the terms documents.</p>
-    pub fn set_terms(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TermsDescriptionType>>) -> Self {
+    pub fn set_terms(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::TermsDescriptionType>>,
+    ) -> Self {
         self.terms = input;
         self
     }
     /// <p>A summary of the requested terms documents. Includes unique identifiers for later changes to the terms documents.</p>
-    pub fn get_terms(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TermsDescriptionType>> {
+    pub fn get_terms(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::TermsDescriptionType>> {
         &self.terms
     }
     /// <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
@@ -87,7 +94,12 @@ impl ListTermsOutputBuilder {
     /// Consumes the builder and constructs a [`ListTermsOutput`](crate::operation::list_terms::ListTermsOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`terms`](crate::operation::list_terms::builders::ListTermsOutputBuilder::terms)
-    pub fn build(self) -> ::std::result::Result<crate::operation::list_terms::ListTermsOutput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::list_terms::ListTermsOutput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::list_terms::ListTermsOutput {
             terms: self.terms.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -9,7 +9,11 @@ impl super::Client {
     ///   - [`action_name(impl Into<String>)`](crate::operation::add_permission::builders::AddPermissionFluentBuilder::action_name) / [`set_action_name(Option<Vec::<String>>)`](crate::operation::add_permission::builders::AddPermissionFluentBuilder::set_action_name):<br>required: **true**<br><p>The action you want to allow for the specified principal(s).</p> <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p><br>
     /// - On success, responds with [`AddPermissionOutput`](crate::operation::add_permission::AddPermissionOutput)
     /// - On failure, responds with [`SdkError<AddPermissionError>`](crate::operation::add_permission::AddPermissionError)
-    pub fn add_permission(&self) -> crate::operation::add_permission::builders::AddPermissionFluentBuilder {
-        crate::operation::add_permission::builders::AddPermissionFluentBuilder::new(self.handle.clone())
+    pub fn add_permission(
+        &self,
+    ) -> crate::operation::add_permission::builders::AddPermissionFluentBuilder {
+        crate::operation::add_permission::builders::AddPermissionFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

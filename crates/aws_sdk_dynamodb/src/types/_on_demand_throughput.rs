@@ -31,7 +31,9 @@ impl OnDemandThroughput {
 }
 
 /// A builder for [`OnDemandThroughput`](crate::types::OnDemandThroughput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct OnDemandThroughputBuilder {
     pub(crate) max_read_request_units: ::std::option::Option<i64>,

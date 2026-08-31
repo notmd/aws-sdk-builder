@@ -23,7 +23,9 @@ impl UpperCaseString {
 }
 
 /// A builder for [`UpperCaseString`](crate::types::UpperCaseString).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpperCaseStringBuilder {
     pub(crate) with_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -41,7 +43,10 @@ impl UpperCaseStringBuilder {
         self
     }
     /// <p>The array of containing the keys of the field to convert to uppercase.</p>
-    pub fn set_with_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_with_keys(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.with_keys = input;
         self
     }
@@ -52,7 +57,12 @@ impl UpperCaseStringBuilder {
     /// Consumes the builder and constructs a [`UpperCaseString`](crate::types::UpperCaseString).
     /// This method will fail if any of the following fields are not set:
     /// - [`with_keys`](crate::types::builders::UpperCaseStringBuilder::with_keys)
-    pub fn build(self) -> ::std::result::Result<crate::types::UpperCaseString, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::UpperCaseString,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::UpperCaseString {
             with_keys: self.with_keys.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -16,13 +16,16 @@ impl CreateAccountAliasInput {
 }
 impl CreateAccountAliasInput {
     /// Creates a new builder-style object to manufacture [`CreateAccountAliasInput`](crate::operation::create_account_alias::CreateAccountAliasInput).
-    pub fn builder() -> crate::operation::create_account_alias::builders::CreateAccountAliasInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::create_account_alias::builders::CreateAccountAliasInputBuilder {
         crate::operation::create_account_alias::builders::CreateAccountAliasInputBuilder::default()
     }
 }
 
 /// A builder for [`CreateAccountAliasInput`](crate::operation::create_account_alias::CreateAccountAliasInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateAccountAliasInputBuilder {
     pub(crate) account_alias: ::std::option::Option<::std::string::String>,
@@ -31,13 +34,19 @@ impl CreateAccountAliasInputBuilder {
     /// <p>The account alias to create.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.</p>
     /// This field is required.
-    pub fn account_alias(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn account_alias(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.account_alias = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account alias to create.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.</p>
-    pub fn set_account_alias(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_account_alias(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.account_alias = input;
         self
     }
@@ -49,10 +58,14 @@ impl CreateAccountAliasInputBuilder {
     /// Consumes the builder and constructs a [`CreateAccountAliasInput`](crate::operation::create_account_alias::CreateAccountAliasInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::create_account_alias::CreateAccountAliasInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::create_account_alias::CreateAccountAliasInput {
-            account_alias: self.account_alias,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::create_account_alias::CreateAccountAliasInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::create_account_alias::CreateAccountAliasInput {
+                account_alias: self.account_alias,
+            },
+        )
     }
 }

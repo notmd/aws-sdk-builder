@@ -23,7 +23,9 @@ impl ReplicaModifications {
 }
 
 /// A builder for [`ReplicaModifications`](crate::types::ReplicaModifications).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ReplicaModificationsBuilder {
     pub(crate) status: ::std::option::Option<crate::types::ReplicaModificationsStatus>,
@@ -36,7 +38,10 @@ impl ReplicaModificationsBuilder {
         self
     }
     /// <p>Specifies whether Amazon S3 replicates modifications on replicas.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ReplicaModificationsStatus>) -> Self {
+    pub fn set_status(
+        mut self,
+        input: ::std::option::Option<crate::types::ReplicaModificationsStatus>,
+    ) -> Self {
         self.status = input;
         self
     }
@@ -47,7 +52,12 @@ impl ReplicaModificationsBuilder {
     /// Consumes the builder and constructs a [`ReplicaModifications`](crate::types::ReplicaModifications).
     /// This method will fail if any of the following fields are not set:
     /// - [`status`](crate::types::builders::ReplicaModificationsBuilder::status)
-    pub fn build(self) -> ::std::result::Result<crate::types::ReplicaModifications, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::ReplicaModifications,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::ReplicaModifications {
             status: self.status.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

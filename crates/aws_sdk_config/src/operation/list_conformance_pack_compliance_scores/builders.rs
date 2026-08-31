@@ -59,7 +59,7 @@ impl ListConformancePackComplianceScoresFluentBuilder {
         }
     }
     /// Access the ListConformancePackComplianceScores as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -78,7 +78,7 @@ impl ListConformancePackComplianceScoresFluentBuilder {
             crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -99,15 +99,21 @@ impl ListConformancePackComplianceScoresFluentBuilder {
         crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresOutput,
         crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -116,7 +122,7 @@ impl ListConformancePackComplianceScoresFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::list_conformance_pack_compliance_scores::paginator::ListConformancePackComplianceScoresPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::list_conformance_pack_compliance_scores::paginator::ListConformancePackComplianceScoresPaginator {
+    ) -> crate::operation::list_conformance_pack_compliance_scores::paginator::ListConformancePackComplianceScoresPaginator{
         crate::operation::list_conformance_pack_compliance_scores::paginator::ListConformancePackComplianceScoresPaginator::new(
             self.handle,
             self.inner,
@@ -128,12 +134,17 @@ impl ListConformancePackComplianceScoresFluentBuilder {
         self
     }
     /// <p>Filters the results based on the <code>ConformancePackComplianceScoresFilters</code>.</p>
-    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::ConformancePackComplianceScoresFilters>) -> Self {
+    pub fn set_filters(
+        mut self,
+        input: ::std::option::Option<crate::types::ConformancePackComplianceScoresFilters>,
+    ) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
     /// <p>Filters the results based on the <code>ConformancePackComplianceScoresFilters</code>.</p>
-    pub fn get_filters(&self) -> &::std::option::Option<crate::types::ConformancePackComplianceScoresFilters> {
+    pub fn get_filters(
+        &self,
+    ) -> &::std::option::Option<crate::types::ConformancePackComplianceScoresFilters> {
         self.inner.get_filters()
     }
     /// <p>Determines the order in which conformance pack compliance scores are sorted. Either in ascending or descending order.</p>

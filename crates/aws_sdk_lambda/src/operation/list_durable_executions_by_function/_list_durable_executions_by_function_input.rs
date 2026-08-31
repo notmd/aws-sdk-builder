@@ -64,13 +64,15 @@ impl ListDurableExecutionsByFunctionInput {
 }
 impl ListDurableExecutionsByFunctionInput {
     /// Creates a new builder-style object to manufacture [`ListDurableExecutionsByFunctionInput`](crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionInput).
-    pub fn builder() -> crate::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionInputBuilder {
+    pub fn builder() -> crate::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionInputBuilder{
         crate::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionInputBuilder::default()
     }
 }
 
 /// A builder for [`ListDurableExecutionsByFunctionInput`](crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListDurableExecutionsByFunctionInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -86,12 +88,18 @@ pub struct ListDurableExecutionsByFunctionInputBuilder {
 impl ListDurableExecutionsByFunctionInputBuilder {
     /// <p>The name or ARN of the Lambda function. You can specify a function name, a partial ARN, or a full ARN.</p>
     /// This field is required.
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name or ARN of the Lambda function. You can specify a function name, a partial ARN, or a full ARN.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.function_name = input;
         self
     }
@@ -114,12 +122,18 @@ impl ListDurableExecutionsByFunctionInputBuilder {
         &self.qualifier
     }
     /// <p>Filter executions by name. Only executions with names that matches this string are returned.</p>
-    pub fn durable_execution_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn durable_execution_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.durable_execution_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Filter executions by name. Only executions with names that matches this string are returned.</p>
-    pub fn set_durable_execution_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_durable_execution_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.durable_execution_name = input;
         self
     }
@@ -139,12 +153,17 @@ impl ListDurableExecutionsByFunctionInputBuilder {
         self
     }
     /// <p>Filter executions by status. Valid values: RUNNING, SUCCEEDED, FAILED, TIMED_OUT, STOPPED.</p>
-    pub fn set_statuses(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ExecutionStatus>>) -> Self {
+    pub fn set_statuses(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ExecutionStatus>>,
+    ) -> Self {
         self.statuses = input;
         self
     }
     /// <p>Filter executions by status. Valid values: RUNNING, SUCCEEDED, FAILED, TIMED_OUT, STOPPED.</p>
-    pub fn get_statuses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ExecutionStatus>> {
+    pub fn get_statuses(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ExecutionStatus>> {
         &self.statuses
     }
     /// <p>Filter executions that started after this timestamp (ISO 8601 format).</p>
@@ -153,7 +172,10 @@ impl ListDurableExecutionsByFunctionInputBuilder {
         self
     }
     /// <p>Filter executions that started after this timestamp (ISO 8601 format).</p>
-    pub fn set_started_after(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_started_after(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.started_after = input;
         self
     }
@@ -167,7 +189,10 @@ impl ListDurableExecutionsByFunctionInputBuilder {
         self
     }
     /// <p>Filter executions that started before this timestamp (ISO 8601 format).</p>
-    pub fn set_started_before(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_started_before(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.started_before = input;
         self
     }

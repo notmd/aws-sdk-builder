@@ -13,7 +13,9 @@ pub struct LookupTableConfiguration {
     /// <p>The ARN of the KMS key to use to encrypt the lookup table data. If you don't specify a key, the data is encrypted with an Amazon Web Services-owned key.</p>
     pub kms_key_id: ::std::option::Option<::std::string::String>,
     /// <p>Key-value pairs to associate with the lookup table for resource management and cost allocation. The service applies tags only during initial table creation.</p>
-    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub tags: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
 }
 impl LookupTableConfiguration {
     /// <p>The name of the lookup table to create or update with query results. The name can contain only alphanumeric characters and underscores.</p>
@@ -35,7 +37,11 @@ impl LookupTableConfiguration {
         self.kms_key_id.as_deref()
     }
     /// <p>Key-value pairs to associate with the lookup table for resource management and cost allocation. The service applies tags only during initial table creation.</p>
-    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn tags(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.tags.as_ref()
     }
 }
@@ -47,14 +53,18 @@ impl LookupTableConfiguration {
 }
 
 /// A builder for [`LookupTableConfiguration`](crate::types::LookupTableConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct LookupTableConfigurationBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
     pub(crate) role_arn: ::std::option::Option<::std::string::String>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) kms_key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) tags: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
 }
 impl LookupTableConfigurationBuilder {
     /// <p>The name of the lookup table to create or update with query results. The name can contain only alphanumeric characters and underscores.</p>
@@ -120,26 +130,44 @@ impl LookupTableConfigurationBuilder {
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
     /// <p>Key-value pairs to associate with the lookup table for resource management and cost allocation. The service applies tags only during initial table creation.</p>
-    pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn tags(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut hash_map = self.tags.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.tags = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>Key-value pairs to associate with the lookup table for resource management and cost allocation. The service applies tags only during initial table creation.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
+    ) -> Self {
         self.tags = input;
         self
     }
     /// <p>Key-value pairs to associate with the lookup table for resource management and cost allocation. The service applies tags only during initial table creation.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.tags
     }
     /// Consumes the builder and constructs a [`LookupTableConfiguration`](crate::types::LookupTableConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`table_name`](crate::types::builders::LookupTableConfigurationBuilder::table_name)
     /// - [`role_arn`](crate::types::builders::LookupTableConfigurationBuilder::role_arn)
-    pub fn build(self) -> ::std::result::Result<crate::types::LookupTableConfiguration, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::LookupTableConfiguration,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::LookupTableConfiguration {
             table_name: self.table_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

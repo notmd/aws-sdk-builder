@@ -18,7 +18,9 @@ impl DeleteConnectorOutput {
 }
 
 /// A builder for [`DeleteConnectorOutput`](crate::operation::delete_connector::DeleteConnectorOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteConnectorOutputBuilder {
     _request_id: Option<String>,

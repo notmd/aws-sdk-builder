@@ -2,12 +2,14 @@
 #[cfg(feature = "op_create_deliverability_test_report")]
 pub(crate) fn create_deliverability_test_report_output_output_correct_errors(
     mut builder: crate::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportOutputBuilder,
-) -> crate::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportOutputBuilder {
+) -> crate::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportOutputBuilder{
     if builder.report_id.is_none() {
         builder.report_id = Some(Default::default())
     }
     if builder.deliverability_test_status.is_none() {
-        builder.deliverability_test_status = "no value was set".parse::<crate::types::DeliverabilityTestStatus>().ok()
+        builder.deliverability_test_status = "no value was set"
+            .parse::<crate::types::DeliverabilityTestStatus>()
+            .ok()
     }
     builder
 }
@@ -25,7 +27,7 @@ pub(crate) fn get_blacklist_reports_output_output_correct_errors(
 #[cfg(feature = "op_get_deliverability_dashboard_options")]
 pub(crate) fn get_deliverability_dashboard_options_output_output_correct_errors(
     mut builder: crate::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder,
-) -> crate::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder {
+) -> crate::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder{
     if builder.dashboard_enabled.is_none() {
         builder.dashboard_enabled = Some(Default::default())
     }
@@ -35,7 +37,7 @@ pub(crate) fn get_deliverability_dashboard_options_output_output_correct_errors(
 #[cfg(feature = "op_get_deliverability_test_report")]
 pub(crate) fn get_deliverability_test_report_output_output_correct_errors(
     mut builder: crate::operation::get_deliverability_test_report::builders::GetDeliverabilityTestReportOutputBuilder,
-) -> crate::operation::get_deliverability_test_report::builders::GetDeliverabilityTestReportOutputBuilder {
+) -> crate::operation::get_deliverability_test_report::builders::GetDeliverabilityTestReportOutputBuilder{
     if builder.deliverability_test_report.is_none() {
         builder.deliverability_test_report = {
             let builder = crate::types::builders::DeliverabilityTestReportBuilder::default();
@@ -57,7 +59,7 @@ pub(crate) fn get_deliverability_test_report_output_output_correct_errors(
 #[cfg(feature = "op_get_domain_deliverability_campaign")]
 pub(crate) fn get_domain_deliverability_campaign_output_output_correct_errors(
     mut builder: crate::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignOutputBuilder,
-) -> crate::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignOutputBuilder {
+) -> crate::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignOutputBuilder{
     if builder.domain_deliverability_campaign.is_none() {
         builder.domain_deliverability_campaign = {
             let builder = crate::types::builders::DomainDeliverabilityCampaignBuilder::default();
@@ -70,7 +72,8 @@ pub(crate) fn get_domain_deliverability_campaign_output_output_correct_errors(
 #[cfg(feature = "op_get_domain_statistics_report")]
 pub(crate) fn get_domain_statistics_report_output_output_correct_errors(
     mut builder: crate::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportOutputBuilder,
-) -> crate::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportOutputBuilder {
+) -> crate::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportOutputBuilder
+{
     if builder.overall_volume.is_none() {
         builder.overall_volume = {
             let builder = crate::types::builders::OverallVolumeBuilder::default();
@@ -106,7 +109,9 @@ pub(crate) fn get_suppressed_destination_output_output_correct_errors(
     if builder.suppressed_destination.is_none() {
         builder.suppressed_destination = {
             let builder = crate::types::builders::SuppressedDestinationBuilder::default();
-            crate::serde_util::suppressed_destination_correct_errors(builder).build().ok()
+            crate::serde_util::suppressed_destination_correct_errors(builder)
+                .build()
+                .ok()
         }
     }
     builder
@@ -115,7 +120,7 @@ pub(crate) fn get_suppressed_destination_output_output_correct_errors(
 #[cfg(feature = "op_list_deliverability_test_reports")]
 pub(crate) fn list_deliverability_test_reports_output_output_correct_errors(
     mut builder: crate::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsOutputBuilder,
-) -> crate::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsOutputBuilder {
+) -> crate::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsOutputBuilder{
     if builder.deliverability_test_reports.is_none() {
         builder.deliverability_test_reports = Some(Default::default())
     }
@@ -125,7 +130,7 @@ pub(crate) fn list_deliverability_test_reports_output_output_correct_errors(
 #[cfg(feature = "op_list_domain_deliverability_campaigns")]
 pub(crate) fn list_domain_deliverability_campaigns_output_output_correct_errors(
     mut builder: crate::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder,
-) -> crate::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder {
+) -> crate::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder{
     if builder.domain_deliverability_campaigns.is_none() {
         builder.domain_deliverability_campaigns = Some(Default::default())
     }
@@ -170,21 +175,28 @@ pub(crate) fn suppressed_destination_correct_errors(
         builder.email_address = Some(Default::default())
     }
     if builder.reason.is_none() {
-        builder.reason = "no value was set".parse::<crate::types::SuppressionListReason>().ok()
+        builder.reason = "no value was set"
+            .parse::<crate::types::SuppressionListReason>()
+            .ok()
     }
     if builder.last_update_time.is_none() {
-        builder.last_update_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.last_update_time =
+            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }
 
 #[cfg(any(feature = "op_get_dedicated_ip", feature = "op_get_dedicated_ips"))]
-pub(crate) fn dedicated_ip_correct_errors(mut builder: crate::types::builders::DedicatedIpBuilder) -> crate::types::builders::DedicatedIpBuilder {
+pub(crate) fn dedicated_ip_correct_errors(
+    mut builder: crate::types::builders::DedicatedIpBuilder,
+) -> crate::types::builders::DedicatedIpBuilder {
     if builder.ip.is_none() {
         builder.ip = Some(Default::default())
     }
     if builder.warmup_status.is_none() {
-        builder.warmup_status = "no value was set".parse::<crate::types::WarmupStatus>().ok()
+        builder.warmup_status = "no value was set"
+            .parse::<crate::types::WarmupStatus>()
+            .ok()
     }
     if builder.warmup_percentage.is_none() {
         builder.warmup_percentage = Some(Default::default())
@@ -236,15 +248,22 @@ pub(crate) fn mail_from_attributes_correct_errors(
         builder.mail_from_domain = Some(Default::default())
     }
     if builder.mail_from_domain_status.is_none() {
-        builder.mail_from_domain_status = "no value was set".parse::<crate::types::MailFromDomainStatus>().ok()
+        builder.mail_from_domain_status = "no value was set"
+            .parse::<crate::types::MailFromDomainStatus>()
+            .ok()
     }
     if builder.behavior_on_mx_failure.is_none() {
-        builder.behavior_on_mx_failure = "no value was set".parse::<crate::types::BehaviorOnMxFailure>().ok()
+        builder.behavior_on_mx_failure = "no value was set"
+            .parse::<crate::types::BehaviorOnMxFailure>()
+            .ok()
     }
     builder
 }
 
-#[cfg(any(feature = "op_create_configuration_set", feature = "op_get_configuration_set"))]
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_get_configuration_set"
+))]
 pub(crate) fn tracking_options_correct_errors(
     mut builder: crate::types::builders::TrackingOptionsBuilder,
 ) -> crate::types::builders::TrackingOptionsBuilder {
@@ -259,12 +278,18 @@ pub(crate) fn vdm_attributes_correct_errors(
     mut builder: crate::types::builders::VdmAttributesBuilder,
 ) -> crate::types::builders::VdmAttributesBuilder {
     if builder.vdm_enabled.is_none() {
-        builder.vdm_enabled = "no value was set".parse::<crate::types::FeatureStatus>().ok()
+        builder.vdm_enabled = "no value was set"
+            .parse::<crate::types::FeatureStatus>()
+            .ok()
     }
     builder
 }
 
-#[cfg(any(feature = "op_create_import_job", feature = "op_get_import_job", feature = "op_list_import_jobs"))]
+#[cfg(any(
+    feature = "op_create_import_job",
+    feature = "op_get_import_job",
+    feature = "op_list_import_jobs"
+))]
 pub(crate) fn contact_list_destination_correct_errors(
     mut builder: crate::types::builders::ContactListDestinationBuilder,
 ) -> crate::types::builders::ContactListDestinationBuilder {
@@ -272,7 +297,9 @@ pub(crate) fn contact_list_destination_correct_errors(
         builder.contact_list_name = Some(Default::default())
     }
     if builder.contact_list_import_action.is_none() {
-        builder.contact_list_import_action = "no value was set".parse::<crate::types::ContactListImportAction>().ok()
+        builder.contact_list_import_action = "no value was set"
+            .parse::<crate::types::ContactListImportAction>()
+            .ok()
     }
     builder
 }
@@ -303,8 +330,14 @@ pub(crate) fn message_insights_data_source_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_get_message_insights", feature = "op_send_bulk_email", feature = "op_send_email"))]
-pub(crate) fn message_tag_correct_errors(mut builder: crate::types::builders::MessageTagBuilder) -> crate::types::builders::MessageTagBuilder {
+#[cfg(any(
+    feature = "op_get_message_insights",
+    feature = "op_send_bulk_email",
+    feature = "op_send_email"
+))]
+pub(crate) fn message_tag_correct_errors(
+    mut builder: crate::types::builders::MessageTagBuilder,
+) -> crate::types::builders::MessageTagBuilder {
     if builder.name.is_none() {
         builder.name = Some(Default::default())
     }
@@ -322,7 +355,9 @@ pub(crate) fn metrics_data_source_correct_errors(
         builder.dimensions = Some(Default::default())
     }
     if builder.namespace.is_none() {
-        builder.namespace = "no value was set".parse::<crate::types::MetricNamespace>().ok()
+        builder.namespace = "no value was set"
+            .parse::<crate::types::MetricNamespace>()
+            .ok()
     }
     if builder.metrics.is_none() {
         builder.metrics = Some(Default::default())
@@ -337,7 +372,9 @@ pub(crate) fn metrics_data_source_correct_errors(
 }
 
 #[cfg(feature = "op_get_multi_region_endpoint")]
-pub(crate) fn route_correct_errors(mut builder: crate::types::builders::RouteBuilder) -> crate::types::builders::RouteBuilder {
+pub(crate) fn route_correct_errors(
+    mut builder: crate::types::builders::RouteBuilder,
+) -> crate::types::builders::RouteBuilder {
     if builder.region.is_none() {
         builder.region = Some(Default::default())
     }
@@ -352,52 +389,93 @@ pub(crate) fn suppressed_destination_summary_correct_errors(
         builder.email_address = Some(Default::default())
     }
     if builder.reason.is_none() {
-        builder.reason = "no value was set".parse::<crate::types::SuppressionListReason>().ok()
+        builder.reason = "no value was set"
+            .parse::<crate::types::SuppressionListReason>()
+            .ok()
     }
     if builder.last_update_time.is_none() {
-        builder.last_update_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.last_update_time =
+            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }
 
-#[cfg(any(feature = "op_create_import_job", feature = "op_get_import_job", feature = "op_list_import_jobs"))]
+#[cfg(any(
+    feature = "op_create_import_job",
+    feature = "op_get_import_job",
+    feature = "op_list_import_jobs"
+))]
 pub(crate) fn suppression_list_destination_correct_errors(
     mut builder: crate::types::builders::SuppressionListDestinationBuilder,
 ) -> crate::types::builders::SuppressionListDestinationBuilder {
     if builder.suppression_list_import_action.is_none() {
-        builder.suppression_list_import_action = "no value was set".parse::<crate::types::SuppressionListImportAction>().ok()
+        builder.suppression_list_import_action = "no value was set"
+            .parse::<crate::types::SuppressionListImportAction>()
+            .ok()
     }
     builder
 }
 
-#[cfg(any(feature = "op_get_account", feature = "op_put_account_suppression_attributes"))]
+#[cfg(any(
+    feature = "op_get_account",
+    feature = "op_put_account_suppression_attributes"
+))]
 pub(crate) fn suppression_validation_attributes_correct_errors(
     mut builder: crate::types::builders::SuppressionValidationAttributesBuilder,
 ) -> crate::types::builders::SuppressionValidationAttributesBuilder {
     if builder.condition_threshold.is_none() {
         builder.condition_threshold = {
             let builder = crate::types::builders::SuppressionConditionThresholdBuilder::default();
-            crate::serde_util::suppression_condition_threshold_correct_errors(builder).build().ok()
+            crate::serde_util::suppression_condition_threshold_correct_errors(builder)
+                .build()
+                .ok()
         }
     }
     builder
 }
 
-#[cfg(any(feature = "op_create_configuration_set", feature = "op_get_configuration_set", feature = "op_put_configuration_set_suppression_options"))]
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_get_configuration_set",
+    feature = "op_put_configuration_set_suppression_options"
+))]
 pub(crate) fn suppression_validation_options_correct_errors(
     mut builder: crate::types::builders::SuppressionValidationOptionsBuilder,
 ) -> crate::types::builders::SuppressionValidationOptionsBuilder {
     if builder.condition_threshold.is_none() {
         builder.condition_threshold = {
             let builder = crate::types::builders::SuppressionConditionThresholdBuilder::default();
-            crate::serde_util::suppression_condition_threshold_correct_errors(builder).build().ok()
+            crate::serde_util::suppression_condition_threshold_correct_errors(builder)
+                .build()
+                .ok()
         }
     }
     builder
 }
 
-#[cfg(any(feature = "op_create_configuration_set", feature = "op_create_contact_list", feature = "op_create_custom_verification_email_template", feature = "op_create_dedicated_ip_pool", feature = "op_create_deliverability_test_report", feature = "op_create_email_identity", feature = "op_create_email_template", feature = "op_create_multi_region_endpoint", feature = "op_create_tenant", feature = "op_get_configuration_set", feature = "op_get_contact_list", feature = "op_get_custom_verification_email_template", feature = "op_get_deliverability_test_report", feature = "op_get_email_identity", feature = "op_get_email_template", feature = "op_get_tenant", feature = "op_list_tags_for_resource", feature = "op_tag_resource"))]
-pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder) -> crate::types::builders::TagBuilder {
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_create_contact_list",
+    feature = "op_create_custom_verification_email_template",
+    feature = "op_create_dedicated_ip_pool",
+    feature = "op_create_deliverability_test_report",
+    feature = "op_create_email_identity",
+    feature = "op_create_email_template",
+    feature = "op_create_multi_region_endpoint",
+    feature = "op_create_tenant",
+    feature = "op_get_configuration_set",
+    feature = "op_get_contact_list",
+    feature = "op_get_custom_verification_email_template",
+    feature = "op_get_deliverability_test_report",
+    feature = "op_get_email_identity",
+    feature = "op_get_email_template",
+    feature = "op_get_tenant",
+    feature = "op_list_tags_for_resource",
+    feature = "op_tag_resource"
+))]
+pub(crate) fn tag_correct_errors(
+    mut builder: crate::types::builders::TagBuilder,
+) -> crate::types::builders::TagBuilder {
     if builder.key.is_none() {
         builder.key = Some(Default::default())
     }
@@ -407,8 +485,14 @@ pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder
     builder
 }
 
-#[cfg(any(feature = "op_create_contact_list", feature = "op_get_contact_list", feature = "op_update_contact_list"))]
-pub(crate) fn topic_correct_errors(mut builder: crate::types::builders::TopicBuilder) -> crate::types::builders::TopicBuilder {
+#[cfg(any(
+    feature = "op_create_contact_list",
+    feature = "op_get_contact_list",
+    feature = "op_update_contact_list"
+))]
+pub(crate) fn topic_correct_errors(
+    mut builder: crate::types::builders::TopicBuilder,
+) -> crate::types::builders::TopicBuilder {
     if builder.topic_name.is_none() {
         builder.topic_name = Some(Default::default())
     }
@@ -416,12 +500,19 @@ pub(crate) fn topic_correct_errors(mut builder: crate::types::builders::TopicBui
         builder.display_name = Some(Default::default())
     }
     if builder.default_subscription_status.is_none() {
-        builder.default_subscription_status = "no value was set".parse::<crate::types::SubscriptionStatus>().ok()
+        builder.default_subscription_status = "no value was set"
+            .parse::<crate::types::SubscriptionStatus>()
+            .ok()
     }
     builder
 }
 
-#[cfg(any(feature = "op_create_contact", feature = "op_get_contact", feature = "op_list_contacts", feature = "op_update_contact"))]
+#[cfg(any(
+    feature = "op_create_contact",
+    feature = "op_get_contact",
+    feature = "op_list_contacts",
+    feature = "op_update_contact"
+))]
 pub(crate) fn topic_preference_correct_errors(
     mut builder: crate::types::builders::TopicPreferenceBuilder,
 ) -> crate::types::builders::TopicPreferenceBuilder {
@@ -429,12 +520,18 @@ pub(crate) fn topic_preference_correct_errors(
         builder.topic_name = Some(Default::default())
     }
     if builder.subscription_status.is_none() {
-        builder.subscription_status = "no value was set".parse::<crate::types::SubscriptionStatus>().ok()
+        builder.subscription_status = "no value was set"
+            .parse::<crate::types::SubscriptionStatus>()
+            .ok()
     }
     builder
 }
 
-#[cfg(any(feature = "op_create_configuration_set_event_destination", feature = "op_get_configuration_set_event_destinations", feature = "op_update_configuration_set_event_destination"))]
+#[cfg(any(
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_update_configuration_set_event_destination"
+))]
 pub(crate) fn cloud_watch_destination_correct_errors(
     mut builder: crate::types::builders::CloudWatchDestinationBuilder,
 ) -> crate::types::builders::CloudWatchDestinationBuilder {
@@ -444,7 +541,11 @@ pub(crate) fn cloud_watch_destination_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_configuration_set_event_destination", feature = "op_get_configuration_set_event_destinations", feature = "op_update_configuration_set_event_destination"))]
+#[cfg(any(
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_update_configuration_set_event_destination"
+))]
 pub(crate) fn event_bridge_destination_correct_errors(
     mut builder: crate::types::builders::EventBridgeDestinationBuilder,
 ) -> crate::types::builders::EventBridgeDestinationBuilder {
@@ -454,7 +555,11 @@ pub(crate) fn event_bridge_destination_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_configuration_set_event_destination", feature = "op_get_configuration_set_event_destinations", feature = "op_update_configuration_set_event_destination"))]
+#[cfg(any(
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_update_configuration_set_event_destination"
+))]
 pub(crate) fn kinesis_firehose_destination_correct_errors(
     mut builder: crate::types::builders::KinesisFirehoseDestinationBuilder,
 ) -> crate::types::builders::KinesisFirehoseDestinationBuilder {
@@ -467,7 +572,11 @@ pub(crate) fn kinesis_firehose_destination_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_configuration_set_event_destination", feature = "op_get_configuration_set_event_destinations", feature = "op_update_configuration_set_event_destination"))]
+#[cfg(any(
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_update_configuration_set_event_destination"
+))]
 pub(crate) fn sns_destination_correct_errors(
     mut builder: crate::types::builders::SnsDestinationBuilder,
 ) -> crate::types::builders::SnsDestinationBuilder {
@@ -477,27 +586,47 @@ pub(crate) fn sns_destination_correct_errors(
     builder
 }
 
-#[cfg(any(feature = "op_create_configuration_set", feature = "op_get_account", feature = "op_get_configuration_set", feature = "op_put_account_suppression_attributes", feature = "op_put_configuration_set_suppression_options"))]
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_get_account",
+    feature = "op_get_configuration_set",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_configuration_set_suppression_options"
+))]
 pub(crate) fn suppression_condition_threshold_correct_errors(
     mut builder: crate::types::builders::SuppressionConditionThresholdBuilder,
 ) -> crate::types::builders::SuppressionConditionThresholdBuilder {
     if builder.condition_threshold_enabled.is_none() {
-        builder.condition_threshold_enabled = "no value was set".parse::<crate::types::FeatureStatus>().ok()
+        builder.condition_threshold_enabled = "no value was set"
+            .parse::<crate::types::FeatureStatus>()
+            .ok()
     }
     builder
 }
 
-#[cfg(any(feature = "op_create_configuration_set", feature = "op_get_account", feature = "op_get_configuration_set", feature = "op_put_account_suppression_attributes", feature = "op_put_configuration_set_suppression_options"))]
+#[cfg(any(
+    feature = "op_create_configuration_set",
+    feature = "op_get_account",
+    feature = "op_get_configuration_set",
+    feature = "op_put_account_suppression_attributes",
+    feature = "op_put_configuration_set_suppression_options"
+))]
 pub(crate) fn suppression_confidence_threshold_correct_errors(
     mut builder: crate::types::builders::SuppressionConfidenceThresholdBuilder,
 ) -> crate::types::builders::SuppressionConfidenceThresholdBuilder {
     if builder.confidence_verdict_threshold.is_none() {
-        builder.confidence_verdict_threshold = "no value was set".parse::<crate::types::SuppressionConfidenceVerdictThreshold>().ok()
+        builder.confidence_verdict_threshold = "no value was set"
+            .parse::<crate::types::SuppressionConfidenceVerdictThreshold>()
+            .ok()
     }
     builder
 }
 
-#[cfg(any(feature = "op_create_configuration_set_event_destination", feature = "op_get_configuration_set_event_destinations", feature = "op_update_configuration_set_event_destination"))]
+#[cfg(any(
+    feature = "op_create_configuration_set_event_destination",
+    feature = "op_get_configuration_set_event_destinations",
+    feature = "op_update_configuration_set_event_destination"
+))]
 pub(crate) fn cloud_watch_dimension_configuration_correct_errors(
     mut builder: crate::types::builders::CloudWatchDimensionConfigurationBuilder,
 ) -> crate::types::builders::CloudWatchDimensionConfigurationBuilder {
@@ -505,7 +634,9 @@ pub(crate) fn cloud_watch_dimension_configuration_correct_errors(
         builder.dimension_name = Some(Default::default())
     }
     if builder.dimension_value_source.is_none() {
-        builder.dimension_value_source = "no value was set".parse::<crate::types::DimensionValueSource>().ok()
+        builder.dimension_value_source = "no value was set"
+            .parse::<crate::types::DimensionValueSource>()
+            .ok()
     }
     if builder.default_dimension_value.is_none() {
         builder.default_dimension_value = Some(Default::default())

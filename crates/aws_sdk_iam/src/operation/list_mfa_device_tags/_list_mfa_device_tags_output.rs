@@ -33,13 +33,16 @@ impl ::aws_types::request_id::RequestId for ListMfaDeviceTagsOutput {
 }
 impl ListMfaDeviceTagsOutput {
     /// Creates a new builder-style object to manufacture [`ListMfaDeviceTagsOutput`](crate::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput).
-    pub fn builder() -> crate::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsOutputBuilder {
         crate::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListMfaDeviceTagsOutput`](crate::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListMfaDeviceTagsOutputBuilder {
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
@@ -60,7 +63,10 @@ impl ListMfaDeviceTagsOutputBuilder {
         self
     }
     /// <p>The list of tags that are currently attached to the virtual MFA device. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.tags = input;
         self
     }
@@ -110,8 +116,10 @@ impl ListMfaDeviceTagsOutputBuilder {
     /// - [`tags`](crate::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsOutputBuilder::tags)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<
+        crate::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput {
             tags: self.tags.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

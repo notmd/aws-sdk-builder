@@ -24,13 +24,15 @@ impl ::aws_types::request_id::RequestId for PutFunctionRecursionConfigOutput {
 }
 impl PutFunctionRecursionConfigOutput {
     /// Creates a new builder-style object to manufacture [`PutFunctionRecursionConfigOutput`](crate::operation::put_function_recursion_config::PutFunctionRecursionConfigOutput).
-    pub fn builder() -> crate::operation::put_function_recursion_config::builders::PutFunctionRecursionConfigOutputBuilder {
+    pub fn builder() -> crate::operation::put_function_recursion_config::builders::PutFunctionRecursionConfigOutputBuilder{
         crate::operation::put_function_recursion_config::builders::PutFunctionRecursionConfigOutputBuilder::default()
     }
 }
 
 /// A builder for [`PutFunctionRecursionConfigOutput`](crate::operation::put_function_recursion_config::PutFunctionRecursionConfigOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutFunctionRecursionConfigOutputBuilder {
     pub(crate) recursive_loop: ::std::option::Option<crate::types::RecursiveLoop>,
@@ -47,7 +49,10 @@ impl PutFunctionRecursionConfigOutputBuilder {
     /// <p>The status of your function's recursive loop detection configuration.</p>
     /// <p>When this value is set to <code>Allow</code>and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.</p>
     /// <p>When this value is set to <code>Terminate</code> and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.</p>
-    pub fn set_recursive_loop(mut self, input: ::std::option::Option<crate::types::RecursiveLoop>) -> Self {
+    pub fn set_recursive_loop(
+        mut self,
+        input: ::std::option::Option<crate::types::RecursiveLoop>,
+    ) -> Self {
         self.recursive_loop = input;
         self
     }
@@ -67,7 +72,9 @@ impl PutFunctionRecursionConfigOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutFunctionRecursionConfigOutput`](crate::operation::put_function_recursion_config::PutFunctionRecursionConfigOutput).
-    pub fn build(self) -> crate::operation::put_function_recursion_config::PutFunctionRecursionConfigOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::put_function_recursion_config::PutFunctionRecursionConfigOutput {
         crate::operation::put_function_recursion_config::PutFunctionRecursionConfigOutput {
             recursive_loop: self.recursive_loop,
             _request_id: self._request_id,

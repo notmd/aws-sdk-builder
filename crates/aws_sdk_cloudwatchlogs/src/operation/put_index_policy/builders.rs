@@ -84,7 +84,9 @@ impl PutIndexPolicyFluentBuilder {
         }
     }
     /// Access the PutIndexPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_index_policy::builders::PutIndexPolicyInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_index_policy::builders::PutIndexPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -108,12 +110,14 @@ impl PutIndexPolicyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::put_index_policy::PutIndexPolicy::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::put_index_policy::PutIndexPolicy::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::put_index_policy::PutIndexPolicy::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::put_index_policy::PutIndexPolicy::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -126,22 +130,34 @@ impl PutIndexPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>Specify either the log group name or log group ARN to apply this field index policy to. If you specify an ARN, use the format arn:aws:logs:<i>region</i>:<i>account-id</i>:log-group:<i>log_group_name</i> Don't include an * at the end.</p>
-    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_group_identifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.log_group_identifier(input.into());
         self
     }
     /// <p>Specify either the log group name or log group ARN to apply this field index policy to. If you specify an ARN, use the format arn:aws:logs:<i>region</i>:<i>account-id</i>:log-group:<i>log_group_name</i> Don't include an * at the end.</p>
-    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_log_group_identifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_log_group_identifier(input);
         self
     }
@@ -153,7 +169,10 @@ impl PutIndexPolicyFluentBuilder {
     /// <p><code>"policyDocument": "{"Fields": \[ "TransactionId" \], "FieldsV2": {"RequestId": {"type": "FIELD_INDEX"}, "APIName": {"type": "FACET"}, "StatusCode": {"type": "FACET"}}}"</code></p>
     /// <p>You can use <code>FieldsV2</code> to specify the type for each field. Supported types are <code>FIELD_INDEX</code> and <code>FACET</code>. Field names within <code>Fields</code> and <code>FieldsV2</code> must be mutually exclusive.</p>
     /// <p>The policy document must include at least one field index. For more information about the fields that can be included and other restrictions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing-Syntax.html">Field index syntax and quotas</a>.</p>
-    pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn policy_document(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.policy_document(input.into());
         self
     }
@@ -161,7 +180,10 @@ impl PutIndexPolicyFluentBuilder {
     /// <p><code>"policyDocument": "{"Fields": \[ "TransactionId" \], "FieldsV2": {"RequestId": {"type": "FIELD_INDEX"}, "APIName": {"type": "FACET"}, "StatusCode": {"type": "FACET"}}}"</code></p>
     /// <p>You can use <code>FieldsV2</code> to specify the type for each field. Supported types are <code>FIELD_INDEX</code> and <code>FACET</code>. Field names within <code>Fields</code> and <code>FieldsV2</code> must be mutually exclusive.</p>
     /// <p>The policy document must include at least one field index. For more information about the fields that can be included and other restrictions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing-Syntax.html">Field index syntax and quotas</a>.</p>
-    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_policy_document(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_policy_document(input);
         self
     }

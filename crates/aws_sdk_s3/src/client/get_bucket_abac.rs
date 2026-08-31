@@ -8,7 +8,11 @@ impl super::Client {
     /// - On success, responds with [`GetBucketAbacOutput`](crate::operation::get_bucket_abac::GetBucketAbacOutput) with field(s):
     ///   - [`abac_status(Option<AbacStatus>)`](crate::operation::get_bucket_abac::GetBucketAbacOutput::abac_status): <p>The ABAC status of the general purpose bucket.</p>
     /// - On failure, responds with [`SdkError<GetBucketAbacError>`](crate::operation::get_bucket_abac::GetBucketAbacError)
-    pub fn get_bucket_abac(&self) -> crate::operation::get_bucket_abac::builders::GetBucketAbacFluentBuilder {
-        crate::operation::get_bucket_abac::builders::GetBucketAbacFluentBuilder::new(self.handle.clone())
+    pub fn get_bucket_abac(
+        &self,
+    ) -> crate::operation::get_bucket_abac::builders::GetBucketAbacFluentBuilder {
+        crate::operation::get_bucket_abac::builders::GetBucketAbacFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

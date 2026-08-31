@@ -14,13 +14,16 @@ impl DeleteDestinationInput {
 }
 impl DeleteDestinationInput {
     /// Creates a new builder-style object to manufacture [`DeleteDestinationInput`](crate::operation::delete_destination::DeleteDestinationInput).
-    pub fn builder() -> crate::operation::delete_destination::builders::DeleteDestinationInputBuilder {
+    pub fn builder() -> crate::operation::delete_destination::builders::DeleteDestinationInputBuilder
+    {
         crate::operation::delete_destination::builders::DeleteDestinationInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteDestinationInput`](crate::operation::delete_destination::DeleteDestinationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteDestinationInputBuilder {
     pub(crate) destination_name: ::std::option::Option<::std::string::String>,
@@ -28,12 +31,18 @@ pub struct DeleteDestinationInputBuilder {
 impl DeleteDestinationInputBuilder {
     /// <p>The name of the destination.</p>
     /// This field is required.
-    pub fn destination_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn destination_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.destination_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the destination.</p>
-    pub fn set_destination_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_destination_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.destination_name = input;
         self
     }
@@ -44,9 +53,14 @@ impl DeleteDestinationInputBuilder {
     /// Consumes the builder and constructs a [`DeleteDestinationInput`](crate::operation::delete_destination::DeleteDestinationInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_destination::DeleteDestinationInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_destination::DeleteDestinationInput {
-            destination_name: self.destination_name,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::delete_destination::DeleteDestinationInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::delete_destination::DeleteDestinationInput {
+                destination_name: self.destination_name,
+            },
+        )
     }
 }

@@ -7,7 +7,8 @@ pub struct ServiceJobPreemptionSummary {
     /// <p>The total number of times the service job has been preempted.</p>
     pub preempted_attempt_count: ::std::option::Option<i32>,
     /// <p>A list of the most recent preemption attempts for the service job.</p>
-    pub recent_preempted_attempts: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobPreemptedAttempt>>,
+    pub recent_preempted_attempts:
+        ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobPreemptedAttempt>>,
 }
 impl ServiceJobPreemptionSummary {
     /// <p>The total number of times the service job has been preempted.</p>
@@ -18,7 +19,9 @@ impl ServiceJobPreemptionSummary {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.recent_preempted_attempts.is_none()`.
     pub fn recent_preempted_attempts(&self) -> &[crate::types::ServiceJobPreemptedAttempt] {
-        self.recent_preempted_attempts.as_deref().unwrap_or_default()
+        self.recent_preempted_attempts
+            .as_deref()
+            .unwrap_or_default()
     }
 }
 impl ServiceJobPreemptionSummary {
@@ -29,11 +32,14 @@ impl ServiceJobPreemptionSummary {
 }
 
 /// A builder for [`ServiceJobPreemptionSummary`](crate::types::ServiceJobPreemptionSummary).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ServiceJobPreemptionSummaryBuilder {
     pub(crate) preempted_attempt_count: ::std::option::Option<i32>,
-    pub(crate) recent_preempted_attempts: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobPreemptedAttempt>>,
+    pub(crate) recent_preempted_attempts:
+        ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobPreemptedAttempt>>,
 }
 impl ServiceJobPreemptionSummaryBuilder {
     /// <p>The total number of times the service job has been preempted.</p>
@@ -55,19 +61,27 @@ impl ServiceJobPreemptionSummaryBuilder {
     /// To override the contents of this collection use [`set_recent_preempted_attempts`](Self::set_recent_preempted_attempts).
     ///
     /// <p>A list of the most recent preemption attempts for the service job.</p>
-    pub fn recent_preempted_attempts(mut self, input: crate::types::ServiceJobPreemptedAttempt) -> Self {
+    pub fn recent_preempted_attempts(
+        mut self,
+        input: crate::types::ServiceJobPreemptedAttempt,
+    ) -> Self {
         let mut v = self.recent_preempted_attempts.unwrap_or_default();
         v.push(input);
         self.recent_preempted_attempts = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of the most recent preemption attempts for the service job.</p>
-    pub fn set_recent_preempted_attempts(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobPreemptedAttempt>>) -> Self {
+    pub fn set_recent_preempted_attempts(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobPreemptedAttempt>>,
+    ) -> Self {
         self.recent_preempted_attempts = input;
         self
     }
     /// <p>A list of the most recent preemption attempts for the service job.</p>
-    pub fn get_recent_preempted_attempts(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ServiceJobPreemptedAttempt>> {
+    pub fn get_recent_preempted_attempts(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ServiceJobPreemptedAttempt>> {
         &self.recent_preempted_attempts
     }
     /// Consumes the builder and constructs a [`ServiceJobPreemptionSummary`](crate::types::ServiceJobPreemptionSummary).

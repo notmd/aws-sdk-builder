@@ -21,7 +21,9 @@ impl ExecutionControls {
 }
 
 /// A builder for [`ExecutionControls`](crate::types::ExecutionControls).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ExecutionControlsBuilder {
     pub(crate) ssm_controls: ::std::option::Option<crate::types::SsmControls>,
@@ -33,7 +35,10 @@ impl ExecutionControlsBuilder {
         self
     }
     /// <p>A SsmControls object.</p>
-    pub fn set_ssm_controls(mut self, input: ::std::option::Option<crate::types::SsmControls>) -> Self {
+    pub fn set_ssm_controls(
+        mut self,
+        input: ::std::option::Option<crate::types::SsmControls>,
+    ) -> Self {
         self.ssm_controls = input;
         self
     }

@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutBearerTokenAuthenticationError>`](crate::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationError)
     pub fn put_bearer_token_authentication(
         &self,
-    ) -> crate::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationFluentBuilder {
+    ) -> crate::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationFluentBuilder{
         crate::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationFluentBuilder::new(self.handle.clone())
     }
 }

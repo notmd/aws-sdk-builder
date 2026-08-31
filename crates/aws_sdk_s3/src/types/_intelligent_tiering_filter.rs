@@ -37,7 +37,9 @@ impl IntelligentTieringFilter {
 }
 
 /// A builder for [`IntelligentTieringFilter`](crate::types::IntelligentTieringFilter).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct IntelligentTieringFilterBuilder {
     pub(crate) prefix: ::std::option::Option<::std::string::String>,
@@ -85,7 +87,10 @@ impl IntelligentTieringFilterBuilder {
         self
     }
     /// <p>A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.</p>
-    pub fn set_and(mut self, input: ::std::option::Option<crate::types::IntelligentTieringAndOperator>) -> Self {
+    pub fn set_and(
+        mut self,
+        input: ::std::option::Option<crate::types::IntelligentTieringAndOperator>,
+    ) -> Self {
         self.and = input;
         self
     }

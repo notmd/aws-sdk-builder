@@ -7,7 +7,9 @@ impl super::Client {
     ///   - [`user_pool_id(impl Into<String>)`](crate::operation::delete_group::builders::DeleteGroupFluentBuilder::user_pool_id) / [`set_user_pool_id(Option<String>)`](crate::operation::delete_group::builders::DeleteGroupFluentBuilder::set_user_pool_id):<br>required: **true**<br><p>The ID of the user pool where you want to delete the group.</p><br>
     /// - On success, responds with [`DeleteGroupOutput`](crate::operation::delete_group::DeleteGroupOutput)
     /// - On failure, responds with [`SdkError<DeleteGroupError>`](crate::operation::delete_group::DeleteGroupError)
-    pub fn delete_group(&self) -> crate::operation::delete_group::builders::DeleteGroupFluentBuilder {
+    pub fn delete_group(
+        &self,
+    ) -> crate::operation::delete_group::builders::DeleteGroupFluentBuilder {
         crate::operation::delete_group::builders::DeleteGroupFluentBuilder::new(self.handle.clone())
     }
 }

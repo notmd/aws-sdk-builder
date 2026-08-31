@@ -77,7 +77,9 @@ impl AttributeValue {
     }
     /// Tries to convert the enum instance into [`Bs`](crate::types::AttributeValue::Bs), extracting the inner [`Vec`](::std::vec::Vec).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_bs(&self) -> ::std::result::Result<&::std::vec::Vec<::aws_smithy_types::Blob>, &Self> {
+    pub fn as_bs(
+        &self,
+    ) -> ::std::result::Result<&::std::vec::Vec<::aws_smithy_types::Blob>, &Self> {
         if let AttributeValue::Bs(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -90,7 +92,9 @@ impl AttributeValue {
     }
     /// Tries to convert the enum instance into [`L`](crate::types::AttributeValue::L), extracting the inner [`Vec`](::std::vec::Vec).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_l(&self) -> ::std::result::Result<&::std::vec::Vec<crate::types::AttributeValue>, &Self> {
+    pub fn as_l(
+        &self,
+    ) -> ::std::result::Result<&::std::vec::Vec<crate::types::AttributeValue>, &Self> {
         if let AttributeValue::L(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -103,7 +107,12 @@ impl AttributeValue {
     }
     /// Tries to convert the enum instance into [`M`](crate::types::AttributeValue::M), extracting the inner [`HashMap`](::std::collections::HashMap).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_m(&self) -> ::std::result::Result<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>, &Self> {
+    pub fn as_m(
+        &self,
+    ) -> ::std::result::Result<
+        &::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
+        &Self,
+    > {
         if let AttributeValue::M(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

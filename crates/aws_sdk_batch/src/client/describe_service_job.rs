@@ -30,7 +30,11 @@ impl super::Client {
     ///   - [`tags(Option<HashMap::<String, String>>)`](crate::operation::describe_service_job::DescribeServiceJobOutput::tags): <p>The tags that are associated with the service job. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
     ///   - [`timeout_config(Option<ServiceJobTimeout>)`](crate::operation::describe_service_job::DescribeServiceJobOutput::timeout_config): <p>The timeout configuration for the service job.</p>
     /// - On failure, responds with [`SdkError<DescribeServiceJobError>`](crate::operation::describe_service_job::DescribeServiceJobError)
-    pub fn describe_service_job(&self) -> crate::operation::describe_service_job::builders::DescribeServiceJobFluentBuilder {
-        crate::operation::describe_service_job::builders::DescribeServiceJobFluentBuilder::new(self.handle.clone())
+    pub fn describe_service_job(
+        &self,
+    ) -> crate::operation::describe_service_job::builders::DescribeServiceJobFluentBuilder {
+        crate::operation::describe_service_job::builders::DescribeServiceJobFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

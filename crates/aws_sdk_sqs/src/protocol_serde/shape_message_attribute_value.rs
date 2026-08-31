@@ -7,7 +7,9 @@ pub fn ser_message_attribute_value(
         object.key("StringValue").string(var_1.as_str());
     }
     if let Some(var_2) = &input.binary_value {
-        object.key("BinaryValue").string_unchecked(&::aws_smithy_types::base64::encode(var_2));
+        object
+            .key("BinaryValue")
+            .string_unchecked(&::aws_smithy_types::base64::encode(var_2));
     }
     if let Some(var_3) = &input.string_list_values {
         let mut array_4 = object.key("StringListValues").start_array();
@@ -22,7 +24,9 @@ pub fn ser_message_attribute_value(
         let mut array_7 = object.key("BinaryListValues").start_array();
         for item_8 in var_6 {
             {
-                array_7.value().string_unchecked(&::aws_smithy_types::base64::encode(item_8));
+                array_7
+                    .value()
+                    .string_unchecked(&::aws_smithy_types::base64::encode(item_8));
             }
         }
         array_7.finish();
@@ -37,14 +41,24 @@ pub(crate) fn de_message_attribute_value<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::MessageAttributeValue>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<
+    Option<crate::types::MessageAttributeValue>,
+    ::aws_smithy_json::deserialize::error::DeserializeError,
+>
 where
-    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+    I: Iterator<
+        Item = Result<
+            ::aws_smithy_json::deserialize::Token<'a>,
+            ::aws_smithy_json::deserialize::error::DeserializeError,
+        >,
+    >,
 {
     if depth >= 128u32 {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "maximum nesting depth exceeded",
+            ),
+        );
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -54,47 +68,78 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "StringValue" => {
-                            builder = builder.set_string_value(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "StringValue" => {
+                                builder = builder.set_string_value(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                        tokens.next(),
+                                    )?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                            );
-                        }
-                        "BinaryValue" => {
-                            builder = builder.set_binary_value(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?);
-                        }
-                        "StringListValues" => {
-                            builder =
-                                builder.set_string_list_values(crate::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
-                        }
-                        "BinaryListValues" => {
-                            builder =
-                                builder.set_binary_list_values(crate::protocol_serde::shape_binary_list::de_binary_list(tokens, _value, depth + 1)?);
-                        }
-                        "DataType" => {
-                            builder = builder.set_data_type(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                );
+                            }
+                            "BinaryValue" => {
+                                builder = builder.set_binary_value(
+                                    ::aws_smithy_json::deserialize::token::expect_blob_or_null(
+                                        tokens.next(),
+                                    )?,
+                                );
+                            }
+                            "StringListValues" => {
+                                builder = builder.set_string_list_values(
+                                    crate::protocol_serde::shape_string_list::de_string_list(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
+                            }
+                            "BinaryListValues" => {
+                                builder = builder.set_binary_list_values(
+                                    crate::protocol_serde::shape_binary_list::de_binary_list(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
+                            }
+                            "DataType" => {
+                                builder = builder.set_data_type(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                        tokens.next(),
+                                    )?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                            );
+                                );
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
-                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )))
+                        return Err(
+                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                format!("expected object key or end object, found: {other:?}"),
+                            ),
+                        )
                     }
                 }
             }
-            Ok(Some(crate::serde_util::message_attribute_value_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(
+                crate::serde_util::message_attribute_value_correct_errors(builder)
+                    .build()
+                    .map_err(|err| {
+                        ::aws_smithy_json::deserialize::error::DeserializeError::custom_source(
+                            "Response was invalid",
+                            err,
+                        )
+                    })?,
+            ))
         }
-        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "expected start object or null",
-        )),
+        _ => Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ),
+        ),
     }
 }

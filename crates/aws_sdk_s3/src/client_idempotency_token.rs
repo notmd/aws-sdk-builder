@@ -8,9 +8,15 @@ use std::borrow::Cow;
 use std::fmt;
 
 use aws_smithy_runtime_api::box_error::BoxError;
-use aws_smithy_runtime_api::client::interceptors::context::{BeforeSerializationInterceptorContextMut, Input};
-use aws_smithy_runtime_api::client::interceptors::{dyn_dispatch_hint, Intercept, SharedInterceptor};
-use aws_smithy_runtime_api::client::runtime_components::{RuntimeComponents, RuntimeComponentsBuilder};
+use aws_smithy_runtime_api::client::interceptors::context::{
+    BeforeSerializationInterceptorContextMut, Input,
+};
+use aws_smithy_runtime_api::client::interceptors::{
+    dyn_dispatch_hint, Intercept, SharedInterceptor,
+};
+use aws_smithy_runtime_api::client::runtime_components::{
+    RuntimeComponents, RuntimeComponentsBuilder,
+};
 use aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin;
 use aws_smithy_types::config_bag::ConfigBag;
 
@@ -28,13 +34,18 @@ impl IdempotencyTokenRuntimePlugin {
     {
         Self {
             runtime_components: RuntimeComponentsBuilder::new("IdempotencyTokenRuntimePlugin")
-                .with_interceptor(SharedInterceptor::permanent(IdempotencyTokenInterceptor { set_token })),
+                .with_interceptor(SharedInterceptor::permanent(IdempotencyTokenInterceptor {
+                    set_token,
+                })),
         }
     }
 }
 
 impl RuntimePlugin for IdempotencyTokenRuntimePlugin {
-    fn runtime_components(&self, _: &RuntimeComponentsBuilder) -> Cow<'_, RuntimeComponentsBuilder> {
+    fn runtime_components(
+        &self,
+        _: &RuntimeComponentsBuilder,
+    ) -> Cow<'_, RuntimeComponentsBuilder> {
         Cow::Borrowed(&self.runtime_components)
     }
 }

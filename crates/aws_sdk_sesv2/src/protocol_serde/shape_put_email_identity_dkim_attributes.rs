@@ -84,14 +84,19 @@ pub fn de_put_email_identity_dkim_attributes_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesOutputBuilder::default();
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
 
 pub fn ser_put_email_identity_dkim_attributes_input(
     input: &crate::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+) -> ::std::result::Result<
+    ::aws_smithy_types::body::SdkBody,
+    ::aws_smithy_types::error::operation::SerializationError,
+> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_put_email_identity_dkim_attributes_input::ser_put_email_identity_dkim_attributes_input_input(&mut object, input)?;

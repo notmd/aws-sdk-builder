@@ -57,7 +57,9 @@ impl PutEvaluationsFluentBuilder {
         }
     }
     /// Access the PutEvaluations as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_evaluations::builders::PutEvaluationsInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_evaluations::builders::PutEvaluationsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,12 +83,14 @@ impl PutEvaluationsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::put_evaluations::PutEvaluations::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::put_evaluations::PutEvaluations::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::put_evaluations::PutEvaluations::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::put_evaluations::PutEvaluations::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,12 +103,18 @@ impl PutEvaluationsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -119,12 +129,17 @@ impl PutEvaluationsFluentBuilder {
         self
     }
     /// <p>The assessments that the Lambda function performs. Each evaluation identifies an Amazon Web Services resource and indicates whether it complies with the Config rule that invokes the Lambda function.</p>
-    pub fn set_evaluations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Evaluation>>) -> Self {
+    pub fn set_evaluations(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Evaluation>>,
+    ) -> Self {
         self.inner = self.inner.set_evaluations(input);
         self
     }
     /// <p>The assessments that the Lambda function performs. Each evaluation identifies an Amazon Web Services resource and indicates whether it complies with the Config rule that invokes the Lambda function.</p>
-    pub fn get_evaluations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Evaluation>> {
+    pub fn get_evaluations(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Evaluation>> {
         self.inner.get_evaluations()
     }
     /// <p>An encrypted token that associates an evaluation with an Config rule. Identifies the rule and the event that triggered the evaluation.</p>

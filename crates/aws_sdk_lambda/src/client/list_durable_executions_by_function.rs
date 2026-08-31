@@ -19,7 +19,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListDurableExecutionsByFunctionError>`](crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError)
     pub fn list_durable_executions_by_function(
         &self,
-    ) -> crate::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionFluentBuilder {
+    ) -> crate::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionFluentBuilder{
         crate::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionFluentBuilder::new(self.handle.clone())
     }
 }

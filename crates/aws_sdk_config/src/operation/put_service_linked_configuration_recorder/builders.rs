@@ -67,7 +67,7 @@ impl PutServiceLinkedConfigurationRecorderFluentBuilder {
     /// Access the PutServiceLinkedConfigurationRecorder as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderInputBuilder {
+    ) -> &crate::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +86,7 @@ impl PutServiceLinkedConfigurationRecorderFluentBuilder {
             crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -107,25 +107,37 @@ impl PutServiceLinkedConfigurationRecorderFluentBuilder {
         crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderOutput,
         crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to create.</p>
-    pub fn service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn service_principal(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.service_principal(input.into());
         self
     }
     /// <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to create.</p>
-    pub fn set_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_service_principal(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_service_principal(input);
         self
     }
@@ -144,7 +156,10 @@ impl PutServiceLinkedConfigurationRecorderFluentBuilder {
         self
     }
     /// <p>The tags for a service-linked configuration recorder. Each tag consists of a key and an optional value, both of which you define.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

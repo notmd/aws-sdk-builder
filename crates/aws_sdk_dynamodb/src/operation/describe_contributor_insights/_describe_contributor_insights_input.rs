@@ -20,13 +20,15 @@ impl DescribeContributorInsightsInput {
 }
 impl DescribeContributorInsightsInput {
     /// Creates a new builder-style object to manufacture [`DescribeContributorInsightsInput`](crate::operation::describe_contributor_insights::DescribeContributorInsightsInput).
-    pub fn builder() -> crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsInputBuilder {
+    pub fn builder() -> crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsInputBuilder{
         crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeContributorInsightsInput`](crate::operation::describe_contributor_insights::DescribeContributorInsightsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeContributorInsightsInputBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
@@ -69,9 +71,11 @@ impl DescribeContributorInsightsInputBuilder {
         crate::operation::describe_contributor_insights::DescribeContributorInsightsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::describe_contributor_insights::DescribeContributorInsightsInput {
-            table_name: self.table_name,
-            index_name: self.index_name,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::describe_contributor_insights::DescribeContributorInsightsInput {
+                table_name: self.table_name,
+                index_name: self.index_name,
+            },
+        )
     }
 }

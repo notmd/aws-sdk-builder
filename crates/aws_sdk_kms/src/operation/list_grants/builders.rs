@@ -118,12 +118,18 @@ impl ListGrantsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -221,13 +227,19 @@ impl ListGrantsFluentBuilder {
     }
     /// <p>Returns only grants where the specified principal is the grantee principal for the grant.</p>
     /// <p>You can specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
-    pub fn grantee_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn grantee_principal(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.grantee_principal(input.into());
         self
     }
     /// <p>Returns only grants where the specified principal is the grantee principal for the grant.</p>
     /// <p>You can specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
-    pub fn set_grantee_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_grantee_principal(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_grantee_principal(input);
         self
     }
@@ -238,13 +250,19 @@ impl ListGrantsFluentBuilder {
     }
     /// <p>Returns only grants where the specified Amazon Web Services service principal is the grantee service principal for the grant. This filter is only usable by callers in a service principal.</p>
     /// <p>You can specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
-    pub fn grantee_service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn grantee_service_principal(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.grantee_service_principal(input.into());
         self
     }
     /// <p>Returns only grants where the specified Amazon Web Services service principal is the grantee service principal for the grant. This filter is only usable by callers in a service principal.</p>
     /// <p>You can specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
-    pub fn set_grantee_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_grantee_service_principal(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_grantee_service_principal(input);
         self
     }

@@ -11,14 +11,19 @@ pub fn ser_submit_job_input_input(
     }
     if let Some(var_3) = &input.consumable_resource_properties_override {
         #[allow(unused_mut)]
-        let mut object_4 = object.key("consumableResourcePropertiesOverride").start_object();
+        let mut object_4 = object
+            .key("consumableResourcePropertiesOverride")
+            .start_object();
         crate::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_4, var_3)?;
         object_4.finish();
     }
     if let Some(var_5) = &input.container_overrides {
         #[allow(unused_mut)]
         let mut object_6 = object.key("containerOverrides").start_object();
-        crate::protocol_serde::shape_container_overrides::ser_container_overrides(&mut object_6, var_5)?;
+        crate::protocol_serde::shape_container_overrides::ser_container_overrides(
+            &mut object_6,
+            var_5,
+        )?;
         object_6.finish();
     }
     if let Some(var_7) = &input.depends_on {
@@ -27,7 +32,10 @@ pub fn ser_submit_job_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_10 = array_8.value().start_object();
-                crate::protocol_serde::shape_job_dependency::ser_job_dependency(&mut object_10, item_9)?;
+                crate::protocol_serde::shape_job_dependency::ser_job_dependency(
+                    &mut object_10,
+                    item_9,
+                )?;
                 object_10.finish();
             }
         }
@@ -36,13 +44,19 @@ pub fn ser_submit_job_input_input(
     if let Some(var_11) = &input.ecs_properties_override {
         #[allow(unused_mut)]
         let mut object_12 = object.key("ecsPropertiesOverride").start_object();
-        crate::protocol_serde::shape_ecs_properties_override::ser_ecs_properties_override(&mut object_12, var_11)?;
+        crate::protocol_serde::shape_ecs_properties_override::ser_ecs_properties_override(
+            &mut object_12,
+            var_11,
+        )?;
         object_12.finish();
     }
     if let Some(var_13) = &input.eks_properties_override {
         #[allow(unused_mut)]
         let mut object_14 = object.key("eksPropertiesOverride").start_object();
-        crate::protocol_serde::shape_eks_properties_override::ser_eks_properties_override(&mut object_14, var_13)?;
+        crate::protocol_serde::shape_eks_properties_override::ser_eks_properties_override(
+            &mut object_14,
+            var_13,
+        )?;
         object_14.finish();
     }
     if let Some(var_15) = &input.job_definition {

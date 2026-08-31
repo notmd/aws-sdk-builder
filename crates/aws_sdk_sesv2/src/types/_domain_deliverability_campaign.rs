@@ -103,7 +103,9 @@ impl DomainDeliverabilityCampaign {
 }
 
 /// A builder for [`DomainDeliverabilityCampaign`](crate::types::DomainDeliverabilityCampaign).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DomainDeliverabilityCampaignBuilder {
     pub(crate) campaign_id: ::std::option::Option<::std::string::String>,
@@ -190,12 +192,17 @@ impl DomainDeliverabilityCampaignBuilder {
         self
     }
     /// <p>The IP addresses that were used to send the email message.</p>
-    pub fn set_sending_ips(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_sending_ips(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.sending_ips = input;
         self
     }
     /// <p>The IP addresses that were used to send the email message.</p>
-    pub fn get_sending_ips(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_sending_ips(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.sending_ips
     }
     /// <p>The first time when the email message was delivered to any recipient's inbox. This value can help you determine how long it took for a campaign to deliver an email message.</p>
@@ -204,7 +211,10 @@ impl DomainDeliverabilityCampaignBuilder {
         self
     }
     /// <p>The first time when the email message was delivered to any recipient's inbox. This value can help you determine how long it took for a campaign to deliver an email message.</p>
-    pub fn set_first_seen_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_first_seen_date_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.first_seen_date_time = input;
         self
     }
@@ -218,7 +228,10 @@ impl DomainDeliverabilityCampaignBuilder {
         self
     }
     /// <p>The last time when the email message was delivered to any recipient's inbox. This value can help you determine how long it took for a campaign to deliver an email message.</p>
-    pub fn set_last_seen_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_last_seen_date_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.last_seen_date_time = input;
         self
     }
@@ -322,7 +335,10 @@ impl DomainDeliverabilityCampaignBuilder {
         self
     }
     /// <p>The major email providers who handled the email message.</p>
-    pub fn set_esps(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_esps(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.esps = input;
         self
     }

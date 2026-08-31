@@ -3,7 +3,10 @@
 pub fn de_encryption_type_mismatch_xml_err(
     inp: &[u8],
     mut builder: crate::types::error::builders::EncryptionTypeMismatchBuilder,
-) -> std::result::Result<crate::types::error::builders::EncryptionTypeMismatchBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> std::result::Result<
+    crate::types::error::builders::EncryptionTypeMismatchBuilder,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
     if inp.is_empty() {
         return Ok(builder);
     }

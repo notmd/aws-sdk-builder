@@ -17,7 +17,7 @@ impl ListProvisionedConcurrencyConfigs {
             crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
             ::aws_smithy_runtime_api::client::interceptors::context::Error,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -27,9 +27,13 @@ impl ListProvisionedConcurrencyConfigs {
                     .expect("correct error type")
             })
         };
-        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-            .await
-            .map_err(map_err)?;
+        let context = Self::orchestrate_with_stop_point(
+            runtime_plugins,
+            input,
+            ::aws_smithy_runtime::client::orchestrator::StopPoint::None,
+        )
+        .await
+        .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
@@ -81,37 +85,50 @@ impl ListProvisionedConcurrencyConfigs {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
-                config_override,
-                client_config.config.clone(),
-                &client_config.runtime_components,
-            ));
+            runtime_plugins = runtime_plugins.with_operation_plugin(
+                crate::config::ConfigOverrideRuntimePlugin::new(
+                    config_override,
+                    client_config.config.clone(),
+                    &client_config.runtime_components,
+                ),
+            );
         }
         runtime_plugins
     }
 }
-impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListProvisionedConcurrencyConfigs {
+impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
+    for ListProvisionedConcurrencyConfigs
+{
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
-        let mut cfg = ::aws_smithy_types::config_bag::Layer::new("ListProvisionedConcurrencyConfigs");
+        let mut cfg =
+            ::aws_smithy_types::config_bag::Layer::new("ListProvisionedConcurrencyConfigs");
 
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-            ListProvisionedConcurrencyConfigsRequestSerializer,
-        ));
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
-            ListProvisionedConcurrencyConfigsResponseDeserializer,
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+                ListProvisionedConcurrencyConfigsRequestSerializer,
+            ),
+        );
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
+                ListProvisionedConcurrencyConfigsResponseDeserializer,
+            ),
+        );
 
-        cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
-                .operation_name("ListProvisionedConcurrencyConfigs")
-                .build()
-                .expect("required fields set"),
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
+                crate::config::auth::Params::builder()
+                    .operation_name("ListProvisionedConcurrencyConfigs")
+                    .build()
+                    .expect("required fields set"),
+            ),
+        );
 
-        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-            "ListProvisionedConcurrencyConfigs",
-            "Lambda",
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+                "ListProvisionedConcurrencyConfigs",
+                "Lambda",
+            ),
+        );
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -129,7 +146,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListPro
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+    ) -> ::std::borrow::Cow<
+        '_,
+        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
+    > {
         #[allow(unused_mut)]
         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListProvisionedConcurrencyConfigs")
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -159,7 +179,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListPro
 struct ListProvisionedConcurrencyConfigsTelemetryInputCaptureInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListProvisionedConcurrencyConfigsTelemetryInputCaptureInterceptor {
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept
+    for ListProvisionedConcurrencyConfigsTelemetryInputCaptureInterceptor
+{
     fn name(&self) -> &'static str {
         "ListProvisionedConcurrencyConfigsTelemetryInputCaptureInterceptor"
     }
@@ -182,7 +204,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListProvision
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) = context.input().downcast_ref::<ListProvisionedConcurrencyConfigsInput>() else {
+        let ::std::option::Option::Some(input) = context
+            .input()
+            .downcast_ref::<ListProvisionedConcurrencyConfigsInput>(
+        ) else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -205,7 +230,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListProvision
 }
 #[derive(Debug)]
 struct ListProvisionedConcurrencyConfigsResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ListProvisionedConcurrencyConfigsResponseDeserializer {
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
+    for ListProvisionedConcurrencyConfigsResponseDeserializer
+{
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -231,13 +258,23 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ListProvi
 }
 #[derive(Debug)]
 struct ListProvisionedConcurrencyConfigsRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListProvisionedConcurrencyConfigsRequestSerializer {
-    #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
+    for ListProvisionedConcurrencyConfigsRequestSerializer
+{
+    #[allow(
+        unused_mut,
+        clippy::let_and_return,
+        clippy::needless_borrow,
+        clippy::useless_conversion
+    )]
     fn serialize_input(
         &self,
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+    ) -> ::std::result::Result<
+        ::aws_smithy_runtime_api::client::orchestrator::HttpRequest,
+        ::aws_smithy_runtime_api::box_error::BoxError,
+    > {
         let input = input
             .downcast::<crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsInput>()
             .expect("correct type");
@@ -250,18 +287,27 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListProvisio
             fn uri_base(
                 _input: &crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
+            {
                 use ::std::fmt::Write as _;
                 let input_1 = &_input.function_name;
-                let input_1 = input_1
-                    .as_ref()
-                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("function_name", "cannot be empty or unset"))?;
-                let function_name = ::aws_smithy_http::label::fmt_string(input_1, ::aws_smithy_http::label::EncodingStrategy::Default);
-                if function_name.is_empty() {
-                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
+                let input_1 = input_1.as_ref().ok_or_else(|| {
+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
                         "function_name",
                         "cannot be empty or unset",
-                    ));
+                    )
+                })?;
+                let function_name = ::aws_smithy_http::label::fmt_string(
+                    input_1,
+                    ::aws_smithy_http::label::EncodingStrategy::Default,
+                );
+                if function_name.is_empty() {
+                    return ::std::result::Result::Err(
+                        ::aws_smithy_types::error::operation::BuildError::missing_field(
+                            "function_name",
+                            "cannot be empty or unset",
+                        ),
+                    );
                 }
                 ::std::write!(
                     output,
@@ -274,7 +320,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListProvisio
             fn uri_query(
                 _input: &crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsInput,
                 mut output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 query.push_kv("List", "ALL");
                 if let ::std::option::Option::Some(inner_2) = &_input.marker {
@@ -284,7 +331,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListProvisio
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.max_items {
                     {
-                        query.push_kv("MaxItems", ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode());
+                        query.push_kv(
+                            "MaxItems",
+                            ::aws_smithy_types::primitive::Encoder::from(*inner_3).encode(),
+                        );
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -293,7 +343,10 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListProvisio
             fn update_http_builder(
                 input: &crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<
+                ::http_1x::request::Builder,
+                ::aws_smithy_types::error::operation::BuildError,
+            > {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
@@ -304,14 +357,22 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListProvisio
         };
         let body = ::aws_smithy_types::body::SdkBody::from("");
 
-        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
+        ::std::result::Result::Ok(
+            request_builder
+                .body(body)
+                .expect("valid request")
+                .try_into()
+                .unwrap(),
+        )
     }
 }
 #[derive(Debug)]
 struct ListProvisionedConcurrencyConfigsEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListProvisionedConcurrencyConfigsEndpointParamsInterceptor {
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept
+    for ListProvisionedConcurrencyConfigsEndpointParamsInterceptor
+{
     fn name(&self) -> &'static str {
         "ListProvisionedConcurrencyConfigsEndpointParamsInterceptor"
     }
@@ -332,16 +393,32 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListProvision
             .ok_or("failed to downcast to ListProvisionedConcurrencyConfigsInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-            .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
+            .set_region(
+                cfg.load::<::aws_types::region::Region>()
+                    .map(|r| r.as_ref().to_owned()),
+            )
+            .set_use_dual_stack(
+                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
+                    .map(|ty| ty.0),
+            )
+            .set_use_fips(
+                cfg.load::<::aws_types::endpoint_config::UseFips>()
+                    .map(|ty| ty.0),
+            )
+            .set_endpoint(
+                cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
+                    .map(|ty| ty.0.clone()),
+            )
             .build()
             .map_err(|err| {
-                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
+                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(
+                    "endpoint params could not be built",
+                    err,
+                )
             })?;
-        cfg.interceptor_state()
-            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
+        cfg.interceptor_state().store_put(
+            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
+        );
         ::std::result::Result::Ok(())
     }
 }
@@ -362,18 +439,24 @@ pub enum ListProvisionedConcurrencyConfigsError {
     /// <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
     TooManyRequestsException(crate::types::error::TooManyRequestsException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(
+        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ListProvisionedConcurrencyConfigsError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ListProvisionedConcurrencyConfigsError) for what information is available for the error."
+    )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl ListProvisionedConcurrencyConfigsError {
     /// Creates the `ListProvisionedConcurrencyConfigsError::Unhandled` variant from any error type.
     pub fn unhandled(
-        err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
+        err: impl ::std::convert::Into<
+            ::std::boxed::Box<
+                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
+            >,
+        >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.into(),
@@ -394,10 +477,18 @@ impl ListProvisionedConcurrencyConfigsError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::InvalidParameterValueException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::ServiceException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::TooManyRequestsException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidParameterValueException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::ResourceNotFoundException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::ServiceException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::TooManyRequestsException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -437,7 +528,9 @@ impl ::std::fmt::Display for ListProvisionedConcurrencyConfigsError {
             Self::ServiceException(_inner) => _inner.fmt(f),
             Self::TooManyRequestsException(_inner) => _inner.fmt(f),
             Self::Unhandled(_inner) => {
-                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                if let ::std::option::Option::Some(code) =
+                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+                {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -454,20 +547,34 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for ListProvisionedConcurrencyC
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ListProvisionedConcurrencyConfigsError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
+    for ListProvisionedConcurrencyConfigsError
+{
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::InvalidParameterValueException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::ResourceNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::ServiceException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::TooManyRequestsException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::InvalidParameterValueException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::ResourceNotFoundException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::ServiceException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::TooManyRequestsException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListProvisionedConcurrencyConfigsError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
+    for ListProvisionedConcurrencyConfigsError
+{
     fn create_unhandled_error(
-        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+        source: ::std::boxed::Box<
+            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
+        >,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {

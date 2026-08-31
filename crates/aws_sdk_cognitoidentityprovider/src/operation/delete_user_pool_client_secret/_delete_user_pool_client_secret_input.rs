@@ -36,7 +36,7 @@ impl ::std::fmt::Debug for DeleteUserPoolClientSecretInput {
 }
 impl DeleteUserPoolClientSecretInput {
     /// Creates a new builder-style object to manufacture [`DeleteUserPoolClientSecretInput`](crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretInput).
-    pub fn builder() -> crate::operation::delete_user_pool_client_secret::builders::DeleteUserPoolClientSecretInputBuilder {
+    pub fn builder() -> crate::operation::delete_user_pool_client_secret::builders::DeleteUserPoolClientSecretInputBuilder{
         crate::operation::delete_user_pool_client_secret::builders::DeleteUserPoolClientSecretInputBuilder::default()
     }
 }
@@ -82,12 +82,18 @@ impl DeleteUserPoolClientSecretInputBuilder {
     }
     /// <p>The unique identifier of the client secret you want to delete.</p>
     /// This field is required.
-    pub fn client_secret_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn client_secret_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.client_secret_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier of the client secret you want to delete.</p>
-    pub fn set_client_secret_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_client_secret_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.client_secret_id = input;
         self
     }
@@ -102,11 +108,13 @@ impl DeleteUserPoolClientSecretInputBuilder {
         crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretInput {
-            user_pool_id: self.user_pool_id,
-            client_id: self.client_id,
-            client_secret_id: self.client_secret_id,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretInput {
+                user_pool_id: self.user_pool_id,
+                client_id: self.client_id,
+                client_secret_id: self.client_secret_id,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for DeleteUserPoolClientSecretInputBuilder {

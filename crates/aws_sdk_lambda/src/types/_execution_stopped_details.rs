@@ -21,7 +21,9 @@ impl ExecutionStoppedDetails {
 }
 
 /// A builder for [`ExecutionStoppedDetails`](crate::types::ExecutionStoppedDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ExecutionStoppedDetailsBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EventError>,

@@ -4,42 +4,60 @@ pub fn de_put_object_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::put_object::PutObjectOutput, crate::operation::put_object::PutObjectError> {
+) -> std::result::Result<
+    crate::operation::put_object::PutObjectOutput,
+    crate::operation::put_object::PutObjectError,
+> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::put_object::PutObjectError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(crate::operation::put_object::PutObjectError::unhandled)?;
+    generic_builder =
+        crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::put_object::PutObjectError::unhandled(generic)),
+        None => {
+            return Err(crate::operation::put_object::PutObjectError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "EncryptionTypeMismatch" => crate::operation::put_object::PutObjectError::EncryptionTypeMismatch({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "EncryptionTypeMismatch" => {
+            crate::operation::put_object::PutObjectError::EncryptionTypeMismatch({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::EncryptionTypeMismatchBuilder::default();
-                output = crate::protocol_serde::shape_encryption_type_mismatch::de_encryption_type_mismatch_xml_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output =
+                        crate::types::error::builders::EncryptionTypeMismatchBuilder::default();
+                    output = crate::protocol_serde::shape_encryption_type_mismatch::de_encryption_type_mismatch_xml_err(_response_body, output)
                     .map_err(crate::operation::put_object::PutObjectError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "InvalidRequest" => crate::operation::put_object::PutObjectError::InvalidRequest({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::InvalidRequestBuilder::default();
-                output = crate::protocol_serde::shape_invalid_request::de_invalid_request_xml_err(_response_body, output)
-                    .map_err(crate::operation::put_object::PutObjectError::unhandled)?;
+                output = crate::protocol_serde::shape_invalid_request::de_invalid_request_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::put_object::PutObjectError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -52,7 +70,8 @@ pub fn de_put_object_http_error(
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidWriteOffsetBuilder::default();
+                let mut output =
+                    crate::types::error::builders::InvalidWriteOffsetBuilder::default();
                 output = crate::protocol_serde::shape_invalid_write_offset::de_invalid_write_offset_xml_err(_response_body, output)
                     .map_err(crate::operation::put_object::PutObjectError::unhandled)?;
                 let output = output.meta(generic);
@@ -68,8 +87,11 @@ pub fn de_put_object_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::TooManyPartsBuilder::default();
-                output = crate::protocol_serde::shape_too_many_parts::de_too_many_parts_xml_err(_response_body, output)
-                    .map_err(crate::operation::put_object::PutObjectError::unhandled)?;
+                output = crate::protocol_serde::shape_too_many_parts::de_too_many_parts_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::put_object::PutObjectError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -87,7 +109,10 @@ pub fn de_put_object_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::put_object::PutObjectOutput, crate::operation::put_object::PutObjectError> {
+) -> std::result::Result<
+    crate::operation::put_object::PutObjectOutput,
+    crate::operation::put_object::PutObjectError,
+> {
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::put_object::builders::PutObjectOutputBuilder::default();
@@ -99,71 +124,139 @@ pub fn de_put_object_http_response(
             })?,
         );
         output = output.set_checksum_crc32(
-            crate::protocol_serde::shape_put_object_output::de_checksum_crc32_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumCRC32 from header `x-amz-checksum-crc32")
+            crate::protocol_serde::shape_put_object_output::de_checksum_crc32_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::put_object::PutObjectError::unhandled(
+                    "Failed to parse ChecksumCRC32 from header `x-amz-checksum-crc32",
+                )
             })?,
         );
         output = output.set_checksum_crc32_c(
-            crate::protocol_serde::shape_put_object_output::de_checksum_crc32_c_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumCRC32C from header `x-amz-checksum-crc32c")
+            crate::protocol_serde::shape_put_object_output::de_checksum_crc32_c_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::put_object::PutObjectError::unhandled(
+                    "Failed to parse ChecksumCRC32C from header `x-amz-checksum-crc32c",
+                )
             })?,
         );
         output = output.set_checksum_crc64_nvme(
-            crate::protocol_serde::shape_put_object_output::de_checksum_crc64_nvme_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumCRC64NVME from header `x-amz-checksum-crc64nvme")
+            crate::protocol_serde::shape_put_object_output::de_checksum_crc64_nvme_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::put_object::PutObjectError::unhandled(
+                    "Failed to parse ChecksumCRC64NVME from header `x-amz-checksum-crc64nvme",
+                )
             })?,
         );
         output = output.set_checksum_md5(
-            crate::protocol_serde::shape_put_object_output::de_checksum_md5_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumMD5 from header `x-amz-checksum-md5")
+            crate::protocol_serde::shape_put_object_output::de_checksum_md5_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::put_object::PutObjectError::unhandled(
+                    "Failed to parse ChecksumMD5 from header `x-amz-checksum-md5",
+                )
             })?,
         );
         output = output.set_checksum_sha1(
-            crate::protocol_serde::shape_put_object_output::de_checksum_sha1_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumSHA1 from header `x-amz-checksum-sha1")
+            crate::protocol_serde::shape_put_object_output::de_checksum_sha1_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::put_object::PutObjectError::unhandled(
+                    "Failed to parse ChecksumSHA1 from header `x-amz-checksum-sha1",
+                )
             })?,
         );
         output = output.set_checksum_sha256(
-            crate::protocol_serde::shape_put_object_output::de_checksum_sha256_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumSHA256 from header `x-amz-checksum-sha256")
+            crate::protocol_serde::shape_put_object_output::de_checksum_sha256_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::put_object::PutObjectError::unhandled(
+                    "Failed to parse ChecksumSHA256 from header `x-amz-checksum-sha256",
+                )
             })?,
         );
         output = output.set_checksum_sha512(
-            crate::protocol_serde::shape_put_object_output::de_checksum_sha512_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumSHA512 from header `x-amz-checksum-sha512")
+            crate::protocol_serde::shape_put_object_output::de_checksum_sha512_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::put_object::PutObjectError::unhandled(
+                    "Failed to parse ChecksumSHA512 from header `x-amz-checksum-sha512",
+                )
             })?,
         );
         output = output.set_checksum_type(
-            crate::protocol_serde::shape_put_object_output::de_checksum_type_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumType from header `x-amz-checksum-type")
+            crate::protocol_serde::shape_put_object_output::de_checksum_type_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::put_object::PutObjectError::unhandled(
+                    "Failed to parse ChecksumType from header `x-amz-checksum-type",
+                )
             })?,
         );
         output = output.set_checksum_xxhash128(
-            crate::protocol_serde::shape_put_object_output::de_checksum_xxhash128_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumXXHASH128 from header `x-amz-checksum-xxhash128")
+            crate::protocol_serde::shape_put_object_output::de_checksum_xxhash128_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::put_object::PutObjectError::unhandled(
+                    "Failed to parse ChecksumXXHASH128 from header `x-amz-checksum-xxhash128",
+                )
             })?,
         );
         output = output.set_checksum_xxhash3(
-            crate::protocol_serde::shape_put_object_output::de_checksum_xxhash3_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumXXHASH3 from header `x-amz-checksum-xxhash3")
+            crate::protocol_serde::shape_put_object_output::de_checksum_xxhash3_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::put_object::PutObjectError::unhandled(
+                    "Failed to parse ChecksumXXHASH3 from header `x-amz-checksum-xxhash3",
+                )
             })?,
         );
         output = output.set_checksum_xxhash64(
-            crate::protocol_serde::shape_put_object_output::de_checksum_xxhash64_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumXXHASH64 from header `x-amz-checksum-xxhash64")
+            crate::protocol_serde::shape_put_object_output::de_checksum_xxhash64_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::put_object::PutObjectError::unhandled(
+                    "Failed to parse ChecksumXXHASH64 from header `x-amz-checksum-xxhash64",
+                )
             })?,
         );
         output = output.set_e_tag(
             crate::protocol_serde::shape_put_object_output::de_e_tag_header(_response_headers)
-                .map_err(|_| crate::operation::put_object::PutObjectError::unhandled("Failed to parse ETag from header `ETag"))?,
+                .map_err(|_| {
+                    crate::operation::put_object::PutObjectError::unhandled(
+                        "Failed to parse ETag from header `ETag",
+                    )
+                })?,
         );
         output = output.set_expiration(
             crate::protocol_serde::shape_put_object_output::de_expiration_header(_response_headers)
-                .map_err(|_| crate::operation::put_object::PutObjectError::unhandled("Failed to parse Expiration from header `x-amz-expiration"))?,
+                .map_err(|_| {
+                    crate::operation::put_object::PutObjectError::unhandled(
+                        "Failed to parse Expiration from header `x-amz-expiration",
+                    )
+                })?,
         );
         output = output.set_request_charged(
-            crate::protocol_serde::shape_put_object_output::de_request_charged_header(_response_headers).map_err(|_| {
-                crate::operation::put_object::PutObjectError::unhandled("Failed to parse RequestCharged from header `x-amz-request-charged")
+            crate::protocol_serde::shape_put_object_output::de_request_charged_header(
+                _response_headers,
+            )
+            .map_err(|_| {
+                crate::operation::put_object::PutObjectError::unhandled(
+                    "Failed to parse RequestCharged from header `x-amz-request-charged",
+                )
             })?,
         );
         output = output.set_sse_customer_algorithm(
@@ -203,14 +296,27 @@ pub fn de_put_object_http_response(
         );
         output = output.set_size(
             crate::protocol_serde::shape_put_object_output::de_size_header(_response_headers)
-                .map_err(|_| crate::operation::put_object::PutObjectError::unhandled("Failed to parse Size from header `x-amz-object-size"))?,
+                .map_err(|_| {
+                    crate::operation::put_object::PutObjectError::unhandled(
+                        "Failed to parse Size from header `x-amz-object-size",
+                    )
+                })?,
         );
         output = output.set_version_id(
             crate::protocol_serde::shape_put_object_output::de_version_id_header(_response_headers)
-                .map_err(|_| crate::operation::put_object::PutObjectError::unhandled("Failed to parse VersionId from header `x-amz-version-id"))?,
+                .map_err(|_| {
+                    crate::operation::put_object::PutObjectError::unhandled(
+                        "Failed to parse VersionId from header `x-amz-version-id",
+                    )
+                })?,
         );
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_extended_request_id(
+            crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers)
+                .map(str::to_string),
+        );
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
@@ -218,14 +324,20 @@ pub fn de_put_object_http_response(
 pub fn ser_put_object_headers(
     input: &crate::operation::put_object::PutObjectInput,
     mut builder: ::http_1x::request::Builder,
-) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+) -> std::result::Result<
+    ::http_1x::request::Builder,
+    ::aws_smithy_types::error::operation::BuildError,
+> {
     if let ::std::option::Option::Some(inner_1) = &input.acl {
         let formatted_2 = inner_1.as_str();
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "acl",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-acl", header_value);
@@ -236,7 +348,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "cache_control",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("Cache-Control", header_value);
@@ -247,7 +362,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "content_disposition",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("Content-Disposition", header_value);
@@ -258,7 +376,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "content_encoding",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("Content-Encoding", header_value);
@@ -269,7 +390,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "content_language",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("Content-Language", header_value);
@@ -281,7 +405,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "content_length",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("Content-Length", header_value);
@@ -292,7 +419,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "content_md5",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("Content-MD5", header_value);
@@ -303,7 +433,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "content_type",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("Content-Type", header_value);
@@ -314,7 +447,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_algorithm",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-sdk-checksum-algorithm", header_value);
@@ -325,7 +461,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_crc32",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-crc32", header_value);
@@ -336,7 +475,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_crc32_c",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-crc32c", header_value);
@@ -347,7 +489,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_crc64_nvme",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-crc64nvme", header_value);
@@ -358,7 +503,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_sha1",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-sha1", header_value);
@@ -369,7 +517,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_sha256",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-sha256", header_value);
@@ -380,7 +531,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_sha512",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-sha512", header_value);
@@ -391,7 +545,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_md5",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-md5", header_value);
@@ -402,7 +559,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_xxhash64",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-xxhash64", header_value);
@@ -413,7 +573,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_xxhash3",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-xxhash3", header_value);
@@ -424,7 +587,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_xxhash128",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-checksum-xxhash128", header_value);
@@ -435,7 +601,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "expires",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("Expires", header_value);
@@ -446,7 +615,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "if_match",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("If-Match", header_value);
@@ -457,7 +629,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "if_none_match",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("If-None-Match", header_value);
@@ -468,7 +643,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "grant_full_control",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-grant-full-control", header_value);
@@ -479,7 +657,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "grant_read",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-grant-read", header_value);
@@ -490,7 +671,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "grant_read_acp",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-grant-read-acp", header_value);
@@ -501,7 +685,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "grant_write_acp",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-grant-write-acp", header_value);
@@ -513,7 +700,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "write_offset_bytes",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-write-offset-bytes", header_value);
@@ -524,7 +714,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "server_side_encryption",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-server-side-encryption", header_value);
@@ -535,7 +728,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "storage_class",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-storage-class", header_value);
@@ -546,7 +742,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "website_redirect_location",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-website-redirect-location", header_value);
@@ -557,10 +756,16 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "sse_customer_algorithm",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
-        builder = builder.header("x-amz-server-side-encryption-customer-algorithm", header_value);
+        builder = builder.header(
+            "x-amz-server-side-encryption-customer-algorithm",
+            header_value,
+        );
     }
     if let ::std::option::Option::Some(inner_63) = &input.sse_customer_key {
         let formatted_64 = inner_63.as_str();
@@ -568,7 +773,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "sse_customer_key",
-                format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &"*** Sensitive Data Redacted ***", err
+                ),
             )
         })?;
         builder = builder.header("x-amz-server-side-encryption-customer-key", header_value);
@@ -579,10 +787,16 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "sse_customer_key_md5",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
-        builder = builder.header("x-amz-server-side-encryption-customer-key-MD5", header_value);
+        builder = builder.header(
+            "x-amz-server-side-encryption-customer-key-MD5",
+            header_value,
+        );
     }
     if let ::std::option::Option::Some(inner_67) = &input.ssekms_key_id {
         let formatted_68 = inner_67.as_str();
@@ -590,7 +804,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "ssekms_key_id",
-                format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &"*** Sensitive Data Redacted ***", err
+                ),
             )
         })?;
         builder = builder.header("x-amz-server-side-encryption-aws-kms-key-id", header_value);
@@ -601,7 +818,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "ssekms_encryption_context",
-                format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &"*** Sensitive Data Redacted ***", err
+                ),
             )
         })?;
         builder = builder.header("x-amz-server-side-encryption-context", header_value);
@@ -613,10 +833,16 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "bucket_key_enabled",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
-        builder = builder.header("x-amz-server-side-encryption-bucket-key-enabled", header_value);
+        builder = builder.header(
+            "x-amz-server-side-encryption-bucket-key-enabled",
+            header_value,
+        );
     }
     if let ::std::option::Option::Some(inner_73) = &input.request_payer {
         let formatted_74 = inner_73.as_str();
@@ -624,7 +850,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "request_payer",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-request-payer", header_value);
@@ -635,7 +864,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "tagging",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-tagging", header_value);
@@ -646,7 +878,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "object_lock_mode",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-object-lock-mode", header_value);
@@ -657,7 +892,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "object_lock_retain_until_date",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-object-lock-retain-until-date", header_value);
@@ -668,7 +906,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "object_lock_legal_hold_status",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-object-lock-legal-hold", header_value);
@@ -679,7 +920,10 @@ pub fn ser_put_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "expected_bucket_owner",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-expected-bucket-owner", header_value);
@@ -688,12 +932,15 @@ pub fn ser_put_object_headers(
         {
             for (k, v) in inner_85 {
                 use std::str::FromStr;
-                let header_name = ::http_1x::HeaderName::from_str(&format!("{}{}", "x-amz-meta-", &k)).map_err(|err| {
-                    ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                        "metadata",
-                        format!("`{k}` cannot be used as a header name: {err}"),
-                    )
-                })?;
+                let header_name =
+                    ::http_1x::HeaderName::from_str(&format!("{}{}", "x-amz-meta-", &k)).map_err(
+                        |err| {
+                            ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                                "metadata",
+                                format!("`{k}` cannot be used as a header name: {err}"),
+                            )
+                        },
+                    )?;
                 let header_value = v.as_str();
                 let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
                     ::aws_smithy_types::error::operation::BuildError::invalid_field(

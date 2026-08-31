@@ -81,7 +81,9 @@ pub fn de_delete_open_id_connect_provider_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderOutputBuilder::default();
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }

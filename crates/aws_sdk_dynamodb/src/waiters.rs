@@ -24,7 +24,13 @@ pub mod table_exists;
 /// Supporting types for the `table_not_exists` waiter.
 pub mod table_not_exists;
 
-#[cfg(any(feature = "op_describe_contributor_insights", feature = "op_describe_export", feature = "op_describe_import", feature = "op_describe_kinesis_streaming_destination", feature = "op_describe_table"))]
+#[cfg(any(
+    feature = "op_describe_contributor_insights",
+    feature = "op_describe_export",
+    feature = "op_describe_import",
+    feature = "op_describe_kinesis_streaming_destination",
+    feature = "op_describe_table"
+))]
 #[allow(clippy::needless_lifetimes)]
 #[allow(clippy::let_and_return)]
 pub(crate) mod matchers;

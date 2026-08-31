@@ -81,7 +81,9 @@ pub fn de_delete_account_password_policy_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::delete_account_password_policy::builders::DeleteAccountPasswordPolicyOutputBuilder::default();
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }

@@ -70,7 +70,17 @@ pub fn unified_patch(
     before: &BTreeMap<String, Vec<u8>>,
     after: &BTreeMap<String, Vec<u8>>,
 ) -> String {
-    let mut result = String::new();
+    file_patches(before, after)
+        .into_iter()
+        .map(|(_, patch)| patch)
+        .collect()
+}
+
+pub fn file_patches(
+    before: &BTreeMap<String, Vec<u8>>,
+    after: &BTreeMap<String, Vec<u8>>,
+) -> Vec<(String, String)> {
+    let mut result = Vec::new();
     let keys = before
         .keys()
         .chain(after.keys())
@@ -88,16 +98,15 @@ pub fn unified_patch(
         if patch.trim().is_empty() {
             continue;
         }
-        result.push_str(&format!(
-            "diff --git a/{key} b/{key}\n--- a/{key}\n+++ b/{key}\n"
-        ));
+        let mut file_patch = format!("diff --git a/{key} b/{key}\n--- a/{key}\n+++ b/{key}\n");
         let mut lines = patch.lines();
         let _ = lines.next();
         let _ = lines.next();
         for line in lines {
-            result.push_str(line);
-            result.push('\n');
+            file_patch.push_str(line);
+            file_patch.push('\n');
         }
+        result.push((key, file_patch));
     }
     result
 }

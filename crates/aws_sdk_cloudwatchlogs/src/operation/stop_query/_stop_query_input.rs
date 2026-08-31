@@ -20,7 +20,9 @@ impl StopQueryInput {
 }
 
 /// A builder for [`StopQueryInput`](crate::operation::stop_query::StopQueryInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct StopQueryInputBuilder {
     pub(crate) query_id: ::std::option::Option<::std::string::String>,
@@ -42,7 +44,14 @@ impl StopQueryInputBuilder {
         &self.query_id
     }
     /// Consumes the builder and constructs a [`StopQueryInput`](crate::operation::stop_query::StopQueryInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::stop_query::StopQueryInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::stop_query::StopQueryInput { query_id: self.query_id })
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::stop_query::StopQueryInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(crate::operation::stop_query::StopQueryInput {
+            query_id: self.query_id,
+        })
     }
 }

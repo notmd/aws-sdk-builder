@@ -15,13 +15,15 @@ impl StartConfigurationRecorderInput {
 }
 impl StartConfigurationRecorderInput {
     /// Creates a new builder-style object to manufacture [`StartConfigurationRecorderInput`](crate::operation::start_configuration_recorder::StartConfigurationRecorderInput).
-    pub fn builder() -> crate::operation::start_configuration_recorder::builders::StartConfigurationRecorderInputBuilder {
+    pub fn builder() -> crate::operation::start_configuration_recorder::builders::StartConfigurationRecorderInputBuilder{
         crate::operation::start_configuration_recorder::builders::StartConfigurationRecorderInputBuilder::default()
     }
 }
 
 /// A builder for [`StartConfigurationRecorderInput`](crate::operation::start_configuration_recorder::StartConfigurationRecorderInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct StartConfigurationRecorderInputBuilder {
     pub(crate) configuration_recorder_name: ::std::option::Option<::std::string::String>,
@@ -29,12 +31,18 @@ pub struct StartConfigurationRecorderInputBuilder {
 impl StartConfigurationRecorderInputBuilder {
     /// <p>The name of the customer managed configuration recorder that you want to start.</p>
     /// This field is required.
-    pub fn configuration_recorder_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn configuration_recorder_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.configuration_recorder_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the customer managed configuration recorder that you want to start.</p>
-    pub fn set_configuration_recorder_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_configuration_recorder_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.configuration_recorder_name = input;
         self
     }
@@ -49,8 +57,10 @@ impl StartConfigurationRecorderInputBuilder {
         crate::operation::start_configuration_recorder::StartConfigurationRecorderInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::start_configuration_recorder::StartConfigurationRecorderInput {
-            configuration_recorder_name: self.configuration_recorder_name,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::start_configuration_recorder::StartConfigurationRecorderInput {
+                configuration_recorder_name: self.configuration_recorder_name,
+            },
+        )
     }
 }

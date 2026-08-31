@@ -58,7 +58,10 @@ impl DescribeQueryDefinitionsFluentBuilder {
         }
     }
     /// Access the DescribeQueryDefinitions as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_query_definitions::builders::DescribeQueryDefinitionsInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_query_definitions::builders::DescribeQueryDefinitionsInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,7 +90,11 @@ impl DescribeQueryDefinitionsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_query_definitions::DescribeQueryDefinitions::orchestrate(&runtime_plugins, input).await
+        crate::operation::describe_query_definitions::DescribeQueryDefinitions::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -100,12 +107,18 @@ impl DescribeQueryDefinitionsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -115,7 +128,10 @@ impl DescribeQueryDefinitionsFluentBuilder {
         self
     }
     /// <p>The query language used for this query. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
-    pub fn set_query_language(mut self, input: ::std::option::Option<crate::types::QueryLanguage>) -> Self {
+    pub fn set_query_language(
+        mut self,
+        input: ::std::option::Option<crate::types::QueryLanguage>,
+    ) -> Self {
         self.inner = self.inner.set_query_language(input);
         self
     }
@@ -124,17 +140,25 @@ impl DescribeQueryDefinitionsFluentBuilder {
         self.inner.get_query_language()
     }
     /// <p>Use this parameter to filter your results to only the query definitions that have names that start with the prefix you specify.</p>
-    pub fn query_definition_name_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn query_definition_name_prefix(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.query_definition_name_prefix(input.into());
         self
     }
     /// <p>Use this parameter to filter your results to only the query definitions that have names that start with the prefix you specify.</p>
-    pub fn set_query_definition_name_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_query_definition_name_prefix(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_query_definition_name_prefix(input);
         self
     }
     /// <p>Use this parameter to filter your results to only the query definitions that have names that start with the prefix you specify.</p>
-    pub fn get_query_definition_name_prefix(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_query_definition_name_prefix(
+        &self,
+    ) -> &::std::option::Option<::std::string::String> {
         self.inner.get_query_definition_name_prefix()
     }
     /// <p>Limits the number of returned query definitions to the specified number.</p>

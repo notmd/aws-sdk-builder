@@ -7,11 +7,12 @@ pub fn de_create_bucket_metadata_table_configuration_http_error(
 ) -> std::result::Result<
     crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationOutput,
     crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationError,
-> {
+>{
     #[allow(unused_mut)]
     let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationError::unhandled)?;
-    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    generic_builder =
+        crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     Err(crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationError::generic(generic))
@@ -25,13 +26,18 @@ pub fn de_create_bucket_metadata_table_configuration_http_response(
 ) -> std::result::Result<
     crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationOutput,
     crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationError,
-> {
+>{
     Ok({
         #[allow(unused_mut)]
         let mut output =
             crate::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationOutputBuilder::default();
-        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_extended_request_id(
+            crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers)
+                .map(str::to_string),
+        );
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
@@ -39,14 +45,20 @@ pub fn de_create_bucket_metadata_table_configuration_http_response(
 pub fn ser_create_bucket_metadata_table_configuration_headers(
     input: &crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationInput,
     mut builder: ::http_1x::request::Builder,
-) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+) -> std::result::Result<
+    ::http_1x::request::Builder,
+    ::aws_smithy_types::error::operation::BuildError,
+> {
     if let ::std::option::Option::Some(inner_1) = &input.content_md5 {
         let formatted_2 = inner_1.as_str();
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "content_md5",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("Content-MD5", header_value);
@@ -57,7 +69,10 @@ pub fn ser_create_bucket_metadata_table_configuration_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_algorithm",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-sdk-checksum-algorithm", header_value);
@@ -68,7 +83,10 @@ pub fn ser_create_bucket_metadata_table_configuration_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "expected_bucket_owner",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                format!(
+                    "`{}` cannot be used as a header value: {}",
+                    &header_value, err
+                ),
             )
         })?;
         builder = builder.header("x-amz-expected-bucket-owner", header_value);

@@ -28,13 +28,15 @@ impl ::aws_types::request_id::RequestId for ListAllowedRepositoriesForGroupOutpu
 }
 impl ListAllowedRepositoriesForGroupOutput {
     /// Creates a new builder-style object to manufacture [`ListAllowedRepositoriesForGroupOutput`](crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput).
-    pub fn builder() -> crate::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder {
+    pub fn builder() -> crate::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder{
         crate::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListAllowedRepositoriesForGroupOutput`](crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListAllowedRepositoriesForGroupOutputBuilder {
     pub(crate) allowed_repositories: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -47,19 +49,27 @@ impl ListAllowedRepositoriesForGroupOutputBuilder {
     /// To override the contents of this collection use [`set_allowed_repositories`](Self::set_allowed_repositories).
     ///
     /// <p>The list of allowed repositories for the package group and origin configuration restriction type.</p>
-    pub fn allowed_repositories(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn allowed_repositories(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.allowed_repositories.unwrap_or_default();
         v.push(input.into());
         self.allowed_repositories = ::std::option::Option::Some(v);
         self
     }
     /// <p>The list of allowed repositories for the package group and origin configuration restriction type.</p>
-    pub fn set_allowed_repositories(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_allowed_repositories(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.allowed_repositories = input;
         self
     }
     /// <p>The list of allowed repositories for the package group and origin configuration restriction type.</p>
-    pub fn get_allowed_repositories(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_allowed_repositories(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.allowed_repositories
     }
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
@@ -86,7 +96,10 @@ impl ListAllowedRepositoriesForGroupOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListAllowedRepositoriesForGroupOutput`](crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput).
-    pub fn build(self) -> crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput
+    {
         crate::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupOutput {
             allowed_repositories: self.allowed_repositories,
             next_token: self.next_token,

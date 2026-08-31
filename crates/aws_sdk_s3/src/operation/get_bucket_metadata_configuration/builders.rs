@@ -68,7 +68,7 @@ impl
             crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationOutput,
             crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -82,7 +82,7 @@ impl GetBucketMetadataConfigurationFluentBuilder {
         }
     }
     /// Access the GetBucketMetadataConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -101,7 +101,7 @@ impl GetBucketMetadataConfigurationFluentBuilder {
             crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -124,12 +124,18 @@ impl GetBucketMetadataConfigurationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -148,12 +154,18 @@ impl GetBucketMetadataConfigurationFluentBuilder {
         self.inner.get_bucket()
     }
     /// <p>The expected owner of the general purpose bucket that you want to retrieve the metadata table configuration for.</p>
-    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The expected owner of the general purpose bucket that you want to retrieve the metadata table configuration for.</p>
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

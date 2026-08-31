@@ -31,7 +31,11 @@ impl super::Client {
     ///   - [`request_charged(Option<RequestCharged>)`](crate::operation::get_object_annotation::GetObjectAnnotationOutput::request_charged): <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>  <p>This functionality is not supported for directory buckets.</p> </note>
     ///   - [`replication_status(Option<ReplicationStatus>)`](crate::operation::get_object_annotation::GetObjectAnnotationOutput::replication_status): <p>The replication status of the annotation. Possible values include <code>PENDING</code>, <code>COMPLETED</code>, <code>FAILED</code>, and <code>REPLICA</code>.</p>
     /// - On failure, responds with [`SdkError<GetObjectAnnotationError>`](crate::operation::get_object_annotation::GetObjectAnnotationError)
-    pub fn get_object_annotation(&self) -> crate::operation::get_object_annotation::builders::GetObjectAnnotationFluentBuilder {
-        crate::operation::get_object_annotation::builders::GetObjectAnnotationFluentBuilder::new(self.handle.clone())
+    pub fn get_object_annotation(
+        &self,
+    ) -> crate::operation::get_object_annotation::builders::GetObjectAnnotationFluentBuilder {
+        crate::operation::get_object_annotation::builders::GetObjectAnnotationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

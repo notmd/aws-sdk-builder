@@ -42,7 +42,9 @@ impl OpenSearchIntegrationDetails {
         self.workspace.as_ref()
     }
     /// <p>This structure contains information about the OpenSearch Service encryption policy used for this integration. The encryption policy was created automatically when you created the integration. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html#serverless-encryption-policies">Encryption policies</a> in the OpenSearch Service Developer Guide.</p>
-    pub fn encryption_policy(&self) -> ::std::option::Option<&crate::types::OpenSearchEncryptionPolicy> {
+    pub fn encryption_policy(
+        &self,
+    ) -> ::std::option::Option<&crate::types::OpenSearchEncryptionPolicy> {
         self.encryption_policy.as_ref()
     }
     /// <p>This structure contains information about the OpenSearch Service network policy used for this integration. The network policy assigns network access settings to collections. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html#serverless-network-policies">Network policies</a> in the OpenSearch Service Developer Guide.</p>
@@ -50,12 +52,16 @@ impl OpenSearchIntegrationDetails {
         self.network_policy.as_ref()
     }
     /// <p>This structure contains information about the OpenSearch Service data access policy used for this integration. The access policy defines the access controls for the collection. This data access policy was automatically created as part of the integration setup. For more information about OpenSearch Service data access policies, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data access control for Amazon OpenSearch Serverless</a> in the OpenSearch Service Developer Guide.</p>
-    pub fn access_policy(&self) -> ::std::option::Option<&crate::types::OpenSearchDataAccessPolicy> {
+    pub fn access_policy(
+        &self,
+    ) -> ::std::option::Option<&crate::types::OpenSearchDataAccessPolicy> {
         self.access_policy.as_ref()
     }
     /// <p>This structure contains information about the OpenSearch Service data lifecycle policy used for this integration. The lifecycle policy determines the lifespan of the data in the collection. It was automatically created as part of the integration setup.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html">Using data lifecycle policies with OpenSearch Service Serverless</a> in the OpenSearch Service Developer Guide.</p>
-    pub fn lifecycle_policy(&self) -> ::std::option::Option<&crate::types::OpenSearchLifecyclePolicy> {
+    pub fn lifecycle_policy(
+        &self,
+    ) -> ::std::option::Option<&crate::types::OpenSearchLifecyclePolicy> {
         self.lifecycle_policy.as_ref()
     }
 }
@@ -67,7 +73,9 @@ impl OpenSearchIntegrationDetails {
 }
 
 /// A builder for [`OpenSearchIntegrationDetails`](crate::types::OpenSearchIntegrationDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct OpenSearchIntegrationDetailsBuilder {
     pub(crate) data_source: ::std::option::Option<crate::types::OpenSearchDataSource>,
@@ -88,7 +96,10 @@ impl OpenSearchIntegrationDetailsBuilder {
     }
     /// <p>This structure contains information about the OpenSearch Service data source used for this integration. This data source was created as part of the integration setup. An OpenSearch Service data source defines the source and destination for OpenSearch Service queries. It includes the role required to execute queries and write to collections.</p>
     /// <p>For more information about OpenSearch Service data sources , see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html">Creating OpenSearch Service data source integrations with Amazon S3.</a></p>
-    pub fn set_data_source(mut self, input: ::std::option::Option<crate::types::OpenSearchDataSource>) -> Self {
+    pub fn set_data_source(
+        mut self,
+        input: ::std::option::Option<crate::types::OpenSearchDataSource>,
+    ) -> Self {
         self.data_source = input;
         self
     }
@@ -103,7 +114,10 @@ impl OpenSearchIntegrationDetailsBuilder {
         self
     }
     /// <p>This structure contains information about the OpenSearch Service application used for this integration. An OpenSearch Service application is the web application that was created by the integration with CloudWatch Logs. It hosts the vended logs dashboards.</p>
-    pub fn set_application(mut self, input: ::std::option::Option<crate::types::OpenSearchApplication>) -> Self {
+    pub fn set_application(
+        mut self,
+        input: ::std::option::Option<crate::types::OpenSearchApplication>,
+    ) -> Self {
         self.application = input;
         self
     }
@@ -117,7 +131,10 @@ impl OpenSearchIntegrationDetailsBuilder {
         self
     }
     /// <p>This structure contains information about the OpenSearch Service collection used for this integration. This collection was created as part of the integration setup. An OpenSearch Service collection is a logical grouping of one or more indexes that represent an analytics workload. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-collections.html">Creating and managing OpenSearch Service Serverless collections</a>.</p>
-    pub fn set_collection(mut self, input: ::std::option::Option<crate::types::OpenSearchCollection>) -> Self {
+    pub fn set_collection(
+        mut self,
+        input: ::std::option::Option<crate::types::OpenSearchCollection>,
+    ) -> Self {
         self.collection = input;
         self
     }
@@ -131,7 +148,10 @@ impl OpenSearchIntegrationDetailsBuilder {
         self
     }
     /// <p>This structure contains information about the OpenSearch Service workspace used for this integration. An OpenSearch Service workspace is the collection of dashboards along with other OpenSearch Service tools. This workspace was created automatically as part of the integration setup. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application.html">Centralized OpenSearch user interface (Dashboards) with OpenSearch Service</a>.</p>
-    pub fn set_workspace(mut self, input: ::std::option::Option<crate::types::OpenSearchWorkspace>) -> Self {
+    pub fn set_workspace(
+        mut self,
+        input: ::std::option::Option<crate::types::OpenSearchWorkspace>,
+    ) -> Self {
         self.workspace = input;
         self
     }
@@ -145,12 +165,17 @@ impl OpenSearchIntegrationDetailsBuilder {
         self
     }
     /// <p>This structure contains information about the OpenSearch Service encryption policy used for this integration. The encryption policy was created automatically when you created the integration. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html#serverless-encryption-policies">Encryption policies</a> in the OpenSearch Service Developer Guide.</p>
-    pub fn set_encryption_policy(mut self, input: ::std::option::Option<crate::types::OpenSearchEncryptionPolicy>) -> Self {
+    pub fn set_encryption_policy(
+        mut self,
+        input: ::std::option::Option<crate::types::OpenSearchEncryptionPolicy>,
+    ) -> Self {
         self.encryption_policy = input;
         self
     }
     /// <p>This structure contains information about the OpenSearch Service encryption policy used for this integration. The encryption policy was created automatically when you created the integration. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html#serverless-encryption-policies">Encryption policies</a> in the OpenSearch Service Developer Guide.</p>
-    pub fn get_encryption_policy(&self) -> &::std::option::Option<crate::types::OpenSearchEncryptionPolicy> {
+    pub fn get_encryption_policy(
+        &self,
+    ) -> &::std::option::Option<crate::types::OpenSearchEncryptionPolicy> {
         &self.encryption_policy
     }
     /// <p>This structure contains information about the OpenSearch Service network policy used for this integration. The network policy assigns network access settings to collections. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html#serverless-network-policies">Network policies</a> in the OpenSearch Service Developer Guide.</p>
@@ -159,12 +184,17 @@ impl OpenSearchIntegrationDetailsBuilder {
         self
     }
     /// <p>This structure contains information about the OpenSearch Service network policy used for this integration. The network policy assigns network access settings to collections. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html#serverless-network-policies">Network policies</a> in the OpenSearch Service Developer Guide.</p>
-    pub fn set_network_policy(mut self, input: ::std::option::Option<crate::types::OpenSearchNetworkPolicy>) -> Self {
+    pub fn set_network_policy(
+        mut self,
+        input: ::std::option::Option<crate::types::OpenSearchNetworkPolicy>,
+    ) -> Self {
         self.network_policy = input;
         self
     }
     /// <p>This structure contains information about the OpenSearch Service network policy used for this integration. The network policy assigns network access settings to collections. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html#serverless-network-policies">Network policies</a> in the OpenSearch Service Developer Guide.</p>
-    pub fn get_network_policy(&self) -> &::std::option::Option<crate::types::OpenSearchNetworkPolicy> {
+    pub fn get_network_policy(
+        &self,
+    ) -> &::std::option::Option<crate::types::OpenSearchNetworkPolicy> {
         &self.network_policy
     }
     /// <p>This structure contains information about the OpenSearch Service data access policy used for this integration. The access policy defines the access controls for the collection. This data access policy was automatically created as part of the integration setup. For more information about OpenSearch Service data access policies, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data access control for Amazon OpenSearch Serverless</a> in the OpenSearch Service Developer Guide.</p>
@@ -173,12 +203,17 @@ impl OpenSearchIntegrationDetailsBuilder {
         self
     }
     /// <p>This structure contains information about the OpenSearch Service data access policy used for this integration. The access policy defines the access controls for the collection. This data access policy was automatically created as part of the integration setup. For more information about OpenSearch Service data access policies, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data access control for Amazon OpenSearch Serverless</a> in the OpenSearch Service Developer Guide.</p>
-    pub fn set_access_policy(mut self, input: ::std::option::Option<crate::types::OpenSearchDataAccessPolicy>) -> Self {
+    pub fn set_access_policy(
+        mut self,
+        input: ::std::option::Option<crate::types::OpenSearchDataAccessPolicy>,
+    ) -> Self {
         self.access_policy = input;
         self
     }
     /// <p>This structure contains information about the OpenSearch Service data access policy used for this integration. The access policy defines the access controls for the collection. This data access policy was automatically created as part of the integration setup. For more information about OpenSearch Service data access policies, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data access control for Amazon OpenSearch Serverless</a> in the OpenSearch Service Developer Guide.</p>
-    pub fn get_access_policy(&self) -> &::std::option::Option<crate::types::OpenSearchDataAccessPolicy> {
+    pub fn get_access_policy(
+        &self,
+    ) -> &::std::option::Option<crate::types::OpenSearchDataAccessPolicy> {
         &self.access_policy
     }
     /// <p>This structure contains information about the OpenSearch Service data lifecycle policy used for this integration. The lifecycle policy determines the lifespan of the data in the collection. It was automatically created as part of the integration setup.</p>
@@ -189,13 +224,18 @@ impl OpenSearchIntegrationDetailsBuilder {
     }
     /// <p>This structure contains information about the OpenSearch Service data lifecycle policy used for this integration. The lifecycle policy determines the lifespan of the data in the collection. It was automatically created as part of the integration setup.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html">Using data lifecycle policies with OpenSearch Service Serverless</a> in the OpenSearch Service Developer Guide.</p>
-    pub fn set_lifecycle_policy(mut self, input: ::std::option::Option<crate::types::OpenSearchLifecyclePolicy>) -> Self {
+    pub fn set_lifecycle_policy(
+        mut self,
+        input: ::std::option::Option<crate::types::OpenSearchLifecyclePolicy>,
+    ) -> Self {
         self.lifecycle_policy = input;
         self
     }
     /// <p>This structure contains information about the OpenSearch Service data lifecycle policy used for this integration. The lifecycle policy determines the lifespan of the data in the collection. It was automatically created as part of the integration setup.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html">Using data lifecycle policies with OpenSearch Service Serverless</a> in the OpenSearch Service Developer Guide.</p>
-    pub fn get_lifecycle_policy(&self) -> &::std::option::Option<crate::types::OpenSearchLifecyclePolicy> {
+    pub fn get_lifecycle_policy(
+        &self,
+    ) -> &::std::option::Option<crate::types::OpenSearchLifecyclePolicy> {
         &self.lifecycle_policy
     }
     /// Consumes the builder and constructs a [`OpenSearchIntegrationDetails`](crate::types::OpenSearchIntegrationDetails).

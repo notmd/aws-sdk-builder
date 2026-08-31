@@ -6,7 +6,11 @@ impl super::Client {
     ///   - [`job_id(impl Into<String>)`](crate::operation::cancel_export_job::builders::CancelExportJobFluentBuilder::job_id) / [`set_job_id(Option<String>)`](crate::operation::cancel_export_job::builders::CancelExportJobFluentBuilder::set_job_id):<br>required: **true**<br><p>The export job ID.</p><br>
     /// - On success, responds with [`CancelExportJobOutput`](crate::operation::cancel_export_job::CancelExportJobOutput)
     /// - On failure, responds with [`SdkError<CancelExportJobError>`](crate::operation::cancel_export_job::CancelExportJobError)
-    pub fn cancel_export_job(&self) -> crate::operation::cancel_export_job::builders::CancelExportJobFluentBuilder {
-        crate::operation::cancel_export_job::builders::CancelExportJobFluentBuilder::new(self.handle.clone())
+    pub fn cancel_export_job(
+        &self,
+    ) -> crate::operation::cancel_export_job::builders::CancelExportJobFluentBuilder {
+        crate::operation::cancel_export_job::builders::CancelExportJobFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

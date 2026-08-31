@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteConsoleAuthorizationConfigurationError>`](crate::operation::delete_console_authorization_configuration::DeleteConsoleAuthorizationConfigurationError)
     pub fn delete_console_authorization_configuration(
         &self,
-    ) -> crate::operation::delete_console_authorization_configuration::builders::DeleteConsoleAuthorizationConfigurationFluentBuilder {
+    ) -> crate::operation::delete_console_authorization_configuration::builders::DeleteConsoleAuthorizationConfigurationFluentBuilder{
         crate::operation::delete_console_authorization_configuration::builders::DeleteConsoleAuthorizationConfigurationFluentBuilder::new(
             self.handle.clone(),
         )

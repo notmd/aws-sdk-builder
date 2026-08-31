@@ -3,9 +3,14 @@
 pub fn de_lambda_function_configuration(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::LambdaFunctionConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<
+    crate::types::LambdaFunctionConfiguration,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::LambdaFunctionConfiguration::builder();
@@ -71,9 +76,11 @@ pub fn de_lambda_function_configuration(
             _ => {}
         }
     }
-    Ok(crate::serde_util::lambda_function_configuration_correct_errors(builder)
-        .build()
-        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
+    Ok(
+        crate::serde_util::lambda_function_configuration_correct_errors(builder)
+            .build()
+            .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?,
+    )
 }
 
 pub fn ser_lambda_function_configuration(

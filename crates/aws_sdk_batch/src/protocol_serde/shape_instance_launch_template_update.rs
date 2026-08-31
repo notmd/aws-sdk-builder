@@ -34,7 +34,9 @@ pub fn ser_instance_launch_template_update(
         object_10.finish();
     }
     if let Some(var_11) = &input.instance_metadata_tags_propagation {
-        object.key("instanceMetadataTagsPropagation").boolean(*var_11);
+        object
+            .key("instanceMetadataTagsPropagation")
+            .boolean(*var_11);
     }
     if let Some(var_12) = &input.local_storage_configuration {
         #[allow(unused_mut)]

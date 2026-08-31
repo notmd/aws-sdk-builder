@@ -65,7 +65,9 @@ impl LookupTable {
 }
 
 /// A builder for [`LookupTable`](crate::types::LookupTable).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct LookupTableBuilder {
     pub(crate) lookup_table_arn: ::std::option::Option<::std::string::String>,
@@ -79,12 +81,18 @@ pub struct LookupTableBuilder {
 }
 impl LookupTableBuilder {
     /// <p>The ARN of the lookup table.</p>
-    pub fn lookup_table_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn lookup_table_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.lookup_table_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the lookup table.</p>
-    pub fn set_lookup_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_lookup_table_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.lookup_table_arn = input;
         self
     }
@@ -93,12 +101,18 @@ impl LookupTableBuilder {
         &self.lookup_table_arn
     }
     /// <p>The name of the lookup table.</p>
-    pub fn lookup_table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn lookup_table_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.lookup_table_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the lookup table.</p>
-    pub fn set_lookup_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_lookup_table_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.lookup_table_name = input;
         self
     }
@@ -132,12 +146,17 @@ impl LookupTableBuilder {
         self
     }
     /// <p>The column headers from the first row of the CSV file.</p>
-    pub fn set_table_fields(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_table_fields(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.table_fields = input;
         self
     }
     /// <p>The column headers from the first row of the CSV file.</p>
-    pub fn get_table_fields(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_table_fields(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.table_fields
     }
     /// <p>The number of data rows in the lookup table, excluding the header row.</p>

@@ -33,7 +33,9 @@ impl ExportSummary {
 }
 
 /// A builder for [`ExportSummary`](crate::types::ExportSummary).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ExportSummaryBuilder {
     pub(crate) export_arn: ::std::option::Option<::std::string::String>,
@@ -61,7 +63,10 @@ impl ExportSummaryBuilder {
         self
     }
     /// <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
-    pub fn set_export_status(mut self, input: ::std::option::Option<crate::types::ExportStatus>) -> Self {
+    pub fn set_export_status(
+        mut self,
+        input: ::std::option::Option<crate::types::ExportStatus>,
+    ) -> Self {
         self.export_status = input;
         self
     }
@@ -75,7 +80,10 @@ impl ExportSummaryBuilder {
         self
     }
     /// <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
-    pub fn set_export_type(mut self, input: ::std::option::Option<crate::types::ExportType>) -> Self {
+    pub fn set_export_type(
+        mut self,
+        input: ::std::option::Option<crate::types::ExportType>,
+    ) -> Self {
         self.export_type = input;
         self
     }

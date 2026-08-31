@@ -13,7 +13,10 @@ pub(crate) fn de_metrics_configuration_payload(
         .transpose()
 }
 
-pub fn de_metrics_configuration(inp: &[u8]) -> std::result::Result<crate::types::MetricsConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
+pub fn de_metrics_configuration(
+    inp: &[u8],
+) -> std::result::Result<crate::types::MetricsConfiguration, ::aws_smithy_xml::decode::XmlDecodeError>
+{
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
     #[allow(unused_mut)]
     let mut decoder = doc.root_element()?;
@@ -25,5 +28,8 @@ pub fn de_metrics_configuration(inp: &[u8]) -> std::result::Result<crate::types:
     }
     #[allow(unused_variables)]
     let depth = 0u32;
-    crate::protocol_serde::shape_metrics_configuration::de_metrics_configuration(&mut decoder, depth + 1)
+    crate::protocol_serde::shape_metrics_configuration::de_metrics_configuration(
+        &mut decoder,
+        depth + 1,
+    )
 }

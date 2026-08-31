@@ -59,10 +59,10 @@ cargo run -p aws-sdk-modularizer -- --manifest services-manifest.json
 
 ## Manifest-driven inputs
 
-`services-manifest.json` must explicitly describe all inputs and outputs. Each
-service entry must provide:
+`services-manifest.json` must explicitly describe all inputs and outputs. The
+manifest must provide one top-level pinned upstream repository and immutable
+revision. Each service entry must provide:
 
-- the pinned upstream repository and immutable commit or revision;
 - the path to the service crate in the downloaded SDK;
 - the archive-relative Smithy JSON model path;
 - the output directory;

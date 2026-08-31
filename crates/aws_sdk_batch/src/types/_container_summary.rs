@@ -27,7 +27,9 @@ impl ContainerSummary {
 }
 
 /// A builder for [`ContainerSummary`](crate::types::ContainerSummary).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ContainerSummaryBuilder {
     pub(crate) exit_code: ::std::option::Option<i32>,

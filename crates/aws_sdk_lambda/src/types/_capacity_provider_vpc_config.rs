@@ -29,7 +29,9 @@ impl CapacityProviderVpcConfig {
 }
 
 /// A builder for [`CapacityProviderVpcConfig`](crate::types::CapacityProviderVpcConfig).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CapacityProviderVpcConfigBuilder {
     pub(crate) subnet_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -48,7 +50,10 @@ impl CapacityProviderVpcConfigBuilder {
         self
     }
     /// <p>A list of subnet IDs where the capacity provider launches compute instances.</p>
-    pub fn set_subnet_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_subnet_ids(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.subnet_ids = input;
         self
     }
@@ -61,26 +66,39 @@ impl CapacityProviderVpcConfigBuilder {
     /// To override the contents of this collection use [`set_security_group_ids`](Self::set_security_group_ids).
     ///
     /// <p>A list of security group IDs that control network access for compute instances managed by the capacity provider.</p>
-    pub fn security_group_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn security_group_ids(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.security_group_ids.unwrap_or_default();
         v.push(input.into());
         self.security_group_ids = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of security group IDs that control network access for compute instances managed by the capacity provider.</p>
-    pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_security_group_ids(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.security_group_ids = input;
         self
     }
     /// <p>A list of security group IDs that control network access for compute instances managed by the capacity provider.</p>
-    pub fn get_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_security_group_ids(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.security_group_ids
     }
     /// Consumes the builder and constructs a [`CapacityProviderVpcConfig`](crate::types::CapacityProviderVpcConfig).
     /// This method will fail if any of the following fields are not set:
     /// - [`subnet_ids`](crate::types::builders::CapacityProviderVpcConfigBuilder::subnet_ids)
     /// - [`security_group_ids`](crate::types::builders::CapacityProviderVpcConfigBuilder::security_group_ids)
-    pub fn build(self) -> ::std::result::Result<crate::types::CapacityProviderVpcConfig, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::CapacityProviderVpcConfig,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::CapacityProviderVpcConfig {
             subnet_ids: self.subnet_ids.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

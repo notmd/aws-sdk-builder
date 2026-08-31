@@ -8,7 +8,10 @@ impl super::Client {
     /// - On success, responds with [`DescribeUserPoolClientOutput`](crate::operation::describe_user_pool_client::DescribeUserPoolClientOutput) with field(s):
     ///   - [`user_pool_client(Option<UserPoolClientType>)`](crate::operation::describe_user_pool_client::DescribeUserPoolClientOutput::user_pool_client): <p>The details of the request app client.</p>
     /// - On failure, responds with [`SdkError<DescribeUserPoolClientError>`](crate::operation::describe_user_pool_client::DescribeUserPoolClientError)
-    pub fn describe_user_pool_client(&self) -> crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientFluentBuilder {
+    pub fn describe_user_pool_client(
+        &self,
+    ) -> crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientFluentBuilder
+    {
         crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientFluentBuilder::new(self.handle.clone())
     }
 }

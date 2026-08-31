@@ -22,7 +22,9 @@ impl UpstreamRepository {
 }
 
 /// A builder for [`UpstreamRepository`](crate::types::UpstreamRepository).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpstreamRepositoryBuilder {
     pub(crate) repository_name: ::std::option::Option<::std::string::String>,
@@ -30,12 +32,18 @@ pub struct UpstreamRepositoryBuilder {
 impl UpstreamRepositoryBuilder {
     /// <p>The name of an upstream repository.</p>
     /// This field is required.
-    pub fn repository_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn repository_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.repository_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of an upstream repository.</p>
-    pub fn set_repository_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_repository_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.repository_name = input;
         self
     }
@@ -46,7 +54,12 @@ impl UpstreamRepositoryBuilder {
     /// Consumes the builder and constructs a [`UpstreamRepository`](crate::types::UpstreamRepository).
     /// This method will fail if any of the following fields are not set:
     /// - [`repository_name`](crate::types::builders::UpstreamRepositoryBuilder::repository_name)
-    pub fn build(self) -> ::std::result::Result<crate::types::UpstreamRepository, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::UpstreamRepository,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::UpstreamRepository {
             repository_name: self.repository_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

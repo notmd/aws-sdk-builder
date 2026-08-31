@@ -9,8 +9,14 @@ pub fn de_get_subscription_attributes_http_error(
     crate::operation::get_subscription_attributes::GetSubscriptionAttributesError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_subscription_attributes::GetSubscriptionAttributesError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(
+        crate::operation::get_subscription_attributes::GetSubscriptionAttributesError::unhandled,
+    )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
@@ -102,7 +108,9 @@ pub fn de_get_subscription_attributes_http_response(
         let mut output = crate::operation::get_subscription_attributes::builders::GetSubscriptionAttributesOutputBuilder::default();
         output = crate::protocol_serde::shape_get_subscription_attributes::de_get_subscription_attributes(_response_body, output)
             .map_err(crate::operation::get_subscription_attributes::GetSubscriptionAttributesError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }

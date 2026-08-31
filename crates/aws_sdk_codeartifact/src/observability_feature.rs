@@ -7,7 +7,9 @@
 use aws_smithy_runtime::client::sdk_feature::SmithySdkFeature;
 use aws_smithy_runtime_api::{
     box_error::BoxError,
-    client::interceptors::{context::BeforeSerializationInterceptorContextRef, dyn_dispatch_hint, Intercept},
+    client::interceptors::{
+        context::BeforeSerializationInterceptorContextRef, dyn_dispatch_hint, Intercept,
+    },
 };
 use aws_smithy_types::config_bag::ConfigBag;
 
@@ -21,14 +23,19 @@ impl Intercept for ObservabilityFeatureTrackerInterceptor {
         "ObservabilityFeatureTrackerInterceptor"
     }
 
-    fn read_before_execution(&self, _context: &BeforeSerializationInterceptorContextRef<'_>, cfg: &mut ConfigBag) -> Result<(), BoxError> {
+    fn read_before_execution(
+        &self,
+        _context: &BeforeSerializationInterceptorContextRef<'_>,
+        cfg: &mut ConfigBag,
+    ) -> Result<(), BoxError> {
         // Check if an OpenTelemetry meter provider is configured via the global provider
         if let Ok(telemetry_provider) = aws_smithy_observability::global::get_telemetry_provider() {
             let meter_provider = telemetry_provider.meter_provider();
 
             // Use provider_name() to detect OpenTelemetry without importing the otel crate.
             if meter_provider.provider_name() == "AwsSmithyObservabilityOtelProvider" {
-                cfg.interceptor_state().store_append(SmithySdkFeature::ObservabilityOtelMetrics);
+                cfg.interceptor_state()
+                    .store_append(SmithySdkFeature::ObservabilityOtelMetrics);
             }
         }
 

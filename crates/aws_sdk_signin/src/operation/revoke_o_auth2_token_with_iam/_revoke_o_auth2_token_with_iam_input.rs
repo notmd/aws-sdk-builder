@@ -22,7 +22,7 @@ impl ::std::fmt::Debug for RevokeOAuth2TokenWithIamInput {
 }
 impl RevokeOAuth2TokenWithIamInput {
     /// Creates a new builder-style object to manufacture [`RevokeOAuth2TokenWithIamInput`](crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIamInput).
-    pub fn builder() -> crate::operation::revoke_o_auth2_token_with_iam::builders::RevokeOAuth2TokenWithIamInputBuilder {
+    pub fn builder() -> crate::operation::revoke_o_auth2_token_with_iam::builders::RevokeOAuth2TokenWithIamInputBuilder{
         crate::operation::revoke_o_auth2_token_with_iam::builders::RevokeOAuth2TokenWithIamInputBuilder::default()
     }
 }
@@ -56,7 +56,11 @@ impl RevokeOAuth2TokenWithIamInputBuilder {
         crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIamInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIamInput { token: self.token })
+        ::std::result::Result::Ok(
+            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIamInput {
+                token: self.token,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for RevokeOAuth2TokenWithIamInputBuilder {

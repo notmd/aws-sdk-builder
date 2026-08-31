@@ -46,7 +46,7 @@ impl
             crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsOutput,
             crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -60,7 +60,7 @@ impl GetAccountAuthorizationDetailsFluentBuilder {
         }
     }
     /// Access the GetAccountAuthorizationDetails as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -79,7 +79,7 @@ impl GetAccountAuthorizationDetailsFluentBuilder {
             crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -102,19 +102,25 @@ impl GetAccountAuthorizationDetailsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::get_account_authorization_details::paginator::GetAccountAuthorizationDetailsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::get_account_authorization_details::paginator::GetAccountAuthorizationDetailsPaginator {
+    pub fn into_paginator(self) -> crate::operation::get_account_authorization_details::paginator::GetAccountAuthorizationDetailsPaginator{
         crate::operation::get_account_authorization_details::paginator::GetAccountAuthorizationDetailsPaginator::new(self.handle, self.inner)
     }
     ///
@@ -130,7 +136,10 @@ impl GetAccountAuthorizationDetailsFluentBuilder {
     }
     /// <p>A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value <code>LocalManagedPolicy</code> to include customer managed policies.</p>
     /// <p>The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.</p>
-    pub fn set_filter(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EntityType>>) -> Self {
+    pub fn set_filter(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::EntityType>>,
+    ) -> Self {
         self.inner = self.inner.set_filter(input);
         self
     }

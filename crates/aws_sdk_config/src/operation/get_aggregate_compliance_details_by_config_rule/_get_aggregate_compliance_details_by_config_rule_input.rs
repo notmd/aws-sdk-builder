@@ -55,13 +55,15 @@ impl GetAggregateComplianceDetailsByConfigRuleInput {
 impl GetAggregateComplianceDetailsByConfigRuleInput {
     /// Creates a new builder-style object to manufacture [`GetAggregateComplianceDetailsByConfigRuleInput`](crate::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleInput).
     pub fn builder(
-    ) -> crate::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleInputBuilder {
+    ) -> crate::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleInputBuilder{
         crate::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleInputBuilder::default()
     }
 }
 
 /// A builder for [`GetAggregateComplianceDetailsByConfigRuleInput`](crate::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetAggregateComplianceDetailsByConfigRuleInputBuilder {
     pub(crate) configuration_aggregator_name: ::std::option::Option<::std::string::String>,
@@ -75,27 +77,41 @@ pub struct GetAggregateComplianceDetailsByConfigRuleInputBuilder {
 impl GetAggregateComplianceDetailsByConfigRuleInputBuilder {
     /// <p>The name of the configuration aggregator.</p>
     /// This field is required.
-    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn configuration_aggregator_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.configuration_aggregator_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_configuration_aggregator_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.configuration_aggregator_name = input;
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(
+        &self,
+    ) -> &::std::option::Option<::std::string::String> {
         &self.configuration_aggregator_name
     }
     /// <p>The name of the Config rule for which you want compliance information.</p>
     /// This field is required.
-    pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn config_rule_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.config_rule_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the Config rule for which you want compliance information.</p>
-    pub fn set_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_config_rule_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.config_rule_name = input;
         self
     }
@@ -143,7 +159,10 @@ impl GetAggregateComplianceDetailsByConfigRuleInputBuilder {
     /// <p>The resource compliance status.</p><note>
     /// <p>For the <code>GetAggregateComplianceDetailsByConfigRuleRequest</code> data type, Config supports only the <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. Config does not support the <code>NOT_APPLICABLE</code> and <code>INSUFFICIENT_DATA</code> values.</p>
     /// </note>
-    pub fn set_compliance_type(mut self, input: ::std::option::Option<crate::types::ComplianceType>) -> Self {
+    pub fn set_compliance_type(
+        mut self,
+        input: ::std::option::Option<crate::types::ComplianceType>,
+    ) -> Self {
         self.compliance_type = input;
         self
     }
@@ -187,7 +206,7 @@ impl GetAggregateComplianceDetailsByConfigRuleInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleInput,
         ::aws_smithy_types::error::operation::BuildError,
-    > {
+    >{
         ::std::result::Result::Ok(
             crate::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleInput {
                 configuration_aggregator_name: self.configuration_aggregator_name,

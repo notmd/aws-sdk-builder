@@ -8,7 +8,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteConfigurationAggregatorError>`](crate::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorError)
     pub fn delete_configuration_aggregator(
         &self,
-    ) -> crate::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorFluentBuilder {
+    ) -> crate::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorFluentBuilder{
         crate::operation::delete_configuration_aggregator::builders::DeleteConfigurationAggregatorFluentBuilder::new(self.handle.clone())
     }
 }

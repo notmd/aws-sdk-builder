@@ -13,7 +13,9 @@ pub struct ListImportJobsInput {
 }
 impl ListImportJobsInput {
     /// <p>The destination of the import job, which can be used to list import jobs that have a certain <code>ImportDestinationType</code>.</p>
-    pub fn import_destination_type(&self) -> ::std::option::Option<&crate::types::ImportDestinationType> {
+    pub fn import_destination_type(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ImportDestinationType> {
         self.import_destination_type.as_ref()
     }
     /// <p>A string token indicating that there might be additional import jobs available to be listed. Copy this token to a subsequent call to <code>ListImportJobs</code> with the same parameters to retrieve the next page of import jobs.</p>
@@ -33,7 +35,9 @@ impl ListImportJobsInput {
 }
 
 /// A builder for [`ListImportJobsInput`](crate::operation::list_import_jobs::ListImportJobsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListImportJobsInputBuilder {
     pub(crate) import_destination_type: ::std::option::Option<crate::types::ImportDestinationType>,
@@ -47,12 +51,17 @@ impl ListImportJobsInputBuilder {
         self
     }
     /// <p>The destination of the import job, which can be used to list import jobs that have a certain <code>ImportDestinationType</code>.</p>
-    pub fn set_import_destination_type(mut self, input: ::std::option::Option<crate::types::ImportDestinationType>) -> Self {
+    pub fn set_import_destination_type(
+        mut self,
+        input: ::std::option::Option<crate::types::ImportDestinationType>,
+    ) -> Self {
         self.import_destination_type = input;
         self
     }
     /// <p>The destination of the import job, which can be used to list import jobs that have a certain <code>ImportDestinationType</code>.</p>
-    pub fn get_import_destination_type(&self) -> &::std::option::Option<crate::types::ImportDestinationType> {
+    pub fn get_import_destination_type(
+        &self,
+    ) -> &::std::option::Option<crate::types::ImportDestinationType> {
         &self.import_destination_type
     }
     /// <p>A string token indicating that there might be additional import jobs available to be listed. Copy this token to a subsequent call to <code>ListImportJobs</code> with the same parameters to retrieve the next page of import jobs.</p>
@@ -86,7 +95,10 @@ impl ListImportJobsInputBuilder {
     /// Consumes the builder and constructs a [`ListImportJobsInput`](crate::operation::list_import_jobs::ListImportJobsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_import_jobs::ListImportJobsInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::list_import_jobs::ListImportJobsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::list_import_jobs::ListImportJobsInput {
             import_destination_type: self.import_destination_type,
             next_token: self.next_token,

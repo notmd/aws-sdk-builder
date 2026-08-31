@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutFunctionCodeSigningConfigError>`](crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError)
     pub fn put_function_code_signing_config(
         &self,
-    ) -> crate::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigFluentBuilder {
+    ) -> crate::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigFluentBuilder{
         crate::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigFluentBuilder::new(self.handle.clone())
     }
 }

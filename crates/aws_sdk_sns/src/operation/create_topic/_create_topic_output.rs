@@ -27,7 +27,9 @@ impl CreateTopicOutput {
 }
 
 /// A builder for [`CreateTopicOutput`](crate::operation::create_topic::CreateTopicOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateTopicOutputBuilder {
     pub(crate) topic_arn: ::std::option::Option<::std::string::String>,

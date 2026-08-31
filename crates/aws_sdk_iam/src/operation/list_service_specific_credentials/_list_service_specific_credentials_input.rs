@@ -40,13 +40,15 @@ impl ListServiceSpecificCredentialsInput {
 }
 impl ListServiceSpecificCredentialsInput {
     /// Creates a new builder-style object to manufacture [`ListServiceSpecificCredentialsInput`](crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsInput).
-    pub fn builder() -> crate::operation::list_service_specific_credentials::builders::ListServiceSpecificCredentialsInputBuilder {
+    pub fn builder() -> crate::operation::list_service_specific_credentials::builders::ListServiceSpecificCredentialsInputBuilder{
         crate::operation::list_service_specific_credentials::builders::ListServiceSpecificCredentialsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListServiceSpecificCredentialsInput`](crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListServiceSpecificCredentialsInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,

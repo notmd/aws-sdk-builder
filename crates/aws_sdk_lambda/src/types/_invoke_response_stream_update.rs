@@ -50,7 +50,9 @@ impl InvokeResponseStreamUpdateBuilder {
     }
     /// Consumes the builder and constructs a [`InvokeResponseStreamUpdate`](crate::types::InvokeResponseStreamUpdate).
     pub fn build(self) -> crate::types::InvokeResponseStreamUpdate {
-        crate::types::InvokeResponseStreamUpdate { payload: self.payload }
+        crate::types::InvokeResponseStreamUpdate {
+            payload: self.payload,
+        }
     }
 }
 impl ::std::fmt::Debug for InvokeResponseStreamUpdateBuilder {

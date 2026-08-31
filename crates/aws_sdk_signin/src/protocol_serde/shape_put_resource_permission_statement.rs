@@ -129,7 +129,9 @@ pub fn de_put_resource_permission_statement_http_response(
         let mut output = crate::operation::put_resource_permission_statement::builders::PutResourcePermissionStatementOutputBuilder::default();
         output = crate::protocol_serde::shape_put_resource_permission_statement::de_put_resource_permission_statement(_response_body, output)
             .map_err(crate::operation::put_resource_permission_statement::PutResourcePermissionStatementError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         crate::serde_util::put_resource_permission_statement_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::put_resource_permission_statement::PutResourcePermissionStatementError::unhandled)?
@@ -138,7 +140,10 @@ pub fn de_put_resource_permission_statement_http_response(
 
 pub fn ser_put_resource_permission_statement_input(
     input: &crate::operation::put_resource_permission_statement::PutResourcePermissionStatementInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+) -> ::std::result::Result<
+    ::aws_smithy_types::body::SdkBody,
+    ::aws_smithy_types::error::operation::SerializationError,
+> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_put_resource_permission_statement_input::ser_put_resource_permission_statement_input_input(&mut object, input)?;
@@ -152,8 +157,11 @@ pub(crate) fn de_put_resource_permission_statement(
 ) -> ::std::result::Result<
     crate::operation::put_resource_permission_statement::builders::PutResourcePermissionStatementOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+>{
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
+        crate::protocol_serde::or_empty_doc(_value),
+    )
+    .peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -161,27 +169,35 @@ pub(crate) fn de_put_resource_permission_statement(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "statementId" => {
-                    builder = builder.set_statement_id(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "statementId" => {
+                        builder = builder.set_statement_id(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                    );
+                        );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
+                return Err(
+                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                        "expected object key or end object, found: {other:?}"
+                    )),
+                )
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "found more JSON tokens after completing parsing",
+            ),
+        );
     }
     Ok(builder)
 }

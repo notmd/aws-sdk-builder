@@ -15,7 +15,9 @@ impl MailboxValidation {
         self.is_valid.as_ref()
     }
     /// <p>Specific validation checks performed on the email address.</p>
-    pub fn evaluations(&self) -> ::std::option::Option<&crate::types::EmailAddressInsightsMailboxEvaluations> {
+    pub fn evaluations(
+        &self,
+    ) -> ::std::option::Option<&crate::types::EmailAddressInsightsMailboxEvaluations> {
         self.evaluations.as_ref()
     }
 }
@@ -27,11 +29,14 @@ impl MailboxValidation {
 }
 
 /// A builder for [`MailboxValidation`](crate::types::MailboxValidation).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct MailboxValidationBuilder {
     pub(crate) is_valid: ::std::option::Option<crate::types::EmailAddressInsightsVerdict>,
-    pub(crate) evaluations: ::std::option::Option<crate::types::EmailAddressInsightsMailboxEvaluations>,
+    pub(crate) evaluations:
+        ::std::option::Option<crate::types::EmailAddressInsightsMailboxEvaluations>,
 }
 impl MailboxValidationBuilder {
     /// <p>Overall validity assessment with a conﬁdence verdict.</p>
@@ -40,26 +45,39 @@ impl MailboxValidationBuilder {
         self
     }
     /// <p>Overall validity assessment with a conﬁdence verdict.</p>
-    pub fn set_is_valid(mut self, input: ::std::option::Option<crate::types::EmailAddressInsightsVerdict>) -> Self {
+    pub fn set_is_valid(
+        mut self,
+        input: ::std::option::Option<crate::types::EmailAddressInsightsVerdict>,
+    ) -> Self {
         self.is_valid = input;
         self
     }
     /// <p>Overall validity assessment with a conﬁdence verdict.</p>
-    pub fn get_is_valid(&self) -> &::std::option::Option<crate::types::EmailAddressInsightsVerdict> {
+    pub fn get_is_valid(
+        &self,
+    ) -> &::std::option::Option<crate::types::EmailAddressInsightsVerdict> {
         &self.is_valid
     }
     /// <p>Specific validation checks performed on the email address.</p>
-    pub fn evaluations(mut self, input: crate::types::EmailAddressInsightsMailboxEvaluations) -> Self {
+    pub fn evaluations(
+        mut self,
+        input: crate::types::EmailAddressInsightsMailboxEvaluations,
+    ) -> Self {
         self.evaluations = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specific validation checks performed on the email address.</p>
-    pub fn set_evaluations(mut self, input: ::std::option::Option<crate::types::EmailAddressInsightsMailboxEvaluations>) -> Self {
+    pub fn set_evaluations(
+        mut self,
+        input: ::std::option::Option<crate::types::EmailAddressInsightsMailboxEvaluations>,
+    ) -> Self {
         self.evaluations = input;
         self
     }
     /// <p>Specific validation checks performed on the email address.</p>
-    pub fn get_evaluations(&self) -> &::std::option::Option<crate::types::EmailAddressInsightsMailboxEvaluations> {
+    pub fn get_evaluations(
+        &self,
+    ) -> &::std::option::Option<crate::types::EmailAddressInsightsMailboxEvaluations> {
         &self.evaluations
     }
     /// Consumes the builder and constructs a [`MailboxValidation`](crate::types::MailboxValidation).

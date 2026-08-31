@@ -11,7 +11,11 @@ impl super::Client {
     /// - On success, responds with [`UpdatePackageGroupOutput`](crate::operation::update_package_group::UpdatePackageGroupOutput) with field(s):
     ///   - [`package_group(Option<PackageGroupDescription>)`](crate::operation::update_package_group::UpdatePackageGroupOutput::package_group): <p>The package group and information about it after the request has been processed.</p>
     /// - On failure, responds with [`SdkError<UpdatePackageGroupError>`](crate::operation::update_package_group::UpdatePackageGroupError)
-    pub fn update_package_group(&self) -> crate::operation::update_package_group::builders::UpdatePackageGroupFluentBuilder {
-        crate::operation::update_package_group::builders::UpdatePackageGroupFluentBuilder::new(self.handle.clone())
+    pub fn update_package_group(
+        &self,
+    ) -> crate::operation::update_package_group::builders::UpdatePackageGroupFluentBuilder {
+        crate::operation::update_package_group::builders::UpdatePackageGroupFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

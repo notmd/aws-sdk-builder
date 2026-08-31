@@ -35,7 +35,9 @@ impl IncrementalExportSpecification {
 }
 
 /// A builder for [`IncrementalExportSpecification`](crate::types::IncrementalExportSpecification).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct IncrementalExportSpecificationBuilder {
     pub(crate) export_from_time: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -49,7 +51,10 @@ impl IncrementalExportSpecificationBuilder {
         self
     }
     /// <p>Time in the past which provides the inclusive start range for the export table's data, counted in seconds from the start of the Unix epoch. The incremental export will reflect the table's state including and after this point in time.</p>
-    pub fn set_export_from_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_export_from_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.export_from_time = input;
         self
     }
@@ -63,7 +68,10 @@ impl IncrementalExportSpecificationBuilder {
         self
     }
     /// <p>Time in the past which provides the exclusive end range for the export table's data, counted in seconds from the start of the Unix epoch. The incremental export will reflect the table's state just prior to this point in time. If this is not provided, the latest time with data available will be used.</p>
-    pub fn set_export_to_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_export_to_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.export_to_time = input;
         self
     }
@@ -79,7 +87,10 @@ impl IncrementalExportSpecificationBuilder {
     }
     /// <p>The view type that was chosen for the export. Valid values are <code>NEW_AND_OLD_IMAGES</code> and <code>NEW_IMAGES</code>. The default value is <code>NEW_AND_OLD_IMAGES</code>.</p>
     /// <p><code>NEW_AND_OLD_IMAGES</code> exports both the new and old images of each changed item, while <code>NEW_IMAGES</code> exports only the new (latest) image. The view type you choose determines the structure of each item in the output for <code>insert</code>, <code>update</code>, and <code>delete</code> operations. For details and examples of how each view type shapes the export output, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html">DynamoDB table export output format</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn set_export_view_type(mut self, input: ::std::option::Option<crate::types::ExportViewType>) -> Self {
+    pub fn set_export_view_type(
+        mut self,
+        input: ::std::option::Option<crate::types::ExportViewType>,
+    ) -> Self {
         self.export_view_type = input;
         self
     }

@@ -29,7 +29,8 @@ impl ::std::fmt::Debug for AdminDisableUserInput {
 }
 impl AdminDisableUserInput {
     /// Creates a new builder-style object to manufacture [`AdminDisableUserInput`](crate::operation::admin_disable_user::AdminDisableUserInput).
-    pub fn builder() -> crate::operation::admin_disable_user::builders::AdminDisableUserInputBuilder {
+    pub fn builder() -> crate::operation::admin_disable_user::builders::AdminDisableUserInputBuilder
+    {
         crate::operation::admin_disable_user::builders::AdminDisableUserInputBuilder::default()
     }
 }
@@ -75,11 +76,16 @@ impl AdminDisableUserInputBuilder {
     /// Consumes the builder and constructs a [`AdminDisableUserInput`](crate::operation::admin_disable_user::AdminDisableUserInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::admin_disable_user::AdminDisableUserInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::admin_disable_user::AdminDisableUserInput {
-            user_pool_id: self.user_pool_id,
-            username: self.username,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::admin_disable_user::AdminDisableUserInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::admin_disable_user::AdminDisableUserInput {
+                user_pool_id: self.user_pool_id,
+                username: self.username,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for AdminDisableUserInputBuilder {

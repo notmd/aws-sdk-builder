@@ -9,13 +9,21 @@ pub fn de_put_query_definition_http_error(
     crate::operation::put_query_definition::PutQueryDefinitionError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::put_query_definition::PutQueryDefinitionError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(crate::operation::put_query_definition::PutQueryDefinitionError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::put_query_definition::PutQueryDefinitionError::unhandled(generic)),
+        None => {
+            return Err(
+                crate::operation::put_query_definition::PutQueryDefinitionError::unhandled(generic),
+            )
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -97,19 +105,30 @@ pub fn de_put_query_definition_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::put_query_definition::builders::PutQueryDefinitionOutputBuilder::default();
-        output = crate::protocol_serde::shape_put_query_definition::de_put_query_definition(_response_body, output)
-            .map_err(crate::operation::put_query_definition::PutQueryDefinitionError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output = crate::protocol_serde::shape_put_query_definition::de_put_query_definition(
+            _response_body,
+            output,
+        )
+        .map_err(crate::operation::put_query_definition::PutQueryDefinitionError::unhandled)?;
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
 
 pub fn ser_put_query_definition_input(
     input: &crate::operation::put_query_definition::PutQueryDefinitionInput,
-) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
+) -> ::std::result::Result<
+    ::aws_smithy_types::body::SdkBody,
+    ::aws_smithy_types::error::operation::SerializationError,
+> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_put_query_definition_input::ser_put_query_definition_input_input(&mut object, input)?;
+    crate::protocol_serde::shape_put_query_definition_input::ser_put_query_definition_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -121,7 +140,10 @@ pub(crate) fn de_put_query_definition(
     crate::operation::put_query_definition::builders::PutQueryDefinitionOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
+        crate::protocol_serde::or_empty_doc(_value),
+    )
+    .peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -129,27 +151,35 @@ pub(crate) fn de_put_query_definition(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "queryDefinitionId" => {
-                    builder = builder.set_query_definition_id(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "queryDefinitionId" => {
+                        builder = builder.set_query_definition_id(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                tokens.next(),
+                            )?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                    );
+                        );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
+                return Err(
+                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                        "expected object key or end object, found: {other:?}"
+                    )),
+                )
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "found more JSON tokens after completing parsing",
+            ),
+        );
     }
     Ok(builder)
 }

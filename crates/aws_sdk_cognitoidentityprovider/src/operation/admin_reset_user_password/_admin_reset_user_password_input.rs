@@ -21,7 +21,9 @@ pub struct AdminResetUserPasswordInput {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub client_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub client_metadata: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
 }
 impl AdminResetUserPasswordInput {
     /// <p>The ID of the user pool where you want to reset the user's password.</p>
@@ -45,7 +47,11 @@ impl AdminResetUserPasswordInput {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub fn client_metadata(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn client_metadata(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.client_metadata.as_ref()
     }
 }
@@ -60,7 +66,9 @@ impl ::std::fmt::Debug for AdminResetUserPasswordInput {
 }
 impl AdminResetUserPasswordInput {
     /// Creates a new builder-style object to manufacture [`AdminResetUserPasswordInput`](crate::operation::admin_reset_user_password::AdminResetUserPasswordInput).
-    pub fn builder() -> crate::operation::admin_reset_user_password::builders::AdminResetUserPasswordInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::admin_reset_user_password::builders::AdminResetUserPasswordInputBuilder
+    {
         crate::operation::admin_reset_user_password::builders::AdminResetUserPasswordInputBuilder::default()
     }
 }
@@ -71,7 +79,9 @@ impl AdminResetUserPasswordInput {
 pub struct AdminResetUserPasswordInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
     pub(crate) username: ::std::option::Option<::std::string::String>,
-    pub(crate) client_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) client_metadata: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
 }
 impl AdminResetUserPasswordInputBuilder {
     /// <p>The ID of the user pool where you want to reset the user's password.</p>
@@ -146,7 +156,9 @@ impl AdminResetUserPasswordInputBuilder {
     /// </note>
     pub fn set_client_metadata(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
     ) -> Self {
         self.client_metadata = input;
         self
@@ -164,7 +176,11 @@ impl AdminResetUserPasswordInputBuilder {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub fn get_client_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_client_metadata(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.client_metadata
     }
     /// Consumes the builder and constructs a [`AdminResetUserPasswordInput`](crate::operation::admin_reset_user_password::AdminResetUserPasswordInput).
@@ -174,11 +190,13 @@ impl AdminResetUserPasswordInputBuilder {
         crate::operation::admin_reset_user_password::AdminResetUserPasswordInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::admin_reset_user_password::AdminResetUserPasswordInput {
-            user_pool_id: self.user_pool_id,
-            username: self.username,
-            client_metadata: self.client_metadata,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::admin_reset_user_password::AdminResetUserPasswordInput {
+                user_pool_id: self.user_pool_id,
+                username: self.username,
+                client_metadata: self.client_metadata,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for AdminResetUserPasswordInputBuilder {

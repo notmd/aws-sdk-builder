@@ -18,7 +18,8 @@ pub struct DelegationRequest {
     /// <p>JSON content of the associated permission policy of this delegation request.</p>
     pub permission_policy: ::std::option::Option<::std::string::String>,
     /// <p>If the <code>PermissionPolicy</code> includes role creation permissions, this element will include the list of permissions boundary policies associated with the role creation. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> for more details about IAM permission boundaries.</p>
-    pub role_permission_restriction_arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub role_permission_restriction_arns:
+        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>ARN of the owner of this delegation request.</p>
     pub owner_id: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
@@ -79,7 +80,9 @@ impl DelegationRequest {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.role_permission_restriction_arns.is_none()`.
     pub fn role_permission_restriction_arns(&self) -> &[::std::string::String] {
-        self.role_permission_restriction_arns.as_deref().unwrap_or_default()
+        self.role_permission_restriction_arns
+            .as_deref()
+            .unwrap_or_default()
     }
     /// <p>ARN of the owner of this delegation request.</p>
     pub fn owner_id(&self) -> ::std::option::Option<&str> {
@@ -145,7 +148,9 @@ impl DelegationRequest {
 }
 
 /// A builder for [`DelegationRequest`](crate::types::DelegationRequest).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DelegationRequestBuilder {
     pub(crate) delegation_request_id: ::std::option::Option<::std::string::String>,
@@ -154,7 +159,8 @@ pub struct DelegationRequestBuilder {
     pub(crate) request_message: ::std::option::Option<::std::string::String>,
     pub(crate) permissions: ::std::option::Option<crate::types::DelegationPermission>,
     pub(crate) permission_policy: ::std::option::Option<::std::string::String>,
-    pub(crate) role_permission_restriction_arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) role_permission_restriction_arns:
+        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) owner_id: ::std::option::Option<::std::string::String>,
     pub(crate) approver_id: ::std::option::Option<::std::string::String>,
     pub(crate) state: ::std::option::Option<crate::types::StateType>,
@@ -171,12 +177,18 @@ pub struct DelegationRequestBuilder {
 }
 impl DelegationRequestBuilder {
     /// <p>The unique identifier for the delegation request.</p>
-    pub fn delegation_request_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn delegation_request_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.delegation_request_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier for the delegation request.</p>
-    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_delegation_request_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.delegation_request_id = input;
         self
     }
@@ -185,12 +197,18 @@ impl DelegationRequestBuilder {
         &self.delegation_request_id
     }
     /// <p>Amazon Web Services account ID of the owner of the delegation request.</p>
-    pub fn owner_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn owner_account_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.owner_account_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Amazon Web Services account ID of the owner of the delegation request.</p>
-    pub fn set_owner_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_owner_account_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.owner_account_id = input;
         self
     }
@@ -214,13 +232,19 @@ impl DelegationRequestBuilder {
     }
     /// <p>A custom message that is added to the delegation request by the partner.</p>
     /// <p>This element is different from the <code>Description</code> element such that this is a request specific message injected by the partner. The <code>Description</code> is typically a generic explanation of what the delegation request is targeted to do.</p>
-    pub fn request_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn request_message(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.request_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A custom message that is added to the delegation request by the partner.</p>
     /// <p>This element is different from the <code>Description</code> element such that this is a request specific message injected by the partner. The <code>Description</code> is typically a generic explanation of what the delegation request is targeted to do.</p>
-    pub fn set_request_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_request_message(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.request_message = input;
         self
     }
@@ -235,7 +259,10 @@ impl DelegationRequestBuilder {
         self
     }
     /// <p>Contains information about the permissions being delegated in a delegation request.</p>
-    pub fn set_permissions(mut self, input: ::std::option::Option<crate::types::DelegationPermission>) -> Self {
+    pub fn set_permissions(
+        mut self,
+        input: ::std::option::Option<crate::types::DelegationPermission>,
+    ) -> Self {
         self.permissions = input;
         self
     }
@@ -244,12 +271,18 @@ impl DelegationRequestBuilder {
         &self.permissions
     }
     /// <p>JSON content of the associated permission policy of this delegation request.</p>
-    pub fn permission_policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn permission_policy(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.permission_policy = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>JSON content of the associated permission policy of this delegation request.</p>
-    pub fn set_permission_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_permission_policy(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.permission_policy = input;
         self
     }
@@ -262,19 +295,27 @@ impl DelegationRequestBuilder {
     /// To override the contents of this collection use [`set_role_permission_restriction_arns`](Self::set_role_permission_restriction_arns).
     ///
     /// <p>If the <code>PermissionPolicy</code> includes role creation permissions, this element will include the list of permissions boundary policies associated with the role creation. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> for more details about IAM permission boundaries.</p>
-    pub fn role_permission_restriction_arns(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn role_permission_restriction_arns(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.role_permission_restriction_arns.unwrap_or_default();
         v.push(input.into());
         self.role_permission_restriction_arns = ::std::option::Option::Some(v);
         self
     }
     /// <p>If the <code>PermissionPolicy</code> includes role creation permissions, this element will include the list of permissions boundary policies associated with the role creation. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> for more details about IAM permission boundaries.</p>
-    pub fn set_role_permission_restriction_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_role_permission_restriction_arns(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.role_permission_restriction_arns = input;
         self
     }
     /// <p>If the <code>PermissionPolicy</code> includes role creation permissions, this element will include the list of permissions boundary policies associated with the role creation. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> for more details about IAM permission boundaries.</p>
-    pub fn get_role_permission_restriction_arns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_role_permission_restriction_arns(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.role_permission_restriction_arns
     }
     /// <p>ARN of the owner of this delegation request.</p>
@@ -333,7 +374,10 @@ impl DelegationRequestBuilder {
     }
     /// <p>The expiry time of this delegation request</p>
     /// <p>See the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/temporary-delegation-building-integration.html#temporary-delegation-request-lifecycle">Understanding the Request Lifecycle</a> for details on the life time of a delegation request at each state.</p>
-    pub fn set_expiration_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_expiration_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.expiration_time = input;
         self
     }
@@ -357,12 +401,18 @@ impl DelegationRequestBuilder {
         &self.requestor_id
     }
     /// <p>A friendly name of the requestor.</p>
-    pub fn requestor_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn requestor_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.requestor_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A friendly name of the requestor.</p>
-    pub fn set_requestor_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_requestor_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.requestor_name = input;
         self
     }
@@ -376,7 +426,10 @@ impl DelegationRequestBuilder {
         self
     }
     /// <p>Creation date (timestamp) of this delegation request.</p>
-    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_create_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.create_date = input;
         self
     }
@@ -427,12 +480,18 @@ impl DelegationRequestBuilder {
         &self.notes
     }
     /// <p>Reasons for rejecting this delegation request, if this request was rejected. See also <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_RejectDelegationRequest.html">RejectDelegationRequest</a> API documentation.</p>
-    pub fn rejection_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn rejection_reason(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.rejection_reason = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Reasons for rejecting this delegation request, if this request was rejected. See also <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_RejectDelegationRequest.html">RejectDelegationRequest</a> API documentation.</p>
-    pub fn set_rejection_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_rejection_reason(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.rejection_reason = input;
         self
     }
@@ -460,7 +519,10 @@ impl DelegationRequestBuilder {
         self
     }
     /// <p>Last updated timestamp of the request.</p>
-    pub fn set_updated_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_updated_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.updated_time = input;
         self
     }

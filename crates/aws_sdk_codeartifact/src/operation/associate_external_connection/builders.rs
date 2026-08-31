@@ -59,7 +59,7 @@ impl AssociateExternalConnectionFluentBuilder {
         }
     }
     /// Access the AssociateExternalConnection as a reference.
-    pub fn as_input(&self) -> &crate::operation::associate_external_connection::builders::AssociateExternalConnectionInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::associate_external_connection::builders::AssociateExternalConnectionInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,7 +88,11 @@ impl AssociateExternalConnectionFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::associate_external_connection::AssociateExternalConnection::orchestrate(&runtime_plugins, input).await
+        crate::operation::associate_external_connection::AssociateExternalConnection::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -101,12 +105,18 @@ impl AssociateExternalConnectionFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -175,7 +185,10 @@ impl AssociateExternalConnectionFluentBuilder {
     /// <li>
     /// <p><code>public:crates-io</code> - for Crates.io.</p></li>
     /// </ul>
-    pub fn external_connection(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn external_connection(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.external_connection(input.into());
         self
     }
@@ -202,7 +215,10 @@ impl AssociateExternalConnectionFluentBuilder {
     /// <li>
     /// <p><code>public:crates-io</code> - for Crates.io.</p></li>
     /// </ul>
-    pub fn set_external_connection(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_external_connection(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_external_connection(input);
         self
     }

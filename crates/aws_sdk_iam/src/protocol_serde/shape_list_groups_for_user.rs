@@ -9,47 +9,64 @@ pub fn de_list_groups_for_user_http_error(
     crate::operation::list_groups_for_user::ListGroupsForUserError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::list_groups_for_user::ListGroupsForUserError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(crate::operation::list_groups_for_user::ListGroupsForUserError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::list_groups_for_user::ListGroupsForUserError::unhandled(generic)),
+        None => {
+            return Err(
+                crate::operation::list_groups_for_user::ListGroupsForUserError::unhandled(generic),
+            )
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "NoSuchEntity" => crate::operation::list_groups_for_user::ListGroupsForUserError::NoSuchEntityException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "NoSuchEntity" => {
+            crate::operation::list_groups_for_user::ListGroupsForUserError::NoSuchEntityException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
-                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output =
+                        crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::list_groups_for_user::ListGroupsForUserError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ServiceFailure" => crate::operation::list_groups_for_user::ListGroupsForUserError::ServiceFailureException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
-                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ServiceFailure" => {
+            crate::operation::list_groups_for_user::ListGroupsForUserError::ServiceFailureException(
+                {
+                    #[allow(unused_mut)]
+                    let mut tmp = {
+                        #[allow(unused_mut)]
+                        let mut output =
+                            crate::types::error::builders::ServiceFailureExceptionBuilder::default(
+                            );
+                        output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::list_groups_for_user::ListGroupsForUserError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                        let output = output.meta(generic);
+                        output.build()
+                    };
+                    if tmp.message.is_none() {
+                        tmp.message = _error_message;
+                    }
+                    tmp
+                },
+            )
+        }
         _ => crate::operation::list_groups_for_user::ListGroupsForUserError::generic(generic),
     })
 }
@@ -66,9 +83,14 @@ pub fn de_list_groups_for_user_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::list_groups_for_user::builders::ListGroupsForUserOutputBuilder::default();
-        output = crate::protocol_serde::shape_list_groups_for_user::de_list_groups_for_user(_response_body, output)
-            .map_err(crate::operation::list_groups_for_user::ListGroupsForUserError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output = crate::protocol_serde::shape_list_groups_for_user::de_list_groups_for_user(
+            _response_body,
+            output,
+        )
+        .map_err(crate::operation::list_groups_for_user::ListGroupsForUserError::unhandled)?;
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         crate::serde_util::list_groups_for_user_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::list_groups_for_user::ListGroupsForUserError::unhandled)?
@@ -79,7 +101,10 @@ pub fn de_list_groups_for_user_http_response(
 pub fn de_list_groups_for_user(
     inp: &[u8],
     mut builder: crate::operation::list_groups_for_user::builders::ListGroupsForUserOutputBuilder,
-) -> std::result::Result<crate::operation::list_groups_for_user::builders::ListGroupsForUserOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> std::result::Result<
+    crate::operation::list_groups_for_user::builders::ListGroupsForUserOutputBuilder,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]
@@ -144,7 +169,9 @@ pub fn de_list_groups_for_user(
         }
         }
     } else {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected ListGroupsForUserResult tag"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "expected ListGroupsForUserResult tag",
+        ));
     };
     Ok(builder)
 }

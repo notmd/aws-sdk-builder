@@ -43,7 +43,9 @@ pub fn ser_update_function_code_input_input(
         object.key("SourceKMSKeyArn").string(var_13.as_str());
     }
     if let Some(var_14) = &input.zip_file {
-        object.key("ZipFile").string_unchecked(&::aws_smithy_types::base64::encode(var_14));
+        object
+            .key("ZipFile")
+            .string_unchecked(&::aws_smithy_types::base64::encode(var_14));
     }
     Ok(())
 }

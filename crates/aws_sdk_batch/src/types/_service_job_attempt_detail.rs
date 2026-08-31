@@ -39,7 +39,9 @@ impl ServiceJobAttemptDetail {
 }
 
 /// A builder for [`ServiceJobAttemptDetail`](crate::types::ServiceJobAttemptDetail).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ServiceJobAttemptDetailBuilder {
     pub(crate) service_resource_id: ::std::option::Option<crate::types::ServiceResourceId>,
@@ -54,12 +56,17 @@ impl ServiceJobAttemptDetailBuilder {
         self
     }
     /// <p>The service resource identifier associated with the service job attempt.</p>
-    pub fn set_service_resource_id(mut self, input: ::std::option::Option<crate::types::ServiceResourceId>) -> Self {
+    pub fn set_service_resource_id(
+        mut self,
+        input: ::std::option::Option<crate::types::ServiceResourceId>,
+    ) -> Self {
         self.service_resource_id = input;
         self
     }
     /// <p>The service resource identifier associated with the service job attempt.</p>
-    pub fn get_service_resource_id(&self) -> &::std::option::Option<crate::types::ServiceResourceId> {
+    pub fn get_service_resource_id(
+        &self,
+    ) -> &::std::option::Option<crate::types::ServiceResourceId> {
         &self.service_resource_id
     }
     /// <p>The Unix timestamp (in milliseconds) for when the service job attempt was started.</p>
@@ -91,12 +98,18 @@ impl ServiceJobAttemptDetailBuilder {
         &self.stopped_at
     }
     /// <p>A string that provides additional details for the current status of the service job attempt.</p>
-    pub fn status_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn status_reason(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.status_reason = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A string that provides additional details for the current status of the service job attempt.</p>
-    pub fn set_status_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_status_reason(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.status_reason = input;
         self
     }

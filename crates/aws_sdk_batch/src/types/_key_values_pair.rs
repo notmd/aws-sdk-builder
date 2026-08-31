@@ -29,7 +29,9 @@ impl KeyValuesPair {
 }
 
 /// A builder for [`KeyValuesPair`](crate::types::KeyValuesPair).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct KeyValuesPairBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -62,7 +64,10 @@ impl KeyValuesPairBuilder {
         self
     }
     /// <p>The filter values.</p>
-    pub fn set_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_values(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.values = input;
         self
     }

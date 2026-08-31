@@ -21,13 +21,16 @@ impl ListDedicatedIpPoolsInput {
 }
 impl ListDedicatedIpPoolsInput {
     /// Creates a new builder-style object to manufacture [`ListDedicatedIpPoolsInput`](crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput).
-    pub fn builder() -> crate::operation::list_dedicated_ip_pools::builders::ListDedicatedIpPoolsInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_dedicated_ip_pools::builders::ListDedicatedIpPoolsInputBuilder {
         crate::operation::list_dedicated_ip_pools::builders::ListDedicatedIpPoolsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListDedicatedIpPoolsInput`](crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListDedicatedIpPoolsInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
@@ -65,11 +68,15 @@ impl ListDedicatedIpPoolsInputBuilder {
     /// Consumes the builder and constructs a [`ListDedicatedIpPoolsInput`](crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput {
-            next_token: self.next_token,
-            page_size: self.page_size,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput {
+                next_token: self.next_token,
+                page_size: self.page_size,
+            },
+        )
     }
 }

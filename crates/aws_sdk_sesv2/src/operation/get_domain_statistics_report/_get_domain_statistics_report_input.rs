@@ -27,13 +27,15 @@ impl GetDomainStatisticsReportInput {
 }
 impl GetDomainStatisticsReportInput {
     /// Creates a new builder-style object to manufacture [`GetDomainStatisticsReportInput`](crate::operation::get_domain_statistics_report::GetDomainStatisticsReportInput).
-    pub fn builder() -> crate::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportInputBuilder {
+    pub fn builder() -> crate::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportInputBuilder{
         crate::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportInputBuilder::default()
     }
 }
 
 /// A builder for [`GetDomainStatisticsReportInput`](crate::operation::get_domain_statistics_report::GetDomainStatisticsReportInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetDomainStatisticsReportInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -63,7 +65,10 @@ impl GetDomainStatisticsReportInputBuilder {
         self
     }
     /// <p>The first day (in Unix time) that you want to obtain domain deliverability metrics for.</p>
-    pub fn set_start_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_start_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.start_date = input;
         self
     }
@@ -78,7 +83,10 @@ impl GetDomainStatisticsReportInputBuilder {
         self
     }
     /// <p>The last day (in Unix time) that you want to obtain domain deliverability metrics for. The <code>EndDate</code> that you specify has to be less than or equal to 30 days after the <code>StartDate</code>.</p>
-    pub fn set_end_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_end_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.end_date = input;
         self
     }
@@ -93,10 +101,12 @@ impl GetDomainStatisticsReportInputBuilder {
         crate::operation::get_domain_statistics_report::GetDomainStatisticsReportInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_domain_statistics_report::GetDomainStatisticsReportInput {
-            domain: self.domain,
-            start_date: self.start_date,
-            end_date: self.end_date,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::get_domain_statistics_report::GetDomainStatisticsReportInput {
+                domain: self.domain,
+                start_date: self.start_date,
+                end_date: self.end_date,
+            },
+        )
     }
 }

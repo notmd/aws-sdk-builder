@@ -61,7 +61,7 @@ impl DeleteCustomVerificationEmailTemplateFluentBuilder {
     /// Access the DeleteCustomVerificationEmailTemplate as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateInputBuilder {
+    ) -> &crate::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -80,7 +80,7 @@ impl DeleteCustomVerificationEmailTemplateFluentBuilder {
             crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -101,25 +101,37 @@ impl DeleteCustomVerificationEmailTemplateFluentBuilder {
         crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateOutput,
         crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the custom verification email template that you want to delete.</p>
-    pub fn template_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn template_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.template_name(input.into());
         self
     }
     /// <p>The name of the custom verification email template that you want to delete.</p>
-    pub fn set_template_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_template_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_template_name(input);
         self
     }

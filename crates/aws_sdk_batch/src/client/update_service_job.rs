@@ -10,7 +10,11 @@ impl super::Client {
     ///   - [`job_name(Option<String>)`](crate::operation::update_service_job::UpdateServiceJobOutput::job_name): <p>The name of the job.</p>
     ///   - [`job_id(Option<String>)`](crate::operation::update_service_job::UpdateServiceJobOutput::job_id): <p>The unique identifier for the job.</p>
     /// - On failure, responds with [`SdkError<UpdateServiceJobError>`](crate::operation::update_service_job::UpdateServiceJobError)
-    pub fn update_service_job(&self) -> crate::operation::update_service_job::builders::UpdateServiceJobFluentBuilder {
-        crate::operation::update_service_job::builders::UpdateServiceJobFluentBuilder::new(self.handle.clone())
+    pub fn update_service_job(
+        &self,
+    ) -> crate::operation::update_service_job::builders::UpdateServiceJobFluentBuilder {
+        crate::operation::update_service_job::builders::UpdateServiceJobFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -32,13 +32,17 @@ impl ::aws_types::request_id::RequestId for CreateUserPoolDomainOutput {
 }
 impl CreateUserPoolDomainOutput {
     /// Creates a new builder-style object to manufacture [`CreateUserPoolDomainOutput`](crate::operation::create_user_pool_domain::CreateUserPoolDomainOutput).
-    pub fn builder() -> crate::operation::create_user_pool_domain::builders::CreateUserPoolDomainOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::create_user_pool_domain::builders::CreateUserPoolDomainOutputBuilder
+    {
         crate::operation::create_user_pool_domain::builders::CreateUserPoolDomainOutputBuilder::default()
     }
 }
 
 /// A builder for [`CreateUserPoolDomainOutput`](crate::operation::create_user_pool_domain::CreateUserPoolDomainOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateUserPoolDomainOutputBuilder {
     pub(crate) managed_login_version: ::std::option::Option<i32>,
@@ -62,12 +66,18 @@ impl CreateUserPoolDomainOutputBuilder {
         &self.managed_login_version
     }
     /// <p>The fully-qualified domain name (FQDN) of the Amazon CloudFront distribution that hosts your managed login or classic hosted UI pages. Your domain-name authority must have an alias record that points requests for your custom domain to this FQDN. Amazon Cognito returns this value if you set a custom domain with <code>CustomDomainConfig</code>. If you set an Amazon Cognito prefix domain, this parameter returns null.</p>
-    pub fn cloud_front_domain(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn cloud_front_domain(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.cloud_front_domain = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The fully-qualified domain name (FQDN) of the Amazon CloudFront distribution that hosts your managed login or classic hosted UI pages. Your domain-name authority must have an alias record that points requests for your custom domain to this FQDN. Amazon Cognito returns this value if you set a custom domain with <code>CustomDomainConfig</code>. If you set an Amazon Cognito prefix domain, this parameter returns null.</p>
-    pub fn set_cloud_front_domain(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_cloud_front_domain(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.cloud_front_domain = input;
         self
     }

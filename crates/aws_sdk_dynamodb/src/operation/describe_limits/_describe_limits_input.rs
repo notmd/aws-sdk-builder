@@ -12,14 +12,19 @@ impl DescribeLimitsInput {
 }
 
 /// A builder for [`DescribeLimitsInput`](crate::operation::describe_limits::DescribeLimitsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeLimitsInputBuilder {}
 impl DescribeLimitsInputBuilder {
     /// Consumes the builder and constructs a [`DescribeLimitsInput`](crate::operation::describe_limits::DescribeLimitsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::describe_limits::DescribeLimitsInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::describe_limits::DescribeLimitsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::describe_limits::DescribeLimitsInput {})
     }
 }

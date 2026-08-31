@@ -57,7 +57,7 @@ impl GetRuntimeManagementConfigFluentBuilder {
         }
     }
     /// Access the GetRuntimeManagementConfig as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_runtime_management_config::builders::GetRuntimeManagementConfigInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_runtime_management_config::builders::GetRuntimeManagementConfigInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +86,11 @@ impl GetRuntimeManagementConfigFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_runtime_management_config::GetRuntimeManagementConfig::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_runtime_management_config::GetRuntimeManagementConfig::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,12 +103,18 @@ impl GetRuntimeManagementConfigFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -119,7 +129,10 @@ impl GetRuntimeManagementConfigFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -134,7 +147,10 @@ impl GetRuntimeManagementConfigFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }

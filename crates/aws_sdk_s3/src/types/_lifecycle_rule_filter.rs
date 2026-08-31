@@ -53,7 +53,9 @@ impl LifecycleRuleFilter {
 }
 
 /// A builder for [`LifecycleRuleFilter`](crate::types::LifecycleRuleFilter).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct LifecycleRuleFilterBuilder {
     pub(crate) prefix: ::std::option::Option<::std::string::String>,
@@ -137,7 +139,10 @@ impl LifecycleRuleFilterBuilder {
         self
     }
     /// <p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.</p>
-    pub fn set_and(mut self, input: ::std::option::Option<crate::types::LifecycleRuleAndOperator>) -> Self {
+    pub fn set_and(
+        mut self,
+        input: ::std::option::Option<crate::types::LifecycleRuleAndOperator>,
+    ) -> Self {
         self.and = input;
         self
     }

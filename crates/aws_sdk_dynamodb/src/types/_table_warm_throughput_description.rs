@@ -33,7 +33,9 @@ impl TableWarmThroughputDescription {
 }
 
 /// A builder for [`TableWarmThroughputDescription`](crate::types::TableWarmThroughputDescription).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct TableWarmThroughputDescriptionBuilder {
     pub(crate) read_units_per_second: ::std::option::Option<i64>,

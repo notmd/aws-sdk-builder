@@ -21,7 +21,8 @@ pub struct UserDetail {
     /// <p>A list of IAM groups that the user is in.</p>
     pub group_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>A list of the managed policies attached to the user.</p>
-    pub attached_managed_policies: ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>,
+    pub attached_managed_policies:
+        ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>,
     /// <p>The ARN of the policy used to set the permissions boundary for the user.</p>
     /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
     pub permissions_boundary: ::std::option::Option<crate::types::AttachedPermissionsBoundary>,
@@ -66,11 +67,15 @@ impl UserDetail {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attached_managed_policies.is_none()`.
     pub fn attached_managed_policies(&self) -> &[crate::types::AttachedPolicy] {
-        self.attached_managed_policies.as_deref().unwrap_or_default()
+        self.attached_managed_policies
+            .as_deref()
+            .unwrap_or_default()
     }
     /// <p>The ARN of the policy used to set the permissions boundary for the user.</p>
     /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-    pub fn permissions_boundary(&self) -> ::std::option::Option<&crate::types::AttachedPermissionsBoundary> {
+    pub fn permissions_boundary(
+        &self,
+    ) -> ::std::option::Option<&crate::types::AttachedPermissionsBoundary> {
         self.permissions_boundary.as_ref()
     }
     /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
@@ -88,7 +93,9 @@ impl UserDetail {
 }
 
 /// A builder for [`UserDetail`](crate::types::UserDetail).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UserDetailBuilder {
     pub(crate) path: ::std::option::Option<::std::string::String>,
@@ -98,8 +105,10 @@ pub struct UserDetailBuilder {
     pub(crate) create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) user_policy_list: ::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>>,
     pub(crate) group_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) attached_managed_policies: ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>,
-    pub(crate) permissions_boundary: ::std::option::Option<crate::types::AttachedPermissionsBoundary>,
+    pub(crate) attached_managed_policies:
+        ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>,
+    pub(crate) permissions_boundary:
+        ::std::option::Option<crate::types::AttachedPermissionsBoundary>,
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 }
 impl UserDetailBuilder {
@@ -168,7 +177,10 @@ impl UserDetailBuilder {
         self
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the user was created.</p>
-    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_create_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.create_date = input;
         self
     }
@@ -188,12 +200,17 @@ impl UserDetailBuilder {
         self
     }
     /// <p>A list of the inline policies embedded in the user.</p>
-    pub fn set_user_policy_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>>) -> Self {
+    pub fn set_user_policy_list(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>>,
+    ) -> Self {
         self.user_policy_list = input;
         self
     }
     /// <p>A list of the inline policies embedded in the user.</p>
-    pub fn get_user_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>> {
+    pub fn get_user_policy_list(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>> {
         &self.user_policy_list
     }
     /// Appends an item to `group_list`.
@@ -208,7 +225,10 @@ impl UserDetailBuilder {
         self
     }
     /// <p>A list of IAM groups that the user is in.</p>
-    pub fn set_group_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_group_list(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.group_list = input;
         self
     }
@@ -228,29 +248,42 @@ impl UserDetailBuilder {
         self
     }
     /// <p>A list of the managed policies attached to the user.</p>
-    pub fn set_attached_managed_policies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>) -> Self {
+    pub fn set_attached_managed_policies(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>,
+    ) -> Self {
         self.attached_managed_policies = input;
         self
     }
     /// <p>A list of the managed policies attached to the user.</p>
-    pub fn get_attached_managed_policies(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>> {
+    pub fn get_attached_managed_policies(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>> {
         &self.attached_managed_policies
     }
     /// <p>The ARN of the policy used to set the permissions boundary for the user.</p>
     /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-    pub fn permissions_boundary(mut self, input: crate::types::AttachedPermissionsBoundary) -> Self {
+    pub fn permissions_boundary(
+        mut self,
+        input: crate::types::AttachedPermissionsBoundary,
+    ) -> Self {
         self.permissions_boundary = ::std::option::Option::Some(input);
         self
     }
     /// <p>The ARN of the policy used to set the permissions boundary for the user.</p>
     /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-    pub fn set_permissions_boundary(mut self, input: ::std::option::Option<crate::types::AttachedPermissionsBoundary>) -> Self {
+    pub fn set_permissions_boundary(
+        mut self,
+        input: ::std::option::Option<crate::types::AttachedPermissionsBoundary>,
+    ) -> Self {
         self.permissions_boundary = input;
         self
     }
     /// <p>The ARN of the policy used to set the permissions boundary for the user.</p>
     /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_permissions_boundary(&self) -> &::std::option::Option<crate::types::AttachedPermissionsBoundary> {
+    pub fn get_permissions_boundary(
+        &self,
+    ) -> &::std::option::Option<crate::types::AttachedPermissionsBoundary> {
         &self.permissions_boundary
     }
     /// Appends an item to `tags`.
@@ -265,7 +298,10 @@ impl UserDetailBuilder {
         self
     }
     /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.tags = input;
         self
     }

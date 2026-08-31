@@ -93,11 +93,12 @@ impl UpdateTermsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_terms::UpdateTerms::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::update_terms::UpdateTerms::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::update_terms::UpdateTerms::orchestrate(&runtime_plugins, input).await
     }
 
@@ -111,12 +112,18 @@ impl UpdateTermsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -168,7 +175,10 @@ impl UpdateTermsFluentBuilder {
         self
     }
     /// <p>This parameter is reserved for future use and currently accepts only one value.</p>
-    pub fn set_terms_source(mut self, input: ::std::option::Option<crate::types::TermsSourceType>) -> Self {
+    pub fn set_terms_source(
+        mut self,
+        input: ::std::option::Option<crate::types::TermsSourceType>,
+    ) -> Self {
         self.inner = self.inner.set_terms_source(input);
         self
     }
@@ -182,7 +192,10 @@ impl UpdateTermsFluentBuilder {
         self
     }
     /// <p>This parameter is reserved for future use and currently accepts only one value.</p>
-    pub fn set_enforcement(mut self, input: ::std::option::Option<crate::types::TermsEnforcementType>) -> Self {
+    pub fn set_enforcement(
+        mut self,
+        input: ::std::option::Option<crate::types::TermsEnforcementType>,
+    ) -> Self {
         self.inner = self.inner.set_enforcement(input);
         self
     }
@@ -197,19 +210,32 @@ impl UpdateTermsFluentBuilder {
     ///
     /// <p>A map of URLs to languages. For each localized language that will view the requested <code>TermsName</code>, assign a URL. A selection of <code>cognito:default</code> displays for all languages that don't have a language-specific URL.</p>
     /// <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"</code>.</p>
-    pub fn links(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn links(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.links(k.into(), v.into());
         self
     }
     /// <p>A map of URLs to languages. For each localized language that will view the requested <code>TermsName</code>, assign a URL. A selection of <code>cognito:default</code> displays for all languages that don't have a language-specific URL.</p>
     /// <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"</code>.</p>
-    pub fn set_links(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_links(
+        mut self,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
+    ) -> Self {
         self.inner = self.inner.set_links(input);
         self
     }
     /// <p>A map of URLs to languages. For each localized language that will view the requested <code>TermsName</code>, assign a URL. A selection of <code>cognito:default</code> displays for all languages that don't have a language-specific URL.</p>
     /// <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"</code>.</p>
-    pub fn get_links(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_links(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.inner.get_links()
     }
 }

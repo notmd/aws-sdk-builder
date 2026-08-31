@@ -33,7 +33,7 @@ impl GetAggregateComplianceDetailsByConfigRulePaginator {
     /// are dispatched lazily.
     pub fn items(
         self,
-    ) -> crate::operation::get_aggregate_compliance_details_by_config_rule::paginator::GetAggregateComplianceDetailsByConfigRulePaginatorItems {
+    ) -> crate::operation::get_aggregate_compliance_details_by_config_rule::paginator::GetAggregateComplianceDetailsByConfigRulePaginatorItems{
         crate::operation::get_aggregate_compliance_details_by_config_rule::paginator::GetAggregateComplianceDetailsByConfigRulePaginatorItems(self)
     }
 
@@ -63,7 +63,7 @@ impl GetAggregateComplianceDetailsByConfigRulePaginator {
                 ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
             >,
         >,
-    > {
+    >{
         // Move individual fields out of self for the borrow checker
         let builder = self.builder;
         let handle = self.handle;
@@ -74,14 +74,13 @@ impl GetAggregateComplianceDetailsByConfigRulePaginator {
                 ::std::option::Option::None,
             )
             .with_operation_plugin(crate::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
-        ::aws_smithy_async::future::pagination_stream::PaginationStream::new(::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(
-            move |tx| {
+        ::aws_smithy_async::future::pagination_stream::PaginationStream::new(
+            ::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(move |tx| {
                 ::std::boxed::Box::pin(async move {
                     // Build the input for the first time. If required fields are missing, this is where we'll produce an early error.
-                    let mut input = match builder
-                        .build()
-                        .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
-                    {
+                    let mut input = match builder.build().map_err(
+                        ::aws_smithy_runtime_api::client::result::SdkError::construction_failure,
+                    ) {
                         ::std::result::Result::Ok(input) => input,
                         ::std::result::Result::Err(e) => {
                             let _ = tx.send(::std::result::Result::Err(e)).await;
@@ -95,8 +94,12 @@ impl GetAggregateComplianceDetailsByConfigRulePaginator {
                             ::std::result::Result::Ok(ref resp) => {
                                 let new_token = crate::lens::reflens_get_aggregate_compliance_details_by_config_rule_output_output_next_token(resp);
                                 // Pagination is exhausted when the next token is an empty string
-                                let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);
-                                if !is_empty && new_token == input.next_token.as_ref() && self.stop_on_duplicate_token {
+                                let is_empty =
+                                    new_token.map(|token| token.is_empty()).unwrap_or(true);
+                                if !is_empty
+                                    && new_token == input.next_token.as_ref()
+                                    && self.stop_on_duplicate_token
+                                {
                                     true
                                 } else {
                                     input.next_token = new_token.cloned();
@@ -114,15 +117,17 @@ impl GetAggregateComplianceDetailsByConfigRulePaginator {
                         }
                     }
                 })
-            },
-        ))
+            }),
+        )
     }
 }
 
 /// Flattened paginator for `GetAggregateComplianceDetailsByConfigRulePaginator`
 ///
 /// This is created with [`.items()`](GetAggregateComplianceDetailsByConfigRulePaginator::items)
-pub struct GetAggregateComplianceDetailsByConfigRulePaginatorItems(GetAggregateComplianceDetailsByConfigRulePaginator);
+pub struct GetAggregateComplianceDetailsByConfigRulePaginatorItems(
+    GetAggregateComplianceDetailsByConfigRulePaginator,
+);
 
 impl GetAggregateComplianceDetailsByConfigRulePaginatorItems {
     /// Create the pagination stream
@@ -141,7 +146,7 @@ impl GetAggregateComplianceDetailsByConfigRulePaginatorItems {
                 ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
             >,
         >,
-    > {
+    >{
         ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
             crate::lens::lens_get_aggregate_compliance_details_by_config_rule_output_output_aggregate_evaluation_results(page)
                 .unwrap_or_default()

@@ -26,7 +26,8 @@ impl crate::operation::update_assume_role_policy::builders::UpdateAssumeRolePoli
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateAssumeRolePolicyFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::update_assume_role_policy::builders::UpdateAssumeRolePolicyInputBuilder,
+    inner:
+        crate::operation::update_assume_role_policy::builders::UpdateAssumeRolePolicyInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -57,7 +58,10 @@ impl UpdateAssumeRolePolicyFluentBuilder {
         }
     }
     /// Access the UpdateAssumeRolePolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::update_assume_role_policy::builders::UpdateAssumeRolePolicyInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::update_assume_role_policy::builders::UpdateAssumeRolePolicyInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +90,11 @@ impl UpdateAssumeRolePolicyFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::update_assume_role_policy::UpdateAssumeRolePolicy::orchestrate(&runtime_plugins, input).await
+        crate::operation::update_assume_role_policy::UpdateAssumeRolePolicy::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,12 +107,18 @@ impl UpdateAssumeRolePolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -136,7 +150,10 @@ impl UpdateAssumeRolePolicyFluentBuilder {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn policy_document(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.policy_document(input.into());
         self
     }
@@ -151,7 +168,10 @@ impl UpdateAssumeRolePolicyFluentBuilder {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_policy_document(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_policy_document(input);
         self
     }

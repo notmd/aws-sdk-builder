@@ -47,7 +47,9 @@ impl PolicyVersion {
 }
 
 /// A builder for [`PolicyVersion`](crate::types::PolicyVersion).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PolicyVersionBuilder {
     pub(crate) document: ::std::option::Option<::std::string::String>,
@@ -113,7 +115,10 @@ impl PolicyVersionBuilder {
         self
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the policy version was created.</p>
-    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_create_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.create_date = input;
         self
     }

@@ -21,13 +21,15 @@ impl DeleteTenantResourceAssociationInput {
 }
 impl DeleteTenantResourceAssociationInput {
     /// Creates a new builder-style object to manufacture [`DeleteTenantResourceAssociationInput`](crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationInput).
-    pub fn builder() -> crate::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationInputBuilder {
+    pub fn builder() -> crate::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationInputBuilder{
         crate::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteTenantResourceAssociationInput`](crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteTenantResourceAssociationInputBuilder {
     pub(crate) tenant_name: ::std::option::Option<::std::string::String>,

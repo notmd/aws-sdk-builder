@@ -55,7 +55,9 @@ impl KeyConfigurationType {
 }
 
 /// A builder for [`KeyConfigurationType`](crate::types::KeyConfigurationType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct KeyConfigurationTypeBuilder {
     pub(crate) key_type: ::std::option::Option<crate::types::EncryptionKeyType>,
@@ -96,7 +98,10 @@ impl KeyConfigurationTypeBuilder {
     /// <p>A key managed by the customer in Key Management Service. You must use a multi-region key to enable multi-region replication for a user pool.</p>
     /// </dd>
     /// </dl>
-    pub fn set_key_type(mut self, input: ::std::option::Option<crate::types::EncryptionKeyType>) -> Self {
+    pub fn set_key_type(
+        mut self,
+        input: ::std::option::Option<crate::types::EncryptionKeyType>,
+    ) -> Self {
         self.key_type = input;
         self
     }

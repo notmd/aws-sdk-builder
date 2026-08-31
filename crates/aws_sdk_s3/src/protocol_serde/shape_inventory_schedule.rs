@@ -3,9 +3,12 @@
 pub fn de_inventory_schedule(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::InventorySchedule, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<crate::types::InventorySchedule, ::aws_smithy_xml::decode::XmlDecodeError>
+{
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::InventorySchedule::builder();
@@ -28,9 +31,11 @@ pub fn de_inventory_schedule(
             _ => {}
         }
     }
-    Ok(crate::serde_util::inventory_schedule_correct_errors(builder)
-        .build()
-        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
+    Ok(
+        crate::serde_util::inventory_schedule_correct_errors(builder)
+            .build()
+            .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?,
+    )
 }
 
 pub fn ser_inventory_schedule(

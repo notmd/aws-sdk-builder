@@ -21,7 +21,9 @@ impl CitationsConfig {
 }
 
 /// A builder for [`CitationsConfig`](crate::types::CitationsConfig).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CitationsConfigBuilder {
     pub(crate) enabled: ::std::option::Option<bool>,
@@ -45,7 +47,12 @@ impl CitationsConfigBuilder {
     /// Consumes the builder and constructs a [`CitationsConfig`](crate::types::CitationsConfig).
     /// This method will fail if any of the following fields are not set:
     /// - [`enabled`](crate::types::builders::CitationsConfigBuilder::enabled)
-    pub fn build(self) -> ::std::result::Result<crate::types::CitationsConfig, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::CitationsConfig,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::CitationsConfig {
             enabled: self.enabled.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

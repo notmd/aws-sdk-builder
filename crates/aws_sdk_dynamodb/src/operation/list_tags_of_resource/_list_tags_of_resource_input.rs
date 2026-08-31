@@ -20,13 +20,16 @@ impl ListTagsOfResourceInput {
 }
 impl ListTagsOfResourceInput {
     /// Creates a new builder-style object to manufacture [`ListTagsOfResourceInput`](crate::operation::list_tags_of_resource::ListTagsOfResourceInput).
-    pub fn builder() -> crate::operation::list_tags_of_resource::builders::ListTagsOfResourceInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_tags_of_resource::builders::ListTagsOfResourceInputBuilder {
         crate::operation::list_tags_of_resource::builders::ListTagsOfResourceInputBuilder::default()
     }
 }
 
 /// A builder for [`ListTagsOfResourceInput`](crate::operation::list_tags_of_resource::ListTagsOfResourceInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListTagsOfResourceInputBuilder {
     pub(crate) resource_arn: ::std::option::Option<::std::string::String>,
@@ -65,11 +68,15 @@ impl ListTagsOfResourceInputBuilder {
     /// Consumes the builder and constructs a [`ListTagsOfResourceInput`](crate::operation::list_tags_of_resource::ListTagsOfResourceInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_tags_of_resource::ListTagsOfResourceInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::list_tags_of_resource::ListTagsOfResourceInput {
-            resource_arn: self.resource_arn,
-            next_token: self.next_token,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::list_tags_of_resource::ListTagsOfResourceInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::list_tags_of_resource::ListTagsOfResourceInput {
+                resource_arn: self.resource_arn,
+                next_token: self.next_token,
+            },
+        )
     }
 }

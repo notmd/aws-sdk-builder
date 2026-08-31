@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetOutboundWebIdentityFederationInfoError>`](crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError)
     pub fn get_outbound_web_identity_federation_info(
         &self,
-    ) -> crate::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoFluentBuilder {
+    ) -> crate::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoFluentBuilder{
         crate::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoFluentBuilder::new(
             self.handle.clone(),
         )

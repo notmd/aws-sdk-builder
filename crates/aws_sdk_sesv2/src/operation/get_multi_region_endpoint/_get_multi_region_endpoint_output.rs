@@ -73,13 +73,17 @@ impl ::aws_types::request_id::RequestId for GetMultiRegionEndpointOutput {
 }
 impl GetMultiRegionEndpointOutput {
     /// Creates a new builder-style object to manufacture [`GetMultiRegionEndpointOutput`](crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointOutput).
-    pub fn builder() -> crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointOutputBuilder
+    {
         crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetMultiRegionEndpointOutput`](crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetMultiRegionEndpointOutputBuilder {
     pub(crate) endpoint_name: ::std::option::Option<::std::string::String>,
@@ -92,12 +96,18 @@ pub struct GetMultiRegionEndpointOutputBuilder {
 }
 impl GetMultiRegionEndpointOutputBuilder {
     /// <p>The name of the multi-region endpoint (global-endpoint).</p>
-    pub fn endpoint_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn endpoint_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.endpoint_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the multi-region endpoint (global-endpoint).</p>
-    pub fn set_endpoint_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_endpoint_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.endpoint_name = input;
         self
     }
@@ -131,7 +141,10 @@ impl GetMultiRegionEndpointOutputBuilder {
         self
     }
     /// <p>Contains routes information for the multi-region endpoint (global-endpoint).</p>
-    pub fn set_routes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Route>>) -> Self {
+    pub fn set_routes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Route>>,
+    ) -> Self {
         self.routes = input;
         self
     }
@@ -189,7 +202,10 @@ impl GetMultiRegionEndpointOutputBuilder {
         self
     }
     /// <p>The time stamp of when the multi-region endpoint (global-endpoint) was created.</p>
-    pub fn set_created_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_created_timestamp(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.created_timestamp = input;
         self
     }
@@ -203,12 +219,17 @@ impl GetMultiRegionEndpointOutputBuilder {
         self
     }
     /// <p>The time stamp of when the multi-region endpoint (global-endpoint) was last updated.</p>
-    pub fn set_last_updated_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_last_updated_timestamp(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.last_updated_timestamp = input;
         self
     }
     /// <p>The time stamp of when the multi-region endpoint (global-endpoint) was last updated.</p>
-    pub fn get_last_updated_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_last_updated_timestamp(
+        &self,
+    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_updated_timestamp
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -221,7 +242,9 @@ impl GetMultiRegionEndpointOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetMultiRegionEndpointOutput`](crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointOutput).
-    pub fn build(self) -> crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointOutput {
         crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointOutput {
             endpoint_name: self.endpoint_name,
             endpoint_id: self.endpoint_id,

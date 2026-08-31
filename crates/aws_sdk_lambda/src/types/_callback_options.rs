@@ -27,7 +27,9 @@ impl CallbackOptions {
 }
 
 /// A builder for [`CallbackOptions`](crate::types::CallbackOptions).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CallbackOptionsBuilder {
     pub(crate) timeout_seconds: ::std::option::Option<i32>,

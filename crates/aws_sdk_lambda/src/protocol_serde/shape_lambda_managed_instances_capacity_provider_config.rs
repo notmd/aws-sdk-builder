@@ -3,14 +3,24 @@ pub(crate) fn de_lambda_managed_instances_capacity_provider_config<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::LambdaManagedInstancesCapacityProviderConfig>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<
+    Option<crate::types::LambdaManagedInstancesCapacityProviderConfig>,
+    ::aws_smithy_json::deserialize::error::DeserializeError,
+>
 where
-    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+    I: Iterator<
+        Item = Result<
+            ::aws_smithy_json::deserialize::Token<'a>,
+            ::aws_smithy_json::deserialize::error::DeserializeError,
+        >,
+    >,
 {
     if depth >= 128u32 {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "maximum nesting depth exceeded",
+            ),
+        );
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -20,32 +30,43 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "CapacityProviderArn" => {
-                            builder = builder.set_capacity_provider_arn(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "CapacityProviderArn" => {
+                                builder = builder.set_capacity_provider_arn(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                        tokens.next(),
+                                    )?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                            );
-                        }
-                        "PerExecutionEnvironmentMaxConcurrency" => {
-                            builder = builder.set_per_execution_environment_max_concurrency(
-                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                );
+                            }
+                            "PerExecutionEnvironmentMaxConcurrency" => {
+                                builder = builder.set_per_execution_environment_max_concurrency(
+                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(
+                                        tokens.next(),
+                                    )?
                                     .map(i32::try_from)
                                     .transpose()?,
-                            );
+                                );
+                            }
+                            "ExecutionEnvironmentMemoryGiBPerVCpu" => {
+                                builder = builder.set_execution_environment_memory_gib_per_v_cpu(
+                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(
+                                        tokens.next(),
+                                    )?
+                                    .map(|v| v.to_f64_lossy()),
+                                );
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        "ExecutionEnvironmentMemoryGiBPerVCpu" => {
-                            builder = builder.set_execution_environment_memory_gib_per_v_cpu(
-                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?.map(|v| v.to_f64_lossy()),
-                            );
-                        }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
-                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )))
+                        return Err(
+                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                format!("expected object key or end object, found: {other:?}"),
+                            ),
+                        )
                     }
                 }
             }
@@ -55,9 +76,11 @@ where
                     .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
             ))
         }
-        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "expected start object or null",
-        )),
+        _ => Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ),
+        ),
     }
 }
 
@@ -66,7 +89,9 @@ pub fn ser_lambda_managed_instances_capacity_provider_config(
     input: &crate::types::LambdaManagedInstancesCapacityProviderConfig,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     {
-        object.key("CapacityProviderArn").string(input.capacity_provider_arn.as_str());
+        object
+            .key("CapacityProviderArn")
+            .string(input.capacity_provider_arn.as_str());
     }
     if let Some(var_1) = &input.per_execution_environment_max_concurrency {
         object.key("PerExecutionEnvironmentMaxConcurrency").number(

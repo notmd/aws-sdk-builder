@@ -21,7 +21,9 @@ impl ArchivingOptions {
 }
 
 /// A builder for [`ArchivingOptions`](crate::types::ArchivingOptions).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ArchivingOptionsBuilder {
     pub(crate) archive_arn: ::std::option::Option<::std::string::String>,

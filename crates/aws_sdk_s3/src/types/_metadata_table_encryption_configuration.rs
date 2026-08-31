@@ -27,7 +27,9 @@ impl MetadataTableEncryptionConfiguration {
 }
 
 /// A builder for [`MetadataTableEncryptionConfiguration`](crate::types::MetadataTableEncryptionConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct MetadataTableEncryptionConfigurationBuilder {
     pub(crate) sse_algorithm: ::std::option::Option<crate::types::TableSseAlgorithm>,
@@ -41,7 +43,10 @@ impl MetadataTableEncryptionConfigurationBuilder {
         self
     }
     /// <p>The encryption type specified for a metadata table. To specify server-side encryption with Key Management Service (KMS) keys (SSE-KMS), use the <code>aws:kms</code> value. To specify server-side encryption with Amazon S3 managed keys (SSE-S3), use the <code>AES256</code> value.</p>
-    pub fn set_sse_algorithm(mut self, input: ::std::option::Option<crate::types::TableSseAlgorithm>) -> Self {
+    pub fn set_sse_algorithm(
+        mut self,
+        input: ::std::option::Option<crate::types::TableSseAlgorithm>,
+    ) -> Self {
         self.sse_algorithm = input;
         self
     }
@@ -68,7 +73,10 @@ impl MetadataTableEncryptionConfigurationBuilder {
     /// - [`sse_algorithm`](crate::types::builders::MetadataTableEncryptionConfigurationBuilder::sse_algorithm)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::types::MetadataTableEncryptionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::types::MetadataTableEncryptionConfiguration,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::MetadataTableEncryptionConfiguration {
             sse_algorithm: self.sse_algorithm.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -82,11 +82,12 @@ impl CreateAliasFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_alias::CreateAlias::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::create_alias::CreateAlias::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::create_alias::CreateAlias::orchestrate(&runtime_plugins, input).await
     }
 
@@ -100,12 +101,18 @@ impl CreateAliasFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -120,7 +127,10 @@ impl CreateAliasFluentBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -135,7 +145,10 @@ impl CreateAliasFluentBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }
@@ -168,12 +181,18 @@ impl CreateAliasFluentBuilder {
         self.inner.get_name()
     }
     /// <p>The function version that the alias invokes.</p>
-    pub fn function_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_version(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.function_version(input.into());
         self
     }
     /// <p>The function version that the alias invokes.</p>
-    pub fn set_function_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_version(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_function_version(input);
         self
     }
@@ -201,12 +220,17 @@ impl CreateAliasFluentBuilder {
         self
     }
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
-    pub fn set_routing_config(mut self, input: ::std::option::Option<crate::types::AliasRoutingConfiguration>) -> Self {
+    pub fn set_routing_config(
+        mut self,
+        input: ::std::option::Option<crate::types::AliasRoutingConfiguration>,
+    ) -> Self {
         self.inner = self.inner.set_routing_config(input);
         self
     }
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
-    pub fn get_routing_config(&self) -> &::std::option::Option<crate::types::AliasRoutingConfiguration> {
+    pub fn get_routing_config(
+        &self,
+    ) -> &::std::option::Option<crate::types::AliasRoutingConfiguration> {
         self.inner.get_routing_config()
     }
 }

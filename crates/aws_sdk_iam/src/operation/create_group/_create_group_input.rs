@@ -32,7 +32,9 @@ impl CreateGroupInput {
 }
 
 /// A builder for [`CreateGroupInput`](crate::operation::create_group::CreateGroupInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateGroupInputBuilder {
     pub(crate) path: ::std::option::Option<::std::string::String>,
@@ -78,7 +80,12 @@ impl CreateGroupInputBuilder {
         &self.group_name
     }
     /// Consumes the builder and constructs a [`CreateGroupInput`](crate::operation::create_group::CreateGroupInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::create_group::CreateGroupInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::create_group::CreateGroupInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::create_group::CreateGroupInput {
             path: self.path,
             group_name: self.group_name,

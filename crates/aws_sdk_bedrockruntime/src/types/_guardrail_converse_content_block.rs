@@ -22,7 +22,9 @@ pub enum GuardrailConverseContentBlock {
 impl GuardrailConverseContentBlock {
     /// Tries to convert the enum instance into [`Image`](crate::types::GuardrailConverseContentBlock::Image), extracting the inner [`GuardrailConverseImageBlock`](crate::types::GuardrailConverseImageBlock).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_image(&self) -> ::std::result::Result<&crate::types::GuardrailConverseImageBlock, &Self> {
+    pub fn as_image(
+        &self,
+    ) -> ::std::result::Result<&crate::types::GuardrailConverseImageBlock, &Self> {
         if let GuardrailConverseContentBlock::Image(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -35,7 +37,9 @@ impl GuardrailConverseContentBlock {
     }
     /// Tries to convert the enum instance into [`Text`](crate::types::GuardrailConverseContentBlock::Text), extracting the inner [`GuardrailConverseTextBlock`](crate::types::GuardrailConverseTextBlock).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_text(&self) -> ::std::result::Result<&crate::types::GuardrailConverseTextBlock, &Self> {
+    pub fn as_text(
+        &self,
+    ) -> ::std::result::Result<&crate::types::GuardrailConverseTextBlock, &Self> {
         if let GuardrailConverseContentBlock::Text(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -54,7 +58,9 @@ impl GuardrailConverseContentBlock {
 impl ::std::fmt::Debug for GuardrailConverseContentBlock {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
-            GuardrailConverseContentBlock::Image(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
+            GuardrailConverseContentBlock::Image(_) => {
+                f.debug_tuple("*** Sensitive Data Redacted ***").finish()
+            }
             GuardrailConverseContentBlock::Text(val) => f.debug_tuple("Text").field(&val).finish(),
             GuardrailConverseContentBlock::Unknown => f.debug_tuple("Unknown").finish(),
         }

@@ -65,7 +65,9 @@ impl DisassociateKmsKeyFluentBuilder {
         }
     }
     /// Access the DisassociateKmsKey as a reference.
-    pub fn as_input(&self) -> &crate::operation::disassociate_kms_key::builders::DisassociateKmsKeyInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::disassociate_kms_key::builders::DisassociateKmsKeyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,12 +91,17 @@ impl DisassociateKmsKeyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::disassociate_kms_key::DisassociateKmsKey::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::disassociate_kms_key::DisassociateKmsKey::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::disassociate_kms_key::DisassociateKmsKey::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::disassociate_kms_key::DisassociateKmsKey::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -107,24 +114,36 @@ impl DisassociateKmsKeyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the log group.</p>
     /// <p>In your <code>DisassociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code> parameter or the <code>logGroup</code> parameter, but you can't specify both.</p>
-    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_group_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.log_group_name(input.into());
         self
     }
     /// <p>The name of the log group.</p>
     /// <p>In your <code>DisassociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code> parameter or the <code>logGroup</code> parameter, but you can't specify both.</p>
-    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_log_group_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_log_group_name(input);
         self
     }
@@ -143,7 +162,10 @@ impl DisassociateKmsKeyFluentBuilder {
     /// <p><code>arn:aws:logs:<i>REGION</i>:<i>ACCOUNT_ID</i>:query-result:*</code></p></li>
     /// </ul>
     /// <p>In your <code>DisssociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code> parameter or the <code>logGroup</code> parameter, but you can't specify both.</p>
-    pub fn resource_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn resource_identifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.resource_identifier(input.into());
         self
     }
@@ -157,7 +179,10 @@ impl DisassociateKmsKeyFluentBuilder {
     /// <p><code>arn:aws:logs:<i>REGION</i>:<i>ACCOUNT_ID</i>:query-result:*</code></p></li>
     /// </ul>
     /// <p>In your <code>DisssociateKmsKey</code> operation, you must specify either the <code>resourceIdentifier</code> parameter or the <code>logGroup</code> parameter, but you can't specify both.</p>
-    pub fn set_resource_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_resource_identifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_resource_identifier(input);
         self
     }

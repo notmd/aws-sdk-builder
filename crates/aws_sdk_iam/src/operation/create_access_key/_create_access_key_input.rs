@@ -22,7 +22,9 @@ impl CreateAccessKeyInput {
 }
 
 /// A builder for [`CreateAccessKeyInput`](crate::operation::create_access_key::CreateAccessKeyInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateAccessKeyInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -48,7 +50,12 @@ impl CreateAccessKeyInputBuilder {
     /// Consumes the builder and constructs a [`CreateAccessKeyInput`](crate::operation::create_access_key::CreateAccessKeyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::create_access_key::CreateAccessKeyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_access_key::CreateAccessKeyInput { user_name: self.user_name })
+    ) -> ::std::result::Result<
+        crate::operation::create_access_key::CreateAccessKeyInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(crate::operation::create_access_key::CreateAccessKeyInput {
+            user_name: self.user_name,
+        })
     }
 }

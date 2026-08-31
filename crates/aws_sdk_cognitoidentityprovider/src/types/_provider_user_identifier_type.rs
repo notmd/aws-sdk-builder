@@ -33,7 +33,9 @@ impl ProviderUserIdentifierType {
 }
 
 /// A builder for [`ProviderUserIdentifierType`](crate::types::ProviderUserIdentifierType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ProviderUserIdentifierTypeBuilder {
     pub(crate) provider_name: ::std::option::Option<::std::string::String>,
@@ -42,12 +44,18 @@ pub struct ProviderUserIdentifierTypeBuilder {
 }
 impl ProviderUserIdentifierTypeBuilder {
     /// <p>The name of the provider, such as Facebook, Google, or Login with Amazon.</p>
-    pub fn provider_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn provider_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.provider_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the provider, such as Facebook, Google, or Login with Amazon.</p>
-    pub fn set_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_provider_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.provider_name = input;
         self
     }
@@ -56,12 +64,18 @@ impl ProviderUserIdentifierTypeBuilder {
         &self.provider_name
     }
     /// <p>The name of the provider attribute to link to, such as <code>NameID</code>.</p>
-    pub fn provider_attribute_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn provider_attribute_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.provider_attribute_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the provider attribute to link to, such as <code>NameID</code>.</p>
-    pub fn set_provider_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_provider_attribute_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.provider_attribute_name = input;
         self
     }
@@ -70,12 +84,18 @@ impl ProviderUserIdentifierTypeBuilder {
         &self.provider_attribute_name
     }
     /// <p>The value of the provider attribute to link to, such as <code>xxxxx_account</code>.</p>
-    pub fn provider_attribute_value(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn provider_attribute_value(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.provider_attribute_value = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The value of the provider attribute to link to, such as <code>xxxxx_account</code>.</p>
-    pub fn set_provider_attribute_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_provider_attribute_value(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.provider_attribute_value = input;
         self
     }

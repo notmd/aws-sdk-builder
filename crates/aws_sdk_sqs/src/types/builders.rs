@@ -5,7 +5,11 @@ pub use crate::types::_change_message_visibility_batch_request_entry::ChangeMess
 #[cfg(feature = "op_change_message_visibility_batch")]
 pub use crate::types::_change_message_visibility_batch_result_entry::ChangeMessageVisibilityBatchResultEntryBuilder;
 
-#[cfg(any(feature = "op_change_message_visibility_batch", feature = "op_delete_message_batch", feature = "op_send_message_batch"))]
+#[cfg(any(
+    feature = "op_change_message_visibility_batch",
+    feature = "op_delete_message_batch",
+    feature = "op_send_message_batch"
+))]
 pub use crate::types::_batch_result_error_entry::BatchResultErrorEntryBuilder;
 
 #[cfg(feature = "op_delete_message_batch")]
@@ -20,7 +24,11 @@ pub use crate::types::_list_message_move_tasks_result_entry::ListMessageMoveTask
 #[cfg(feature = "op_receive_message")]
 pub use crate::types::_message::MessageBuilder;
 
-#[cfg(any(feature = "op_receive_message", feature = "op_send_message", feature = "op_send_message_batch"))]
+#[cfg(any(
+    feature = "op_receive_message",
+    feature = "op_send_message",
+    feature = "op_send_message_batch"
+))]
 pub use crate::types::_message_attribute_value::MessageAttributeValueBuilder;
 
 #[cfg(any(feature = "op_send_message", feature = "op_send_message_batch"))]

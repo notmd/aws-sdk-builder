@@ -4,49 +4,66 @@ pub fn de_get_account_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::get_account::GetAccountOutput, crate::operation::get_account::GetAccountError> {
+) -> std::result::Result<
+    crate::operation::get_account::GetAccountOutput,
+    crate::operation::get_account::GetAccountError,
+> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_account::GetAccountError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(crate::operation::get_account::GetAccountError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::get_account::GetAccountError::unhandled(generic)),
+        None => {
+            return Err(crate::operation::get_account::GetAccountError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "BadRequestException" => crate::operation::get_account::GetAccountError::BadRequestException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "BadRequestException" => {
+            crate::operation::get_account::GetAccountError::BadRequestException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::BadRequestExceptionBuilder::default();
-                output = crate::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output =
+                        crate::types::error::builders::BadRequestExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
                     .map_err(crate::operation::get_account::GetAccountError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "TooManyRequestsException" => crate::operation::get_account::GetAccountError::TooManyRequestsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "TooManyRequestsException" => {
+            crate::operation::get_account::GetAccountError::TooManyRequestsException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output =
+                        crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(crate::operation::get_account::GetAccountError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::get_account::GetAccountError::generic(generic),
     })
 }
@@ -56,13 +73,19 @@ pub fn de_get_account_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<crate::operation::get_account::GetAccountOutput, crate::operation::get_account::GetAccountError> {
+) -> std::result::Result<
+    crate::operation::get_account::GetAccountOutput,
+    crate::operation::get_account::GetAccountError,
+> {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::get_account::builders::GetAccountOutputBuilder::default();
+        let mut output =
+            crate::operation::get_account::builders::GetAccountOutputBuilder::default();
         output = crate::protocol_serde::shape_get_account::de_get_account(_response_body, output)
             .map_err(crate::operation::get_account::GetAccountError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
@@ -70,9 +93,14 @@ pub fn de_get_account_http_response(
 pub(crate) fn de_get_account(
     _value: &[u8],
     mut builder: crate::operation::get_account::builders::GetAccountOutputBuilder,
-) -> ::std::result::Result<crate::operation::get_account::builders::GetAccountOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
-{
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
+) -> ::std::result::Result<
+    crate::operation::get_account::builders::GetAccountOutputBuilder,
+    ::aws_smithy_json::deserialize::error::DeserializeError,
+> {
+    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
+        crate::protocol_serde::or_empty_doc(_value),
+    )
+    .peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -80,40 +108,60 @@ pub(crate) fn de_get_account(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key
+                .to_unescaped()?
+                .as_ref()
+            {
                 "DedicatedIpAutoWarmupEnabled" => {
-                    builder =
-                        builder.set_dedicated_ip_auto_warmup_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                    builder = builder.set_dedicated_ip_auto_warmup_enabled(
+                        ::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?,
+                    );
                 }
                 "Details" => {
-                    builder = builder.set_details(crate::protocol_serde::shape_account_details::de_account_details(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_details(
+                        crate::protocol_serde::shape_account_details::de_account_details(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
                 }
                 "EnforcementStatus" => {
                     builder = builder.set_enforcement_status(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                            tokens.next(),
+                        )?
+                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                        .transpose()?,
                     );
                 }
                 "PricingAttributes" => {
-                    builder = builder.set_pricing_attributes(crate::protocol_serde::shape_pricing_attributes::de_pricing_attributes(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_pricing_attributes(
+                        crate::protocol_serde::shape_pricing_attributes::de_pricing_attributes(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
                 }
                 "ProductionAccessEnabled" => {
-                    builder = builder.set_production_access_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                    builder = builder.set_production_access_enabled(
+                        ::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?,
+                    );
                 }
                 "SendQuota" => {
-                    builder = builder.set_send_quota(crate::protocol_serde::shape_send_quota::de_send_quota(tokens, _value, depth + 1)?);
+                    builder = builder.set_send_quota(
+                        crate::protocol_serde::shape_send_quota::de_send_quota(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
                 }
                 "SendingEnabled" => {
-                    builder = builder.set_sending_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                    builder = builder.set_sending_enabled(
+                        ::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?,
+                    );
                 }
                 "SuppressionAttributes" => {
                     builder = builder.set_suppression_attributes(crate::protocol_serde::shape_suppression_attributes::de_suppression_attributes(
@@ -123,21 +171,31 @@ pub(crate) fn de_get_account(
                     )?);
                 }
                 "VdmAttributes" => {
-                    builder = builder.set_vdm_attributes(crate::protocol_serde::shape_vdm_attributes::de_vdm_attributes(tokens, _value, depth + 1)?);
+                    builder = builder.set_vdm_attributes(
+                        crate::protocol_serde::shape_vdm_attributes::de_vdm_attributes(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
             other => {
-                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                    "expected object key or end object, found: {other:?}"
-                )))
+                return Err(
+                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                        "expected object key or end object, found: {other:?}"
+                    )),
+                )
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "found more JSON tokens after completing parsing",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "found more JSON tokens after completing parsing",
+            ),
+        );
     }
     Ok(builder)
 }

@@ -27,7 +27,9 @@ impl RefreshTokenRotationType {
 }
 
 /// A builder for [`RefreshTokenRotationType`](crate::types::RefreshTokenRotationType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RefreshTokenRotationTypeBuilder {
     pub(crate) feature: ::std::option::Option<crate::types::FeatureType>,
@@ -66,7 +68,12 @@ impl RefreshTokenRotationTypeBuilder {
     /// Consumes the builder and constructs a [`RefreshTokenRotationType`](crate::types::RefreshTokenRotationType).
     /// This method will fail if any of the following fields are not set:
     /// - [`feature`](crate::types::builders::RefreshTokenRotationTypeBuilder::feature)
-    pub fn build(self) -> ::std::result::Result<crate::types::RefreshTokenRotationType, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::RefreshTokenRotationType,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::RefreshTokenRotationType {
             feature: self.feature.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

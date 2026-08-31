@@ -69,7 +69,9 @@ impl GetObjectAnnotationFluentBuilder {
         }
     }
     /// Access the GetObjectAnnotation as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_object_annotation::builders::GetObjectAnnotationInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_object_annotation::builders::GetObjectAnnotationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -93,12 +95,17 @@ impl GetObjectAnnotationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_object_annotation::GetObjectAnnotation::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_object_annotation::GetObjectAnnotation::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::get_object_annotation::GetObjectAnnotation::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::get_object_annotation::GetObjectAnnotation::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -111,12 +118,18 @@ impl GetObjectAnnotationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -150,13 +163,19 @@ impl GetObjectAnnotationFluentBuilder {
     }
     /// <p>The name of the annotation to retrieve.</p>
     /// <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
-    pub fn annotation_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn annotation_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.annotation_name(input.into());
         self
     }
     /// <p>The name of the annotation to retrieve.</p>
     /// <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
-    pub fn set_annotation_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_annotation_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_annotation_name(input);
         self
     }
@@ -189,7 +208,10 @@ impl GetObjectAnnotationFluentBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+    pub fn set_request_payer(
+        mut self,
+        input: ::std::option::Option<crate::types::RequestPayer>,
+    ) -> Self {
         self.inner = self.inner.set_request_payer(input);
         self
     }
@@ -200,12 +222,18 @@ impl GetObjectAnnotationFluentBuilder {
         self.inner.get_request_payer()
     }
     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
-    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }
@@ -219,7 +247,10 @@ impl GetObjectAnnotationFluentBuilder {
         self
     }
     /// <p>Set to <code>ENABLED</code> to validate the checksum of the annotation payload on retrieval.</p>
-    pub fn set_checksum_mode(mut self, input: ::std::option::Option<crate::types::ChecksumMode>) -> Self {
+    pub fn set_checksum_mode(
+        mut self,
+        input: ::std::option::Option<crate::types::ChecksumMode>,
+    ) -> Self {
         self.inner = self.inner.set_checksum_mode(input);
         self
     }

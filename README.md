@@ -5,7 +5,8 @@ with one opt-in Cargo feature per operation. The full requirements are in
 [`Prompt.md`](Prompt.md).
 
 The codemod is driven by `services-manifest.json` and each service's Smithy
-model from the downloaded SDK archive. It downloads the pinned AWS SDK source
+model from the downloaded SDK archive. The manifest pins the shared AWS SDK
+repository and revision once at the top level. It downloads that AWS SDK source
 into a temporary directory, uses `syn` to modify the Rust module graph, updates
 `Cargo.toml`, and writes outputs such as:
 

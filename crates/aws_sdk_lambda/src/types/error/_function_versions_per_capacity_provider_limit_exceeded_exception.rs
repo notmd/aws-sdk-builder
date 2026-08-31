@@ -24,7 +24,10 @@ impl FunctionVersionsPerCapacityProviderLimitExceededException {
 }
 impl ::std::fmt::Display for FunctionVersionsPerCapacityProviderLimitExceededException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(f, "FunctionVersionsPerCapacityProviderLimitExceededException")?;
+        ::std::write!(
+            f,
+            "FunctionVersionsPerCapacityProviderLimitExceededException"
+        )?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;
@@ -34,26 +37,32 @@ impl ::std::fmt::Display for FunctionVersionsPerCapacityProviderLimitExceededExc
     }
 }
 impl ::std::error::Error for FunctionVersionsPerCapacityProviderLimitExceededException {}
-impl ::aws_types::request_id::RequestId for crate::types::error::FunctionVersionsPerCapacityProviderLimitExceededException {
+impl ::aws_types::request_id::RequestId
+    for crate::types::error::FunctionVersionsPerCapacityProviderLimitExceededException
+{
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for FunctionVersionsPerCapacityProviderLimitExceededException {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
+    for FunctionVersionsPerCapacityProviderLimitExceededException
+{
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         &self.meta
     }
 }
 impl FunctionVersionsPerCapacityProviderLimitExceededException {
     /// Creates a new builder-style object to manufacture [`FunctionVersionsPerCapacityProviderLimitExceededException`](crate::types::error::FunctionVersionsPerCapacityProviderLimitExceededException).
-    pub fn builder() -> crate::types::error::builders::FunctionVersionsPerCapacityProviderLimitExceededExceptionBuilder {
+    pub fn builder() -> crate::types::error::builders::FunctionVersionsPerCapacityProviderLimitExceededExceptionBuilder{
         crate::types::error::builders::FunctionVersionsPerCapacityProviderLimitExceededExceptionBuilder::default()
     }
 }
 
 /// A builder for [`FunctionVersionsPerCapacityProviderLimitExceededException`](crate::types::error::FunctionVersionsPerCapacityProviderLimitExceededException).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct FunctionVersionsPerCapacityProviderLimitExceededExceptionBuilder {
     pub(crate) r#type: ::std::option::Option<::std::string::String>,
@@ -96,12 +105,17 @@ impl FunctionVersionsPerCapacityProviderLimitExceededExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
+    pub fn set_meta(
+        &mut self,
+        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
+    ) -> &mut Self {
         self.meta = meta;
         self
     }
     /// Consumes the builder and constructs a [`FunctionVersionsPerCapacityProviderLimitExceededException`](crate::types::error::FunctionVersionsPerCapacityProviderLimitExceededException).
-    pub fn build(self) -> crate::types::error::FunctionVersionsPerCapacityProviderLimitExceededException {
+    pub fn build(
+        self,
+    ) -> crate::types::error::FunctionVersionsPerCapacityProviderLimitExceededException {
         crate::types::error::FunctionVersionsPerCapacityProviderLimitExceededException {
             r#type: self.r#type,
             message: self.message,

@@ -37,7 +37,9 @@ impl NoncurrentVersionExpiration {
 }
 
 /// A builder for [`NoncurrentVersionExpiration`](crate::types::NoncurrentVersionExpiration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct NoncurrentVersionExpirationBuilder {
     pub(crate) noncurrent_days: ::std::option::Option<i32>,

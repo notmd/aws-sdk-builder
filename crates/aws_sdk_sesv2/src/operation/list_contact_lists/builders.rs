@@ -58,7 +58,9 @@ impl ListContactListsFluentBuilder {
         }
     }
     /// Access the ListContactLists as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_contact_lists::builders::ListContactListsInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_contact_lists::builders::ListContactListsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,12 +84,14 @@ impl ListContactListsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_contact_lists::ListContactLists::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_contact_lists::ListContactLists::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::list_contact_lists::ListContactLists::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_contact_lists::ListContactLists::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -100,20 +104,31 @@ impl ListContactListsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_contact_lists::paginator::ListContactListsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_contact_lists::paginator::ListContactListsPaginator {
-        crate::operation::list_contact_lists::paginator::ListContactListsPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_contact_lists::paginator::ListContactListsPaginator {
+        crate::operation::list_contact_lists::paginator::ListContactListsPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>Maximum number of contact lists to return at once. Use this parameter to paginate results. If additional contact lists exist beyond the specified limit, the <code>NextToken</code> element is sent in the response. Use the <code>NextToken</code> value in subsequent requests to retrieve additional lists.</p>
     pub fn page_size(mut self, input: i32) -> Self {

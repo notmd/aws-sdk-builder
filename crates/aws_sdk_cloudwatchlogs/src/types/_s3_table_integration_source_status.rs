@@ -41,7 +41,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(
-    ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
+    ::std::clone::Clone,
+    ::std::cmp::Eq,
+    ::std::cmp::Ord,
+    ::std::cmp::PartialEq,
+    ::std::cmp::PartialOrd,
+    ::std::fmt::Debug,
+    ::std::hash::Hash,
 )]
 pub enum S3TableIntegrationSourceStatus {
     #[allow(missing_docs)] // documentation missing in model
@@ -53,17 +59,23 @@ pub enum S3TableIntegrationSourceStatus {
     #[allow(missing_docs)] // documentation missing in model
     Unhealthy,
     /// `Unknown` contains new variants that have been added since this code was generated.
-    #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
+    #[deprecated(
+        note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants."
+    )]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for S3TableIntegrationSourceStatus {
     fn from(s: &str) -> Self {
         match s {
             "ACTIVE" => S3TableIntegrationSourceStatus::Active,
-            "DATA_SOURCE_DELETE_IN_PROGRESS" => S3TableIntegrationSourceStatus::DataSourceDeleteInProgress,
+            "DATA_SOURCE_DELETE_IN_PROGRESS" => {
+                S3TableIntegrationSourceStatus::DataSourceDeleteInProgress
+            }
             "FAILED" => S3TableIntegrationSourceStatus::Failed,
             "UNHEALTHY" => S3TableIntegrationSourceStatus::Unhealthy,
-            other => S3TableIntegrationSourceStatus::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
+            other => S3TableIntegrationSourceStatus::Unknown(
+                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
+            ),
         }
     }
 }
@@ -79,7 +91,9 @@ impl S3TableIntegrationSourceStatus {
     pub fn as_str(&self) -> &str {
         match self {
             S3TableIntegrationSourceStatus::Active => "ACTIVE",
-            S3TableIntegrationSourceStatus::DataSourceDeleteInProgress => "DATA_SOURCE_DELETE_IN_PROGRESS",
+            S3TableIntegrationSourceStatus::DataSourceDeleteInProgress => {
+                "DATA_SOURCE_DELETE_IN_PROGRESS"
+            }
             S3TableIntegrationSourceStatus::Failed => "FAILED",
             S3TableIntegrationSourceStatus::Unhealthy => "UNHEALTHY",
             S3TableIntegrationSourceStatus::Unknown(value) => value.as_str(),
@@ -87,7 +101,12 @@ impl S3TableIntegrationSourceStatus {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["ACTIVE", "DATA_SOURCE_DELETE_IN_PROGRESS", "FAILED", "UNHEALTHY"]
+        &[
+            "ACTIVE",
+            "DATA_SOURCE_DELETE_IN_PROGRESS",
+            "FAILED",
+            "UNHEALTHY",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for S3TableIntegrationSourceStatus {
@@ -99,10 +118,14 @@ impl S3TableIntegrationSourceStatus {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(
+        value: &str,
+    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
+            Self::Unknown(_) => {
+                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
+            }
             known => Ok(known),
         }
     }
@@ -111,7 +134,9 @@ impl ::std::fmt::Display for S3TableIntegrationSourceStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
             S3TableIntegrationSourceStatus::Active => write!(f, "ACTIVE"),
-            S3TableIntegrationSourceStatus::DataSourceDeleteInProgress => write!(f, "DATA_SOURCE_DELETE_IN_PROGRESS"),
+            S3TableIntegrationSourceStatus::DataSourceDeleteInProgress => {
+                write!(f, "DATA_SOURCE_DELETE_IN_PROGRESS")
+            }
             S3TableIntegrationSourceStatus::Failed => write!(f, "FAILED"),
             S3TableIntegrationSourceStatus::Unhealthy => write!(f, "UNHEALTHY"),
             S3TableIntegrationSourceStatus::Unknown(value) => write!(f, "{value}"),

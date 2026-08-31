@@ -28,13 +28,17 @@ impl ::aws_types::request_id::RequestId for ListAssociatedPackagesOutput {
 }
 impl ListAssociatedPackagesOutput {
     /// Creates a new builder-style object to manufacture [`ListAssociatedPackagesOutput`](crate::operation::list_associated_packages::ListAssociatedPackagesOutput).
-    pub fn builder() -> crate::operation::list_associated_packages::builders::ListAssociatedPackagesOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_associated_packages::builders::ListAssociatedPackagesOutputBuilder
+    {
         crate::operation::list_associated_packages::builders::ListAssociatedPackagesOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListAssociatedPackagesOutput`](crate::operation::list_associated_packages::ListAssociatedPackagesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListAssociatedPackagesOutputBuilder {
     pub(crate) packages: ::std::option::Option<::std::vec::Vec<crate::types::AssociatedPackage>>,
@@ -54,12 +58,17 @@ impl ListAssociatedPackagesOutputBuilder {
         self
     }
     /// <p>The list of packages associated with the requested package group.</p>
-    pub fn set_packages(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AssociatedPackage>>) -> Self {
+    pub fn set_packages(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AssociatedPackage>>,
+    ) -> Self {
         self.packages = input;
         self
     }
     /// <p>The list of packages associated with the requested package group.</p>
-    pub fn get_packages(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AssociatedPackage>> {
+    pub fn get_packages(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AssociatedPackage>> {
         &self.packages
     }
     /// <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>

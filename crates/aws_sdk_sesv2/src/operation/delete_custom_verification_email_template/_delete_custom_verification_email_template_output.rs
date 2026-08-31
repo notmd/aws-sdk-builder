@@ -13,13 +13,15 @@ impl ::aws_types::request_id::RequestId for DeleteCustomVerificationEmailTemplat
 }
 impl DeleteCustomVerificationEmailTemplateOutput {
     /// Creates a new builder-style object to manufacture [`DeleteCustomVerificationEmailTemplateOutput`](crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateOutput).
-    pub fn builder() -> crate::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateOutputBuilder {
+    pub fn builder() -> crate::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateOutputBuilder{
         crate::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteCustomVerificationEmailTemplateOutput`](crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteCustomVerificationEmailTemplateOutputBuilder {
     _request_id: Option<String>,
@@ -35,7 +37,7 @@ impl DeleteCustomVerificationEmailTemplateOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteCustomVerificationEmailTemplateOutput`](crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateOutput).
-    pub fn build(self) -> crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateOutput {
+    pub fn build(self) -> crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateOutput{
         crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateOutput {
             _request_id: self._request_id,
         }

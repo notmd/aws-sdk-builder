@@ -66,7 +66,9 @@ impl ListUserImportJobsFluentBuilder {
         }
     }
     /// Access the ListUserImportJobs as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_user_import_jobs::builders::ListUserImportJobsInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_user_import_jobs::builders::ListUserImportJobsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -90,12 +92,17 @@ impl ListUserImportJobsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_user_import_jobs::ListUserImportJobs::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_user_import_jobs::ListUserImportJobs::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::list_user_import_jobs::ListUserImportJobs::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_user_import_jobs::ListUserImportJobs::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -108,12 +115,18 @@ impl ListUserImportJobsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -146,12 +159,18 @@ impl ListUserImportJobsFluentBuilder {
         self.inner.get_max_results()
     }
     /// <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
-    pub fn pagination_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn pagination_token(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.pagination_token(input.into());
         self
     }
     /// <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
-    pub fn set_pagination_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_pagination_token(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_pagination_token(input);
         self
     }

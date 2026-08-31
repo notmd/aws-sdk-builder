@@ -4,7 +4,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeRemediationExecutionStatusOutput {
     /// <p>Returns a list of remediation execution statuses objects.</p>
-    pub remediation_execution_statuses: ::std::option::Option<::std::vec::Vec<crate::types::RemediationExecutionStatus>>,
+    pub remediation_execution_statuses:
+        ::std::option::Option<::std::vec::Vec<crate::types::RemediationExecutionStatus>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -14,7 +15,9 @@ impl DescribeRemediationExecutionStatusOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.remediation_execution_statuses.is_none()`.
     pub fn remediation_execution_statuses(&self) -> &[crate::types::RemediationExecutionStatus] {
-        self.remediation_execution_statuses.as_deref().unwrap_or_default()
+        self.remediation_execution_statuses
+            .as_deref()
+            .unwrap_or_default()
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -28,16 +31,19 @@ impl ::aws_types::request_id::RequestId for DescribeRemediationExecutionStatusOu
 }
 impl DescribeRemediationExecutionStatusOutput {
     /// Creates a new builder-style object to manufacture [`DescribeRemediationExecutionStatusOutput`](crate::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusOutput).
-    pub fn builder() -> crate::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusOutputBuilder {
+    pub fn builder() -> crate::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusOutputBuilder{
         crate::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeRemediationExecutionStatusOutput`](crate::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeRemediationExecutionStatusOutputBuilder {
-    pub(crate) remediation_execution_statuses: ::std::option::Option<::std::vec::Vec<crate::types::RemediationExecutionStatus>>,
+    pub(crate) remediation_execution_statuses:
+        ::std::option::Option<::std::vec::Vec<crate::types::RemediationExecutionStatus>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -47,7 +53,10 @@ impl DescribeRemediationExecutionStatusOutputBuilder {
     /// To override the contents of this collection use [`set_remediation_execution_statuses`](Self::set_remediation_execution_statuses).
     ///
     /// <p>Returns a list of remediation execution statuses objects.</p>
-    pub fn remediation_execution_statuses(mut self, input: crate::types::RemediationExecutionStatus) -> Self {
+    pub fn remediation_execution_statuses(
+        mut self,
+        input: crate::types::RemediationExecutionStatus,
+    ) -> Self {
         let mut v = self.remediation_execution_statuses.unwrap_or_default();
         v.push(input);
         self.remediation_execution_statuses = ::std::option::Option::Some(v);
@@ -62,7 +71,9 @@ impl DescribeRemediationExecutionStatusOutputBuilder {
         self
     }
     /// <p>Returns a list of remediation execution statuses objects.</p>
-    pub fn get_remediation_execution_statuses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RemediationExecutionStatus>> {
+    pub fn get_remediation_execution_statuses(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::RemediationExecutionStatus>> {
         &self.remediation_execution_statuses
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -89,7 +100,7 @@ impl DescribeRemediationExecutionStatusOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeRemediationExecutionStatusOutput`](crate::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusOutput).
-    pub fn build(self) -> crate::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusOutput {
+    pub fn build(self) -> crate::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusOutput{
         crate::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusOutput {
             remediation_execution_statuses: self.remediation_execution_statuses,
             next_token: self.next_token,

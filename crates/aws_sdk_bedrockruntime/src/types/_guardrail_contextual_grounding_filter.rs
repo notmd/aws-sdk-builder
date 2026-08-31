@@ -45,13 +45,16 @@ impl GuardrailContextualGroundingFilter {
 }
 
 /// A builder for [`GuardrailContextualGroundingFilter`](crate::types::GuardrailContextualGroundingFilter).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GuardrailContextualGroundingFilterBuilder {
     pub(crate) r#type: ::std::option::Option<crate::types::GuardrailContextualGroundingFilterType>,
     pub(crate) threshold: ::std::option::Option<f64>,
     pub(crate) score: ::std::option::Option<f64>,
-    pub(crate) action: ::std::option::Option<crate::types::GuardrailContextualGroundingPolicyAction>,
+    pub(crate) action:
+        ::std::option::Option<crate::types::GuardrailContextualGroundingPolicyAction>,
     pub(crate) detected: ::std::option::Option<bool>,
 }
 impl GuardrailContextualGroundingFilterBuilder {
@@ -62,12 +65,17 @@ impl GuardrailContextualGroundingFilterBuilder {
         self
     }
     /// <p>The contextual grounding filter type.</p>
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::GuardrailContextualGroundingFilterType>) -> Self {
+    pub fn set_type(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailContextualGroundingFilterType>,
+    ) -> Self {
         self.r#type = input;
         self
     }
     /// <p>The contextual grounding filter type.</p>
-    pub fn get_type(&self) -> &::std::option::Option<crate::types::GuardrailContextualGroundingFilterType> {
+    pub fn get_type(
+        &self,
+    ) -> &::std::option::Option<crate::types::GuardrailContextualGroundingFilterType> {
         &self.r#type
     }
     /// <p>The threshold used by contextual grounding filter to determine whether the content is grounded or not.</p>
@@ -107,12 +115,17 @@ impl GuardrailContextualGroundingFilterBuilder {
         self
     }
     /// <p>The action performed by the guardrails contextual grounding filter.</p>
-    pub fn set_action(mut self, input: ::std::option::Option<crate::types::GuardrailContextualGroundingPolicyAction>) -> Self {
+    pub fn set_action(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailContextualGroundingPolicyAction>,
+    ) -> Self {
         self.action = input;
         self
     }
     /// <p>The action performed by the guardrails contextual grounding filter.</p>
-    pub fn get_action(&self) -> &::std::option::Option<crate::types::GuardrailContextualGroundingPolicyAction> {
+    pub fn get_action(
+        &self,
+    ) -> &::std::option::Option<crate::types::GuardrailContextualGroundingPolicyAction> {
         &self.action
     }
     /// <p>Indicates whether content that fails the contextual grounding evaluation (grounding or relevance score less than the corresponding threshold) was detected.</p>
@@ -135,7 +148,12 @@ impl GuardrailContextualGroundingFilterBuilder {
     /// - [`threshold`](crate::types::builders::GuardrailContextualGroundingFilterBuilder::threshold)
     /// - [`score`](crate::types::builders::GuardrailContextualGroundingFilterBuilder::score)
     /// - [`action`](crate::types::builders::GuardrailContextualGroundingFilterBuilder::action)
-    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailContextualGroundingFilter, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::GuardrailContextualGroundingFilter,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::GuardrailContextualGroundingFilter {
             r#type: self.r#type.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

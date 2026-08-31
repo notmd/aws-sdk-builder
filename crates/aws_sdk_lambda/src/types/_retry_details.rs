@@ -27,7 +27,9 @@ impl RetryDetails {
 }
 
 /// A builder for [`RetryDetails`](crate::types::RetryDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RetryDetailsBuilder {
     pub(crate) current_attempt: ::std::option::Option<i32>,

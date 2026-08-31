@@ -33,7 +33,9 @@ impl DeliveryOptions {
 }
 
 /// A builder for [`DeliveryOptions`](crate::types::DeliveryOptions).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeliveryOptionsBuilder {
     pub(crate) tls_policy: ::std::option::Option<crate::types::TlsPolicy>,
@@ -56,12 +58,18 @@ impl DeliveryOptionsBuilder {
         &self.tls_policy
     }
     /// <p>The name of the dedicated IP pool to associate with the configuration set.</p>
-    pub fn sending_pool_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn sending_pool_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.sending_pool_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the dedicated IP pool to associate with the configuration set.</p>
-    pub fn set_sending_pool_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_sending_pool_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.sending_pool_name = input;
         self
     }

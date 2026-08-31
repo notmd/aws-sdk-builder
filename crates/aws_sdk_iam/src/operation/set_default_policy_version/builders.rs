@@ -28,7 +28,8 @@ impl crate::operation::set_default_policy_version::builders::SetDefaultPolicyVer
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct SetDefaultPolicyVersionFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionInputBuilder,
+    inner:
+        crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -59,7 +60,10 @@ impl SetDefaultPolicyVersionFluentBuilder {
         }
     }
     /// Access the SetDefaultPolicyVersion as a reference.
-    pub fn as_input(&self) -> &crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,7 +92,11 @@ impl SetDefaultPolicyVersionFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::set_default_policy_version::SetDefaultPolicyVersion::orchestrate(&runtime_plugins, input).await
+        crate::operation::set_default_policy_version::SetDefaultPolicyVersion::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -101,12 +109,18 @@ impl SetDefaultPolicyVersionFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }

@@ -47,7 +47,9 @@ impl PackageSummary {
         self.package.as_deref()
     }
     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html">PackageOriginConfiguration</a> object that contains a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a> object that contains information about the upstream and publish package origin restrictions.</p>
-    pub fn origin_configuration(&self) -> ::std::option::Option<&crate::types::PackageOriginConfiguration> {
+    pub fn origin_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::PackageOriginConfiguration> {
         self.origin_configuration.as_ref()
     }
 }
@@ -59,13 +61,16 @@ impl PackageSummary {
 }
 
 /// A builder for [`PackageSummary`](crate::types::PackageSummary).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PackageSummaryBuilder {
     pub(crate) format: ::std::option::Option<crate::types::PackageFormat>,
     pub(crate) namespace: ::std::option::Option<::std::string::String>,
     pub(crate) package: ::std::option::Option<::std::string::String>,
-    pub(crate) origin_configuration: ::std::option::Option<crate::types::PackageOriginConfiguration>,
+    pub(crate) origin_configuration:
+        ::std::option::Option<crate::types::PackageOriginConfiguration>,
 }
 impl PackageSummaryBuilder {
     /// <p>The format of the package.</p>
@@ -146,12 +151,17 @@ impl PackageSummaryBuilder {
         self
     }
     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html">PackageOriginConfiguration</a> object that contains a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a> object that contains information about the upstream and publish package origin restrictions.</p>
-    pub fn set_origin_configuration(mut self, input: ::std::option::Option<crate::types::PackageOriginConfiguration>) -> Self {
+    pub fn set_origin_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::PackageOriginConfiguration>,
+    ) -> Self {
         self.origin_configuration = input;
         self
     }
     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html">PackageOriginConfiguration</a> object that contains a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a> object that contains information about the upstream and publish package origin restrictions.</p>
-    pub fn get_origin_configuration(&self) -> &::std::option::Option<crate::types::PackageOriginConfiguration> {
+    pub fn get_origin_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::PackageOriginConfiguration> {
         &self.origin_configuration
     }
     /// Consumes the builder and constructs a [`PackageSummary`](crate::types::PackageSummary).

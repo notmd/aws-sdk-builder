@@ -11,7 +11,11 @@ impl super::Client {
     ///   - [`devices(Option<Vec::<DeviceType>>)`](crate::operation::admin_list_devices::AdminListDevicesOutput::devices): <p>An array of devices and their information. Each entry that's returned includes device information, last-accessed and created dates, and the device key.</p>
     ///   - [`pagination_token(Option<String>)`](crate::operation::admin_list_devices::AdminListDevicesOutput::pagination_token): <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
     /// - On failure, responds with [`SdkError<AdminListDevicesError>`](crate::operation::admin_list_devices::AdminListDevicesError)
-    pub fn admin_list_devices(&self) -> crate::operation::admin_list_devices::builders::AdminListDevicesFluentBuilder {
-        crate::operation::admin_list_devices::builders::AdminListDevicesFluentBuilder::new(self.handle.clone())
+    pub fn admin_list_devices(
+        &self,
+    ) -> crate::operation::admin_list_devices::builders::AdminListDevicesFluentBuilder {
+        crate::operation::admin_list_devices::builders::AdminListDevicesFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

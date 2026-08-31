@@ -3,7 +3,9 @@ pub use crate::operation::list_configuration_recorders::_list_configuration_reco
 
 pub use crate::operation::list_configuration_recorders::_list_configuration_recorders_output::ListConfigurationRecordersOutputBuilder;
 
-impl crate::operation::list_configuration_recorders::builders::ListConfigurationRecordersInputBuilder {
+impl
+    crate::operation::list_configuration_recorders::builders::ListConfigurationRecordersInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -57,7 +59,7 @@ impl ListConfigurationRecordersFluentBuilder {
         }
     }
     /// Access the ListConfigurationRecorders as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_configuration_recorders::builders::ListConfigurationRecordersInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_configuration_recorders::builders::ListConfigurationRecordersInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +88,11 @@ impl ListConfigurationRecordersFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_configuration_recorders::ListConfigurationRecorders::orchestrate(&runtime_plugins, input).await
+        crate::operation::list_configuration_recorders::ListConfigurationRecorders::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,19 +105,25 @@ impl ListConfigurationRecordersFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_configuration_recorders::paginator::ListConfigurationRecordersPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_configuration_recorders::paginator::ListConfigurationRecordersPaginator {
+    pub fn into_paginator(self) -> crate::operation::list_configuration_recorders::paginator::ListConfigurationRecordersPaginator{
         crate::operation::list_configuration_recorders::paginator::ListConfigurationRecordersPaginator::new(self.handle, self.inner)
     }
     ///
@@ -125,12 +137,17 @@ impl ListConfigurationRecordersFluentBuilder {
         self
     }
     /// <p>Filters the results based on a list of <code>ConfigurationRecorderFilter</code> objects that you specify.</p>
-    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorderFilter>>) -> Self {
+    pub fn set_filters(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorderFilter>>,
+    ) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
     /// <p>Filters the results based on a list of <code>ConfigurationRecorderFilter</code> objects that you specify.</p>
-    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorderFilter>> {
+    pub fn get_filters(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorderFilter>> {
         self.inner.get_filters()
     }
     /// <p>The maximum number of results to include in the response.</p>

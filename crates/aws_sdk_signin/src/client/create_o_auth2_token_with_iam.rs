@@ -10,7 +10,7 @@ impl super::Client {
     ///   - [`token_type(String)`](crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIamOutput::token_type): Always "Bearer" per OAuth 2.1 specification
     ///   - [`expires_in(i32)`](crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIamOutput::expires_in): Token lifetime in seconds. Value is the minimum of session validity and 1 hour.
     /// - On failure, responds with [`SdkError<CreateOAuth2TokenWithIAMError>`](crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError)
-    pub fn create_o_auth2_token_with_iam(&self) -> crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIAMFluentBuilder {
+    pub fn create_o_auth2_token_with_iam(&self) -> crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIAMFluentBuilder{
         crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIAMFluentBuilder::new(self.handle.clone())
     }
 }

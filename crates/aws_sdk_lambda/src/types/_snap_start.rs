@@ -21,7 +21,9 @@ impl SnapStart {
 }
 
 /// A builder for [`SnapStart`](crate::types::SnapStart).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SnapStartBuilder {
     pub(crate) apply_on: ::std::option::Option<crate::types::SnapStartApplyOn>,
@@ -33,7 +35,10 @@ impl SnapStartBuilder {
         self
     }
     /// <p>Set to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>
-    pub fn set_apply_on(mut self, input: ::std::option::Option<crate::types::SnapStartApplyOn>) -> Self {
+    pub fn set_apply_on(
+        mut self,
+        input: ::std::option::Option<crate::types::SnapStartApplyOn>,
+    ) -> Self {
         self.apply_on = input;
         self
     }
@@ -43,6 +48,8 @@ impl SnapStartBuilder {
     }
     /// Consumes the builder and constructs a [`SnapStart`](crate::types::SnapStart).
     pub fn build(self) -> crate::types::SnapStart {
-        crate::types::SnapStart { apply_on: self.apply_on }
+        crate::types::SnapStart {
+            apply_on: self.apply_on,
+        }
     }
 }

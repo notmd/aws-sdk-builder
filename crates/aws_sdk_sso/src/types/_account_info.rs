@@ -33,7 +33,9 @@ impl AccountInfo {
 }
 
 /// A builder for [`AccountInfo`](crate::types::AccountInfo).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AccountInfoBuilder {
     pub(crate) account_id: ::std::option::Option<::std::string::String>,
@@ -70,12 +72,18 @@ impl AccountInfoBuilder {
         &self.account_name
     }
     /// <p>The email address of the AWS account that is assigned to the user.</p>
-    pub fn email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn email_address(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.email_address = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The email address of the AWS account that is assigned to the user.</p>
-    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_email_address(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.email_address = input;
         self
     }

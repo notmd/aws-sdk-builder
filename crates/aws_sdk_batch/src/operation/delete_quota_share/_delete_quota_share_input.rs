@@ -14,13 +14,16 @@ impl DeleteQuotaShareInput {
 }
 impl DeleteQuotaShareInput {
     /// Creates a new builder-style object to manufacture [`DeleteQuotaShareInput`](crate::operation::delete_quota_share::DeleteQuotaShareInput).
-    pub fn builder() -> crate::operation::delete_quota_share::builders::DeleteQuotaShareInputBuilder {
+    pub fn builder() -> crate::operation::delete_quota_share::builders::DeleteQuotaShareInputBuilder
+    {
         crate::operation::delete_quota_share::builders::DeleteQuotaShareInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteQuotaShareInput`](crate::operation::delete_quota_share::DeleteQuotaShareInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteQuotaShareInputBuilder {
     pub(crate) quota_share_arn: ::std::option::Option<::std::string::String>,
@@ -28,12 +31,18 @@ pub struct DeleteQuotaShareInputBuilder {
 impl DeleteQuotaShareInputBuilder {
     /// <p>The Amazon Resource Name (ARN) of the quota share.</p>
     /// This field is required.
-    pub fn quota_share_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn quota_share_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.quota_share_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the quota share.</p>
-    pub fn set_quota_share_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_quota_share_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.quota_share_arn = input;
         self
     }
@@ -44,9 +53,14 @@ impl DeleteQuotaShareInputBuilder {
     /// Consumes the builder and constructs a [`DeleteQuotaShareInput`](crate::operation::delete_quota_share::DeleteQuotaShareInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_quota_share::DeleteQuotaShareInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::delete_quota_share::DeleteQuotaShareInput {
-            quota_share_arn: self.quota_share_arn,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::delete_quota_share::DeleteQuotaShareInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::delete_quota_share::DeleteQuotaShareInput {
+                quota_share_arn: self.quota_share_arn,
+            },
+        )
     }
 }

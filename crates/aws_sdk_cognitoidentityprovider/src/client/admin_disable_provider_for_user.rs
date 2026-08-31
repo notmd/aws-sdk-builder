@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<AdminDisableProviderForUserError>`](crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserError)
     pub fn admin_disable_provider_for_user(
         &self,
-    ) -> crate::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserFluentBuilder {
+    ) -> crate::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserFluentBuilder{
         crate::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserFluentBuilder::new(self.handle.clone())
     }
 }

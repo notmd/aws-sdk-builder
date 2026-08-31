@@ -25,7 +25,9 @@ impl ExportCompletedFluentBuilder {
         }
     }
     /// Access the DescribeExport as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_export::builders::DescribeExportInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_export::builders::DescribeExportInputBuilder {
         &self.inner
     }
     /// Wait for `export_completed`
@@ -36,23 +38,31 @@ impl ExportCompletedFluentBuilder {
         crate::waiters::export_completed::ExportCompletedFinalPoll,
         crate::waiters::export_completed::WaitUntilExportCompletedError,
     > {
-        let input = self
-            .inner
-            .build()
-            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_export::DescribeExport::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            ::std::option::Option::None,
-        )
-        .with_operation_plugin(crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
+        let input = self.inner.build().map_err(
+            ::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure,
+        )?;
+        let runtime_plugins =
+            crate::operation::describe_export::DescribeExport::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                ::std::option::Option::None,
+            )
+            .with_operation_plugin(
+                crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new(),
+            );
         let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
         let runtime_components_builder = runtime_plugins
             .apply_client_configuration(&mut cfg)
-            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
+            .map_err(
+                ::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure,
+            )?;
         let time_components = runtime_components_builder.into_time_components();
-        let sleep_impl = time_components.sleep_impl().expect("a sleep impl is required by waiters");
-        let time_source = time_components.time_source().expect("a time source is required by waiters");
+        let sleep_impl = time_components
+            .sleep_impl()
+            .expect("a sleep impl is required by waiters");
+        let time_source = time_components
+            .time_source()
+            .expect("a time source is required by waiters");
 
         let acceptor = move |result: ::std::result::Result<
             &crate::operation::describe_export::DescribeExportOutput,
@@ -71,7 +81,13 @@ impl ExportCompletedFluentBuilder {
         let operation = move || {
             let input = input.clone();
             let runtime_plugins = runtime_plugins.clone();
-            async move { crate::operation::describe_export::DescribeExport::orchestrate(&runtime_plugins, input).await }
+            async move {
+                crate::operation::describe_export::DescribeExport::orchestrate(
+                    &runtime_plugins,
+                    input,
+                )
+                .await
+            }
         };
         let orchestrator = ::aws_smithy_runtime::client::waiters::WaiterOrchestrator::builder()
             .min_delay(::std::time::Duration::from_secs(20))
@@ -82,7 +98,10 @@ impl ExportCompletedFluentBuilder {
             .acceptor(acceptor)
             .operation(operation)
             .build();
-        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(orchestrator.orchestrate()).await
+        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(
+            orchestrator.orchestrate(),
+        )
+        .await
     }
     /// <p>The Amazon Resource Name (ARN) associated with the export.</p>
     pub fn export_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -110,7 +129,8 @@ pub type ExportCompletedFinalPoll = ::aws_smithy_runtime_api::client::waiters::F
 >;
 
 /// Error type for the `export_completed` waiter.
-pub type WaitUntilExportCompletedError = ::aws_smithy_runtime_api::client::waiters::error::WaiterError<
-    crate::operation::describe_export::DescribeExportOutput,
-    crate::operation::describe_export::DescribeExportError,
->;
+pub type WaitUntilExportCompletedError =
+    ::aws_smithy_runtime_api::client::waiters::error::WaiterError<
+        crate::operation::describe_export::DescribeExportOutput,
+        crate::operation::describe_export::DescribeExportError,
+    >;

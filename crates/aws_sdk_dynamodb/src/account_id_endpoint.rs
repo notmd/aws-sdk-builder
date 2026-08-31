@@ -7,7 +7,9 @@
 use aws_runtime::sdk_feature::AwsSdkFeature;
 use aws_smithy_runtime_api::{
     box_error::BoxError,
-    client::interceptors::{context::BeforeSerializationInterceptorContextRef, dyn_dispatch_hint, Intercept},
+    client::interceptors::{
+        context::BeforeSerializationInterceptorContextRef, dyn_dispatch_hint, Intercept,
+    },
 };
 use aws_smithy_types::config_bag::ConfigBag;
 use aws_types::endpoint_config::AccountIdEndpointMode;
@@ -22,16 +24,27 @@ impl Intercept for AccountIdEndpointFeatureTrackerInterceptor {
         "AccountIdEndpointFeatureTrackerInterceptor"
     }
 
-    fn read_before_execution(&self, _context: &BeforeSerializationInterceptorContextRef<'_>, cfg: &mut ConfigBag) -> Result<(), BoxError> {
-        match cfg.load::<AccountIdEndpointMode>().cloned().unwrap_or_default() {
+    fn read_before_execution(
+        &self,
+        _context: &BeforeSerializationInterceptorContextRef<'_>,
+        cfg: &mut ConfigBag,
+    ) -> Result<(), BoxError> {
+        match cfg
+            .load::<AccountIdEndpointMode>()
+            .cloned()
+            .unwrap_or_default()
+        {
             AccountIdEndpointMode::Preferred => {
-                cfg.interceptor_state().store_append(AwsSdkFeature::AccountIdModePreferred);
+                cfg.interceptor_state()
+                    .store_append(AwsSdkFeature::AccountIdModePreferred);
             }
             AccountIdEndpointMode::Required => {
-                cfg.interceptor_state().store_append(AwsSdkFeature::AccountIdModeRequired);
+                cfg.interceptor_state()
+                    .store_append(AwsSdkFeature::AccountIdModeRequired);
             }
             AccountIdEndpointMode::Disabled => {
-                cfg.interceptor_state().store_append(AwsSdkFeature::AccountIdModeDisabled);
+                cfg.interceptor_state()
+                    .store_append(AwsSdkFeature::AccountIdModeDisabled);
             }
             otherwise => {
                 ::tracing::warn!(

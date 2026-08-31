@@ -3,7 +3,9 @@ pub use crate::operation::list_suppressed_destinations::_list_suppressed_destina
 
 pub use crate::operation::list_suppressed_destinations::_list_suppressed_destinations_output::ListSuppressedDestinationsOutputBuilder;
 
-impl crate::operation::list_suppressed_destinations::builders::ListSuppressedDestinationsInputBuilder {
+impl
+    crate::operation::list_suppressed_destinations::builders::ListSuppressedDestinationsInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -57,7 +59,7 @@ impl ListSuppressedDestinationsFluentBuilder {
         }
     }
     /// Access the ListSuppressedDestinations as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_suppressed_destinations::builders::ListSuppressedDestinationsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_suppressed_destinations::builders::ListSuppressedDestinationsInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +88,11 @@ impl ListSuppressedDestinationsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_suppressed_destinations::ListSuppressedDestinations::orchestrate(&runtime_plugins, input).await
+        crate::operation::list_suppressed_destinations::ListSuppressedDestinations::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,19 +105,25 @@ impl ListSuppressedDestinationsFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_suppressed_destinations::paginator::ListSuppressedDestinationsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_suppressed_destinations::paginator::ListSuppressedDestinationsPaginator {
+    pub fn into_paginator(self) -> crate::operation::list_suppressed_destinations::paginator::ListSuppressedDestinationsPaginator{
         crate::operation::list_suppressed_destinations::paginator::ListSuppressedDestinationsPaginator::new(self.handle, self.inner)
     }
     /// <p>The name of the tenant whose suppression list you want to retrieve. If you omit this parameter, the operation targets the account-level suppression list.</p>
@@ -139,12 +151,17 @@ impl ListSuppressedDestinationsFluentBuilder {
         self
     }
     /// <p>The factors that caused the email address to be added to the suppression list for your account or for a specific tenant.</p>
-    pub fn set_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>) -> Self {
+    pub fn set_reasons(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>,
+    ) -> Self {
         self.inner = self.inner.set_reasons(input);
         self
     }
     /// <p>The factors that caused the email address to be added to the suppression list for your account or for a specific tenant.</p>
-    pub fn get_reasons(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>> {
+    pub fn get_reasons(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>> {
         self.inner.get_reasons()
     }
     /// <p>Used to filter the list of suppressed email destinations so that it only includes addresses that were added to the list after a specific date.</p>
@@ -153,7 +170,10 @@ impl ListSuppressedDestinationsFluentBuilder {
         self
     }
     /// <p>Used to filter the list of suppressed email destinations so that it only includes addresses that were added to the list after a specific date.</p>
-    pub fn set_start_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_start_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.inner = self.inner.set_start_date(input);
         self
     }
@@ -167,7 +187,10 @@ impl ListSuppressedDestinationsFluentBuilder {
         self
     }
     /// <p>Used to filter the list of suppressed email destinations so that it only includes addresses that were added to the list before a specific date.</p>
-    pub fn set_end_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_end_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.inner = self.inner.set_end_date(input);
         self
     }

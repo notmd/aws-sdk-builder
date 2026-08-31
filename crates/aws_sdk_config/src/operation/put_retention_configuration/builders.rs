@@ -3,7 +3,9 @@ pub use crate::operation::put_retention_configuration::_put_retention_configurat
 
 pub use crate::operation::put_retention_configuration::_put_retention_configuration_output::PutRetentionConfigurationOutputBuilder;
 
-impl crate::operation::put_retention_configuration::builders::PutRetentionConfigurationInputBuilder {
+impl
+    crate::operation::put_retention_configuration::builders::PutRetentionConfigurationInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -59,7 +61,7 @@ impl PutRetentionConfigurationFluentBuilder {
         }
     }
     /// Access the PutRetentionConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_retention_configuration::builders::PutRetentionConfigurationInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_retention_configuration::builders::PutRetentionConfigurationInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,7 +90,11 @@ impl PutRetentionConfigurationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_retention_configuration::PutRetentionConfiguration::orchestrate(&runtime_plugins, input).await
+        crate::operation::put_retention_configuration::PutRetentionConfiguration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -101,12 +107,18 @@ impl PutRetentionConfigurationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }

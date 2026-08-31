@@ -15,7 +15,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetResourceEvaluationSummaryError>`](crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryError)
     pub fn get_resource_evaluation_summary(
         &self,
-    ) -> crate::operation::get_resource_evaluation_summary::builders::GetResourceEvaluationSummaryFluentBuilder {
+    ) -> crate::operation::get_resource_evaluation_summary::builders::GetResourceEvaluationSummaryFluentBuilder{
         crate::operation::get_resource_evaluation_summary::builders::GetResourceEvaluationSummaryFluentBuilder::new(self.handle.clone())
     }
 }

@@ -27,7 +27,9 @@ impl StepFailedDetails {
 }
 
 /// A builder for [`StepFailedDetails`](crate::types::StepFailedDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct StepFailedDetailsBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EventError>,
@@ -56,7 +58,10 @@ impl StepFailedDetailsBuilder {
         self
     }
     /// <p>Information about retry attempts for this step operation.</p>
-    pub fn set_retry_details(mut self, input: ::std::option::Option<crate::types::RetryDetails>) -> Self {
+    pub fn set_retry_details(
+        mut self,
+        input: ::std::option::Option<crate::types::RetryDetails>,
+    ) -> Self {
         self.retry_details = input;
         self
     }

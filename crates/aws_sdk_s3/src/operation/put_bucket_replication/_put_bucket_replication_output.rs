@@ -18,13 +18,16 @@ impl ::aws_types::request_id::RequestId for PutBucketReplicationOutput {
 }
 impl PutBucketReplicationOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketReplicationOutput`](crate::operation::put_bucket_replication::PutBucketReplicationOutput).
-    pub fn builder() -> crate::operation::put_bucket_replication::builders::PutBucketReplicationOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::put_bucket_replication::builders::PutBucketReplicationOutputBuilder {
         crate::operation::put_bucket_replication::builders::PutBucketReplicationOutputBuilder::default()
     }
 }
 
 /// A builder for [`PutBucketReplicationOutput`](crate::operation::put_bucket_replication::PutBucketReplicationOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutBucketReplicationOutputBuilder {
     _extended_request_id: Option<String>,
@@ -36,7 +39,10 @@ impl PutBucketReplicationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(
+        &mut self,
+        extended_request_id: Option<String>,
+    ) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

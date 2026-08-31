@@ -60,7 +60,9 @@ impl SendDelegationTokenFluentBuilder {
         }
     }
     /// Access the SendDelegationToken as a reference.
-    pub fn as_input(&self) -> &crate::operation::send_delegation_token::builders::SendDelegationTokenInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::send_delegation_token::builders::SendDelegationTokenInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,12 +86,17 @@ impl SendDelegationTokenFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::send_delegation_token::SendDelegationToken::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::send_delegation_token::SendDelegationToken::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::send_delegation_token::SendDelegationToken::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::send_delegation_token::SendDelegationToken::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -102,22 +109,34 @@ impl SendDelegationTokenFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The unique identifier of the delegation request for which to send the token.</p>
-    pub fn delegation_request_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn delegation_request_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.delegation_request_id(input.into());
         self
     }
     /// <p>The unique identifier of the delegation request for which to send the token.</p>
-    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_delegation_request_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_delegation_request_id(input);
         self
     }

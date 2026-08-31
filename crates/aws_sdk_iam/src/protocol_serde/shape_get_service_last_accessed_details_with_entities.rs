@@ -7,7 +7,7 @@ pub fn de_get_service_last_accessed_details_with_entities_http_error(
 ) -> std::result::Result<
     crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesOutput,
     crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesError,
-> {
+>{
     #[allow(unused_mut)]
     let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesError::unhandled)?;
@@ -72,7 +72,7 @@ pub fn de_get_service_last_accessed_details_with_entities_http_response(
 ) -> std::result::Result<
     crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesOutput,
     crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesError,
-> {
+>{
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesOutputBuilder::default();
@@ -81,7 +81,9 @@ pub fn de_get_service_last_accessed_details_with_entities_http_response(
             output,
         )
         .map_err(crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         crate::serde_util::get_service_last_accessed_details_with_entities_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesError::unhandled)?
@@ -95,7 +97,7 @@ pub fn de_get_service_last_accessed_details_with_entities(
 ) -> std::result::Result<
     crate::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+>{
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

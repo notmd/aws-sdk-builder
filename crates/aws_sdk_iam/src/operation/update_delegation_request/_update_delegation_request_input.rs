@@ -20,13 +20,17 @@ impl UpdateDelegationRequestInput {
 }
 impl UpdateDelegationRequestInput {
     /// Creates a new builder-style object to manufacture [`UpdateDelegationRequestInput`](crate::operation::update_delegation_request::UpdateDelegationRequestInput).
-    pub fn builder() -> crate::operation::update_delegation_request::builders::UpdateDelegationRequestInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_delegation_request::builders::UpdateDelegationRequestInputBuilder
+    {
         crate::operation::update_delegation_request::builders::UpdateDelegationRequestInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateDelegationRequestInput`](crate::operation::update_delegation_request::UpdateDelegationRequestInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateDelegationRequestInputBuilder {
     pub(crate) delegation_request_id: ::std::option::Option<::std::string::String>,
@@ -35,12 +39,18 @@ pub struct UpdateDelegationRequestInputBuilder {
 impl UpdateDelegationRequestInputBuilder {
     /// <p>The unique identifier of the delegation request to update.</p>
     /// This field is required.
-    pub fn delegation_request_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn delegation_request_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.delegation_request_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier of the delegation request to update.</p>
-    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_delegation_request_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.delegation_request_id = input;
         self
     }
@@ -69,9 +79,11 @@ impl UpdateDelegationRequestInputBuilder {
         crate::operation::update_delegation_request::UpdateDelegationRequestInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::update_delegation_request::UpdateDelegationRequestInput {
-            delegation_request_id: self.delegation_request_id,
-            notes: self.notes,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::update_delegation_request::UpdateDelegationRequestInput {
+                delegation_request_id: self.delegation_request_id,
+                notes: self.notes,
+            },
+        )
     }
 }

@@ -26,7 +26,11 @@ impl super::Client {
     ///   - [`creation_time(Option<i64>)`](crate::operation::get_scheduled_query::GetScheduledQueryOutput::creation_time): <p>The timestamp when the scheduled query was created.</p>
     ///   - [`last_updated_time(Option<i64>)`](crate::operation::get_scheduled_query::GetScheduledQueryOutput::last_updated_time): <p>The timestamp when the scheduled query was last updated.</p>
     /// - On failure, responds with [`SdkError<GetScheduledQueryError>`](crate::operation::get_scheduled_query::GetScheduledQueryError)
-    pub fn get_scheduled_query(&self) -> crate::operation::get_scheduled_query::builders::GetScheduledQueryFluentBuilder {
-        crate::operation::get_scheduled_query::builders::GetScheduledQueryFluentBuilder::new(self.handle.clone())
+    pub fn get_scheduled_query(
+        &self,
+    ) -> crate::operation::get_scheduled_query::builders::GetScheduledQueryFluentBuilder {
+        crate::operation::get_scheduled_query::builders::GetScheduledQueryFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -33,7 +33,9 @@ impl DestinationResult {
 }
 
 /// A builder for [`DestinationResult`](crate::types::DestinationResult).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DestinationResultBuilder {
     pub(crate) table_bucket_type: ::std::option::Option<crate::types::S3TablesBucketType>,
@@ -47,21 +49,32 @@ impl DestinationResultBuilder {
         self
     }
     /// <p>The type of the table bucket where the metadata configuration is stored. The <code>aws</code> value indicates an Amazon Web Services managed table bucket, and the <code>customer</code> value indicates a customer-managed table bucket. V2 metadata configurations are stored in Amazon Web Services managed table buckets, and V1 metadata configurations are stored in customer-managed table buckets.</p>
-    pub fn set_table_bucket_type(mut self, input: ::std::option::Option<crate::types::S3TablesBucketType>) -> Self {
+    pub fn set_table_bucket_type(
+        mut self,
+        input: ::std::option::Option<crate::types::S3TablesBucketType>,
+    ) -> Self {
         self.table_bucket_type = input;
         self
     }
     /// <p>The type of the table bucket where the metadata configuration is stored. The <code>aws</code> value indicates an Amazon Web Services managed table bucket, and the <code>customer</code> value indicates a customer-managed table bucket. V2 metadata configurations are stored in Amazon Web Services managed table buckets, and V1 metadata configurations are stored in customer-managed table buckets.</p>
-    pub fn get_table_bucket_type(&self) -> &::std::option::Option<crate::types::S3TablesBucketType> {
+    pub fn get_table_bucket_type(
+        &self,
+    ) -> &::std::option::Option<crate::types::S3TablesBucketType> {
         &self.table_bucket_type
     }
     /// <p>The Amazon Resource Name (ARN) of the table bucket where the metadata configuration is stored.</p>
-    pub fn table_bucket_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn table_bucket_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.table_bucket_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the table bucket where the metadata configuration is stored.</p>
-    pub fn set_table_bucket_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_table_bucket_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.table_bucket_arn = input;
         self
     }
@@ -70,12 +83,18 @@ impl DestinationResultBuilder {
         &self.table_bucket_arn
     }
     /// <p>The namespace in the table bucket where the metadata tables for a metadata configuration are stored.</p>
-    pub fn table_namespace(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn table_namespace(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.table_namespace = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The namespace in the table bucket where the metadata tables for a metadata configuration are stored.</p>
-    pub fn set_table_namespace(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_table_namespace(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.table_namespace = input;
         self
     }

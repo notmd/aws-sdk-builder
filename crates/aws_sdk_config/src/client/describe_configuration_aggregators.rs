@@ -13,7 +13,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeConfigurationAggregatorsError>`](crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError)
     pub fn describe_configuration_aggregators(
         &self,
-    ) -> crate::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsFluentBuilder {
+    ) -> crate::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsFluentBuilder{
         crate::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsFluentBuilder::new(self.handle.clone())
     }
 }

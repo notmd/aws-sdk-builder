@@ -59,7 +59,7 @@ impl DescribeDeliveryChannelStatusFluentBuilder {
         }
     }
     /// Access the DescribeDeliveryChannelStatus as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::describe_delivery_channel_status::builders::DescribeDeliveryChannelStatusInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -101,12 +101,18 @@ impl DescribeDeliveryChannelStatusFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -116,17 +122,25 @@ impl DescribeDeliveryChannelStatusFluentBuilder {
     /// To override the contents of this collection use [`set_delivery_channel_names`](Self::set_delivery_channel_names).
     ///
     /// <p>A list of delivery channel names.</p>
-    pub fn delivery_channel_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn delivery_channel_names(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.delivery_channel_names(input.into());
         self
     }
     /// <p>A list of delivery channel names.</p>
-    pub fn set_delivery_channel_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_delivery_channel_names(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.inner = self.inner.set_delivery_channel_names(input);
         self
     }
     /// <p>A list of delivery channel names.</p>
-    pub fn get_delivery_channel_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_delivery_channel_names(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_delivery_channel_names()
     }
 }

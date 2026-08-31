@@ -23,7 +23,9 @@ pub fn ser_update_table_replica_auto_scaling_input_input(
     }
     if let Some(var_6) = &input.provisioned_write_capacity_auto_scaling_update {
         #[allow(unused_mut)]
-        let mut object_7 = object.key("ProvisionedWriteCapacityAutoScalingUpdate").start_object();
+        let mut object_7 = object
+            .key("ProvisionedWriteCapacityAutoScalingUpdate")
+            .start_object();
         crate::protocol_serde::shape_auto_scaling_settings_update::ser_auto_scaling_settings_update(&mut object_7, var_6)?;
         object_7.finish();
     }

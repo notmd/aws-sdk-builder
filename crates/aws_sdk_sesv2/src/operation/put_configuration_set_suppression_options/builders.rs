@@ -59,7 +59,7 @@ impl PutConfigurationSetSuppressionOptionsFluentBuilder {
     /// Access the PutConfigurationSetSuppressionOptions as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsInputBuilder {
+    ) -> &crate::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -78,7 +78,7 @@ impl PutConfigurationSetSuppressionOptionsFluentBuilder {
             crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -99,25 +99,37 @@ impl PutConfigurationSetSuppressionOptionsFluentBuilder {
         crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsOutput,
         crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the configuration set to change the suppression list preferences for.</p>
-    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn configuration_set_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>The name of the configuration set to change the suppression list preferences for.</p>
-    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_configuration_set_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }
@@ -143,7 +155,10 @@ impl PutConfigurationSetSuppressionOptionsFluentBuilder {
     /// <li>
     /// <p><code>ACCOUNT</code> – Use the account-level suppression list.</p></li>
     /// </ul>
-    pub fn set_suppression_scope(mut self, input: ::std::option::Option<crate::types::SuppressionListScope>) -> Self {
+    pub fn set_suppression_scope(
+        mut self,
+        input: ::std::option::Option<crate::types::SuppressionListScope>,
+    ) -> Self {
         self.inner = self.inner.set_suppression_scope(input);
         self
     }
@@ -154,7 +169,9 @@ impl PutConfigurationSetSuppressionOptionsFluentBuilder {
     /// <li>
     /// <p><code>ACCOUNT</code> – Use the account-level suppression list.</p></li>
     /// </ul>
-    pub fn get_suppression_scope(&self) -> &::std::option::Option<crate::types::SuppressionListScope> {
+    pub fn get_suppression_scope(
+        &self,
+    ) -> &::std::option::Option<crate::types::SuppressionListScope> {
         self.inner.get_suppression_scope()
     }
     ///
@@ -180,7 +197,10 @@ impl PutConfigurationSetSuppressionOptionsFluentBuilder {
     /// <li>
     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account or for a specific tenant when a message sent to that address results in a hard bounce.</p></li>
     /// </ul>
-    pub fn set_suppressed_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>) -> Self {
+    pub fn set_suppressed_reasons(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>,
+    ) -> Self {
         self.inner = self.inner.set_suppressed_reasons(input);
         self
     }
@@ -191,7 +211,9 @@ impl PutConfigurationSetSuppressionOptionsFluentBuilder {
     /// <li>
     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account or for a specific tenant when a message sent to that address results in a hard bounce.</p></li>
     /// </ul>
-    pub fn get_suppressed_reasons(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>> {
+    pub fn get_suppressed_reasons(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>> {
         self.inner.get_suppressed_reasons()
     }
     /// <p>An object that contains information about the email address suppression preferences for the configuration set in the current Amazon Web Services Region.</p>
@@ -200,12 +222,17 @@ impl PutConfigurationSetSuppressionOptionsFluentBuilder {
         self
     }
     /// <p>An object that contains information about the email address suppression preferences for the configuration set in the current Amazon Web Services Region.</p>
-    pub fn set_validation_options(mut self, input: ::std::option::Option<crate::types::SuppressionValidationOptions>) -> Self {
+    pub fn set_validation_options(
+        mut self,
+        input: ::std::option::Option<crate::types::SuppressionValidationOptions>,
+    ) -> Self {
         self.inner = self.inner.set_validation_options(input);
         self
     }
     /// <p>An object that contains information about the email address suppression preferences for the configuration set in the current Amazon Web Services Region.</p>
-    pub fn get_validation_options(&self) -> &::std::option::Option<crate::types::SuppressionValidationOptions> {
+    pub fn get_validation_options(
+        &self,
+    ) -> &::std::option::Option<crate::types::SuppressionValidationOptions> {
         self.inner.get_validation_options()
     }
 }

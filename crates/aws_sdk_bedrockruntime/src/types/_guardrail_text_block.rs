@@ -30,11 +30,14 @@ impl GuardrailTextBlock {
 }
 
 /// A builder for [`GuardrailTextBlock`](crate::types::GuardrailTextBlock).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GuardrailTextBlockBuilder {
     pub(crate) text: ::std::option::Option<::std::string::String>,
-    pub(crate) qualifiers: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentQualifier>>,
+    pub(crate) qualifiers:
+        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentQualifier>>,
 }
 impl GuardrailTextBlockBuilder {
     /// <p>The input text details to be evaluated by the guardrail.</p>
@@ -64,18 +67,28 @@ impl GuardrailTextBlockBuilder {
         self
     }
     /// <p>The qualifiers describing the text block.</p>
-    pub fn set_qualifiers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentQualifier>>) -> Self {
+    pub fn set_qualifiers(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentQualifier>>,
+    ) -> Self {
         self.qualifiers = input;
         self
     }
     /// <p>The qualifiers describing the text block.</p>
-    pub fn get_qualifiers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentQualifier>> {
+    pub fn get_qualifiers(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentQualifier>> {
         &self.qualifiers
     }
     /// Consumes the builder and constructs a [`GuardrailTextBlock`](crate::types::GuardrailTextBlock).
     /// This method will fail if any of the following fields are not set:
     /// - [`text`](crate::types::builders::GuardrailTextBlockBuilder::text)
-    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailTextBlock, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::GuardrailTextBlock,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::GuardrailTextBlock {
             text: self.text.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

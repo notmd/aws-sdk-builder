@@ -31,7 +31,9 @@ impl UpdatePolicy {
 }
 
 /// A builder for [`UpdatePolicy`](crate::types::UpdatePolicy).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdatePolicyBuilder {
     pub(crate) terminate_jobs_on_update: ::std::option::Option<bool>,

@@ -92,13 +92,17 @@ impl ::aws_types::request_id::RequestId for GetObjectAttributesOutput {
 }
 impl GetObjectAttributesOutput {
     /// Creates a new builder-style object to manufacture [`GetObjectAttributesOutput`](crate::operation::get_object_attributes::GetObjectAttributesOutput).
-    pub fn builder() -> crate::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder {
-        crate::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder {
+        crate::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`GetObjectAttributesOutput`](crate::operation::get_object_attributes::GetObjectAttributesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetObjectAttributesOutputBuilder {
     pub(crate) delete_marker: ::std::option::Option<bool>,
@@ -140,7 +144,10 @@ impl GetObjectAttributesOutputBuilder {
         self
     }
     /// <p>Date and time when the object was last modified.</p>
-    pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_last_modified(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.last_modified = input;
         self
     }
@@ -178,7 +185,10 @@ impl GetObjectAttributesOutputBuilder {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+    pub fn set_request_charged(
+        mut self,
+        input: ::std::option::Option<crate::types::RequestCharged>,
+    ) -> Self {
         self.request_charged = input;
         self
     }
@@ -222,12 +232,17 @@ impl GetObjectAttributesOutputBuilder {
         self
     }
     /// <p>A collection of parts associated with a multipart upload.</p>
-    pub fn set_object_parts(mut self, input: ::std::option::Option<crate::types::GetObjectAttributesParts>) -> Self {
+    pub fn set_object_parts(
+        mut self,
+        input: ::std::option::Option<crate::types::GetObjectAttributesParts>,
+    ) -> Self {
         self.object_parts = input;
         self
     }
     /// <p>A collection of parts associated with a multipart upload.</p>
-    pub fn get_object_parts(&self) -> &::std::option::Option<crate::types::GetObjectAttributesParts> {
+    pub fn get_object_parts(
+        &self,
+    ) -> &::std::option::Option<crate::types::GetObjectAttributesParts> {
         &self.object_parts
     }
     /// <p>Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
@@ -242,7 +257,10 @@ impl GetObjectAttributesOutputBuilder {
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p><note>
     /// <p><b>Directory buckets</b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
-    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
+    pub fn set_storage_class(
+        mut self,
+        input: ::std::option::Option<crate::types::StorageClass>,
+    ) -> Self {
         self.storage_class = input;
         self
     }
@@ -272,7 +290,10 @@ impl GetObjectAttributesOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(
+        &mut self,
+        extended_request_id: Option<String>,
+    ) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

@@ -8,7 +8,11 @@ impl super::Client {
     ///   - [`device_key(impl Into<String>)`](crate::operation::admin_forget_device::builders::AdminForgetDeviceFluentBuilder::device_key) / [`set_device_key(Option<String>)`](crate::operation::admin_forget_device::builders::AdminForgetDeviceFluentBuilder::set_device_key):<br>required: **true**<br><p>The key ID of the device that you want to delete.</p><br>
     /// - On success, responds with [`AdminForgetDeviceOutput`](crate::operation::admin_forget_device::AdminForgetDeviceOutput)
     /// - On failure, responds with [`SdkError<AdminForgetDeviceError>`](crate::operation::admin_forget_device::AdminForgetDeviceError)
-    pub fn admin_forget_device(&self) -> crate::operation::admin_forget_device::builders::AdminForgetDeviceFluentBuilder {
-        crate::operation::admin_forget_device::builders::AdminForgetDeviceFluentBuilder::new(self.handle.clone())
+    pub fn admin_forget_device(
+        &self,
+    ) -> crate::operation::admin_forget_device::builders::AdminForgetDeviceFluentBuilder {
+        crate::operation::admin_forget_device::builders::AdminForgetDeviceFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

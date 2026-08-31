@@ -21,7 +21,10 @@ pub fn ser_update_delivery_configuration_input_input(
     if let Some(var_6) = &input.s3_delivery_configuration {
         #[allow(unused_mut)]
         let mut object_7 = object.key("s3DeliveryConfiguration").start_object();
-        crate::protocol_serde::shape_s3_delivery_configuration::ser_s3_delivery_configuration(&mut object_7, var_6)?;
+        crate::protocol_serde::shape_s3_delivery_configuration::ser_s3_delivery_configuration(
+            &mut object_7,
+            var_6,
+        )?;
         object_7.finish();
     }
     Ok(())

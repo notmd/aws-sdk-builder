@@ -70,7 +70,9 @@ impl DeleteAccountPolicyFluentBuilder {
         }
     }
     /// Access the DeleteAccountPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_account_policy::builders::DeleteAccountPolicyInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::delete_account_policy::builders::DeleteAccountPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -94,12 +96,17 @@ impl DeleteAccountPolicyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::delete_account_policy::DeleteAccountPolicy::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::delete_account_policy::DeleteAccountPolicy::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::delete_account_policy::DeleteAccountPolicy::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::delete_account_policy::DeleteAccountPolicy::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -112,12 +119,18 @@ impl DeleteAccountPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -141,7 +154,10 @@ impl DeleteAccountPolicyFluentBuilder {
         self
     }
     /// <p>The type of policy to delete.</p>
-    pub fn set_policy_type(mut self, input: ::std::option::Option<crate::types::PolicyType>) -> Self {
+    pub fn set_policy_type(
+        mut self,
+        input: ::std::option::Option<crate::types::PolicyType>,
+    ) -> Self {
         self.inner = self.inner.set_policy_type(input);
         self
     }

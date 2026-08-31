@@ -40,7 +40,9 @@ impl DefaultRetention {
 }
 
 /// A builder for [`DefaultRetention`](crate::types::DefaultRetention).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DefaultRetentionBuilder {
     pub(crate) mode: ::std::option::Option<crate::types::ObjectLockRetentionMode>,
@@ -54,7 +56,10 @@ impl DefaultRetentionBuilder {
         self
     }
     /// <p>The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Must be used with either <code>Days</code> or <code>Years</code>.</p>
-    pub fn set_mode(mut self, input: ::std::option::Option<crate::types::ObjectLockRetentionMode>) -> Self {
+    pub fn set_mode(
+        mut self,
+        input: ::std::option::Option<crate::types::ObjectLockRetentionMode>,
+    ) -> Self {
         self.mode = input;
         self
     }

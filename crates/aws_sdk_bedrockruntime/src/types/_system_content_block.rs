@@ -37,7 +37,9 @@ impl SystemContentBlock {
     }
     /// Tries to convert the enum instance into [`GuardContent`](crate::types::SystemContentBlock::GuardContent), extracting the inner [`GuardrailConverseContentBlock`](crate::types::GuardrailConverseContentBlock).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_guard_content(&self) -> ::std::result::Result<&crate::types::GuardrailConverseContentBlock, &Self> {
+    pub fn as_guard_content(
+        &self,
+    ) -> ::std::result::Result<&crate::types::GuardrailConverseContentBlock, &Self> {
         if let SystemContentBlock::GuardContent(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

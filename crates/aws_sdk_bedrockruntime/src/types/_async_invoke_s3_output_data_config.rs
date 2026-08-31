@@ -34,7 +34,9 @@ impl AsyncInvokeS3OutputDataConfig {
 }
 
 /// A builder for [`AsyncInvokeS3OutputDataConfig`](crate::types::AsyncInvokeS3OutputDataConfig).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AsyncInvokeS3OutputDataConfigBuilder {
     pub(crate) s3_uri: ::std::option::Option<::std::string::String>,
@@ -88,7 +90,12 @@ impl AsyncInvokeS3OutputDataConfigBuilder {
     /// Consumes the builder and constructs a [`AsyncInvokeS3OutputDataConfig`](crate::types::AsyncInvokeS3OutputDataConfig).
     /// This method will fail if any of the following fields are not set:
     /// - [`s3_uri`](crate::types::builders::AsyncInvokeS3OutputDataConfigBuilder::s3_uri)
-    pub fn build(self) -> ::std::result::Result<crate::types::AsyncInvokeS3OutputDataConfig, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::AsyncInvokeS3OutputDataConfig,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::AsyncInvokeS3OutputDataConfig {
             s3_uri: self.s3_uri.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

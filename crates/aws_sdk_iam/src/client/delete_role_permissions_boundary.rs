@@ -8,7 +8,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteRolePermissionsBoundaryError>`](crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError)
     pub fn delete_role_permissions_boundary(
         &self,
-    ) -> crate::operation::delete_role_permissions_boundary::builders::DeleteRolePermissionsBoundaryFluentBuilder {
+    ) -> crate::operation::delete_role_permissions_boundary::builders::DeleteRolePermissionsBoundaryFluentBuilder{
         crate::operation::delete_role_permissions_boundary::builders::DeleteRolePermissionsBoundaryFluentBuilder::new(self.handle.clone())
     }
 }

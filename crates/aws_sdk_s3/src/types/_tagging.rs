@@ -22,7 +22,9 @@ impl Tagging {
 }
 
 /// A builder for [`Tagging`](crate::types::Tagging).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct TaggingBuilder {
     pub(crate) tag_set: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
@@ -40,7 +42,10 @@ impl TaggingBuilder {
         self
     }
     /// <p>A collection for a set of tags</p>
-    pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tag_set(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.tag_set = input;
         self
     }
@@ -51,7 +56,12 @@ impl TaggingBuilder {
     /// Consumes the builder and constructs a [`Tagging`](crate::types::Tagging).
     /// This method will fail if any of the following fields are not set:
     /// - [`tag_set`](crate::types::builders::TaggingBuilder::tag_set)
-    pub fn build(self) -> ::std::result::Result<crate::types::Tagging, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::Tagging,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::Tagging {
             tag_set: self.tag_set.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

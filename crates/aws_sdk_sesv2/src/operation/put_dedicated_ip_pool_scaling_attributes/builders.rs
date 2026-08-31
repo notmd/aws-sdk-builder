@@ -59,7 +59,7 @@ impl PutDedicatedIpPoolScalingAttributesFluentBuilder {
         }
     }
     /// Access the PutDedicatedIpPoolScalingAttributes as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -78,7 +78,7 @@ impl PutDedicatedIpPoolScalingAttributesFluentBuilder {
             crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -99,15 +99,21 @@ impl PutDedicatedIpPoolScalingAttributesFluentBuilder {
         crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesOutput,
         crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -135,7 +141,10 @@ impl PutDedicatedIpPoolScalingAttributesFluentBuilder {
     /// <p>The scaling mode to apply to the dedicated IP pool.</p><note>
     /// <p>Changing the scaling mode from <code>MANAGED</code> to <code>STANDARD</code> is not supported.</p>
     /// </note>
-    pub fn set_scaling_mode(mut self, input: ::std::option::Option<crate::types::ScalingMode>) -> Self {
+    pub fn set_scaling_mode(
+        mut self,
+        input: ::std::option::Option<crate::types::ScalingMode>,
+    ) -> Self {
         self.inner = self.inner.set_scaling_mode(input);
         self
     }

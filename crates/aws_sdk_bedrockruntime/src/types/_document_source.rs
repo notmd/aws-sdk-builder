@@ -38,7 +38,9 @@ impl DocumentSource {
     }
     /// Tries to convert the enum instance into [`Content`](crate::types::DocumentSource::Content), extracting the inner [`Vec`](::std::vec::Vec).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_content(&self) -> ::std::result::Result<&::std::vec::Vec<crate::types::DocumentContentBlock>, &Self> {
+    pub fn as_content(
+        &self,
+    ) -> ::std::result::Result<&::std::vec::Vec<crate::types::DocumentContentBlock>, &Self> {
         if let DocumentSource::Content(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

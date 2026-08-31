@@ -11,7 +11,10 @@ impl super::Client {
     ///   - [`consumable_resources(Option<Vec::<ConsumableResourceSummary>>)`](crate::operation::list_consumable_resources::ListConsumableResourcesOutput::consumable_resources): <p>A list of consumable resources that match the request.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::list_consumable_resources::ListConsumableResourcesOutput::next_token): <p>The <code>nextToken</code> value to include in a future <code>ListConsumableResources</code> request. When the results of a <code>ListConsumableResources</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
     /// - On failure, responds with [`SdkError<ListConsumableResourcesError>`](crate::operation::list_consumable_resources::ListConsumableResourcesError)
-    pub fn list_consumable_resources(&self) -> crate::operation::list_consumable_resources::builders::ListConsumableResourcesFluentBuilder {
+    pub fn list_consumable_resources(
+        &self,
+    ) -> crate::operation::list_consumable_resources::builders::ListConsumableResourcesFluentBuilder
+    {
         crate::operation::list_consumable_resources::builders::ListConsumableResourcesFluentBuilder::new(self.handle.clone())
     }
 }

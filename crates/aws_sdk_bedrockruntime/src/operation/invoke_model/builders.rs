@@ -86,11 +86,12 @@ impl InvokeModelFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::invoke_model::InvokeModel::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::invoke_model::InvokeModel::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::invoke_model::InvokeModel::orchestrate(&runtime_plugins, input).await
     }
 
@@ -104,12 +105,18 @@ impl InvokeModelFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -232,7 +239,10 @@ impl InvokeModelFluentBuilder {
     /// <li>
     /// <p>You provide a guardrail identifier, but <code>guardrailVersion</code> isn't specified.</p></li>
     /// </ul>
-    pub fn guardrail_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn guardrail_identifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.guardrail_identifier(input.into());
         self
     }
@@ -246,7 +256,10 @@ impl InvokeModelFluentBuilder {
     /// <li>
     /// <p>You provide a guardrail identifier, but <code>guardrailVersion</code> isn't specified.</p></li>
     /// </ul>
-    pub fn set_guardrail_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_guardrail_identifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_guardrail_identifier(input);
         self
     }
@@ -264,12 +277,18 @@ impl InvokeModelFluentBuilder {
         self.inner.get_guardrail_identifier()
     }
     /// <p>The version number for the guardrail. The value can also be <code>DRAFT</code>.</p>
-    pub fn guardrail_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn guardrail_version(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.guardrail_version(input.into());
         self
     }
     /// <p>The version number for the guardrail. The value can also be <code>DRAFT</code>.</p>
-    pub fn set_guardrail_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_guardrail_version(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_guardrail_version(input);
         self
     }
@@ -278,17 +297,25 @@ impl InvokeModelFluentBuilder {
         self.inner.get_guardrail_version()
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn performance_config_latency(mut self, input: crate::types::PerformanceConfigLatency) -> Self {
+    pub fn performance_config_latency(
+        mut self,
+        input: crate::types::PerformanceConfigLatency,
+    ) -> Self {
         self.inner = self.inner.performance_config_latency(input);
         self
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn set_performance_config_latency(mut self, input: ::std::option::Option<crate::types::PerformanceConfigLatency>) -> Self {
+    pub fn set_performance_config_latency(
+        mut self,
+        input: ::std::option::Option<crate::types::PerformanceConfigLatency>,
+    ) -> Self {
         self.inner = self.inner.set_performance_config_latency(input);
         self
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn get_performance_config_latency(&self) -> &::std::option::Option<crate::types::PerformanceConfigLatency> {
+    pub fn get_performance_config_latency(
+        &self,
+    ) -> &::std::option::Option<crate::types::PerformanceConfigLatency> {
         self.inner.get_performance_config_latency()
     }
     /// <p>Specifies the processing tier type used for serving the request.</p>
@@ -297,7 +324,10 @@ impl InvokeModelFluentBuilder {
         self
     }
     /// <p>Specifies the processing tier type used for serving the request.</p>
-    pub fn set_service_tier(mut self, input: ::std::option::Option<crate::types::ServiceTierType>) -> Self {
+    pub fn set_service_tier(
+        mut self,
+        input: ::std::option::Option<crate::types::ServiceTierType>,
+    ) -> Self {
         self.inner = self.inner.set_service_tier(input);
         self
     }
@@ -306,12 +336,18 @@ impl InvokeModelFluentBuilder {
         self.inner.get_service_tier()
     }
     /// <p>Key-value pairs that you can use to filter invocation logs.</p>
-    pub fn request_metadata(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn request_metadata(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.request_metadata(input.into());
         self
     }
     /// <p>Key-value pairs that you can use to filter invocation logs.</p>
-    pub fn set_request_metadata(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_request_metadata(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_request_metadata(input);
         self
     }

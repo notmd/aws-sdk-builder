@@ -7,7 +7,10 @@ impl super::Client {
     ///   - [`provider_name(impl Into<String>)`](crate::operation::delete_identity_provider::builders::DeleteIdentityProviderFluentBuilder::provider_name) / [`set_provider_name(Option<String>)`](crate::operation::delete_identity_provider::builders::DeleteIdentityProviderFluentBuilder::set_provider_name):<br>required: **true**<br><p>The name of the IdP that you want to delete.</p><br>
     /// - On success, responds with [`DeleteIdentityProviderOutput`](crate::operation::delete_identity_provider::DeleteIdentityProviderOutput)
     /// - On failure, responds with [`SdkError<DeleteIdentityProviderError>`](crate::operation::delete_identity_provider::DeleteIdentityProviderError)
-    pub fn delete_identity_provider(&self) -> crate::operation::delete_identity_provider::builders::DeleteIdentityProviderFluentBuilder {
+    pub fn delete_identity_provider(
+        &self,
+    ) -> crate::operation::delete_identity_provider::builders::DeleteIdentityProviderFluentBuilder
+    {
         crate::operation::delete_identity_provider::builders::DeleteIdentityProviderFluentBuilder::new(self.handle.clone())
     }
 }

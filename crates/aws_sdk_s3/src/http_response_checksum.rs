@@ -45,7 +45,11 @@ impl<VE, CM> fmt::Debug for ResponseChecksumInterceptor<VE, CM> {
 }
 
 impl<VE, CM> ResponseChecksumInterceptor<VE, CM> {
-    pub(crate) fn new(response_algorithms: &'static [&'static str], validation_enabled: VE, checksum_mutator: CM) -> Self {
+    pub(crate) fn new(
+        response_algorithms: &'static [&'static str],
+        validation_enabled: VE,
+        checksum_mutator: CM,
+    ) -> Self {
         Self {
             response_algorithms,
             validation_enabled,
@@ -84,10 +88,12 @@ where
         // Set the user-agent feature metric for the response checksum config
         match response_checksum_validation {
             ResponseChecksumValidation::WhenSupported => {
-                cfg.interceptor_state().store_append(SmithySdkFeature::FlexibleChecksumsResWhenSupported);
+                cfg.interceptor_state()
+                    .store_append(SmithySdkFeature::FlexibleChecksumsResWhenSupported);
             }
             ResponseChecksumValidation::WhenRequired => {
-                cfg.interceptor_state().store_append(SmithySdkFeature::FlexibleChecksumsResWhenRequired);
+                cfg.interceptor_state()
+                    .store_append(SmithySdkFeature::FlexibleChecksumsResWhenRequired);
             }
             unsupported => tracing::warn!(
                 more_info = "Unsupported value of ResponseChecksumValidation when setting user-agent metrics",
@@ -129,13 +135,20 @@ where
 
         if validation_enabled {
             let response = context.response_mut();
-            let maybe_checksum_headers = check_headers_for_precalculated_checksum(response.headers(), self.response_algorithms);
+            let maybe_checksum_headers = check_headers_for_precalculated_checksum(
+                response.headers(),
+                self.response_algorithms,
+            );
 
             if let Some((checksum_algorithm, precalculated_checksum)) = maybe_checksum_headers {
                 let mut body = SdkBody::taken();
                 mem::swap(&mut body, response.body_mut());
 
-                let mut body = wrap_body_with_checksum_validator(body, checksum_algorithm, precalculated_checksum);
+                let mut body = wrap_body_with_checksum_validator(
+                    body,
+                    checksum_algorithm,
+                    precalculated_checksum,
+                );
                 mem::swap(&mut body, response.body_mut());
             }
         }
@@ -166,27 +179,33 @@ pub(crate) fn wrap_body_with_checksum_validator(
 /// Given a `HeaderMap`, extract any checksum included in the headers as `Some(Bytes)`.
 /// If no checksum header is set, return `None`. If multiple checksum headers are set, the one that
 /// is fastest to compute will be chosen.
-pub(crate) fn check_headers_for_precalculated_checksum(headers: &Headers, response_algorithms: &[&str]) -> Option<(ChecksumAlgorithm, bytes::Bytes)> {
-    let checksum_algorithms_to_check = aws_smithy_checksums::http::CHECKSUM_ALGORITHMS_IN_PRIORITY_ORDER
-        .into_iter()
-        // Process list of algorithms, from fastest to slowest, that may have been used to checksum
-        // the response body, ignoring any that aren't marked as supported algorithms by the model.
-        .flat_map(|algo| {
-            // For loop is necessary b/c the compiler doesn't infer the correct lifetimes for iter().find()
-            for res_algo in response_algorithms {
-                if algo.eq_ignore_ascii_case(res_algo) {
-                    return Some(algo);
+pub(crate) fn check_headers_for_precalculated_checksum(
+    headers: &Headers,
+    response_algorithms: &[&str],
+) -> Option<(ChecksumAlgorithm, bytes::Bytes)> {
+    let checksum_algorithms_to_check =
+        aws_smithy_checksums::http::CHECKSUM_ALGORITHMS_IN_PRIORITY_ORDER
+            .into_iter()
+            // Process list of algorithms, from fastest to slowest, that may have been used to checksum
+            // the response body, ignoring any that aren't marked as supported algorithms by the model.
+            .flat_map(|algo| {
+                // For loop is necessary b/c the compiler doesn't infer the correct lifetimes for iter().find()
+                for res_algo in response_algorithms {
+                    if algo.eq_ignore_ascii_case(res_algo) {
+                        return Some(algo);
+                    }
                 }
-            }
 
-            None
-        });
+                None
+            });
 
     for checksum_algorithm in checksum_algorithms_to_check {
-        let checksum_algorithm: ChecksumAlgorithm = checksum_algorithm
-            .parse()
-            .expect("CHECKSUM_ALGORITHMS_IN_PRIORITY_ORDER only contains valid checksum algorithm names");
-        if let Some(base64_encoded_precalculated_checksum) = headers.get(checksum_algorithm.into_impl().header_name()) {
+        let checksum_algorithm: ChecksumAlgorithm = checksum_algorithm.parse().expect(
+            "CHECKSUM_ALGORITHMS_IN_PRIORITY_ORDER only contains valid checksum algorithm names",
+        );
+        if let Some(base64_encoded_precalculated_checksum) =
+            headers.get(checksum_algorithm.into_impl().header_name())
+        {
             // S3 needs special handling for checksums of objects uploaded with `MultiPartUpload`.
             if is_part_level_checksum(base64_encoded_precalculated_checksum) {
                 tracing::warn!(
@@ -197,7 +216,9 @@ pub(crate) fn check_headers_for_precalculated_checksum(headers: &Headers, respon
                 return None;
             }
 
-            let precalculated_checksum = match aws_smithy_types::base64::decode(base64_encoded_precalculated_checksum) {
+            let precalculated_checksum = match aws_smithy_types::base64::decode(
+                base64_encoded_precalculated_checksum,
+            ) {
                 Ok(decoded_checksum) => decoded_checksum.into(),
                 Err(_) => {
                     tracing::error!("Checksum received from server could not be base64 decoded. No checksum validation will be performed.");
@@ -255,7 +276,13 @@ mod tests {
         let precalculated_checksum = Bytes::from_static(&[0x8b, 0xd6, 0x9e, 0x52]);
         let body = ByteStream::new(SdkBody::from(input_text));
 
-        let body = body.map(move |sdk_body| wrap_body_with_checksum_validator(sdk_body, checksum_algorithm, precalculated_checksum.clone()));
+        let body = body.map(move |sdk_body| {
+            wrap_body_with_checksum_validator(
+                sdk_body,
+                checksum_algorithm,
+                precalculated_checksum.clone(),
+            )
+        });
 
         let mut validated_body = Vec::new();
         if let Err(e) = tokio::io::copy(&mut body.into_async_read(), &mut validated_body).await {

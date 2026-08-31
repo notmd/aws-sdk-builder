@@ -3,7 +3,9 @@ pub use crate::operation::create_multi_region_endpoint::_create_multi_region_end
 
 pub use crate::operation::create_multi_region_endpoint::_create_multi_region_endpoint_output::CreateMultiRegionEndpointOutputBuilder;
 
-impl crate::operation::create_multi_region_endpoint::builders::CreateMultiRegionEndpointInputBuilder {
+impl
+    crate::operation::create_multi_region_endpoint::builders::CreateMultiRegionEndpointInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -58,7 +60,7 @@ impl CreateMultiRegionEndpointFluentBuilder {
         }
     }
     /// Access the CreateMultiRegionEndpoint as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_multi_region_endpoint::builders::CreateMultiRegionEndpointInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::create_multi_region_endpoint::builders::CreateMultiRegionEndpointInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,7 +89,11 @@ impl CreateMultiRegionEndpointFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpoint::orchestrate(&runtime_plugins, input).await
+        crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpoint::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -100,22 +106,34 @@ impl CreateMultiRegionEndpointFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the multi-region endpoint (global-endpoint).</p>
-    pub fn endpoint_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn endpoint_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.endpoint_name(input.into());
         self
     }
     /// <p>The name of the multi-region endpoint (global-endpoint).</p>
-    pub fn set_endpoint_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_endpoint_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_endpoint_name(input);
         self
     }
@@ -148,7 +166,10 @@ impl CreateMultiRegionEndpointFluentBuilder {
         self
     }
     /// <p>An array of objects that define the tags (keys and values) to associate with the multi-region endpoint (global-endpoint).</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

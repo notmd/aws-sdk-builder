@@ -12,13 +12,16 @@ impl ::aws_types::request_id::RequestId for DeleteTransformerOutput {
 }
 impl DeleteTransformerOutput {
     /// Creates a new builder-style object to manufacture [`DeleteTransformerOutput`](crate::operation::delete_transformer::DeleteTransformerOutput).
-    pub fn builder() -> crate::operation::delete_transformer::builders::DeleteTransformerOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::delete_transformer::builders::DeleteTransformerOutputBuilder {
         crate::operation::delete_transformer::builders::DeleteTransformerOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteTransformerOutput`](crate::operation::delete_transformer::DeleteTransformerOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteTransformerOutputBuilder {
     _request_id: Option<String>,

@@ -20,13 +20,16 @@ impl ::aws_types::request_id::RequestId for CancelKeyDeletionOutput {
 }
 impl CancelKeyDeletionOutput {
     /// Creates a new builder-style object to manufacture [`CancelKeyDeletionOutput`](crate::operation::cancel_key_deletion::CancelKeyDeletionOutput).
-    pub fn builder() -> crate::operation::cancel_key_deletion::builders::CancelKeyDeletionOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::cancel_key_deletion::builders::CancelKeyDeletionOutputBuilder {
         crate::operation::cancel_key_deletion::builders::CancelKeyDeletionOutputBuilder::default()
     }
 }
 
 /// A builder for [`CancelKeyDeletionOutput`](crate::operation::cancel_key_deletion::CancelKeyDeletionOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CancelKeyDeletionOutputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,

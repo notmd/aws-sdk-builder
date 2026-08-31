@@ -15,7 +15,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutObjectLockConfigurationError>`](crate::operation::put_object_lock_configuration::PutObjectLockConfigurationError)
     pub fn put_object_lock_configuration(
         &self,
-    ) -> crate::operation::put_object_lock_configuration::builders::PutObjectLockConfigurationFluentBuilder {
+    ) -> crate::operation::put_object_lock_configuration::builders::PutObjectLockConfigurationFluentBuilder{
         crate::operation::put_object_lock_configuration::builders::PutObjectLockConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

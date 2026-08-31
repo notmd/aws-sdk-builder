@@ -39,7 +39,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(
-    ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
+    ::std::clone::Clone,
+    ::std::cmp::Eq,
+    ::std::cmp::Ord,
+    ::std::cmp::PartialEq,
+    ::std::cmp::PartialOrd,
+    ::std::fmt::Debug,
+    ::std::hash::Hash,
 )]
 pub enum OrganizationConfigRuleTriggerTypeNoSn {
     #[allow(missing_docs)] // documentation missing in model
@@ -47,15 +53,23 @@ pub enum OrganizationConfigRuleTriggerTypeNoSn {
     #[allow(missing_docs)] // documentation missing in model
     OversizedConfigurationItemChangeNotifcation,
     /// `Unknown` contains new variants that have been added since this code was generated.
-    #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
+    #[deprecated(
+        note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants."
+    )]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for OrganizationConfigRuleTriggerTypeNoSn {
     fn from(s: &str) -> Self {
         match s {
-            "ConfigurationItemChangeNotification" => OrganizationConfigRuleTriggerTypeNoSn::ConfigurationItemChangeNotification,
-            "OversizedConfigurationItemChangeNotification" => OrganizationConfigRuleTriggerTypeNoSn::OversizedConfigurationItemChangeNotifcation,
-            other => OrganizationConfigRuleTriggerTypeNoSn::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
+            "ConfigurationItemChangeNotification" => {
+                OrganizationConfigRuleTriggerTypeNoSn::ConfigurationItemChangeNotification
+            }
+            "OversizedConfigurationItemChangeNotification" => {
+                OrganizationConfigRuleTriggerTypeNoSn::OversizedConfigurationItemChangeNotifcation
+            }
+            other => OrganizationConfigRuleTriggerTypeNoSn::Unknown(
+                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
+            ),
         }
     }
 }
@@ -70,14 +84,21 @@ impl OrganizationConfigRuleTriggerTypeNoSn {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
-            OrganizationConfigRuleTriggerTypeNoSn::ConfigurationItemChangeNotification => "ConfigurationItemChangeNotification",
-            OrganizationConfigRuleTriggerTypeNoSn::OversizedConfigurationItemChangeNotifcation => "OversizedConfigurationItemChangeNotification",
+            OrganizationConfigRuleTriggerTypeNoSn::ConfigurationItemChangeNotification => {
+                "ConfigurationItemChangeNotification"
+            }
+            OrganizationConfigRuleTriggerTypeNoSn::OversizedConfigurationItemChangeNotifcation => {
+                "OversizedConfigurationItemChangeNotification"
+            }
             OrganizationConfigRuleTriggerTypeNoSn::Unknown(value) => value.as_str(),
         }
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["ConfigurationItemChangeNotification", "OversizedConfigurationItemChangeNotification"]
+        &[
+            "ConfigurationItemChangeNotification",
+            "OversizedConfigurationItemChangeNotification",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for OrganizationConfigRuleTriggerTypeNoSn {
@@ -89,10 +110,14 @@ impl OrganizationConfigRuleTriggerTypeNoSn {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(
+        value: &str,
+    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
+            Self::Unknown(_) => {
+                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
+            }
             known => Ok(known),
         }
     }
@@ -100,7 +125,9 @@ impl OrganizationConfigRuleTriggerTypeNoSn {
 impl ::std::fmt::Display for OrganizationConfigRuleTriggerTypeNoSn {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
-            OrganizationConfigRuleTriggerTypeNoSn::ConfigurationItemChangeNotification => write!(f, "ConfigurationItemChangeNotification"),
+            OrganizationConfigRuleTriggerTypeNoSn::ConfigurationItemChangeNotification => {
+                write!(f, "ConfigurationItemChangeNotification")
+            }
             OrganizationConfigRuleTriggerTypeNoSn::OversizedConfigurationItemChangeNotifcation => {
                 write!(f, "OversizedConfigurationItemChangeNotification")
             }

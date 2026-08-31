@@ -21,13 +21,16 @@ impl ::aws_types::request_id::RequestId for DescribeEndpointsOutput {
 }
 impl DescribeEndpointsOutput {
     /// Creates a new builder-style object to manufacture [`DescribeEndpointsOutput`](crate::operation::describe_endpoints::DescribeEndpointsOutput).
-    pub fn builder() -> crate::operation::describe_endpoints::builders::DescribeEndpointsOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::describe_endpoints::builders::DescribeEndpointsOutputBuilder {
         crate::operation::describe_endpoints::builders::DescribeEndpointsOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeEndpointsOutput`](crate::operation::describe_endpoints::DescribeEndpointsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeEndpointsOutputBuilder {
     pub(crate) endpoints: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>,
@@ -46,7 +49,10 @@ impl DescribeEndpointsOutputBuilder {
         self
     }
     /// <p>List of endpoints.</p>
-    pub fn set_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>) -> Self {
+    pub fn set_endpoints(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>,
+    ) -> Self {
         self.endpoints = input;
         self
     }
@@ -68,7 +74,10 @@ impl DescribeEndpointsOutputBuilder {
     /// - [`endpoints`](crate::operation::describe_endpoints::builders::DescribeEndpointsOutputBuilder::endpoints)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::describe_endpoints::DescribeEndpointsOutput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::describe_endpoints::DescribeEndpointsOutput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::describe_endpoints::DescribeEndpointsOutput {
             endpoints: self.endpoints.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -59,7 +59,7 @@ impl DescribeManagedLoginBrandingByClientFluentBuilder {
     /// Access the DescribeManagedLoginBrandingByClient as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::describe_managed_login_branding_by_client::builders::DescribeManagedLoginBrandingByClientInputBuilder {
+    ) -> &crate::operation::describe_managed_login_branding_by_client::builders::DescribeManagedLoginBrandingByClientInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -78,7 +78,7 @@ impl DescribeManagedLoginBrandingByClientFluentBuilder {
             crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -99,15 +99,21 @@ impl DescribeManagedLoginBrandingByClientFluentBuilder {
         crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientOutput,
         crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }

@@ -27,7 +27,9 @@ impl GuardrailTextCharactersCoverage {
 }
 
 /// A builder for [`GuardrailTextCharactersCoverage`](crate::types::GuardrailTextCharactersCoverage).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GuardrailTextCharactersCoverageBuilder {
     pub(crate) guarded: ::std::option::Option<i32>,

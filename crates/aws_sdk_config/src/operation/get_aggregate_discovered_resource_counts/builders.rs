@@ -60,7 +60,7 @@ impl GetAggregateDiscoveredResourceCountsFluentBuilder {
     /// Access the GetAggregateDiscoveredResourceCounts as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsInputBuilder {
+    ) -> &crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -79,7 +79,7 @@ impl GetAggregateDiscoveredResourceCountsFluentBuilder {
             crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -100,15 +100,21 @@ impl GetAggregateDiscoveredResourceCountsFluentBuilder {
         crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsOutput,
         crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -117,24 +123,32 @@ impl GetAggregateDiscoveredResourceCountsFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::get_aggregate_discovered_resource_counts::paginator::GetAggregateDiscoveredResourceCountsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::get_aggregate_discovered_resource_counts::paginator::GetAggregateDiscoveredResourceCountsPaginator {
+    ) -> crate::operation::get_aggregate_discovered_resource_counts::paginator::GetAggregateDiscoveredResourceCountsPaginator{
         crate::operation::get_aggregate_discovered_resource_counts::paginator::GetAggregateDiscoveredResourceCountsPaginator::new(
             self.handle,
             self.inner,
         )
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn configuration_aggregator_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.configuration_aggregator_name(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_configuration_aggregator_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_configuration_aggregator_name(input);
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(
+        &self,
+    ) -> &::std::option::Option<::std::string::String> {
         self.inner.get_configuration_aggregator_name()
     }
     /// <p>Filters the results based on the <code>ResourceCountFilters</code> object.</p>
@@ -143,7 +157,10 @@ impl GetAggregateDiscoveredResourceCountsFluentBuilder {
         self
     }
     /// <p>Filters the results based on the <code>ResourceCountFilters</code> object.</p>
-    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::ResourceCountFilters>) -> Self {
+    pub fn set_filters(
+        mut self,
+        input: ::std::option::Option<crate::types::ResourceCountFilters>,
+    ) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
@@ -157,7 +174,10 @@ impl GetAggregateDiscoveredResourceCountsFluentBuilder {
         self
     }
     /// <p>The key to group the resource counts.</p>
-    pub fn set_group_by_key(mut self, input: ::std::option::Option<crate::types::ResourceCountGroupKey>) -> Self {
+    pub fn set_group_by_key(
+        mut self,
+        input: ::std::option::Option<crate::types::ResourceCountGroupKey>,
+    ) -> Self {
         self.inner = self.inner.set_group_by_key(input);
         self
     }

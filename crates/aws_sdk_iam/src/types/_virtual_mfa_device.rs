@@ -79,12 +79,18 @@ pub struct VirtualMfaDeviceBuilder {
 impl VirtualMfaDeviceBuilder {
     /// <p>The serial number associated with <code>VirtualMFADevice</code>.</p>
     /// This field is required.
-    pub fn serial_number(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn serial_number(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.serial_number = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The serial number associated with <code>VirtualMFADevice</code>.</p>
-    pub fn set_serial_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_serial_number(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.serial_number = input;
         self
     }
@@ -98,7 +104,10 @@ impl VirtualMfaDeviceBuilder {
         self
     }
     /// <p>The base32 seed defined as specified in <a href="https://tools.ietf.org/html/rfc3548.txt">RFC3548</a>. The <code>Base32StringSeed</code> is base32-encoded.</p>
-    pub fn set_base32_string_seed(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
+    pub fn set_base32_string_seed(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::Blob>,
+    ) -> Self {
         self.base32_string_seed = input;
         self
     }
@@ -112,7 +121,10 @@ impl VirtualMfaDeviceBuilder {
         self
     }
     /// <p>A QR code PNG image that encodes <code>otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String</code> where <code>$virtualMFADeviceName</code> is one of the create call arguments. <code>AccountName</code> is the user name if set (otherwise, the account ID otherwise), and <code>Base32String</code> is the seed in base32 format. The <code>Base32String</code> value is base64-encoded.</p>
-    pub fn set_qr_code_png(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
+    pub fn set_qr_code_png(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::Blob>,
+    ) -> Self {
         self.qr_code_png = input;
         self
     }
@@ -140,7 +152,10 @@ impl VirtualMfaDeviceBuilder {
         self
     }
     /// <p>The date and time on which the virtual MFA device was enabled.</p>
-    pub fn set_enable_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_enable_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.enable_date = input;
         self
     }
@@ -160,7 +175,10 @@ impl VirtualMfaDeviceBuilder {
         self
     }
     /// <p>A list of tags that are attached to the virtual MFA device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.tags = input;
         self
     }
@@ -171,7 +189,12 @@ impl VirtualMfaDeviceBuilder {
     /// Consumes the builder and constructs a [`VirtualMfaDevice`](crate::types::VirtualMfaDevice).
     /// This method will fail if any of the following fields are not set:
     /// - [`serial_number`](crate::types::builders::VirtualMfaDeviceBuilder::serial_number)
-    pub fn build(self) -> ::std::result::Result<crate::types::VirtualMfaDevice, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::VirtualMfaDevice,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::VirtualMfaDevice {
             serial_number: self.serial_number.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

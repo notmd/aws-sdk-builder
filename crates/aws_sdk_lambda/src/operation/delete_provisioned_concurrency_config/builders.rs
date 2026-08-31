@@ -57,7 +57,7 @@ impl DeleteProvisionedConcurrencyConfigFluentBuilder {
         }
     }
     /// Access the DeleteProvisionedConcurrencyConfig as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +76,7 @@ impl DeleteProvisionedConcurrencyConfigFluentBuilder {
             crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -96,15 +96,21 @@ impl DeleteProvisionedConcurrencyConfigFluentBuilder {
         crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigOutput,
         crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigError,
         Self,
-    > {
+    >{
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -119,7 +125,10 @@ impl DeleteProvisionedConcurrencyConfigFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -134,7 +143,10 @@ impl DeleteProvisionedConcurrencyConfigFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }

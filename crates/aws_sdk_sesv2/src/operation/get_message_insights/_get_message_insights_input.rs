@@ -15,13 +15,16 @@ impl GetMessageInsightsInput {
 }
 impl GetMessageInsightsInput {
     /// Creates a new builder-style object to manufacture [`GetMessageInsightsInput`](crate::operation::get_message_insights::GetMessageInsightsInput).
-    pub fn builder() -> crate::operation::get_message_insights::builders::GetMessageInsightsInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::get_message_insights::builders::GetMessageInsightsInputBuilder {
         crate::operation::get_message_insights::builders::GetMessageInsightsInputBuilder::default()
     }
 }
 
 /// A builder for [`GetMessageInsightsInput`](crate::operation::get_message_insights::GetMessageInsightsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetMessageInsightsInputBuilder {
     pub(crate) message_id: ::std::option::Option<::std::string::String>,
@@ -45,8 +48,14 @@ impl GetMessageInsightsInputBuilder {
     /// Consumes the builder and constructs a [`GetMessageInsightsInput`](crate::operation::get_message_insights::GetMessageInsightsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_message_insights::GetMessageInsightsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::get_message_insights::GetMessageInsightsInput { message_id: self.message_id })
+    ) -> ::std::result::Result<
+        crate::operation::get_message_insights::GetMessageInsightsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::get_message_insights::GetMessageInsightsInput {
+                message_id: self.message_id,
+            },
+        )
     }
 }

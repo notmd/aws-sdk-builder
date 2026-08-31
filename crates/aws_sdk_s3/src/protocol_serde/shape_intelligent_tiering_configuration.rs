@@ -3,9 +3,14 @@
 pub fn de_intelligent_tiering_configuration(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::IntelligentTieringConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<
+    crate::types::IntelligentTieringConfiguration,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::IntelligentTieringConfiguration::builder();
@@ -68,9 +73,11 @@ pub fn de_intelligent_tiering_configuration(
             _ => {}
         }
     }
-    Ok(crate::serde_util::intelligent_tiering_configuration_correct_errors(builder)
-        .build()
-        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
+    Ok(
+        crate::serde_util::intelligent_tiering_configuration_correct_errors(builder)
+            .build()
+            .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?,
+    )
 }
 
 pub fn ser_intelligent_tiering_configuration(
@@ -85,7 +92,10 @@ pub fn ser_intelligent_tiering_configuration(
     }
     if let Some(var_6) = &input.filter {
         let inner_writer = scope.start_el("Filter");
-        crate::protocol_serde::shape_intelligent_tiering_filter::ser_intelligent_tiering_filter(var_6, inner_writer)?
+        crate::protocol_serde::shape_intelligent_tiering_filter::ser_intelligent_tiering_filter(
+            var_6,
+            inner_writer,
+        )?
     }
     {
         let mut inner_writer = scope.start_el("Status").finish();

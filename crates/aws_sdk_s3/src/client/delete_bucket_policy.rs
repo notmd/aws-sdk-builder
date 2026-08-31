@@ -7,7 +7,11 @@ impl super::Client {
     ///   - [`expected_bucket_owner(impl Into<String>)`](crate::operation::delete_bucket_policy::builders::DeleteBucketPolicyFluentBuilder::expected_bucket_owner) / [`set_expected_bucket_owner(Option<String>)`](crate::operation::delete_bucket_policy::builders::DeleteBucketPolicyFluentBuilder::set_expected_bucket_owner):<br>required: **false**<br><p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>  <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p> </note><br>
     /// - On success, responds with [`DeleteBucketPolicyOutput`](crate::operation::delete_bucket_policy::DeleteBucketPolicyOutput)
     /// - On failure, responds with [`SdkError<DeleteBucketPolicyError>`](crate::operation::delete_bucket_policy::DeleteBucketPolicyError)
-    pub fn delete_bucket_policy(&self) -> crate::operation::delete_bucket_policy::builders::DeleteBucketPolicyFluentBuilder {
-        crate::operation::delete_bucket_policy::builders::DeleteBucketPolicyFluentBuilder::new(self.handle.clone())
+    pub fn delete_bucket_policy(
+        &self,
+    ) -> crate::operation::delete_bucket_policy::builders::DeleteBucketPolicyFluentBuilder {
+        crate::operation::delete_bucket_policy::builders::DeleteBucketPolicyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

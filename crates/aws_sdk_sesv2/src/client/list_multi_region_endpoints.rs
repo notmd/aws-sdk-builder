@@ -10,7 +10,7 @@ impl super::Client {
     ///   - [`multi_region_endpoints(Option<Vec::<MultiRegionEndpoint>>)`](crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsOutput::multi_region_endpoints): <p>An array that contains key multi-region endpoint (global-endpoint) properties.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsOutput::next_token): <p>A token indicating that there are additional multi-region endpoints (global-endpoints) available to be listed. Pass this token to a subsequent <code>ListMultiRegionEndpoints</code> call to retrieve the next page.</p>
     /// - On failure, responds with [`SdkError<ListMultiRegionEndpointsError>`](crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsError)
-    pub fn list_multi_region_endpoints(&self) -> crate::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsFluentBuilder {
+    pub fn list_multi_region_endpoints(&self) -> crate::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsFluentBuilder{
         crate::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsFluentBuilder::new(self.handle.clone())
     }
 }

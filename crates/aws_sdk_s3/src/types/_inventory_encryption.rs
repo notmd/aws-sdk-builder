@@ -27,7 +27,9 @@ impl InventoryEncryption {
 }
 
 /// A builder for [`InventoryEncryption`](crate::types::InventoryEncryption).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct InventoryEncryptionBuilder {
     pub(crate) sses3: ::std::option::Option<crate::types::Sses3>,

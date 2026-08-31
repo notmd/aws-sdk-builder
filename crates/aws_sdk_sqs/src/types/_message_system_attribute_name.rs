@@ -47,7 +47,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(
-    ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
+    ::std::clone::Clone,
+    ::std::cmp::Eq,
+    ::std::cmp::Ord,
+    ::std::cmp::PartialEq,
+    ::std::cmp::PartialOrd,
+    ::std::fmt::Debug,
+    ::std::hash::Hash,
 )]
 pub enum MessageSystemAttributeName {
     #[allow(missing_docs)] // documentation missing in model
@@ -71,7 +77,9 @@ pub enum MessageSystemAttributeName {
     #[allow(missing_docs)] // documentation missing in model
     SequenceNumber,
     /// `Unknown` contains new variants that have been added since this code was generated.
-    #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
+    #[deprecated(
+        note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants."
+    )]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for MessageSystemAttributeName {
@@ -79,7 +87,9 @@ impl ::std::convert::From<&str> for MessageSystemAttributeName {
         match s {
             "AWSTraceHeader" => MessageSystemAttributeName::AwsTraceHeader,
             "All" => MessageSystemAttributeName::All,
-            "ApproximateFirstReceiveTimestamp" => MessageSystemAttributeName::ApproximateFirstReceiveTimestamp,
+            "ApproximateFirstReceiveTimestamp" => {
+                MessageSystemAttributeName::ApproximateFirstReceiveTimestamp
+            }
             "ApproximateReceiveCount" => MessageSystemAttributeName::ApproximateReceiveCount,
             "DeadLetterQueueSourceArn" => MessageSystemAttributeName::DeadLetterQueueSourceArn,
             "MessageDeduplicationId" => MessageSystemAttributeName::MessageDeduplicationId,
@@ -87,7 +97,9 @@ impl ::std::convert::From<&str> for MessageSystemAttributeName {
             "SenderId" => MessageSystemAttributeName::SenderId,
             "SentTimestamp" => MessageSystemAttributeName::SentTimestamp,
             "SequenceNumber" => MessageSystemAttributeName::SequenceNumber,
-            other => MessageSystemAttributeName::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
+            other => MessageSystemAttributeName::Unknown(
+                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
+            ),
         }
     }
 }
@@ -104,7 +116,9 @@ impl MessageSystemAttributeName {
         match self {
             MessageSystemAttributeName::AwsTraceHeader => "AWSTraceHeader",
             MessageSystemAttributeName::All => "All",
-            MessageSystemAttributeName::ApproximateFirstReceiveTimestamp => "ApproximateFirstReceiveTimestamp",
+            MessageSystemAttributeName::ApproximateFirstReceiveTimestamp => {
+                "ApproximateFirstReceiveTimestamp"
+            }
             MessageSystemAttributeName::ApproximateReceiveCount => "ApproximateReceiveCount",
             MessageSystemAttributeName::DeadLetterQueueSourceArn => "DeadLetterQueueSourceArn",
             MessageSystemAttributeName::MessageDeduplicationId => "MessageDeduplicationId",
@@ -140,10 +154,14 @@ impl MessageSystemAttributeName {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(
+        value: &str,
+    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
+            Self::Unknown(_) => {
+                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
+            }
             known => Ok(known),
         }
     }
@@ -153,10 +171,18 @@ impl ::std::fmt::Display for MessageSystemAttributeName {
         match self {
             MessageSystemAttributeName::AwsTraceHeader => write!(f, "AWSTraceHeader"),
             MessageSystemAttributeName::All => write!(f, "All"),
-            MessageSystemAttributeName::ApproximateFirstReceiveTimestamp => write!(f, "ApproximateFirstReceiveTimestamp"),
-            MessageSystemAttributeName::ApproximateReceiveCount => write!(f, "ApproximateReceiveCount"),
-            MessageSystemAttributeName::DeadLetterQueueSourceArn => write!(f, "DeadLetterQueueSourceArn"),
-            MessageSystemAttributeName::MessageDeduplicationId => write!(f, "MessageDeduplicationId"),
+            MessageSystemAttributeName::ApproximateFirstReceiveTimestamp => {
+                write!(f, "ApproximateFirstReceiveTimestamp")
+            }
+            MessageSystemAttributeName::ApproximateReceiveCount => {
+                write!(f, "ApproximateReceiveCount")
+            }
+            MessageSystemAttributeName::DeadLetterQueueSourceArn => {
+                write!(f, "DeadLetterQueueSourceArn")
+            }
+            MessageSystemAttributeName::MessageDeduplicationId => {
+                write!(f, "MessageDeduplicationId")
+            }
             MessageSystemAttributeName::MessageGroupId => write!(f, "MessageGroupId"),
             MessageSystemAttributeName::SenderId => write!(f, "SenderId"),
             MessageSystemAttributeName::SentTimestamp => write!(f, "SentTimestamp"),

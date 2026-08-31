@@ -42,13 +42,16 @@ impl UpdateLookupTableInput {
 }
 impl UpdateLookupTableInput {
     /// Creates a new builder-style object to manufacture [`UpdateLookupTableInput`](crate::operation::update_lookup_table::UpdateLookupTableInput).
-    pub fn builder() -> crate::operation::update_lookup_table::builders::UpdateLookupTableInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_lookup_table::builders::UpdateLookupTableInputBuilder {
         crate::operation::update_lookup_table::builders::UpdateLookupTableInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateLookupTableInput`](crate::operation::update_lookup_table::UpdateLookupTableInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateLookupTableInputBuilder {
     pub(crate) lookup_table_arn: ::std::option::Option<::std::string::String>,
@@ -60,12 +63,18 @@ pub struct UpdateLookupTableInputBuilder {
 impl UpdateLookupTableInputBuilder {
     /// <p>The ARN of the lookup table to update.</p>
     /// This field is required.
-    pub fn lookup_table_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn lookup_table_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.lookup_table_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the lookup table to update.</p>
-    pub fn set_lookup_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_lookup_table_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.lookup_table_arn = input;
         self
     }
@@ -138,13 +147,18 @@ impl UpdateLookupTableInputBuilder {
     /// Consumes the builder and constructs a [`UpdateLookupTableInput`](crate::operation::update_lookup_table::UpdateLookupTableInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::update_lookup_table::UpdateLookupTableInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::update_lookup_table::UpdateLookupTableInput {
-            lookup_table_arn: self.lookup_table_arn,
-            description: self.description,
-            table_body: self.table_body,
-            query_id: self.query_id,
-            kms_key_id: self.kms_key_id,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::update_lookup_table::UpdateLookupTableInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::update_lookup_table::UpdateLookupTableInput {
+                lookup_table_arn: self.lookup_table_arn,
+                description: self.description,
+                table_body: self.table_body,
+                query_id: self.query_id,
+                kms_key_id: self.kms_key_id,
+            },
+        )
     }
 }

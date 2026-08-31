@@ -9,19 +9,24 @@ pub struct CreateOAuth2TokenInput {
 }
 impl CreateOAuth2TokenInput {
     /// Flattened token operation inputs The specific operation is determined by grant_type in the request body
-    pub fn token_input(&self) -> ::std::option::Option<&crate::types::CreateOAuth2TokenRequestBody> {
+    pub fn token_input(
+        &self,
+    ) -> ::std::option::Option<&crate::types::CreateOAuth2TokenRequestBody> {
         self.token_input.as_ref()
     }
 }
 impl CreateOAuth2TokenInput {
     /// Creates a new builder-style object to manufacture [`CreateOAuth2TokenInput`](crate::operation::create_o_auth2_token::CreateOAuth2TokenInput).
-    pub fn builder() -> crate::operation::create_o_auth2_token::builders::CreateOAuth2TokenInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::create_o_auth2_token::builders::CreateOAuth2TokenInputBuilder {
         crate::operation::create_o_auth2_token::builders::CreateOAuth2TokenInputBuilder::default()
     }
 }
 
 /// A builder for [`CreateOAuth2TokenInput`](crate::operation::create_o_auth2_token::CreateOAuth2TokenInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateOAuth2TokenInputBuilder {
     pub(crate) token_input: ::std::option::Option<crate::types::CreateOAuth2TokenRequestBody>,
@@ -34,20 +39,30 @@ impl CreateOAuth2TokenInputBuilder {
         self
     }
     /// Flattened token operation inputs The specific operation is determined by grant_type in the request body
-    pub fn set_token_input(mut self, input: ::std::option::Option<crate::types::CreateOAuth2TokenRequestBody>) -> Self {
+    pub fn set_token_input(
+        mut self,
+        input: ::std::option::Option<crate::types::CreateOAuth2TokenRequestBody>,
+    ) -> Self {
         self.token_input = input;
         self
     }
     /// Flattened token operation inputs The specific operation is determined by grant_type in the request body
-    pub fn get_token_input(&self) -> &::std::option::Option<crate::types::CreateOAuth2TokenRequestBody> {
+    pub fn get_token_input(
+        &self,
+    ) -> &::std::option::Option<crate::types::CreateOAuth2TokenRequestBody> {
         &self.token_input
     }
     /// Consumes the builder and constructs a [`CreateOAuth2TokenInput`](crate::operation::create_o_auth2_token::CreateOAuth2TokenInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::create_o_auth2_token::CreateOAuth2TokenInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_o_auth2_token::CreateOAuth2TokenInput {
-            token_input: self.token_input,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::create_o_auth2_token::CreateOAuth2TokenInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::create_o_auth2_token::CreateOAuth2TokenInput {
+                token_input: self.token_input,
+            },
+        )
     }
 }

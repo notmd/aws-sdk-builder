@@ -26,13 +26,16 @@ impl SelectResourceConfigInput {
 }
 impl SelectResourceConfigInput {
     /// Creates a new builder-style object to manufacture [`SelectResourceConfigInput`](crate::operation::select_resource_config::SelectResourceConfigInput).
-    pub fn builder() -> crate::operation::select_resource_config::builders::SelectResourceConfigInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::select_resource_config::builders::SelectResourceConfigInputBuilder {
         crate::operation::select_resource_config::builders::SelectResourceConfigInputBuilder::default()
     }
 }
 
 /// A builder for [`SelectResourceConfigInput`](crate::operation::select_resource_config::SelectResourceConfigInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SelectResourceConfigInputBuilder {
     pub(crate) expression: ::std::option::Option<::std::string::String>,
@@ -86,12 +89,16 @@ impl SelectResourceConfigInputBuilder {
     /// Consumes the builder and constructs a [`SelectResourceConfigInput`](crate::operation::select_resource_config::SelectResourceConfigInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::select_resource_config::SelectResourceConfigInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::select_resource_config::SelectResourceConfigInput {
-            expression: self.expression,
-            limit: self.limit,
-            next_token: self.next_token,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::select_resource_config::SelectResourceConfigInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::select_resource_config::SelectResourceConfigInput {
+                expression: self.expression,
+                limit: self.limit,
+                next_token: self.next_token,
+            },
+        )
     }
 }

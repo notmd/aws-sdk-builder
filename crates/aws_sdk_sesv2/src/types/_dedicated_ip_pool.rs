@@ -40,7 +40,9 @@ impl DedicatedIpPool {
 }
 
 /// A builder for [`DedicatedIpPool`](crate::types::DedicatedIpPool).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DedicatedIpPoolBuilder {
     pub(crate) pool_name: ::std::option::Option<::std::string::String>,
@@ -81,7 +83,10 @@ impl DedicatedIpPoolBuilder {
     /// <li>
     /// <p><code>MANAGED</code> – A dedicated IP pool where the reputation and number of IPs are automatically managed by Amazon SES.</p></li>
     /// </ul>
-    pub fn set_scaling_mode(mut self, input: ::std::option::Option<crate::types::ScalingMode>) -> Self {
+    pub fn set_scaling_mode(
+        mut self,
+        input: ::std::option::Option<crate::types::ScalingMode>,
+    ) -> Self {
         self.scaling_mode = input;
         self
     }
@@ -99,7 +104,12 @@ impl DedicatedIpPoolBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`pool_name`](crate::types::builders::DedicatedIpPoolBuilder::pool_name)
     /// - [`scaling_mode`](crate::types::builders::DedicatedIpPoolBuilder::scaling_mode)
-    pub fn build(self) -> ::std::result::Result<crate::types::DedicatedIpPool, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::DedicatedIpPool,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::DedicatedIpPool {
             pool_name: self.pool_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

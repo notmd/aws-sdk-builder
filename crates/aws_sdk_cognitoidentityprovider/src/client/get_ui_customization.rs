@@ -8,7 +8,11 @@ impl super::Client {
     /// - On success, responds with [`GetUiCustomizationOutput`](crate::operation::get_ui_customization::GetUiCustomizationOutput) with field(s):
     ///   - [`ui_customization(Option<UiCustomizationType>)`](crate::operation::get_ui_customization::GetUiCustomizationOutput::ui_customization): <p>Information about the classic hosted UI custom CSS and logo-image branding that you applied to the user pool or app client.</p>
     /// - On failure, responds with [`SdkError<GetUICustomizationError>`](crate::operation::get_ui_customization::GetUICustomizationError)
-    pub fn get_ui_customization(&self) -> crate::operation::get_ui_customization::builders::GetUICustomizationFluentBuilder {
-        crate::operation::get_ui_customization::builders::GetUICustomizationFluentBuilder::new(self.handle.clone())
+    pub fn get_ui_customization(
+        &self,
+    ) -> crate::operation::get_ui_customization::builders::GetUICustomizationFluentBuilder {
+        crate::operation::get_ui_customization::builders::GetUICustomizationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

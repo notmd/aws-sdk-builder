@@ -21,7 +21,9 @@ impl CallbackSucceededDetails {
 }
 
 /// A builder for [`CallbackSucceededDetails`](crate::types::CallbackSucceededDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CallbackSucceededDetailsBuilder {
     pub(crate) result: ::std::option::Option<crate::types::EventResult>,
@@ -44,6 +46,8 @@ impl CallbackSucceededDetailsBuilder {
     }
     /// Consumes the builder and constructs a [`CallbackSucceededDetails`](crate::types::CallbackSucceededDetails).
     pub fn build(self) -> crate::types::CallbackSucceededDetails {
-        crate::types::CallbackSucceededDetails { result: self.result }
+        crate::types::CallbackSucceededDetails {
+            result: self.result,
+        }
     }
 }

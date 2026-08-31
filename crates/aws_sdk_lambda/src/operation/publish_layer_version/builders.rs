@@ -58,7 +58,9 @@ impl PublishLayerVersionFluentBuilder {
         }
     }
     /// Access the PublishLayerVersion as a reference.
-    pub fn as_input(&self) -> &crate::operation::publish_layer_version::builders::PublishLayerVersionInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::publish_layer_version::builders::PublishLayerVersionInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,12 +84,17 @@ impl PublishLayerVersionFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::publish_layer_version::PublishLayerVersion::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::publish_layer_version::PublishLayerVersion::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::publish_layer_version::PublishLayerVersion::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::publish_layer_version::PublishLayerVersion::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -100,12 +107,18 @@ impl PublishLayerVersionFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -143,7 +156,10 @@ impl PublishLayerVersionFluentBuilder {
         self
     }
     /// <p>The function layer archive.</p>
-    pub fn set_content(mut self, input: ::std::option::Option<crate::types::LayerVersionContentInput>) -> Self {
+    pub fn set_content(
+        mut self,
+        input: ::std::option::Option<crate::types::LayerVersionContentInput>,
+    ) -> Self {
         self.inner = self.inner.set_content(input);
         self
     }
@@ -162,12 +178,17 @@ impl PublishLayerVersionFluentBuilder {
         self
     }
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-    pub fn set_compatible_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>) -> Self {
+    pub fn set_compatible_architectures(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
+    ) -> Self {
         self.inner = self.inner.set_compatible_architectures(input);
         self
     }
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-    pub fn get_compatible_architectures(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
+    pub fn get_compatible_architectures(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
         self.inner.get_compatible_architectures()
     }
     ///
@@ -183,13 +204,18 @@ impl PublishLayerVersionFluentBuilder {
     }
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function runtimes</a>. Used for filtering with <code>ListLayers</code> and <code>ListLayerVersions</code>.</p>
     /// <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
-    pub fn set_compatible_runtimes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Runtime>>) -> Self {
+    pub fn set_compatible_runtimes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Runtime>>,
+    ) -> Self {
         self.inner = self.inner.set_compatible_runtimes(input);
         self
     }
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function runtimes</a>. Used for filtering with <code>ListLayers</code> and <code>ListLayerVersions</code>.</p>
     /// <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
-    pub fn get_compatible_runtimes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Runtime>> {
+    pub fn get_compatible_runtimes(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Runtime>> {
         self.inner.get_compatible_runtimes()
     }
     /// <p>The layer's software license. It can be any of the following:</p>

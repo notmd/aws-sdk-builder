@@ -32,7 +32,9 @@ impl PutIntegrationInput {
 }
 
 /// A builder for [`PutIntegrationInput`](crate::operation::put_integration::PutIntegrationInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutIntegrationInputBuilder {
     pub(crate) integration_name: ::std::option::Option<::std::string::String>,
@@ -42,12 +44,18 @@ pub struct PutIntegrationInputBuilder {
 impl PutIntegrationInputBuilder {
     /// <p>A name for the integration.</p>
     /// This field is required.
-    pub fn integration_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn integration_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.integration_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A name for the integration.</p>
-    pub fn set_integration_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_integration_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.integration_name = input;
         self
     }
@@ -62,7 +70,10 @@ impl PutIntegrationInputBuilder {
         self
     }
     /// <p>A structure that contains configuration information for the integration that you are creating.</p>
-    pub fn set_resource_config(mut self, input: ::std::option::Option<crate::types::ResourceConfig>) -> Self {
+    pub fn set_resource_config(
+        mut self,
+        input: ::std::option::Option<crate::types::ResourceConfig>,
+    ) -> Self {
         self.resource_config = input;
         self
     }
@@ -77,7 +88,10 @@ impl PutIntegrationInputBuilder {
         self
     }
     /// <p>The type of integration. Currently, the only supported type is <code>OPENSEARCH</code>.</p>
-    pub fn set_integration_type(mut self, input: ::std::option::Option<crate::types::IntegrationType>) -> Self {
+    pub fn set_integration_type(
+        mut self,
+        input: ::std::option::Option<crate::types::IntegrationType>,
+    ) -> Self {
         self.integration_type = input;
         self
     }
@@ -88,7 +102,10 @@ impl PutIntegrationInputBuilder {
     /// Consumes the builder and constructs a [`PutIntegrationInput`](crate::operation::put_integration::PutIntegrationInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::put_integration::PutIntegrationInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::put_integration::PutIntegrationInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::put_integration::PutIntegrationInput {
             integration_name: self.integration_name,
             resource_config: self.resource_config,

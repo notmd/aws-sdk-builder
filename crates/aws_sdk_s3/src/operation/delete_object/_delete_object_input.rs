@@ -96,7 +96,9 @@ impl DeleteObjectInput {
     /// <p>If present, the object is deleted only if its modification times matches the provided <code>Timestamp</code>. If the <code>Timestamp</code> values do not match, the operation returns a <code>412 Precondition Failed</code> error. If the <code>Timestamp</code> matches or if the object doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p><note>
     /// <p>This functionality is only supported for directory buckets.</p>
     /// </note>
-    pub fn if_match_last_modified_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn if_match_last_modified_time(
+        &self,
+    ) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.if_match_last_modified_time.as_ref()
     }
     /// <p>If present, the object is deleted only if its size matches the provided size in bytes. If the <code>Size</code> value does not match, the operation returns a <code>412 Precondition Failed</code> error. If the <code>Size</code> matches or if the object doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p><note>
@@ -116,7 +118,9 @@ impl DeleteObjectInput {
 }
 
 /// A builder for [`DeleteObjectInput`](crate::operation::delete_object::DeleteObjectInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteObjectInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -226,7 +230,10 @@ impl DeleteObjectInputBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+    pub fn set_request_payer(
+        mut self,
+        input: ::std::option::Option<crate::types::RequestPayer>,
+    ) -> Self {
         self.request_payer = input;
         self
     }
@@ -257,12 +264,18 @@ impl DeleteObjectInputBuilder {
         &self.bypass_governance_retention
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -300,14 +313,19 @@ impl DeleteObjectInputBuilder {
     /// <p>If present, the object is deleted only if its modification times matches the provided <code>Timestamp</code>. If the <code>Timestamp</code> values do not match, the operation returns a <code>412 Precondition Failed</code> error. If the <code>Timestamp</code> matches or if the object doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p><note>
     /// <p>This functionality is only supported for directory buckets.</p>
     /// </note>
-    pub fn set_if_match_last_modified_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_if_match_last_modified_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.if_match_last_modified_time = input;
         self
     }
     /// <p>If present, the object is deleted only if its modification times matches the provided <code>Timestamp</code>. If the <code>Timestamp</code> values do not match, the operation returns a <code>412 Precondition Failed</code> error. If the <code>Timestamp</code> matches or if the object doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p><note>
     /// <p>This functionality is only supported for directory buckets.</p>
     /// </note>
-    pub fn get_if_match_last_modified_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_if_match_last_modified_time(
+        &self,
+    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.if_match_last_modified_time
     }
     /// <p>If present, the object is deleted only if its size matches the provided size in bytes. If the <code>Size</code> value does not match, the operation returns a <code>412 Precondition Failed</code> error. If the <code>Size</code> matches or if the object doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p><note>
@@ -339,7 +357,10 @@ impl DeleteObjectInputBuilder {
     /// Consumes the builder and constructs a [`DeleteObjectInput`](crate::operation::delete_object::DeleteObjectInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::delete_object::DeleteObjectInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::delete_object::DeleteObjectInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::delete_object::DeleteObjectInput {
             bucket: self.bucket,
             key: self.key,

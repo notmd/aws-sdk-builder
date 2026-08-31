@@ -33,7 +33,9 @@ impl RestoreRequest {
         self.days
     }
     /// <p>S3 Glacier related parameters pertaining to this job. Do not use with restores that specify <code>OutputLocation</code>.</p>
-    pub fn glacier_job_parameters(&self) -> ::std::option::Option<&crate::types::GlacierJobParameters> {
+    pub fn glacier_job_parameters(
+        &self,
+    ) -> ::std::option::Option<&crate::types::GlacierJobParameters> {
         self.glacier_job_parameters.as_ref()
     }
     /// <important>
@@ -71,7 +73,9 @@ impl RestoreRequest {
 }
 
 /// A builder for [`RestoreRequest`](crate::types::RestoreRequest).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RestoreRequestBuilder {
     pub(crate) days: ::std::option::Option<i32>,
@@ -106,12 +110,17 @@ impl RestoreRequestBuilder {
         self
     }
     /// <p>S3 Glacier related parameters pertaining to this job. Do not use with restores that specify <code>OutputLocation</code>.</p>
-    pub fn set_glacier_job_parameters(mut self, input: ::std::option::Option<crate::types::GlacierJobParameters>) -> Self {
+    pub fn set_glacier_job_parameters(
+        mut self,
+        input: ::std::option::Option<crate::types::GlacierJobParameters>,
+    ) -> Self {
         self.glacier_job_parameters = input;
         self
     }
     /// <p>S3 Glacier related parameters pertaining to this job. Do not use with restores that specify <code>OutputLocation</code>.</p>
-    pub fn get_glacier_job_parameters(&self) -> &::std::option::Option<crate::types::GlacierJobParameters> {
+    pub fn get_glacier_job_parameters(
+        &self,
+    ) -> &::std::option::Option<crate::types::GlacierJobParameters> {
         &self.glacier_job_parameters
     }
     /// <important>
@@ -126,7 +135,10 @@ impl RestoreRequestBuilder {
     /// <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a></p>
     /// </important>
     /// <p>Type of restore request.</p>
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::RestoreRequestType>) -> Self {
+    pub fn set_type(
+        mut self,
+        input: ::std::option::Option<crate::types::RestoreRequestType>,
+    ) -> Self {
         self.r#type = input;
         self
     }
@@ -177,7 +189,10 @@ impl RestoreRequestBuilder {
     /// <p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a></p>
     /// </important>
     /// <p>Describes the parameters for Select job types.</p>
-    pub fn set_select_parameters(mut self, input: ::std::option::Option<crate::types::SelectParameters>) -> Self {
+    pub fn set_select_parameters(
+        mut self,
+        input: ::std::option::Option<crate::types::SelectParameters>,
+    ) -> Self {
         self.select_parameters = input;
         self
     }
@@ -194,7 +209,10 @@ impl RestoreRequestBuilder {
         self
     }
     /// <p>Describes the location where the restore job's output is stored.</p>
-    pub fn set_output_location(mut self, input: ::std::option::Option<crate::types::OutputLocation>) -> Self {
+    pub fn set_output_location(
+        mut self,
+        input: ::std::option::Option<crate::types::OutputLocation>,
+    ) -> Self {
         self.output_location = input;
         self
     }

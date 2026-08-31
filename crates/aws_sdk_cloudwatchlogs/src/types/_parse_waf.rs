@@ -24,7 +24,9 @@ impl ParseWaf {
 }
 
 /// A builder for [`ParseWaf`](crate::types::ParseWaf).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ParseWafBuilder {
     pub(crate) source: ::std::option::Option<::std::string::String>,
@@ -46,6 +48,8 @@ impl ParseWafBuilder {
     }
     /// Consumes the builder and constructs a [`ParseWaf`](crate::types::ParseWaf).
     pub fn build(self) -> crate::types::ParseWaf {
-        crate::types::ParseWaf { source: self.source }
+        crate::types::ParseWaf {
+            source: self.source,
+        }
     }
 }

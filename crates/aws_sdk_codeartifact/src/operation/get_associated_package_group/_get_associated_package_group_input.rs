@@ -78,13 +78,15 @@ impl GetAssociatedPackageGroupInput {
 }
 impl GetAssociatedPackageGroupInput {
     /// Creates a new builder-style object to manufacture [`GetAssociatedPackageGroupInput`](crate::operation::get_associated_package_group::GetAssociatedPackageGroupInput).
-    pub fn builder() -> crate::operation::get_associated_package_group::builders::GetAssociatedPackageGroupInputBuilder {
+    pub fn builder() -> crate::operation::get_associated_package_group::builders::GetAssociatedPackageGroupInputBuilder{
         crate::operation::get_associated_package_group::builders::GetAssociatedPackageGroupInputBuilder::default()
     }
 }
 
 /// A builder for [`GetAssociatedPackageGroupInput`](crate::operation::get_associated_package_group::GetAssociatedPackageGroupInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetAssociatedPackageGroupInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -234,12 +236,14 @@ impl GetAssociatedPackageGroupInputBuilder {
         crate::operation::get_associated_package_group::GetAssociatedPackageGroupInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_associated_package_group::GetAssociatedPackageGroupInput {
-            domain: self.domain,
-            domain_owner: self.domain_owner,
-            format: self.format,
-            namespace: self.namespace,
-            package: self.package,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::get_associated_package_group::GetAssociatedPackageGroupInput {
+                domain: self.domain,
+                domain_owner: self.domain_owner,
+                format: self.format,
+                namespace: self.namespace,
+                package: self.package,
+            },
+        )
     }
 }

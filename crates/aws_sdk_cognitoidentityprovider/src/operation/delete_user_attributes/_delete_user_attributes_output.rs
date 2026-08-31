@@ -13,13 +13,16 @@ impl ::aws_types::request_id::RequestId for DeleteUserAttributesOutput {
 }
 impl DeleteUserAttributesOutput {
     /// Creates a new builder-style object to manufacture [`DeleteUserAttributesOutput`](crate::operation::delete_user_attributes::DeleteUserAttributesOutput).
-    pub fn builder() -> crate::operation::delete_user_attributes::builders::DeleteUserAttributesOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::delete_user_attributes::builders::DeleteUserAttributesOutputBuilder {
         crate::operation::delete_user_attributes::builders::DeleteUserAttributesOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteUserAttributesOutput`](crate::operation::delete_user_attributes::DeleteUserAttributesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteUserAttributesOutputBuilder {
     _request_id: Option<String>,

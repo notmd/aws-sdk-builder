@@ -29,7 +29,9 @@ impl ParseJson {
 }
 
 /// A builder for [`ParseJson`](crate::types::ParseJson).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ParseJsonBuilder {
     pub(crate) source: ::std::option::Option<::std::string::String>,

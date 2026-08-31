@@ -21,7 +21,9 @@ impl ConnectorConfiguration {
 }
 
 /// A builder for [`ConnectorConfiguration`](crate::types::ConnectorConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ConnectorConfigurationBuilder {
     pub(crate) azure: ::std::option::Option<crate::types::AzureConnectorConfiguration>,
@@ -33,7 +35,10 @@ impl ConnectorConfigurationBuilder {
         self
     }
     /// <p>The configuration for an Azure connector.</p>
-    pub fn set_azure(mut self, input: ::std::option::Option<crate::types::AzureConnectorConfiguration>) -> Self {
+    pub fn set_azure(
+        mut self,
+        input: ::std::option::Option<crate::types::AzureConnectorConfiguration>,
+    ) -> Self {
         self.azure = input;
         self
     }

@@ -29,7 +29,8 @@ pub struct ListObjectVersionsInput {
     /// </note>
     pub request_payer: ::std::option::Option<crate::types::RequestPayer>,
     /// <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p>
-    pub optional_object_attributes: ::std::option::Option<::std::vec::Vec<crate::types::OptionalObjectAttributes>>,
+    pub optional_object_attributes:
+        ::std::option::Option<::std::vec::Vec<crate::types::OptionalObjectAttributes>>,
 }
 impl ListObjectVersionsInput {
     /// <p>The bucket name that contains the objects.</p>
@@ -79,18 +80,23 @@ impl ListObjectVersionsInput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.optional_object_attributes.is_none()`.
     pub fn optional_object_attributes(&self) -> &[crate::types::OptionalObjectAttributes] {
-        self.optional_object_attributes.as_deref().unwrap_or_default()
+        self.optional_object_attributes
+            .as_deref()
+            .unwrap_or_default()
     }
 }
 impl ListObjectVersionsInput {
     /// Creates a new builder-style object to manufacture [`ListObjectVersionsInput`](crate::operation::list_object_versions::ListObjectVersionsInput).
-    pub fn builder() -> crate::operation::list_object_versions::builders::ListObjectVersionsInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_object_versions::builders::ListObjectVersionsInputBuilder {
         crate::operation::list_object_versions::builders::ListObjectVersionsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListObjectVersionsInput`](crate::operation::list_object_versions::ListObjectVersionsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListObjectVersionsInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -102,7 +108,8 @@ pub struct ListObjectVersionsInputBuilder {
     pub(crate) version_id_marker: ::std::option::Option<::std::string::String>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
     pub(crate) request_payer: ::std::option::Option<crate::types::RequestPayer>,
-    pub(crate) optional_object_attributes: ::std::option::Option<::std::vec::Vec<crate::types::OptionalObjectAttributes>>,
+    pub(crate) optional_object_attributes:
+        ::std::option::Option<::std::vec::Vec<crate::types::OptionalObjectAttributes>>,
 }
 impl ListObjectVersionsInputBuilder {
     /// <p>The bucket name that contains the objects.</p>
@@ -147,7 +154,10 @@ impl ListObjectVersionsInputBuilder {
     /// <p>Encoding type used by Amazon S3 to encode the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> in the response. Responses are encoded only in UTF-8. An object key can contain any Unicode character. However, the XML 1.0 parser can't parse certain characters, such as characters with an ASCII value from 0 to 10. For characters that aren't supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response. For more information about characters to avoid in object key names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-guidelines">Object key naming guidelines</a>.</p><note>
     /// <p>When using the URL encoding type, non-ASCII characters that are used in an object's key name will be percent-encoded according to UTF-8 code values. For example, the object <code>test_file(3).png</code> will appear as <code>test_file%283%29.png</code>.</p>
     /// </note>
-    pub fn set_encoding_type(mut self, input: ::std::option::Option<crate::types::EncodingType>) -> Self {
+    pub fn set_encoding_type(
+        mut self,
+        input: ::std::option::Option<crate::types::EncodingType>,
+    ) -> Self {
         self.encoding_type = input;
         self
     }
@@ -206,12 +216,18 @@ impl ListObjectVersionsInputBuilder {
         &self.prefix
     }
     /// <p>Specifies the object version you want to start listing from.</p>
-    pub fn version_id_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn version_id_marker(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.version_id_marker = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Specifies the object version you want to start listing from.</p>
-    pub fn set_version_id_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_version_id_marker(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.version_id_marker = input;
         self
     }
@@ -220,12 +236,18 @@ impl ListObjectVersionsInputBuilder {
         &self.version_id_marker
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_bucket_owner(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_bucket_owner(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -243,7 +265,10 @@ impl ListObjectVersionsInputBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+    pub fn set_request_payer(
+        mut self,
+        input: ::std::option::Option<crate::types::RequestPayer>,
+    ) -> Self {
         self.request_payer = input;
         self
     }
@@ -258,37 +283,49 @@ impl ListObjectVersionsInputBuilder {
     /// To override the contents of this collection use [`set_optional_object_attributes`](Self::set_optional_object_attributes).
     ///
     /// <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p>
-    pub fn optional_object_attributes(mut self, input: crate::types::OptionalObjectAttributes) -> Self {
+    pub fn optional_object_attributes(
+        mut self,
+        input: crate::types::OptionalObjectAttributes,
+    ) -> Self {
         let mut v = self.optional_object_attributes.unwrap_or_default();
         v.push(input);
         self.optional_object_attributes = ::std::option::Option::Some(v);
         self
     }
     /// <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p>
-    pub fn set_optional_object_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OptionalObjectAttributes>>) -> Self {
+    pub fn set_optional_object_attributes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::OptionalObjectAttributes>>,
+    ) -> Self {
         self.optional_object_attributes = input;
         self
     }
     /// <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p>
-    pub fn get_optional_object_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OptionalObjectAttributes>> {
+    pub fn get_optional_object_attributes(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::OptionalObjectAttributes>> {
         &self.optional_object_attributes
     }
     /// Consumes the builder and constructs a [`ListObjectVersionsInput`](crate::operation::list_object_versions::ListObjectVersionsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_object_versions::ListObjectVersionsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::list_object_versions::ListObjectVersionsInput {
-            bucket: self.bucket,
-            delimiter: self.delimiter,
-            encoding_type: self.encoding_type,
-            key_marker: self.key_marker,
-            max_keys: self.max_keys,
-            prefix: self.prefix,
-            version_id_marker: self.version_id_marker,
-            expected_bucket_owner: self.expected_bucket_owner,
-            request_payer: self.request_payer,
-            optional_object_attributes: self.optional_object_attributes,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::list_object_versions::ListObjectVersionsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::list_object_versions::ListObjectVersionsInput {
+                bucket: self.bucket,
+                delimiter: self.delimiter,
+                encoding_type: self.encoding_type,
+                key_marker: self.key_marker,
+                max_keys: self.max_keys,
+                prefix: self.prefix,
+                version_id_marker: self.version_id_marker,
+                expected_bucket_owner: self.expected_bucket_owner,
+                request_payer: self.request_payer,
+                optional_object_attributes: self.optional_object_attributes,
+            },
+        )
     }
 }

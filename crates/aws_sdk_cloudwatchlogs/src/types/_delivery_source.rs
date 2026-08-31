@@ -28,9 +28,13 @@ pub struct DeliverySource {
     /// <p>The type of log that the source is sending. For valid values for this parameter, see the documentation for the source service.</p>
     pub log_type: ::std::option::Option<::std::string::String>,
     /// <p>The tags that have been assigned to this delivery source.</p>
-    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub tags: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     /// <p>The map of key-value pairs that configure the delivery source.</p>
-    pub delivery_source_configuration: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub delivery_source_configuration: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     /// <p>The status of the delivery source. A delivery source can have the status <code>ACTIVE</code> or <code>INACTIVE</code>. Note: This value is defined for selective log types.</p>
     pub status: ::std::option::Option<crate::types::DeliverySourceStatus>,
     /// <p>The reason for the status of the delivery source. A status reason of <code>RESOURCE_DELETED</code> indicates that the resource associated with the delivery source has been deleted. Note: This value is defined for selective log types.</p>
@@ -60,11 +64,19 @@ impl DeliverySource {
         self.log_type.as_deref()
     }
     /// <p>The tags that have been assigned to this delivery source.</p>
-    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn tags(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.tags.as_ref()
     }
     /// <p>The map of key-value pairs that configure the delivery source.</p>
-    pub fn delivery_source_configuration(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn delivery_source_configuration(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.delivery_source_configuration.as_ref()
     }
     /// <p>The status of the delivery source. A delivery source can have the status <code>ACTIVE</code> or <code>INACTIVE</code>. Note: This value is defined for selective log types.</p>
@@ -72,7 +84,9 @@ impl DeliverySource {
         self.status.as_ref()
     }
     /// <p>The reason for the status of the delivery source. A status reason of <code>RESOURCE_DELETED</code> indicates that the resource associated with the delivery source has been deleted. Note: This value is defined for selective log types.</p>
-    pub fn status_reason(&self) -> ::std::option::Option<&crate::types::DeliverySourceStatusReason> {
+    pub fn status_reason(
+        &self,
+    ) -> ::std::option::Option<&crate::types::DeliverySourceStatusReason> {
         self.status_reason.as_ref()
     }
 }
@@ -84,7 +98,9 @@ impl DeliverySource {
 }
 
 /// A builder for [`DeliverySource`](crate::types::DeliverySource).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeliverySourceBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -92,8 +108,12 @@ pub struct DeliverySourceBuilder {
     pub(crate) resource_arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) service: ::std::option::Option<::std::string::String>,
     pub(crate) log_type: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    pub(crate) delivery_source_configuration: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) tags: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
+    pub(crate) delivery_source_configuration: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     pub(crate) status: ::std::option::Option<crate::types::DeliverySourceStatus>,
     pub(crate) status_reason: ::std::option::Option<crate::types::DeliverySourceStatusReason>,
 }
@@ -131,19 +151,27 @@ impl DeliverySourceBuilder {
     /// To override the contents of this collection use [`set_resource_arns`](Self::set_resource_arns).
     ///
     /// <p>This array contains the ARN of the Amazon Web Services resource that sends logs and is represented by this delivery source. Currently, only one ARN can be in the array.</p>
-    pub fn resource_arns(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn resource_arns(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.resource_arns.unwrap_or_default();
         v.push(input.into());
         self.resource_arns = ::std::option::Option::Some(v);
         self
     }
     /// <p>This array contains the ARN of the Amazon Web Services resource that sends logs and is represented by this delivery source. Currently, only one ARN can be in the array.</p>
-    pub fn set_resource_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_resource_arns(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.resource_arns = input;
         self
     }
     /// <p>This array contains the ARN of the Amazon Web Services resource that sends logs and is represented by this delivery source. Currently, only one ARN can be in the array.</p>
-    pub fn get_resource_arns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_resource_arns(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.resource_arns
     }
     /// <p>The Amazon Web Services service that is sending logs.</p>
@@ -179,19 +207,32 @@ impl DeliverySourceBuilder {
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
     /// <p>The tags that have been assigned to this delivery source.</p>
-    pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn tags(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut hash_map = self.tags.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.tags = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>The tags that have been assigned to this delivery source.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
+    ) -> Self {
         self.tags = input;
         self
     }
     /// <p>The tags that have been assigned to this delivery source.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.tags
     }
     /// Adds a key-value pair to `delivery_source_configuration`.
@@ -212,7 +253,9 @@ impl DeliverySourceBuilder {
     /// <p>The map of key-value pairs that configure the delivery source.</p>
     pub fn set_delivery_source_configuration(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
     ) -> Self {
         self.delivery_source_configuration = input;
         self
@@ -220,7 +263,9 @@ impl DeliverySourceBuilder {
     /// <p>The map of key-value pairs that configure the delivery source.</p>
     pub fn get_delivery_source_configuration(
         &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.delivery_source_configuration
     }
     /// <p>The status of the delivery source. A delivery source can have the status <code>ACTIVE</code> or <code>INACTIVE</code>. Note: This value is defined for selective log types.</p>
@@ -229,7 +274,10 @@ impl DeliverySourceBuilder {
         self
     }
     /// <p>The status of the delivery source. A delivery source can have the status <code>ACTIVE</code> or <code>INACTIVE</code>. Note: This value is defined for selective log types.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::DeliverySourceStatus>) -> Self {
+    pub fn set_status(
+        mut self,
+        input: ::std::option::Option<crate::types::DeliverySourceStatus>,
+    ) -> Self {
         self.status = input;
         self
     }
@@ -243,12 +291,17 @@ impl DeliverySourceBuilder {
         self
     }
     /// <p>The reason for the status of the delivery source. A status reason of <code>RESOURCE_DELETED</code> indicates that the resource associated with the delivery source has been deleted. Note: This value is defined for selective log types.</p>
-    pub fn set_status_reason(mut self, input: ::std::option::Option<crate::types::DeliverySourceStatusReason>) -> Self {
+    pub fn set_status_reason(
+        mut self,
+        input: ::std::option::Option<crate::types::DeliverySourceStatusReason>,
+    ) -> Self {
         self.status_reason = input;
         self
     }
     /// <p>The reason for the status of the delivery source. A status reason of <code>RESOURCE_DELETED</code> indicates that the resource associated with the delivery source has been deleted. Note: This value is defined for selective log types.</p>
-    pub fn get_status_reason(&self) -> &::std::option::Option<crate::types::DeliverySourceStatusReason> {
+    pub fn get_status_reason(
+        &self,
+    ) -> &::std::option::Option<crate::types::DeliverySourceStatusReason> {
         &self.status_reason
     }
     /// Consumes the builder and constructs a [`DeliverySource`](crate::types::DeliverySource).

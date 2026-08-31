@@ -58,7 +58,10 @@ impl DeleteSigningCertificateFluentBuilder {
         }
     }
     /// Access the DeleteSigningCertificate as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_signing_certificate::builders::DeleteSigningCertificateInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::delete_signing_certificate::builders::DeleteSigningCertificateInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,7 +90,11 @@ impl DeleteSigningCertificateFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_signing_certificate::DeleteSigningCertificate::orchestrate(&runtime_plugins, input).await
+        crate::operation::delete_signing_certificate::DeleteSigningCertificate::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -100,12 +107,18 @@ impl DeleteSigningCertificateFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -128,13 +141,19 @@ impl DeleteSigningCertificateFluentBuilder {
     }
     /// <p>The ID of the signing certificate to delete.</p>
     /// <p>The format of this parameter, as described by its <a href="http://wikipedia.org/wiki/regex">regex</a> pattern, is a string of characters that can be upper- or lower-cased letters or digits.</p>
-    pub fn certificate_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn certificate_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.certificate_id(input.into());
         self
     }
     /// <p>The ID of the signing certificate to delete.</p>
     /// <p>The format of this parameter, as described by its <a href="http://wikipedia.org/wiki/regex">regex</a> pattern, is a string of characters that can be upper- or lower-cased letters or digits.</p>
-    pub fn set_certificate_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_certificate_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_certificate_id(input);
         self
     }

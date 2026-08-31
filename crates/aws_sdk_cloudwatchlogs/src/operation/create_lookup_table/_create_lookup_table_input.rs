@@ -16,7 +16,9 @@ pub struct CreateLookupTableInput {
     /// <p>The ARN of the KMS key to use to encrypt the lookup table data. If you don't specify a key, the data is encrypted with an Amazon Web Services-owned key.</p>
     pub kms_key_id: ::std::option::Option<::std::string::String>,
     /// <p>A list of key-value pairs to associate with the lookup table. You can associate as many as 50 tags with a lookup table. Tags can help you organize and categorize your resources.</p>
-    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub tags: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
 }
 impl CreateLookupTableInput {
     /// <p>The name of the lookup table. The name must be unique within your account and Region. The name can contain only alphanumeric characters and underscores, and can be up to 256 characters long.</p>
@@ -42,19 +44,26 @@ impl CreateLookupTableInput {
         self.kms_key_id.as_deref()
     }
     /// <p>A list of key-value pairs to associate with the lookup table. You can associate as many as 50 tags with a lookup table. Tags can help you organize and categorize your resources.</p>
-    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn tags(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.tags.as_ref()
     }
 }
 impl CreateLookupTableInput {
     /// Creates a new builder-style object to manufacture [`CreateLookupTableInput`](crate::operation::create_lookup_table::CreateLookupTableInput).
-    pub fn builder() -> crate::operation::create_lookup_table::builders::CreateLookupTableInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::create_lookup_table::builders::CreateLookupTableInputBuilder {
         crate::operation::create_lookup_table::builders::CreateLookupTableInputBuilder::default()
     }
 }
 
 /// A builder for [`CreateLookupTableInput`](crate::operation::create_lookup_table::CreateLookupTableInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct CreateLookupTableInputBuilder {
     pub(crate) lookup_table_name: ::std::option::Option<::std::string::String>,
@@ -62,17 +71,25 @@ pub struct CreateLookupTableInputBuilder {
     pub(crate) table_body: ::std::option::Option<::std::string::String>,
     pub(crate) query_id: ::std::option::Option<::std::string::String>,
     pub(crate) kms_key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) tags: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
 }
 impl CreateLookupTableInputBuilder {
     /// <p>The name of the lookup table. The name must be unique within your account and Region. The name can contain only alphanumeric characters and underscores, and can be up to 256 characters long.</p>
     /// This field is required.
-    pub fn lookup_table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn lookup_table_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.lookup_table_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the lookup table. The name must be unique within your account and Region. The name can contain only alphanumeric characters and underscores, and can be up to 256 characters long.</p>
-    pub fn set_lookup_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_lookup_table_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.lookup_table_name = input;
         self
     }
@@ -147,32 +164,50 @@ impl CreateLookupTableInputBuilder {
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
     ///
     /// <p>A list of key-value pairs to associate with the lookup table. You can associate as many as 50 tags with a lookup table. Tags can help you organize and categorize your resources.</p>
-    pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn tags(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut hash_map = self.tags.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.tags = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>A list of key-value pairs to associate with the lookup table. You can associate as many as 50 tags with a lookup table. Tags can help you organize and categorize your resources.</p>
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_tags(
+        mut self,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
+    ) -> Self {
         self.tags = input;
         self
     }
     /// <p>A list of key-value pairs to associate with the lookup table. You can associate as many as 50 tags with a lookup table. Tags can help you organize and categorize your resources.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_tags(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.tags
     }
     /// Consumes the builder and constructs a [`CreateLookupTableInput`](crate::operation::create_lookup_table::CreateLookupTableInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::create_lookup_table::CreateLookupTableInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::create_lookup_table::CreateLookupTableInput {
-            lookup_table_name: self.lookup_table_name,
-            description: self.description,
-            table_body: self.table_body,
-            query_id: self.query_id,
-            kms_key_id: self.kms_key_id,
-            tags: self.tags,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::create_lookup_table::CreateLookupTableInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::create_lookup_table::CreateLookupTableInput {
+                lookup_table_name: self.lookup_table_name,
+                description: self.description,
+                table_body: self.table_body,
+                query_id: self.query_id,
+                kms_key_id: self.kms_key_id,
+                tags: self.tags,
+            },
+        )
     }
 }

@@ -5,7 +5,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ArrayPropertiesDetail {
     /// <p>A summary of the number of array job children in each available job status. This parameter is returned for parent array jobs.</p>
-    pub status_summary: ::std::option::Option<::std::collections::HashMap<::std::string::String, i32>>,
+    pub status_summary:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, i32>>,
     /// <p>The Unix timestamp (in milliseconds) for when the <code>statusSummary</code> was last updated.</p>
     pub status_summary_last_updated_at: ::std::option::Option<i64>,
     /// <p>The size of the array job. This parameter is returned for parent array jobs.</p>
@@ -15,7 +16,9 @@ pub struct ArrayPropertiesDetail {
 }
 impl ArrayPropertiesDetail {
     /// <p>A summary of the number of array job children in each available job status. This parameter is returned for parent array jobs.</p>
-    pub fn status_summary(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, i32>> {
+    pub fn status_summary(
+        &self,
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, i32>> {
         self.status_summary.as_ref()
     }
     /// <p>The Unix timestamp (in milliseconds) for when the <code>statusSummary</code> was last updated.</p>
@@ -39,10 +42,13 @@ impl ArrayPropertiesDetail {
 }
 
 /// A builder for [`ArrayPropertiesDetail`](crate::types::ArrayPropertiesDetail).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ArrayPropertiesDetailBuilder {
-    pub(crate) status_summary: ::std::option::Option<::std::collections::HashMap<::std::string::String, i32>>,
+    pub(crate) status_summary:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, i32>>,
     pub(crate) status_summary_last_updated_at: ::std::option::Option<i64>,
     pub(crate) size: ::std::option::Option<i32>,
     pub(crate) index: ::std::option::Option<i32>,
@@ -53,19 +59,28 @@ impl ArrayPropertiesDetailBuilder {
     /// To override the contents of this collection use [`set_status_summary`](Self::set_status_summary).
     ///
     /// <p>A summary of the number of array job children in each available job status. This parameter is returned for parent array jobs.</p>
-    pub fn status_summary(mut self, k: impl ::std::convert::Into<::std::string::String>, v: i32) -> Self {
+    pub fn status_summary(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: i32,
+    ) -> Self {
         let mut hash_map = self.status_summary.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.status_summary = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>A summary of the number of array job children in each available job status. This parameter is returned for parent array jobs.</p>
-    pub fn set_status_summary(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, i32>>) -> Self {
+    pub fn set_status_summary(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, i32>>,
+    ) -> Self {
         self.status_summary = input;
         self
     }
     /// <p>A summary of the number of array job children in each available job status. This parameter is returned for parent array jobs.</p>
-    pub fn get_status_summary(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, i32>> {
+    pub fn get_status_summary(
+        &self,
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, i32>> {
         &self.status_summary
     }
     /// <p>The Unix timestamp (in milliseconds) for when the <code>statusSummary</code> was last updated.</p>

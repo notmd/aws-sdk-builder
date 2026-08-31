@@ -33,13 +33,16 @@ impl ::aws_types::request_id::RequestId for GetObjectTaggingOutput {
 }
 impl GetObjectTaggingOutput {
     /// Creates a new builder-style object to manufacture [`GetObjectTaggingOutput`](crate::operation::get_object_tagging::GetObjectTaggingOutput).
-    pub fn builder() -> crate::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder {
+    pub fn builder() -> crate::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder
+    {
         crate::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetObjectTaggingOutput`](crate::operation::get_object_tagging::GetObjectTaggingOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetObjectTaggingOutputBuilder {
     pub(crate) version_id: ::std::option::Option<::std::string::String>,
@@ -74,7 +77,10 @@ impl GetObjectTaggingOutputBuilder {
         self
     }
     /// <p>Contains the tag set.</p>
-    pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+    pub fn set_tag_set(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    ) -> Self {
         self.tag_set = input;
         self
     }
@@ -87,7 +93,10 @@ impl GetObjectTaggingOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(
+        &mut self,
+        extended_request_id: Option<String>,
+    ) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -105,7 +114,10 @@ impl GetObjectTaggingOutputBuilder {
     /// - [`tag_set`](crate::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder::tag_set)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_object_tagging::GetObjectTaggingOutput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::get_object_tagging::GetObjectTaggingOutput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::get_object_tagging::GetObjectTaggingOutput {
             version_id: self.version_id,
             tag_set: self.tag_set.ok_or_else(|| {

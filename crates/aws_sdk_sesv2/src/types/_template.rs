@@ -59,7 +59,9 @@ impl Template {
 }
 
 /// A builder for [`Template`](crate::types::Template).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct TemplateBuilder {
     pub(crate) template_name: ::std::option::Option<::std::string::String>,
@@ -71,12 +73,18 @@ pub struct TemplateBuilder {
 }
 impl TemplateBuilder {
     /// <p>The name of the template. You will refer to this name when you send email using the <code>SendEmail</code> or <code>SendBulkEmail</code> operations.</p>
-    pub fn template_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn template_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.template_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the template. You will refer to this name when you send email using the <code>SendEmail</code> or <code>SendBulkEmail</code> operations.</p>
-    pub fn set_template_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_template_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.template_name = input;
         self
     }
@@ -108,23 +116,34 @@ impl TemplateBuilder {
     /// <p>The content of the template.</p><note>
     /// <p>Amazon SES supports only simple substitions when you send email using the <code>SendEmail</code> or <code>SendBulkEmail</code> operations and you provide the full template content in the request.</p>
     /// </note>
-    pub fn set_template_content(mut self, input: ::std::option::Option<crate::types::EmailTemplateContent>) -> Self {
+    pub fn set_template_content(
+        mut self,
+        input: ::std::option::Option<crate::types::EmailTemplateContent>,
+    ) -> Self {
         self.template_content = input;
         self
     }
     /// <p>The content of the template.</p><note>
     /// <p>Amazon SES supports only simple substitions when you send email using the <code>SendEmail</code> or <code>SendBulkEmail</code> operations and you provide the full template content in the request.</p>
     /// </note>
-    pub fn get_template_content(&self) -> &::std::option::Option<crate::types::EmailTemplateContent> {
+    pub fn get_template_content(
+        &self,
+    ) -> &::std::option::Option<crate::types::EmailTemplateContent> {
         &self.template_content
     }
     /// <p>An object that defines the values to use for message variables in the template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the value to use for that variable.</p>
-    pub fn template_data(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn template_data(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.template_data = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>An object that defines the values to use for message variables in the template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the value to use for that variable.</p>
-    pub fn set_template_data(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_template_data(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.template_data = input;
         self
     }
@@ -144,12 +163,17 @@ impl TemplateBuilder {
         self
     }
     /// <p>The list of message headers that will be added to the email message.</p>
-    pub fn set_headers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MessageHeader>>) -> Self {
+    pub fn set_headers(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::MessageHeader>>,
+    ) -> Self {
         self.headers = input;
         self
     }
     /// <p>The list of message headers that will be added to the email message.</p>
-    pub fn get_headers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MessageHeader>> {
+    pub fn get_headers(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MessageHeader>> {
         &self.headers
     }
     /// Appends an item to `attachments`.
@@ -164,12 +188,17 @@ impl TemplateBuilder {
         self
     }
     /// <p>The List of attachments to include in your email. All recipients will receive the same attachments.</p>
-    pub fn set_attachments(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Attachment>>) -> Self {
+    pub fn set_attachments(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Attachment>>,
+    ) -> Self {
         self.attachments = input;
         self
     }
     /// <p>The List of attachments to include in your email. All recipients will receive the same attachments.</p>
-    pub fn get_attachments(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Attachment>> {
+    pub fn get_attachments(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Attachment>> {
         &self.attachments
     }
     /// Consumes the builder and constructs a [`Template`](crate::types::Template).

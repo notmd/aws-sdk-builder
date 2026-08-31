@@ -77,13 +77,17 @@ impl UpdateComputeEnvironmentInput {
 }
 impl UpdateComputeEnvironmentInput {
     /// Creates a new builder-style object to manufacture [`UpdateComputeEnvironmentInput`](crate::operation::update_compute_environment::UpdateComputeEnvironmentInput).
-    pub fn builder() -> crate::operation::update_compute_environment::builders::UpdateComputeEnvironmentInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_compute_environment::builders::UpdateComputeEnvironmentInputBuilder
+    {
         crate::operation::update_compute_environment::builders::UpdateComputeEnvironmentInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateComputeEnvironmentInput`](crate::operation::update_compute_environment::UpdateComputeEnvironmentInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateComputeEnvironmentInputBuilder {
     pub(crate) compute_environment: ::std::option::Option<::std::string::String>,
@@ -98,12 +102,18 @@ pub struct UpdateComputeEnvironmentInputBuilder {
 impl UpdateComputeEnvironmentInputBuilder {
     /// <p>The name or full Amazon Resource Name (ARN) of the compute environment to update.</p>
     /// This field is required.
-    pub fn compute_environment(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn compute_environment(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.compute_environment = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name or full Amazon Resource Name (ARN) of the compute environment to update.</p>
-    pub fn set_compute_environment(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_compute_environment(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.compute_environment = input;
         self
     }
@@ -160,12 +170,17 @@ impl UpdateComputeEnvironmentInputBuilder {
         self
     }
     /// <p>Details of the compute resources managed by the compute environment. Required for a managed compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
-    pub fn set_compute_resources(mut self, input: ::std::option::Option<crate::types::ComputeResourceUpdate>) -> Self {
+    pub fn set_compute_resources(
+        mut self,
+        input: ::std::option::Option<crate::types::ComputeResourceUpdate>,
+    ) -> Self {
         self.compute_resources = input;
         self
     }
     /// <p>Details of the compute resources managed by the compute environment. Required for a managed compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
-    pub fn get_compute_resources(&self) -> &::std::option::Option<crate::types::ComputeResourceUpdate> {
+    pub fn get_compute_resources(
+        &self,
+    ) -> &::std::option::Option<crate::types::ComputeResourceUpdate> {
         &self.compute_resources
     }
     /// <p>The full Amazon Resource Name (ARN) of the IAM role that allows Batch to make calls to other Amazon Web Services services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html">Batch service IAM role</a> in the <i>Batch User Guide</i>.</p><important>
@@ -203,7 +218,10 @@ impl UpdateComputeEnvironmentInputBuilder {
         self
     }
     /// <p>Specifies the updated infrastructure update policy for the compute environment. For more information about infrastructure updates, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p>
-    pub fn set_update_policy(mut self, input: ::std::option::Option<crate::types::UpdatePolicy>) -> Self {
+    pub fn set_update_policy(
+        mut self,
+        input: ::std::option::Option<crate::types::UpdatePolicy>,
+    ) -> Self {
         self.update_policy = input;
         self
     }
@@ -231,7 +249,10 @@ impl UpdateComputeEnvironmentInputBuilder {
         self
     }
     /// <p>The Amazon ECS settings for the compute environment. These settings control CloudWatch Container Insights collection for the compute environment.</p>
-    pub fn set_ecs_settings(mut self, input: ::std::option::Option<crate::types::EcsSettings>) -> Self {
+    pub fn set_ecs_settings(
+        mut self,
+        input: ::std::option::Option<crate::types::EcsSettings>,
+    ) -> Self {
         self.ecs_settings = input;
         self
     }
@@ -246,15 +267,17 @@ impl UpdateComputeEnvironmentInputBuilder {
         crate::operation::update_compute_environment::UpdateComputeEnvironmentInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::update_compute_environment::UpdateComputeEnvironmentInput {
-            compute_environment: self.compute_environment,
-            state: self.state,
-            unmanagedv_cpus: self.unmanagedv_cpus,
-            compute_resources: self.compute_resources,
-            service_role: self.service_role,
-            update_policy: self.update_policy,
-            context: self.context,
-            ecs_settings: self.ecs_settings,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::update_compute_environment::UpdateComputeEnvironmentInput {
+                compute_environment: self.compute_environment,
+                state: self.state,
+                unmanagedv_cpus: self.unmanagedv_cpus,
+                compute_resources: self.compute_resources,
+                service_role: self.service_role,
+                update_policy: self.update_policy,
+                context: self.context,
+                ecs_settings: self.ecs_settings,
+            },
+        )
     }
 }

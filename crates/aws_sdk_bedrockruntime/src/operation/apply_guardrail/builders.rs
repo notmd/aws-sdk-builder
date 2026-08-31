@@ -58,7 +58,9 @@ impl ApplyGuardrailFluentBuilder {
         }
     }
     /// Access the ApplyGuardrail as a reference.
-    pub fn as_input(&self) -> &crate::operation::apply_guardrail::builders::ApplyGuardrailInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::apply_guardrail::builders::ApplyGuardrailInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,12 +84,14 @@ impl ApplyGuardrailFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::apply_guardrail::ApplyGuardrail::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::apply_guardrail::ApplyGuardrail::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::apply_guardrail::ApplyGuardrail::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::apply_guardrail::ApplyGuardrail::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -100,22 +104,34 @@ impl ApplyGuardrailFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The guardrail identifier used in the request to apply the guardrail.</p>
-    pub fn guardrail_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn guardrail_identifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.guardrail_identifier(input.into());
         self
     }
     /// <p>The guardrail identifier used in the request to apply the guardrail.</p>
-    pub fn set_guardrail_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_guardrail_identifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_guardrail_identifier(input);
         self
     }
@@ -124,12 +140,18 @@ impl ApplyGuardrailFluentBuilder {
         self.inner.get_guardrail_identifier()
     }
     /// <p>The guardrail version used in the request to apply the guardrail.</p>
-    pub fn guardrail_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn guardrail_version(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.guardrail_version(input.into());
         self
     }
     /// <p>The guardrail version used in the request to apply the guardrail.</p>
-    pub fn set_guardrail_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_guardrail_version(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_guardrail_version(input);
         self
     }
@@ -143,7 +165,10 @@ impl ApplyGuardrailFluentBuilder {
         self
     }
     /// <p>The source of data used in the request to apply the guardrail.</p>
-    pub fn set_source(mut self, input: ::std::option::Option<crate::types::GuardrailContentSource>) -> Self {
+    pub fn set_source(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailContentSource>,
+    ) -> Self {
         self.inner = self.inner.set_source(input);
         self
     }
@@ -162,12 +187,17 @@ impl ApplyGuardrailFluentBuilder {
         self
     }
     /// <p>The content details used in the request to apply the guardrail.</p>
-    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentBlock>>) -> Self {
+    pub fn set_content(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentBlock>>,
+    ) -> Self {
         self.inner = self.inner.set_content(input);
         self
     }
     /// <p>The content details used in the request to apply the guardrail.</p>
-    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentBlock>> {
+    pub fn get_content(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentBlock>> {
         self.inner.get_content()
     }
     /// <p>Specifies the scope of the output that you get in the response. Set to <code>FULL</code> to return the entire output, including any detected and non-detected entries in the response for enhanced debugging.</p>
@@ -178,7 +208,10 @@ impl ApplyGuardrailFluentBuilder {
     }
     /// <p>Specifies the scope of the output that you get in the response. Set to <code>FULL</code> to return the entire output, including any detected and non-detected entries in the response for enhanced debugging.</p>
     /// <p>Note that the full output scope doesn't apply to word filters or regex in sensitive information filters. It does apply to all other filtering policies, including sensitive information with filters that can detect personally identifiable information (PII).</p>
-    pub fn set_output_scope(mut self, input: ::std::option::Option<crate::types::GuardrailOutputScope>) -> Self {
+    pub fn set_output_scope(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailOutputScope>,
+    ) -> Self {
         self.inner = self.inner.set_output_scope(input);
         self
     }

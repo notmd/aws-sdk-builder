@@ -99,11 +99,12 @@ impl CountTokensFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::count_tokens::CountTokens::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::count_tokens::CountTokens::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::count_tokens::CountTokens::orchestrate(&runtime_plugins, input).await
     }
 
@@ -117,12 +118,18 @@ impl CountTokensFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -160,7 +167,10 @@ impl CountTokensFluentBuilder {
     /// <p>For <code>Converse</code> requests, provide the messages and system content in the <code>converse</code> field</p></li>
     /// </ul>
     /// <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
-    pub fn set_input(mut self, input: ::std::option::Option<crate::types::CountTokensInput>) -> Self {
+    pub fn set_input(
+        mut self,
+        input: ::std::option::Option<crate::types::CountTokensInput>,
+    ) -> Self {
         self.inner = self.inner.set_input(input);
         self
     }

@@ -35,14 +35,20 @@ pub struct SignUpFluentBuilder {
     inner: crate::operation::sign_up::builders::SignUpInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
-impl crate::client::customize::internal::CustomizableSend<crate::operation::sign_up::SignUpOutput, crate::operation::sign_up::SignUpError>
-    for SignUpFluentBuilder
+impl
+    crate::client::customize::internal::CustomizableSend<
+        crate::operation::sign_up::SignUpOutput,
+        crate::operation::sign_up::SignUpError,
+    > for SignUpFluentBuilder
 {
     fn send(
         self,
         config_override: crate::config::Builder,
     ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<crate::operation::sign_up::SignUpOutput, crate::operation::sign_up::SignUpError>,
+        crate::client::customize::internal::SendResult<
+            crate::operation::sign_up::SignUpOutput,
+            crate::operation::sign_up::SignUpError,
+        >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -92,15 +98,25 @@ impl SignUpFluentBuilder {
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
     pub fn customize(
         self,
-    ) -> crate::client::customize::CustomizableOperation<crate::operation::sign_up::SignUpOutput, crate::operation::sign_up::SignUpError, Self> {
+    ) -> crate::client::customize::CustomizableOperation<
+        crate::operation::sign_up::SignUpOutput,
+        crate::operation::sign_up::SignUpError,
+        Self,
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -176,13 +192,18 @@ impl SignUpFluentBuilder {
     }
     /// <p>An array of name-value pairs representing user attributes.</p>
     /// <p>For custom attributes, include a <code>custom:</code> prefix in the attribute name, for example <code>custom:department</code>.</p>
-    pub fn set_user_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>) -> Self {
+    pub fn set_user_attributes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
+    ) -> Self {
         self.inner = self.inner.set_user_attributes(input);
         self
     }
     /// <p>An array of name-value pairs representing user attributes.</p>
     /// <p>For custom attributes, include a <code>custom:</code> prefix in the attribute name, for example <code>custom:department</code>.</p>
-    pub fn get_user_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
+    pub fn get_user_attributes(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
         self.inner.get_user_attributes()
     }
     ///
@@ -200,14 +221,19 @@ impl SignUpFluentBuilder {
     /// <p>Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.</p>
     /// <p>Your Lambda function can analyze this additional data and act on it. Your function can automatically confirm and verify select users or perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs.</p>
     /// <p>For more information about the pre sign-up Lambda trigger, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html">Pre sign-up Lambda trigger</a>.</p>
-    pub fn set_validation_data(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>) -> Self {
+    pub fn set_validation_data(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
+    ) -> Self {
         self.inner = self.inner.set_validation_data(input);
         self
     }
     /// <p>Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.</p>
     /// <p>Your Lambda function can analyze this additional data and act on it. Your function can automatically confirm and verify select users or perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs.</p>
     /// <p>For more information about the pre sign-up Lambda trigger, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html">Pre sign-up Lambda trigger</a>.</p>
-    pub fn get_validation_data(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
+    pub fn get_validation_data(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
         self.inner.get_validation_data()
     }
     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
@@ -216,12 +242,17 @@ impl SignUpFluentBuilder {
         self
     }
     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
-    pub fn set_analytics_metadata(mut self, input: ::std::option::Option<crate::types::AnalyticsMetadataType>) -> Self {
+    pub fn set_analytics_metadata(
+        mut self,
+        input: ::std::option::Option<crate::types::AnalyticsMetadataType>,
+    ) -> Self {
         self.inner = self.inner.set_analytics_metadata(input);
         self
     }
     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
-    pub fn get_analytics_metadata(&self) -> &::std::option::Option<crate::types::AnalyticsMetadataType> {
+    pub fn get_analytics_metadata(
+        &self,
+    ) -> &::std::option::Option<crate::types::AnalyticsMetadataType> {
         self.inner.get_analytics_metadata()
     }
     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
@@ -232,13 +263,18 @@ impl SignUpFluentBuilder {
     }
     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
-    pub fn set_user_context_data(mut self, input: ::std::option::Option<crate::types::UserContextDataType>) -> Self {
+    pub fn set_user_context_data(
+        mut self,
+        input: ::std::option::Option<crate::types::UserContextDataType>,
+    ) -> Self {
         self.inner = self.inner.set_user_context_data(input);
         self
     }
     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
-    pub fn get_user_context_data(&self) -> &::std::option::Option<crate::types::UserContextDataType> {
+    pub fn get_user_context_data(
+        &self,
+    ) -> &::std::option::Option<crate::types::UserContextDataType> {
         self.inner.get_user_context_data()
     }
     ///
@@ -282,7 +318,9 @@ impl SignUpFluentBuilder {
     /// </note>
     pub fn set_client_metadata(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
     ) -> Self {
         self.inner = self.inner.set_client_metadata(input);
         self
@@ -300,7 +338,11 @@ impl SignUpFluentBuilder {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub fn get_client_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_client_metadata(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.inner.get_client_metadata()
     }
 }

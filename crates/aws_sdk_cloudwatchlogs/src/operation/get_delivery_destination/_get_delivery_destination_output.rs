@@ -9,7 +9,9 @@ pub struct GetDeliveryDestinationOutput {
 }
 impl GetDeliveryDestinationOutput {
     /// <p>A structure containing information about the delivery destination.</p>
-    pub fn delivery_destination(&self) -> ::std::option::Option<&crate::types::DeliveryDestination> {
+    pub fn delivery_destination(
+        &self,
+    ) -> ::std::option::Option<&crate::types::DeliveryDestination> {
         self.delivery_destination.as_ref()
     }
 }
@@ -20,13 +22,17 @@ impl ::aws_types::request_id::RequestId for GetDeliveryDestinationOutput {
 }
 impl GetDeliveryDestinationOutput {
     /// Creates a new builder-style object to manufacture [`GetDeliveryDestinationOutput`](crate::operation::get_delivery_destination::GetDeliveryDestinationOutput).
-    pub fn builder() -> crate::operation::get_delivery_destination::builders::GetDeliveryDestinationOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::get_delivery_destination::builders::GetDeliveryDestinationOutputBuilder
+    {
         crate::operation::get_delivery_destination::builders::GetDeliveryDestinationOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetDeliveryDestinationOutput`](crate::operation::get_delivery_destination::GetDeliveryDestinationOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetDeliveryDestinationOutputBuilder {
     pub(crate) delivery_destination: ::std::option::Option<crate::types::DeliveryDestination>,
@@ -39,12 +45,17 @@ impl GetDeliveryDestinationOutputBuilder {
         self
     }
     /// <p>A structure containing information about the delivery destination.</p>
-    pub fn set_delivery_destination(mut self, input: ::std::option::Option<crate::types::DeliveryDestination>) -> Self {
+    pub fn set_delivery_destination(
+        mut self,
+        input: ::std::option::Option<crate::types::DeliveryDestination>,
+    ) -> Self {
         self.delivery_destination = input;
         self
     }
     /// <p>A structure containing information about the delivery destination.</p>
-    pub fn get_delivery_destination(&self) -> &::std::option::Option<crate::types::DeliveryDestination> {
+    pub fn get_delivery_destination(
+        &self,
+    ) -> &::std::option::Option<crate::types::DeliveryDestination> {
         &self.delivery_destination
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

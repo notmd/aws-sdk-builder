@@ -32,7 +32,9 @@ impl LocationInfo {
 }
 
 /// A builder for [`LocationInfo`](crate::types::LocationInfo).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct LocationInfoBuilder {
     pub(crate) r#type: ::std::option::Option<crate::types::LocationType>,

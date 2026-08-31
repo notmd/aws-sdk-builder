@@ -98,7 +98,9 @@ impl InvokeModelInput {
         self.guardrail_version.as_deref()
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn performance_config_latency(&self) -> ::std::option::Option<&crate::types::PerformanceConfigLatency> {
+    pub fn performance_config_latency(
+        &self,
+    ) -> ::std::option::Option<&crate::types::PerformanceConfigLatency> {
         self.performance_config_latency.as_ref()
     }
     /// <p>Specifies the processing tier type used for serving the request.</p>
@@ -120,7 +122,10 @@ impl ::std::fmt::Debug for InvokeModelInput {
         formatter.field("trace", &self.trace);
         formatter.field("guardrail_identifier", &self.guardrail_identifier);
         formatter.field("guardrail_version", &self.guardrail_version);
-        formatter.field("performance_config_latency", &self.performance_config_latency);
+        formatter.field(
+            "performance_config_latency",
+            &self.performance_config_latency,
+        );
         formatter.field("service_tier", &self.service_tier);
         formatter.field("request_metadata", &"*** Sensitive Data Redacted ***");
         formatter.finish()
@@ -144,7 +149,8 @@ pub struct InvokeModelInputBuilder {
     pub(crate) trace: ::std::option::Option<crate::types::Trace>,
     pub(crate) guardrail_identifier: ::std::option::Option<::std::string::String>,
     pub(crate) guardrail_version: ::std::option::Option<::std::string::String>,
-    pub(crate) performance_config_latency: ::std::option::Option<crate::types::PerformanceConfigLatency>,
+    pub(crate) performance_config_latency:
+        ::std::option::Option<crate::types::PerformanceConfigLatency>,
     pub(crate) service_tier: ::std::option::Option<crate::types::ServiceTierType>,
     pub(crate) request_metadata: ::std::option::Option<::std::string::String>,
 }
@@ -269,7 +275,10 @@ impl InvokeModelInputBuilder {
     /// <li>
     /// <p>You provide a guardrail identifier, but <code>guardrailVersion</code> isn't specified.</p></li>
     /// </ul>
-    pub fn guardrail_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn guardrail_identifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.guardrail_identifier = ::std::option::Option::Some(input.into());
         self
     }
@@ -283,7 +292,10 @@ impl InvokeModelInputBuilder {
     /// <li>
     /// <p>You provide a guardrail identifier, but <code>guardrailVersion</code> isn't specified.</p></li>
     /// </ul>
-    pub fn set_guardrail_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_guardrail_identifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.guardrail_identifier = input;
         self
     }
@@ -301,12 +313,18 @@ impl InvokeModelInputBuilder {
         &self.guardrail_identifier
     }
     /// <p>The version number for the guardrail. The value can also be <code>DRAFT</code>.</p>
-    pub fn guardrail_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn guardrail_version(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.guardrail_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The version number for the guardrail. The value can also be <code>DRAFT</code>.</p>
-    pub fn set_guardrail_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_guardrail_version(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.guardrail_version = input;
         self
     }
@@ -315,17 +333,25 @@ impl InvokeModelInputBuilder {
         &self.guardrail_version
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn performance_config_latency(mut self, input: crate::types::PerformanceConfigLatency) -> Self {
+    pub fn performance_config_latency(
+        mut self,
+        input: crate::types::PerformanceConfigLatency,
+    ) -> Self {
         self.performance_config_latency = ::std::option::Option::Some(input);
         self
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn set_performance_config_latency(mut self, input: ::std::option::Option<crate::types::PerformanceConfigLatency>) -> Self {
+    pub fn set_performance_config_latency(
+        mut self,
+        input: ::std::option::Option<crate::types::PerformanceConfigLatency>,
+    ) -> Self {
         self.performance_config_latency = input;
         self
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn get_performance_config_latency(&self) -> &::std::option::Option<crate::types::PerformanceConfigLatency> {
+    pub fn get_performance_config_latency(
+        &self,
+    ) -> &::std::option::Option<crate::types::PerformanceConfigLatency> {
         &self.performance_config_latency
     }
     /// <p>Specifies the processing tier type used for serving the request.</p>
@@ -334,7 +360,10 @@ impl InvokeModelInputBuilder {
         self
     }
     /// <p>Specifies the processing tier type used for serving the request.</p>
-    pub fn set_service_tier(mut self, input: ::std::option::Option<crate::types::ServiceTierType>) -> Self {
+    pub fn set_service_tier(
+        mut self,
+        input: ::std::option::Option<crate::types::ServiceTierType>,
+    ) -> Self {
         self.service_tier = input;
         self
     }
@@ -343,12 +372,18 @@ impl InvokeModelInputBuilder {
         &self.service_tier
     }
     /// <p>Key-value pairs that you can use to filter invocation logs.</p>
-    pub fn request_metadata(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn request_metadata(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.request_metadata = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Key-value pairs that you can use to filter invocation logs.</p>
-    pub fn set_request_metadata(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_request_metadata(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.request_metadata = input;
         self
     }
@@ -357,7 +392,12 @@ impl InvokeModelInputBuilder {
         &self.request_metadata
     }
     /// Consumes the builder and constructs a [`InvokeModelInput`](crate::operation::invoke_model::InvokeModelInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::invoke_model::InvokeModelInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::invoke_model::InvokeModelInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::invoke_model::InvokeModelInput {
             body: self.body,
             content_type: self.content_type,
@@ -382,7 +422,10 @@ impl ::std::fmt::Debug for InvokeModelInputBuilder {
         formatter.field("trace", &self.trace);
         formatter.field("guardrail_identifier", &self.guardrail_identifier);
         formatter.field("guardrail_version", &self.guardrail_version);
-        formatter.field("performance_config_latency", &self.performance_config_latency);
+        formatter.field(
+            "performance_config_latency",
+            &self.performance_config_latency,
+        );
         formatter.field("service_tier", &self.service_tier);
         formatter.field("request_metadata", &"*** Sensitive Data Redacted ***");
         formatter.finish()

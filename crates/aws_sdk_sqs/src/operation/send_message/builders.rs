@@ -85,11 +85,12 @@ impl SendMessageFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::send_message::SendMessage::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::send_message::SendMessage::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::send_message::SendMessage::orchestrate(&runtime_plugins, input).await
     }
 
@@ -103,12 +104,18 @@ impl SendMessageFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -181,14 +188,20 @@ impl SendMessageFluentBuilder {
     /// To override the contents of this collection use [`set_message_attributes`](Self::set_message_attributes).
     ///
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn message_attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::MessageAttributeValue) -> Self {
+    pub fn message_attributes(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: crate::types::MessageAttributeValue,
+    ) -> Self {
         self.inner = self.inner.message_attributes(k.into(), v);
         self
     }
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
     pub fn set_message_attributes(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>,
+        >,
     ) -> Self {
         self.inner = self.inner.set_message_attributes(input);
         self
@@ -196,7 +209,9 @@ impl SendMessageFluentBuilder {
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
     pub fn get_message_attributes(
         &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>> {
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>,
+    > {
         self.inner.get_message_attributes()
     }
     ///
@@ -231,7 +246,10 @@ impl SendMessageFluentBuilder {
     pub fn set_message_system_attributes(
         mut self,
         input: ::std::option::Option<
-            ::std::collections::HashMap<crate::types::MessageSystemAttributeNameForSends, crate::types::MessageSystemAttributeValue>,
+            ::std::collections::HashMap<
+                crate::types::MessageSystemAttributeNameForSends,
+                crate::types::MessageSystemAttributeValue,
+            >,
         >,
     ) -> Self {
         self.inner = self.inner.set_message_system_attributes(input);
@@ -248,7 +266,10 @@ impl SendMessageFluentBuilder {
     pub fn get_message_system_attributes(
         &self,
     ) -> &::std::option::Option<
-        ::std::collections::HashMap<crate::types::MessageSystemAttributeNameForSends, crate::types::MessageSystemAttributeValue>,
+        ::std::collections::HashMap<
+            crate::types::MessageSystemAttributeNameForSends,
+            crate::types::MessageSystemAttributeValue,
+        >,
     > {
         self.inner.get_message_system_attributes()
     }
@@ -278,7 +299,10 @@ impl SendMessageFluentBuilder {
     /// </note>
     /// <p>The maximum length of <code>MessageDeduplicationId</code> is 128 characters. <code>MessageDeduplicationId</code> can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and punctuation (<code>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~</code>).</p>
     /// <p>For best practices of using <code>MessageDeduplicationId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the MessageDeduplicationId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn message_deduplication_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn message_deduplication_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.message_deduplication_id(input.into());
         self
     }
@@ -308,7 +332,10 @@ impl SendMessageFluentBuilder {
     /// </note>
     /// <p>The maximum length of <code>MessageDeduplicationId</code> is 128 characters. <code>MessageDeduplicationId</code> can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and punctuation (<code>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~</code>).</p>
     /// <p>For best practices of using <code>MessageDeduplicationId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the MessageDeduplicationId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn set_message_deduplication_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_message_deduplication_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_message_deduplication_id(input);
         self
     }
@@ -352,7 +379,10 @@ impl SendMessageFluentBuilder {
     /// </ul>
     /// <p>The length of <code>MessageGroupId</code> is 128 characters. Valid values: alphanumeric characters and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p>
     /// <p>For best practices of using <code>MessageGroupId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html">Using the MessageGroupId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn message_group_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn message_group_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.message_group_id(input.into());
         self
     }
@@ -367,7 +397,10 @@ impl SendMessageFluentBuilder {
     /// </ul>
     /// <p>The length of <code>MessageGroupId</code> is 128 characters. Valid values: alphanumeric characters and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p>
     /// <p>For best practices of using <code>MessageGroupId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html">Using the MessageGroupId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn set_message_group_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_message_group_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_message_group_id(input);
         self
     }

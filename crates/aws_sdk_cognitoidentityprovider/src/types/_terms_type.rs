@@ -55,7 +55,9 @@ impl TermsType {
     }
     /// <p>A map of URLs to languages. For each localized language that will view the requested <code>TermsName</code>, assign a URL. A selection of <code>cognito:default</code> displays for all languages that don't have a language-specific URL.</p>
     /// <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"</code>.</p>
-    pub fn links(&self) -> &::std::collections::HashMap<::std::string::String, ::std::string::String> {
+    pub fn links(
+        &self,
+    ) -> &::std::collections::HashMap<::std::string::String, ::std::string::String> {
         &self.links
     }
     /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
@@ -99,7 +101,9 @@ pub struct TermsTypeBuilder {
     pub(crate) terms_name: ::std::option::Option<::std::string::String>,
     pub(crate) terms_source: ::std::option::Option<crate::types::TermsSourceType>,
     pub(crate) enforcement: ::std::option::Option<crate::types::TermsEnforcementType>,
-    pub(crate) links: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) links: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     pub(crate) creation_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) last_modified_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
@@ -171,7 +175,10 @@ impl TermsTypeBuilder {
         self
     }
     /// <p>This parameter is reserved for future use and currently accepts one value.</p>
-    pub fn set_terms_source(mut self, input: ::std::option::Option<crate::types::TermsSourceType>) -> Self {
+    pub fn set_terms_source(
+        mut self,
+        input: ::std::option::Option<crate::types::TermsSourceType>,
+    ) -> Self {
         self.terms_source = input;
         self
     }
@@ -186,7 +193,10 @@ impl TermsTypeBuilder {
         self
     }
     /// <p>This parameter is reserved for future use and currently accepts one value.</p>
-    pub fn set_enforcement(mut self, input: ::std::option::Option<crate::types::TermsEnforcementType>) -> Self {
+    pub fn set_enforcement(
+        mut self,
+        input: ::std::option::Option<crate::types::TermsEnforcementType>,
+    ) -> Self {
         self.enforcement = input;
         self
     }
@@ -200,7 +210,11 @@ impl TermsTypeBuilder {
     ///
     /// <p>A map of URLs to languages. For each localized language that will view the requested <code>TermsName</code>, assign a URL. A selection of <code>cognito:default</code> displays for all languages that don't have a language-specific URL.</p>
     /// <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"</code>.</p>
-    pub fn links(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn links(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut hash_map = self.links.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.links = ::std::option::Option::Some(hash_map);
@@ -208,13 +222,22 @@ impl TermsTypeBuilder {
     }
     /// <p>A map of URLs to languages. For each localized language that will view the requested <code>TermsName</code>, assign a URL. A selection of <code>cognito:default</code> displays for all languages that don't have a language-specific URL.</p>
     /// <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"</code>.</p>
-    pub fn set_links(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_links(
+        mut self,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
+    ) -> Self {
         self.links = input;
         self
     }
     /// <p>A map of URLs to languages. For each localized language that will view the requested <code>TermsName</code>, assign a URL. A selection of <code>cognito:default</code> displays for all languages that don't have a language-specific URL.</p>
     /// <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"</code>.</p>
-    pub fn get_links(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_links(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.links
     }
     /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
@@ -224,7 +247,10 @@ impl TermsTypeBuilder {
         self
     }
     /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-    pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_creation_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.creation_date = input;
         self
     }
@@ -239,7 +265,10 @@ impl TermsTypeBuilder {
         self
     }
     /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-    pub fn set_last_modified_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_last_modified_date(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.last_modified_date = input;
         self
     }
@@ -258,7 +287,12 @@ impl TermsTypeBuilder {
     /// - [`links`](crate::types::builders::TermsTypeBuilder::links)
     /// - [`creation_date`](crate::types::builders::TermsTypeBuilder::creation_date)
     /// - [`last_modified_date`](crate::types::builders::TermsTypeBuilder::last_modified_date)
-    pub fn build(self) -> ::std::result::Result<crate::types::TermsType, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::TermsType,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::TermsType {
             terms_id: self.terms_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

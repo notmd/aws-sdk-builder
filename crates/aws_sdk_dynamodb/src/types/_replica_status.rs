@@ -47,7 +47,13 @@
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
 #[derive(
-    ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
+    ::std::clone::Clone,
+    ::std::cmp::Eq,
+    ::std::cmp::Ord,
+    ::std::cmp::PartialEq,
+    ::std::cmp::PartialOrd,
+    ::std::fmt::Debug,
+    ::std::hash::Hash,
 )]
 pub enum ReplicaStatus {
     #[allow(missing_docs)] // documentation missing in model
@@ -71,7 +77,9 @@ pub enum ReplicaStatus {
     #[allow(missing_docs)] // documentation missing in model
     Updating,
     /// `Unknown` contains new variants that have been added since this code was generated.
-    #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
+    #[deprecated(
+        note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants."
+    )]
     Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue),
 }
 impl ::std::convert::From<&str> for ReplicaStatus {
@@ -83,11 +91,15 @@ impl ::std::convert::From<&str> for ReplicaStatus {
             "CREATING" => ReplicaStatus::Creating,
             "CREATION_FAILED" => ReplicaStatus::CreationFailed,
             "DELETING" => ReplicaStatus::Deleting,
-            "INACCESSIBLE_ENCRYPTION_CREDENTIALS" => ReplicaStatus::InaccessibleEncryptionCredentials,
+            "INACCESSIBLE_ENCRYPTION_CREDENTIALS" => {
+                ReplicaStatus::InaccessibleEncryptionCredentials
+            }
             "REGION_DISABLED" => ReplicaStatus::RegionDisabled,
             "REPLICATION_NOT_AUTHORIZED" => ReplicaStatus::ReplicationNotAuthorized,
             "UPDATING" => ReplicaStatus::Updating,
-            other => ReplicaStatus::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
+            other => ReplicaStatus::Unknown(
+                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
+            ),
         }
     }
 }
@@ -108,7 +120,9 @@ impl ReplicaStatus {
             ReplicaStatus::Creating => "CREATING",
             ReplicaStatus::CreationFailed => "CREATION_FAILED",
             ReplicaStatus::Deleting => "DELETING",
-            ReplicaStatus::InaccessibleEncryptionCredentials => "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+            ReplicaStatus::InaccessibleEncryptionCredentials => {
+                "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
+            }
             ReplicaStatus::RegionDisabled => "REGION_DISABLED",
             ReplicaStatus::ReplicationNotAuthorized => "REPLICATION_NOT_AUTHORIZED",
             ReplicaStatus::Updating => "UPDATING",
@@ -140,10 +154,14 @@ impl ReplicaStatus {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(
+        value: &str,
+    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
+            Self::Unknown(_) => {
+                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
+            }
             known => Ok(known),
         }
     }
@@ -157,7 +175,9 @@ impl ::std::fmt::Display for ReplicaStatus {
             ReplicaStatus::Creating => write!(f, "CREATING"),
             ReplicaStatus::CreationFailed => write!(f, "CREATION_FAILED"),
             ReplicaStatus::Deleting => write!(f, "DELETING"),
-            ReplicaStatus::InaccessibleEncryptionCredentials => write!(f, "INACCESSIBLE_ENCRYPTION_CREDENTIALS"),
+            ReplicaStatus::InaccessibleEncryptionCredentials => {
+                write!(f, "INACCESSIBLE_ENCRYPTION_CREDENTIALS")
+            }
             ReplicaStatus::RegionDisabled => write!(f, "REGION_DISABLED"),
             ReplicaStatus::ReplicationNotAuthorized => write!(f, "REPLICATION_NOT_AUTHORIZED"),
             ReplicaStatus::Updating => write!(f, "UPDATING"),

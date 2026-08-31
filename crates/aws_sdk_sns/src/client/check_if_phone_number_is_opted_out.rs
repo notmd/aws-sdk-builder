@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CheckIfPhoneNumberIsOptedOutError>`](crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError)
     pub fn check_if_phone_number_is_opted_out(
         &self,
-    ) -> crate::operation::check_if_phone_number_is_opted_out::builders::CheckIfPhoneNumberIsOptedOutFluentBuilder {
+    ) -> crate::operation::check_if_phone_number_is_opted_out::builders::CheckIfPhoneNumberIsOptedOutFluentBuilder{
         crate::operation::check_if_phone_number_is_opted_out::builders::CheckIfPhoneNumberIsOptedOutFluentBuilder::new(self.handle.clone())
     }
 }

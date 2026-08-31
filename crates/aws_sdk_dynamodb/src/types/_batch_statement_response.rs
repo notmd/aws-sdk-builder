@@ -9,7 +9,9 @@ pub struct BatchStatementResponse {
     /// <p>The table name associated with a failed PartiQL batch statement.</p>
     pub table_name: ::std::option::Option<::std::string::String>,
     /// <p>A DynamoDB item associated with a BatchStatementResponse</p>
-    pub item: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    pub item: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
+    >,
 }
 impl BatchStatementResponse {
     /// <p>The error associated with a failed PartiQL batch statement.</p>
@@ -21,7 +23,11 @@ impl BatchStatementResponse {
         self.table_name.as_deref()
     }
     /// <p>A DynamoDB item associated with a BatchStatementResponse</p>
-    pub fn item(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+    pub fn item(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
+    > {
         self.item.as_ref()
     }
 }
@@ -33,12 +39,16 @@ impl BatchStatementResponse {
 }
 
 /// A builder for [`BatchStatementResponse`](crate::types::BatchStatementResponse).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct BatchStatementResponseBuilder {
     pub(crate) error: ::std::option::Option<crate::types::BatchStatementError>,
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
-    pub(crate) item: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    pub(crate) item: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
+    >,
 }
 impl BatchStatementResponseBuilder {
     /// <p>The error associated with a failed PartiQL batch statement.</p>
@@ -47,7 +57,10 @@ impl BatchStatementResponseBuilder {
         self
     }
     /// <p>The error associated with a failed PartiQL batch statement.</p>
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::BatchStatementError>) -> Self {
+    pub fn set_error(
+        mut self,
+        input: ::std::option::Option<crate::types::BatchStatementError>,
+    ) -> Self {
         self.error = input;
         self
     }
@@ -74,7 +87,11 @@ impl BatchStatementResponseBuilder {
     /// To override the contents of this collection use [`set_item`](Self::set_item).
     ///
     /// <p>A DynamoDB item associated with a BatchStatementResponse</p>
-    pub fn item(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
+    pub fn item(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: crate::types::AttributeValue,
+    ) -> Self {
         let mut hash_map = self.item.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.item = ::std::option::Option::Some(hash_map);
@@ -83,13 +100,19 @@ impl BatchStatementResponseBuilder {
     /// <p>A DynamoDB item associated with a BatchStatementResponse</p>
     pub fn set_item(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
+        >,
     ) -> Self {
         self.item = input;
         self
     }
     /// <p>A DynamoDB item associated with a BatchStatementResponse</p>
-    pub fn get_item(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+    pub fn get_item(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
+    > {
         &self.item
     }
     /// Consumes the builder and constructs a [`BatchStatementResponse`](crate::types::BatchStatementResponse).

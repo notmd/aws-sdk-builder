@@ -42,13 +42,16 @@ impl PutResourcePolicyInput {
 }
 impl PutResourcePolicyInput {
     /// Creates a new builder-style object to manufacture [`PutResourcePolicyInput`](crate::operation::put_resource_policy::PutResourcePolicyInput).
-    pub fn builder() -> crate::operation::put_resource_policy::builders::PutResourcePolicyInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::put_resource_policy::builders::PutResourcePolicyInputBuilder {
         crate::operation::put_resource_policy::builders::PutResourcePolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`PutResourcePolicyInput`](crate::operation::put_resource_policy::PutResourcePolicyInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutResourcePolicyInputBuilder {
     pub(crate) policy_name: ::std::option::Option<::std::string::String>,
@@ -77,7 +80,10 @@ impl PutResourcePolicyInputBuilder {
     /// <p>In the example resource policy, you would replace the value of <code>SourceArn</code> with the resource making the call from Route&nbsp;53 to CloudWatch Logs. You would also replace the value of <code>SourceAccount</code> with the Amazon Web Services account ID making that call.</p>
     /// <p></p>
     /// <p><code>{ "Version": "2012-10-17", "Statement": \[ { "Sid": "Route53LogsToCloudWatchLogs", "Effect": "Allow", "Principal": { "Service": \[ "route53.amazonaws.com" \] }, "Action": "logs:PutLogEvents", "Resource": "logArn", "Condition": { "ArnLike": { "aws:SourceArn": "myRoute53ResourceArn" }, "StringEquals": { "aws:SourceAccount": "myAwsAccountId" } } } \] }</code></p>
-    pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn policy_document(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.policy_document = ::std::option::Option::Some(input.into());
         self
     }
@@ -87,7 +93,10 @@ impl PutResourcePolicyInputBuilder {
     /// <p>In the example resource policy, you would replace the value of <code>SourceArn</code> with the resource making the call from Route&nbsp;53 to CloudWatch Logs. You would also replace the value of <code>SourceAccount</code> with the Amazon Web Services account ID making that call.</p>
     /// <p></p>
     /// <p><code>{ "Version": "2012-10-17", "Statement": \[ { "Sid": "Route53LogsToCloudWatchLogs", "Effect": "Allow", "Principal": { "Service": \[ "route53.amazonaws.com" \] }, "Action": "logs:PutLogEvents", "Resource": "logArn", "Condition": { "ArnLike": { "aws:SourceArn": "myRoute53ResourceArn" }, "StringEquals": { "aws:SourceAccount": "myAwsAccountId" } } } \] }</code></p>
-    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_policy_document(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.policy_document = input;
         self
     }
@@ -115,12 +124,18 @@ impl PutResourcePolicyInputBuilder {
         &self.resource_arn
     }
     /// <p>The expected revision ID of the resource policy. Required when <code>resourceArn</code> is provided to prevent concurrent modifications. Use <code>null</code> when creating a resource policy for the first time.</p>
-    pub fn expected_revision_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expected_revision_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.expected_revision_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The expected revision ID of the resource policy. Required when <code>resourceArn</code> is provided to prevent concurrent modifications. Use <code>null</code> when creating a resource policy for the first time.</p>
-    pub fn set_expected_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_expected_revision_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.expected_revision_id = input;
         self
     }
@@ -131,12 +146,17 @@ impl PutResourcePolicyInputBuilder {
     /// Consumes the builder and constructs a [`PutResourcePolicyInput`](crate::operation::put_resource_policy::PutResourcePolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::put_resource_policy::PutResourcePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::put_resource_policy::PutResourcePolicyInput {
-            policy_name: self.policy_name,
-            policy_document: self.policy_document,
-            resource_arn: self.resource_arn,
-            expected_revision_id: self.expected_revision_id,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::put_resource_policy::PutResourcePolicyInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::put_resource_policy::PutResourcePolicyInput {
+                policy_name: self.policy_name,
+                policy_document: self.policy_document,
+                resource_arn: self.resource_arn,
+                expected_revision_id: self.expected_revision_id,
+            },
+        )
     }
 }

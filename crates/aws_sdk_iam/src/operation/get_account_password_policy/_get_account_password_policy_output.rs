@@ -21,13 +21,15 @@ impl ::aws_types::request_id::RequestId for GetAccountPasswordPolicyOutput {
 }
 impl GetAccountPasswordPolicyOutput {
     /// Creates a new builder-style object to manufacture [`GetAccountPasswordPolicyOutput`](crate::operation::get_account_password_policy::GetAccountPasswordPolicyOutput).
-    pub fn builder() -> crate::operation::get_account_password_policy::builders::GetAccountPasswordPolicyOutputBuilder {
+    pub fn builder() -> crate::operation::get_account_password_policy::builders::GetAccountPasswordPolicyOutputBuilder{
         crate::operation::get_account_password_policy::builders::GetAccountPasswordPolicyOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetAccountPasswordPolicyOutput`](crate::operation::get_account_password_policy::GetAccountPasswordPolicyOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetAccountPasswordPolicyOutputBuilder {
     pub(crate) password_policy: ::std::option::Option<crate::types::PasswordPolicy>,
@@ -41,7 +43,10 @@ impl GetAccountPasswordPolicyOutputBuilder {
         self
     }
     /// <p>A structure that contains details about the account's password policy.</p>
-    pub fn set_password_policy(mut self, input: ::std::option::Option<crate::types::PasswordPolicy>) -> Self {
+    pub fn set_password_policy(
+        mut self,
+        input: ::std::option::Option<crate::types::PasswordPolicy>,
+    ) -> Self {
         self.password_policy = input;
         self
     }
@@ -59,7 +64,9 @@ impl GetAccountPasswordPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetAccountPasswordPolicyOutput`](crate::operation::get_account_password_policy::GetAccountPasswordPolicyOutput).
-    pub fn build(self) -> crate::operation::get_account_password_policy::GetAccountPasswordPolicyOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::get_account_password_policy::GetAccountPasswordPolicyOutput {
         crate::operation::get_account_password_policy::GetAccountPasswordPolicyOutput {
             password_policy: self.password_policy,
             _request_id: self._request_id,

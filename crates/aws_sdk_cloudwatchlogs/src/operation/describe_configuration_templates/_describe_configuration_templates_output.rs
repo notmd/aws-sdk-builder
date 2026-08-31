@@ -4,7 +4,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeConfigurationTemplatesOutput {
     /// <p>An array of objects, where each object describes one configuration template that matches the filters that you specified in the request.</p>
-    pub configuration_templates: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationTemplate>>,
+    pub configuration_templates:
+        ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationTemplate>>,
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -28,16 +29,19 @@ impl ::aws_types::request_id::RequestId for DescribeConfigurationTemplatesOutput
 }
 impl DescribeConfigurationTemplatesOutput {
     /// Creates a new builder-style object to manufacture [`DescribeConfigurationTemplatesOutput`](crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesOutput).
-    pub fn builder() -> crate::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesOutputBuilder {
+    pub fn builder() -> crate::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesOutputBuilder{
         crate::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeConfigurationTemplatesOutput`](crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeConfigurationTemplatesOutputBuilder {
-    pub(crate) configuration_templates: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationTemplate>>,
+    pub(crate) configuration_templates:
+        ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationTemplate>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -54,12 +58,17 @@ impl DescribeConfigurationTemplatesOutputBuilder {
         self
     }
     /// <p>An array of objects, where each object describes one configuration template that matches the filters that you specified in the request.</p>
-    pub fn set_configuration_templates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationTemplate>>) -> Self {
+    pub fn set_configuration_templates(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationTemplate>>,
+    ) -> Self {
         self.configuration_templates = input;
         self
     }
     /// <p>An array of objects, where each object describes one configuration template that matches the filters that you specified in the request.</p>
-    pub fn get_configuration_templates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConfigurationTemplate>> {
+    pub fn get_configuration_templates(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ConfigurationTemplate>> {
         &self.configuration_templates
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
@@ -86,7 +95,10 @@ impl DescribeConfigurationTemplatesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeConfigurationTemplatesOutput`](crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesOutput).
-    pub fn build(self) -> crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesOutput
+    {
         crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesOutput {
             configuration_templates: self.configuration_templates,
             next_token: self.next_token,

@@ -3,7 +3,9 @@ pub use crate::operation::set_subscription_attributes::_set_subscription_attribu
 
 pub use crate::operation::set_subscription_attributes::_set_subscription_attributes_output::SetSubscriptionAttributesOutputBuilder;
 
-impl crate::operation::set_subscription_attributes::builders::SetSubscriptionAttributesInputBuilder {
+impl
+    crate::operation::set_subscription_attributes::builders::SetSubscriptionAttributesInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -57,7 +59,7 @@ impl SetSubscriptionAttributesFluentBuilder {
         }
     }
     /// Access the SetSubscriptionAttributes as a reference.
-    pub fn as_input(&self) -> &crate::operation::set_subscription_attributes::builders::SetSubscriptionAttributesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::set_subscription_attributes::builders::SetSubscriptionAttributesInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +88,11 @@ impl SetSubscriptionAttributesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::set_subscription_attributes::SetSubscriptionAttributes::orchestrate(&runtime_plugins, input).await
+        crate::operation::set_subscription_attributes::SetSubscriptionAttributes::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,22 +105,34 @@ impl SetSubscriptionAttributesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The ARN of the subscription to modify.</p>
-    pub fn subscription_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn subscription_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.subscription_arn(input.into());
         self
     }
     /// <p>The ARN of the subscription to modify.</p>
-    pub fn set_subscription_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_subscription_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_subscription_arn(input);
         self
     }
@@ -154,7 +172,10 @@ impl SetSubscriptionAttributesFluentBuilder {
     /// </ul>
     /// <p>Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout to Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p></li>
     /// </ul>
-    pub fn attribute_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn attribute_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.attribute_name(input.into());
         self
     }
@@ -190,7 +211,10 @@ impl SetSubscriptionAttributesFluentBuilder {
     /// </ul>
     /// <p>Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout to Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p></li>
     /// </ul>
-    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_attribute_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_attribute_name(input);
         self
     }
@@ -230,12 +254,18 @@ impl SetSubscriptionAttributesFluentBuilder {
         self.inner.get_attribute_name()
     }
     /// <p>The new value for the attribute in JSON format.</p>
-    pub fn attribute_value(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn attribute_value(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.attribute_value(input.into());
         self
     }
     /// <p>The new value for the attribute in JSON format.</p>
-    pub fn set_attribute_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_attribute_value(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_attribute_value(input);
         self
     }

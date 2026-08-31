@@ -27,7 +27,9 @@ impl StepSucceededDetails {
 }
 
 /// A builder for [`StepSucceededDetails`](crate::types::StepSucceededDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct StepSucceededDetailsBuilder {
     pub(crate) result: ::std::option::Option<crate::types::EventResult>,
@@ -56,7 +58,10 @@ impl StepSucceededDetailsBuilder {
         self
     }
     /// <p>Information about retry attempts for this step operation.</p>
-    pub fn set_retry_details(mut self, input: ::std::option::Option<crate::types::RetryDetails>) -> Self {
+    pub fn set_retry_details(
+        mut self,
+        input: ::std::option::Option<crate::types::RetryDetails>,
+    ) -> Self {
         self.retry_details = input;
         self
     }

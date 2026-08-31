@@ -5,7 +5,9 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListReputationEntitiesInput {
     /// <p>An object that contains filters to apply when listing reputation entities. You can filter by entity type, reputation impact, sending status, or entity reference prefix.</p>
-    pub filter: ::std::option::Option<::std::collections::HashMap<crate::types::ReputationEntityFilterKey, ::std::string::String>>,
+    pub filter: ::std::option::Option<
+        ::std::collections::HashMap<crate::types::ReputationEntityFilterKey, ::std::string::String>,
+    >,
     /// <p>A token returned from a previous call to <code>ListReputationEntities</code> to indicate the position in the list of reputation entities.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     /// <p>The number of results to show in a single call to <code>ListReputationEntities</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
@@ -13,7 +15,14 @@ pub struct ListReputationEntitiesInput {
 }
 impl ListReputationEntitiesInput {
     /// <p>An object that contains filters to apply when listing reputation entities. You can filter by entity type, reputation impact, sending status, or entity reference prefix.</p>
-    pub fn filter(&self) -> ::std::option::Option<&::std::collections::HashMap<crate::types::ReputationEntityFilterKey, ::std::string::String>> {
+    pub fn filter(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<
+            crate::types::ReputationEntityFilterKey,
+            ::std::string::String,
+        >,
+    > {
         self.filter.as_ref()
     }
     /// <p>A token returned from a previous call to <code>ListReputationEntities</code> to indicate the position in the list of reputation entities.</p>
@@ -27,16 +36,22 @@ impl ListReputationEntitiesInput {
 }
 impl ListReputationEntitiesInput {
     /// Creates a new builder-style object to manufacture [`ListReputationEntitiesInput`](crate::operation::list_reputation_entities::ListReputationEntitiesInput).
-    pub fn builder() -> crate::operation::list_reputation_entities::builders::ListReputationEntitiesInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_reputation_entities::builders::ListReputationEntitiesInputBuilder
+    {
         crate::operation::list_reputation_entities::builders::ListReputationEntitiesInputBuilder::default()
     }
 }
 
 /// A builder for [`ListReputationEntitiesInput`](crate::operation::list_reputation_entities::ListReputationEntitiesInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListReputationEntitiesInputBuilder {
-    pub(crate) filter: ::std::option::Option<::std::collections::HashMap<crate::types::ReputationEntityFilterKey, ::std::string::String>>,
+    pub(crate) filter: ::std::option::Option<
+        ::std::collections::HashMap<crate::types::ReputationEntityFilterKey, ::std::string::String>,
+    >,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     pub(crate) page_size: ::std::option::Option<i32>,
 }
@@ -46,7 +61,11 @@ impl ListReputationEntitiesInputBuilder {
     /// To override the contents of this collection use [`set_filter`](Self::set_filter).
     ///
     /// <p>An object that contains filters to apply when listing reputation entities. You can filter by entity type, reputation impact, sending status, or entity reference prefix.</p>
-    pub fn filter(mut self, k: crate::types::ReputationEntityFilterKey, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn filter(
+        mut self,
+        k: crate::types::ReputationEntityFilterKey,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut hash_map = self.filter.unwrap_or_default();
         hash_map.insert(k, v.into());
         self.filter = ::std::option::Option::Some(hash_map);
@@ -55,13 +74,22 @@ impl ListReputationEntitiesInputBuilder {
     /// <p>An object that contains filters to apply when listing reputation entities. You can filter by entity type, reputation impact, sending status, or entity reference prefix.</p>
     pub fn set_filter(
         mut self,
-        input: ::std::option::Option<::std::collections::HashMap<crate::types::ReputationEntityFilterKey, ::std::string::String>>,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<
+                crate::types::ReputationEntityFilterKey,
+                ::std::string::String,
+            >,
+        >,
     ) -> Self {
         self.filter = input;
         self
     }
     /// <p>An object that contains filters to apply when listing reputation entities. You can filter by entity type, reputation impact, sending status, or entity reference prefix.</p>
-    pub fn get_filter(&self) -> &::std::option::Option<::std::collections::HashMap<crate::types::ReputationEntityFilterKey, ::std::string::String>> {
+    pub fn get_filter(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<crate::types::ReputationEntityFilterKey, ::std::string::String>,
+    > {
         &self.filter
     }
     /// <p>A token returned from a previous call to <code>ListReputationEntities</code> to indicate the position in the list of reputation entities.</p>
@@ -99,10 +127,12 @@ impl ListReputationEntitiesInputBuilder {
         crate::operation::list_reputation_entities::ListReputationEntitiesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_reputation_entities::ListReputationEntitiesInput {
-            filter: self.filter,
-            next_token: self.next_token,
-            page_size: self.page_size,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::list_reputation_entities::ListReputationEntitiesInput {
+                filter: self.filter,
+                next_token: self.next_token,
+                page_size: self.page_size,
+            },
+        )
     }
 }

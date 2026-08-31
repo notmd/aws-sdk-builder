@@ -9,7 +9,11 @@ impl super::Client {
     ///   - [`revision_id(impl Into<String>)`](crate::operation::remove_permission::builders::RemovePermissionFluentBuilder::revision_id) / [`set_revision_id(Option<String>)`](crate::operation::remove_permission::builders::RemovePermissionFluentBuilder::set_revision_id):<br>required: **false**<br><p>Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p><br>
     /// - On success, responds with [`RemovePermissionOutput`](crate::operation::remove_permission::RemovePermissionOutput)
     /// - On failure, responds with [`SdkError<RemovePermissionError>`](crate::operation::remove_permission::RemovePermissionError)
-    pub fn remove_permission(&self) -> crate::operation::remove_permission::builders::RemovePermissionFluentBuilder {
-        crate::operation::remove_permission::builders::RemovePermissionFluentBuilder::new(self.handle.clone())
+    pub fn remove_permission(
+        &self,
+    ) -> crate::operation::remove_permission::builders::RemovePermissionFluentBuilder {
+        crate::operation::remove_permission::builders::RemovePermissionFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

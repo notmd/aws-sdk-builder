@@ -5,7 +5,9 @@ pub fn de_s3_key_filter(
     depth: u32,
 ) -> ::std::result::Result<crate::types::S3KeyFilter, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::S3KeyFilter::builder();
@@ -44,7 +46,10 @@ pub fn ser_s3_key_filter(
         for list_item_4 in var_3 {
             {
                 let inner_writer = scope.start_el("FilterRule");
-                crate::protocol_serde::shape_filter_rule::ser_filter_rule(list_item_4, inner_writer)?
+                crate::protocol_serde::shape_filter_rule::ser_filter_rule(
+                    list_item_4,
+                    inner_writer,
+                )?
             }
         }
     }

@@ -32,7 +32,9 @@ impl PutIndexPolicyInput {
 }
 
 /// A builder for [`PutIndexPolicyInput`](crate::operation::put_index_policy::PutIndexPolicyInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutIndexPolicyInputBuilder {
     pub(crate) log_group_identifier: ::std::option::Option<::std::string::String>,
@@ -41,12 +43,18 @@ pub struct PutIndexPolicyInputBuilder {
 impl PutIndexPolicyInputBuilder {
     /// <p>Specify either the log group name or log group ARN to apply this field index policy to. If you specify an ARN, use the format arn:aws:logs:<i>region</i>:<i>account-id</i>:log-group:<i>log_group_name</i> Don't include an * at the end.</p>
     /// This field is required.
-    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_group_identifier(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.log_group_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Specify either the log group name or log group ARN to apply this field index policy to. If you specify an ARN, use the format arn:aws:logs:<i>region</i>:<i>account-id</i>:log-group:<i>log_group_name</i> Don't include an * at the end.</p>
-    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_log_group_identifier(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.log_group_identifier = input;
         self
     }
@@ -59,7 +67,10 @@ impl PutIndexPolicyInputBuilder {
     /// <p>You can use <code>FieldsV2</code> to specify the type for each field. Supported types are <code>FIELD_INDEX</code> and <code>FACET</code>. Field names within <code>Fields</code> and <code>FieldsV2</code> must be mutually exclusive.</p>
     /// <p>The policy document must include at least one field index. For more information about the fields that can be included and other restrictions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing-Syntax.html">Field index syntax and quotas</a>.</p>
     /// This field is required.
-    pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn policy_document(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.policy_document = ::std::option::Option::Some(input.into());
         self
     }
@@ -67,7 +78,10 @@ impl PutIndexPolicyInputBuilder {
     /// <p><code>"policyDocument": "{"Fields": \[ "TransactionId" \], "FieldsV2": {"RequestId": {"type": "FIELD_INDEX"}, "APIName": {"type": "FACET"}, "StatusCode": {"type": "FACET"}}}"</code></p>
     /// <p>You can use <code>FieldsV2</code> to specify the type for each field. Supported types are <code>FIELD_INDEX</code> and <code>FACET</code>. Field names within <code>Fields</code> and <code>FieldsV2</code> must be mutually exclusive.</p>
     /// <p>The policy document must include at least one field index. For more information about the fields that can be included and other restrictions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing-Syntax.html">Field index syntax and quotas</a>.</p>
-    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_policy_document(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.policy_document = input;
         self
     }
@@ -81,7 +95,10 @@ impl PutIndexPolicyInputBuilder {
     /// Consumes the builder and constructs a [`PutIndexPolicyInput`](crate::operation::put_index_policy::PutIndexPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::put_index_policy::PutIndexPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::put_index_policy::PutIndexPolicyInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::put_index_policy::PutIndexPolicyInput {
             log_group_identifier: self.log_group_identifier,
             policy_document: self.policy_document,

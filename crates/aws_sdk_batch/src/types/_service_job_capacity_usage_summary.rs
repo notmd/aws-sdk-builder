@@ -27,7 +27,9 @@ impl ServiceJobCapacityUsageSummary {
 }
 
 /// A builder for [`ServiceJobCapacityUsageSummary`](crate::types::ServiceJobCapacityUsageSummary).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ServiceJobCapacityUsageSummaryBuilder {
     pub(crate) capacity_unit: ::std::option::Option<::std::string::String>,
@@ -35,12 +37,18 @@ pub struct ServiceJobCapacityUsageSummaryBuilder {
 }
 impl ServiceJobCapacityUsageSummaryBuilder {
     /// <p>The unit of measure for the service job capacity usage. For service jobs, this is the instance type.</p>
-    pub fn capacity_unit(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn capacity_unit(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.capacity_unit = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unit of measure for the service job capacity usage. For service jobs, this is the instance type.</p>
-    pub fn set_capacity_unit(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_capacity_unit(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.capacity_unit = input;
         self
     }

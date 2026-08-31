@@ -57,7 +57,9 @@ impl Recommendation {
 }
 
 /// A builder for [`Recommendation`](crate::types::Recommendation).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RecommendationBuilder {
     pub(crate) resource_arn: ::std::option::Option<::std::string::String>,
@@ -89,7 +91,10 @@ impl RecommendationBuilder {
         self
     }
     /// <p>The recommendation type, with values like <code>DKIM</code>, <code>SPF</code>, <code>DMARC</code>, <code>BIMI</code>, or <code>COMPLAINT</code>.</p>
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::RecommendationType>) -> Self {
+    pub fn set_type(
+        mut self,
+        input: ::std::option::Option<crate::types::RecommendationType>,
+    ) -> Self {
         self.r#type = input;
         self
     }
@@ -117,7 +122,10 @@ impl RecommendationBuilder {
         self
     }
     /// <p>The recommendation status, with values like <code>OPEN</code> or <code>FIXED</code>.</p>
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::RecommendationStatus>) -> Self {
+    pub fn set_status(
+        mut self,
+        input: ::std::option::Option<crate::types::RecommendationStatus>,
+    ) -> Self {
         self.status = input;
         self
     }
@@ -131,7 +139,10 @@ impl RecommendationBuilder {
         self
     }
     /// <p>The first time this issue was encountered and the recommendation was generated.</p>
-    pub fn set_created_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_created_timestamp(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.created_timestamp = input;
         self
     }
@@ -145,12 +156,17 @@ impl RecommendationBuilder {
         self
     }
     /// <p>The last time the recommendation was updated.</p>
-    pub fn set_last_updated_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_last_updated_timestamp(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.last_updated_timestamp = input;
         self
     }
     /// <p>The last time the recommendation was updated.</p>
-    pub fn get_last_updated_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_last_updated_timestamp(
+        &self,
+    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_updated_timestamp
     }
     /// <p>The recommendation impact, with values like <code>HIGH</code> or <code>LOW</code>.</p>
@@ -159,7 +175,10 @@ impl RecommendationBuilder {
         self
     }
     /// <p>The recommendation impact, with values like <code>HIGH</code> or <code>LOW</code>.</p>
-    pub fn set_impact(mut self, input: ::std::option::Option<crate::types::RecommendationImpact>) -> Self {
+    pub fn set_impact(
+        mut self,
+        input: ::std::option::Option<crate::types::RecommendationImpact>,
+    ) -> Self {
         self.impact = input;
         self
     }

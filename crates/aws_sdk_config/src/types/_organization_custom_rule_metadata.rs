@@ -17,7 +17,8 @@ pub struct OrganizationCustomRuleMetadata {
     /// <li>
     /// <p><code>ScheduledNotification</code> - Triggers a periodic evaluation at the frequency specified for <code>MaximumExecutionFrequency</code>.</p></li>
     /// </ul>
-    pub organization_config_rule_trigger_types: ::std::vec::Vec<crate::types::OrganizationConfigRuleTriggerType>,
+    pub organization_config_rule_trigger_types:
+        ::std::vec::Vec<crate::types::OrganizationConfigRuleTriggerType>,
     /// <p>A string, in JSON format, that is passed to your organization Config rule Lambda function.</p>
     pub input_parameters: ::std::option::Option<::std::string::String>,
     /// <p>The maximum frequency with which Config runs evaluations for a rule. Your custom rule is triggered when Config delivers the configuration snapshot. For more information, see <code>ConfigSnapshotDeliveryProperties</code>.</p><note>
@@ -52,7 +53,9 @@ impl OrganizationCustomRuleMetadata {
     /// <li>
     /// <p><code>ScheduledNotification</code> - Triggers a periodic evaluation at the frequency specified for <code>MaximumExecutionFrequency</code>.</p></li>
     /// </ul>
-    pub fn organization_config_rule_trigger_types(&self) -> &[crate::types::OrganizationConfigRuleTriggerType] {
+    pub fn organization_config_rule_trigger_types(
+        &self,
+    ) -> &[crate::types::OrganizationConfigRuleTriggerType] {
         use std::ops::Deref;
         self.organization_config_rule_trigger_types.deref()
     }
@@ -63,7 +66,9 @@ impl OrganizationCustomRuleMetadata {
     /// <p>The maximum frequency with which Config runs evaluations for a rule. Your custom rule is triggered when Config delivers the configuration snapshot. For more information, see <code>ConfigSnapshotDeliveryProperties</code>.</p><note>
     /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
     /// </note>
-    pub fn maximum_execution_frequency(&self) -> ::std::option::Option<&crate::types::MaximumExecutionFrequency> {
+    pub fn maximum_execution_frequency(
+        &self,
+    ) -> ::std::option::Option<&crate::types::MaximumExecutionFrequency> {
         self.maximum_execution_frequency.as_ref()
     }
     /// <p>The type of the Amazon Web Services resource that was evaluated.</p>
@@ -93,14 +98,18 @@ impl OrganizationCustomRuleMetadata {
 }
 
 /// A builder for [`OrganizationCustomRuleMetadata`](crate::types::OrganizationCustomRuleMetadata).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct OrganizationCustomRuleMetadataBuilder {
     pub(crate) description: ::std::option::Option<::std::string::String>,
     pub(crate) lambda_function_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) organization_config_rule_trigger_types: ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConfigRuleTriggerType>>,
+    pub(crate) organization_config_rule_trigger_types:
+        ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConfigRuleTriggerType>>,
     pub(crate) input_parameters: ::std::option::Option<::std::string::String>,
-    pub(crate) maximum_execution_frequency: ::std::option::Option<crate::types::MaximumExecutionFrequency>,
+    pub(crate) maximum_execution_frequency:
+        ::std::option::Option<crate::types::MaximumExecutionFrequency>,
     pub(crate) resource_types_scope: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) resource_id_scope: ::std::option::Option<::std::string::String>,
     pub(crate) tag_key_scope: ::std::option::Option<::std::string::String>,
@@ -123,12 +132,18 @@ impl OrganizationCustomRuleMetadataBuilder {
     }
     /// <p>The lambda function ARN.</p>
     /// This field is required.
-    pub fn lambda_function_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn lambda_function_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.lambda_function_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The lambda function ARN.</p>
-    pub fn set_lambda_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_lambda_function_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.lambda_function_arn = input;
         self
     }
@@ -149,8 +164,13 @@ impl OrganizationCustomRuleMetadataBuilder {
     /// <li>
     /// <p><code>ScheduledNotification</code> - Triggers a periodic evaluation at the frequency specified for <code>MaximumExecutionFrequency</code>.</p></li>
     /// </ul>
-    pub fn organization_config_rule_trigger_types(mut self, input: crate::types::OrganizationConfigRuleTriggerType) -> Self {
-        let mut v = self.organization_config_rule_trigger_types.unwrap_or_default();
+    pub fn organization_config_rule_trigger_types(
+        mut self,
+        input: crate::types::OrganizationConfigRuleTriggerType,
+    ) -> Self {
+        let mut v = self
+            .organization_config_rule_trigger_types
+            .unwrap_or_default();
         v.push(input);
         self.organization_config_rule_trigger_types = ::std::option::Option::Some(v);
         self
@@ -166,7 +186,9 @@ impl OrganizationCustomRuleMetadataBuilder {
     /// </ul>
     pub fn set_organization_config_rule_trigger_types(
         mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConfigRuleTriggerType>>,
+        input: ::std::option::Option<
+            ::std::vec::Vec<crate::types::OrganizationConfigRuleTriggerType>,
+        >,
     ) -> Self {
         self.organization_config_rule_trigger_types = input;
         self
@@ -182,16 +204,23 @@ impl OrganizationCustomRuleMetadataBuilder {
     /// </ul>
     pub fn get_organization_config_rule_trigger_types(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::OrganizationConfigRuleTriggerType>> {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::OrganizationConfigRuleTriggerType>>
+    {
         &self.organization_config_rule_trigger_types
     }
     /// <p>A string, in JSON format, that is passed to your organization Config rule Lambda function.</p>
-    pub fn input_parameters(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn input_parameters(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.input_parameters = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A string, in JSON format, that is passed to your organization Config rule Lambda function.</p>
-    pub fn set_input_parameters(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_input_parameters(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.input_parameters = input;
         self
     }
@@ -202,21 +231,29 @@ impl OrganizationCustomRuleMetadataBuilder {
     /// <p>The maximum frequency with which Config runs evaluations for a rule. Your custom rule is triggered when Config delivers the configuration snapshot. For more information, see <code>ConfigSnapshotDeliveryProperties</code>.</p><note>
     /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
     /// </note>
-    pub fn maximum_execution_frequency(mut self, input: crate::types::MaximumExecutionFrequency) -> Self {
+    pub fn maximum_execution_frequency(
+        mut self,
+        input: crate::types::MaximumExecutionFrequency,
+    ) -> Self {
         self.maximum_execution_frequency = ::std::option::Option::Some(input);
         self
     }
     /// <p>The maximum frequency with which Config runs evaluations for a rule. Your custom rule is triggered when Config delivers the configuration snapshot. For more information, see <code>ConfigSnapshotDeliveryProperties</code>.</p><note>
     /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
     /// </note>
-    pub fn set_maximum_execution_frequency(mut self, input: ::std::option::Option<crate::types::MaximumExecutionFrequency>) -> Self {
+    pub fn set_maximum_execution_frequency(
+        mut self,
+        input: ::std::option::Option<crate::types::MaximumExecutionFrequency>,
+    ) -> Self {
         self.maximum_execution_frequency = input;
         self
     }
     /// <p>The maximum frequency with which Config runs evaluations for a rule. Your custom rule is triggered when Config delivers the configuration snapshot. For more information, see <code>ConfigSnapshotDeliveryProperties</code>.</p><note>
     /// <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p>
     /// </note>
-    pub fn get_maximum_execution_frequency(&self) -> &::std::option::Option<crate::types::MaximumExecutionFrequency> {
+    pub fn get_maximum_execution_frequency(
+        &self,
+    ) -> &::std::option::Option<crate::types::MaximumExecutionFrequency> {
         &self.maximum_execution_frequency
     }
     /// Appends an item to `resource_types_scope`.
@@ -224,28 +261,42 @@ impl OrganizationCustomRuleMetadataBuilder {
     /// To override the contents of this collection use [`set_resource_types_scope`](Self::set_resource_types_scope).
     ///
     /// <p>The type of the Amazon Web Services resource that was evaluated.</p>
-    pub fn resource_types_scope(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn resource_types_scope(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.resource_types_scope.unwrap_or_default();
         v.push(input.into());
         self.resource_types_scope = ::std::option::Option::Some(v);
         self
     }
     /// <p>The type of the Amazon Web Services resource that was evaluated.</p>
-    pub fn set_resource_types_scope(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_resource_types_scope(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.resource_types_scope = input;
         self
     }
     /// <p>The type of the Amazon Web Services resource that was evaluated.</p>
-    pub fn get_resource_types_scope(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_resource_types_scope(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.resource_types_scope
     }
     /// <p>The ID of the Amazon Web Services resource that was evaluated.</p>
-    pub fn resource_id_scope(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn resource_id_scope(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.resource_id_scope = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ID of the Amazon Web Services resource that was evaluated.</p>
-    pub fn set_resource_id_scope(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_resource_id_scope(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.resource_id_scope = input;
         self
     }
@@ -254,12 +305,18 @@ impl OrganizationCustomRuleMetadataBuilder {
         &self.resource_id_scope
     }
     /// <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
-    pub fn tag_key_scope(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn tag_key_scope(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.tag_key_scope = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
-    pub fn set_tag_key_scope(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_tag_key_scope(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.tag_key_scope = input;
         self
     }
@@ -268,12 +325,18 @@ impl OrganizationCustomRuleMetadataBuilder {
         &self.tag_key_scope
     }
     /// <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
-    pub fn tag_value_scope(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn tag_value_scope(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.tag_value_scope = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
-    pub fn set_tag_value_scope(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_tag_value_scope(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.tag_value_scope = input;
         self
     }
@@ -285,7 +348,12 @@ impl OrganizationCustomRuleMetadataBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`lambda_function_arn`](crate::types::builders::OrganizationCustomRuleMetadataBuilder::lambda_function_arn)
     /// - [`organization_config_rule_trigger_types`](crate::types::builders::OrganizationCustomRuleMetadataBuilder::organization_config_rule_trigger_types)
-    pub fn build(self) -> ::std::result::Result<crate::types::OrganizationCustomRuleMetadata, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::OrganizationCustomRuleMetadata,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::OrganizationCustomRuleMetadata {
             description: self.description,
             lambda_function_arn: self.lambda_function_arn.ok_or_else(|| {

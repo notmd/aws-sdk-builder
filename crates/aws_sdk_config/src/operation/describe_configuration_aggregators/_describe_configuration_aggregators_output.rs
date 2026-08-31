@@ -4,7 +4,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeConfigurationAggregatorsOutput {
     /// <p>Returns a ConfigurationAggregators object.</p>
-    pub configuration_aggregators: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationAggregator>>,
+    pub configuration_aggregators:
+        ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationAggregator>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -14,7 +15,9 @@ impl DescribeConfigurationAggregatorsOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.configuration_aggregators.is_none()`.
     pub fn configuration_aggregators(&self) -> &[crate::types::ConfigurationAggregator] {
-        self.configuration_aggregators.as_deref().unwrap_or_default()
+        self.configuration_aggregators
+            .as_deref()
+            .unwrap_or_default()
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -28,16 +31,19 @@ impl ::aws_types::request_id::RequestId for DescribeConfigurationAggregatorsOutp
 }
 impl DescribeConfigurationAggregatorsOutput {
     /// Creates a new builder-style object to manufacture [`DescribeConfigurationAggregatorsOutput`](crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsOutput).
-    pub fn builder() -> crate::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsOutputBuilder {
+    pub fn builder() -> crate::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsOutputBuilder{
         crate::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeConfigurationAggregatorsOutput`](crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeConfigurationAggregatorsOutputBuilder {
-    pub(crate) configuration_aggregators: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationAggregator>>,
+    pub(crate) configuration_aggregators:
+        ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationAggregator>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -47,19 +53,27 @@ impl DescribeConfigurationAggregatorsOutputBuilder {
     /// To override the contents of this collection use [`set_configuration_aggregators`](Self::set_configuration_aggregators).
     ///
     /// <p>Returns a ConfigurationAggregators object.</p>
-    pub fn configuration_aggregators(mut self, input: crate::types::ConfigurationAggregator) -> Self {
+    pub fn configuration_aggregators(
+        mut self,
+        input: crate::types::ConfigurationAggregator,
+    ) -> Self {
         let mut v = self.configuration_aggregators.unwrap_or_default();
         v.push(input);
         self.configuration_aggregators = ::std::option::Option::Some(v);
         self
     }
     /// <p>Returns a ConfigurationAggregators object.</p>
-    pub fn set_configuration_aggregators(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationAggregator>>) -> Self {
+    pub fn set_configuration_aggregators(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationAggregator>>,
+    ) -> Self {
         self.configuration_aggregators = input;
         self
     }
     /// <p>Returns a ConfigurationAggregators object.</p>
-    pub fn get_configuration_aggregators(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConfigurationAggregator>> {
+    pub fn get_configuration_aggregators(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ConfigurationAggregator>> {
         &self.configuration_aggregators
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -86,7 +100,10 @@ impl DescribeConfigurationAggregatorsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeConfigurationAggregatorsOutput`](crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsOutput).
-    pub fn build(self) -> crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsOutput
+    {
         crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsOutput {
             configuration_aggregators: self.configuration_aggregators,
             next_token: self.next_token,

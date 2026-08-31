@@ -12,13 +12,17 @@ impl ::aws_types::request_id::RequestId for AdminSetUserPasswordOutput {
 }
 impl AdminSetUserPasswordOutput {
     /// Creates a new builder-style object to manufacture [`AdminSetUserPasswordOutput`](crate::operation::admin_set_user_password::AdminSetUserPasswordOutput).
-    pub fn builder() -> crate::operation::admin_set_user_password::builders::AdminSetUserPasswordOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::admin_set_user_password::builders::AdminSetUserPasswordOutputBuilder
+    {
         crate::operation::admin_set_user_password::builders::AdminSetUserPasswordOutputBuilder::default()
     }
 }
 
 /// A builder for [`AdminSetUserPasswordOutput`](crate::operation::admin_set_user_password::AdminSetUserPasswordOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AdminSetUserPasswordOutputBuilder {
     _request_id: Option<String>,

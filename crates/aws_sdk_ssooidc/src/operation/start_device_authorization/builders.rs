@@ -57,7 +57,10 @@ impl StartDeviceAuthorizationFluentBuilder {
         }
     }
     /// Access the StartDeviceAuthorization as a reference.
-    pub fn as_input(&self) -> &crate::operation::start_device_authorization::builders::StartDeviceAuthorizationInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::start_device_authorization::builders::StartDeviceAuthorizationInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +89,11 @@ impl StartDeviceAuthorizationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::start_device_authorization::StartDeviceAuthorization::orchestrate(&runtime_plugins, input).await
+        crate::operation::start_device_authorization::StartDeviceAuthorization::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,12 +106,18 @@ impl StartDeviceAuthorizationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -123,12 +136,18 @@ impl StartDeviceAuthorizationFluentBuilder {
         self.inner.get_client_id()
     }
     /// <p>A secret string that is generated for the client. This value should come from the persisted result of the <code>RegisterClient</code> API operation.</p>
-    pub fn client_secret(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn client_secret(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.client_secret(input.into());
         self
     }
     /// <p>A secret string that is generated for the client. This value should come from the persisted result of the <code>RegisterClient</code> API operation.</p>
-    pub fn set_client_secret(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_client_secret(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_client_secret(input);
         self
     }

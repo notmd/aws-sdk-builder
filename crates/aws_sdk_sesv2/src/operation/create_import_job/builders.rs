@@ -57,7 +57,9 @@ impl CreateImportJobFluentBuilder {
         }
     }
     /// Access the CreateImportJob as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_import_job::builders::CreateImportJobInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::create_import_job::builders::CreateImportJobInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,12 +83,14 @@ impl CreateImportJobFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_import_job::CreateImportJob::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_import_job::CreateImportJob::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::create_import_job::CreateImportJob::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::create_import_job::CreateImportJob::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,12 +103,18 @@ impl CreateImportJobFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -114,12 +124,17 @@ impl CreateImportJobFluentBuilder {
         self
     }
     /// <p>The destination for the import job.</p>
-    pub fn set_import_destination(mut self, input: ::std::option::Option<crate::types::ImportDestination>) -> Self {
+    pub fn set_import_destination(
+        mut self,
+        input: ::std::option::Option<crate::types::ImportDestination>,
+    ) -> Self {
         self.inner = self.inner.set_import_destination(input);
         self
     }
     /// <p>The destination for the import job.</p>
-    pub fn get_import_destination(&self) -> &::std::option::Option<crate::types::ImportDestination> {
+    pub fn get_import_destination(
+        &self,
+    ) -> &::std::option::Option<crate::types::ImportDestination> {
         self.inner.get_import_destination()
     }
     /// <p>The data source for the import job.</p>
@@ -128,7 +143,10 @@ impl CreateImportJobFluentBuilder {
         self
     }
     /// <p>The data source for the import job.</p>
-    pub fn set_import_data_source(mut self, input: ::std::option::Option<crate::types::ImportDataSource>) -> Self {
+    pub fn set_import_data_source(
+        mut self,
+        input: ::std::option::Option<crate::types::ImportDataSource>,
+    ) -> Self {
         self.inner = self.inner.set_import_data_source(input);
         self
     }

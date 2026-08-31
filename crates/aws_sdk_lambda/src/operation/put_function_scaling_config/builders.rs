@@ -57,7 +57,7 @@ impl PutFunctionScalingConfigFluentBuilder {
         }
     }
     /// Access the PutFunctionScalingConfig as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_function_scaling_config::builders::PutFunctionScalingConfigInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_function_scaling_config::builders::PutFunctionScalingConfigInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +86,11 @@ impl PutFunctionScalingConfigFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_function_scaling_config::PutFunctionScalingConfig::orchestrate(&runtime_plugins, input).await
+        crate::operation::put_function_scaling_config::PutFunctionScalingConfig::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,22 +103,34 @@ impl PutFunctionScalingConfigFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name or ARN of the Lambda function.</p>
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
     /// <p>The name or ARN of the Lambda function.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }
@@ -142,12 +158,17 @@ impl PutFunctionScalingConfigFluentBuilder {
         self
     }
     /// <p>The scaling configuration to apply to the function, including minimum and maximum execution environment limits.</p>
-    pub fn set_function_scaling_config(mut self, input: ::std::option::Option<crate::types::FunctionScalingConfig>) -> Self {
+    pub fn set_function_scaling_config(
+        mut self,
+        input: ::std::option::Option<crate::types::FunctionScalingConfig>,
+    ) -> Self {
         self.inner = self.inner.set_function_scaling_config(input);
         self
     }
     /// <p>The scaling configuration to apply to the function, including minimum and maximum execution environment limits.</p>
-    pub fn get_function_scaling_config(&self) -> &::std::option::Option<crate::types::FunctionScalingConfig> {
+    pub fn get_function_scaling_config(
+        &self,
+    ) -> &::std::option::Option<crate::types::FunctionScalingConfig> {
         self.inner.get_function_scaling_config()
     }
 }

@@ -67,7 +67,9 @@ impl SetUICustomizationFluentBuilder {
         }
     }
     /// Access the SetUICustomization as a reference.
-    pub fn as_input(&self) -> &crate::operation::set_ui_customization::builders::SetUiCustomizationInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::set_ui_customization::builders::SetUiCustomizationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -91,12 +93,17 @@ impl SetUICustomizationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::set_ui_customization::SetUICustomization::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::set_ui_customization::SetUICustomization::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::set_ui_customization::SetUICustomization::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::set_ui_customization::SetUICustomization::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -109,12 +116,18 @@ impl SetUICustomizationFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -166,7 +179,10 @@ impl SetUICustomizationFluentBuilder {
         self
     }
     /// <p>The image that you want to set as your login in the classic hosted UI, as a Base64-formatted binary object.</p>
-    pub fn set_image_file(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
+    pub fn set_image_file(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::Blob>,
+    ) -> Self {
         self.inner = self.inner.set_image_file(input);
         self
     }

@@ -11,7 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetConsoleAuthorizationConfigurationError>`](crate::operation::get_console_authorization_configuration::GetConsoleAuthorizationConfigurationError)
     pub fn get_console_authorization_configuration(
         &self,
-    ) -> crate::operation::get_console_authorization_configuration::builders::GetConsoleAuthorizationConfigurationFluentBuilder {
+    ) -> crate::operation::get_console_authorization_configuration::builders::GetConsoleAuthorizationConfigurationFluentBuilder{
         crate::operation::get_console_authorization_configuration::builders::GetConsoleAuthorizationConfigurationFluentBuilder::new(
             self.handle.clone(),
         )

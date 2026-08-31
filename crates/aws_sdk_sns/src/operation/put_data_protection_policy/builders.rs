@@ -26,7 +26,8 @@ impl crate::operation::put_data_protection_policy::builders::PutDataProtectionPo
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct PutDataProtectionPolicyFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder,
+    inner:
+        crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -57,7 +58,10 @@ impl PutDataProtectionPolicyFluentBuilder {
         }
     }
     /// Access the PutDataProtectionPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +90,11 @@ impl PutDataProtectionPolicyFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_data_protection_policy::PutDataProtectionPolicy::orchestrate(&runtime_plugins, input).await
+        crate::operation::put_data_protection_policy::PutDataProtectionPolicy::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,12 +107,18 @@ impl PutDataProtectionPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -128,14 +142,20 @@ impl PutDataProtectionPolicyFluentBuilder {
     /// <p>The JSON serialization of the topic's <code>DataProtectionPolicy</code>.</p>
     /// <p>The <code>DataProtectionPolicy</code> must be in JSON string format.</p>
     /// <p>Length Constraints: Maximum length of 30,720.</p>
-    pub fn data_protection_policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn data_protection_policy(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.data_protection_policy(input.into());
         self
     }
     /// <p>The JSON serialization of the topic's <code>DataProtectionPolicy</code>.</p>
     /// <p>The <code>DataProtectionPolicy</code> must be in JSON string format.</p>
     /// <p>Length Constraints: Maximum length of 30,720.</p>
-    pub fn set_data_protection_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_data_protection_policy(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_data_protection_policy(input);
         self
     }

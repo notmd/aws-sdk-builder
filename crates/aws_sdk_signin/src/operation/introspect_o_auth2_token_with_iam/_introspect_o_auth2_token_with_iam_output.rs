@@ -99,13 +99,15 @@ impl ::aws_types::request_id::RequestId for IntrospectOAuth2TokenWithIamOutput {
 }
 impl IntrospectOAuth2TokenWithIamOutput {
     /// Creates a new builder-style object to manufacture [`IntrospectOAuth2TokenWithIamOutput`](crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIamOutput).
-    pub fn builder() -> crate::operation::introspect_o_auth2_token_with_iam::builders::IntrospectOAuth2TokenWithIamOutputBuilder {
+    pub fn builder() -> crate::operation::introspect_o_auth2_token_with_iam::builders::IntrospectOAuth2TokenWithIamOutputBuilder{
         crate::operation::introspect_o_auth2_token_with_iam::builders::IntrospectOAuth2TokenWithIamOutputBuilder::default()
     }
 }
 
 /// A builder for [`IntrospectOAuth2TokenWithIamOutput`](crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIamOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct IntrospectOAuth2TokenWithIamOutputBuilder {
     pub(crate) active: ::std::option::Option<bool>,
@@ -295,12 +297,18 @@ impl IntrospectOAuth2TokenWithIamOutputBuilder {
         &self.account_id
     }
     /// AWS Sign-In session ARN bound to the token, of the form arn:aws:signin:{region}:{account}:session/{uuid}.
-    pub fn signin_session(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn signin_session(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.signin_session = ::std::option::Option::Some(input.into());
         self
     }
     /// AWS Sign-In session ARN bound to the token, of the form arn:aws:signin:{region}:{account}:session/{uuid}.
-    pub fn set_signin_session(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_signin_session(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.signin_session = input;
         self
     }

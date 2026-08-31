@@ -10,7 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteBucketAnalyticsConfigurationError>`](crate::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfigurationError)
     pub fn delete_bucket_analytics_configuration(
         &self,
-    ) -> crate::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationFluentBuilder {
+    ) -> crate::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationFluentBuilder{
         crate::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

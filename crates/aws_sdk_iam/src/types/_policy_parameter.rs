@@ -35,7 +35,9 @@ impl PolicyParameter {
 }
 
 /// A builder for [`PolicyParameter`](crate::types::PolicyParameter).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PolicyParameterBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -69,7 +71,10 @@ impl PolicyParameterBuilder {
         self
     }
     /// <p>The allowed values for the policy parameter.</p>
-    pub fn set_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_values(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.values = input;
         self
     }
@@ -83,7 +88,10 @@ impl PolicyParameterBuilder {
         self
     }
     /// <p>The data type of the policy parameter value.</p>
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::PolicyParameterTypeEnum>) -> Self {
+    pub fn set_type(
+        mut self,
+        input: ::std::option::Option<crate::types::PolicyParameterTypeEnum>,
+    ) -> Self {
         self.r#type = input;
         self
     }

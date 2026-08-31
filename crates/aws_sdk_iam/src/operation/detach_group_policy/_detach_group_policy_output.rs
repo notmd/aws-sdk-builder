@@ -12,13 +12,16 @@ impl ::aws_types::request_id::RequestId for DetachGroupPolicyOutput {
 }
 impl DetachGroupPolicyOutput {
     /// Creates a new builder-style object to manufacture [`DetachGroupPolicyOutput`](crate::operation::detach_group_policy::DetachGroupPolicyOutput).
-    pub fn builder() -> crate::operation::detach_group_policy::builders::DetachGroupPolicyOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::detach_group_policy::builders::DetachGroupPolicyOutputBuilder {
         crate::operation::detach_group_policy::builders::DetachGroupPolicyOutputBuilder::default()
     }
 }
 
 /// A builder for [`DetachGroupPolicyOutput`](crate::operation::detach_group_policy::DetachGroupPolicyOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DetachGroupPolicyOutputBuilder {
     _request_id: Option<String>,

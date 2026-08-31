@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteResourcePermissionStatementError>`](crate::operation::delete_resource_permission_statement::DeleteResourcePermissionStatementError)
     pub fn delete_resource_permission_statement(
         &self,
-    ) -> crate::operation::delete_resource_permission_statement::builders::DeleteResourcePermissionStatementFluentBuilder {
+    ) -> crate::operation::delete_resource_permission_statement::builders::DeleteResourcePermissionStatementFluentBuilder{
         crate::operation::delete_resource_permission_statement::builders::DeleteResourcePermissionStatementFluentBuilder::new(self.handle.clone())
     }
 }

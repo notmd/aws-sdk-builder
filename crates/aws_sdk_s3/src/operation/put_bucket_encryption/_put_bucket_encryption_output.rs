@@ -18,13 +18,17 @@ impl ::aws_types::request_id::RequestId for PutBucketEncryptionOutput {
 }
 impl PutBucketEncryptionOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketEncryptionOutput`](crate::operation::put_bucket_encryption::PutBucketEncryptionOutput).
-    pub fn builder() -> crate::operation::put_bucket_encryption::builders::PutBucketEncryptionOutputBuilder {
-        crate::operation::put_bucket_encryption::builders::PutBucketEncryptionOutputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::put_bucket_encryption::builders::PutBucketEncryptionOutputBuilder {
+        crate::operation::put_bucket_encryption::builders::PutBucketEncryptionOutputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`PutBucketEncryptionOutput`](crate::operation::put_bucket_encryption::PutBucketEncryptionOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct PutBucketEncryptionOutputBuilder {
     _extended_request_id: Option<String>,
@@ -36,7 +40,10 @@ impl PutBucketEncryptionOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(
+        &mut self,
+        extended_request_id: Option<String>,
+    ) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

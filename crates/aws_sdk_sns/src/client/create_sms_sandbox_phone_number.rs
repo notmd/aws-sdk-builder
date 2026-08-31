@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CreateSMSSandboxPhoneNumberError>`](crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError)
     pub fn create_sms_sandbox_phone_number(
         &self,
-    ) -> crate::operation::create_sms_sandbox_phone_number::builders::CreateSMSSandboxPhoneNumberFluentBuilder {
+    ) -> crate::operation::create_sms_sandbox_phone_number::builders::CreateSMSSandboxPhoneNumberFluentBuilder{
         crate::operation::create_sms_sandbox_phone_number::builders::CreateSMSSandboxPhoneNumberFluentBuilder::new(self.handle.clone())
     }
 }

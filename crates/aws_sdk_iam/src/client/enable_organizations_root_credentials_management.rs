@@ -9,7 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<EnableOrganizationsRootCredentialsManagementError>`](crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError)
     pub fn enable_organizations_root_credentials_management(
         &self,
-    ) -> crate::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementFluentBuilder {
+    ) -> crate::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementFluentBuilder{
         crate::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementFluentBuilder::new(
             self.handle.clone(),
         )

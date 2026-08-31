@@ -8,7 +8,11 @@ impl super::Client {
     /// - On success, responds with [`DescribeTermsOutput`](crate::operation::describe_terms::DescribeTermsOutput) with field(s):
     ///   - [`terms(Option<TermsType>)`](crate::operation::describe_terms::DescribeTermsOutput::terms): <p>A summary of the requested terms documents. Includes a unique identifier for later changes to the terms documents.</p>
     /// - On failure, responds with [`SdkError<DescribeTermsError>`](crate::operation::describe_terms::DescribeTermsError)
-    pub fn describe_terms(&self) -> crate::operation::describe_terms::builders::DescribeTermsFluentBuilder {
-        crate::operation::describe_terms::builders::DescribeTermsFluentBuilder::new(self.handle.clone())
+    pub fn describe_terms(
+        &self,
+    ) -> crate::operation::describe_terms::builders::DescribeTermsFluentBuilder {
+        crate::operation::describe_terms::builders::DescribeTermsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

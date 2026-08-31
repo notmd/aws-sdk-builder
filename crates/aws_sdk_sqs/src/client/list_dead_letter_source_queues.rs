@@ -13,7 +13,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListDeadLetterSourceQueuesError>`](crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError)
     pub fn list_dead_letter_source_queues(
         &self,
-    ) -> crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesFluentBuilder {
+    ) -> crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesFluentBuilder{
         crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesFluentBuilder::new(self.handle.clone())
     }
 }

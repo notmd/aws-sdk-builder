@@ -9,7 +9,10 @@ pub fn ser_guardrail_image_block(
     if let Some(var_1) = &input.source {
         #[allow(unused_mut)]
         let mut object_2 = object.key("source").start_object();
-        crate::protocol_serde::shape_guardrail_image_source::ser_guardrail_image_source(&mut object_2, var_1)?;
+        crate::protocol_serde::shape_guardrail_image_source::ser_guardrail_image_source(
+            &mut object_2,
+            var_1,
+        )?;
         object_2.finish();
     }
     Ok(())

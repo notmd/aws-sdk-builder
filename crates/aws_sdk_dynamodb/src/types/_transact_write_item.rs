@@ -39,7 +39,9 @@ impl TransactWriteItem {
 }
 
 /// A builder for [`TransactWriteItem`](crate::types::TransactWriteItem).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct TransactWriteItemBuilder {
     pub(crate) condition_check: ::std::option::Option<crate::types::ConditionCheck>,
@@ -54,7 +56,10 @@ impl TransactWriteItemBuilder {
         self
     }
     /// <p>A request to perform a check item operation.</p>
-    pub fn set_condition_check(mut self, input: ::std::option::Option<crate::types::ConditionCheck>) -> Self {
+    pub fn set_condition_check(
+        mut self,
+        input: ::std::option::Option<crate::types::ConditionCheck>,
+    ) -> Self {
         self.condition_check = input;
         self
     }

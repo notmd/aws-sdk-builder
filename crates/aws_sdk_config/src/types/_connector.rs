@@ -25,7 +25,9 @@ impl Connector {
         self.arn.deref()
     }
     /// <p>The provider-specific configuration for connecting to the third-party cloud service provider.</p>
-    pub fn connector_configuration(&self) -> ::std::option::Option<&crate::types::ConnectorConfiguration> {
+    pub fn connector_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ConnectorConfiguration> {
         self.connector_configuration.as_ref()
     }
     /// <p>The date and time that the connector was created.</p>
@@ -41,7 +43,9 @@ impl Connector {
 }
 
 /// A builder for [`Connector`](crate::types::Connector).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ConnectorBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -87,12 +91,17 @@ impl ConnectorBuilder {
         self
     }
     /// <p>The provider-specific configuration for connecting to the third-party cloud service provider.</p>
-    pub fn set_connector_configuration(mut self, input: ::std::option::Option<crate::types::ConnectorConfiguration>) -> Self {
+    pub fn set_connector_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::ConnectorConfiguration>,
+    ) -> Self {
         self.connector_configuration = input;
         self
     }
     /// <p>The provider-specific configuration for connecting to the third-party cloud service provider.</p>
-    pub fn get_connector_configuration(&self) -> &::std::option::Option<crate::types::ConnectorConfiguration> {
+    pub fn get_connector_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::ConnectorConfiguration> {
         &self.connector_configuration
     }
     /// <p>The date and time that the connector was created.</p>
@@ -102,7 +111,10 @@ impl ConnectorBuilder {
         self
     }
     /// <p>The date and time that the connector was created.</p>
-    pub fn set_created_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_created_time(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.created_time = input;
         self
     }
@@ -115,7 +127,12 @@ impl ConnectorBuilder {
     /// - [`name`](crate::types::builders::ConnectorBuilder::name)
     /// - [`arn`](crate::types::builders::ConnectorBuilder::arn)
     /// - [`created_time`](crate::types::builders::ConnectorBuilder::created_time)
-    pub fn build(self) -> ::std::result::Result<crate::types::Connector, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::Connector,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::Connector {
             name: self.name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -8,7 +8,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutAccountSendingAttributesError>`](crate::operation::put_account_sending_attributes::PutAccountSendingAttributesError)
     pub fn put_account_sending_attributes(
         &self,
-    ) -> crate::operation::put_account_sending_attributes::builders::PutAccountSendingAttributesFluentBuilder {
+    ) -> crate::operation::put_account_sending_attributes::builders::PutAccountSendingAttributesFluentBuilder{
         crate::operation::put_account_sending_attributes::builders::PutAccountSendingAttributesFluentBuilder::new(self.handle.clone())
     }
 }

@@ -29,14 +29,20 @@ pub struct GetAliasFluentBuilder {
     inner: crate::operation::get_alias::builders::GetAliasInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
-impl crate::client::customize::internal::CustomizableSend<crate::operation::get_alias::GetAliasOutput, crate::operation::get_alias::GetAliasError>
-    for GetAliasFluentBuilder
+impl
+    crate::client::customize::internal::CustomizableSend<
+        crate::operation::get_alias::GetAliasOutput,
+        crate::operation::get_alias::GetAliasError,
+    > for GetAliasFluentBuilder
 {
     fn send(
         self,
         config_override: crate::config::Builder,
     ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<crate::operation::get_alias::GetAliasOutput, crate::operation::get_alias::GetAliasError>,
+        crate::client::customize::internal::SendResult<
+            crate::operation::get_alias::GetAliasOutput,
+            crate::operation::get_alias::GetAliasError,
+        >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -86,16 +92,25 @@ impl GetAliasFluentBuilder {
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
     pub fn customize(
         self,
-    ) -> crate::client::customize::CustomizableOperation<crate::operation::get_alias::GetAliasOutput, crate::operation::get_alias::GetAliasError, Self>
-    {
+    ) -> crate::client::customize::CustomizableOperation<
+        crate::operation::get_alias::GetAliasOutput,
+        crate::operation::get_alias::GetAliasError,
+        Self,
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -110,7 +125,10 @@ impl GetAliasFluentBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn function_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -125,7 +143,10 @@ impl GetAliasFluentBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_function_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }

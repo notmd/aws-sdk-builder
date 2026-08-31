@@ -9,8 +9,14 @@ pub fn de_decode_authorization_message_http_error(
     crate::operation::decode_authorization_message::DecodeAuthorizationMessageError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::decode_authorization_message::DecodeAuthorizationMessageError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(
+        crate::operation::decode_authorization_message::DecodeAuthorizationMessageError::unhandled,
+    )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
@@ -59,7 +65,9 @@ pub fn de_decode_authorization_message_http_response(
         let mut output = crate::operation::decode_authorization_message::builders::DecodeAuthorizationMessageOutputBuilder::default();
         output = crate::protocol_serde::shape_decode_authorization_message::de_decode_authorization_message(_response_body, output)
             .map_err(crate::operation::decode_authorization_message::DecodeAuthorizationMessageError::unhandled)?;
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }
@@ -71,7 +79,7 @@ pub fn de_decode_authorization_message(
 ) -> std::result::Result<
     crate::operation::decode_authorization_message::builders::DecodeAuthorizationMessageOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+>{
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

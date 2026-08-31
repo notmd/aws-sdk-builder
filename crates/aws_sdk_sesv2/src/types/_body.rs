@@ -27,7 +27,9 @@ impl Body {
 }
 
 /// A builder for [`Body`](crate::types::Body).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct BodyBuilder {
     pub(crate) text: ::std::option::Option<crate::types::Content>,

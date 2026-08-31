@@ -4,12 +4,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetLogRecordOutput {
     /// <p>The requested log event, as a JSON string.</p>
-    pub log_record: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub log_record: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     _request_id: Option<String>,
 }
 impl GetLogRecordOutput {
     /// <p>The requested log event, as a JSON string.</p>
-    pub fn log_record(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn log_record(
+        &self,
+    ) -> ::std::option::Option<
+        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         self.log_record.as_ref()
     }
 }
@@ -26,10 +32,14 @@ impl GetLogRecordOutput {
 }
 
 /// A builder for [`GetLogRecordOutput`](crate::operation::get_log_record::GetLogRecordOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetLogRecordOutputBuilder {
-    pub(crate) log_record: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) log_record: ::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    >,
     _request_id: Option<String>,
 }
 impl GetLogRecordOutputBuilder {
@@ -38,19 +48,32 @@ impl GetLogRecordOutputBuilder {
     /// To override the contents of this collection use [`set_log_record`](Self::set_log_record).
     ///
     /// <p>The requested log event, as a JSON string.</p>
-    pub fn log_record(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn log_record(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut hash_map = self.log_record.unwrap_or_default();
         hash_map.insert(k.into(), v.into());
         self.log_record = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>The requested log event, as a JSON string.</p>
-    pub fn set_log_record(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+    pub fn set_log_record(
+        mut self,
+        input: ::std::option::Option<
+            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+        >,
+    ) -> Self {
         self.log_record = input;
         self
     }
     /// <p>The requested log event, as a JSON string.</p>
-    pub fn get_log_record(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+    pub fn get_log_record(
+        &self,
+    ) -> &::std::option::Option<
+        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
+    > {
         &self.log_record
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

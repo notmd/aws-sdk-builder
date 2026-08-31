@@ -28,13 +28,17 @@ impl UpdateServiceEnvironmentInput {
 }
 impl UpdateServiceEnvironmentInput {
     /// Creates a new builder-style object to manufacture [`UpdateServiceEnvironmentInput`](crate::operation::update_service_environment::UpdateServiceEnvironmentInput).
-    pub fn builder() -> crate::operation::update_service_environment::builders::UpdateServiceEnvironmentInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_service_environment::builders::UpdateServiceEnvironmentInputBuilder
+    {
         crate::operation::update_service_environment::builders::UpdateServiceEnvironmentInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateServiceEnvironmentInput`](crate::operation::update_service_environment::UpdateServiceEnvironmentInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateServiceEnvironmentInputBuilder {
     pub(crate) service_environment: ::std::option::Option<::std::string::String>,
@@ -44,12 +48,18 @@ pub struct UpdateServiceEnvironmentInputBuilder {
 impl UpdateServiceEnvironmentInputBuilder {
     /// <p>The name or ARN of the service environment to update.</p>
     /// This field is required.
-    pub fn service_environment(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn service_environment(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.service_environment = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name or ARN of the service environment to update.</p>
-    pub fn set_service_environment(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_service_environment(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.service_environment = input;
         self
     }
@@ -63,7 +73,10 @@ impl UpdateServiceEnvironmentInputBuilder {
         self
     }
     /// <p>The state of the service environment.</p>
-    pub fn set_state(mut self, input: ::std::option::Option<crate::types::ServiceEnvironmentState>) -> Self {
+    pub fn set_state(
+        mut self,
+        input: ::std::option::Option<crate::types::ServiceEnvironmentState>,
+    ) -> Self {
         self.state = input;
         self
     }
@@ -83,12 +96,17 @@ impl UpdateServiceEnvironmentInputBuilder {
         self
     }
     /// <p>The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.</p>
-    pub fn set_capacity_limits(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CapacityLimit>>) -> Self {
+    pub fn set_capacity_limits(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::CapacityLimit>>,
+    ) -> Self {
         self.capacity_limits = input;
         self
     }
     /// <p>The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.</p>
-    pub fn get_capacity_limits(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CapacityLimit>> {
+    pub fn get_capacity_limits(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::CapacityLimit>> {
         &self.capacity_limits
     }
     /// Consumes the builder and constructs a [`UpdateServiceEnvironmentInput`](crate::operation::update_service_environment::UpdateServiceEnvironmentInput).
@@ -98,10 +116,12 @@ impl UpdateServiceEnvironmentInputBuilder {
         crate::operation::update_service_environment::UpdateServiceEnvironmentInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::update_service_environment::UpdateServiceEnvironmentInput {
-            service_environment: self.service_environment,
-            state: self.state,
-            capacity_limits: self.capacity_limits,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::update_service_environment::UpdateServiceEnvironmentInput {
+                service_environment: self.service_environment,
+                state: self.state,
+                capacity_limits: self.capacity_limits,
+            },
+        )
     }
 }

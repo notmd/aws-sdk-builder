@@ -9,7 +9,9 @@ pub struct DescribeRiskConfigurationOutput {
 }
 impl DescribeRiskConfigurationOutput {
     /// <p>The details of the requested risk configuration.</p>
-    pub fn risk_configuration(&self) -> ::std::option::Option<&crate::types::RiskConfigurationType> {
+    pub fn risk_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::RiskConfigurationType> {
         self.risk_configuration.as_ref()
     }
 }
@@ -20,13 +22,15 @@ impl ::aws_types::request_id::RequestId for DescribeRiskConfigurationOutput {
 }
 impl DescribeRiskConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`DescribeRiskConfigurationOutput`](crate::operation::describe_risk_configuration::DescribeRiskConfigurationOutput).
-    pub fn builder() -> crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationOutputBuilder {
+    pub fn builder() -> crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationOutputBuilder{
         crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeRiskConfigurationOutput`](crate::operation::describe_risk_configuration::DescribeRiskConfigurationOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeRiskConfigurationOutputBuilder {
     pub(crate) risk_configuration: ::std::option::Option<crate::types::RiskConfigurationType>,
@@ -40,12 +44,17 @@ impl DescribeRiskConfigurationOutputBuilder {
         self
     }
     /// <p>The details of the requested risk configuration.</p>
-    pub fn set_risk_configuration(mut self, input: ::std::option::Option<crate::types::RiskConfigurationType>) -> Self {
+    pub fn set_risk_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::RiskConfigurationType>,
+    ) -> Self {
         self.risk_configuration = input;
         self
     }
     /// <p>The details of the requested risk configuration.</p>
-    pub fn get_risk_configuration(&self) -> &::std::option::Option<crate::types::RiskConfigurationType> {
+    pub fn get_risk_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::RiskConfigurationType> {
         &self.risk_configuration
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -58,7 +67,9 @@ impl DescribeRiskConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeRiskConfigurationOutput`](crate::operation::describe_risk_configuration::DescribeRiskConfigurationOutput).
-    pub fn build(self) -> crate::operation::describe_risk_configuration::DescribeRiskConfigurationOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::describe_risk_configuration::DescribeRiskConfigurationOutput {
         crate::operation::describe_risk_configuration::DescribeRiskConfigurationOutput {
             risk_configuration: self.risk_configuration,
             _request_id: self._request_id,

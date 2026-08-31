@@ -29,7 +29,9 @@ impl ConnectorFilter {
 }
 
 /// A builder for [`ConnectorFilter`](crate::types::ConnectorFilter).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ConnectorFilterBuilder {
     pub(crate) filter_name: ::std::option::Option<crate::types::ConnectorFilterName>,
@@ -42,7 +44,10 @@ impl ConnectorFilterBuilder {
         self
     }
     /// <p>The name of the filter. Currently, only <code>provider</code> is supported.</p>
-    pub fn set_filter_name(mut self, input: ::std::option::Option<crate::types::ConnectorFilterName>) -> Self {
+    pub fn set_filter_name(
+        mut self,
+        input: ::std::option::Option<crate::types::ConnectorFilterName>,
+    ) -> Self {
         self.filter_name = input;
         self
     }
@@ -55,19 +60,27 @@ impl ConnectorFilterBuilder {
     /// To override the contents of this collection use [`set_filter_values`](Self::set_filter_values).
     ///
     /// <p>The value of the filter. For <code>provider</code>, valid values include: <code>AZURE</code>.</p>
-    pub fn filter_values(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn filter_values(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.filter_values.unwrap_or_default();
         v.push(input.into());
         self.filter_values = ::std::option::Option::Some(v);
         self
     }
     /// <p>The value of the filter. For <code>provider</code>, valid values include: <code>AZURE</code>.</p>
-    pub fn set_filter_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_filter_values(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.filter_values = input;
         self
     }
     /// <p>The value of the filter. For <code>provider</code>, valid values include: <code>AZURE</code>.</p>
-    pub fn get_filter_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_filter_values(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.filter_values
     }
     /// Consumes the builder and constructs a [`ConnectorFilter`](crate::types::ConnectorFilter).

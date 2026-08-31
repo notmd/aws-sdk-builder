@@ -4,12 +4,15 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct SetLogDeliveryConfigurationOutput {
     /// <p>The logging configuration that you applied to the requested user pool.</p>
-    pub log_delivery_configuration: ::std::option::Option<crate::types::LogDeliveryConfigurationType>,
+    pub log_delivery_configuration:
+        ::std::option::Option<crate::types::LogDeliveryConfigurationType>,
     _request_id: Option<String>,
 }
 impl SetLogDeliveryConfigurationOutput {
     /// <p>The logging configuration that you applied to the requested user pool.</p>
-    pub fn log_delivery_configuration(&self) -> ::std::option::Option<&crate::types::LogDeliveryConfigurationType> {
+    pub fn log_delivery_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::LogDeliveryConfigurationType> {
         self.log_delivery_configuration.as_ref()
     }
 }
@@ -20,31 +23,42 @@ impl ::aws_types::request_id::RequestId for SetLogDeliveryConfigurationOutput {
 }
 impl SetLogDeliveryConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`SetLogDeliveryConfigurationOutput`](crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationOutput).
-    pub fn builder() -> crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationOutputBuilder {
+    pub fn builder() -> crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationOutputBuilder{
         crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationOutputBuilder::default()
     }
 }
 
 /// A builder for [`SetLogDeliveryConfigurationOutput`](crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct SetLogDeliveryConfigurationOutputBuilder {
-    pub(crate) log_delivery_configuration: ::std::option::Option<crate::types::LogDeliveryConfigurationType>,
+    pub(crate) log_delivery_configuration:
+        ::std::option::Option<crate::types::LogDeliveryConfigurationType>,
     _request_id: Option<String>,
 }
 impl SetLogDeliveryConfigurationOutputBuilder {
     /// <p>The logging configuration that you applied to the requested user pool.</p>
-    pub fn log_delivery_configuration(mut self, input: crate::types::LogDeliveryConfigurationType) -> Self {
+    pub fn log_delivery_configuration(
+        mut self,
+        input: crate::types::LogDeliveryConfigurationType,
+    ) -> Self {
         self.log_delivery_configuration = ::std::option::Option::Some(input);
         self
     }
     /// <p>The logging configuration that you applied to the requested user pool.</p>
-    pub fn set_log_delivery_configuration(mut self, input: ::std::option::Option<crate::types::LogDeliveryConfigurationType>) -> Self {
+    pub fn set_log_delivery_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::LogDeliveryConfigurationType>,
+    ) -> Self {
         self.log_delivery_configuration = input;
         self
     }
     /// <p>The logging configuration that you applied to the requested user pool.</p>
-    pub fn get_log_delivery_configuration(&self) -> &::std::option::Option<crate::types::LogDeliveryConfigurationType> {
+    pub fn get_log_delivery_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::LogDeliveryConfigurationType> {
         &self.log_delivery_configuration
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -57,7 +71,9 @@ impl SetLogDeliveryConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SetLogDeliveryConfigurationOutput`](crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationOutput).
-    pub fn build(self) -> crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationOutput {
         crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationOutput {
             log_delivery_configuration: self.log_delivery_configuration,
             _request_id: self._request_id,

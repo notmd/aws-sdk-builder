@@ -15,13 +15,17 @@ impl DeliverConfigSnapshotInput {
 }
 impl DeliverConfigSnapshotInput {
     /// Creates a new builder-style object to manufacture [`DeliverConfigSnapshotInput`](crate::operation::deliver_config_snapshot::DeliverConfigSnapshotInput).
-    pub fn builder() -> crate::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotInputBuilder
+    {
         crate::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotInputBuilder::default()
     }
 }
 
 /// A builder for [`DeliverConfigSnapshotInput`](crate::operation::deliver_config_snapshot::DeliverConfigSnapshotInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeliverConfigSnapshotInputBuilder {
     pub(crate) delivery_channel_name: ::std::option::Option<::std::string::String>,
@@ -29,12 +33,18 @@ pub struct DeliverConfigSnapshotInputBuilder {
 impl DeliverConfigSnapshotInputBuilder {
     /// <p>The name of the delivery channel through which the snapshot is delivered.</p>
     /// This field is required.
-    pub fn delivery_channel_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn delivery_channel_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.delivery_channel_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the delivery channel through which the snapshot is delivered.</p>
-    pub fn set_delivery_channel_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_delivery_channel_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.delivery_channel_name = input;
         self
     }
@@ -45,10 +55,14 @@ impl DeliverConfigSnapshotInputBuilder {
     /// Consumes the builder and constructs a [`DeliverConfigSnapshotInput`](crate::operation::deliver_config_snapshot::DeliverConfigSnapshotInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::deliver_config_snapshot::DeliverConfigSnapshotInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::deliver_config_snapshot::DeliverConfigSnapshotInput {
-            delivery_channel_name: self.delivery_channel_name,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::deliver_config_snapshot::DeliverConfigSnapshotInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::deliver_config_snapshot::DeliverConfigSnapshotInput {
+                delivery_channel_name: self.delivery_channel_name,
+            },
+        )
     }
 }

@@ -23,7 +23,9 @@ impl FilterCriteria {
 }
 
 /// A builder for [`FilterCriteria`](crate::types::FilterCriteria).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct FilterCriteriaBuilder {
     pub(crate) filters: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>,
@@ -41,7 +43,10 @@ impl FilterCriteriaBuilder {
         self
     }
     /// <p>A list of filters.</p>
-    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>) -> Self {
+    pub fn set_filters(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>,
+    ) -> Self {
         self.filters = input;
         self
     }
@@ -51,6 +56,8 @@ impl FilterCriteriaBuilder {
     }
     /// Consumes the builder and constructs a [`FilterCriteria`](crate::types::FilterCriteria).
     pub fn build(self) -> crate::types::FilterCriteria {
-        crate::types::FilterCriteria { filters: self.filters }
+        crate::types::FilterCriteria {
+            filters: self.filters,
+        }
     }
 }

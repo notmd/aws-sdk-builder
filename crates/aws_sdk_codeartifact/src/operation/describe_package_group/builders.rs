@@ -57,7 +57,9 @@ impl DescribePackageGroupFluentBuilder {
         }
     }
     /// Access the DescribePackageGroup as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_package_group::builders::DescribePackageGroupInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_package_group::builders::DescribePackageGroupInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +88,11 @@ impl DescribePackageGroupFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_package_group::DescribePackageGroup::orchestrate(&runtime_plugins, input).await
+        crate::operation::describe_package_group::DescribePackageGroup::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,12 +105,18 @@ impl DescribePackageGroupFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
@@ -137,12 +149,18 @@ impl DescribePackageGroupFluentBuilder {
         self.inner.get_domain_owner()
     }
     /// <p>The pattern of the requested package group.</p>
-    pub fn package_group(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn package_group(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.package_group(input.into());
         self
     }
     /// <p>The pattern of the requested package group.</p>
-    pub fn set_package_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_package_group(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_package_group(input);
         self
     }

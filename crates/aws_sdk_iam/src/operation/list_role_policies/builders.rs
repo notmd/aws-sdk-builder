@@ -59,7 +59,9 @@ impl ListRolePoliciesFluentBuilder {
         }
     }
     /// Access the ListRolePolicies as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_role_policies::builders::ListRolePoliciesInputBuilder {
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_role_policies::builders::ListRolePoliciesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,12 +85,14 @@ impl ListRolePoliciesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_role_policies::ListRolePolicies::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_role_policies::ListRolePolicies::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::list_role_policies::ListRolePolicies::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_role_policies::ListRolePolicies::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -101,20 +105,31 @@ impl ListRolePoliciesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_role_policies::paginator::ListRolePoliciesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_role_policies::paginator::ListRolePoliciesPaginator {
-        crate::operation::list_role_policies::paginator::ListRolePoliciesPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_role_policies::paginator::ListRolePoliciesPaginator {
+        crate::operation::list_role_policies::paginator::ListRolePoliciesPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The name of the role to list policies for.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>

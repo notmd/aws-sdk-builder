@@ -56,7 +56,9 @@ impl ListToMap {
 }
 
 /// A builder for [`ListToMap`](crate::types::ListToMap).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListToMapBuilder {
     pub(crate) source: ::std::option::Option<::std::string::String>,
@@ -147,7 +149,10 @@ impl ListToMapBuilder {
     }
     /// <p>If you set <code>flatten</code> to <code>true</code>, use <code>flattenedElement</code> to specify which element, <code>first</code> or <code>last</code>, to keep.</p>
     /// <p>You must specify this parameter if <code>flatten</code> is <code>true</code></p>
-    pub fn set_flattened_element(mut self, input: ::std::option::Option<crate::types::FlattenedElement>) -> Self {
+    pub fn set_flattened_element(
+        mut self,
+        input: ::std::option::Option<crate::types::FlattenedElement>,
+    ) -> Self {
         self.flattened_element = input;
         self
     }
@@ -160,7 +165,12 @@ impl ListToMapBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`source`](crate::types::builders::ListToMapBuilder::source)
     /// - [`key`](crate::types::builders::ListToMapBuilder::key)
-    pub fn build(self) -> ::std::result::Result<crate::types::ListToMap, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::ListToMap,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::ListToMap {
             source: self.source.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

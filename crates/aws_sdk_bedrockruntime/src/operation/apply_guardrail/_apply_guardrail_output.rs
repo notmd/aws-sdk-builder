@@ -58,14 +58,18 @@ impl ApplyGuardrailOutput {
 }
 
 /// A builder for [`ApplyGuardrailOutput`](crate::operation::apply_guardrail::ApplyGuardrailOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ApplyGuardrailOutputBuilder {
     pub(crate) usage: ::std::option::Option<crate::types::GuardrailUsage>,
     pub(crate) action: ::std::option::Option<crate::types::GuardrailAction>,
     pub(crate) action_reason: ::std::option::Option<::std::string::String>,
-    pub(crate) outputs: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailOutputContent>>,
-    pub(crate) assessments: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAssessment>>,
+    pub(crate) outputs:
+        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailOutputContent>>,
+    pub(crate) assessments:
+        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAssessment>>,
     pub(crate) guardrail_coverage: ::std::option::Option<crate::types::GuardrailCoverage>,
     _request_id: Option<String>,
 }
@@ -92,7 +96,10 @@ impl ApplyGuardrailOutputBuilder {
         self
     }
     /// <p>The action taken in the response from the guardrail.</p>
-    pub fn set_action(mut self, input: ::std::option::Option<crate::types::GuardrailAction>) -> Self {
+    pub fn set_action(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailAction>,
+    ) -> Self {
         self.action = input;
         self
     }
@@ -101,12 +108,18 @@ impl ApplyGuardrailOutputBuilder {
         &self.action
     }
     /// <p>The reason for the action taken when harmful content is detected.</p>
-    pub fn action_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn action_reason(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.action_reason = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The reason for the action taken when harmful content is detected.</p>
-    pub fn set_action_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_action_reason(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.action_reason = input;
         self
     }
@@ -126,12 +139,17 @@ impl ApplyGuardrailOutputBuilder {
         self
     }
     /// <p>The output details in the response from the guardrail.</p>
-    pub fn set_outputs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailOutputContent>>) -> Self {
+    pub fn set_outputs(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailOutputContent>>,
+    ) -> Self {
         self.outputs = input;
         self
     }
     /// <p>The output details in the response from the guardrail.</p>
-    pub fn get_outputs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailOutputContent>> {
+    pub fn get_outputs(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailOutputContent>> {
         &self.outputs
     }
     /// Appends an item to `assessments`.
@@ -146,12 +164,17 @@ impl ApplyGuardrailOutputBuilder {
         self
     }
     /// <p>The assessment details in the response from the guardrail.</p>
-    pub fn set_assessments(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAssessment>>) -> Self {
+    pub fn set_assessments(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAssessment>>,
+    ) -> Self {
         self.assessments = input;
         self
     }
     /// <p>The assessment details in the response from the guardrail.</p>
-    pub fn get_assessments(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAssessment>> {
+    pub fn get_assessments(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAssessment>> {
         &self.assessments
     }
     /// <p>The guardrail coverage details in the apply guardrail response.</p>
@@ -160,12 +183,17 @@ impl ApplyGuardrailOutputBuilder {
         self
     }
     /// <p>The guardrail coverage details in the apply guardrail response.</p>
-    pub fn set_guardrail_coverage(mut self, input: ::std::option::Option<crate::types::GuardrailCoverage>) -> Self {
+    pub fn set_guardrail_coverage(
+        mut self,
+        input: ::std::option::Option<crate::types::GuardrailCoverage>,
+    ) -> Self {
         self.guardrail_coverage = input;
         self
     }
     /// <p>The guardrail coverage details in the apply guardrail response.</p>
-    pub fn get_guardrail_coverage(&self) -> &::std::option::Option<crate::types::GuardrailCoverage> {
+    pub fn get_guardrail_coverage(
+        &self,
+    ) -> &::std::option::Option<crate::types::GuardrailCoverage> {
         &self.guardrail_coverage
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -184,7 +212,10 @@ impl ApplyGuardrailOutputBuilder {
     /// - [`assessments`](crate::operation::apply_guardrail::builders::ApplyGuardrailOutputBuilder::assessments)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::apply_guardrail::ApplyGuardrailOutput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::apply_guardrail::ApplyGuardrailOutput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::apply_guardrail::ApplyGuardrailOutput {
             usage: self.usage,
             action: self.action.ok_or_else(|| {

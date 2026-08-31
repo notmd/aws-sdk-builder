@@ -27,7 +27,9 @@ impl RemediationParameterValue {
 }
 
 /// A builder for [`RemediationParameterValue`](crate::types::RemediationParameterValue).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RemediationParameterValueBuilder {
     pub(crate) resource_value: ::std::option::Option<crate::types::ResourceValue>,
@@ -40,7 +42,10 @@ impl RemediationParameterValueBuilder {
         self
     }
     /// <p>The value is dynamic and changes at run-time.</p>
-    pub fn set_resource_value(mut self, input: ::std::option::Option<crate::types::ResourceValue>) -> Self {
+    pub fn set_resource_value(
+        mut self,
+        input: ::std::option::Option<crate::types::ResourceValue>,
+    ) -> Self {
         self.resource_value = input;
         self
     }
@@ -54,7 +59,10 @@ impl RemediationParameterValueBuilder {
         self
     }
     /// <p>The value is static and does not change at run-time.</p>
-    pub fn set_static_value(mut self, input: ::std::option::Option<crate::types::StaticValue>) -> Self {
+    pub fn set_static_value(
+        mut self,
+        input: ::std::option::Option<crate::types::StaticValue>,
+    ) -> Self {
         self.static_value = input;
         self
     }

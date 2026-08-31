@@ -34,14 +34,20 @@ pub struct EnableKeyFluentBuilder {
     inner: crate::operation::enable_key::builders::EnableKeyInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
-impl crate::client::customize::internal::CustomizableSend<crate::operation::enable_key::EnableKeyOutput, crate::operation::enable_key::EnableKeyError>
-    for EnableKeyFluentBuilder
+impl
+    crate::client::customize::internal::CustomizableSend<
+        crate::operation::enable_key::EnableKeyOutput,
+        crate::operation::enable_key::EnableKeyError,
+    > for EnableKeyFluentBuilder
 {
     fn send(
         self,
         config_override: crate::config::Builder,
     ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<crate::operation::enable_key::EnableKeyOutput, crate::operation::enable_key::EnableKeyError>,
+        crate::client::customize::internal::SendResult<
+            crate::operation::enable_key::EnableKeyOutput,
+            crate::operation::enable_key::EnableKeyError,
+        >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -98,12 +104,18 @@ impl EnableKeyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }

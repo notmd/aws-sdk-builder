@@ -81,11 +81,12 @@ impl ListPackagesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_packages::ListPackages::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::list_packages::ListPackages::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::list_packages::ListPackages::orchestrate(&runtime_plugins, input).await
     }
 
@@ -99,20 +100,31 @@ impl ListPackagesFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_packages::paginator::ListPackagesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_packages::paginator::ListPackagesPaginator {
-        crate::operation::list_packages::paginator::ListPackagesPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_packages::paginator::ListPackagesPaginator {
+        crate::operation::list_packages::paginator::ListPackagesPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The name of the domain that contains the repository that contains the requested packages.</p>
     pub fn domain(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -218,12 +230,18 @@ impl ListPackagesFluentBuilder {
         self.inner.get_namespace()
     }
     /// <p>A prefix used to filter requested packages. Only packages with names that start with <code>packagePrefix</code> are returned.</p>
-    pub fn package_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn package_prefix(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.package_prefix(input.into());
         self
     }
     /// <p>A prefix used to filter requested packages. Only packages with names that start with <code>packagePrefix</code> are returned.</p>
-    pub fn set_package_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_package_prefix(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_package_prefix(input);
         self
     }
@@ -279,7 +297,10 @@ impl ListPackagesFluentBuilder {
         self
     }
     /// <p>The value of the <code>Upstream</code> package origin control restriction used to filter requested packages. Only packages with the provided restriction are returned. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
-    pub fn set_upstream(mut self, input: ::std::option::Option<crate::types::AllowUpstream>) -> Self {
+    pub fn set_upstream(
+        mut self,
+        input: ::std::option::Option<crate::types::AllowUpstream>,
+    ) -> Self {
         self.inner = self.inner.set_upstream(input);
         self
     }

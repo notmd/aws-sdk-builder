@@ -26,7 +26,9 @@ impl GetLogFieldsInput {
 }
 
 /// A builder for [`GetLogFieldsInput`](crate::operation::get_log_fields::GetLogFieldsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetLogFieldsInputBuilder {
     pub(crate) data_source_name: ::std::option::Option<::std::string::String>,
@@ -35,12 +37,18 @@ pub struct GetLogFieldsInputBuilder {
 impl GetLogFieldsInputBuilder {
     /// <p>The name of the data source to retrieve log fields for.</p>
     /// This field is required.
-    pub fn data_source_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn data_source_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.data_source_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the data source to retrieve log fields for.</p>
-    pub fn set_data_source_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_data_source_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.data_source_name = input;
         self
     }
@@ -50,12 +58,18 @@ impl GetLogFieldsInputBuilder {
     }
     /// <p>The type of the data source to retrieve log fields for.</p>
     /// This field is required.
-    pub fn data_source_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn data_source_type(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.data_source_type = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The type of the data source to retrieve log fields for.</p>
-    pub fn set_data_source_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_data_source_type(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.data_source_type = input;
         self
     }
@@ -66,7 +80,10 @@ impl GetLogFieldsInputBuilder {
     /// Consumes the builder and constructs a [`GetLogFieldsInput`](crate::operation::get_log_fields::GetLogFieldsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_log_fields::GetLogFieldsInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::get_log_fields::GetLogFieldsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::get_log_fields::GetLogFieldsInput {
             data_source_name: self.data_source_name,
             data_source_type: self.data_source_type,

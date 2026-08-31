@@ -20,7 +20,9 @@ impl DescribeBackupInput {
 }
 
 /// A builder for [`DescribeBackupInput`](crate::operation::describe_backup::DescribeBackupInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DescribeBackupInputBuilder {
     pub(crate) backup_arn: ::std::option::Option<::std::string::String>,
@@ -44,7 +46,12 @@ impl DescribeBackupInputBuilder {
     /// Consumes the builder and constructs a [`DescribeBackupInput`](crate::operation::describe_backup::DescribeBackupInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::describe_backup::DescribeBackupInput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::describe_backup::DescribeBackupInput { backup_arn: self.backup_arn })
+    ) -> ::std::result::Result<
+        crate::operation::describe_backup::DescribeBackupInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(crate::operation::describe_backup::DescribeBackupInput {
+            backup_arn: self.backup_arn,
+        })
     }
 }

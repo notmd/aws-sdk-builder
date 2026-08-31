@@ -15,7 +15,11 @@ impl super::Client {
     ///   - [`signing_algorithms(Option<Vec::<SigningAlgorithmSpec>>)`](crate::operation::get_public_key::GetPublicKeyOutput::signing_algorithms): <p>The signing algorithms that KMS supports for this key.</p> <p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>SIGN_VERIFY</code>.</p>
     ///   - [`key_agreement_algorithms(Option<Vec::<KeyAgreementAlgorithmSpec>>)`](crate::operation::get_public_key::GetPublicKeyOutput::key_agreement_algorithms): <p>The key agreement algorithm used to derive a shared secret. This field is present only when the KMS key has a <code>KeyUsage</code> value of <code>KEY_AGREEMENT</code>.</p>
     /// - On failure, responds with [`SdkError<GetPublicKeyError>`](crate::operation::get_public_key::GetPublicKeyError)
-    pub fn get_public_key(&self) -> crate::operation::get_public_key::builders::GetPublicKeyFluentBuilder {
-        crate::operation::get_public_key::builders::GetPublicKeyFluentBuilder::new(self.handle.clone())
+    pub fn get_public_key(
+        &self,
+    ) -> crate::operation::get_public_key::builders::GetPublicKeyFluentBuilder {
+        crate::operation::get_public_key::builders::GetPublicKeyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

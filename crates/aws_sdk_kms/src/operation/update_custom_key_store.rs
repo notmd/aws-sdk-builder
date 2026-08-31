@@ -27,9 +27,13 @@ impl UpdateCustomKeyStore {
                     .expect("correct error type")
             })
         };
-        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-            .await
-            .map_err(map_err)?;
+        let context = Self::orchestrate_with_stop_point(
+            runtime_plugins,
+            input,
+            ::aws_smithy_runtime::client::orchestrator::StopPoint::None,
+        )
+        .await
+        .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
@@ -51,17 +55,23 @@ impl UpdateCustomKeyStore {
     > {
         let input = ::aws_smithy_runtime_api::client::interceptors::context::Input::erase(input);
         use ::tracing::Instrument;
-        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point("KMS", "UpdateCustomKeyStore", input, runtime_plugins, stop_point)
-            // Create a parent span for the entire operation. Includes a random, internal-only,
-            // seven-digit ID for the operation orchestration so that it can be correlated in the logs.
-            .instrument(::tracing::debug_span!(
-                "KMS.UpdateCustomKeyStore",
-                "rpc.service" = "KMS",
-                "rpc.method" = "UpdateCustomKeyStore",
-                "sdk_invocation_id" = ::fastrand::u32(1_000_000..10_000_000),
-                "rpc.system" = "aws-api",
-            ))
-            .await
+        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point(
+            "KMS",
+            "UpdateCustomKeyStore",
+            input,
+            runtime_plugins,
+            stop_point,
+        )
+        // Create a parent span for the entire operation. Includes a random, internal-only,
+        // seven-digit ID for the operation orchestration so that it can be correlated in the logs.
+        .instrument(::tracing::debug_span!(
+            "KMS.UpdateCustomKeyStore",
+            "rpc.service" = "KMS",
+            "rpc.method" = "UpdateCustomKeyStore",
+            "sdk_invocation_id" = ::fastrand::u32(1_000_000..10_000_000),
+            "rpc.system" = "aws-api",
+        ))
+        .await
     }
 
     pub(crate) fn operation_runtime_plugins(
@@ -75,11 +85,13 @@ impl UpdateCustomKeyStore {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
-                config_override,
-                client_config.config.clone(),
-                &client_config.runtime_components,
-            ));
+            runtime_plugins = runtime_plugins.with_operation_plugin(
+                crate::config::ConfigOverrideRuntimePlugin::new(
+                    config_override,
+                    client_config.config.clone(),
+                    &client_config.runtime_components,
+                ),
+            );
         }
         runtime_plugins
     }
@@ -88,24 +100,32 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UpdateC
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("UpdateCustomKeyStore");
 
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-            UpdateCustomKeyStoreRequestSerializer,
-        ));
-        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
-            UpdateCustomKeyStoreResponseDeserializer,
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+                UpdateCustomKeyStoreRequestSerializer,
+            ),
+        );
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
+                UpdateCustomKeyStoreResponseDeserializer,
+            ),
+        );
 
-        cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-            crate::config::auth::Params::builder()
-                .operation_name("UpdateCustomKeyStore")
-                .build()
-                .expect("required fields set"),
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
+                crate::config::auth::Params::builder()
+                    .operation_name("UpdateCustomKeyStore")
+                    .build()
+                    .expect("required fields set"),
+            ),
+        );
 
-        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-            "UpdateCustomKeyStore",
-            "KMS",
-        ));
+        cfg.store_put(
+            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+                "UpdateCustomKeyStore",
+                "KMS",
+            ),
+        );
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -123,7 +143,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UpdateC
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+    ) -> ::std::borrow::Cow<
+        '_,
+        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
+    > {
         #[allow(unused_mut)]
         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateCustomKeyStore")
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -153,7 +176,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UpdateC
 struct UpdateCustomKeyStoreTelemetryInputCaptureInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for UpdateCustomKeyStoreTelemetryInputCaptureInterceptor {
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept
+    for UpdateCustomKeyStoreTelemetryInputCaptureInterceptor
+{
     fn name(&self) -> &'static str {
         "UpdateCustomKeyStoreTelemetryInputCaptureInterceptor"
     }
@@ -176,7 +201,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for UpdateCustomK
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) = context.input().downcast_ref::<UpdateCustomKeyStoreInput>() else {
+        let ::std::option::Option::Some(input) =
+            context.input().downcast_ref::<UpdateCustomKeyStoreInput>()
+        else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -208,12 +235,16 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for UpdateCustomK
             }
         }
         if requested.should_capture("XksProxyVpcEndpointServiceName") {
-            if let ::std::option::Option::Some(value) = input.xks_proxy_vpc_endpoint_service_name.as_deref() {
+            if let ::std::option::Option::Some(value) =
+                input.xks_proxy_vpc_endpoint_service_name.as_deref()
+            {
                 captured.insert("XksProxyVpcEndpointServiceName", value);
             }
         }
         if requested.should_capture("XksProxyVpcEndpointServiceOwner") {
-            if let ::std::option::Option::Some(value) = input.xks_proxy_vpc_endpoint_service_owner.as_deref() {
+            if let ::std::option::Option::Some(value) =
+                input.xks_proxy_vpc_endpoint_service_owner.as_deref()
+            {
                 captured.insert("XksProxyVpcEndpointServiceOwner", value);
             }
         }
@@ -224,7 +255,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for UpdateCustomK
 }
 #[derive(Debug)]
 struct UpdateCustomKeyStoreResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for UpdateCustomKeyStoreResponseDeserializer {
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
+    for UpdateCustomKeyStoreResponseDeserializer
+{
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -246,13 +279,23 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for UpdateCus
 }
 #[derive(Debug)]
 struct UpdateCustomKeyStoreRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdateCustomKeyStoreRequestSerializer {
-    #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
+    for UpdateCustomKeyStoreRequestSerializer
+{
+    #[allow(
+        unused_mut,
+        clippy::let_and_return,
+        clippy::needless_borrow,
+        clippy::useless_conversion
+    )]
     fn serialize_input(
         &self,
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
+    ) -> ::std::result::Result<
+        ::aws_smithy_runtime_api::client::orchestrator::HttpRequest,
+        ::aws_smithy_runtime_api::box_error::BoxError,
+    > {
         let input = input
             .downcast::<crate::operation::update_custom_key_store::UpdateCustomKeyStoreInput>()
             .expect("correct type");
@@ -265,7 +308,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdateCustom
             fn uri_base(
                 _input: &crate::operation::update_custom_key_store::UpdateCustomKeyStoreInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
+            {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -274,13 +318,20 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdateCustom
             fn update_http_builder(
                 input: &crate::operation::update_custom_key_store::UpdateCustomKeyStoreInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+            ) -> ::std::result::Result<
+                ::http_1x::request::Builder,
+                ::aws_smithy_types::error::operation::BuildError,
+            > {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
+            builder = _header_serialization_settings.set_default_header(
+                builder,
+                ::http_1x::header::CONTENT_TYPE,
+                "application/x-amz-json-1.1",
+            );
             builder = _header_serialization_settings.set_default_header(
                 builder,
                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
@@ -293,16 +344,28 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdateCustom
         )?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
-            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+            request_builder = _header_serialization_settings.set_default_header(
+                request_builder,
+                ::http_1x::header::CONTENT_LENGTH,
+                &content_length,
+            );
         }
-        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
+        ::std::result::Result::Ok(
+            request_builder
+                .body(body)
+                .expect("valid request")
+                .try_into()
+                .unwrap(),
+        )
     }
 }
 #[derive(Debug)]
 struct UpdateCustomKeyStoreEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for UpdateCustomKeyStoreEndpointParamsInterceptor {
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept
+    for UpdateCustomKeyStoreEndpointParamsInterceptor
+{
     fn name(&self) -> &'static str {
         "UpdateCustomKeyStoreEndpointParamsInterceptor"
     }
@@ -323,16 +386,32 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for UpdateCustomK
             .ok_or("failed to downcast to UpdateCustomKeyStoreInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-            .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
+            .set_region(
+                cfg.load::<::aws_types::region::Region>()
+                    .map(|r| r.as_ref().to_owned()),
+            )
+            .set_use_dual_stack(
+                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
+                    .map(|ty| ty.0),
+            )
+            .set_use_fips(
+                cfg.load::<::aws_types::endpoint_config::UseFips>()
+                    .map(|ty| ty.0),
+            )
+            .set_endpoint(
+                cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
+                    .map(|ty| ty.0.clone()),
+            )
             .build()
             .map_err(|err| {
-                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
+                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(
+                    "endpoint params could not be built",
+                    err,
+                )
             })?;
-        cfg.interceptor_state()
-            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));
+        cfg.interceptor_state().store_put(
+            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
+        );
         ::std::result::Result::Ok(())
     }
 }
@@ -355,7 +434,9 @@ pub enum UpdateCustomKeyStoreError {
     /// <p>For the <code>CreateCustomKeyStore</code>, <code>UpdateCustomKeyStore</code>, and <code>CreateKey</code> operations, the CloudHSM cluster must have at least two active HSMs, each in a different Availability Zone. For the <code>ConnectCustomKeyStore</code> operation, the CloudHSM must contain at least one active HSM.</p></li>
     /// </ul>
     /// <p>For information about the requirements for an CloudHSM cluster that is associated with an CloudHSM key store, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">Assemble the Prerequisites</a> in the <i>Key Management Service Developer Guide</i>. For information about creating a private subnet for an CloudHSM cluster, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html">Create a Private Subnet</a> in the <i>CloudHSM User Guide</i>. For information about cluster security groups, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">Configure a Default Security Group</a> in the <i> <i>CloudHSM User Guide</i> </i>.</p>
-    CloudHsmClusterInvalidConfigurationException(crate::types::error::CloudHsmClusterInvalidConfigurationException),
+    CloudHsmClusterInvalidConfigurationException(
+        crate::types::error::CloudHsmClusterInvalidConfigurationException,
+    ),
     /// <p>The request was rejected because the CloudHSM cluster associated with the CloudHSM key store is not active. Initialize and activate the cluster and try the command again. For detailed instructions, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">Getting Started</a> in the <i>CloudHSM User Guide</i>.</p>
     CloudHsmClusterNotActiveException(crate::types::error::CloudHsmClusterNotActiveException),
     /// <p>The request was rejected because KMS cannot find the CloudHSM cluster with the specified cluster ID. Retry the request with a different cluster ID.</p>
@@ -386,9 +467,13 @@ pub enum UpdateCustomKeyStoreError {
     /// <p>The request was rejected because an internal exception occurred. The request can be retried.</p>
     KmsInternalException(crate::types::error::KmsInternalException),
     /// <p>The request was rejected because the proxy credentials failed to authenticate to the specified external key store proxy. The specified external key store proxy rejected a status request from KMS due to invalid credentials. This can indicate an error in the credentials or in the identification of the external key store proxy.</p>
-    XksProxyIncorrectAuthenticationCredentialException(crate::types::error::XksProxyIncorrectAuthenticationCredentialException),
+    XksProxyIncorrectAuthenticationCredentialException(
+        crate::types::error::XksProxyIncorrectAuthenticationCredentialException,
+    ),
     /// <p>The request was rejected because the external key store proxy is not configured correctly. To identify the cause, see the error message that accompanies the exception.</p>
-    XksProxyInvalidConfigurationException(crate::types::error::XksProxyInvalidConfigurationException),
+    XksProxyInvalidConfigurationException(
+        crate::types::error::XksProxyInvalidConfigurationException,
+    ),
     /// <p></p>
     /// <p>KMS cannot interpret the response it received from the external key store proxy. The problem might be a poorly constructed response, but it could also be a transient network issue. If you see this error repeatedly, report it to the proxy vendor.</p>
     XksProxyInvalidResponseException(crate::types::error::XksProxyInvalidResponseException),
@@ -400,24 +485,36 @@ pub enum UpdateCustomKeyStoreError {
     /// <p>This exception is also thrown when the external key store proxy response to a <code>GetHealthStatus</code> request indicates that all external key manager instances are unavailable.</p>
     XksProxyUriUnreachableException(crate::types::error::XksProxyUriUnreachableException),
     /// <p>The request was rejected because the specified Amazon VPC endpoint service is already associated with another external key store in this Amazon Web Services Region. Each external key store in a Region must use a different Amazon VPC endpoint service.</p>
-    XksProxyVpcEndpointServiceInUseException(crate::types::error::XksProxyVpcEndpointServiceInUseException),
+    XksProxyVpcEndpointServiceInUseException(
+        crate::types::error::XksProxyVpcEndpointServiceInUseException,
+    ),
     /// <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill the requirements for an external key store. To identify the cause, see the error message that accompanies the exception and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the requirements</a> for Amazon VPC endpoint service connectivity for an external key store.</p>
-    XksProxyVpcEndpointServiceInvalidConfigurationException(crate::types::error::XksProxyVpcEndpointServiceInvalidConfigurationException),
+    XksProxyVpcEndpointServiceInvalidConfigurationException(
+        crate::types::error::XksProxyVpcEndpointServiceInvalidConfigurationException,
+    ),
     /// <p>The request was rejected because KMS could not find the specified VPC endpoint service. Use <code>DescribeCustomKeyStores</code> to verify the VPC endpoint service name for the external key store. Also, confirm that the <code>Allow principals</code> list for the VPC endpoint service includes the KMS service principal for the Region, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p>
-    XksProxyVpcEndpointServiceNotFoundException(crate::types::error::XksProxyVpcEndpointServiceNotFoundException),
+    XksProxyVpcEndpointServiceNotFoundException(
+        crate::types::error::XksProxyVpcEndpointServiceNotFoundException,
+    ),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
-    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    #[deprecated(
+        note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
     variable wildcard pattern and check `.code()`:
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-UpdateCustomKeyStoreError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-UpdateCustomKeyStoreError) for what information is available for the error."
+    )]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
 impl UpdateCustomKeyStoreError {
     /// Creates the `UpdateCustomKeyStoreError::Unhandled` variant from any error type.
     pub fn unhandled(
-        err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
+        err: impl ::std::convert::Into<
+            ::std::boxed::Box<
+                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
+            >,
+        >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.into(),
@@ -438,23 +535,57 @@ impl UpdateCustomKeyStoreError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::CloudHsmClusterInvalidConfigurationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::CloudHsmClusterNotActiveException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::CloudHsmClusterNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::CloudHsmClusterNotRelatedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::CustomKeyStoreInvalidStateException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::CustomKeyStoreNameInUseException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::CustomKeyStoreNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::KmsInternalException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::XksProxyIncorrectAuthenticationCredentialException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::XksProxyInvalidConfigurationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::XksProxyInvalidResponseException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::XksProxyUriEndpointInUseException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::XksProxyUriInUseException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::XksProxyUriUnreachableException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::XksProxyVpcEndpointServiceInUseException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::XksProxyVpcEndpointServiceInvalidConfigurationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
-            Self::XksProxyVpcEndpointServiceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::CloudHsmClusterInvalidConfigurationException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::CloudHsmClusterNotActiveException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::CloudHsmClusterNotFoundException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::CloudHsmClusterNotRelatedException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::CustomKeyStoreInvalidStateException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::CustomKeyStoreNameInUseException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::CustomKeyStoreNotFoundException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::KmsInternalException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::XksProxyIncorrectAuthenticationCredentialException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::XksProxyInvalidConfigurationException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::XksProxyInvalidResponseException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::XksProxyUriEndpointInUseException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::XksProxyUriInUseException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::XksProxyUriUnreachableException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::XksProxyVpcEndpointServiceInUseException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::XksProxyVpcEndpointServiceInvalidConfigurationException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
+            Self::XksProxyVpcEndpointServiceNotFoundException(e) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
+            }
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -492,7 +623,10 @@ impl UpdateCustomKeyStoreError {
     }
     /// Returns `true` if the error kind is `UpdateCustomKeyStoreError::XksProxyIncorrectAuthenticationCredentialException`.
     pub fn is_xks_proxy_incorrect_authentication_credential_exception(&self) -> bool {
-        matches!(self, Self::XksProxyIncorrectAuthenticationCredentialException(_))
+        matches!(
+            self,
+            Self::XksProxyIncorrectAuthenticationCredentialException(_)
+        )
     }
     /// Returns `true` if the error kind is `UpdateCustomKeyStoreError::XksProxyInvalidConfigurationException`.
     pub fn is_xks_proxy_invalid_configuration_exception(&self) -> bool {
@@ -520,7 +654,10 @@ impl UpdateCustomKeyStoreError {
     }
     /// Returns `true` if the error kind is `UpdateCustomKeyStoreError::XksProxyVpcEndpointServiceInvalidConfigurationException`.
     pub fn is_xks_proxy_vpc_endpoint_service_invalid_configuration_exception(&self) -> bool {
-        matches!(self, Self::XksProxyVpcEndpointServiceInvalidConfigurationException(_))
+        matches!(
+            self,
+            Self::XksProxyVpcEndpointServiceInvalidConfigurationException(_)
+        )
     }
     /// Returns `true` if the error kind is `UpdateCustomKeyStoreError::XksProxyVpcEndpointServiceNotFoundException`.
     pub fn is_xks_proxy_vpc_endpoint_service_not_found_exception(&self) -> bool {
@@ -530,23 +667,37 @@ impl UpdateCustomKeyStoreError {
 impl ::std::error::Error for UpdateCustomKeyStoreError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            Self::CloudHsmClusterInvalidConfigurationException(_inner) => ::std::option::Option::Some(_inner),
+            Self::CloudHsmClusterInvalidConfigurationException(_inner) => {
+                ::std::option::Option::Some(_inner)
+            }
             Self::CloudHsmClusterNotActiveException(_inner) => ::std::option::Option::Some(_inner),
             Self::CloudHsmClusterNotFoundException(_inner) => ::std::option::Option::Some(_inner),
             Self::CloudHsmClusterNotRelatedException(_inner) => ::std::option::Option::Some(_inner),
-            Self::CustomKeyStoreInvalidStateException(_inner) => ::std::option::Option::Some(_inner),
+            Self::CustomKeyStoreInvalidStateException(_inner) => {
+                ::std::option::Option::Some(_inner)
+            }
             Self::CustomKeyStoreNameInUseException(_inner) => ::std::option::Option::Some(_inner),
             Self::CustomKeyStoreNotFoundException(_inner) => ::std::option::Option::Some(_inner),
             Self::KmsInternalException(_inner) => ::std::option::Option::Some(_inner),
-            Self::XksProxyIncorrectAuthenticationCredentialException(_inner) => ::std::option::Option::Some(_inner),
-            Self::XksProxyInvalidConfigurationException(_inner) => ::std::option::Option::Some(_inner),
+            Self::XksProxyIncorrectAuthenticationCredentialException(_inner) => {
+                ::std::option::Option::Some(_inner)
+            }
+            Self::XksProxyInvalidConfigurationException(_inner) => {
+                ::std::option::Option::Some(_inner)
+            }
             Self::XksProxyInvalidResponseException(_inner) => ::std::option::Option::Some(_inner),
             Self::XksProxyUriEndpointInUseException(_inner) => ::std::option::Option::Some(_inner),
             Self::XksProxyUriInUseException(_inner) => ::std::option::Option::Some(_inner),
             Self::XksProxyUriUnreachableException(_inner) => ::std::option::Option::Some(_inner),
-            Self::XksProxyVpcEndpointServiceInUseException(_inner) => ::std::option::Option::Some(_inner),
-            Self::XksProxyVpcEndpointServiceInvalidConfigurationException(_inner) => ::std::option::Option::Some(_inner),
-            Self::XksProxyVpcEndpointServiceNotFoundException(_inner) => ::std::option::Option::Some(_inner),
+            Self::XksProxyVpcEndpointServiceInUseException(_inner) => {
+                ::std::option::Option::Some(_inner)
+            }
+            Self::XksProxyVpcEndpointServiceInvalidConfigurationException(_inner) => {
+                ::std::option::Option::Some(_inner)
+            }
+            Self::XksProxyVpcEndpointServiceNotFoundException(_inner) => {
+                ::std::option::Option::Some(_inner)
+            }
             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
         }
     }
@@ -572,7 +723,9 @@ impl ::std::fmt::Display for UpdateCustomKeyStoreError {
             Self::XksProxyVpcEndpointServiceInvalidConfigurationException(_inner) => _inner.fmt(f),
             Self::XksProxyVpcEndpointServiceNotFoundException(_inner) => _inner.fmt(f),
             Self::Unhandled(_inner) => {
-                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                if let ::std::option::Option::Some(code) =
+                    ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+                {
                     write!(f, "unhandled error ({code})")
                 } else {
                     f.write_str("unhandled error")
@@ -592,34 +745,66 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for UpdateCustomKeyStoreError {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for UpdateCustomKeyStoreError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::CloudHsmClusterInvalidConfigurationException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::CloudHsmClusterNotActiveException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::CloudHsmClusterNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::CloudHsmClusterNotRelatedException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::CustomKeyStoreInvalidStateException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::CustomKeyStoreNameInUseException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::CustomKeyStoreNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::KmsInternalException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::CloudHsmClusterInvalidConfigurationException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::CloudHsmClusterNotActiveException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::CloudHsmClusterNotFoundException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::CloudHsmClusterNotRelatedException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::CustomKeyStoreInvalidStateException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::CustomKeyStoreNameInUseException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::CustomKeyStoreNotFoundException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::KmsInternalException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
             Self::XksProxyIncorrectAuthenticationCredentialException(_inner) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
             }
-            Self::XksProxyInvalidConfigurationException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::XksProxyInvalidResponseException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::XksProxyUriEndpointInUseException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::XksProxyUriInUseException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::XksProxyUriUnreachableException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
-            Self::XksProxyVpcEndpointServiceInUseException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::XksProxyInvalidConfigurationException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::XksProxyInvalidResponseException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::XksProxyUriEndpointInUseException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::XksProxyUriInUseException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::XksProxyUriUnreachableException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
+            Self::XksProxyVpcEndpointServiceInUseException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
             Self::XksProxyVpcEndpointServiceInvalidConfigurationException(_inner) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
             }
-            Self::XksProxyVpcEndpointServiceNotFoundException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::XksProxyVpcEndpointServiceNotFoundException(_inner) => {
+                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
+            }
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
 }
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for UpdateCustomKeyStoreError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+        source: ::std::boxed::Box<
+            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
+        >,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -628,7 +813,9 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for UpdateCu
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::update_custom_key_store::UpdateCustomKeyStoreError {
+impl ::aws_types::request_id::RequestId
+    for crate::operation::update_custom_key_store::UpdateCustomKeyStoreError
+{
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

@@ -12,13 +12,17 @@ impl ::aws_types::request_id::RequestId for UpdatePrimaryRegionOutput {
 }
 impl UpdatePrimaryRegionOutput {
     /// Creates a new builder-style object to manufacture [`UpdatePrimaryRegionOutput`](crate::operation::update_primary_region::UpdatePrimaryRegionOutput).
-    pub fn builder() -> crate::operation::update_primary_region::builders::UpdatePrimaryRegionOutputBuilder {
-        crate::operation::update_primary_region::builders::UpdatePrimaryRegionOutputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::update_primary_region::builders::UpdatePrimaryRegionOutputBuilder {
+        crate::operation::update_primary_region::builders::UpdatePrimaryRegionOutputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`UpdatePrimaryRegionOutput`](crate::operation::update_primary_region::UpdatePrimaryRegionOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdatePrimaryRegionOutputBuilder {
     _request_id: Option<String>,

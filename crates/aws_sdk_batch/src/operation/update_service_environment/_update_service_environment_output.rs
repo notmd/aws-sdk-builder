@@ -26,13 +26,17 @@ impl ::aws_types::request_id::RequestId for UpdateServiceEnvironmentOutput {
 }
 impl UpdateServiceEnvironmentOutput {
     /// Creates a new builder-style object to manufacture [`UpdateServiceEnvironmentOutput`](crate::operation::update_service_environment::UpdateServiceEnvironmentOutput).
-    pub fn builder() -> crate::operation::update_service_environment::builders::UpdateServiceEnvironmentOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_service_environment::builders::UpdateServiceEnvironmentOutputBuilder
+    {
         crate::operation::update_service_environment::builders::UpdateServiceEnvironmentOutputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateServiceEnvironmentOutput`](crate::operation::update_service_environment::UpdateServiceEnvironmentOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct UpdateServiceEnvironmentOutputBuilder {
     pub(crate) service_environment_name: ::std::option::Option<::std::string::String>,
@@ -42,12 +46,18 @@ pub struct UpdateServiceEnvironmentOutputBuilder {
 impl UpdateServiceEnvironmentOutputBuilder {
     /// <p>The name of the service environment that was updated.</p>
     /// This field is required.
-    pub fn service_environment_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn service_environment_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.service_environment_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the service environment that was updated.</p>
-    pub fn set_service_environment_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_service_environment_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.service_environment_name = input;
         self
     }
@@ -57,12 +67,18 @@ impl UpdateServiceEnvironmentOutputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the service environment that was updated.</p>
     /// This field is required.
-    pub fn service_environment_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn service_environment_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.service_environment_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the service environment that was updated.</p>
-    pub fn set_service_environment_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_service_environment_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.service_environment_arn = input;
         self
     }
@@ -80,7 +96,9 @@ impl UpdateServiceEnvironmentOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateServiceEnvironmentOutput`](crate::operation::update_service_environment::UpdateServiceEnvironmentOutput).
-    pub fn build(self) -> crate::operation::update_service_environment::UpdateServiceEnvironmentOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::update_service_environment::UpdateServiceEnvironmentOutput {
         crate::operation::update_service_environment::UpdateServiceEnvironmentOutput {
             service_environment_name: self.service_environment_name,
             service_environment_arn: self.service_environment_arn,

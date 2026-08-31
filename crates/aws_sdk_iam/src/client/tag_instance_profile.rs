@@ -7,7 +7,11 @@ impl super::Client {
     ///   - [`tags(Tag)`](crate::operation::tag_instance_profile::builders::TagInstanceProfileFluentBuilder::tags) / [`set_tags(Option<Vec::<Tag>>)`](crate::operation::tag_instance_profile::builders::TagInstanceProfileFluentBuilder::set_tags):<br>required: **true**<br><p>The list of tags that you want to attach to the IAM instance profile. Each tag consists of a key name and an associated value.</p><br>
     /// - On success, responds with [`TagInstanceProfileOutput`](crate::operation::tag_instance_profile::TagInstanceProfileOutput)
     /// - On failure, responds with [`SdkError<TagInstanceProfileError>`](crate::operation::tag_instance_profile::TagInstanceProfileError)
-    pub fn tag_instance_profile(&self) -> crate::operation::tag_instance_profile::builders::TagInstanceProfileFluentBuilder {
-        crate::operation::tag_instance_profile::builders::TagInstanceProfileFluentBuilder::new(self.handle.clone())
+    pub fn tag_instance_profile(
+        &self,
+    ) -> crate::operation::tag_instance_profile::builders::TagInstanceProfileFluentBuilder {
+        crate::operation::tag_instance_profile::builders::TagInstanceProfileFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -7,7 +7,8 @@ pub struct ServiceJobRetryStrategy {
     /// <p>The number of times to move a service job to <code>RUNNABLE</code> status. You can specify between 1 and 10 attempts.</p>
     pub attempts: ::std::option::Option<i32>,
     /// <p>Array of <code>ServiceJobEvaluateOnExit</code> objects that specify conditions under which the service job should be retried or failed.</p>
-    pub evaluate_on_exit: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobEvaluateOnExit>>,
+    pub evaluate_on_exit:
+        ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobEvaluateOnExit>>,
 }
 impl ServiceJobRetryStrategy {
     /// <p>The number of times to move a service job to <code>RUNNABLE</code> status. You can specify between 1 and 10 attempts.</p>
@@ -29,11 +30,14 @@ impl ServiceJobRetryStrategy {
 }
 
 /// A builder for [`ServiceJobRetryStrategy`](crate::types::ServiceJobRetryStrategy).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ServiceJobRetryStrategyBuilder {
     pub(crate) attempts: ::std::option::Option<i32>,
-    pub(crate) evaluate_on_exit: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobEvaluateOnExit>>,
+    pub(crate) evaluate_on_exit:
+        ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobEvaluateOnExit>>,
 }
 impl ServiceJobRetryStrategyBuilder {
     /// <p>The number of times to move a service job to <code>RUNNABLE</code> status. You can specify between 1 and 10 attempts.</p>
@@ -63,12 +67,17 @@ impl ServiceJobRetryStrategyBuilder {
         self
     }
     /// <p>Array of <code>ServiceJobEvaluateOnExit</code> objects that specify conditions under which the service job should be retried or failed.</p>
-    pub fn set_evaluate_on_exit(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobEvaluateOnExit>>) -> Self {
+    pub fn set_evaluate_on_exit(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobEvaluateOnExit>>,
+    ) -> Self {
         self.evaluate_on_exit = input;
         self
     }
     /// <p>Array of <code>ServiceJobEvaluateOnExit</code> objects that specify conditions under which the service job should be retried or failed.</p>
-    pub fn get_evaluate_on_exit(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ServiceJobEvaluateOnExit>> {
+    pub fn get_evaluate_on_exit(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ServiceJobEvaluateOnExit>> {
         &self.evaluate_on_exit
     }
     /// Consumes the builder and constructs a [`ServiceJobRetryStrategy`](crate::types::ServiceJobRetryStrategy).

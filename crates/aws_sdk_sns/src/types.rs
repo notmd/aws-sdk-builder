@@ -2,7 +2,11 @@
 #[cfg(feature = "op_create_sms_sandbox_phone_number")]
 pub use crate::types::_language_code_string::LanguageCodeString;
 
-#[cfg(any(feature = "op_create_topic", feature = "op_list_tags_for_resource", feature = "op_tag_resource"))]
+#[cfg(any(
+    feature = "op_create_topic",
+    feature = "op_list_tags_for_resource",
+    feature = "op_tag_resource"
+))]
 pub use crate::types::_tag::Tag;
 
 #[cfg(feature = "op_list_endpoints_by_platform_application")]
@@ -17,7 +21,10 @@ pub use crate::types::_platform_application::PlatformApplication;
 #[cfg(feature = "op_list_sms_sandbox_phone_numbers")]
 pub use crate::types::_sms_sandbox_phone_number::SmsSandboxPhoneNumber;
 
-#[cfg(any(feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic"))]
+#[cfg(any(
+    feature = "op_list_subscriptions",
+    feature = "op_list_subscriptions_by_topic"
+))]
 pub use crate::types::_subscription::Subscription;
 
 #[cfg(feature = "op_list_topics")]
@@ -80,10 +87,17 @@ mod _sms_sandbox_phone_number;
 #[cfg(feature = "op_list_sms_sandbox_phone_numbers")]
 mod _sms_sandbox_phone_number_verification_status;
 
-#[cfg(any(feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic"))]
+#[cfg(any(
+    feature = "op_list_subscriptions",
+    feature = "op_list_subscriptions_by_topic"
+))]
 mod _subscription;
 
-#[cfg(any(feature = "op_create_topic", feature = "op_list_tags_for_resource", feature = "op_tag_resource"))]
+#[cfg(any(
+    feature = "op_create_topic",
+    feature = "op_list_tags_for_resource",
+    feature = "op_tag_resource"
+))]
 mod _tag;
 
 #[cfg(feature = "op_list_topics")]

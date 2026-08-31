@@ -27,7 +27,8 @@ pub struct RecordingMode {
     /// </important>
     pub recording_frequency: crate::types::RecordingFrequency,
     /// <p>An array of <code>recordingModeOverride</code> objects for you to specify your overrides for the recording mode. The <code>recordingModeOverride</code> object in the <code>recordingModeOverrides</code> array consists of three fields: a <code>description</code>, the new <code>recordingFrequency</code>, and an array of <code>resourceTypes</code> to override.</p>
-    pub recording_mode_overrides: ::std::option::Option<::std::vec::Vec<crate::types::RecordingModeOverride>>,
+    pub recording_mode_overrides:
+        ::std::option::Option<::std::vec::Vec<crate::types::RecordingModeOverride>>,
 }
 impl RecordingMode {
     /// <p>The default recording frequency that Config uses to record configuration changes.</p><important>
@@ -60,11 +61,14 @@ impl RecordingMode {
 }
 
 /// A builder for [`RecordingMode`](crate::types::RecordingMode).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RecordingModeBuilder {
     pub(crate) recording_frequency: ::std::option::Option<crate::types::RecordingFrequency>,
-    pub(crate) recording_mode_overrides: ::std::option::Option<::std::vec::Vec<crate::types::RecordingModeOverride>>,
+    pub(crate) recording_mode_overrides:
+        ::std::option::Option<::std::vec::Vec<crate::types::RecordingModeOverride>>,
 }
 impl RecordingModeBuilder {
     /// <p>The default recording frequency that Config uses to record configuration changes.</p><important>
@@ -96,7 +100,10 @@ impl RecordingModeBuilder {
     /// </ul>
     /// <p>For the <b>allSupported</b> (<code>ALL_SUPPORTED_RESOURCE_TYPES</code>) recording strategy, these resource types will be set to Continuous recording.</p>
     /// </important>
-    pub fn set_recording_frequency(mut self, input: ::std::option::Option<crate::types::RecordingFrequency>) -> Self {
+    pub fn set_recording_frequency(
+        mut self,
+        input: ::std::option::Option<crate::types::RecordingFrequency>,
+    ) -> Self {
         self.recording_frequency = input;
         self
     }
@@ -112,7 +119,9 @@ impl RecordingModeBuilder {
     /// </ul>
     /// <p>For the <b>allSupported</b> (<code>ALL_SUPPORTED_RESOURCE_TYPES</code>) recording strategy, these resource types will be set to Continuous recording.</p>
     /// </important>
-    pub fn get_recording_frequency(&self) -> &::std::option::Option<crate::types::RecordingFrequency> {
+    pub fn get_recording_frequency(
+        &self,
+    ) -> &::std::option::Option<crate::types::RecordingFrequency> {
         &self.recording_frequency
     }
     /// Appends an item to `recording_mode_overrides`.
@@ -127,18 +136,28 @@ impl RecordingModeBuilder {
         self
     }
     /// <p>An array of <code>recordingModeOverride</code> objects for you to specify your overrides for the recording mode. The <code>recordingModeOverride</code> object in the <code>recordingModeOverrides</code> array consists of three fields: a <code>description</code>, the new <code>recordingFrequency</code>, and an array of <code>resourceTypes</code> to override.</p>
-    pub fn set_recording_mode_overrides(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RecordingModeOverride>>) -> Self {
+    pub fn set_recording_mode_overrides(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::RecordingModeOverride>>,
+    ) -> Self {
         self.recording_mode_overrides = input;
         self
     }
     /// <p>An array of <code>recordingModeOverride</code> objects for you to specify your overrides for the recording mode. The <code>recordingModeOverride</code> object in the <code>recordingModeOverrides</code> array consists of three fields: a <code>description</code>, the new <code>recordingFrequency</code>, and an array of <code>resourceTypes</code> to override.</p>
-    pub fn get_recording_mode_overrides(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RecordingModeOverride>> {
+    pub fn get_recording_mode_overrides(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::RecordingModeOverride>> {
         &self.recording_mode_overrides
     }
     /// Consumes the builder and constructs a [`RecordingMode`](crate::types::RecordingMode).
     /// This method will fail if any of the following fields are not set:
     /// - [`recording_frequency`](crate::types::builders::RecordingModeBuilder::recording_frequency)
-    pub fn build(self) -> ::std::result::Result<crate::types::RecordingMode, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::RecordingMode,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::RecordingMode {
             recording_frequency: self.recording_frequency.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

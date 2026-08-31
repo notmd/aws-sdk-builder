@@ -15,7 +15,10 @@ pub fn ser_server_side_encryption_rule(
     }
     if let Some(var_3) = &input.blocked_encryption_types {
         let inner_writer = scope.start_el("BlockedEncryptionTypes");
-        crate::protocol_serde::shape_blocked_encryption_types::ser_blocked_encryption_types(var_3, inner_writer)?
+        crate::protocol_serde::shape_blocked_encryption_types::ser_blocked_encryption_types(
+            var_3,
+            inner_writer,
+        )?
     }
     scope.finish();
     Ok(())
@@ -25,9 +28,14 @@ pub fn ser_server_side_encryption_rule(
 pub fn de_server_side_encryption_rule(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::ServerSideEncryptionRule, ::aws_smithy_xml::decode::XmlDecodeError> {
+) -> ::std::result::Result<
+    crate::types::ServerSideEncryptionRule,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
     if depth >= 128u32 {
-        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("maximum nesting depth exceeded"));
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::ServerSideEncryptionRule::builder();

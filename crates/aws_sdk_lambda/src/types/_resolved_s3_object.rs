@@ -33,7 +33,9 @@ impl ResolvedS3Object {
 }
 
 /// A builder for [`ResolvedS3Object`](crate::types::ResolvedS3Object).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ResolvedS3ObjectBuilder {
     pub(crate) s3_bucket: ::std::option::Option<::std::string::String>,
@@ -70,12 +72,18 @@ impl ResolvedS3ObjectBuilder {
         &self.s3_key
     }
     /// <p>The version of the deployment package object.</p>
-    pub fn s3_object_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn s3_object_version(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.s3_object_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The version of the deployment package object.</p>
-    pub fn set_s3_object_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_s3_object_version(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.s3_object_version = input;
         self
     }

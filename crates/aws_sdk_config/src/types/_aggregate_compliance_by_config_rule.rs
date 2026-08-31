@@ -40,7 +40,9 @@ impl AggregateComplianceByConfigRule {
 }
 
 /// A builder for [`AggregateComplianceByConfigRule`](crate::types::AggregateComplianceByConfigRule).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct AggregateComplianceByConfigRuleBuilder {
     pub(crate) config_rule_name: ::std::option::Option<::std::string::String>,
@@ -50,12 +52,18 @@ pub struct AggregateComplianceByConfigRuleBuilder {
 }
 impl AggregateComplianceByConfigRuleBuilder {
     /// <p>The name of the Config rule.</p>
-    pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn config_rule_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.config_rule_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the Config rule.</p>
-    pub fn set_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_config_rule_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.config_rule_name = input;
         self
     }
@@ -69,7 +77,10 @@ impl AggregateComplianceByConfigRuleBuilder {
         self
     }
     /// <p>Indicates whether an Amazon Web Services resource or Config rule is compliant and provides the number of contributors that affect the compliance.</p>
-    pub fn set_compliance(mut self, input: ::std::option::Option<crate::types::Compliance>) -> Self {
+    pub fn set_compliance(
+        mut self,
+        input: ::std::option::Option<crate::types::Compliance>,
+    ) -> Self {
         self.compliance = input;
         self
     }

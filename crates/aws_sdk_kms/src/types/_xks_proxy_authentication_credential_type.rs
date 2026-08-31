@@ -47,12 +47,18 @@ pub struct XksProxyAuthenticationCredentialTypeBuilder {
 impl XksProxyAuthenticationCredentialTypeBuilder {
     /// <p>A unique identifier for the raw secret access key.</p>
     /// This field is required.
-    pub fn access_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn access_key_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.access_key_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A unique identifier for the raw secret access key.</p>
-    pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_access_key_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.access_key_id = input;
         self
     }
@@ -62,12 +68,18 @@ impl XksProxyAuthenticationCredentialTypeBuilder {
     }
     /// <p>A secret string of 43-64 characters. Valid characters are a-z, A-Z, 0-9, /, +, and =.</p>
     /// This field is required.
-    pub fn raw_secret_access_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn raw_secret_access_key(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.raw_secret_access_key = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A secret string of 43-64 characters. Valid characters are a-z, A-Z, 0-9, /, +, and =.</p>
-    pub fn set_raw_secret_access_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_raw_secret_access_key(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.raw_secret_access_key = input;
         self
     }
@@ -81,7 +93,10 @@ impl XksProxyAuthenticationCredentialTypeBuilder {
     /// - [`raw_secret_access_key`](crate::types::builders::XksProxyAuthenticationCredentialTypeBuilder::raw_secret_access_key)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::types::XksProxyAuthenticationCredentialType, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::types::XksProxyAuthenticationCredentialType,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::XksProxyAuthenticationCredentialType {
             access_key_id: self.access_key_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

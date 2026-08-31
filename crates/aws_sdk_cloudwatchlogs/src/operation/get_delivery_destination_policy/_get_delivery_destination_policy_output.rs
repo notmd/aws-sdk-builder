@@ -20,13 +20,15 @@ impl ::aws_types::request_id::RequestId for GetDeliveryDestinationPolicyOutput {
 }
 impl GetDeliveryDestinationPolicyOutput {
     /// Creates a new builder-style object to manufacture [`GetDeliveryDestinationPolicyOutput`](crate::operation::get_delivery_destination_policy::GetDeliveryDestinationPolicyOutput).
-    pub fn builder() -> crate::operation::get_delivery_destination_policy::builders::GetDeliveryDestinationPolicyOutputBuilder {
+    pub fn builder() -> crate::operation::get_delivery_destination_policy::builders::GetDeliveryDestinationPolicyOutputBuilder{
         crate::operation::get_delivery_destination_policy::builders::GetDeliveryDestinationPolicyOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetDeliveryDestinationPolicyOutput`](crate::operation::get_delivery_destination_policy::GetDeliveryDestinationPolicyOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetDeliveryDestinationPolicyOutputBuilder {
     pub(crate) policy: ::std::option::Option<crate::types::Policy>,
@@ -57,7 +59,9 @@ impl GetDeliveryDestinationPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetDeliveryDestinationPolicyOutput`](crate::operation::get_delivery_destination_policy::GetDeliveryDestinationPolicyOutput).
-    pub fn build(self) -> crate::operation::get_delivery_destination_policy::GetDeliveryDestinationPolicyOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::get_delivery_destination_policy::GetDeliveryDestinationPolicyOutput {
         crate::operation::get_delivery_destination_policy::GetDeliveryDestinationPolicyOutput {
             policy: self.policy,
             _request_id: self._request_id,

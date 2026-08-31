@@ -33,7 +33,9 @@ impl ProvisionedPollerConfig {
 }
 
 /// A builder for [`ProvisionedPollerConfig`](crate::types::ProvisionedPollerConfig).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ProvisionedPollerConfigBuilder {
     pub(crate) minimum_pollers: ::std::option::Option<i32>,
@@ -70,12 +72,18 @@ impl ProvisionedPollerConfigBuilder {
         &self.maximum_pollers
     }
     /// <p>(Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.</p>
-    pub fn poller_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn poller_group_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.poller_group_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>(Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.</p>
-    pub fn set_poller_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_poller_group_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.poller_group_name = input;
         self
     }

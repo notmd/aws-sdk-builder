@@ -24,13 +24,15 @@ impl DeleteServiceSpecificCredentialInput {
 }
 impl DeleteServiceSpecificCredentialInput {
     /// Creates a new builder-style object to manufacture [`DeleteServiceSpecificCredentialInput`](crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialInput).
-    pub fn builder() -> crate::operation::delete_service_specific_credential::builders::DeleteServiceSpecificCredentialInputBuilder {
+    pub fn builder() -> crate::operation::delete_service_specific_credential::builders::DeleteServiceSpecificCredentialInputBuilder{
         crate::operation::delete_service_specific_credential::builders::DeleteServiceSpecificCredentialInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteServiceSpecificCredentialInput`](crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct DeleteServiceSpecificCredentialInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -57,19 +59,27 @@ impl DeleteServiceSpecificCredentialInputBuilder {
     /// <p>The unique identifier of the service-specific credential. You can get this value by calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServiceSpecificCredentials.html">ListServiceSpecificCredentials</a>.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
     /// This field is required.
-    pub fn service_specific_credential_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn service_specific_credential_id(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.service_specific_credential_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier of the service-specific credential. You can get this value by calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServiceSpecificCredentials.html">ListServiceSpecificCredentials</a>.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
-    pub fn set_service_specific_credential_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_service_specific_credential_id(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.service_specific_credential_id = input;
         self
     }
     /// <p>The unique identifier of the service-specific credential. You can get this value by calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServiceSpecificCredentials.html">ListServiceSpecificCredentials</a>.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
-    pub fn get_service_specific_credential_id(&self) -> &::std::option::Option<::std::string::String> {
+    pub fn get_service_specific_credential_id(
+        &self,
+    ) -> &::std::option::Option<::std::string::String> {
         &self.service_specific_credential_id
     }
     /// Consumes the builder and constructs a [`DeleteServiceSpecificCredentialInput`](crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialInput).

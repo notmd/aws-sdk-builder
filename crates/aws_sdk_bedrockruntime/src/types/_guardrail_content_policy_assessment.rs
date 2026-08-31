@@ -22,10 +22,13 @@ impl GuardrailContentPolicyAssessment {
 }
 
 /// A builder for [`GuardrailContentPolicyAssessment`](crate::types::GuardrailContentPolicyAssessment).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GuardrailContentPolicyAssessmentBuilder {
-    pub(crate) filters: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentFilter>>,
+    pub(crate) filters:
+        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentFilter>>,
 }
 impl GuardrailContentPolicyAssessmentBuilder {
     /// Appends an item to `filters`.
@@ -40,18 +43,28 @@ impl GuardrailContentPolicyAssessmentBuilder {
         self
     }
     /// <p>The content policy filters.</p>
-    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentFilter>>) -> Self {
+    pub fn set_filters(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentFilter>>,
+    ) -> Self {
         self.filters = input;
         self
     }
     /// <p>The content policy filters.</p>
-    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentFilter>> {
+    pub fn get_filters(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentFilter>> {
         &self.filters
     }
     /// Consumes the builder and constructs a [`GuardrailContentPolicyAssessment`](crate::types::GuardrailContentPolicyAssessment).
     /// This method will fail if any of the following fields are not set:
     /// - [`filters`](crate::types::builders::GuardrailContentPolicyAssessmentBuilder::filters)
-    pub fn build(self) -> ::std::result::Result<crate::types::GuardrailContentPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::GuardrailContentPolicyAssessment,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::GuardrailContentPolicyAssessment {
             filters: self.filters.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

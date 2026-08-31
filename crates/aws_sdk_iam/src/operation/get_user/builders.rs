@@ -30,14 +30,20 @@ pub struct GetUserFluentBuilder {
     inner: crate::operation::get_user::builders::GetUserInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
-impl crate::client::customize::internal::CustomizableSend<crate::operation::get_user::GetUserOutput, crate::operation::get_user::GetUserError>
-    for GetUserFluentBuilder
+impl
+    crate::client::customize::internal::CustomizableSend<
+        crate::operation::get_user::GetUserOutput,
+        crate::operation::get_user::GetUserError,
+    > for GetUserFluentBuilder
 {
     fn send(
         self,
         config_override: crate::config::Builder,
     ) -> crate::client::customize::internal::BoxFuture<
-        crate::client::customize::internal::SendResult<crate::operation::get_user::GetUserOutput, crate::operation::get_user::GetUserError>,
+        crate::client::customize::internal::SendResult<
+            crate::operation::get_user::GetUserOutput,
+            crate::operation::get_user::GetUserError,
+        >,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -87,16 +93,25 @@ impl GetUserFluentBuilder {
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
     pub fn customize(
         self,
-    ) -> crate::client::customize::CustomizableOperation<crate::operation::get_user::GetUserOutput, crate::operation::get_user::GetUserError, Self>
-    {
+    ) -> crate::client::customize::CustomizableOperation<
+        crate::operation::get_user::GetUserOutput,
+        crate::operation::get_user::GetUserError,
+        Self,
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }

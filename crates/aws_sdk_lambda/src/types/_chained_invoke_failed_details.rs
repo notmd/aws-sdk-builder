@@ -21,7 +21,9 @@ impl ChainedInvokeFailedDetails {
 }
 
 /// A builder for [`ChainedInvokeFailedDetails`](crate::types::ChainedInvokeFailedDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ChainedInvokeFailedDetailsBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EventError>,

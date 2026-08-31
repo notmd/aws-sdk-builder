@@ -26,7 +26,9 @@ impl IndexDocument {
 }
 
 /// A builder for [`IndexDocument`](crate::types::IndexDocument).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct IndexDocumentBuilder {
     pub(crate) suffix: ::std::option::Option<::std::string::String>,
@@ -56,7 +58,12 @@ impl IndexDocumentBuilder {
     /// Consumes the builder and constructs a [`IndexDocument`](crate::types::IndexDocument).
     /// This method will fail if any of the following fields are not set:
     /// - [`suffix`](crate::types::builders::IndexDocumentBuilder::suffix)
-    pub fn build(self) -> ::std::result::Result<crate::types::IndexDocument, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::types::IndexDocument,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::types::IndexDocument {
             suffix: self.suffix.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

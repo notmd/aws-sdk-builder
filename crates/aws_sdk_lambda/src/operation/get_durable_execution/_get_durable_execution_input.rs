@@ -20,13 +20,17 @@ impl GetDurableExecutionInput {
 }
 impl GetDurableExecutionInput {
     /// Creates a new builder-style object to manufacture [`GetDurableExecutionInput`](crate::operation::get_durable_execution::GetDurableExecutionInput).
-    pub fn builder() -> crate::operation::get_durable_execution::builders::GetDurableExecutionInputBuilder {
-        crate::operation::get_durable_execution::builders::GetDurableExecutionInputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::get_durable_execution::builders::GetDurableExecutionInputBuilder {
+        crate::operation::get_durable_execution::builders::GetDurableExecutionInputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`GetDurableExecutionInput`](crate::operation::get_durable_execution::GetDurableExecutionInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetDurableExecutionInputBuilder {
     pub(crate) durable_execution_arn: ::std::option::Option<::std::string::String>,
@@ -35,12 +39,18 @@ pub struct GetDurableExecutionInputBuilder {
 impl GetDurableExecutionInputBuilder {
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
     /// This field is required.
-    pub fn durable_execution_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn durable_execution_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_durable_execution_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.durable_execution_arn = input;
         self
     }
@@ -65,11 +75,15 @@ impl GetDurableExecutionInputBuilder {
     /// Consumes the builder and constructs a [`GetDurableExecutionInput`](crate::operation::get_durable_execution::GetDurableExecutionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::get_durable_execution::GetDurableExecutionInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::get_durable_execution::GetDurableExecutionInput {
-            durable_execution_arn: self.durable_execution_arn,
-            include_execution_data: self.include_execution_data,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::get_durable_execution::GetDurableExecutionInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::get_durable_execution::GetDurableExecutionInput {
+                durable_execution_arn: self.durable_execution_arn,
+                include_execution_data: self.include_execution_data,
+            },
+        )
     }
 }

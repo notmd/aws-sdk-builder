@@ -13,31 +13,45 @@ pub fn ser_citation_location(
         crate::types::CitationLocation::DocumentChar(inner) => {
             #[allow(unused_mut)]
             let mut object_2 = object_8.key("documentChar").start_object();
-            crate::protocol_serde::shape_document_char_location::ser_document_char_location(&mut object_2, inner)?;
+            crate::protocol_serde::shape_document_char_location::ser_document_char_location(
+                &mut object_2,
+                inner,
+            )?;
             object_2.finish();
         }
         crate::types::CitationLocation::DocumentPage(inner) => {
             #[allow(unused_mut)]
             let mut object_3 = object_8.key("documentPage").start_object();
-            crate::protocol_serde::shape_document_page_location::ser_document_page_location(&mut object_3, inner)?;
+            crate::protocol_serde::shape_document_page_location::ser_document_page_location(
+                &mut object_3,
+                inner,
+            )?;
             object_3.finish();
         }
         crate::types::CitationLocation::DocumentChunk(inner) => {
             #[allow(unused_mut)]
             let mut object_4 = object_8.key("documentChunk").start_object();
-            crate::protocol_serde::shape_document_chunk_location::ser_document_chunk_location(&mut object_4, inner)?;
+            crate::protocol_serde::shape_document_chunk_location::ser_document_chunk_location(
+                &mut object_4,
+                inner,
+            )?;
             object_4.finish();
         }
         crate::types::CitationLocation::SearchResultLocation(inner) => {
             #[allow(unused_mut)]
             let mut object_5 = object_8.key("searchResultLocation").start_object();
-            crate::protocol_serde::shape_search_result_location::ser_search_result_location(&mut object_5, inner)?;
+            crate::protocol_serde::shape_search_result_location::ser_search_result_location(
+                &mut object_5,
+                inner,
+            )?;
             object_5.finish();
         }
         crate::types::CitationLocation::Unknown => {
-            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                "CitationLocation",
-            ))
+            return Err(
+                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
+                    "CitationLocation",
+                ),
+            )
         }
     }
     Ok(())
@@ -47,14 +61,24 @@ pub(crate) fn de_citation_location<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::CitationLocation>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<
+    Option<crate::types::CitationLocation>,
+    ::aws_smithy_json::deserialize::error::DeserializeError,
+>
 where
-    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+    I: Iterator<
+        Item = Result<
+            ::aws_smithy_json::deserialize::Token<'a>,
+            ::aws_smithy_json::deserialize::error::DeserializeError,
+        >,
+    >,
 {
     if depth >= 128u32 {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "maximum nesting depth exceeded",
+            ),
+        );
     }
     let mut variant = None;
     match tokens.next().transpose()? {
@@ -63,8 +87,9 @@ where
             match tokens.next().transpose()? {
                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
-                        tokens.peek()
+                    if let ::std::option::Option::Some(::std::result::Result::Ok(
+                        ::aws_smithy_json::deserialize::Token::ValueNull { .. },
+                    )) = tokens.peek()
                     {
                         let _ = tokens.next().expect("peek returned a token")?;
                         continue;
@@ -75,9 +100,11 @@ where
                         continue;
                     }
                     if variant.is_some() {
-                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                            "encountered mixed variants in union",
-                        ));
+                        return Err(
+                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                "encountered mixed variants in union",
+                            ),
+                        );
                     }
                     variant = match key.as_ref() {
                         "web" => Some(crate::types::CitationLocation::Web(
@@ -111,22 +138,28 @@ where
                     };
                 }
                 other => {
-                    return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )))
+                    return Err(
+                        ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
+                            "expected object key or end object, found: {other:?}"
+                        )),
+                    )
                 }
             }
         },
         _ => {
-            return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ))
+            return Err(
+                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    "expected start object or null",
+                ),
+            )
         }
     }
     if variant.is_none() {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "Union did not contain a valid variant.",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "Union did not contain a valid variant.",
+            ),
+        );
     }
     Ok(variant)
 }

@@ -27,13 +27,17 @@ impl ListResourceTenantsInput {
 }
 impl ListResourceTenantsInput {
     /// Creates a new builder-style object to manufacture [`ListResourceTenantsInput`](crate::operation::list_resource_tenants::ListResourceTenantsInput).
-    pub fn builder() -> crate::operation::list_resource_tenants::builders::ListResourceTenantsInputBuilder {
-        crate::operation::list_resource_tenants::builders::ListResourceTenantsInputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::list_resource_tenants::builders::ListResourceTenantsInputBuilder {
+        crate::operation::list_resource_tenants::builders::ListResourceTenantsInputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`ListResourceTenantsInput`](crate::operation::list_resource_tenants::ListResourceTenantsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListResourceTenantsInputBuilder {
     pub(crate) resource_arn: ::std::option::Option<::std::string::String>,
@@ -87,12 +91,16 @@ impl ListResourceTenantsInputBuilder {
     /// Consumes the builder and constructs a [`ListResourceTenantsInput`](crate::operation::list_resource_tenants::ListResourceTenantsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::list_resource_tenants::ListResourceTenantsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(crate::operation::list_resource_tenants::ListResourceTenantsInput {
-            resource_arn: self.resource_arn,
-            page_size: self.page_size,
-            next_token: self.next_token,
-        })
+    ) -> ::std::result::Result<
+        crate::operation::list_resource_tenants::ListResourceTenantsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::list_resource_tenants::ListResourceTenantsInput {
+                resource_arn: self.resource_arn,
+                page_size: self.page_size,
+                next_token: self.next_token,
+            },
+        )
     }
 }

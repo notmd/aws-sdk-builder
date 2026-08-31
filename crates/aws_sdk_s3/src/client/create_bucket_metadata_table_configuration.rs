@@ -12,7 +12,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CreateBucketMetadataTableConfigurationError>`](crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationError)
     pub fn create_bucket_metadata_table_configuration(
         &self,
-    ) -> crate::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationFluentBuilder {
+    ) -> crate::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationFluentBuilder{
         crate::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationFluentBuilder::new(
             self.handle.clone(),
         )

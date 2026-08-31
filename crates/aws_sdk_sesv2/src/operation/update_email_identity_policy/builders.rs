@@ -3,7 +3,9 @@ pub use crate::operation::update_email_identity_policy::_update_email_identity_p
 
 pub use crate::operation::update_email_identity_policy::_update_email_identity_policy_output::UpdateEmailIdentityPolicyOutputBuilder;
 
-impl crate::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyInputBuilder {
+impl
+    crate::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -61,7 +63,7 @@ impl UpdateEmailIdentityPolicyFluentBuilder {
         }
     }
     /// Access the UpdateEmailIdentityPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -90,7 +92,11 @@ impl UpdateEmailIdentityPolicyFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicy::orchestrate(&runtime_plugins, input).await
+        crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicy::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -103,22 +109,34 @@ impl UpdateEmailIdentityPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The email identity.</p>
-    pub fn email_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn email_identity(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.email_identity(input.into());
         self
     }
     /// <p>The email identity.</p>
-    pub fn set_email_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_email_identity(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_email_identity(input);
         self
     }

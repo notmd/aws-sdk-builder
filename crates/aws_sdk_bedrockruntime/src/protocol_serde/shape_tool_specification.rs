@@ -12,7 +12,10 @@ pub fn ser_tool_specification(
     if let Some(var_2) = &input.input_schema {
         #[allow(unused_mut)]
         let mut object_3 = object.key("inputSchema").start_object();
-        crate::protocol_serde::shape_tool_input_schema::ser_tool_input_schema(&mut object_3, var_2)?;
+        crate::protocol_serde::shape_tool_input_schema::ser_tool_input_schema(
+            &mut object_3,
+            var_2,
+        )?;
         object_3.finish();
     }
     if let Some(var_4) = &input.strict {

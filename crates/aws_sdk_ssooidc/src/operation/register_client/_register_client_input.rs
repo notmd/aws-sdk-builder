@@ -68,7 +68,9 @@ impl RegisterClientInput {
 }
 
 /// A builder for [`RegisterClientInput`](crate::operation::register_client::RegisterClientInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RegisterClientInputBuilder {
     pub(crate) client_name: ::std::option::Option<::std::string::String>,
@@ -122,7 +124,10 @@ impl RegisterClientInputBuilder {
         self
     }
     /// <p>The list of scopes that are defined by the client. Upon authorization, this list is used to restrict permissions when granting an access token.</p>
-    pub fn set_scopes(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_scopes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.scopes = input;
         self
     }
@@ -135,19 +140,27 @@ impl RegisterClientInputBuilder {
     /// To override the contents of this collection use [`set_redirect_uris`](Self::set_redirect_uris).
     ///
     /// <p>The list of redirect URI that are defined by the client. At completion of authorization, this list is used to restrict what locations the user agent can be redirected back to.</p>
-    pub fn redirect_uris(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn redirect_uris(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut v = self.redirect_uris.unwrap_or_default();
         v.push(input.into());
         self.redirect_uris = ::std::option::Option::Some(v);
         self
     }
     /// <p>The list of redirect URI that are defined by the client. At completion of authorization, this list is used to restrict what locations the user agent can be redirected back to.</p>
-    pub fn set_redirect_uris(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_redirect_uris(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.redirect_uris = input;
         self
     }
     /// <p>The list of redirect URI that are defined by the client. At completion of authorization, this list is used to restrict what locations the user agent can be redirected back to.</p>
-    pub fn get_redirect_uris(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_redirect_uris(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.redirect_uris
     }
     /// Appends an item to `grant_types`.
@@ -168,7 +181,10 @@ impl RegisterClientInputBuilder {
     /// <p>* Authorization Code - <code>authorization_code</code></p>
     /// <p>* Device Code - <code>urn:ietf:params:oauth:grant-type:device_code</code></p>
     /// <p>* Refresh Token - <code>refresh_token</code></p>
-    pub fn set_grant_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_grant_types(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.grant_types = input;
         self
     }
@@ -176,7 +192,9 @@ impl RegisterClientInputBuilder {
     /// <p>* Authorization Code - <code>authorization_code</code></p>
     /// <p>* Device Code - <code>urn:ietf:params:oauth:grant-type:device_code</code></p>
     /// <p>* Refresh Token - <code>refresh_token</code></p>
-    pub fn get_grant_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_grant_types(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.grant_types
     }
     /// <p>The IAM Identity Center Issuer URL associated with an instance of IAM Identity Center. This value is needed for user access to resources through the client.</p>
@@ -194,12 +212,18 @@ impl RegisterClientInputBuilder {
         &self.issuer_url
     }
     /// <p>This IAM Identity Center application ARN is used to define administrator-managed configuration for public client access to resources. At authorization, the scopes, grants, and redirect URI available to this client will be restricted by this application resource.</p>
-    pub fn entitled_application_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn entitled_application_arn(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.entitled_application_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>This IAM Identity Center application ARN is used to define administrator-managed configuration for public client access to resources. At authorization, the scopes, grants, and redirect URI available to this client will be restricted by this application resource.</p>
-    pub fn set_entitled_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_entitled_application_arn(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.entitled_application_arn = input;
         self
     }
@@ -210,7 +234,10 @@ impl RegisterClientInputBuilder {
     /// Consumes the builder and constructs a [`RegisterClientInput`](crate::operation::register_client::RegisterClientInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::operation::register_client::RegisterClientInput, ::aws_smithy_types::error::operation::BuildError> {
+    ) -> ::std::result::Result<
+        crate::operation::register_client::RegisterClientInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::register_client::RegisterClientInput {
             client_name: self.client_name,
             client_type: self.client_type,

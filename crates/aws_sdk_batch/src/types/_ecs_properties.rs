@@ -27,10 +27,13 @@ impl EcsProperties {
 }
 
 /// A builder for [`EcsProperties`](crate::types::EcsProperties).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct EcsPropertiesBuilder {
-    pub(crate) task_properties: ::std::option::Option<::std::vec::Vec<crate::types::EcsTaskProperties>>,
+    pub(crate) task_properties:
+        ::std::option::Option<::std::vec::Vec<crate::types::EcsTaskProperties>>,
 }
 impl EcsPropertiesBuilder {
     /// Appends an item to `task_properties`.
@@ -49,14 +52,19 @@ impl EcsPropertiesBuilder {
     /// <p>An object that contains the properties for the Amazon ECS task definition of a job.</p><note>
     /// <p>This object is currently limited to one task element. However, the task element can run up to 10 containers.</p>
     /// </note>
-    pub fn set_task_properties(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EcsTaskProperties>>) -> Self {
+    pub fn set_task_properties(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::EcsTaskProperties>>,
+    ) -> Self {
         self.task_properties = input;
         self
     }
     /// <p>An object that contains the properties for the Amazon ECS task definition of a job.</p><note>
     /// <p>This object is currently limited to one task element. However, the task element can run up to 10 containers.</p>
     /// </note>
-    pub fn get_task_properties(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EcsTaskProperties>> {
+    pub fn get_task_properties(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::EcsTaskProperties>> {
         &self.task_properties
     }
     /// Consumes the builder and constructs a [`EcsProperties`](crate::types::EcsProperties).

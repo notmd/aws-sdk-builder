@@ -26,13 +26,17 @@ impl ListResourceEvaluationsInput {
 }
 impl ListResourceEvaluationsInput {
     /// Creates a new builder-style object to manufacture [`ListResourceEvaluationsInput`](crate::operation::list_resource_evaluations::ListResourceEvaluationsInput).
-    pub fn builder() -> crate::operation::list_resource_evaluations::builders::ListResourceEvaluationsInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_resource_evaluations::builders::ListResourceEvaluationsInputBuilder
+    {
         crate::operation::list_resource_evaluations::builders::ListResourceEvaluationsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListResourceEvaluationsInput`](crate::operation::list_resource_evaluations::ListResourceEvaluationsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListResourceEvaluationsInputBuilder {
     pub(crate) filters: ::std::option::Option<crate::types::ResourceEvaluationFilters>,
@@ -46,7 +50,10 @@ impl ListResourceEvaluationsInputBuilder {
         self
     }
     /// <p>Returns a <code>ResourceEvaluationFilters</code> object.</p>
-    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::ResourceEvaluationFilters>) -> Self {
+    pub fn set_filters(
+        mut self,
+        input: ::std::option::Option<crate::types::ResourceEvaluationFilters>,
+    ) -> Self {
         self.filters = input;
         self
     }
@@ -89,10 +96,12 @@ impl ListResourceEvaluationsInputBuilder {
         crate::operation::list_resource_evaluations::ListResourceEvaluationsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_resource_evaluations::ListResourceEvaluationsInput {
-            filters: self.filters,
-            limit: self.limit,
-            next_token: self.next_token,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::list_resource_evaluations::ListResourceEvaluationsInput {
+                filters: self.filters,
+                limit: self.limit,
+                next_token: self.next_token,
+            },
+        )
     }
 }

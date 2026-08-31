@@ -18,7 +18,9 @@ impl RetireGrantOutput {
 }
 
 /// A builder for [`RetireGrantOutput`](crate::operation::retire_grant::RetireGrantOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RetireGrantOutputBuilder {
     _request_id: Option<String>,

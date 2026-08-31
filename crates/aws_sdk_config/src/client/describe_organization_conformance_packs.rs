@@ -13,7 +13,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeOrganizationConformancePacksError>`](crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError)
     pub fn describe_organization_conformance_packs(
         &self,
-    ) -> crate::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksFluentBuilder {
+    ) -> crate::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksFluentBuilder{
         crate::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksFluentBuilder::new(
             self.handle.clone(),
         )

@@ -54,13 +54,15 @@ impl ListJobsByConsumableResourceInput {
 }
 impl ListJobsByConsumableResourceInput {
     /// Creates a new builder-style object to manufacture [`ListJobsByConsumableResourceInput`](crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceInput).
-    pub fn builder() -> crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceInputBuilder {
+    pub fn builder() -> crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceInputBuilder{
         crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceInputBuilder::default()
     }
 }
 
 /// A builder for [`ListJobsByConsumableResourceInput`](crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListJobsByConsumableResourceInputBuilder {
     pub(crate) consumable_resource: ::std::option::Option<::std::string::String>,
@@ -71,12 +73,18 @@ pub struct ListJobsByConsumableResourceInputBuilder {
 impl ListJobsByConsumableResourceInputBuilder {
     /// <p>The name or ARN of the consumable resource.</p>
     /// This field is required.
-    pub fn consumable_resource(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn consumable_resource(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.consumable_resource = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name or ARN of the consumable resource.</p>
-    pub fn set_consumable_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_consumable_resource(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.consumable_resource = input;
         self
     }
@@ -112,7 +120,10 @@ impl ListJobsByConsumableResourceInputBuilder {
     /// <p>name: <code>JOB_NAME </code></p>
     /// <p>The values are case-insensitive matches for the job name. If a filter value ends with an asterisk (*), it matches any job name that begins with the string before the '*'.</p></li>
     /// </ul>
-    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>>) -> Self {
+    pub fn set_filters(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>>,
+    ) -> Self {
         self.filters = input;
         self
     }
@@ -125,7 +136,9 @@ impl ListJobsByConsumableResourceInputBuilder {
     /// <p>name: <code>JOB_NAME </code></p>
     /// <p>The values are case-insensitive matches for the job name. If a filter value ends with an asterisk (*), it matches any job name that begins with the string before the '*'.</p></li>
     /// </ul>
-    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>> {
+    pub fn get_filters(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>> {
         &self.filters
     }
     /// <p>The maximum number of results returned by <code>ListJobsByConsumableResource</code> in paginated output. When this parameter is used, <code>ListJobsByConsumableResource</code> only returns <code>maxResults</code> results in a single page and a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListJobsByConsumableResource</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListJobsByConsumableResource</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
@@ -169,11 +182,13 @@ impl ListJobsByConsumableResourceInputBuilder {
         crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceInput {
-            consumable_resource: self.consumable_resource,
-            filters: self.filters,
-            max_results: self.max_results,
-            next_token: self.next_token,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceInput {
+                consumable_resource: self.consumable_resource,
+                filters: self.filters,
+                max_results: self.max_results,
+                next_token: self.next_token,
+            },
+        )
     }
 }

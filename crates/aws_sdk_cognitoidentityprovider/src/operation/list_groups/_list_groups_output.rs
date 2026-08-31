@@ -34,7 +34,9 @@ impl ListGroupsOutput {
 }
 
 /// A builder for [`ListGroupsOutput`](crate::operation::list_groups::ListGroupsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListGroupsOutputBuilder {
     pub(crate) groups: ::std::option::Option<::std::vec::Vec<crate::types::GroupType>>,
@@ -54,7 +56,10 @@ impl ListGroupsOutputBuilder {
         self
     }
     /// <p>An array of groups and their details. Each entry that's returned includes description, precedence, and IAM role values.</p>
-    pub fn set_groups(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GroupType>>) -> Self {
+    pub fn set_groups(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GroupType>>,
+    ) -> Self {
         self.groups = input;
         self
     }

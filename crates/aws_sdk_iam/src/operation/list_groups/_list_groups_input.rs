@@ -36,7 +36,9 @@ impl ListGroupsInput {
 }
 
 /// A builder for [`ListGroupsInput`](crate::operation::list_groups::ListGroupsInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListGroupsInputBuilder {
     pub(crate) path_prefix: ::std::option::Option<::std::string::String>,
@@ -93,7 +95,12 @@ impl ListGroupsInputBuilder {
         &self.max_items
     }
     /// Consumes the builder and constructs a [`ListGroupsInput`](crate::operation::list_groups::ListGroupsInput).
-    pub fn build(self) -> ::std::result::Result<crate::operation::list_groups::ListGroupsInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::list_groups::ListGroupsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::list_groups::ListGroupsInput {
             path_prefix: self.path_prefix,
             marker: self.marker,

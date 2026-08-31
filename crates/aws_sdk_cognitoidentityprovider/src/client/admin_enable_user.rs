@@ -7,7 +7,11 @@ impl super::Client {
     ///   - [`username(impl Into<String>)`](crate::operation::admin_enable_user::builders::AdminEnableUserFluentBuilder::username) / [`set_username(Option<String>)`](crate::operation::admin_enable_user::builders::AdminEnableUserFluentBuilder::set_username):<br>required: **true**<br><p>The name of the user that you want to query or modify. The value of this parameter is typically your user's username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in your user pool, this value must be the <code>sub</code> of a local user or the username of a user from a third-party IdP.</p><br>
     /// - On success, responds with [`AdminEnableUserOutput`](crate::operation::admin_enable_user::AdminEnableUserOutput)
     /// - On failure, responds with [`SdkError<AdminEnableUserError>`](crate::operation::admin_enable_user::AdminEnableUserError)
-    pub fn admin_enable_user(&self) -> crate::operation::admin_enable_user::builders::AdminEnableUserFluentBuilder {
-        crate::operation::admin_enable_user::builders::AdminEnableUserFluentBuilder::new(self.handle.clone())
+    pub fn admin_enable_user(
+        &self,
+    ) -> crate::operation::admin_enable_user::builders::AdminEnableUserFluentBuilder {
+        crate::operation::admin_enable_user::builders::AdminEnableUserFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

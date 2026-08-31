@@ -14,7 +14,7 @@ impl super::Client {
     pub fn put_third_party_service_linked_configuration_recorder(
         &self,
     ) -> crate::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderFluentBuilder
-    {
+{
         crate::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderFluentBuilder::new(self.handle.clone())
     }
 }

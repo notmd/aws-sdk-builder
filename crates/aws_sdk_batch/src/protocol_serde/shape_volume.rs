@@ -15,7 +15,10 @@ pub fn ser_volume(
     if let Some(var_4) = &input.efs_volume_configuration {
         #[allow(unused_mut)]
         let mut object_5 = object.key("efsVolumeConfiguration").start_object();
-        crate::protocol_serde::shape_efs_volume_configuration::ser_efs_volume_configuration(&mut object_5, var_4)?;
+        crate::protocol_serde::shape_efs_volume_configuration::ser_efs_volume_configuration(
+            &mut object_5,
+            var_4,
+        )?;
         object_5.finish();
     }
     if let Some(var_6) = &input.s3files_volume_configuration {
@@ -31,14 +34,24 @@ pub(crate) fn de_volume<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<Option<crate::types::Volume>, ::aws_smithy_json::deserialize::error::DeserializeError>
+) -> ::std::result::Result<
+    Option<crate::types::Volume>,
+    ::aws_smithy_json::deserialize::error::DeserializeError,
+>
 where
-    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
+    I: Iterator<
+        Item = Result<
+            ::aws_smithy_json::deserialize::Token<'a>,
+            ::aws_smithy_json::deserialize::error::DeserializeError,
+        >,
+    >,
 {
     if depth >= 128u32 {
-        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "maximum nesting depth exceeded",
-        ));
+        return Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "maximum nesting depth exceeded",
+            ),
+        );
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -48,44 +61,57 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "host" => {
-                            builder = builder.set_host(crate::protocol_serde::shape_host::de_host(tokens, _value, depth + 1)?);
-                        }
-                        "name" => {
-                            builder = builder.set_name(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "host" => {
+                                builder =
+                                    builder.set_host(crate::protocol_serde::shape_host::de_host(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?);
+                            }
+                            "name" => {
+                                builder = builder.set_name(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
+                                        tokens.next(),
+                                    )?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                            );
-                        }
-                        "efsVolumeConfiguration" => {
-                            builder = builder.set_efs_volume_configuration(
+                                );
+                            }
+                            "efsVolumeConfiguration" => {
+                                builder = builder.set_efs_volume_configuration(
                                 crate::protocol_serde::shape_efs_volume_configuration::de_efs_volume_configuration(tokens, _value, depth + 1)?,
                             );
-                        }
-                        "s3filesVolumeConfiguration" => {
-                            builder = builder.set_s3files_volume_configuration(
+                            }
+                            "s3filesVolumeConfiguration" => {
+                                builder = builder.set_s3files_volume_configuration(
                                 crate::protocol_serde::shape_s3_files_volume_configuration::de_s3_files_volume_configuration(
                                     tokens,
                                     _value,
                                     depth + 1,
                                 )?,
                             );
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
-                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )))
+                        return Err(
+                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                format!("expected object key or end object, found: {other:?}"),
+                            ),
+                        )
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-            "expected start object or null",
-        )),
+        _ => Err(
+            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ),
+        ),
     }
 }

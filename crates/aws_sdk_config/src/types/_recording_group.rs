@@ -144,7 +144,9 @@ impl RecordingGroup {
     /// <p><b>Required fields</b></p>
     /// <p>To use this option, you must set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>EXCLUSION_BY_RESOURCE_TYPES</code>.</p>
     /// </note>
-    pub fn exclusion_by_resource_types(&self) -> ::std::option::Option<&crate::types::ExclusionByResourceTypes> {
+    pub fn exclusion_by_resource_types(
+        &self,
+    ) -> ::std::option::Option<&crate::types::ExclusionByResourceTypes> {
         self.exclusion_by_resource_types.as_ref()
     }
     /// <p>An object that specifies the recording strategy for the configuration recorder.</p>
@@ -182,13 +184,16 @@ impl RecordingGroup {
 }
 
 /// A builder for [`RecordingGroup`](crate::types::RecordingGroup).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct RecordingGroupBuilder {
     pub(crate) all_supported: ::std::option::Option<bool>,
     pub(crate) include_global_resource_types: ::std::option::Option<bool>,
     pub(crate) resource_types: ::std::option::Option<::std::vec::Vec<crate::types::ResourceType>>,
-    pub(crate) exclusion_by_resource_types: ::std::option::Option<crate::types::ExclusionByResourceTypes>,
+    pub(crate) exclusion_by_resource_types:
+        ::std::option::Option<crate::types::ExclusionByResourceTypes>,
     pub(crate) recording_strategy: ::std::option::Option<crate::types::RecordingStrategy>,
 }
 impl RecordingGroupBuilder {
@@ -332,7 +337,10 @@ impl RecordingGroupBuilder {
     /// <p><b>Region availability</b></p>
     /// <p>Before specifying a resource type for Config to track, check <a href="https://docs.aws.amazon.com/config/latest/developerguide/what-is-resource-config-coverage.html">Resource Coverage by Region Availability</a> to see if the resource type is supported in the Amazon Web Services Region where you set up Config. If a resource type is supported by Config in at least one Region, you can enable the recording of that resource type in all Regions supported by Config, even if the specified resource type is not supported in the Amazon Web Services Region where you set up Config.</p>
     /// </note>
-    pub fn set_resource_types(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceType>>) -> Self {
+    pub fn set_resource_types(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceType>>,
+    ) -> Self {
         self.resource_types = input;
         self
     }
@@ -345,14 +353,19 @@ impl RecordingGroupBuilder {
     /// <p><b>Region availability</b></p>
     /// <p>Before specifying a resource type for Config to track, check <a href="https://docs.aws.amazon.com/config/latest/developerguide/what-is-resource-config-coverage.html">Resource Coverage by Region Availability</a> to see if the resource type is supported in the Amazon Web Services Region where you set up Config. If a resource type is supported by Config in at least one Region, you can enable the recording of that resource type in all Regions supported by Config, even if the specified resource type is not supported in the Amazon Web Services Region where you set up Config.</p>
     /// </note>
-    pub fn get_resource_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceType>> {
+    pub fn get_resource_types(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceType>> {
         &self.resource_types
     }
     /// <p>An object that specifies how Config excludes resource types from being recorded by the configuration recorder.</p><note>
     /// <p><b>Required fields</b></p>
     /// <p>To use this option, you must set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>EXCLUSION_BY_RESOURCE_TYPES</code>.</p>
     /// </note>
-    pub fn exclusion_by_resource_types(mut self, input: crate::types::ExclusionByResourceTypes) -> Self {
+    pub fn exclusion_by_resource_types(
+        mut self,
+        input: crate::types::ExclusionByResourceTypes,
+    ) -> Self {
         self.exclusion_by_resource_types = ::std::option::Option::Some(input);
         self
     }
@@ -360,7 +373,10 @@ impl RecordingGroupBuilder {
     /// <p><b>Required fields</b></p>
     /// <p>To use this option, you must set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>EXCLUSION_BY_RESOURCE_TYPES</code>.</p>
     /// </note>
-    pub fn set_exclusion_by_resource_types(mut self, input: ::std::option::Option<crate::types::ExclusionByResourceTypes>) -> Self {
+    pub fn set_exclusion_by_resource_types(
+        mut self,
+        input: ::std::option::Option<crate::types::ExclusionByResourceTypes>,
+    ) -> Self {
         self.exclusion_by_resource_types = input;
         self
     }
@@ -368,7 +384,9 @@ impl RecordingGroupBuilder {
     /// <p><b>Required fields</b></p>
     /// <p>To use this option, you must set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>EXCLUSION_BY_RESOURCE_TYPES</code>.</p>
     /// </note>
-    pub fn get_exclusion_by_resource_types(&self) -> &::std::option::Option<crate::types::ExclusionByResourceTypes> {
+    pub fn get_exclusion_by_resource_types(
+        &self,
+    ) -> &::std::option::Option<crate::types::ExclusionByResourceTypes> {
         &self.exclusion_by_resource_types
     }
     /// <p>An object that specifies the recording strategy for the configuration recorder.</p>
@@ -421,7 +439,10 @@ impl RecordingGroupBuilder {
     /// <p>Unless specifically listed as exclusions, <code>AWS::RDS::GlobalCluster</code> will be recorded automatically in all supported Config Regions were the configuration recorder is enabled.</p>
     /// <p>IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where Config was available before February 2022. You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. For a list of those Regions, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all">Recording Amazon Web Services Resources | Global Resources</a>.</p>
     /// </note>
-    pub fn set_recording_strategy(mut self, input: ::std::option::Option<crate::types::RecordingStrategy>) -> Self {
+    pub fn set_recording_strategy(
+        mut self,
+        input: ::std::option::Option<crate::types::RecordingStrategy>,
+    ) -> Self {
         self.recording_strategy = input;
         self
     }
@@ -448,7 +469,9 @@ impl RecordingGroupBuilder {
     /// <p>Unless specifically listed as exclusions, <code>AWS::RDS::GlobalCluster</code> will be recorded automatically in all supported Config Regions were the configuration recorder is enabled.</p>
     /// <p>IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where Config was available before February 2022. You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. For a list of those Regions, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all">Recording Amazon Web Services Resources | Global Resources</a>.</p>
     /// </note>
-    pub fn get_recording_strategy(&self) -> &::std::option::Option<crate::types::RecordingStrategy> {
+    pub fn get_recording_strategy(
+        &self,
+    ) -> &::std::option::Option<crate::types::RecordingStrategy> {
         &self.recording_strategy
     }
     /// Consumes the builder and constructs a [`RecordingGroup`](crate::types::RecordingGroup).

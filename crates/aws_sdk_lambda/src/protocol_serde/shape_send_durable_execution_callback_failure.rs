@@ -7,7 +7,7 @@ pub fn de_send_durable_execution_callback_failure_http_error(
 ) -> std::result::Result<
     crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput,
     crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError,
-> {
+>{
     #[allow(unused_mut)]
     let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError::unhandled)?;
@@ -205,12 +205,14 @@ pub fn de_send_durable_execution_callback_failure_http_response(
 ) -> std::result::Result<
     crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput,
     crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError,
-> {
+>{
     Ok({
         #[allow(unused_mut)]
         let mut output =
             crate::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureOutputBuilder::default();
-        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        output._set_request_id(
+            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
+        );
         output.build()
     })
 }

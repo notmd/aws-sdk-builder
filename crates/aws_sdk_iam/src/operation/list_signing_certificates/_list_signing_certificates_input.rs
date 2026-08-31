@@ -30,13 +30,17 @@ impl ListSigningCertificatesInput {
 }
 impl ListSigningCertificatesInput {
     /// Creates a new builder-style object to manufacture [`ListSigningCertificatesInput`](crate::operation::list_signing_certificates::ListSigningCertificatesInput).
-    pub fn builder() -> crate::operation::list_signing_certificates::builders::ListSigningCertificatesInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_signing_certificates::builders::ListSigningCertificatesInputBuilder
+    {
         crate::operation::list_signing_certificates::builders::ListSigningCertificatesInputBuilder::default()
     }
 }
 
 /// A builder for [`ListSigningCertificatesInput`](crate::operation::list_signing_certificates::ListSigningCertificatesInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListSigningCertificatesInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -99,10 +103,12 @@ impl ListSigningCertificatesInputBuilder {
         crate::operation::list_signing_certificates::ListSigningCertificatesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_signing_certificates::ListSigningCertificatesInput {
-            user_name: self.user_name,
-            marker: self.marker,
-            max_items: self.max_items,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::list_signing_certificates::ListSigningCertificatesInput {
+                user_name: self.user_name,
+                marker: self.marker,
+                max_items: self.max_items,
+            },
+        )
     }
 }

@@ -21,7 +21,9 @@ impl StepOptions {
 }
 
 /// A builder for [`StepOptions`](crate::types::StepOptions).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct StepOptionsBuilder {
     pub(crate) next_attempt_delay_seconds: ::std::option::Option<i32>,

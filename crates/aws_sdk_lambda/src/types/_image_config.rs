@@ -37,7 +37,9 @@ impl ImageConfig {
 }
 
 /// A builder for [`ImageConfig`](crate::types::ImageConfig).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ImageConfigBuilder {
     pub(crate) entry_point: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -57,12 +59,17 @@ impl ImageConfigBuilder {
         self
     }
     /// <p>Specifies the entry point to their application, which is typically the location of the runtime executable.</p>
-    pub fn set_entry_point(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_entry_point(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.entry_point = input;
         self
     }
     /// <p>Specifies the entry point to their application, which is typically the location of the runtime executable.</p>
-    pub fn get_entry_point(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_entry_point(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.entry_point
     }
     /// Appends an item to `command`.
@@ -77,7 +84,10 @@ impl ImageConfigBuilder {
         self
     }
     /// <p>Specifies parameters that you want to pass in with ENTRYPOINT.</p>
-    pub fn set_command(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+    pub fn set_command(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    ) -> Self {
         self.command = input;
         self
     }
@@ -86,12 +96,18 @@ impl ImageConfigBuilder {
         &self.command
     }
     /// <p>Specifies the working directory.</p>
-    pub fn working_directory(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn working_directory(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.working_directory = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Specifies the working directory.</p>
-    pub fn set_working_directory(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_working_directory(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.working_directory = input;
         self
     }

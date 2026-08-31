@@ -12,7 +12,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateTableReplicaAutoScalingError>`](crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError)
     pub fn update_table_replica_auto_scaling(
         &self,
-    ) -> crate::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingFluentBuilder {
+    ) -> crate::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingFluentBuilder{
         crate::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingFluentBuilder::new(self.handle.clone())
     }
 }

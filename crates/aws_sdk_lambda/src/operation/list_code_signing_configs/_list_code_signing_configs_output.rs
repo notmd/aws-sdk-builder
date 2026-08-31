@@ -6,7 +6,8 @@ pub struct ListCodeSigningConfigsOutput {
     /// <p>The pagination token that's included if more results are available.</p>
     pub next_marker: ::std::option::Option<::std::string::String>,
     /// <p>The code signing configurations</p>
-    pub code_signing_configs: ::std::option::Option<::std::vec::Vec<crate::types::CodeSigningConfig>>,
+    pub code_signing_configs:
+        ::std::option::Option<::std::vec::Vec<crate::types::CodeSigningConfig>>,
     _request_id: Option<String>,
 }
 impl ListCodeSigningConfigsOutput {
@@ -28,17 +29,22 @@ impl ::aws_types::request_id::RequestId for ListCodeSigningConfigsOutput {
 }
 impl ListCodeSigningConfigsOutput {
     /// Creates a new builder-style object to manufacture [`ListCodeSigningConfigsOutput`](crate::operation::list_code_signing_configs::ListCodeSigningConfigsOutput).
-    pub fn builder() -> crate::operation::list_code_signing_configs::builders::ListCodeSigningConfigsOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::list_code_signing_configs::builders::ListCodeSigningConfigsOutputBuilder
+    {
         crate::operation::list_code_signing_configs::builders::ListCodeSigningConfigsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListCodeSigningConfigsOutput`](crate::operation::list_code_signing_configs::ListCodeSigningConfigsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct ListCodeSigningConfigsOutputBuilder {
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
-    pub(crate) code_signing_configs: ::std::option::Option<::std::vec::Vec<crate::types::CodeSigningConfig>>,
+    pub(crate) code_signing_configs:
+        ::std::option::Option<::std::vec::Vec<crate::types::CodeSigningConfig>>,
     _request_id: Option<String>,
 }
 impl ListCodeSigningConfigsOutputBuilder {
@@ -68,12 +74,17 @@ impl ListCodeSigningConfigsOutputBuilder {
         self
     }
     /// <p>The code signing configurations</p>
-    pub fn set_code_signing_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CodeSigningConfig>>) -> Self {
+    pub fn set_code_signing_configs(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::CodeSigningConfig>>,
+    ) -> Self {
         self.code_signing_configs = input;
         self
     }
     /// <p>The code signing configurations</p>
-    pub fn get_code_signing_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CodeSigningConfig>> {
+    pub fn get_code_signing_configs(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::CodeSigningConfig>> {
         &self.code_signing_configs
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -86,7 +97,9 @@ impl ListCodeSigningConfigsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListCodeSigningConfigsOutput`](crate::operation::list_code_signing_configs::ListCodeSigningConfigsOutput).
-    pub fn build(self) -> crate::operation::list_code_signing_configs::ListCodeSigningConfigsOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::list_code_signing_configs::ListCodeSigningConfigsOutput {
         crate::operation::list_code_signing_configs::ListCodeSigningConfigsOutput {
             next_marker: self.next_marker,
             code_signing_configs: self.code_signing_configs,

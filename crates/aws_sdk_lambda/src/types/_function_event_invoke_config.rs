@@ -74,7 +74,9 @@ impl FunctionEventInvokeConfig {
 }
 
 /// A builder for [`FunctionEventInvokeConfig`](crate::types::FunctionEventInvokeConfig).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct FunctionEventInvokeConfigBuilder {
     pub(crate) last_modified: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -90,7 +92,10 @@ impl FunctionEventInvokeConfigBuilder {
         self
     }
     /// <p>The date and time that the configuration was last updated.</p>
-    pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+    pub fn set_last_modified(
+        mut self,
+        input: ::std::option::Option<::aws_smithy_types::DateTime>,
+    ) -> Self {
         self.last_modified = input;
         self
     }
@@ -176,7 +181,10 @@ impl FunctionEventInvokeConfigBuilder {
     /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
-    pub fn set_destination_config(mut self, input: ::std::option::Option<crate::types::DestinationConfig>) -> Self {
+    pub fn set_destination_config(
+        mut self,
+        input: ::std::option::Option<crate::types::DestinationConfig>,
+    ) -> Self {
         self.destination_config = input;
         self
     }
@@ -196,7 +204,9 @@ impl FunctionEventInvokeConfigBuilder {
     /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
-    pub fn get_destination_config(&self) -> &::std::option::Option<crate::types::DestinationConfig> {
+    pub fn get_destination_config(
+        &self,
+    ) -> &::std::option::Option<crate::types::DestinationConfig> {
         &self.destination_config
     }
     /// Consumes the builder and constructs a [`FunctionEventInvokeConfig`](crate::types::FunctionEventInvokeConfig).

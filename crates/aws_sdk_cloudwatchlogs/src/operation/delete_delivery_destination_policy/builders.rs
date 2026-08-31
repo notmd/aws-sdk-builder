@@ -43,7 +43,7 @@ impl
             crate::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyOutput,
             crate::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -57,7 +57,7 @@ impl DeleteDeliveryDestinationPolicyFluentBuilder {
         }
     }
     /// Access the DeleteDeliveryDestinationPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyInputBuilder{
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +76,7 @@ impl DeleteDeliveryDestinationPolicyFluentBuilder {
             crate::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    > {
+    >{
         let input = self
             .inner
             .build()
@@ -99,22 +99,34 @@ impl DeleteDeliveryDestinationPolicyFluentBuilder {
     > {
         crate::client::customize::CustomizableOperation::new(self)
     }
-    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {
+    pub(crate) fn config_override(
+        mut self,
+        config_override: impl ::std::convert::Into<crate::config::Builder>,
+    ) -> Self {
         self.set_config_override(::std::option::Option::Some(config_override.into()));
         self
     }
 
-    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {
+    pub(crate) fn set_config_override(
+        &mut self,
+        config_override: ::std::option::Option<crate::config::Builder>,
+    ) -> &mut Self {
         self.config_override = config_override;
         self
     }
     /// <p>The name of the delivery destination that you want to delete the policy for.</p>
-    pub fn delivery_destination_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn delivery_destination_name(
+        mut self,
+        input: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.delivery_destination_name(input.into());
         self
     }
     /// <p>The name of the delivery destination that you want to delete the policy for.</p>
-    pub fn set_delivery_destination_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+    pub fn set_delivery_destination_name(
+        mut self,
+        input: ::std::option::Option<::std::string::String>,
+    ) -> Self {
         self.inner = self.inner.set_delivery_destination_name(input);
         self
     }

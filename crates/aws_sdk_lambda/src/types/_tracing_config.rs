@@ -21,7 +21,9 @@ impl TracingConfig {
 }
 
 /// A builder for [`TracingConfig`](crate::types::TracingConfig).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct TracingConfigBuilder {
     pub(crate) mode: ::std::option::Option<crate::types::TracingMode>,

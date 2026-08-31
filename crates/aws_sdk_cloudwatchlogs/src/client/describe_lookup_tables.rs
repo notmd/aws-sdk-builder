@@ -10,7 +10,11 @@ impl super::Client {
     ///   - [`lookup_tables(Option<Vec::<LookupTable>>)`](crate::operation::describe_lookup_tables::DescribeLookupTablesOutput::lookup_tables): <p>An array of structures, where each structure contains metadata about one lookup table.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::describe_lookup_tables::DescribeLookupTablesOutput::next_token): <p>The token to use when requesting the next set of items.</p>
     /// - On failure, responds with [`SdkError<DescribeLookupTablesError>`](crate::operation::describe_lookup_tables::DescribeLookupTablesError)
-    pub fn describe_lookup_tables(&self) -> crate::operation::describe_lookup_tables::builders::DescribeLookupTablesFluentBuilder {
-        crate::operation::describe_lookup_tables::builders::DescribeLookupTablesFluentBuilder::new(self.handle.clone())
+    pub fn describe_lookup_tables(
+        &self,
+    ) -> crate::operation::describe_lookup_tables::builders::DescribeLookupTablesFluentBuilder {
+        crate::operation::describe_lookup_tables::builders::DescribeLookupTablesFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

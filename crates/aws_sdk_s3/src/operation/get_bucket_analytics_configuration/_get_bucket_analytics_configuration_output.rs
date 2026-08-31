@@ -10,7 +10,9 @@ pub struct GetBucketAnalyticsConfigurationOutput {
 }
 impl GetBucketAnalyticsConfigurationOutput {
     /// <p>The configuration and any analyses for the analytics filter.</p>
-    pub fn analytics_configuration(&self) -> ::std::option::Option<&crate::types::AnalyticsConfiguration> {
+    pub fn analytics_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::AnalyticsConfiguration> {
         self.analytics_configuration.as_ref()
     }
 }
@@ -26,13 +28,15 @@ impl ::aws_types::request_id::RequestId for GetBucketAnalyticsConfigurationOutpu
 }
 impl GetBucketAnalyticsConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`GetBucketAnalyticsConfigurationOutput`](crate::operation::get_bucket_analytics_configuration::GetBucketAnalyticsConfigurationOutput).
-    pub fn builder() -> crate::operation::get_bucket_analytics_configuration::builders::GetBucketAnalyticsConfigurationOutputBuilder {
+    pub fn builder() -> crate::operation::get_bucket_analytics_configuration::builders::GetBucketAnalyticsConfigurationOutputBuilder{
         crate::operation::get_bucket_analytics_configuration::builders::GetBucketAnalyticsConfigurationOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetBucketAnalyticsConfigurationOutput`](crate::operation::get_bucket_analytics_configuration::GetBucketAnalyticsConfigurationOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(
+    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
+)]
 #[non_exhaustive]
 pub struct GetBucketAnalyticsConfigurationOutputBuilder {
     pub(crate) analytics_configuration: ::std::option::Option<crate::types::AnalyticsConfiguration>,
@@ -46,12 +50,17 @@ impl GetBucketAnalyticsConfigurationOutputBuilder {
         self
     }
     /// <p>The configuration and any analyses for the analytics filter.</p>
-    pub fn set_analytics_configuration(mut self, input: ::std::option::Option<crate::types::AnalyticsConfiguration>) -> Self {
+    pub fn set_analytics_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::AnalyticsConfiguration>,
+    ) -> Self {
         self.analytics_configuration = input;
         self
     }
     /// <p>The configuration and any analyses for the analytics filter.</p>
-    pub fn get_analytics_configuration(&self) -> &::std::option::Option<crate::types::AnalyticsConfiguration> {
+    pub fn get_analytics_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::AnalyticsConfiguration> {
         &self.analytics_configuration
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
@@ -59,7 +68,10 @@ impl GetBucketAnalyticsConfigurationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(
+        &mut self,
+        extended_request_id: Option<String>,
+    ) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -73,7 +85,10 @@ impl GetBucketAnalyticsConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetBucketAnalyticsConfigurationOutput`](crate::operation::get_bucket_analytics_configuration::GetBucketAnalyticsConfigurationOutput).
-    pub fn build(self) -> crate::operation::get_bucket_analytics_configuration::GetBucketAnalyticsConfigurationOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::get_bucket_analytics_configuration::GetBucketAnalyticsConfigurationOutput
+    {
         crate::operation::get_bucket_analytics_configuration::GetBucketAnalyticsConfigurationOutput {
             analytics_configuration: self.analytics_configuration,
             _extended_request_id: self._extended_request_id,

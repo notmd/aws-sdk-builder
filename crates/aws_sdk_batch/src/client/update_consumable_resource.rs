@@ -12,7 +12,10 @@ impl super::Client {
     ///   - [`consumable_resource_arn(Option<String>)`](crate::operation::update_consumable_resource::UpdateConsumableResourceOutput::consumable_resource_arn): <p>The Amazon Resource Name (ARN) of the consumable resource.</p>
     ///   - [`total_quantity(Option<i64>)`](crate::operation::update_consumable_resource::UpdateConsumableResourceOutput::total_quantity): <p>The total amount of the consumable resource that is available.</p>
     /// - On failure, responds with [`SdkError<UpdateConsumableResourceError>`](crate::operation::update_consumable_resource::UpdateConsumableResourceError)
-    pub fn update_consumable_resource(&self) -> crate::operation::update_consumable_resource::builders::UpdateConsumableResourceFluentBuilder {
+    pub fn update_consumable_resource(
+        &self,
+    ) -> crate::operation::update_consumable_resource::builders::UpdateConsumableResourceFluentBuilder
+    {
         crate::operation::update_consumable_resource::builders::UpdateConsumableResourceFluentBuilder::new(self.handle.clone())
     }
 }

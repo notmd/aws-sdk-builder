@@ -12,7 +12,10 @@ pub fn ser_set_log_delivery_configuration_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_5 = array_3.value().start_object();
-                crate::protocol_serde::shape_log_configuration_type::ser_log_configuration_type(&mut object_5, item_4)?;
+                crate::protocol_serde::shape_log_configuration_type::ser_log_configuration_type(
+                    &mut object_5,
+                    item_4,
+                )?;
                 object_5.finish();
             }
         }
