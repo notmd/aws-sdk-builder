@@ -67,7 +67,7 @@ fn run_generation(manifest: &Manifest, root: &Path) -> Result<(), ConformanceErr
         let model = load_model(service, &upstream)?;
         let operations = model.operations()?;
         let staged = stage_service(service, &upstream, workspace.path(), &operations)?;
-        write_stage_artifacts(manifest, service, &staged, &upstream, &operations)?;
+        write_stage_artifacts(manifest, service, &staged, &upstream, workspace.path(), &operations)?;
         install_atomically(&staged, &root.join(&service.output_dir), workspace.path())?;
         println!(
             "{}: generated {} operations at {}",
@@ -92,7 +92,8 @@ fn run_conformance(manifest: &Manifest, root: &Path) -> Result<(), ConformanceEr
         let operations = model.operations()?;
         let staged = stage_service(service, &upstream, workspace.path(), &operations)?;
         verify_service(service, &staged, &operations)?;
-        let changed_files = write_stage_artifacts(manifest, service, &staged, &upstream, &operations)?;
+        let changed_files =
+            write_stage_artifacts(manifest, service, &staged, &upstream, workspace.path(), &operations)?;
         verify_diff_artifacts(&staged, &changed_files)?;
         let feature_matrix = check_feature_matrix(service, &staged, &model, &operations, workspace.path())?;
         check_public_api(service, &staged, &operations, workspace.path())?;
@@ -129,9 +130,14 @@ fn write_stage_artifacts(
     service: &ServiceManifest,
     staged: &Path,
     upstream: &Path,
+    workspace: &Path,
     operations: &[Operation],
 ) -> Result<Vec<String>, ConformanceError> {
-    let before = diff::snapshot(&upstream.join(&service.upstream_path))?;
+    let formatted_upstream = workspace.join("formatted-upstream").join(&service.key);
+    let source = safe_join(upstream, &service.upstream_path)?;
+    copy_without_tests(&source, &formatted_upstream)?;
+    format_crate(&formatted_upstream)?;
+    let before = diff::snapshot(&formatted_upstream)?;
     let after = diff::snapshot(staged)?;
     let changed_files = diff::changed_files(&before, &after);
     let file_patches = diff::file_patches(&before, &after);
@@ -164,7 +170,12 @@ fn stage_service(
     let stage = workspace.join("staged").join(&service.key);
     copy_without_tests(&source, &stage)?;
     transform::transform_tree(&stage, &service.package_name, &service.library_name, operations)?;
-    let manifest_path = stage.join("Cargo.toml");
+    format_crate(&stage)?;
+    Ok(stage)
+}
+
+fn format_crate(crate_root: &Path) -> Result<(), ConformanceError> {
+    let manifest_path = crate_root.join("Cargo.toml");
     let manifest_path = manifest_path
         .to_str()
         .ok_or_else(|| ConformanceError::Message("staged manifest path is not UTF-8".to_owned()))?;
@@ -183,9 +194,9 @@ fn stage_service(
             "--config",
             "newline_style=Unix",
         ],
-        &stage,
+        crate_root,
     )?;
-    Ok(stage)
+    Ok(())
 }
 
 fn load_model(service: &ServiceManifest, upstream: &Path) -> Result<Model, ConformanceError> {
